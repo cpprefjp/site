@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-01-29T15:18:36">
-        2025年01月29日 15時18分36秒
+      <span itemprop="datePublished" content="2026-02-17T07:24:20">
+        2026年02月17日 07時24分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">suomesta</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -227,118 +227,297 @@
   <div class="identifier-type">function</div><div class="header">&lt;flat_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class flat_map">flat_map::</span><span class="token">コンストラクタ</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="c1">// ____要素数ゼロのflat_mapを構築____</span>
 
-<span class="n">flat_map</span><span class="p">()</span> <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">key_compare</span><span class="p">())</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// (1) C++23</span>
+<span class="n">flat_map</span><span class="p">()</span> <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">key_compare</span><span class="p">())</span> <span class="p">{</span> <span class="p">}</span>   <span class="c1">// (1) C++23</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">()</span> <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">key_compare</span><span class="p">())</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// (1) C++26</span>
 
-<span class="k">explicit</span> <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">)</span> <span class="c1">// (2) C++23</span>
+<span class="k">explicit</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">)</span> <span class="c1">// (2) C++23</span>
   <span class="o">:</span> <span class="n">c</span><span class="p">(),</span> <span class="n">compare</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">constexpr</span> <span class="k">explicit</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">)</span> <span class="c1">// (2) C++26</span>
+    <span class="o">:</span> <span class="n">c</span><span class="p">(),</span> <span class="n">compare</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="k">explicit</span> <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (3) C++23</span>
+<span class="k">explicit</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (3) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (3) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (4) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (4) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (4) C++26</span>
 
 <span class="c1">// ____アロケータを伴うコピー＆ムーブコンストラクタ____</span>
 
  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
- <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">flat_map</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (5) C++26</span>
+ <span class="k">constexpr</span>
+   <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">flat_map</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+            <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (5) C++26</span>
 
  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
- <span class="n">flat_map</span><span class="p">(</span><span class="n">flat_map</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (6) C++26</span>
+ <span class="k">constexpr</span>
+   <span class="n">flat_map</span><span class="p">(</span><span class="n">flat_map</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span>
+            <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (6) C++26</span>
 
 <span class="c1">// ____key_container_typeとmapped_container_typeから構築____</span>
 
-<span class="n">flat_map</span><span class="p">(</span><span class="n">key_container_type</span> <span class="n">key_cont</span><span class="p">,</span> <span class="n">mapped_container_type</span> <span class="n">mapped_cont</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">());</span> <span class="c1">// (7) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n">key_container_type</span> <span class="n">key_cont</span><span class="p">,</span>
+         <span class="n">mapped_container_type</span> <span class="n">mapped_cont</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">());</span>   <span class="c1">// (7) C++23</span>
+<span class="k">constexpr</span>
+  <span class="nf">flat_map</span><span class="p">(</span><span class="n">key_container_type</span> <span class="n">key_cont</span><span class="p">,</span>
+           <span class="n">mapped_container_type</span> <span class="n">mapped_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">());</span> <span class="c1">// (7) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span> <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (8) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (8) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (8) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span> <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (9) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (9) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (9) C++26</span>
 
 <span class="c1">// ____key_container_typeとmapped_container_type（共にソート済み且つ重複なし）から構築____</span>
 
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span> <span class="n">key_container_type</span> <span class="n">key_cont</span><span class="p">,</span> <span class="n">mapped_container_type</span> <span class="n">mapped_cont</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">());</span> <span class="c1">// (10) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+         <span class="n">key_container_type</span> <span class="n">key_cont</span><span class="p">,</span>
+         <span class="n">mapped_container_type</span> <span class="n">mapped_cont</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">());</span>   <span class="c1">// (10) C++23</span>
+<span class="k">constexpr</span>
+  <span class="nf">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+           <span class="n">key_container_type</span> <span class="n">key_cont</span><span class="p">,</span>
+           <span class="n">mapped_container_type</span> <span class="n">mapped_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">());</span> <span class="c1">// (10) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span> <span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (11) C++23</span>
-
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span> <span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
          <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (12) C++23</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                        <span class="c1">// (11) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                      <span class="c1">// (11) C++26</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (12) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_container_type</span><span class="o">&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">mapped_container_type</span><span class="o">&amp;</span> <span class="n">mapped_cont</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (12) C++26</span>
 
 <span class="c1">// ____イテレータから構築____</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span> <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span> <span class="c1">// (13) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span>   <span class="c1">// (13) C++23</span>
   <span class="o">:</span> <span class="n">c</span><span class="p">(),</span> <span class="n">compare</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="insert.html">insert</a></span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">);</span> <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span> <span class="c1">// (13) C++26</span>
+    <span class="o">:</span> <span class="n">c</span><span class="p">(),</span> <span class="n">compare</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="insert.html">insert</a></span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">);</span> <span class="p">}</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (14) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (14) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (14) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (15) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (15) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (15) C++26</span>
 
 <span class="c1">// ____イテレータ（ソート済み且つ重複なし）から構築____</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span> <span class="n">s</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span> <span class="c1">// (16) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span> <span class="n">s</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span>   <span class="c1">// (16) C++23</span>
   <span class="o">:</span> <span class="n">c</span><span class="p">(),</span> <span class="n">compare</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="insert.html">insert</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">);</span> <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span> <span class="n">s</span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span> <span class="c1">// (16) C++26</span>
+    <span class="o">:</span> <span class="n">c</span><span class="p">(),</span> <span class="n">compare</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="insert.html">insert</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">);</span> <span class="p">}</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (17) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>           <span class="c1">// (17) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+                   <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+                   <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (17) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (18) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (18) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (18) C++26</span>
 
 <span class="c1">// ____Rangeから構築____</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span> <span class="n">fr</span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">)</span> <span class="c1">// (19) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span> <span class="n">fr</span><span class="p">,</span>
+         <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">)</span>   <span class="c1">// (19) C++23</span>
   <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">fr</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rg</span><span class="p">),</span> <span class="n">key_compare</span><span class="p">())</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span> <span class="n">fr</span><span class="p">,</span>
+           <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">)</span> <span class="c1">// (19) C++26</span>
+    <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">fr</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rg</span><span class="p">),</span> <span class="n">key_compare</span><span class="p">())</span> <span class="p">{</span> <span class="p">}</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span> <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">)</span> <span class="c1">// (20) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+         <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">)</span>   <span class="c1">// (20) C++23</span>
   <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="insert_range.html">insert_range</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rg</span><span class="p">));</span> <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+           <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">)</span> <span class="c1">// (20) C++26</span>
+    <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="insert_range.html">insert_range</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rg</span><span class="p">));</span> <span class="p">}</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (21) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+         <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (21) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+           <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (21) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span> <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (22) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+         <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (22) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+           <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (22) C++26</span>
 
 <span class="c1">// ____initializer_listから構築____</span>
 
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span> <span class="c1">// (23) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span>   <span class="c1">// (23) C++23</span>
   <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list/begin.html">il.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list/end.html">il.end()</a></span><span class="p">,</span> <span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span> <span class="c1">// (23) C++26</span>
+    <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list/begin.html">il.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list/end.html">il.end()</a></span><span class="p">,</span> <span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (24) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (24) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (24) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (25) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>           <span class="c1">// (25) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (25) C++26</span>
 
 <span class="c1">// ____initializer_list（ソート済み且つ重複なし）から構築____</span>
 
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span> <span class="n">s</span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span> <span class="c1">// (26) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span> <span class="n">s</span><span class="p">,</span>
+         <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span>   <span class="c1">// (26) C++23</span>
   <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list/begin.html">il.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list/end.html">il.end()</a></span><span class="p">,</span> <span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span> <span class="n">s</span><span class="p">,</span>
+           <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key_compare</span><span class="p">())</span> <span class="c1">// (26) C++26</span>
+    <span class="o">:</span> <span class="n">flat_map</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list/begin.html">il.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list/end.html">il.end()</a></span><span class="p">,</span> <span class="n">comp</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (27) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+         <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (27) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+           <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (27) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span> <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (28) C++23</span>
+<span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+         <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (28) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">flat_map</span><span class="p">(</span><span class="n"><a href="../sorted_unique_t.html">sorted_unique_t</a></span><span class="p">,</span>
+           <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">key_compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (28) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -484,7 +663,11 @@
 <td>指定されたアロケータと合致するかをチェックする</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
+</ul></div>
 
       </div>
     </div>

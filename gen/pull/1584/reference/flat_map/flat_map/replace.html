@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-01-20T12:47:26">
-        2025年01月20日 12時47分26秒
+      <span itemprop="datePublished" content="2026-02-17T07:24:20">
+        2026年02月17日 07時24分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">suomesta</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,7 +225,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;flat_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class flat_map">flat_map::</span><span class="token">replace</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">replace</span><span class="p">(</span><span class="n">key_container_type</span><span class="o">&amp;&amp;</span> <span class="n">key_cont</span><span class="p">,</span> <span class="n">mapped_container_type</span><span class="o">&amp;&amp;</span> <span class="n">mapped_cont</span><span class="p">);</span>  <span class="c1">// C++23</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span>
+  <span class="nf">replace</span><span class="p">(</span><span class="n">key_container_type</span><span class="o">&amp;&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+          <span class="n">mapped_container_type</span><span class="o">&amp;&amp;</span> <span class="n">mapped_cont</span><span class="p">);</span> <span class="c1">// (1) C++23</span>
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">replace</span><span class="p">(</span><span class="n">key_container_type</span><span class="o">&amp;&amp;</span> <span class="n">key_cont</span><span class="p">,</span>
+          <span class="n">mapped_container_type</span><span class="o">&amp;&amp;</span> <span class="n">mapped_cont</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -234,7 +239,7 @@
 <p><code>flat_map</code> クラスが内部で保持している <code><a href="containers.html">containers</a></code> を <code>c</code> とすると、以下と等価。
   <br />
 <div class="codehilite"><pre><span></span><code><span class="n">c</span><span class="p">.</span><span class="n">keys</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">key_cont</span><span class="p">);</span>
-<span class="n">c</span><span class="p">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mapped_cont</span><span class="p">)</span>
+<span class="n">c</span><span class="p">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mapped_cont</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
@@ -301,6 +306,10 @@
 <li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
 <li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
 <li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>

@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-25T07:10:00">
-        2025年08月25日 07時10分00秒
+      <span itemprop="datePublished" content="2026-02-17T07:24:20">
+        2026年02月17日 07時24分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -226,7 +226,9 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;flat_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class flat_map">flat_map::</span><span class="token">insert_range</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../exposition-only/container-compatible-range.html">container-compatible-range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">insert_range</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">);</span>                        <span class="c1">// (1) C++23</span>
+<span class="kt">void</span> <span class="n">insert_range</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">);</span>           <span class="c1">// (1) C++23</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../exposition-only/container-compatible-range.html">container-compatible-range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="n">insert_range</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -335,7 +337,11 @@
 <td>キーが存在しない場合のみ要素を直接構築する</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
+</ul></div>
 
       </div>
     </div>

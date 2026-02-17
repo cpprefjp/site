@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-02-17T07:24:20">
+        2026年02月17日 07時24分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -234,7 +234,16 @@
            <span class="k">class</span> <span class="nc">Predicate</span><span class="o">&gt;</span>
   <span class="k">typename</span> <span class="n">flat_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Compare</span><span class="p">,</span> <span class="n">KeyContainer</span><span class="p">,</span> <span class="n">MappedContainer</span><span class="o">&gt;::</span><span class="n">size_type</span>
     <span class="n">erase_if</span><span class="p">(</span><span class="n">flat_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Compare</span><span class="p">,</span> <span class="n">KeyContainer</span><span class="p">,</span> <span class="n">MappedContainer</span><span class="o">&gt;&amp;</span> <span class="n">c</span><span class="p">,</span>
-             <span class="n">Predicate</span> <span class="n">pred</span><span class="p">);</span>
+             <span class="n">Predicate</span> <span class="n">pred</span><span class="p">);</span> <span class="c1">// (1) C++23</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span>
+           <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
+           <span class="k">class</span> <span class="nc">Compare</span><span class="p">,</span>
+           <span class="k">class</span> <span class="nc">KeyContainer</span><span class="p">,</span>
+           <span class="k">class</span> <span class="nc">MappedContainer</span><span class="p">,</span>
+           <span class="k">class</span> <span class="nc">Predicate</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">typename</span> <span class="n">flat_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Compare</span><span class="p">,</span> <span class="n">KeyContainer</span><span class="p">,</span> <span class="n">MappedContainer</span><span class="o">&gt;::</span><span class="n">size_type</span>
+    <span class="n">erase_if</span><span class="p">(</span><span class="n">flat_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Compare</span><span class="p">,</span> <span class="n">KeyContainer</span><span class="p">,</span> <span class="n">MappedContainer</span><span class="o">&gt;&amp;</span> <span class="n">c</span><span class="p">,</span>
+             <span class="n">Predicate</span> <span class="n">pred</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -286,6 +295,10 @@
 <li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
 <li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
 <li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
