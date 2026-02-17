@@ -5,93 +5,182 @@
 * function[meta id-type]
 
 ```cpp
-explicit priority_queue(
-             const Compare& x = Compare(),
-             const Container& other = Container());       // (1) C++03
+explicit
+  priority_queue(const Compare& x = Compare(),
+                 const Container& other = Container()); // (1) C++03
+explicit
+  priority_queue(const Compare& x = Compare(),
+                 Container&& y = Container());          // (1) C++11
+priority_queue()
+  : priority_queue(Compare()) {}                        // (1) C++20
+constexpr
+  priority_queue()
+    : priority_queue(Compare()) {}                      // (1) C++26
 
-explicit priority_queue(const Compare& x = Compare(),
-                        Container&& y = Container());     // (1) C++11
+explicit
+  priority_queue(const Compare& x)
+    : priority_queue(x, Container()) {} // (2) C++20
+constexpr explicit
+  priority_queue(const Compare& x)
+    : priority_queue(x, Container()) {} // (2) C++26
 
-priority_queue() : priority_queue(Compare()) {}           // (1) C++20
+priority_queue(const Compare& x, const Container& other);           // (3) C++11
+constexpr priority_queue(const Compare& x, const Container& other); // (3) C++26
 
-explicit priority_queue(const Compare& x)
-  : priority_queue(x, Container()) {}                     // (2) C++20
-
-priority_queue(const Compare& x, const Container& other); // (3) C++11
-
-priority_queue(const priority_queue&);                    // (4) C++03
-priority_queue(const priority_queue&) = default;          // (4) C++11
+priority_queue(const priority_queue&);                     // (4) C++03
+priority_queue(const priority_queue&) = default;           // (4) C++11
+constexpr priority_queue(const priority_queue&) = default; // (4) C++26
 
 template <class InputIterator>
-priority_queue(InputIterator first, InputIterator last,
+priority_queue(InputIterator first,
+               InputIterator last,
                const Compare& x = Compare(),
-               const Container& other = Container());     // (5) C++03
+               const Container& other = Container()); // (5) C++03
+template <class InputIterator>
+constexpr
+  priority_queue(InputIterator first,
+                 InputIterator last,
+                 const Compare& x = Compare(),
+                 const Container& other = Container()); // (5) C++26
 
 template <class InputIterator>
-priority_queue(InputIterator first, InputIterator last,
+priority_queue(InputIterator first,
+               InputIterator last,
                const Compare& x,
-               const Container& other);                   // (6) C++11
+               const Container& other); // (6) C++11
+template <class InputIterator>
+constexpr
+  priority_queue(InputIterator first,
+                 InputIterator last,
+                 const Compare& x,
+                 const Container& other); // (6) C++26
 
 template <class InputIterator>
-priority_queue(InputIterator first, InputIterator last,
+priority_queue(InputIterator first,
+               InputIterator last,
                const Compare& x = Compare(),
-               Container&& other = Container());          // (7) C++11
+               Container&& other = Container()); // (7) C++11
+template <class InputIterator>
+constexpr
+  priority_queue(InputIterator first,
+                 InputIterator last,
+                 const Compare& x = Compare(),
+                 Container&& other = Container()); // (7) C++26
 
-priority_queue(priority_queue&&) = default;               // (8) C++11
+priority_queue(priority_queue&&) = default;           // (8) C++11
+constexpr priority_queue(priority_queue&&) = default; // (8) C++26
 
 template <class Alloc>
-explicit priority_queue(const Alloc& alloc);              // (9) C++11
+explicit priority_queue(const Alloc& alloc);           // (9) C++11
+template <class Alloc>
+constexpr explicit priority_queue(const Alloc& alloc); // (9) C++26
 
 template <class Alloc>
-priority_queue(const Compare& x, const Alloc& alloc);     // (10) C++11
+priority_queue(const Compare& x, const Alloc& alloc);           // (10) C++11
+template <class Alloc>
+constexpr priority_queue(const Compare& x, const Alloc& alloc); // (10) C++26
 
 template <class Alloc>
 priority_queue(const Compare& x,
                const Container& other,
-               const Alloc& alloc);                       // (11) C++11
+               const Alloc& alloc); // (11) C++11
+template <class Alloc>
+constexpr
+  priority_queue(const Compare& x,
+                 const Container& other,
+                 const Alloc& alloc); // (11) C++26
 
 template <class Alloc>
 priority_queue(const Compare x&,
                Container&& other,
-               const Alloc& alloc);                       // (12) C++11
+               const Alloc& alloc); // (12) C++11
+template <class Alloc>
+constexpr
+  priority_queue(const Compare x&,
+                 Container&& other,
+                 const Alloc& alloc); // (12) C++26
 
 template <class Alloc>
 priority_queue(const priority_queue& que,
-               const Alloc& alloc);                       // (13) C++11
+               const Alloc& alloc); // (13) C++11
+template <class Alloc>
+constexpr
+  priority_queue(const priority_queue& que,
+                 const Alloc& alloc); // (13) C++26
 
 template <class Alloc>
 priority_queue(priority_queue&& que,
-               const Alloc& alloc);                       // (14) C++11
+               const Alloc& alloc); // (14) C++11
+template <class Alloc>
+constexpr
+  priority_queue(priority_queue&& que,
+                 const Alloc& alloc); // (14) C++26
 
 template <class InputIterator, class Alloc>
-priority_queue(InputIterator first, InputIterator last,
+priority_queue(InputIterator first,
+               InputIterator last,
                const Compare& x,
-               const Alloc& alloc);                       // (15) C++23
+               const Alloc& alloc); // (15) C++23
+template <class InputIterator, class Alloc>
+constexpr
+  priority_queue(InputIterator first,
+                 InputIterator last,
+                 const Compare& x,
+                 const Alloc& alloc); // (15) C++26
 
 template <class InputIterator, class Alloc>
-priority_queue(InputIterator first, InputIterator last,
+priority_queue(InputIterator first,
+               InputIterator last,
                const Compare& x,
                const Container& other,
-               const Alloc& alloc);                       // (16) C++23
+               const Alloc& alloc); // (16) C++23
+template <class InputIterator, class Alloc>
+constexpr
+  priority_queue(InputIterator first,
+                 InputIterator last,
+                 const Compare& x,
+                 const Container& other,
+                 const Alloc& alloc); // (16) C++26
 
 template <class InputIterator, class Alloc>
-priority_queue(InputIterator first, InputIterator last,
+priority_queue(InputIterator first,
+               InputIterator last,
                const Compare& x,
                Container&& other,
-               const Alloc& alloc);                       // (17) C++23
+               const Alloc& alloc); // (17) C++23
+template <class InputIterator, class Alloc>
+constexpr
+  priority_queue(InputIterator first,
+                 InputIterator last,
+                 const Compare& x,
+                 Container&& other,
+                 const Alloc& alloc); // (17) C++26
 
 template <container-compatible-range<T> R>
 priority_queue(from_range_t, R&& rg,
-               const Compare& x = Compare());             // (18) C++23
+               const Compare& x = Compare()); // (18) C++23
+template <container-compatible-range<T> R>
+constexpr
+  priority_queue(from_range_t, R&& rg,
+                 const Compare& x = Compare()); // (18) C++26
 
 template <container-compatible-range<T> R, class Alloc>
 priority_queue(from_range_t, R&& rg,
                const Compare& x,
-               const Alloc& alloc);                       // (19) C++23
+               const Alloc& alloc); // (19) C++23
+template <container-compatible-range<T> R, class Alloc>
+constexpr
+  priority_queue(from_range_t, R&& rg,
+                 const Compare& x,
+                 const Alloc& alloc); // (19) C++26
 
 template <container-compatible-range<T> R, class Alloc>
 priority_queue(from_range_t, R&& rg,
-               const Alloc& alloc);                       // (20) C++23
+               const Alloc& alloc); // (20) C++23
+template <container-compatible-range<T> R, class Alloc>
+constexpr
+  priority_queue(from_range_t, R&& rg,
+                 const Alloc& alloc); // (20) C++26
 ```
 * from_range_t[link ../../ranges/from_range_t.md]
 
@@ -273,3 +362,4 @@ que5 : 5 4 3 2 1
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
