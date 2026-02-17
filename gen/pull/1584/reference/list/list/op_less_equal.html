@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2022-12-12T08:27:55">
-        2022年12月12日 08時27分55秒
+      <span itemprop="datePublished" content="2026-02-17T09:58:23">
+        2026年02月17日 09時58分23秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,6 +230,9 @@
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
   <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;=</span><span class="p">(</span><span class="k">const</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
                   <span class="k">const</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// (1) C++03</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;=</span><span class="p">(</span><span class="k">const</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -263,6 +266,7 @@
 <li>C++20での三方比較演算子の追加と、関連する演算子の自動導出</li>
 </ul>
 </li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
