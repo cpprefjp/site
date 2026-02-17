@@ -6,10 +6,13 @@
 * cpp11[meta cpp]
 
 ```cpp
-size_type count(const key_type& x) const; // (1) C++11
+size_type count(const key_type& x) const;           // (1) C++11
+constexpr size_type count(const key_type& x) const; // (1) C++26
 
 template <class K>
-size_type count(const K& k) const;        // (2) C++20
+size_type count(const K& k) const;           // (2) C++20
+template <class K>
+constexpr size_type count(const K& k) const; // (2) C++26
 ```
 
 ## 概要
@@ -96,3 +99,4 @@ count of 8:0
 ## 参照
 - [LWG Issue 2304. Complexity of `count` in unordered associative containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2304)
 - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -6,11 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator       find(const key_type& x);                    // (1) C++11
-const_iterator find(const key_type& x) const;              // (2) C++11
+iterator       find(const key_type& x);           // (1) C++11
+constexpr iterator       find(const key_type& x); // (1) C++26
 
-template <class K> iterator       find(const K& k);        // (3) C++20
-template <class K> const_iterator find(const K& k) const;  // (4) C++20
+const_iterator find(const key_type& x) const;           // (2) C++11
+constexpr const_iterator find(const key_type& x) const; // (2) C++26
+
+template <class K> iterator       find(const K& k);           // (3) C++20
+constexpr template <class K> iterator       find(const K& k); // (3) C++26
+
+template <class K> const_iterator find(const K& k) const;           // (4) C++20
+constexpr template <class K> const_iterator find(const K& k) const; // (4) C++26
 ```
 
 ## 概要
@@ -104,3 +110,4 @@ not found
 
 ## 参照
 - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

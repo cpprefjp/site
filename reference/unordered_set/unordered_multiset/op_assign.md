@@ -6,13 +6,21 @@
 * cpp11[meta cpp]
 
 ```cpp
-unordered_multiset& operator=(const unordered_multiset& v);     // (1)
-unordered_multiset& operator=(unordered_multiset&& rv);         // (2)
+unordered_multiset& operator=(const unordered_multiset& v);           // (1) C++11
+constexpr unordered_multiset& operator=(const unordered_multiset& v); // (1) C++26
+
+unordered_multiset& operator=(unordered_multiset&& rv);                   // (2) C++11
 unordered_multiset & operator=(unordered_multiset&& x)
   noexcept(allocator_traits<Allocator>::is_always_equal::value
             && is_nothrow_move_assignable<Hash>::value
             && is_nothrow_move_assignable<Container_move_assign>::value); // (2) C++17
-unordered_multiset& operator=(initializer_list<value_type> il); // (3)
+constexpr unordered_multiset & operator=(unordered_multiset&& x)
+  noexcept(allocator_traits<Allocator>::is_always_equal::value
+            && is_nothrow_move_assignable<Hash>::value
+            && is_nothrow_move_assignable<Container_move_assign>::value); // (2) C++26
+
+unordered_multiset& operator=(initializer_list<value_type> il);           // (3) C++11
+constexpr unordered_multiset& operator=(initializer_list<value_type> il); // (3) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -90,3 +98,4 @@ unordered_multiset& operator=(initializer_list<value_type> il); // (3)
     - (3)の経緯となる提案文書
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

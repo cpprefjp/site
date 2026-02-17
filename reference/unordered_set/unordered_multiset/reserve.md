@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void reserve(size_type n);
+void reserve(size_type n);           // (1) C++11
+constexpr void reserve(size_type n); // (1) C++26
 ```
 
 ## 概要
@@ -104,3 +105,7 @@ bucket_count is 13
 | [`insert`](insert.md)                   | 要素の追加 |
 | [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築 |
 | [`emplace_hint`](emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

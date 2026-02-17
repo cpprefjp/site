@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-allocator_type get_allocator() const noexcept;
+allocator_type get_allocator() const noexcept;           // (1) C++11
+constexpr allocator_type get_allocator() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -117,3 +118,7 @@ libstdc++ の `unordered_multiset` では、アロケータの `select_on_contai
 | [`swap`](swap_free.md)                                 | 内容の交換（非メンバ関数） |
 | [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
 | [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
