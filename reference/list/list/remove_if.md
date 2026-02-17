@@ -6,10 +6,11 @@
 
 ```cpp
 template <class Predicate>
-void remove_if(Predicate pred);      // (1) C++03
-
+void remove_if(Predicate pred);                // (1) C++03
 template <class Predicate>
-size_type remove_if(Predicate pred); // (1) C++20
+size_type remove_if(Predicate pred);           // (1) C++20
+template <class Predicate>
+constexpr size_type remove_if(Predicate pred); // (1) C++26
 ```
 
 ## 概要
@@ -61,3 +62,4 @@ int main()
 
 ## 参照
 - [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -7,7 +7,9 @@
 
 ```cpp
 template <container-compatible-range<T> R>
-void assign_range(R&& rg); // C++23
+void assign_range(R&& rg);           // (1) C++23
+template <container-compatible-range<T> R>
+constexpr void assign_range(R&& rg); // (1) C++26
 ```
 
 ## 概要
@@ -62,3 +64,7 @@ int main()
 | 名前                                      | 説明                  |
 |-------------------------------------------|----------------------|
 | [`assign`](assign.md)                     | コンテナに値を代入する   |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

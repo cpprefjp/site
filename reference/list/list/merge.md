@@ -5,10 +5,25 @@
 * function[meta id-type]
 
 ```cpp
-void merge(list& x);  // (1)
-void merge(list&& x); // (2) C++11
-template <class Compare> void merge(list& x, Compare comp);  // (3)
-template <class Compare> void merge(list&& x, Compare comp); // (4) C++11
+void merge(list& x);           // (1) C++03
+constexpr void merge(list& x); // (1) C++26
+
+void merge(list&& x);           // (2) C++11
+constexpr void merge(list&& x); // (2) C++26
+
+template <class Compare>
+void
+  merge(list& x, Compare comp); // (3) C++03
+template <class Compare>
+constexpr void
+  merge(list& x, Compare comp); // (3) C++26
+
+template <class Compare>
+void
+  merge(list&& x, Compare comp); // (4) C++11
+template <class Compare>
+constexpr void
+  merge(list&& x, Compare comp); // (4) C++26
 ```
 
 ## 概要
@@ -70,3 +85,7 @@ int main()
 5
 6
 ```
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

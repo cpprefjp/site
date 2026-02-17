@@ -5,26 +5,61 @@
 * function[meta id-type]
 
 ```cpp
-void splice(iterator position, list& x);                // (1) C++03
-void splice(const_iterator position, list& x);          // (1) C++11
+void splice(iterator position, list& x);                 // (1) C++03
+void splice(const_iterator position, list& x);           // (1) C++11
+constexpr void splice(const_iterator position, list& x); // (1) C++26
 
-void splice(const_iterator position, list&& x);         // (2) C++11
+void splice(const_iterator position, list&& x);           // (2) C++11
+constexpr void splice(const_iterator position, list&& x); // (2) C++26
 
-void splice(iterator position, list& x,
-            iterator i);                                // (3) C++03
-void splice(const_iterator position, list& x,
-            const_iterator i);                          // (3) C++11
+void
+  splice(iterator position,
+         list& x,
+         iterator i);       // (3) C++03
+void
+  splice(const_iterator
+         position, list& x,
+         const_iterator i); // (3) C++11
+constexpr void
+  splice(const_iterator position,
+         list& x,
+         const_iterator i); // (3) C++26
 
-void splice(const_iterator position, list&& x,
-            const_iterator i);                          // (4) C++11
+void
+  splice(const_iterator position,
+         list&& x,
+         const_iterator i); // (4) C++11
+constexpr void
+  splice(const_iterator position,
+         list&& x,
+         const_iterator i); // (4) C++26
 
-void splice(iterator position, list& x,
-            iterator first, iterator last);             // (5) C++03
-void splice(const_iterator position, list& x,
-            const_iterator first, const_iterator last); // (5) C++11
+void
+  splice(iterator position,
+         list& x,
+         iterator first,
+         iterator last);       // (5) C++03
+void
+  splice(const_iterator position,
+         list& x,
+         const_iterator first,
+         const_iterator last); // (5) C++11
+constexpr void
+  splice(const_iterator position,
+         list& x,
+         const_iterator first,
+         const_iterator last); // (5) C++26
 
-void splice(const_iterator position, list&& x,
-            const_iterator first, const_iterator last); // (6) C++11
+void
+  splice(const_iterator position,
+         list&& x,
+         const_iterator first,
+         const_iterator last); // (6) C++11
+constexpr void
+  splice(const_iterator position,
+         list&& x,
+         const_iterator first,
+         const_iterator last); // (6) C++26
 ```
 
 ## 概要
@@ -139,3 +174,4 @@ int main()
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [LWG Issue 3017. `list` `splice` functions should use `addressof`](https://wg21.cmeerw.net/lwg/issue3017)
 - [LWG Issue 3087. One final `&x` in §[list.ops]](https://wg21.cmeerw.net/lwg/issue3087)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

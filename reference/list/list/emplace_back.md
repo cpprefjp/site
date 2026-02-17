@@ -7,10 +7,14 @@
 
 ```cpp
 template <class... Args>
-void emplace_back(Args&&... args);          // C++14 まで
+void emplace_back(Args&&... args);           // (1) C++11 : C++14 まで
+template <class... Args>
+constexpr void emplace_back(Args&&... args); // (1) C++26
 
 template <class... Args>
-reference emplace_back(Args&&... args);     // C++17 から
+reference emplace_back(Args&&... args);           // (2) C++11 : C++17 から
+template <class... Args>
+constexpr reference emplace_back(Args&&... args); // (2) C++26
 ```
 
 ## 概要
@@ -92,3 +96,4 @@ int main()
 - [P0084R0 Emplace Return Type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0084r0.pdf)
 - [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
 - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

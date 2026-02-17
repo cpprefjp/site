@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_iterator cend() const noexcept;
+const_iterator cend() const noexcept;           // (1) C++11
+constexpr const_iterator cend() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -63,3 +64,4 @@ int main()
 
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
