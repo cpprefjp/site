@@ -6,9 +6,14 @@
 * [meta namespace]
 
 ```cpp
-void swap(node_handle&)
+void
+  swap(node_handle&)
     noexcept(ator_traits::propagate_on_container_swap::value ||
-             ator_traits::is_always_equal::value);
+             ator_traits::is_always_equal::value); // (1) C++17
+constexpr void
+  swap(node_handle&)
+    noexcept(ator_traits::propagate_on_container_swap::value ||
+             ator_traits::is_always_equal::value); // (1) C++26
 ```
 
 ## 概要
@@ -92,3 +97,4 @@ node2 : [10, a]
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

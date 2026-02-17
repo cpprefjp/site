@@ -6,7 +6,8 @@
 * [meta namespace]
 
 ```cpp
-value_type& value() const; // map コンテナには存在ない
+value_type& value() const;           // (1) C++17 : map コンテナには存在ない
+constexpr value_type& value() const; // (1) C++26 : map コンテナには存在ない
 ```
 
 ## 概要
@@ -58,3 +59,4 @@ int main()
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
