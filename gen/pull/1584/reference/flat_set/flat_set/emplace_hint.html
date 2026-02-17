@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T14:29:20">
-        2025年07月07日 14時29分20秒
+      <span itemprop="datePublished" content="2026-02-17T09:05:38">
+        2026年02月17日 09時05分38秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">onihusube</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -226,7 +226,13 @@
         
   <div class="identifier-type">function template</div><div class="header">&lt;flat_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class flat_set">flat_set::</span><span class="token">emplace_hint</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="n">iterator</span> <span class="n">emplace_hint</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>
+<span class="n">iterator</span>
+  <span class="n">emplace_hint</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span>
+               <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>     <span class="c1">// (1) C++23</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">iterator</span>
+  <span class="n">emplace_hint</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span>
+               <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>     <span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -296,7 +302,11 @@
 <td>要素を直接構築する</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
+</ul></div>
 
       </div>
     </div>

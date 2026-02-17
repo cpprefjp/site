@@ -2,9 +2,1772 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-17T08:55:27.644817</updated>
-  <id>57132dd1-69bc-4faa-b0cf-eef010927508</id>
+  <updated>2026-02-17T09:10:09.450168</updated>
+  <id>4be84bc6-9ea7-4d3e-a338-523581345037</id>
 
+  
+    <entry>
+      <title>begin -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/begin.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/begin.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/begin.md b/reference/flat_set/flat_set/begin.md
+index 76cd50864..2ee2b571a 100644
+--- a/reference/flat_set/flat_set/begin.md
++++ b/reference/flat_set/flat_set/begin.md
+@@ -6,8 +6,11 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator begin() noexcept;
+-const_iterator begin() const noexcept;
++iterator begin() noexcept;           // (1) C++23
++constexpr iterator begin() noexcept; // (1) C++26
++
++const_iterator begin() const noexcept;           // (2) C++23
++constexpr const_iterator begin() const noexcept; // (2) C++26
+ ```
+ 
+ 
+@@ -71,3 +74,7 @@ int main()
+ | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cbegin -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/cbegin.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/cbegin.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/cbegin.md b/reference/flat_set/flat_set/cbegin.md
+index 6be52785b..e331022d9 100644
+--- a/reference/flat_set/flat_set/cbegin.md
++++ b/reference/flat_set/flat_set/cbegin.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-const_iterator cbegin() const noexcept;
++const_iterator cbegin() const noexcept;           // (1) C++23
++constexpr const_iterator cbegin() const noexcept; // (1) C++26
+ ```
+ 
+ 
+@@ -67,3 +68,7 @@ int main()
+ | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cend -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/cend.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/cend.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/cend.md b/reference/flat_set/flat_set/cend.md
+index a2ad3527b..881e6e8a5 100644
+--- a/reference/flat_set/flat_set/cend.md
++++ b/reference/flat_set/flat_set/cend.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-const_iterator cend() const noexcept;
++const_iterator cend() const noexcept;           // (1) C++23
++constexpr const_iterator cend() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -70,3 +71,7 @@ int main()
+ | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/clear.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/clear.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/clear.md b/reference/flat_set/flat_set/clear.md
+index 29bc4b37f..d88a72e2a 100644
+--- a/reference/flat_set/flat_set/clear.md
++++ b/reference/flat_set/flat_set/clear.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-void clear() noexcept; // (1) C++23
++void clear() noexcept;           // (1) C++23
++constexpr void clear() noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -54,3 +55,7 @@ int main ()
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>contains -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/contains.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/contains.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/contains.md b/reference/flat_set/flat_set/contains.md
+index 9d9e01d6c..9a682abe0 100644
+--- a/reference/flat_set/flat_set/contains.md
++++ b/reference/flat_set/flat_set/contains.md
+@@ -6,10 +6,13 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-bool contains(const key_type&amp;amp; x) const; // (1) C++23
++bool contains(const key_type&amp;amp; x) const;           // (1) C++23
++constexpr bool contains(const key_type&amp;amp; x) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-bool contains(const K&amp;amp; x) const;        // (2) C++23
++bool contains(const K&amp;amp; x) const;           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr bool contains(const K&amp;amp; x) const; // (2) C++26
+ ```
+ 
+ 
+@@ -78,3 +81,7 @@ contain
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/count.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/count.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/count.md b/reference/flat_set/flat_set/count.md
+index 4d6f18f86..ad9512cee 100644
+--- a/reference/flat_set/flat_set/count.md
++++ b/reference/flat_set/flat_set/count.md
+@@ -6,10 +6,13 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-size_type count(const key_type&amp;amp; x) const; // (1) C++23
++size_type count(const key_type&amp;amp; x) const;           // (1) C++23
++constexpr size_type count(const key_type&amp;amp; x) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-size_type count(const K&amp;amp; x) const;        // (2) C++23
++size_type count(const K&amp;amp; x) const;           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr size_type count(const K&amp;amp; x) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -95,3 +98,7 @@ found
+ 
+ ## 関連項目
+ - [`contains()`](contains.md)
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>crbegin -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/crbegin.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/crbegin.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/crbegin.md b/reference/flat_set/flat_set/crbegin.md
+index 966106f5b..81f984293 100644
+--- a/reference/flat_set/flat_set/crbegin.md
++++ b/reference/flat_set/flat_set/crbegin.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-const_reverse_iterator crbegin() const noexcept;
++const_reverse_iterator crbegin() const noexcept;           // (1) C++23
++constexpr const_reverse_iterator crbegin() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -68,3 +69,7 @@ int main()
+ | [`flat_set::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
+ | [`flat_set::rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_set::crend`](crend.md)   | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>crend -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/crend.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/crend.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/crend.md b/reference/flat_set/flat_set/crend.md
+index 01a8136ab..7176bd721 100644
+--- a/reference/flat_set/flat_set/crend.md
++++ b/reference/flat_set/flat_set/crend.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-const_reverse_iterator crend() const noexcept;
++const_reverse_iterator crend() const noexcept;           // (1) C++23
++constexpr const_reverse_iterator crend() const noexcept; // (1) C++26
+ ```
+ 
+ 
+@@ -66,3 +67,7 @@ int main()
+ | [`flat_set::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+ | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/emplace.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/emplace.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/emplace.md b/reference/flat_set/flat_set/emplace.md
+index 1c04c403c..2c9ac1f99 100644
+--- a/reference/flat_set/flat_set/emplace.md
++++ b/reference/flat_set/flat_set/emplace.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-pair&amp;lt;iterator, bool&amp;gt; emplace(Args&amp;amp;&amp;amp;... args);
++pair&amp;lt;iterator, bool&amp;gt; emplace(Args&amp;amp;&amp;amp;... args);           // (1) C++23
++template &amp;lt;class... Args&amp;gt;
++constexpr pair&amp;lt;iterator, bool&amp;gt; emplace(Args&amp;amp;&amp;amp;... args); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -120,3 +122,7 @@ CCCCC
+ | [`flat_set::insert`](insert.md)             | 要素を挿入する                             |
+ | [`flat_set::insert_range`](insert_range.md) | Rangeを挿入する                            |
+ | [`flat_set::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する           |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace_hint -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/emplace_hint.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/emplace_hint.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/emplace_hint.md b/reference/flat_set/flat_set/emplace_hint.md
+index 46f6abed6..2d97e3021 100644
+--- a/reference/flat_set/flat_set/emplace_hint.md
++++ b/reference/flat_set/flat_set/emplace_hint.md
+@@ -7,7 +7,13 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-iterator emplace_hint(const_iterator hint, Args&amp;amp;&amp;amp;... args);
++iterator
++  emplace_hint(const_iterator hint,
++               Args&amp;amp;&amp;amp;... args);     // (1) C++23
++template &amp;lt;class... Args&amp;gt;
++constexpr iterator
++  emplace_hint(const_iterator hint,
++               Args&amp;amp;&amp;amp;... args);     // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -73,3 +79,7 @@ int main()
+ | [`flat_set::insert`](insert.md)             | 要素を挿入する                             |
+ | [`flat_set::insert_range`](insert_range.md) | Rangeを挿入する                            |
+ | [`flat_set::emplace`](emplace.md)           | 要素を直接構築する                         |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>empty -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/empty.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/empty.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/empty.md b/reference/flat_set/flat_set/empty.md
+index 4b5a16816..1c424c709 100644
+--- a/reference/flat_set/flat_set/empty.md
++++ b/reference/flat_set/flat_set/empty.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-[[nodiscard]] bool empty() const noexcept; // (1) C++23
++[[nodiscard]] bool empty() const noexcept;           // (1) C++23
++[[nodiscard]] constexpr bool empty() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -58,3 +59,7 @@ int main ()
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/end.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/end.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/end.md b/reference/flat_set/flat_set/end.md
+index 0da617732..6476d9cec 100644
+--- a/reference/flat_set/flat_set/end.md
++++ b/reference/flat_set/flat_set/end.md
+@@ -6,8 +6,11 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator end() noexcept;
+-const_iterator end() const noexcept;
++iterator end() noexcept;           // (1) C++23
++constexpr iterator end() noexcept; // (1) C++26
++
++const_iterator end() const noexcept;           // (2) C++23
++constexpr const_iterator end() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -72,3 +75,7 @@ int main()
+ | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>equal_range -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/equal_range.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/equal_range.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/equal_range.md b/reference/flat_set/flat_set/equal_range.md
+index f7d055167..bc29ef366 100644
+--- a/reference/flat_set/flat_set/equal_range.md
++++ b/reference/flat_set/flat_set/equal_range.md
+@@ -6,17 +6,29 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-pair&amp;lt;iterator, iterator&amp;gt; equal_range(const key_type&amp;amp; x); // (1) C++23
++pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x); // (1) C++23
++constexpr pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x); // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-pair&amp;lt;iterator, iterator&amp;gt; equal_range(const K&amp;amp; x);        // (2) C++23
++pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const K&amp;amp; x); // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const K&amp;amp; x); // (2) C++26
+ 
+ pair&amp;lt;const_iterator, const_iterator&amp;gt;
+-  equal_range(const key_type&amp;amp; x) const;                  // (3) C++23
++  equal_range(const key_type&amp;amp; x) const; // (3) C++23
++constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x) const; // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+ pair&amp;lt;const_iterator, const_iterator&amp;gt;
+-  equal_range(const K&amp;amp; x) const;                         // (4) C++23
++  equal_range(const K&amp;amp; x) const; // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
++  equal_range(const K&amp;amp; x) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -82,3 +94,7 @@ int main()
+ | [`flat_set::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
+ | [`flat_set::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
+ | [`flat_set::find`](find.md)               | 指定したキーで要素を探す                                 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/erase.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/erase.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/erase.md b/reference/flat_set/flat_set/erase.md
+index f700f70f8..76375802e 100644
+--- a/reference/flat_set/flat_set/erase.md
++++ b/reference/flat_set/flat_set/erase.md
+@@ -6,16 +6,22 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator erase(iterator position);                         // (1) C++23
++iterator erase(iterator position);           // (1) C++23
++constexpr iterator erase(iterator position); // (1) C++26
+ 
+-iterator erase(const_iterator position);                   // (2) C++23
++iterator erase(const_iterator position);           // (2) C++23
++constexpr iterator erase(const_iterator position); // (2) C++26
+ 
+-size_type erase(const key_type&amp;amp; x);                        // (3) C++23
++size_type erase(const key_type&amp;amp; x);           // (3) C++23
++constexpr size_type erase(const key_type&amp;amp; x); // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-size_type erase(K&amp;amp;&amp;amp; x);                                    // (4) C++23
++size_type erase(K&amp;amp;&amp;amp; x);           // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr size_type erase(K&amp;amp;&amp;amp; x); // (4) C++26
+ 
+-iterator erase(const_iterator first, const_iterator last); // (5) C++23
++iterator erase(const_iterator first, const_iterator last);           // (5) C++23
++constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++26
+ ```
+ 
+ ## 概要
+@@ -137,3 +143,7 @@ int main()
+ | [`flat_set::clear`](clear.md)   | 全ての要素を削除する     |
+ | [`flat_set::insert`](insert.md) | 要素を挿入する           |
+ | [`flat_set::find`](find.md)     | 指定したキーで要素を探す |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase_if -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/erase_if_free.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/erase_if_free.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/erase_if_free.md b/reference/flat_set/flat_set/erase_if_free.md
+index 58646f1c2..8e6d7d2e4 100644
+--- a/reference/flat_set/flat_set/erase_if_free.md
++++ b/reference/flat_set/flat_set/erase_if_free.md
+@@ -12,7 +12,14 @@ namespace std {
+            class Predicate&amp;gt;
+   typename flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;::size_type
+     erase_if(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; c,
+-             Predicate pred);
++             Predicate pred); // (1) C++23
++  template&amp;lt;class Key,
++           class Compare,
++           class KeyContainer,
++           class Predicate&amp;gt;
++  constexpr typename flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;::size_type
++    erase_if(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; c,
++             Predicate pred); // (1) C++26
+ }
+ ```
+ 
+@@ -69,3 +76,7 @@ int main()
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extract -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/extract.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/extract.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/extract.md b/reference/flat_set/flat_set/extract.md
+index dc2bbe200..7be8b7cac 100644
+--- a/reference/flat_set/flat_set/extract.md
++++ b/reference/flat_set/flat_set/extract.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-container_type extract() &amp;amp;&amp;amp;;  // C++23
++container_type extract() &amp;amp;&amp;amp;;           // (1) C++23
++constexpr container_type extract() &amp;amp;&amp;amp;; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -75,3 +76,7 @@ int main()
+ - [GCC](/implementation.md#gcc): ??
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/find.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/find.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/find.md b/reference/flat_set/flat_set/find.md
+index b4fba9c70..3a94af992 100644
+--- a/reference/flat_set/flat_set/find.md
++++ b/reference/flat_set/flat_set/find.md
+@@ -6,15 +6,21 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator find(const key_type&amp;amp; x);             // (1) C++23
++iterator find(const key_type&amp;amp; x);           // (1) C++23
++constexpr iterator find(const key_type&amp;amp; x); // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-iterator find(const K&amp;amp; x);                    // (2) C++23
++iterator find(const K&amp;amp; x);           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr iterator find(const K&amp;amp; x); // (2) C++26
+ 
+-const_iterator find(const key_type&amp;amp; x) const; // (3) C++23
++const_iterator find(const key_type&amp;amp; x) const;           // (3) C++23
++constexpr const_iterator find(const key_type&amp;amp; x) const; // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-const_iterator find(const K&amp;amp; x) const;        // (4) C++23
++const_iterator find(const K&amp;amp; x) const;           // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr const_iterator find(const K&amp;amp; x) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -99,3 +105,7 @@ Bob
+ 
+ ## 関連項目
+ - [`contains()`](contains.md)
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/insert.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/insert.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/insert.md b/reference/flat_set/flat_set/insert.md
+index 669f34497..84c7ffbe7 100644
+--- a/reference/flat_set/flat_set/insert.md
++++ b/reference/flat_set/flat_set/insert.md
+@@ -6,34 +6,77 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-pair&amp;lt;iterator, bool&amp;gt; insert(const value_type&amp;amp; x); // (1) C++23
+-pair&amp;lt;iterator, bool&amp;gt; insert(value_type&amp;amp;&amp;amp; x);      // (2) C++23
+-
+-iterator insert(const_iterator position,
+-                const value_type&amp;amp; x);             // (3) C++23
+-iterator insert(const_iterator position,
+-                value_type&amp;amp;&amp;amp; x);                  // (4) C++23
++pair&amp;lt;iterator, bool&amp;gt;
++  insert(const value_type&amp;amp; x);  // (1) C++23
++constexpr pair&amp;lt;iterator, bool&amp;gt;
++  insert(const value_type&amp;amp; x); // (1) C++26
++
++pair&amp;lt;iterator, bool&amp;gt;
++  insert(value_type&amp;amp;&amp;amp; x); // (2) C++23
++constexpr pair&amp;lt;iterator, bool&amp;gt;
++  insert(value_type&amp;amp;&amp;amp; x); // (2) C++26
++
++iterator
++  insert(const_iterator position,
++         const value_type&amp;amp; x); // (3) C++23
++constexpr iterator
++  insert(const_iterator position,
++         const value_type&amp;amp; x); // (3) C++26
++
++iterator
++  insert(const_iterator position,
++         value_type&amp;amp;&amp;amp; x); // (4) C++23
++constexpr iterator
++  insert(const_iterator position,
++         value_type&amp;amp;&amp;amp; x); // (4) C++26
+ 
+ template&amp;lt;class P&amp;gt;
+-pair&amp;lt;iterator, bool&amp;gt; insert(P&amp;amp;&amp;amp; x);               // (5) C++23
++pair&amp;lt;iterator, bool&amp;gt;
++  insert(P&amp;amp;&amp;amp; x); // (5) C++23
++template&amp;lt;class P&amp;gt;
++constexpr pair&amp;lt;iterator, bool&amp;gt;
++  insert(P&amp;amp;&amp;amp; x); // (5) C++26
+ 
+ template&amp;lt;class P&amp;gt;
+-iterator insert(const_iterator position,
+-                P&amp;amp;&amp;amp;);                             // (6) C++23
++iterator
++  insert(const_iterator position,
++         P&amp;amp;&amp;amp;); // (6) C++23
++template&amp;lt;class P&amp;gt;
++constexpr iterator
++  insert(const_iterator position,
++         P&amp;amp;&amp;amp;); // (6) C++26
+ 
+ template&amp;lt;class InputIterator&amp;gt;
+-void insert(InputIterator first,
+-            InputIterator last);                  // (7) C++23
+-
++void
++  insert(InputIterator first,
++         InputIterator last); // (7) C++23
+ template&amp;lt;class InputIterator&amp;gt;
+-void insert(sorted_unique_t,
+-            InputIterator first,
+-            InputIterator last);                  // (8) C++23
+-
+-void insert(initializer_list&amp;lt;value_type&amp;gt; il);     // (9) C++23
++constexpr void
++  insert(InputIterator first,
++         InputIterator last); // (7) C++26
+ 
+-void insert(sorted_unique_t s,
+-            initializer_list&amp;lt;value_type&amp;gt; il);     // (10) C++23
++template&amp;lt;class InputIterator&amp;gt;
++void
++  insert(sorted_unique_t,
++         InputIterator first,
++         InputIterator last); // (8) C++23
++template&amp;lt;class InputIterator&amp;gt;
++constexpr void
++  insert(sorted_unique_t,
++         InputIterator first,
++         InputIterator last); // (8) C++26
++
++void
++  insert(initializer_list&amp;lt;value_type&amp;gt; il); // (9) C++23
++constexpr void
++  insert(initializer_list&amp;lt;value_type&amp;gt; il); // (9) C++26
++
++void
++  insert(sorted_unique_t s,
++         initializer_list&amp;lt;value_type&amp;gt; il); // (10) C++23
++constexpr void
++  insert(sorted_unique_t s,
++         initializer_list&amp;lt;value_type&amp;gt; il); // (10) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ * sorted_unique_t[link /reference/flat_set/sorted_unique_t.md]
+@@ -223,3 +266,7 @@ int main()
+ | [`flat_set::insert_range`](insert_range.md) | Rangeを挿入する                  |
+ | [`flat_set::emplace`](emplace.md)           | 要素を直接構築する               |
+ | [`flat_set::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert_range -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/insert_range.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/insert_range.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/insert_range.md b/reference/flat_set/flat_set/insert_range.md
+index 1e67de38f..7a83eae38 100644
+--- a/reference/flat_set/flat_set/insert_range.md
++++ b/reference/flat_set/flat_set/insert_range.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-void insert_range(R&amp;amp;&amp;amp; rg);                        // (1) C++23
++void insert_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr void insert_range(R&amp;amp;&amp;amp; rg); // (1) C++26
+ ```
+ * container-compatible-range[link /reference/exposition-only/container-compatible-range.md]
+ 
+@@ -77,3 +79,7 @@ int main()
+ | [`flat_set::insert`](insert.md)             | 要素を挿入する                   |
+ | [`flat_set::emplace`](emplace.md)           | 要素を直接構築する               |
+ | [`flat_set::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>key_comp -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/key_comp.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/key_comp.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/key_comp.md b/reference/flat_set/flat_set/key_comp.md
+index af9fc6862..c919f4f7f 100644
+--- a/reference/flat_set/flat_set/key_comp.md
++++ b/reference/flat_set/flat_set/key_comp.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-key_compare key_comp() const; // C++23
++key_compare key_comp() const;           // (1) C++23
++constexpr key_compare key_comp() const; // (1) C++26
+ ```
+ 
+ 
+@@ -62,3 +63,7 @@ int main()
+ | 名前                                | 説明                                                     |
+ |-------------------------------------|----------------------------------------------------------|
+ | [`value_comp`](value_comp.md)       | 要素比較用の関数オブジェクトを返す                       |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>lower_bound -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/lower_bound.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/lower_bound.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/lower_bound.md b/reference/flat_set/flat_set/lower_bound.md
+index fe9904855..1d1af01a9 100644
+--- a/reference/flat_set/flat_set/lower_bound.md
++++ b/reference/flat_set/flat_set/lower_bound.md
+@@ -6,15 +6,21 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator lower_bound(const key_type&amp;amp; x);             // (1) C++23
++iterator lower_bound(const key_type&amp;amp; x);           // (1) C++23
++constexpr iterator lower_bound(const key_type&amp;amp; x); // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-iterator lower_bound(const K&amp;amp; x);                    // (2) C++23
++iterator lower_bound(const K&amp;amp; x);           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr iterator lower_bound(const K&amp;amp; x); // (2) C++26
+ 
+-const_iterator lower_bound(const key_type&amp;amp; x) const; // (3) C++23
++const_iterator lower_bound(const key_type&amp;amp; x) const;           // (3) C++23
++constexpr const_iterator lower_bound(const key_type&amp;amp; x) const; // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-const_iterator lower_bound(const K&amp;amp; x) const;        // (4) C++23
++const_iterator lower_bound(const K&amp;amp; x) const;           // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr const_iterator lower_bound(const K&amp;amp; x) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -119,3 +125,7 @@ David
+ | [`flat_set::equal_range`](equal_range.md) | 指定したキーにマッチする要素範囲を返す               |
+ | [`flat_set::find`](find.md)               | 指定したキーで要素を探す                             |
+ | [`flat_set::count`](count.md)             | 指定したキーにマッチする要素の数を返す               |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_size -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/max_size.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/max_size.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/max_size.md b/reference/flat_set/flat_set/max_size.md
+index 470209043..202945b73 100644
+--- a/reference/flat_set/flat_set/max_size.md
++++ b/reference/flat_set/flat_set/max_size.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-size_type max_size() const noexcept; // (1) C++23
++size_type max_size() const noexcept;           // (1) C++23
++constexpr size_type max_size() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -49,3 +50,7 @@ int main()
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_assign.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/op_assign.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/op_assign.md b/reference/flat_set/flat_set/op_assign.md
+index 4999cee1e..15a3c4589 100644
+--- a/reference/flat_set/flat_set/op_assign.md
++++ b/reference/flat_set/flat_set/op_assign.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-flat_set&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // C++23
++flat_set&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il);           // (1) C++23
++constexpr flat_set&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (1) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ 
+@@ -63,3 +64,7 @@ Carol
+ - [GCC](/implementation.md#gcc): ??
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_compare_3way.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/op_compare_3way.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/op_compare_3way.md b/reference/flat_set/flat_set/op_compare_3way.md
+index a9c38f5a9..f7eae7213 100644
+--- a/reference/flat_set/flat_set/op_compare_3way.md
++++ b/reference/flat_set/flat_set/op_compare_3way.md
+@@ -9,6 +9,9 @@
+ synth-three-way-result&amp;lt;value_type&amp;gt;
+   operator&amp;lt;=&amp;gt;(const flat_set&amp;amp; x,
+               const flat_set&amp;amp; y); // (1) C++23
++constexpr synth-three-way-result&amp;lt;value_type&amp;gt;
++  operator&amp;lt;=&amp;gt;(const flat_set&amp;amp; x,
++              const flat_set&amp;amp; y); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -80,3 +83,7 @@ false
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_constructor.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/op_constructor.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/op_constructor.md b/reference/flat_set/flat_set/op_constructor.md
+index 7a6fa5aaf..a46c4228f 100644
+--- a/reference/flat_set/flat_set/op_constructor.md
++++ b/reference/flat_set/flat_set/op_constructor.md
+@@ -8,117 +8,281 @@
+ ```cpp
+ // ____要素数ゼロのflat_setを構築____
+ 
+-flat_set() : flat_set(key_compare()) { } // (1) C++23
++flat_set()
++  : flat_set(key_compare()) { } // (1) C++23
+ 
+-explicit flat_set(const key_compare&amp;amp; comp) // (2) C++23
+-  : c(), compare(comp) { }
++explicit
++  flat_set(const key_compare&amp;amp; comp) // (2) C++23
++    : c(), compare(comp) { }
++constexpr explicit
++  flat_set(const key_compare&amp;amp; comp) // (2) C++26
++    : c(), compare(comp) { }
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-explicit flat_set(const Allocator&amp;amp; a); // (3) C++23
++explicit
++  flat_set(const Allocator&amp;amp; a); // (3) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr explicit
++  flat_set(const Allocator&amp;amp; a); // (3) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_set(const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (4) C++23
++flat_set(const key_compare&amp;amp; comp,
++         const Allocator&amp;amp; a);   // (4) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(const key_compare&amp;amp; comp,
++           const Allocator&amp;amp; a); // (4) C++26
+ 
+ // ____アロケータを伴うコピー＆ムーブコンストラクタ____
+ 
+  template&amp;lt;class Allocator&amp;gt;
+- flat_set(const flat_set&amp;amp; x, const Allocator&amp;amp; a); // (5) C++26
++ constexpr
++   flat_set(const flat_set&amp;amp; x,
++            const Allocator&amp;amp; a); // (5) C++26
+ 
+  template&amp;lt;class Allocator&amp;gt;
+- flat_set(flat_set&amp;amp;&amp;amp; x, const Allocator&amp;amp; a); // (6) C++26
++ constexpr
++   flat_set(flat_set&amp;amp;&amp;amp; x,
++            const Allocator&amp;amp; a); // (6) C++26
+ 
+ // ____container_typeから構築____
+ 
+ flat_set(container_type cont,
+-         const key_compare&amp;amp; comp = key_compare()); // (7) C++23
++         const key_compare&amp;amp; comp = key_compare());   // (7) C++23
++constexpr
++  flat_set(container_type cont,
++           const key_compare&amp;amp; comp = key_compare()); // (7) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+ flat_set(const container_type cont&amp;amp;,
+-         const Allocator&amp;amp; a); // (8) C++23
++         const Allocator&amp;amp; a);   // (8) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(const container_type cont&amp;amp;,
++           const Allocator&amp;amp; a); // (8) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+ flat_set(const container_type&amp;amp; cont,
+-         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (9) C++23
++         const key_compare&amp;amp; comp,
++         const Allocator&amp;amp; a);   // (9) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(const container_type&amp;amp; cont,
++           const key_compare&amp;amp; comp,
++           const Allocator&amp;amp; a); // (9) C++26
+ 
+ // ____container_type（ソート済み且つ重複なし）から構築____
+ 
+-flat_set(sorted_unique_t, container_type cont,
+-         const key_compare&amp;amp; comp = key_compare()); // (10) C++23
++flat_set(sorted_unique_t,
++         container_type cont,
++         const key_compare&amp;amp; comp = key_compare());   // (10) C++23
++constexpr
++  flat_set(sorted_unique_t,
++           container_type cont,
++           const key_compare&amp;amp; comp = key_compare()); // (10) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_set(sorted_unique_t, const container_type&amp;amp; cont,
+-         const Allocator&amp;amp; a); // (11) C++23
++flat_set(sorted_unique_t,
++         const container_type&amp;amp; cont,
++         const Allocator&amp;amp; a);   // (11) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(sorted_unique_t,
++           const container_type&amp;amp; cont,
++           const Allocator&amp;amp; a); // (11) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_set(sorted_unique_t, const container_type&amp;amp; cont,
+-         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (12) C++23
++flat_set(sorted_unique_t,
++         const container_type&amp;amp; cont,
++         const key_compare&amp;amp; comp,
++         const Allocator&amp;amp; a);   // (12) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(sorted_unique_t,
++           const container_type&amp;amp; cont,
++           const key_compare&amp;amp; comp,
++           const Allocator&amp;amp; a); // (12) C++26
+ 
+ // ____イテレータから構築____
+-
+ template&amp;lt;class InputIterator&amp;gt;
+-flat_set(InputIterator first, InputIterator last, const key_compare&amp;amp; comp = key_compare()) // (13) C++23
++flat_set(InputIterator first,
++         InputIterator last,
++         const key_compare&amp;amp; comp = key_compare())   // (13) C++23
+   : c(), compare(comp) { insert(first, last); }
++template&amp;lt;class InputIterator&amp;gt;
++constexpr
++  flat_set(InputIterator first,
++           InputIterator last,
++           const key_compare&amp;amp; comp = key_compare()) // (13) C++26
++    : c(), compare(comp) { insert(first, last); }
+ 
+ template&amp;lt;class InputIterator, class Allocator&amp;gt;
+-flat_set(InputIterator first, InputIterator last, const Allocator&amp;amp; a); // (14) C++23
++flat_set(InputIterator first,
++         InputIterator last,
++         const Allocator&amp;amp; a);   // (14) C++23
++template&amp;lt;class InputIterator, class Allocator&amp;gt;
++constexpr
++  flat_set(InputIterator first,
++           InputIterator last,
++           const Allocator&amp;amp; a); // (14) C++26
+ 
+ template&amp;lt;class InputIterator, class Allocator&amp;gt;
+-flat_set(InputIterator first, InputIterator last,
+-         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (15) C++23
++flat_set(InputIterator first,
++         InputIterator last,
++         const key_compare&amp;amp; comp,
++         const Allocator&amp;amp; a);   // (15) C++23
++template&amp;lt;class InputIterator, class Allocator&amp;gt;
++constexpr
++  flat_set(InputIterator first,
++           InputIterator last,
++           const key_compare&amp;amp; comp,
++           const Allocator&amp;amp; a); // (15) C++26
+ 
+ // ____イテレータ（ソート済み且つ重複なし）から構築____
+-
+ template&amp;lt;class InputIterator&amp;gt;
+-flat_set(sorted_unique_t s, InputIterator first, InputIterator last,
+-         const key_compare&amp;amp; comp = key_compare()) // (16) C++23
++flat_set(sorted_unique_t s,
++         InputIterator first,
++         InputIterator last,
++         const key_compare&amp;amp; comp = key_compare())   // (16) C++23
+   : c(), compare(comp) { insert(s, first, last); }
++template&amp;lt;class InputIterator&amp;gt;
++constexpr
++  flat_set(sorted_unique_t s,
++           InputIterator first,
++           InputIterator last,
++           const key_compare&amp;amp; comp = key_compare()) // (16) C++26
++    : c(), compare(comp) { insert(s, first, last); }
+ 
+ template&amp;lt;class InputIterator, class Allocator&amp;gt;
+-flat_set(sorted_unique_t, InputIterator first, InputIterator last, const Allocator&amp;amp; a); // (17) C++23
++flat_set(sorted_unique_t,
++         InputIterator first,
++         InputIterator last,
++         const Allocator&amp;amp; a);   // (17) C++23
++template&amp;lt;class InputIterator, class Allocator&amp;gt;
++constexpr
++  flat_set(sorted_unique_t,
++           InputIterator first,
++           InputIterator last,
++           const Allocator&amp;amp; a); // (17) C++26
+ 
+ template&amp;lt;class InputIterator, class Allocator&amp;gt;
+-flat_set(sorted_unique_t, InputIterator first, InputIterator last,
+-         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (18) C++23
++flat_set(sorted_unique_t,
++         InputIterator first,
++         InputIterator last,
++         const key_compare&amp;amp; comp,
++         const Allocator&amp;amp; a);   // (18) C++23
++template&amp;lt;class InputIterator, class Allocator&amp;gt;
++constexpr
++  flat_set(sorted_unique_t,
++           InputIterator first,
++           InputIterator last,
++           const key_compare&amp;amp; comp,
++           const Allocator&amp;amp; a); // (18) C++26
+ 
+ // ____Rangeから構築____
+-
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-flat_set(from_range_t fr, R&amp;amp;&amp;amp; rg) // (19) C++23
++flat_set(from_range_t fr,
++         R&amp;amp;&amp;amp; rg)   // (19) C++23
+   : flat_set(fr, forward&amp;lt;R&amp;gt;(rg), key_compare()) { }
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  flat_set(from_range_t fr,
++           R&amp;amp;&amp;amp; rg) // (19) C++26
++    : flat_set(fr, forward&amp;lt;R&amp;gt;(rg), key_compare()) { }
+ 
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-flat_set(from_range_t, R&amp;amp;&amp;amp; rg, const key_compare&amp;amp; comp) // (20) C++23
++flat_set(from_range_t,
++         R&amp;amp;&amp;amp; rg,
++         const key_compare&amp;amp; comp)   // (20) C++23
++  : flat_set(comp) { insert_range(forward&amp;lt;R&amp;gt;(rg)); }
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  flat_set(from_range_t,
++           R&amp;amp;&amp;amp; rg,
++           const key_compare&amp;amp; comp) // (20) C++26
+   : flat_set(comp) { insert_range(forward&amp;lt;R&amp;gt;(rg)); }
+ 
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
+-flat_set(from_range_t, R&amp;amp;&amp;amp; rg, const Allocator&amp;amp; a); // (21) C++23
++flat_set(from_range_t,
++         R&amp;amp;&amp;amp; rg,
++         const Allocator&amp;amp; a);   // (21) C++23
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
++constexpr
++  flat_set(from_range_t,
++           R&amp;amp;&amp;amp; rg,
++           const Allocator&amp;amp; a); // (21) C++26
+ 
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
+-flat_set(from_range_t, R&amp;amp;&amp;amp; rg, const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (22) C++23
++flat_set(from_range_t,
++         R&amp;amp;&amp;amp; rg,
++         const key_compare&amp;amp; comp,
++         const Allocator&amp;amp; a);   // (22) C++23
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
++constexpr
++  flat_set(from_range_t,
++           R&amp;amp;&amp;amp; rg,
++           const key_compare&amp;amp; comp,
++           const Allocator&amp;amp; a); // (22) C++26
+ 
+ // ____initializer_listから構築____
+-
+-flat_set(initializer_list&amp;lt;value_type&amp;gt; il, const key_compare&amp;amp; comp = key_compare()) // (23) C++23
++flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
++         const key_compare&amp;amp; comp = key_compare())   // (23) C++23
+   : flat_set(il.begin(), il.end(), comp) { }
++constexpr
++  flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
++           const key_compare&amp;amp; comp = key_compare()) // (23) C++26
++    : flat_set(il.begin(), il.end(), comp) { }
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_set(initializer_list&amp;lt;value_type&amp;gt; il, const Allocator&amp;amp; a); // (24) C++23
++flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
++         const Allocator&amp;amp; a);   // (24) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
++           const Allocator&amp;amp; a); // (24) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_set(initializer_list&amp;lt;value_type&amp;gt; il, const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (25) C++23
++flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
++         const key_compare&amp;amp; comp,
++         const Allocator&amp;amp; a);   // (25) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
++           const key_compare&amp;amp; comp,
++           const Allocator&amp;amp; a); // (25) C++26
+ 
+ // ____initializer_list（ソート済み且つ重複なし）から構築____
+-
+-flat_set(sorted_unique_t s, initializer_list&amp;lt;value_type&amp;gt; il,
+-         const key_compare&amp;amp; comp = key_compare()) // (26) C++23
++flat_set(sorted_unique_t s,
++         initializer_list&amp;lt;value_type&amp;gt; il,
++         const key_compare&amp;amp; comp = key_compare())   // (26) C++23
++  : flat_set(s, il.begin(), il.end(), comp) { }
++constexpr
++  flat_set(sorted_unique_t s,
++           initializer_list&amp;lt;value_type&amp;gt; il,
++           const key_compare&amp;amp; comp = key_compare()) // (26) C++26
+   : flat_set(s, il.begin(), il.end(), comp) { }
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_set(sorted_unique_t, initializer_list&amp;lt;value_type&amp;gt; il, const Allocator&amp;amp; a); // (27) C++23
++flat_set(sorted_unique_t,
++         initializer_list&amp;lt;value_type&amp;gt; il,
++         const Allocator&amp;amp; a);   // (27) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(sorted_unique_t,
++           initializer_list&amp;lt;value_type&amp;gt; il,
++           const Allocator&amp;amp; a); // (27) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_set(sorted_unique_t, initializer_list&amp;lt;value_type&amp;gt; il,
+-         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (28) C++23
++flat_set(sorted_unique_t,
++         initializer_list&amp;lt;value_type&amp;gt; il,
++         const key_compare&amp;amp; comp,
++         const Allocator&amp;amp; a);   // (28) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_set(sorted_unique_t,
++           initializer_list&amp;lt;value_type&amp;gt; il,
++           const key_compare&amp;amp; comp,
++           const Allocator&amp;amp; a); // (28) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ * from_range_t[link ../../ranges/from_range_t.md]
+@@ -265,3 +429,7 @@ int main()
+ | 名前 | 説明 |
+ |---------------------------------------|--------------------------------------------|
+ | [`uses_allocator`](uses_allocator.md) | 指定されたアロケータと合致するかをチェックする |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_equal.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/op_equal.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/op_equal.md b/reference/flat_set/flat_set/op_equal.md
+index 83e8b60ed..5f282dac9 100644
+--- a/reference/flat_set/flat_set/op_equal.md
++++ b/reference/flat_set/flat_set/op_equal.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-friend bool operator==(const flat_set&amp;amp; x, const flat_set&amp;amp; y);
++friend bool operator==(const flat_set&amp;amp; x, const flat_set&amp;amp; y);           // (1) C++23
++constexpr friend bool operator==(const flat_set&amp;amp; x, const flat_set&amp;amp; y); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -69,3 +70,7 @@ true
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rbegin -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/rbegin.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/rbegin.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/rbegin.md b/reference/flat_set/flat_set/rbegin.md
+index f35e2e8f7..965b66261 100644
+--- a/reference/flat_set/flat_set/rbegin.md
++++ b/reference/flat_set/flat_set/rbegin.md
+@@ -6,8 +6,11 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-reverse_iterator rbegin() noexcept;
+-const_reverse_iterator rbegin() const noexcept;
++reverse_iterator rbegin() noexcept;           // (1) C++23
++constexpr reverse_iterator rbegin() noexcept; // (1) C++26
++
++const_reverse_iterator rbegin() const noexcept;           // (2) C++23
++constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -71,3 +74,7 @@ int main()
+ | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rend -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/rend.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/rend.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/rend.md b/reference/flat_set/flat_set/rend.md
+index 6ba74bfb3..b1cfaf4e9 100644
+--- a/reference/flat_set/flat_set/rend.md
++++ b/reference/flat_set/flat_set/rend.md
+@@ -6,8 +6,11 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-reverse_iterator rend() noexcept;
+-const_reverse_iterator rend() const noexcept;
++reverse_iterator rend() noexcept;           // (1) C++23
++constexpr reverse_iterator rend() noexcept; // (1) C++26
++
++const_reverse_iterator rend() const noexcept;           // (2) C++23
++constexpr const_reverse_iterator rend() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -64,3 +67,7 @@ int main()
+ | [`flat_set::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+ | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>replace -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/replace.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/replace.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/replace.md b/reference/flat_set/flat_set/replace.md
+index 6f992f913..544c8aa19 100644
+--- a/reference/flat_set/flat_set/replace.md
++++ b/reference/flat_set/flat_set/replace.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-void replace(container_type&amp;amp;&amp;amp; cont);  // C++23
++void replace(container_type&amp;amp;&amp;amp; cont);           // (1) C++23
++constexpr void replace(container_type&amp;amp;&amp;amp; cont); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -91,3 +92,7 @@ int main()
+ - [GCC](/implementation.md#gcc): ??
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/size.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/size.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/size.md b/reference/flat_set/flat_set/size.md
+index 43cd684b5..5fdfccbc5 100644
+--- a/reference/flat_set/flat_set/size.md
++++ b/reference/flat_set/flat_set/size.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-size_type size() const noexcept;
++size_type size() const noexcept;           // (1) C++23
++constexpr size_type size() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -67,3 +68,7 @@ int main ()
+ 
+ ## 関連項目
+ - [`empty()`](empty.md)
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/swap.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/swap.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/swap.md b/reference/flat_set/flat_set/swap.md
+index c0971d90f..a7c466de9 100644
+--- a/reference/flat_set/flat_set/swap.md
++++ b/reference/flat_set/flat_set/swap.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-void swap(flat_set&amp;amp; y) noexcept; // (1) C++23
++void swap(flat_set&amp;amp; y) noexcept;           // (1) C++23
++constexpr void swap(flat_set&amp;amp; y) noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -73,3 +74,7 @@ fs2 : {10, 20, 30}
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap (非メンバ関数) -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/swap_free.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/swap_free.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/swap_free.md b/reference/flat_set/flat_set/swap_free.md
+index a9efa2d0e..2c3b707d9 100644
+--- a/reference/flat_set/flat_set/swap_free.md
++++ b/reference/flat_set/flat_set/swap_free.md
+@@ -7,8 +7,13 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class Key, class Compare, class KeyContainer&amp;gt;
+-  void swap(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
+-            flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++23
++  void
++    swap(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
++         flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++23
++  template &amp;lt;class Key, class Compare, class KeyContainer&amp;gt;
++  constexpr void
++    swap(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
++         flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -74,3 +79,7 @@ fs2 : {10, 20, 30}
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>upper_bound -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/upper_bound.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/upper_bound.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/upper_bound.md b/reference/flat_set/flat_set/upper_bound.md
+index aaac5c6f4..e39898335 100644
+--- a/reference/flat_set/flat_set/upper_bound.md
++++ b/reference/flat_set/flat_set/upper_bound.md
+@@ -6,15 +6,21 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator upper_bound(const key_type&amp;amp; x);             // (1) C++23
++iterator upper_bound(const key_type&amp;amp; x);           // (1) C++23
++constexpr iterator upper_bound(const key_type&amp;amp; x); // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-iterator upper_bound(const K&amp;amp; x);                    // (2) C++23
++iterator upper_bound(const K&amp;amp; x);           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr iterator upper_bound(const K&amp;amp; x); // (2) C++26
+ 
+-const_iterator upper_bound(const key_type&amp;amp; x) const; // (3) C++23
++const_iterator upper_bound(const key_type&amp;amp; x) const;           // (3) C++23
++constexpr const_iterator upper_bound(const key_type&amp;amp; x) const; // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-const_iterator upper_bound(const K&amp;amp; x) const;        // (4) C++23
++const_iterator upper_bound(const K&amp;amp; x) const;           // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr const_iterator upper_bound(const K&amp;amp; x) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -119,3 +125,7 @@ David
+ | [`flat_set::equal_range`](equal_range.md) | 指定したキーにマッチする要素範囲を返す                   |
+ | [`flat_set::find`](find.md)               | 指定したキーで要素を探す                                 |
+ | [`flat_set::count`](count.md)             | 指定したキーにマッチする要素の数を返す                   |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>value_comp -- flat_set</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/value_comp.html"/>
+      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/value_comp.md</id>
+      <updated>2026-02-17T18:05:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/value_comp.md b/reference/flat_set/flat_set/value_comp.md
+index 510561792..623e826fe 100644
+--- a/reference/flat_set/flat_set/value_comp.md
++++ b/reference/flat_set/flat_set/value_comp.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-value_compare value_comp() const; // C++23
++value_compare value_comp() const;           // (1) C++23
++constexpr value_compare value_comp() const; // (1) C++26
+ ```
+ 
+ 
+@@ -63,3 +64,7 @@ int main()
+ | 名前                                | 説明                                                     |
+ |-------------------------------------|----------------------------------------------------------|
+ | [`key_comp`](key_comp.md)           | キー比較用の関数オブジェクトを取得する                      |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>erase_if -- flat_multiset</title>
@@ -7920,1290 +9683,6 @@ index 632d6228b..5810d54a2 100644
  - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
      - `noexcept` 追加の経緯となる提案文書
 +- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>C++23 -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/lang/cpp23.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:lang/cpp23.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++23&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;概要&lt;/h2&gt;
-&lt;p&gt;C++23とは、2023年中に改訂され、ISO/IEC 14882:2024で標準規格化されたC++バージョンの通称である。&lt;/p&gt;
-&lt;p&gt;このバージョンは、策定中のためC++2bと呼ばれることがある。「(C++20である2020年の次の) 202b年にリリースされる」という伏せ字として「b」が使われているが、3年周期に次のバージョンが策定されることが決まっているため、伏せ字になっている年数がずれることはない。&lt;/p&gt;
-&lt;h2&gt;言語機能&lt;/h2&gt;
-&lt;h3&gt;変数&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/literal_suffix_for_signed_size_t.html&#34;&gt;(符号付き)&lt;code&gt;size_t&lt;/code&gt;リテラルのためのサフィックス&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;42z&lt;/code&gt;/&lt;code&gt;42Z&lt;/code&gt;とすることで&lt;code&gt;size_t&lt;/code&gt;に対応する符号付き整数型のリテラルとする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/simpler_implicit_move.html&#34;&gt;暗黙的なムーブを簡略化&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;参照を返す関数の&lt;code&gt;return&lt;/code&gt;文で暗黙的にムーブされない問題を修正&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;これらに加えて、ライブラリ機能として拡張浮動小数点数型が定義された。&lt;code&gt;&lt;a href=&#34;../reference/stdfloat.html&#34;&gt;&amp;lt;stdfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;を参照。&lt;/p&gt;
-&lt;h3&gt;関数&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/declarations_and_where_to_find_them.md.nolink&#34;&gt;スコープと名前ルックアップの仕様整理&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/meaningful_exports.html&#34;&gt;無意味なexport宣言を禁止する&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;いくつかの不必要な宣言に対するモジュールexportを禁止する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;制御構文&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/extend_init_statement_to_allow_alias_declaration.html&#34;&gt;初期化文での型の別名宣言を許可&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;for (using T = int; T e : v) {}&lt;/code&gt;を許可&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/lifetime_extension_in_range_based_for_loop.html&#34;&gt;範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;範囲初期化子内で生じた一時オブジェクトは範囲for文の終わりまで延命される&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/labels_at_the_end_of_compound_statements.html&#34;&gt;複合文の末尾へのラベルを許可&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;C互換のため、複合文の末尾でのgoto文のラベルを許可する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;クラス&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/deducing_this.md.nolink&#34;&gt;自身のオブジェクトを明示的にパラメータとして指定する&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;メンバ関数が&lt;code&gt;*this&lt;/code&gt;の型・オブジェクトをパラメータとしてとり、&lt;code&gt;*this&lt;/code&gt;オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/make_declaration_order_layout_mandated.html&#34;&gt;アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;アクセス制御の異なるメンバ変数のレイアウトは並び替えを許可されていたが宣言順に規定する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/multidimensional_subscript_operator.html&#34;&gt;添字演算子の多次元サポート&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;operator[](int x, int y, int z)&lt;/code&gt;のように添字演算子のオーバーロードで複数のパラメータをとることを許可&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/static_operator.html&#34;&gt;&lt;code&gt;this&lt;/code&gt;ポインタをもつ必要のない演算子を&lt;code&gt;static&lt;/code&gt;として宣言できるようにする&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;状態をもたないいくつかの演算子を&lt;code&gt;static&lt;/code&gt;として宣言できるようにする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;文字列&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/mixed_string_literal_concatenation.html&#34;&gt;異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;auto a = u8&#34;&#34; L&#34;&#34;;&lt;/code&gt;のような異なる文字エンコーディング同士での文字列リテラルの連結を禁止する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/delimited_escape_sequences.html&#34;&gt;エスケープシーケンスの区切り&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;エスケープシーケンスの範囲を明確にする構文を追加する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink&#34;&gt;文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.html&#34;&gt;1ワイド文字に収まらないワイド文字リテラルを禁止する&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;エンコード結果として&lt;code&gt;wchar_t&lt;/code&gt;の大きさに収まらないワイド文字リテラルを禁止する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/named_universal_character_escapes.html&#34;&gt;名前付きユニバーサルキャラクタ名&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;テンプレート&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/generalized_wording_for_partial_specializations.html&#34;&gt;変数テンプレートの部分特殊化を許可&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/class_template_argument_deduction_from_inherited.html&#34;&gt;継承コンストラクタからのクラステンプレート引数の推論&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;継承コンストラクタからもクラステンプレート引数を推論できるようにする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;定数式&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cpp23/if_consteval.html&#34;&gt;if consteval&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;コンパイル時の文脈かどうかで分岐させる&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/narrowing_contextual_conversions_to_bool.html&#34;&gt;定数式の文脈での&lt;code&gt;bool&lt;/code&gt;への縮小変換を許可&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;if constexpr(flags &amp;amp; Flags::Exec)&lt;/code&gt;や&lt;code&gt;static_assert(N);&lt;/code&gt;を許可&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/non_literal_variables_in_constexpr_functions.html&#34;&gt;定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;コンパイル時に評価されない限り、定数式内に静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/character_encoding_of_diagnostic_text.html&#34;&gt;静的な診断メッセージの文字エンコーディング&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;static_assert&lt;/code&gt;や&lt;code&gt;[[deprecated]]&lt;/code&gt;などの診断メッセージの文字集合に関する要件をなくす&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/relaxing_some_constexpr_restrictions.html&#34;&gt;&lt;code&gt;constexpr&lt;/code&gt;関数が定数実行できない場合でも適格とする&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;定数式実行できない関数であっても、実際にコンパイル時に評価されない限り&lt;code&gt;constexpr&lt;/code&gt;指定することを許可する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/permitting_static_constexpr_variables_in_constexpr_functions.html&#34;&gt;&lt;code&gt;constexpr&lt;/code&gt;関数内での&lt;code&gt;static constexpr&lt;/code&gt;変数を許可&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;constexpr&lt;/code&gt;関数のローカルで定数を定義できるようにする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/consteval_needs_to_propagate_up.html&#34;&gt;&lt;code&gt;constexpr&lt;/code&gt;関数内で&lt;code&gt;consteval&lt;/code&gt;関数を呼び出せない問題を軽減&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;consteval&lt;/code&gt;呼び出しを含む&lt;code&gt;constexpr&lt;/code&gt;関数を条件付きで&lt;code&gt;consteval&lt;/code&gt;関数とみなすようにする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;ラムダ式&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/down_with_lambda_parens.html&#34;&gt;ラムダ式で&lt;code&gt;()&lt;/code&gt;を省略できる条件を緩和&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;修飾や戻り値型をともなってもパラメータリストが空であれば&lt;code&gt;()&lt;/code&gt;を省略できる&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/attributes_on_lambda_expressions.html&#34;&gt;ラムダ式に対する属性&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;ラムダ式のいくつかの箇所に属性を記述できるようにする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;属性&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/portable_assumptions.html&#34;&gt;コード内容の仮定をコンパイラに伝えるassume属性&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;最適化のために、コードの仮定をコンパイラに伝える属性を標準化する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;プリプロセッサ&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/consistent_character_literal_encoding.html&#34;&gt;文字リテラルエンコーディングを一貫させる&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.html&#34;&gt;&lt;code&gt;elif&lt;/code&gt;/&lt;code&gt;elifdef&lt;/code&gt;/&lt;code&gt;elifndef&lt;/code&gt;のサポートを追加&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;#if&lt;/code&gt;/&lt;code&gt;#ifdef&lt;/code&gt;/&lt;code&gt;#ifndef&lt;/code&gt;に対応する複数条件命令のサポートを追加する&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/warning.html&#34;&gt;&lt;code&gt;#warning&lt;/code&gt;のサポートを追加&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;多くのC++コンパイラが実装していたプリプロセス時の警告&lt;code&gt;#warning message&lt;/code&gt;を正式サポート&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/support_for_utf8_as_a_portable_source_file_encoding.html&#34;&gt;汎用的なソースコードのエンコーディングとしてUTF-8をサポート&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;すべてのコンパイラはUTF-8文字コードのソースコードをサポートしなければならない&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;小さな変更&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;言語機能&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/predefined_macros.html&#34;&gt;更新された定義済みマクロ&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;標準規格で定義されたマクロの更新&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/update_normative_reference_to_posix.html&#34;&gt;参照するPOSIX規格を更新&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;新しいPOSIX規格の機能を標準C++が参照していたため、参照するPOSIX規格のバージョンを更新&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;cpp23/trimming_whitespaces_before_line_splicing.html&#34;&gt;行末スペースを無視するよう規定&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;行末が「&lt;code&gt;\ &lt;/code&gt;」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;ライブラリ更新の概要&lt;/h2&gt;
-&lt;h3&gt;新ライブラリ&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;C++標準ライブラリ全体のモジュールとして&lt;code&gt;&lt;a href=&#34;../module/std.html&#34;&gt;std&lt;/a&gt;&lt;/code&gt;、C互換ライブラリ全体のモジュールとして&lt;code&gt;&lt;a href=&#34;../module/std.compat.html&#34;&gt;std.compat&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;スタックトレースを取得するためのライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/stacktrace.html&#34;&gt;&amp;lt;stacktrace&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;CとC++の間でのアトミック操作の相互運用のため、C互換ライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/stdatomic.h.html&#34;&gt;&amp;lt;stdatomic.h&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;外部から提供されるメモリバッファでストリーム処理を行うライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/spanstream.html&#34;&gt;&amp;lt;spanstream&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;正常値とエラー値のどちらかを持つクラスおよびライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/expected.html&#34;&gt;&amp;lt;expected&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;多次元配列ビューのライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/mdspan.html&#34;&gt;&amp;lt;mdspan&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;ノードベースではないソート済みキーによる順序付き連想コンテナのライブラリとして、&lt;code&gt;&lt;a href=&#34;../reference/flat_map.html&#34;&gt;&amp;lt;flat_map&amp;gt;&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/flat_set.html&#34;&gt;&amp;lt;flat_set&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;書式指定で出力するライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/print.html&#34;&gt;&amp;lt;print&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;コルーチンによるRangeの生成をサポートする&lt;code&gt;&lt;a href=&#34;../reference/generator.html&#34;&gt;&amp;lt;generator&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;拡張浮動小数点数のライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/stdfloat.html&#34;&gt;&amp;lt;stdfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;コンテナ&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/stack/stack.html&#34;&gt;std::stack&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/queue/queue.html&#34;&gt;std::queue&lt;/a&gt;&lt;/code&gt;に、イテレータのペアをとるコンストラクタを追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;auto v = std::vector(v, alloc);&lt;/code&gt;のようなアロケータ引数をともなう場合のクラステンプレートのテンプレート引数推論が動作しなかったため、各コンテナクラスのコンストラクタにおけるアロケータパラメータの型を&lt;code&gt;const Allocator&amp;amp;&lt;/code&gt;から&lt;code&gt;const &lt;a href=&#34;../reference/type_traits/type_identity.html&#34;&gt;std::type_identity_t&lt;/a&gt;&amp;lt;Allocator&amp;gt;&amp;amp;&lt;/code&gt;に修正し、コンテナアダプタの推論補助の制約を修正&lt;/li&gt;
-&lt;li&gt;N要素のメモリアロケート時にアロケータが実際にどれくらいのメモリを確保したかを得られるインタフェースとして、&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator.html&#34;&gt;std::allocator&lt;/a&gt;&lt;/code&gt;クラスに、&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator/allocate_at_least.html&#34;&gt;allocate_at_least()&lt;/a&gt;&lt;/code&gt;メンバ関数を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator_traits.html&#34;&gt;std::allocator_traits&lt;/a&gt;&lt;/code&gt;クラスに、&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator_traits/allocate_at_least.html&#34;&gt;allocate_at_least()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/pair.html&#34;&gt;std::pair&lt;/a&gt;&lt;/code&gt;の転送コンストラクタにデフォルトテンプレート引数を追加することで、&lt;code&gt;{}&lt;/code&gt;のような型推論ができない引数を渡した場合でも完全転送が行われるよう修正&lt;/li&gt;
-&lt;li&gt;順序付き連想コンテナの要素削除の処理について、一時オブジェクトのコストを抑える拡張が行われた&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/map/map/erase.html&#34;&gt;std::map::erase()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/map/map/extract.html&#34;&gt;std::map::extract()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;に、複数の範囲を綴じ合わせる&lt;code&gt;&lt;a href=&#34;../reference/ranges/zip_view.html&#34;&gt;std::views::zip&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;に、複数の範囲の直積をとる&lt;code&gt;&lt;a href=&#34;../reference/ranges/cartesian_product_view.html&#34;&gt;std::views::cartesian_product&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;Rangeから任意のコンテナに変換するRangeアダプタ&lt;code&gt;&lt;a href=&#34;../reference/ranges/to.html&#34;&gt;std::ranges::to()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;Rangeから任意のコンテナに変換するために、可変長のコンテナ (&lt;code&gt;&lt;a href=&#34;../reference/array/array.html&#34;&gt;std::array&lt;/a&gt;&lt;/code&gt;以外) に、以下の機能を追加：&lt;ul&gt;
-&lt;li&gt;Rangeから変換するコンストラクタ&lt;/li&gt;
-&lt;li&gt;Rangeを挿入する&lt;code&gt;insert_range()&lt;/code&gt;メンバ関数&lt;/li&gt;
-&lt;li&gt;Rangeを先頭に追加する&lt;code&gt;prepend_range()&lt;/code&gt;メンバ関数&lt;/li&gt;
-&lt;li&gt;Rangeを末尾に追加する&lt;code&gt;append_range()&lt;/code&gt;メンバ関数&lt;/li&gt;
-&lt;li&gt;Rangeを代入する&lt;code&gt;assign_range()&lt;/code&gt;メンバ関数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;ユーザー定義のRangeアダプタがパイプライン演算子 &lt;code&gt;|&lt;/code&gt; をサポートしやすくするために、&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;に&lt;code&gt;&lt;a href=&#34;../reference/ranges/range_adaptor_closure.html&#34;&gt;std::ranges::range_adaptor_closure&lt;/a&gt;&lt;/code&gt;クラスを追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;に、Rangeを連結させる&lt;code&gt;&lt;a href=&#34;../reference/ranges/join_with_view.html&#34;&gt;join_with&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;Rangeを指定の大きさで分割する&lt;code&gt;&lt;a href=&#34;../reference/ranges/chunk_view.html&#34;&gt;std::views::chunk&lt;/a&gt;&lt;/code&gt;と、Rangeを指定の大きさの隣接要素で分割する&lt;code&gt;&lt;a href=&#34;../reference/ranges/slide_view.html&#34;&gt;std::views::slide&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;Rangeを条件一致する間の要素で分割する&lt;code&gt;&lt;a href=&#34;../reference/ranges/chunk_by_view.html&#34;&gt;std::views::chunk_by&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;に、Rangeを等間隔からなるRangeに変換する&lt;code&gt;&lt;a href=&#34;../reference/ranges/stride_view.html&#34;&gt;std::views::stride&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;に、Rangeをムーブするための&lt;code&gt;&lt;a href=&#34;../reference/ranges/as_rvalue_view.html&#34;&gt;std::views::as_rvalue&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;に、指定した値をN回繰り返すRangeを生成する&lt;code&gt;&lt;a href=&#34;../reference/ranges/repeat_view.html&#34;&gt;std::views::repeat&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;に、Rangeをインデックス付きでループさせる&lt;code&gt;&lt;a href=&#34;../reference/ranges/enumerate_view.html&#34;&gt;std::views::enumerate&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;アルゴリズム&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;に、範囲の先頭が指定した範囲と合致するかを判定する&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_starts_with.html&#34;&gt;std::ranges::starts_with()&lt;/a&gt;&lt;/code&gt;、範囲の末尾が指定した範囲と合致するかを判定する&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_ends_with.html&#34;&gt;std::ranges::ends_with()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;に、要素を左シフトさせるRangeアルゴリズム&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_shift_left.html&#34;&gt;std::ranges::shift_left()&lt;/a&gt;&lt;/code&gt;、要素を右シフトさせるRangeアルゴリズム&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_shift_right.html&#34;&gt;std::ranges::shift_right()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;に、範囲の末尾から要素を検索する以下のアルゴリズムを追加：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_find_last.html&#34;&gt;std::ranges::find_last()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_find_last_if.html&#34;&gt;std::ranges::find_last_if()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_find_last_if_not.html&#34;&gt;std::ranges::find_last_if_not()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;に、範囲に特定の値が含まれているかを判定する&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_contains.html&#34;&gt;std::ranges::contains()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_contains_subrange.html&#34;&gt;std::ranges::contains_subrange&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;に、数値に限定しない汎用的な畳み込みアルゴリズムとして、以下を追加：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_fold_left.html&#34;&gt;std::ranges::fold_left()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_fold_left_first.html&#34;&gt;std::ranges::fold_left_first()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_fold_right.html&#34;&gt;std::ranges::fold_right()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_fold_right_last.html&#34;&gt;std::ranges::fold_right_last()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_fold_left_with_iter.html&#34;&gt;std::ranges::fold_left_with_iter()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm/ranges_fold_left_first_with_iter.html&#34;&gt;std::ranges::fold_left_first_with_iter()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;に、連番を生成するRangeアルゴリズム&lt;code&gt;&lt;a href=&#34;../reference/numeric/ranges_iota.html&#34;&gt;std::ranges::iota()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;文字列&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string.html&#34;&gt;std::basic_string&lt;/a&gt;&lt;/code&gt;クラスと&lt;code&gt;&lt;a href=&#34;../reference/string_view/basic_string_view.html&#34;&gt;std::basic_string_view&lt;/a&gt;&lt;/code&gt;クラスに、文字列内に指定した文字・文字列が含まれているかを判定するメンバ関数&lt;code&gt;contains()&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/string_view/basic_string_view.html&#34;&gt;std::basic_string_view&lt;/a&gt;&lt;/code&gt;のコンストラクタに、範囲をとるオーバーロードを追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;std::string s = nullptr;&lt;/code&gt;のような文字列オブジェクトに&lt;code&gt;nullptr&lt;/code&gt;を代入するようなコードはバグの元であるため、&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string.html&#34;&gt;std::basic_string&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/string_view/basic_string_view.html&#34;&gt;std::basic_string_view&lt;/a&gt;&lt;/code&gt;に、&lt;code&gt;&lt;a href=&#34;../reference/cstddef/nullptr_t.html&#34;&gt;nullptr_t&lt;/a&gt;&lt;/code&gt;をとるコンストラクタをdelete定義として追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string.html&#34;&gt;std::basic_string&lt;/a&gt;&lt;/code&gt;クラスに、resize時に任意の初期化を行う&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string/resize_and_overwrite.html&#34;&gt;resize_and_overwrite()&lt;/a&gt;&lt;/code&gt;メンバ関数を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string.html&#34;&gt;std::basic_string&lt;/a&gt;&lt;/code&gt;クラスのコンストラクタと&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string/substr.html&#34;&gt;substr()&lt;/a&gt;&lt;/code&gt;メンバ関数に一時オブジェクトのオーバーロードを追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/format/format.html&#34;&gt;std::format()&lt;/a&gt;&lt;/code&gt;関数でRange・コンテナ、&lt;code&gt;&lt;a href=&#34;../reference/tuple/tuple.html&#34;&gt;std::tuple&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/utility/pair.html&#34;&gt;std::pair&lt;/a&gt;&lt;/code&gt;を出力できるよう、&lt;code&gt;&lt;a href=&#34;../reference/format/formatter.html&#34;&gt;std::formatter&lt;/a&gt;&lt;/code&gt;に特殊化を追加&lt;ul&gt;
-&lt;li&gt;Range・シーケンスコンテナは&lt;code&gt;[1, 2, 3]&lt;/code&gt;、&lt;code&gt;[&#34;hello&#34;, &#34;world&#34;]&lt;/code&gt;、&lt;code&gt;[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]&lt;/code&gt;のように出力される&lt;/li&gt;
-&lt;li&gt;連想コンテナの場合、&lt;code&gt;std::map&amp;lt;int, int&amp;gt;{{1, 2}, {3, 4}}&lt;/code&gt;は&lt;code&gt;{1: 2, 3: 4}&lt;/code&gt;のように出力され、&lt;code&gt;std::set&amp;lt;int&amp;gt;{1, 2, 3}&lt;/code&gt;は&lt;code&gt;{1, 2, 3}&lt;/code&gt;のように出力される&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/tuple/tuple.html&#34;&gt;std::tuple&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/utility/pair.html&#34;&gt;std::pair&lt;/a&gt;&lt;/code&gt;は&lt;code&gt;(1, 2)&lt;/code&gt;のように出力される&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/format/format.html&#34;&gt;std::format()&lt;/a&gt;&lt;/code&gt;関数のフォーマット指定子としてデバッグ指定「&lt;code&gt;&#34;?&#34;&lt;/code&gt;」を追加。これは文字・文字列を引用符で囲み、エスケープシーケンスをエスケープする&lt;ul&gt;
-&lt;li&gt;ただし、Range・コンテナ中の文字・文字列はデフォルトでエスケープされる&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;format(&#34;{:?}&#34;, &#34;h\tello&#34;)&lt;/code&gt;は&lt;code&gt;&#34;h\tello&#34;&lt;/code&gt;のように出力される&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;入出力&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ostream/basic_ostream.html&#34;&gt;std::basic_ostream&lt;/a&gt;&lt;/code&gt;クラスの&lt;code&gt;&lt;a href=&#34;../reference/ostream/basic_ostream/op_ostream.html&#34;&gt;operator&amp;lt;&amp;lt;&lt;/a&gt;&lt;/code&gt;に、&lt;code&gt;const volatile void*&lt;/code&gt;をとるオーバーロードを追加&lt;/li&gt;
-&lt;li&gt;ファイルを開く際のオプションとして、排他モードを表す&lt;code&gt;&lt;a href=&#34;../reference/ios/ios_base/type-openmode.html&#34;&gt;noreplace&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;関数オブジェクト&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/invoke.html&#34;&gt;std::invoke()&lt;/a&gt;&lt;/code&gt;の戻り値型を指定するバージョンである&lt;code&gt;&lt;a href=&#34;../reference/functional/invoke_r.html&#34;&gt;std::invoke_r()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/function.html&#34;&gt;std::function&lt;/a&gt;&lt;/code&gt;クラスと等価な機能をもつ、ムーブのみ可能な&lt;code&gt;&lt;a href=&#34;../reference/functional/move_only_function.html&#34;&gt;std::move_only_function&lt;/a&gt;&lt;/code&gt;クラスを追加&lt;/li&gt;
-&lt;li&gt;ユーザー定義のRangeアダプタがパイプライン演算子 &lt;code&gt;|&lt;/code&gt; をサポートしやすくするために、末尾から引数を束縛する&lt;code&gt;&lt;a href=&#34;../reference/functional/bind_back.html&#34;&gt;std::bind_back()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;メモリ&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;に、レガシーC関数からスマートポインタへの直接出力をサポートする、スマートポインタアダプタ&lt;code&gt;&lt;a href=&#34;../reference/memory/out_ptr.html&#34;&gt;std::out_ptr&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/memory/inout_ptr.html&#34;&gt;std::inout_ptr&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/unique_ptr.html&#34;&gt;std::unique_ptr&lt;/a&gt;&lt;/code&gt;クラスを&lt;code&gt;constexpr&lt;/code&gt;に対応&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;に、オブジェクトの生存期間を開始することを明示する関数として、&lt;code&gt;&lt;a href=&#34;../reference/memory/start_lifetime_as.html&#34;&gt;std::start_lifetime_as()&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/memory/start_lifetime_as_array.html&#34;&gt;std::start_lifetime_as_array()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;に、値のバイト入れ替え (エンディアン変換) を行う&lt;code&gt;&lt;a href=&#34;../reference/bit/byteswap.html&#34;&gt;std::byteswap()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;ユーティリティ&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/variant/visit.html&#34;&gt;std::visit()&lt;/a&gt;&lt;/code&gt;に指定できるバリアントオブジェクトを、直接的な「&lt;code&gt;&lt;a href=&#34;../reference/variant/variant.html&#34;&gt;std::variant&lt;/a&gt;&lt;/code&gt;型の特殊化であること」という制約を緩和し、&lt;code&gt;&lt;a href=&#34;../reference/variant/variant.html&#34;&gt;std::variant&lt;/a&gt;&lt;/code&gt;から派生した型も許可&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;に、列挙値を基底型に変換する&lt;code&gt;&lt;a href=&#34;../reference/utility/to_underlying.html&#34;&gt;std::to_underlying()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;に、 (主に) メンバ変数を転送するため、指定された型の&lt;code&gt;const&lt;/code&gt;性と参照修飾で引数を転送する&lt;code&gt;&lt;a href=&#34;../reference/utility/forward_like.html&#34;&gt;std::forward_like()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/optional/optional.html&#34;&gt;std::optional&lt;/a&gt;&lt;/code&gt;クラスにモナド操作としてメンバ関数&lt;code&gt;&lt;a href=&#34;../reference/optional/optional/and_then.html&#34;&gt;and_then()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/optional/optional/transform.html&#34;&gt;transform()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/optional/optional/or_else.html&#34;&gt;or_else()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;到達しないパスであることを表明する関数&lt;code&gt;&lt;a href=&#34;../reference/utility/unreachable.html&#34;&gt;std::unreachable()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/bitset/bitset.html&#34;&gt;std::bitset&lt;/a&gt;&lt;/code&gt;クラスをさらに&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;型情報&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/typeinfo/type_info.html&#34;&gt;std::type_info&lt;/a&gt;&lt;/code&gt;クラスの&lt;code&gt;&lt;a href=&#34;../reference/typeinfo/type_info/op_equal.html&#34;&gt;operator==&lt;/a&gt;&lt;/code&gt;を&lt;code&gt;constexpr&lt;/code&gt;に対応&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;型特性&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、スコープ付き列挙型かを判定する型特性&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_scoped_enum.html&#34;&gt;std::is_scoped_enum&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、一時オブジェクトの参照への束縛を検出するための型特性として、以下を追加：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits/reference_constructs_from_temporary.html&#34;&gt;std::reference_constructs_from_temporary&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits/reference_converts_from_temporary.html&#34;&gt;std::reference_converts_from_temporary&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、暗黙的に構築される型かを判定する型特性&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_implicit_lifetime.html&#34;&gt;std::is_implicit_lifetime&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;C互換ライブラリ&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/cstdlib.html&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/a&gt;&lt;/code&gt;ヘッダと&lt;code&gt;&lt;a href=&#34;../reference/cmath.html&#34;&gt;&amp;lt;cmath&amp;gt;&lt;/a&gt;&lt;/code&gt;ヘッダの多くの関数を&lt;code&gt;constexpr&lt;/code&gt;に対応&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;機能の非推奨化&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits/aligned_storage.html&#34;&gt;std::aligned_storage&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/type_traits/aligned_union.html&#34;&gt;std::aligned_union&lt;/a&gt;&lt;/code&gt;を非推奨化。これらの機能は未定義動作を引き起こし、間違った保証が行われ、よくないAPI設計が行われていたため、非推奨とする&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits/aligned_storage.html&#34;&gt;std::aligned_storage&lt;/a&gt;&lt;/code&gt;の代わりに&lt;code&gt;alignas(T) &lt;a href=&#34;../reference/cstddef/byte.html&#34;&gt;std::byte&lt;/a&gt;[sizeof(T)];&lt;/code&gt;を使用することを推奨する&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits/aligned_union.html&#34;&gt;std::aligned_union&lt;/a&gt;&lt;/code&gt;の代わりに&lt;code&gt;alignas(Ts...) &lt;a href=&#34;../reference/cstddef/byte.html&#34;&gt;std::byte&lt;/a&gt;[&lt;a href=&#34;../reference/algorithm/max.html&#34;&gt;std::max&lt;/a&gt;({sizeof(Ts)...})];&lt;/code&gt;を使用することを推奨する&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator.html&#34;&gt;std::allocator&lt;/a&gt;&lt;/code&gt;のメンバ型&lt;code&gt;is_always_equal&lt;/code&gt;を非推奨化。これはアロケータが状態をもたないことを表す型でありデフォルトでは&lt;code&gt;&lt;a href=&#34;../reference/type_traits/true_type.html&#34;&gt;true_type&lt;/a&gt;&lt;/code&gt;となっている。状態をもつユーザー定義のアロケータ型でこのメンバ型の上書きを忘れることでバグが埋め込まれてしまっていたため誤用防止のために非推奨とする&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/limits.html&#34;&gt;&amp;lt;limits&amp;gt;&lt;/a&gt;&lt;/code&gt;の以下の非正規化数に関する機能を非推奨化。これらの機能は必ずしもコンパイル時に決まらない可能性のある値であり有用でないため、非推奨とする&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/limits/numeric_limits.html&#34;&gt;std::numeric_limits&lt;/a&gt;::&lt;a href=&#34;../reference/limits/numeric_limits/has_denorm.html&#34;&gt;has_denorm&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/limits/numeric_limits.html&#34;&gt;std::numeric_limits&lt;/a&gt;::&lt;a href=&#34;../reference/limits/numeric_limits/has_denorm_loss.html&#34;&gt;has_denorm_loss&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/limits/float_denorm_style.html&#34;&gt;std::float_denorm_style&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;機能の削除&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;ガベージコレクションの実装にうまく役立てられなかった、ガベージコレクション実装のサポートをする以下の機能を削除する：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/declare_reachable.html&#34;&gt;std::declare_reachable()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/undeclare_reachable.html&#34;&gt;std::undeclare_reachable()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/declare_no_pointers.html&#34;&gt;std::declare_no_pointers()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/undeclare_no_pointers.html&#34;&gt;std::undeclare_no_pointers()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/get_pointer_safety.html&#34;&gt;std::get_pointer_safety()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/pointer_safety.html&#34;&gt;std::pointer_safety&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;cpp11/predefined_macros.html&#34;&gt;&lt;code&gt;__STDCPP_STRICT_POINTER_SAFETY__&lt;/code&gt;マクロ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;取り決め&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;以下のヘッダの一部機能をフリースタンディングライブラリとして追加：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/tuple.html&#34;&gt;&amp;lt;tuple&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ratio.html&#34;&gt;&amp;lt;ratio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/deque/deque/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/deque/deque/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/deque/deque/op_constructor.md b/reference/deque/deque/op_constructor.md
-index 726534f06..b86a698ed 100644
---- a/reference/deque/deque/op_constructor.md
-+++ b/reference/deque/deque/op_constructor.md
-@@ -26,8 +26,12 @@ deque(InputIterator first, InputIterator last,
- 
- deque(const deque&amp;amp; x);                            // (6)
- deque(deque&amp;amp;&amp;amp; y);                                 // (7) C++11 から
--deque(const deque&amp;amp; x, const Allocator&amp;amp; a);        // (8) C++11 から
--deque(deque&amp;amp;&amp;amp; y, const Allocator&amp;amp; a);             // (9) C++11 から
-+deque(const deque&amp;amp; x, const Allocator&amp;amp; a);                  // (8) C++11
-+deque(const deque&amp;amp; x,
-+      const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);                 // (8) C++23
-+
-+deque(deque&amp;amp;&amp;amp; y, const Allocator&amp;amp; a);                       // (9) C++11
-+deque(deque&amp;amp;&amp;amp; y, const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);      // (9) C++23
- 
- deque(initializer_list&amp;lt;T&amp;gt; il,
-       const Allocator&amp;amp; a = Allocator());          // (10) C++11 から
-@@ -36,6 +40,7 @@ template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
- deque(from_range_t, R&amp;amp;&amp;amp; rg,
-       const Allocator&amp;amp; a = Allocator());          // (11) C++23 から
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -111,6 +116,9 @@ deque(from_range_t, R&amp;amp;&amp;amp; rg,
-     * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
-     * emplace_back[link ../../list/list/emplace_back.md]
- 
-+- C++23 では、(8) と (9) のアロケータパラメータの型が `const Allocator&amp;amp;` から `const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp;` に変更された。
-+	これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `deque` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## 例
- ```cpp example
-@@ -185,3 +193,5 @@ c7 : {1 2 3 }
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
- 	`explicit deque(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
- 	なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/forward_list/forward_list/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/forward_list/forward_list/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/forward_list/forward_list/op_constructor.md b/reference/forward_list/forward_list/op_constructor.md
-index f606138eb..4d6c1bd27 100644
---- a/reference/forward_list/forward_list/op_constructor.md
-+++ b/reference/forward_list/forward_list/op_constructor.md
-@@ -27,8 +27,13 @@ forward_list(InputIterator first,
- forward_list(const forward_list&amp;amp; x);                     // (6) C++11
- forward_list(forward_list&amp;amp;&amp;amp; x);                          // (7) C++11
- 
--forward_list(const forward_list&amp;amp; x, const Allocator&amp;amp; a); // (8) C++11
--forward_list(forward_list&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);      // (9) C++11
-+forward_list(const forward_list&amp;amp; x, const Allocator&amp;amp; a);            // (8) C++11
-+forward_list(const forward_list&amp;amp; x,
-+             const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);                  // (8) C++23
-+
-+forward_list(forward_list&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);                // (9) C++11
-+forward_list(forward_list&amp;amp;&amp;amp; x,
-+             const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);                  // (9) C++23
- 
- forward_list(initializer_list&amp;lt;T&amp;gt; il,
-              const Allocator&amp;amp; a = Allocator());          // (10) C++11
-@@ -37,6 +42,7 @@ template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
- forward_list(from_range_t, R&amp;amp;&amp;amp; rg,
-              const Allocator&amp;amp; a = Allocator());          // (11) C++23
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -104,6 +110,9 @@ forward_list(from_range_t, R&amp;amp;&amp;amp; rg,
-     * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
-     * emplace_back[link ../../list/list/emplace_back.md]
- 
-+- C++23 では、(8) と (9) のアロケータパラメータの型が `const Allocator&amp;amp;` から `const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `forward_list` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## 例
- ```cpp example
-@@ -191,3 +200,5 @@ ls7 : 1 2 3
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     `explicit forward_list(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/list/list/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_constructor.md b/reference/list/list/op_constructor.md
-index 3b8c119e0..1190ba23e 100644
---- a/reference/list/list/op_constructor.md
-+++ b/reference/list/list/op_constructor.md
-@@ -24,8 +24,12 @@ list(InputIterator first, InputIterator last,
- 
- list(const list&amp;amp; x);                             // (6)
- list(list&amp;amp;&amp;amp; x);                                  // (7) C++11 から
--list(const list&amp;amp; x, const Allocator&amp;amp; a);         // (8) C++11 から
--list(list&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);              // (9) C++11 から
-+list(const list&amp;amp; x, const Allocator&amp;amp; a);                    // (8) C++11
-+list(const list&amp;amp; x,
-+     const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);                  // (8) C++23
-+
-+list(list&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);                         // (9) C++11
-+list(list&amp;amp;&amp;amp; x, const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);        // (9) C++23
- 
- list(initializer_list&amp;lt;T&amp;gt; il,
-      const Allocator&amp;amp; a = Allocator());          // (10) C++11 から
-@@ -34,6 +38,7 @@ template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
- list(from_range_t, R&amp;amp;&amp;amp; rg,
-      const Allocator&amp;amp; a = Allocator());          // (11) C++23 から
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link /reference/ranges/from_range_t.md]
- 
-@@ -100,6 +105,9 @@ list オブジェクトの構築
-     * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
-     * v.emplace_back[link /reference/vector/vector/emplace_back.md]
- 
-+- C++23 では、(8) と (9) のアロケータパラメータの型が `const Allocator&amp;amp;` から `const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp;` に変更された。
-+	これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `list` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## 例
- ```cpp example
-@@ -173,3 +181,5 @@ ls7 : 1 2 3
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
- 	`explicit list(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
- 	なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/map/map/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/map/map/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/map/op_constructor.md b/reference/map/map/op_constructor.md
-index ab10b55cf..cddd74bc3 100644
---- a/reference/map/map/op_constructor.md
-+++ b/reference/map/map/op_constructor.md
-@@ -28,11 +28,14 @@ map(InputIterator first,
- 
- map(const map&amp;amp; x);                                     // (6)
- 
--map(const map&amp;amp; x, const Allocator&amp;amp; alloc);             // (7) C++11 から
-+map(const map&amp;amp; x, const Allocator&amp;amp; alloc);                  // (7) C++11
-+map(const map&amp;amp; x,
-+    const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);               // (7) C++23
- 
--map(map&amp;amp;&amp;amp; y);                                          // (8) C++11 から
-+map(map&amp;amp;&amp;amp; y);                                               // (8) C++11 から
- 
--map(map&amp;amp;&amp;amp; y, const Allocator&amp;amp; alloc);                  // (9) C++11 から
-+map(map&amp;amp;&amp;amp; y, const Allocator&amp;amp; alloc);                       // (9) C++11
-+map(map&amp;amp;&amp;amp; y, const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);      // (9) C++23
- 
- map(initializer_list&amp;lt;value_type&amp;gt; init,
-     const Compare&amp;amp; comp = Compare(),
-@@ -50,6 +53,7 @@ template &amp;lt;container-compatible-range &amp;lt;value_type&amp;gt; R&amp;gt;
- map(from_range_t, R&amp;amp;&amp;amp; rg,
-     const Allocator&amp;amp; alloc);                           // (13) C++23 から
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link ../../initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -120,6 +124,9 @@ map(from_range_t, R&amp;amp;&amp;amp; rg,
-     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
-     （`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）
- 
-+- C++23 では、(7) と (9) のアロケータパラメータの型が `const Allocator&amp;amp;` から `const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `map` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- ## 例
- ```cpp example
- #include &amp;lt;iostream&amp;gt;
-@@ -167,3 +174,5 @@ Size of m2: 2
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     (5), (11) を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/map/multimap/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/map/multimap/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/multimap/op_constructor.md b/reference/map/multimap/op_constructor.md
-index 4a4ce3067..f34c41356 100644
---- a/reference/map/multimap/op_constructor.md
-+++ b/reference/map/multimap/op_constructor.md
-@@ -29,12 +29,16 @@ multimap(InputIterator first,
- multimap(const multimap&amp;amp; x);                             // (6)
- 
- multimap(const multimap&amp;amp; x,
--         const Allocator&amp;amp; alloc);                        // (7) C++11 から
-+         const Allocator&amp;amp; alloc);                             // (7) C++11
-+multimap(const multimap&amp;amp; x,
-+         const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);            // (7) C++23
- 
--multimap(multimap&amp;amp;&amp;amp; y);                                  // (8) C++11 から
-+multimap(multimap&amp;amp;&amp;amp; y);                                       // (8) C++11 から
- 
- multimap(multimap&amp;amp;&amp;amp; y,
--         const Allocator&amp;amp; alloc);                        // (9) C++11 から
-+         const Allocator&amp;amp; alloc);                             // (9) C++11
-+multimap(multimap&amp;amp;&amp;amp; y,
-+         const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);            // (9) C++23
- 
- multimap(initializer_list&amp;lt;value_type&amp;gt; init,
-          const Compare&amp;amp; comp = Compare(),
-@@ -52,6 +56,7 @@ template &amp;lt;container-compatible-range &amp;lt;value_type&amp;gt; R&amp;gt;
- multimap(from_range_t, R&amp;amp;&amp;amp; rg,
-          const Allocator&amp;amp; alloc);                        // (13) C++23 から
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link ../../initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -123,6 +128,9 @@ multimap(from_range_t, R&amp;amp;&amp;amp; rg,
-     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
-     （`multimap(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `multimap` が構築され、`alloc` と共に (9) の形式に引き渡される）
- 
-+- C++23 では、(7) と (9) のアロケータパラメータの型が `const Allocator&amp;amp;` から `const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `multimap` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## 例
- ```cpp example
-@@ -170,3 +178,5 @@ Size of m2: 3
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     (5), (11) の形式を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>推論補助 -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/queue/priority_queue/op_deduction_guide.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/queue/priority_queue/op_deduction_guide.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/priority_queue/op_deduction_guide.md b/reference/queue/priority_queue/op_deduction_guide.md
-index 00006c654..9b8f6e81a 100644
---- a/reference/queue/priority_queue/op_deduction_guide.md
-+++ b/reference/queue/priority_queue/op_deduction_guide.md
-@@ -77,6 +77,16 @@ template &amp;lt;class Compare, class Container&amp;gt;
- - (9) : Rangeとアロケータから推論する
- 
- 
-+## 適格要件
-+以下のいずれかの条件を満たす場合、コンテナアダプタの推論補助はオーバーロード解決に参加しない：
-+
-+- `InputIterator`テンプレートパラメータをもち、入力イテレータの要件を満たさない型が推論された場合
-+- `Compare`テンプレートパラメータをもち、アロケータとして適格な型が推論された場合 (C++23)
-+- `Container`テンプレートパラメータをもち、アロケータとして適格な型が推論された場合 (C++23)
-+- `Container`テンプレートパラメータをもたず、`Allocator`テンプレートパラメータをもち、アロケータとして適格でない型が推論された場合 (C++23)
-+- `Container`と`Allocator`の両方のテンプレートパラメータをもち、[`uses_allocator_v`](/reference/memory/uses_allocator.md)`&amp;lt;Container, Allocator&amp;gt;`が`false`の場合
-+
-+
- ## 例
- ```cpp example
- #include &amp;lt;queue&amp;gt;
-@@ -120,3 +130,5 @@ int main()
- 
- ## 参照
- - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23での推論補助の制約についての変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>推論補助 -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_deduction_guide.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/queue/queue/op_deduction_guide.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_deduction_guide.md b/reference/queue/queue/op_deduction_guide.md
-index fc38ce514..ea07facef 100644
---- a/reference/queue/queue/op_deduction_guide.md
-+++ b/reference/queue/queue/op_deduction_guide.md
-@@ -51,6 +51,15 @@ namespace std {
- - (6) : Rangeとアロケータからの推論する。
- 
- 
-+## 適格要件
-+以下のいずれかの条件を満たす場合、コンテナアダプタの推論補助はオーバーロード解決に参加しない：
-+
-+- `InputIterator`テンプレートパラメータをもち、入力イテレータの要件を満たさない型が推論された場合
-+- `Container`テンプレートパラメータをもち、アロケータとして適格な型が推論された場合 (C++23)
-+- `Container`テンプレートパラメータをもたず、`Allocator`テンプレートパラメータをもち、アロケータとして適格でない型が推論された場合 (C++23)
-+- `Container`と`Allocator`の両方のテンプレートパラメータをもち、[`uses_allocator_v`](/reference/memory/uses_allocator.md)`&amp;lt;Container, Allocator&amp;gt;`が`false`の場合
-+
-+
- ## 例
- ```cpp example
- #include &amp;lt;iostream&amp;gt;
-@@ -104,3 +113,5 @@ int main()
- - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
- - [P1425R4 Iterators pair constructors for stack and queue](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1425r4.pdf)
-     - C++23でのイテレータペアへの対応
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23での推論補助の制約についての変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/set/multiset/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_constructor.md b/reference/set/multiset/op_constructor.md
-index 030e04eaf..5f80bb239 100644
---- a/reference/set/multiset/op_constructor.md
-+++ b/reference/set/multiset/op_constructor.md
-@@ -27,8 +27,13 @@ multiset(InputIterator first, InputIterator last,
- multiset(const set&amp;amp; x);                                  // (6) C++03
- multiset(set&amp;amp;&amp;amp; y);                                       // (7) C++11
- 
--multiset(const set&amp;amp; x, const Allocator&amp;amp; alloc);          // (8) C++11
--multiset(set&amp;amp;&amp;amp; y, const Allocator&amp;amp; alloc);               // (9) C++11
-+multiset(const multiset&amp;amp; x, const Allocator&amp;amp; alloc);            // (8) C++11
-+multiset(const multiset&amp;amp; x,
-+         const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);              // (8) C++23
-+
-+multiset(multiset&amp;amp;&amp;amp; y, const Allocator&amp;amp; alloc);                 // (9) C++11
-+multiset(multiset&amp;amp;&amp;amp; y,
-+         const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);              // (9) C++23
- 
- multiset(initializer_list&amp;lt;value_type&amp;gt; init,
-          const Compare&amp;amp; comp = Compare(),
-@@ -46,6 +51,7 @@ template &amp;lt;container-compatible-range &amp;lt;value_type&amp;gt; R&amp;gt;
- multiset(from_range_t, R&amp;amp;&amp;amp; rg,
-          const Allocator&amp;amp; alloc);                        // (13) C++23
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link ../../initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -113,6 +119,9 @@ multiset(from_range_t, R&amp;amp;&amp;amp; rg,
-     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
-     （`multiset(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `multiset` が構築され、`alloc` と共に (9) の形式に引き渡される）
- 
-+- C++23 では、(8) と (9) のアロケータパラメータの型が `const Allocator&amp;amp;` から `const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `multiset` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## 例
- ```cpp example
-@@ -153,3 +162,5 @@ Size of c2: 7
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     (5), (11) を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/set/set/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/set/set/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/set/op_constructor.md b/reference/set/set/op_constructor.md
-index d45f8ca14..51a2b731d 100644
---- a/reference/set/set/op_constructor.md
-+++ b/reference/set/set/op_constructor.md
-@@ -27,8 +27,12 @@ set(InputIterator first, InputIterator last,
- set(const set&amp;amp; x);                                  // (6) C++03
- set(set&amp;amp;&amp;amp; y);                                       // (7) C++11
- 
--set(const set&amp;amp; x, const Allocator&amp;amp; alloc);          // (8) C++11
--set(set&amp;amp;&amp;amp; y, const Allocator&amp;amp; alloc);               // (9) C++11
-+set(const set&amp;amp; x, const Allocator&amp;amp; alloc);                  // (8) C++11
-+set(const set&amp;amp; x,
-+    const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);               // (8) C++23
-+
-+set(set&amp;amp;&amp;amp; y, const Allocator&amp;amp; alloc);                       // (9) C++11
-+set(set&amp;amp;&amp;amp; y, const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);      // (9) C++23
- 
- set(initializer_list&amp;lt;value_type&amp;gt; init,
-     const Compare&amp;amp; comp = Compare(),
-@@ -46,6 +50,7 @@ template &amp;lt;container-compatible-range &amp;lt;value_type&amp;gt; R&amp;gt;
- set(from_range_t, R&amp;amp;&amp;amp; rg,
-     const Allocator&amp;amp; alloc);                        // (13) C++23
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link ../../initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -113,6 +118,9 @@ set(from_range_t, R&amp;amp;&amp;amp; rg,
-     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
-     （`set(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `set` が構築され、`alloc` と共に (9) の形式に引き渡される）
- 
-+- C++23 では、(8) と (9) のアロケータパラメータの型が `const Allocator&amp;amp;` から `const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `set` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## 例
- ```cpp example
-@@ -153,3 +161,5 @@ Size of c2: 6
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     (5), (11) を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>推論補助 -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/stack/stack/op_deduction_guide.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/stack/stack/op_deduction_guide.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stack/stack/op_deduction_guide.md b/reference/stack/stack/op_deduction_guide.md
-index de51f5e9b..bce23b2c7 100644
---- a/reference/stack/stack/op_deduction_guide.md
-+++ b/reference/stack/stack/op_deduction_guide.md
-@@ -52,6 +52,15 @@ namespace std {
- - (6) : Rangeとアロケータからの推論する。
- 
- 
-+## 適格要件
-+以下のいずれかの条件を満たす場合、コンテナアダプタの推論補助はオーバーロード解決に参加しない：
-+
-+- `InputIterator`テンプレートパラメータをもち、入力イテレータの要件を満たさない型が推論された場合
-+- `Container`テンプレートパラメータをもち、アロケータとして適格な型が推論された場合 (C++23)
-+- `Container`テンプレートパラメータをもたず、`Allocator`テンプレートパラメータをもち、アロケータとして適格でない型が推論された場合 (C++23)
-+- `Container`と`Allocator`の両方のテンプレートパラメータをもち、[`uses_allocator_v`](/reference/memory/uses_allocator.md)`&amp;lt;Container, Allocator&amp;gt;`が`false`の場合
-+
-+
- ## 例
- ```cpp example
- #include &amp;lt;iostream&amp;gt;
-@@ -105,3 +114,5 @@ int main()
- - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
- - [P1425R4 Iterators pair constructors for stack and queue](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1425r4.pdf)
-     - C++23でのイテレータペアへの対応
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23での推論補助の制約についての変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/unordered_map/unordered_map/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/op_constructor.md b/reference/unordered_map/unordered_map/op_constructor.md
-index ae219993b..327e7af73 100644
---- a/reference/unordered_map/unordered_map/op_constructor.md
-+++ b/reference/unordered_map/unordered_map/op_constructor.md
-@@ -31,9 +31,13 @@ unordered_map(unordered_map&amp;amp;&amp;amp; rv);                                  // (5)
- 
- explicit unordered_map(const allocator_type&amp;amp; a);                    // (6)
- 
--unordered_map(const unordered_map&amp;amp; v, const allocator_type&amp;amp; a);     // (7)
-+unordered_map(const unordered_map&amp;amp; v, const allocator_type&amp;amp; a);              // (7)
-+unordered_map(const unordered_map&amp;amp; v,
-+              const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);                     // (7) C++23
- 
--unordered_map(unordered_map&amp;amp;&amp;amp; rv, const allocator_type&amp;amp; a);         // (8)
-+unordered_map(unordered_map&amp;amp;&amp;amp; rv, const allocator_type&amp;amp; a);                 // (8)
-+unordered_map(unordered_map&amp;amp;&amp;amp; rv,
-+              const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);                     // (8) C++23
- 
- unordered_map(initializer_list&amp;lt;value_type&amp;gt; il,
-               size_type n = 実装依存の既定値,
-@@ -86,6 +90,7 @@ unordered_map(std::from_range_t, R&amp;amp;&amp;amp; rg,
-               const hasher&amp;amp; hf,
-               const allocator_type&amp;amp; a);                             // (18) C++23
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -230,6 +235,9 @@ unordered_map(std::from_range_t, R&amp;amp;&amp;amp; rg,
- 
-     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
- 
-+- C++23 では、(7) と (8) のアロケータパラメータの型が `const allocator_type&amp;amp;` から `const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `unordered_map` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## バージョン
- ### 言語
-@@ -261,3 +269,5 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     (10), (11), (12), (13), (14), (15) を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/unordered_map/unordered_multimap/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/op_constructor.md b/reference/unordered_map/unordered_multimap/op_constructor.md
-index b3aedaa5d..02ab86d18 100644
---- a/reference/unordered_map/unordered_multimap/op_constructor.md
-+++ b/reference/unordered_map/unordered_multimap/op_constructor.md
-@@ -31,9 +31,15 @@ unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv);                              // (5)
- 
- explicit unordered_multimap(const allocator_type&amp;amp; a);                     // (6)
- 
--unordered_multimap(const unordered_multimap&amp;amp; v, const allocator_type&amp;amp; a); // (7)
-+unordered_multimap(const unordered_multimap&amp;amp; v,
-+                   const allocator_type&amp;amp; a);                              // (7)
-+unordered_multimap(const unordered_multimap&amp;amp; v,
-+                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);             // (7) C++23
- 
--unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv, const allocator_type&amp;amp; a);     // (8)
-+unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv,
-+                   const allocator_type&amp;amp; a);                              // (8)
-+unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv,
-+                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);             // (8) C++23
- 
- unordered_multimap(initializer_list&amp;lt;value_type&amp;gt; il,
-                    size_type n = 実装依存の既定値,
-@@ -87,6 +93,7 @@ unordered_multimap(std::from_range_t, R&amp;amp;&amp;amp; rg,
-                    const hasher&amp;amp; hf,
-                    const allocator_type&amp;amp; a);                              // (18) C++23
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -234,6 +241,9 @@ unordered_multimap(std::from_range_t, R&amp;amp;&amp;amp; rg,
- 
-     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
- 
-+- C++23 では、(7) と (8) のアロケータパラメータの型が `const allocator_type&amp;amp;` から `const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `unordered_multimap` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## バージョン
- ### 言語
-@@ -265,3 +275,5 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     (10), (11), (12), (13), (14), (15) を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/unordered_set/unordered_multiset/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/op_constructor.md b/reference/unordered_set/unordered_multiset/op_constructor.md
-index 3bd7bbed6..8b7ca6561 100644
---- a/reference/unordered_set/unordered_multiset/op_constructor.md
-+++ b/reference/unordered_set/unordered_multiset/op_constructor.md
-@@ -32,9 +32,15 @@ unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv);                              // (5)
- 
- explicit unordered_multiset(const allocator_type&amp;amp; a);                     // (6)
- 
--unordered_multiset(const unordered_multiset&amp;amp; v, const allocator_type&amp;amp; a); // (7)
-+unordered_multiset(const unordered_multiset&amp;amp; v,
-+                   const allocator_type&amp;amp; a);                              // (7)
-+unordered_multiset(const unordered_multiset&amp;amp; v,
-+                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);             // (7) C++23
- 
--unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv, const allocator_type&amp;amp; a);     // (8)
-+unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv,
-+                   const allocator_type&amp;amp; a);                              // (8)
-+unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv,
-+                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);             // (8) C++23
- 
- unordered_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
-                    size_type n = 実装依存の既定値,
-@@ -88,6 +94,7 @@ unordered_multiset(std::from_range_t, R&amp;amp;&amp;amp; rg,
-                    const hasher&amp;amp; hf,
-                    const allocator_type&amp;amp; a);                              // (18) C++23
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -235,6 +242,9 @@ unordered_multiset(std::from_range_t, R&amp;amp;&amp;amp; rg,
- 
-     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
- 
-+- C++23 では、(7) と (8) のアロケータパラメータの型が `const allocator_type&amp;amp;` から `const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `unordered_multiset` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## バージョン
- ### 言語
-@@ -266,3 +276,5 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     (10), (11), (12), (13), (14), (15) を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/unordered_set/unordered_set/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/op_constructor.md b/reference/unordered_set/unordered_set/op_constructor.md
-index a6048b879..4ee4fba7a 100644
---- a/reference/unordered_set/unordered_set/op_constructor.md
-+++ b/reference/unordered_set/unordered_set/op_constructor.md
-@@ -32,9 +32,13 @@ unordered_set(unordered_set&amp;amp;&amp;amp; rv);                                  // (5)
- 
- explicit unordered_set(const allocator_type&amp;amp; a);                    // (6)
- 
--unordered_set(const unordered_set&amp;amp; v, const allocator_type&amp;amp; a);     // (7)
-+unordered_set(const unordered_set&amp;amp; v, const allocator_type&amp;amp; a);              // (7)
-+unordered_set(const unordered_set&amp;amp; v,
-+              const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);                     // (7) C++23
- 
--unordered_set(unordered_set&amp;amp;&amp;amp; rv, const allocator_type&amp;amp; a);         // (8)
-+unordered_set(unordered_set&amp;amp;&amp;amp; rv, const allocator_type&amp;amp; a);                 // (8)
-+unordered_set(unordered_set&amp;amp;&amp;amp; rv,
-+              const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);                     // (8) C++23
- 
- unordered_set(initializer_list&amp;lt;value_type&amp;gt; il,
-               size_type n = 実装依存の既定値,
-@@ -88,6 +92,7 @@ unordered_set(std::from_range_t, R&amp;amp;&amp;amp; rg,
-               const hasher&amp;amp; hf,
-               const allocator_type&amp;amp; a);                             // (18) C++23
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -235,6 +240,9 @@ unordered_set(std::from_range_t, R&amp;amp;&amp;amp; rg,
- 
-     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
- 
-+- C++23 では、(7) と (8) のアロケータパラメータの型が `const allocator_type&amp;amp;` から `const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp;` に変更された。
-+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `unordered_set` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## バージョン
- ### 言語
-@@ -266,3 +274,5 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
- - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-     (10), (11), (12), (13), (14), (15) を追加するきっかけとなったレポート  
-     なお、Discussion の例はアロケータの型が誤っているので注意
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- C++23対応としてコンテナのアロケータ型の推論方法を見直し #1052</title>
-      <link href="https://cpprefjp.github.io/reference/vector/vector/op_constructor.html"/>
-      <id>c3a3a49e88a9766d0f632c9d2e4561822a34e398:reference/vector/vector/op_constructor.md</id>
-      <updated>2026-02-17T12:19:01+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/vector/vector/op_constructor.md b/reference/vector/vector/op_constructor.md
-index 0e73477f4..9a353c82a 100644
---- a/reference/vector/vector/op_constructor.md
-+++ b/reference/vector/vector/op_constructor.md
-@@ -46,11 +46,15 @@ vector(vector&amp;amp;&amp;amp; x);                                  // (7) C++11
- vector(vector&amp;amp;&amp;amp; x) noexcept;                         // (7) C++17
- constexpr vector(vector&amp;amp;&amp;amp; x) noexcept;               // (7) C++20
- 
--vector(const vector&amp;amp; x, const Allocator&amp;amp; a);           // (8) C++11
--constexpr vector(const vector&amp;amp; x, const Allocator&amp;amp; a); // (8) C++20
-+vector(const vector&amp;amp; x, const Allocator&amp;amp; a);                      // (8) C++11
-+constexpr vector(const vector&amp;amp; x, const Allocator&amp;amp; a);            // (8) C++20
-+constexpr vector(const vector&amp;amp; x,
-+                 const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);            // (8) C++23
- 
--vector(vector&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);              // (9) C++11
--constexpr vector(vector&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);    // (9) C++20
-+vector(vector&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);                           // (9) C++11
-+constexpr vector(vector&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);                 // (9) C++20
-+constexpr vector(vector&amp;amp;&amp;amp; x,
-+                 const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);            // (9) C++23
- 
- vector(initializer_list&amp;lt;T&amp;gt; il,
-        const Allocator&amp;amp; a = Allocator());            // (10) C++11
-@@ -61,6 +65,7 @@ template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
- constexpr vector(std::from_range_t, R&amp;amp;&amp;amp; rg,
-                  const Allocator&amp;amp; a = Allocator());  // (11) C++23
- ```
-+* type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -132,6 +137,9 @@ constexpr vector(std::from_range_t, R&amp;amp;&amp;amp; rg,
-     * std::scoped_allocator_adaptor[link /reference/scoped_allocator/scoped_allocator_adaptor.md]
-     * emplace_back[link /reference/list/list/emplace_back.md]
- 
-+- C++23 では、(8) と (9) のアロケータパラメータの型が `const Allocator&amp;amp;` から `const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp;` に変更された。
-+	これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `vector` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
-+
- 
- ## 例
- ```cpp example
-@@ -194,3 +202,5 @@ sixth : {1 2 3 }
- - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
-     - `noexcept` 追加の経緯となる提案文書
- - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
-+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-+    - C++23でのアロケータ引数を`type_identity_t`で包む変更
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
