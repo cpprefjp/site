@@ -40,10 +40,10 @@ namespace std {
 1. [`basic_istream<>::sentry`](../../istream/basic_istream/sentry.md)オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. `str.erase()`を呼び出す。
 1. 以下のいずれかを満たすまで、文字を入力して`str.append(1, c)`と等価な方法で文字列に追加する。なお、`c`は入力した文字を表す。以下の条件判断はこの順で行う。
-    1. EOFに達した。この場合、`is.setstate(ios_base::eofbit)`を呼び出す。
+    1. EOFに達した。この場合、ローカルエラー状態に`ios_base::eofbit`を設定する。
     1. `Traits::eq(c, delim)`が真となった。
-    1. 読み取った文字数が`str.max_size()`になるまで書き込んだ。この場合、`is.setstate(ios_base::failbit)`を呼び出す。
-1. （`sentry`オブジェクトを破棄したのち）1文字も入力がなされなかったら、`is.setstate(ios_base::failbit)`を呼び出す。
+    1. 読み取った文字数が`str.max_size()`になるまで書き込んだ。この場合、ローカルエラー状態に`ios_base::failbit`を設定する。
+1. 1文字も入力がなされなかったら、ローカルエラー状態に`ios_base::failbit`を設定する。
     - 空行の場合はこれに該当しないことに注意。なぜなら、改行文字1文字を入力しているためである。
 
 この関数は[`basic_istream<>::gcount`](../../istream/basic_istream/gcount.md)には影響を及ぼさない。
@@ -82,3 +82,7 @@ Haru wa akebono.
 | 名前                  | 説明                           |
 |-----------------------|--------------------------------|
 | [`std::basic_istream<>::getline`](../../istream/basic_istream/getline.md) | 文字の配列へ入力を行うもの |
+
+## 参照
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

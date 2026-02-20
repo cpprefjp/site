@@ -15,11 +15,11 @@ streamsize readsome(char_type* s, streamsize n);
 
 ## 効果
 1. `sentry`オブジェクトを構築する。
-1. `good()`メンバ関数を呼び出して`false`であったら、`setstate(failbit)`を呼び出して終了する。
-1. `rebuf()->in_avail()`の値により以下のように処理を進める。
-    - `-1`なら`setstate(eofbit)`を呼び出す。
+1. `good()`メンバ関数を呼び出して`false`であったら、ローカルエラー状態に`failbit`を設定して終了する。
+1. `rdbuf()->in_avail()`の値により以下のように処理を進める。
+    - `-1`ならローカルエラー状態に`eofbit`を設定する。
     - `0`なら何もしない。
-    - `1`以上なら`min(rebuf()->in_avail(), n)`だけの文字を読み込む（`n`は仮引数）。
+    - `1`以上なら`min(rdbuf()->in_avail(), n)`だけの文字を読み込む（`n`は仮引数）。
 
 ## 戻り値
 `s`に読み込まれた文字数。
@@ -57,3 +57,5 @@ TBD
 
 ## 参照
 - [`read`](read.md)
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

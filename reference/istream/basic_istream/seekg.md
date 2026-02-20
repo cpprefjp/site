@@ -24,7 +24,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 1. 与えられた実引数により、以下のいずれかを実行する。
     - `rdbuf()->pubseekpos(pos, ios_base::in)`
     - `rdbuf()->pubseekoff(off, dir, ios_base::in)`
-1. 失敗した場合、`setstate(failbit)`を呼び出す。
+1. 失敗した場合、ローカルエラー状態に`failbit`を設定する。
 
 ## 戻り値
 `*this`
@@ -124,3 +124,5 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
 - [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)
 - [`basic_streambuf::seekpos`](../../streambuf/basic_streambuf/seekpos.md)
 - [`basic_streambuf::seekoff`](../../streambuf/basic_streambuf/seekoff.md)
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

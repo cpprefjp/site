@@ -19,10 +19,10 @@ basic_istream<CharT, Traits>& getline(char_type* s, streamsize n, char_type deli
 
 1. [`basic_istream<>::sentry`](../../istream/basic_istream/sentry.md)オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. 以下のいずれかを満たすまで、文字を入力して配列の要素へのポインタ`s`に書き込んでゆく。以下の条件判断はこの順で行う。
-    1. EOFに達した。この場合、`is.setstate(ios_base::eofbit)`を呼び出す。
+    1. EOFに達した。この場合、ローカルエラー状態に`eofbit`を設定する。
     1. `Traits::eq(c, delim)`が真となった。
-    1. 読み取った文字数が`n - 1`になるまで書き込んだもしくは`n`が1未満であった。この場合、`is.setstate(ios_base::failbit)`を呼び出す。
-1. （`sentry`オブジェクトを破棄したのち）1文字も入力がなされなかったら、`is.setstate(ios_base::failbit)`を呼び出す。
+    1. 読み取った文字数が`n - 1`になるまで書き込んだもしくは`n`が1未満であった。この場合、ローカルエラー状態に`failbit`を設定する。
+1. 1文字も入力がなされなかったら、ローカルエラー状態に`failbit`を設定する。
     - 空行の場合はこれに該当しないことに注意。なぜなら、改行文字1文字を入力しているためである。
 
 `n`が1以上の場合、必ず`s`の末尾にヌル文字を書き込む。
@@ -85,3 +85,5 @@ TBD
 
 ## 参照
 - [`std::getline`](../../string/basic_string/getline.md): `std::basic_string`へ入力を行うもの。
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

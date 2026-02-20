@@ -19,10 +19,10 @@ basic_istream<CharT, Traits>& read(char_type* s, streamsize n);
 
 ## 効果
 1. [`sentry`](sentry.md)オブジェクトを構築する。[`sentry`](sentry.md)オブジェクトが失敗を示した場合、何もしない。
-1. [`good`](../../ios/basic_ios/good.md)`()`メンバ関数を呼び出して`false`であったら、[`setstate`](../../ios/basic_ios/setstate.md)`(`[`failbit`](../../ios/ios_base/type-iostate.md)`)`を呼び出して終了する。
+1. [`good`](../../ios/basic_ios/good.md)`()`メンバ関数を呼び出して`false`であったら、ローカルエラー状態に[`failbit`](../../ios/ios_base/type-iostate.md)を設定して終了する。
 1. 以下のいずれかを満たすまで、文字を入力して書き込む。
     - 実引数で指定された`n`文字まで入力した。
-    - EOFに達した。この場合、[`setstate`](../../ios/basic_ios/setstate.md)`(`[`failbit`](../../ios/ios_base/type-iostate.md) `|` [`eofbit`](../../ios/ios_base/type-iostate.md)`)`を呼び出す。
+    - EOFに達した。この場合、ローカルエラー状態に[`failbit`](../../ios/ios_base/type-iostate.md) `|` [`eofbit`](../../ios/ios_base/type-iostate.md)を設定する。
 
 ## 戻り値
 `*this`
@@ -97,3 +97,5 @@ basic_istream<CharT, Traits>& read(char_type* s, streamsize n) {
 
 ## 参照
 - [readsome](readsome.md)
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

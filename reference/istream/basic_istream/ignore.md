@@ -27,7 +27,7 @@ basic_istream& ignore(streamsize n, char_type delim);  // (2) C++26
 2. 以下のいずれかを満たすまで、`this`内のストリームバッファから文字を入力する（どこへも出力することなく捨てる）。
     - 実引数で指定された`n`文字まで入力した。
         - `n == numeric_limits<streamsize>::max()`の場合、この条件は適用されない。
-    - EOFに達した。この場合、`setstate(eofbit)`を呼び出す。
+    - EOFに達した。この場合、ローカルエラー状態に`eofbit`を設定する。
     - 次に入力する文字が`delim`である。
         - 次の文字を`c`として、`Traits::eq_int_type(Traits::to_int_type(c), delim)`が真の場合。
         - `delim`が`Traits::eof()`である場合、この条件は適用されない。
@@ -80,5 +80,7 @@ TBD
 - C++98
 
 ## 参照
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された
 - [P3223R2 Making std::istream::ignore less surprising](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3223r2.html)
     - C++26からオーバーロード(2)が追加された

@@ -59,7 +59,7 @@ namespace std {
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクト構築が失敗を示した場合、何もしない。
 1. ストリームバッファから1文字取り出し、仮引数`c`に書き込む。
 
-入力がなされなかった場合、`setstate(failbit)`を呼び出す。
+入力がなされなかった場合、ローカルエラー状態に`failbit`を設定する。
 
 ### 文字列
 
@@ -77,7 +77,7 @@ namespace std {
 1. `s`の末尾にヌル文字`CharT()`を書き込む。
 1. `width(0)`を呼び出す。
 
-1文字も入力がなされなかった場合、`setstate(failbit)`を呼び出す。
+1文字も入力がなされなかった場合、ローカルエラー状態に`failbit`を設定する。
 
 `width()`の値を変更するには、`setw`マニピュレータまたは`width()`メンバ関数を使用する。
 
@@ -133,3 +133,5 @@ TBD
 
 ## 参照
 - [P0487R1 Fixing `operator>>(basic_istream&, CharT*)` (LWG 2499)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0487r1.html)
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

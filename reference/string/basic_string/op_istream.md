@@ -28,7 +28,7 @@ namespace std {
     - 空白文字に達した。空白文字の判定にはストリームに設定されているロケールが考慮される。
 1. `is.width(0)`を呼び出す。
 
-`str`に1文字も入力が行われなかった場合、`is.setstate(ios_base::failbit)`が呼び出される。
+1文字も入力が行われなかった場合、ローカルエラー状態に`ios_base::failbit`を設定する。
 
 ## 戻り値
 - 仮引数`is`。
@@ -64,3 +64,5 @@ Banana
 - [`getline`](getline.md): このほかの`basic_string`に対する入力関数。
 - このほかの`>>`演算子関数
     - [`<istream>`ヘッダで定義されているもの](../../istream/basic_istream/op_istream.md)
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

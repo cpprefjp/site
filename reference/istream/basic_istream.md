@@ -55,12 +55,16 @@ namespace std {
 
 注意：書式化入力関数と非書式化入力関数すべてについて、「効果」の項目は以下の処理を前提として記載している。
 
-書式化入力関数・非書式化入力関数は、入力処理に先立って`sentry`オブジェクトを構築し、関数から脱出する前に破棄する。
+書式化入力関数・非書式化入力関数は、まず`ios_base::iostate`型のオブジェクトであるローカルエラー状態を`ios_base::goodbit`で初期化して作成する。
+次に、`sentry`オブジェクトを構築し、関数から脱出する前に破棄する。
 
 - 書式化入力関数は、`sentry`コンストラクタの2番目の仮引数`noskipws`に`false`を渡す。
 - 非書式化入力関数は、`sentry`コンストラクタの2番目の仮引数`noskipws`に`true`を渡す。
 
 構築した`sentry`オブジェクトが`explicit operator bool`関数で`true`に変換できる場合のみ、実際の入力処理（各関数の「効果」として記載した処理）が実行される。
+
+入力処理中にエラーが検出された場合、対応するエラービットはローカルエラー状態に設定される。
+入力処理の完了後、ローカルエラー状態を実引数として`setstate()`を呼び出す。
 
 関数内部で例外が送出された場合、`ios_base::badbit`を設定する。
 そして、`(exceptions() & badbit) != 0`であれば例外を再送出する。
@@ -142,3 +146,5 @@ syncは非書式化入力関数である。
 - `basic_istream<>`型のオブジェクト
     - [`cin`](../iostream/cin.md)
     - [`wcin`](../iostream/wcin.md.nolink)
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23からローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

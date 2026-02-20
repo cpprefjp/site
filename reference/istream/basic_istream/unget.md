@@ -16,9 +16,9 @@ basic_istream<CharT, Traits>& unget();
 ## 効果
 1. `eofbit`を消去する。
 1. `sentry`オブジェクトを構築する。
-1. `!good()`なら`setstate(failbit)`して終わる。
+1. `!good()`ならローカルエラー状態に`failbit`を設定して終わる。
 1. `rdbuf()->sungetc()`を呼び出す。
-    - `rdbuf()`がヌルポインタであるか、`sungetc()`が`Traits::eof()`を返した場合、`setstate(badbit)`を呼び出す。
+    - `rdbuf()`がヌルポインタであるか、`sungetc()`が`Traits::eof()`を返した場合、ローカルエラー状態に`badbit`を設定する。
 
 ## 戻り値
 `*this`。
@@ -108,3 +108,5 @@ basic_istream<CharT, Traits>& unget() {
 
 - [`basic_istream::putback`](putback.md)
 - [`basic_streambuf::sungetc`](../../streambuf/basic_streambuf/sungetc.md)
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

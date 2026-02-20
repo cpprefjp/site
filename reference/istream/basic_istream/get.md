@@ -30,7 +30,7 @@ basic_istream<CharT, Traits>& get(basic_streambuf<char_type, Traits>& sb, char_t
 ### 1文字
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. ストリームバッファから1文字入力を行う。
-1. 入力が行えなかった場合、`setstate(failbit)`を呼び出す。
+1. 入力が行えなかった場合、ローカルエラー状態に`failbit`を設定する。
 1. （引数`c`を受け取るもののみ）入力した文字を`c`に代入する。
 
 ### 文字列
@@ -46,15 +46,15 @@ basic_istream<CharT, Traits>& get(basic_streambuf<char_type, Traits>& sb, char_t
 1. 以下のいずれかを満たすまで、文字を入力して書き込む。
     - 配列要素へのポインタ`s`を引数に取るもの
         - 引数`n`文字より1文字少ない文字数まで入力した。
-        - EOFに達した。この場合、`setstate(eofbit)`を呼び出す。
+        - EOFに達した。この場合、ローカルエラー状態に`eofbit`を設定する。
         - 次に入力する文字を`c`として、`Traits::eq_int_type(Traits::to_int_type(c), delim)`が真となった。
     - ストリームバッファへのポインタ`sb`を引数に取るもの
-        - EOFに達した。この場合、`setstate(eofbit)`を呼び出す。
+        - EOFに達した。この場合、ローカルエラー状態に`eofbit`を設定する。
         - `sb`への出力処理に失敗した。
         - 次に入力する文字を`c`として、`Traits::eq_int_type(Traits::to_int_type(c), delim)`が真となった。
         - 例外が送出された（例外は捕捉され、再送出されることはない）。
 
-`str`に1文字も入力が行われなかった場合、`is.setstate(ios_base::failbit)`が呼び出される。
+1文字も入力が行われなかった場合、ローカルエラー状態に`failbit`を設定する。
 
 配列要素へのポインタ`s`を引数に取るものについては、入力の如何に関わらず末尾にヌル文字を書き込む処理が行われる。
 
@@ -105,3 +105,5 @@ TBD
 
 ## 参照
 - [`basic_streambuf`](../../streambuf/basic_streambuf.md)
+- [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+    - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された
