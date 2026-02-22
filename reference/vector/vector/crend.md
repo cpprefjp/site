@@ -6,8 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_reverse_iterator crend() const noexcept;            // (1) C++11
-consterxpr const_reverse_iterator crend() const noexcept; // (1) C++20
+const_reverse_iterator crend() const noexcept;           // (1) C++11
+constexpr const_reverse_iterator crend() const noexcept; // (1) C++20
 ```
 
 ## 概要
