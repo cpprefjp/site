@@ -8,8 +8,9 @@
 ```cpp
 // ____要素数ゼロのflat_setを構築____
 
-flat_set()
-  : flat_set(key_compare()) { } // (1) C++23
+flat_set() : flat_set(key_compare()) { }   // (1) C++23
+constexpr
+  flat_set() : flat_set(key_compare()) { } // (1) C++26
 
 explicit
   flat_set(const key_compare& comp) // (2) C++23

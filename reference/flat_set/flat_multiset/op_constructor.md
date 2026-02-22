@@ -8,8 +8,9 @@
 ```cpp
 // ____要素数ゼロのflat_multisetを構築____
 
-flat_multiset()
-  : flat_multiset(key_compare()) { } // (1) C++23
+flat_multiset() : flat_multiset(key_compare()) { }   // (1) C++23
+constexpr
+  flat_multiset() : flat_multiset(key_compare()) { } // (1) C++26
 
 explicit
   flat_multiset(const key_compare& comp) // (2) C++23

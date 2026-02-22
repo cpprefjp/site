@@ -8,8 +8,9 @@
 ```cpp
 // ____要素数ゼロのflat_multimapを構築____
 
-flat_multimap()
-  : flat_multimap(key_compare()) { } // (1) C++23
+flat_multimap() : flat_multimap(key_compare()) { }   // (1) C++23
+constexpr
+  flat_multimap() : flat_multimap(key_compare()) { } // (1) C++26
 
 explicit
   flat_multimap(const key_compare& comp) // (2) C++23
