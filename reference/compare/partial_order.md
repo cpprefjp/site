@@ -25,7 +25,7 @@ namespace std {
 
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
-2. `std::partial_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`partial_ordering`](partial_ordering.md)`(partial_order(a, b))`が呼び出し可能ならば`partial_ordering(partial_order(a, b))`
+2. `partial_order(a, b)`の`partial_order`の意味がADLのみによって決まるコンテキストで、[`partial_ordering`](partial_ordering.md)`(partial_order(a, b))`が呼び出し可能ならば`partial_ordering(partial_order(a, b))`
 
 3. [`partial_ordering`](partial_ordering.md)`(a <=> b)`が呼び出し可能ならば`partial_ordering(a <=> b)`
 
@@ -170,3 +170,4 @@ true
 
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+- [P2602R2 Poison Pills are Too Toxic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2602r2.html)

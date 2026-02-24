@@ -24,7 +24,7 @@ namespace std {
 
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
-2. `std::strong_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`strong_ordering`](strong_ordering.md)`(strong_order(a, b))`が呼び出し可能ならば`strong_ordering(strong_order(a, b))`
+2. `strong_order(a, b)`の`strong_order`の意味がADLのみによって決まるコンテキストで、[`strong_ordering`](strong_ordering.md)`(strong_order(a, b))`が呼び出し可能ならば`strong_ordering(strong_order(a, b))`
 
 3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算子による順序と一貫する[`strong_ordering`](strong_ordering.md)の値を返す。  
    さらに、[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md) `== true`の場合、その順序はISO/IEC/IEEE 60559の`totalOrder`による全順序と一致する。
@@ -179,5 +179,6 @@ true
 
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+- [P2602R2 Poison Pills are Too Toxic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2602r2.html)
 - [IEEE 754 - wikipedia](https://en.wikipedia.org/wiki/IEEE_754#Total-ordering_predicate)
 - [Floating-point extensions for C — Part 1: Binary floating-point arithmetic - WG14 N1605](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1605.pdf)

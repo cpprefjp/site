@@ -23,10 +23,7 @@ namespace std {
 
 `iter_move(i)`のように呼び出された時、以下のいずれかと等価
 
-1. 引数`i`の型がクラス型であるか列挙型であり、`std::ranges::iter_move`（本CPO）の宣言を含まず下記の`iter_move`関数宣言を含むコンテキストで、`iter_move(i)`が呼び出し可能ならば`iter_move(i)`
-   ```cpp
-   void iter_move();
-   ```
+1. 引数`i`の型がクラス型であるか列挙型であり、`iter_move(i)`の`iter_move`の意味がADLのみによって決まるコンテキストで、`iter_move(i)`が呼び出し可能ならば`iter_move(i)`
 
 2. `*i`が有効であり、`*i`の結果が左辺値であるならば`std::move(*i)`
 
@@ -121,3 +118,4 @@ int main() {
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P2602R2 Poison Pills are Too Toxic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2602r2.html)

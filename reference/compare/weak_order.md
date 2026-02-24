@@ -25,7 +25,7 @@ namespace std {
 
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
-2. `std::weak_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`weak_ordering`](weak_ordering.md)`(weak_order(a, b))`が呼び出し可能ならば`weak_ordering(weak_order(a, b))`
+2. `weak_order(a, b)`の`weak_order`の意味がADLのみによって決まるコンテキストで、[`weak_ordering`](weak_ordering.md)`(weak_order(a, b))`が呼び出し可能ならば`weak_ordering(weak_order(a, b))`
 
 3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算子および[`strong_order`](strong_order.md)による順序と一貫する[`weak_ordering`](weak_ordering.md)の値を返す。  
    さらに、[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md) `== true`の場合、追加で以下の同値類の順序に従った順序付けを行う。
@@ -192,3 +192,4 @@ true
 
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+- [P2602R2 Poison Pills are Too Toxic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2602r2.html)

@@ -22,7 +22,7 @@ Rangeの先頭の前を指す逆イテレータもしくは番兵を取得する
 1. `E`がrvalueかつ[`enable_borrowed_range`](enable_borrowed_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
 2. `T`が配列型かつ[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
 3. [`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.rend())`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.rend())`と等しい。
-4. `T`がクラス型または列挙体であって、`rend`がADLで見つかり、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(rend(t))`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(rend(t))`と等しい。
+4. `T`がクラス型または列挙体であって、`rend(t)`の`rend`の意味がADLのみによって決まるコンテキストで、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(rend(t))`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(rend(t))`と等しい。
 5. [`ranges::begin`](begin.md)`(t)`と[`ranges::end`](end.md)`(t)`が同じ型をもつ有効な式で、その型が[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルであれば、[`make_reverse_iterator`](/reference/iterator/make_reverse_iterator.md)`(`[`ranges::begin`](begin.md)`(t))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
@@ -111,3 +111,4 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2602R2 Poison Pills are Too Toxic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2602r2.html)

@@ -22,7 +22,7 @@ Rangeから先頭要素へのイテレータを取得する関数オブジェク
 1. `E`がrvalueかつ[`enable_borrowed_range`](enable_borrowed_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
 2. `T`が配列型であれば、`t + 0`に等しい(expression‑equivalent)。ただし、[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
 3. [`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.begin())`が有効な式でその型が[`input_or_output_iterator`](/reference/iterator/input_or_output_iterator.md)のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.begin())`と等しい。
-4. `T`がクラス型または列挙体であって、`begin`がADLで見つかり、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(begin(t))`が有効な式でその型が[`input_or_output_iterator`](/reference/iterator/input_or_output_iterator.md)のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(begin(t))`と等しい。
+4. `T`がクラス型または列挙体であって、`begin(t)`の`begin`の意味がADLのみによって決まるコンテキストで、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(begin(t))`が有効な式でその型が[`input_or_output_iterator`](/reference/iterator/input_or_output_iterator.md)のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(begin(t))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
 
@@ -96,3 +96,4 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2602R2 Poison Pills are Too Toxic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2602r2.html)
