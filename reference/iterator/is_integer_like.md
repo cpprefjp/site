@@ -4,6 +4,7 @@
 * std[meta namespace]
 * variable[meta id-type]
 * cpp20[meta cpp]
+* is-signed-integer-like[meta alias]
 
 ```cpp
 namespace std {
