@@ -17,20 +17,24 @@ constexpr auto end() const
 番兵を取得する。
 
 ## 戻り値
+
+`base_`を元の`view`を表すメンバ変数とする。
+
 入力が[`sized_range`](../sized_range.md)かつ[`random_access_range`](../random_access_range.md)の場合：
 - (1), (2) : 以下と等価：
     ```cpp
-    return ranges::begin(base_) + min<D>(ranges::size(base_), count_);
+    return ranges::begin(base_) + range_difference_t<V>(size());
     ```
-    ここで、`D`は[`range_difference_t`](../range_difference_t.md)`<V>`。
+    * range_difference_t[link /reference/ranges/range_difference_t.md]
+
+入力が[`sized_range`](../sized_range.md)だが[`random_access_range`](../random_access_range.md)ではない場合：
+- (1), (2) : [`default_sentinel`](/reference/iterator/default_sentinel_t.md)を返す。
 
 それ以外の場合：
-- (1), (2) : 以下と等価：
-    ```cpp
-    return counted_iterator{ranges::begin(base_), count_};
-    ```
+- (1) : `sentinel<false>{ranges::end(base_)}`を返す。
+- (2) : `sentinel<true>{ranges::end(base_)}`を返す。
 
-ただし、`base_`は元の`view`を表すメンバ変数、`count_`は取得する要素数を表すメンバ変数。
+ここで`sentinel`は`take_view`の内部で定義される説明専用の番兵型である。
 
 ## 例
 
@@ -72,3 +76,6 @@ int main() {
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+
+## 参照
+- [P2393R1 Cleaning up integer-class types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2393r1.html)

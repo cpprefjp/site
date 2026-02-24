@@ -28,13 +28,15 @@ namespace std {
 
 ## (signed-)integer-class型
 
-*integer-class*型は組み込みの整数型と同じように動作する実装定義のクラス型である。
+*integer-class*型は組み込みの整数型と同じように動作する実装定義の型である。*integer-class*型は必ずしもクラス型であるとは限らない。
+
+*integer-class*型は2の補数で値を表現し、その幅は同じ符号の全ての組み込み整数型よりも大きい。
 
 *integer-class*型の表現可能な範囲はそれが定義する値の連続集合であり、`0`と`1`を必ず含んでいなければならない。この時、その範囲に負の数が含まれていればその型は*signed-integer-class*型であり、それ以外のものは*unsigned-integer-class*型である。
 
 ### 要件
 
-`I`をある*integer-class*型、`B`を少なくとも`I`と同じ範囲の値を表現可能で同じ幅を持つ別の*integer-class*型とする。  
+`I`をある*integer-class*型、`B`を少なくとも`I`と同じ範囲の値を表現可能で同じ幅を持つ別の*integer-class*型とする。
 `I`の値`a, b`、`a, b`それぞれと同じ値を表現する`B`の値`x, y`と任意の整数型の値`c`について次のことが成り立つ。
 
 - 式`@x`が適格である全ての単項演算子`@`について`@a`もまた適格であり、共に同じ値、効果、値カテゴリを持つ。`@x`が`bool`型を示す場合`@a`もまた`bool`型を示すが。`@x`が`B`を示す場合は`@a`は`I`を示す。
@@ -44,6 +46,19 @@ namespace std {
 - *integer-class*型の式`E`は`bool(E != I(0))`のように文脈的に`bool`に変換できる。
 - *integer-class*型は[`regular`](/reference/concepts/regular.md)及び[`totally_ordered`](/reference/concepts/totally_ordered.md)のモデルとなる。
 - 値初期化された*integer-class*型の値は`0`になる。
+
+### integer-class型間の変換
+
+*integer-class*型`I1`から*integer-class*型`I2`への変換について：
+
+- `I1`と`I2`が同じ符号を持ち、`I2`の幅が`I1`の幅以上である場合、`I1`の値は`I2`へ暗黙的にも明示的にも変換可能である
+- それ以外の場合、`I1`の値は`I2`へ明示的に変換可能である
+
+### common_type
+
+任意の2つの*integer-like*型`I1`と`I2`について、[`common_type_t`](/reference/type_traits/common_type.md)`<I1, I2>`は`I1`と`I2`のどちらの幅以上の幅を持つ*integer-class*型を示す。
+
+### numeric_limits
 
 *integer-class*型`I`について[`numeric_limits<I>`](/reference/limits/numeric_limits.md)の特殊化は次のような値を示す。
 
@@ -88,4 +103,5 @@ concept _Signed_integer_like = _Integer_like<_Ty> && static_cast<_Ty>(-1) < stat
 ## 参照
 
 - [P1522R1 Iterator Difference Type and Integer Overflow](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1522r1.pdf)
+- [P2393R1 Cleaning up integer-class types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2393r1.html)
 - [LWG Issue 3467. bool can't be an integer-like type](https://cplusplus.github.io/LWG/issue3467)

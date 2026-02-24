@@ -18,12 +18,30 @@ constexpr auto begin() const
 `view`の先頭要素を指すイテレータを取得する。
 
 ## 戻り値
+
+`base_`を元の`view`を表すメンバ変数、`count_`を取得する要素数を表すメンバ変数とする。
+
+入力が[`sized_range`](../sized_range.md)かつ[`random_access_range`](../random_access_range.md)の場合：
 - (1), (2) : 以下と等価：
     ```cpp
     return ranges::begin(base_);
     ```
 
-ただし、`base_`は元の`view`を表すメンバ変数。
+入力が[`sized_range`](../sized_range.md)だが[`random_access_range`](../random_access_range.md)ではない場合：
+- (1), (2) : 以下と等価：
+    ```cpp
+    auto sz = range_difference_t<V>(size());
+    return counted_iterator(ranges::begin(base_), sz);
+    ```
+    * range_difference_t[link /reference/ranges/range_difference_t.md]
+    * counted_iterator[link /reference/iterator/counted_iterator.md]
+
+それ以外の場合：
+- (1), (2) : 以下と等価：
+    ```cpp
+    return counted_iterator(ranges::begin(base_), count_);
+    ```
+    * counted_iterator[link /reference/iterator/counted_iterator.md]
 
 ## 例
 
@@ -60,3 +78,6 @@ int main() {
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+
+## 参照
+- [P2393R1 Cleaning up integer-class types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2393r1.html)
