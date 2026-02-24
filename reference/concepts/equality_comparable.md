@@ -49,13 +49,14 @@ concept equality_comparable = weakly-equality-comparable-with<T, T>;
 template<class T, class U>
 concept equality_comparable_with =
   equality_comparable<T> && equality_comparable<U> &&
-  common_reference_with<const remove_reference_t<T>&, const remove_reference_t<U>&> &&
+  comparison-common-type-with<T, U> &&
   equality_comparable<
     common_reference_t<
       const remove_reference_t<T>&,
       const remove_reference_t<U>&>> &&
   weakly-equality-comparable-with<T, U>;
 ```
+* comparison-common-type-with[link /reference/exposition-only/comparison-common-type-with.md]
 
 ## モデル
 
@@ -246,4 +247,5 @@ S2 is not equality comparable with int
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [P2404R3 Move-only types for `equality_comparable_with`, `totally_ordered_with`, and `three_way_comparable_with`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2404r3.pdf)
 - [同値関係 - wikipedia](https://ja.wikipedia.org/wiki/同値関係)

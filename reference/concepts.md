@@ -169,3 +169,4 @@ concept C =
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
 - [P2101R0 “Models” subsumes “satisfies” (Wording for US298 and US300)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2101r0.html)
 - [P2102R0 Make “implicit expression variations” more explicit (Wording for US185)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2102r0.html)
+- [P2404R3 Move-only types for `equality_comparable_with`, `totally_ordered_with`, and `three_way_comparable_with`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2404r3.pdf)

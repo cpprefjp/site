@@ -65,7 +65,7 @@ template<class T, class U, class Cat = partial_ordering>
 concept three_way_comparable_with =
   three_way_comparable<T, Cat> &&
   three_way_comparable<U, Cat> &&
-  common_reference_with<const remove_reference_t<T>&, const remove_reference_t<U>&> &&
+  comparison-common-type-with<T, U> &&
   three_way_comparable<
     common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>, Cat> &&
   weakly-equality-comparable-with<T, U> &&
@@ -76,6 +76,7 @@ concept three_way_comparable_with =
   };
 ```
 * partial_ordering[link /reference/compare/partial_ordering.md]
+* comparison-common-type-with[link /reference/exposition-only/comparison-common-type-with.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 
 ## モデル
@@ -262,5 +263,6 @@ int main() {
 
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+- [P2404R3 Move-only types for `equality_comparable_with`, `totally_ordered_with`, and `three_way_comparable_with`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2404r3.pdf)
 - [LWG Issue 3360. `three_way_comparable_with` is inconsistent with similar concepts](https://wg21.cmeerw.net/lwg/issue3360)
 - [P1964R2 Wording for `boolean-testable`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1964r2.html)
