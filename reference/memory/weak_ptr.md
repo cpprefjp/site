@@ -42,6 +42,8 @@ namespace std {
 | [`expired`](weak_ptr/expired.md)        | 監視対象の寿命切れやリンク切れを判定する                       | C++11 |
 | [`lock`](weak_ptr/lock.md)              | 監視している`shared_ptr`オブジェクトを取得する                 | C++11 |
 | [`owner_before`](weak_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                            | C++11 |
+| [`owner_equal`](weak_ptr/owner_equal.md)   | 所有権ベースでの等値比較を行う                              | C++26 |
+| [`owner_hash`](weak_ptr/owner_hash.md)     | 所有権ベースでのハッシュ値を取得する                        | C++26 |
 
 
 ## メンバ型

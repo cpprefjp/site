@@ -17,7 +17,7 @@ namespace std::execution::system_context_replaceability {
 
 ## 効果
 オブジェクト`p`は、`p.get()`がその生存期間内に最派生オブジェクト`o`基底クラスの部分オブジェクトである[`parallel_scheduler_backend`](parallel_scheduler_backend.md)オブジェクトを指すものとする。
-その存続期間内に`q.`[`owner_equal`](/reference/memory/shared_ptr/owner_equal.md.nolink)`(p)`が`true`となる[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクト`q`が存在する限り、`o`の存続期間は終了しない。
+その存続期間内に`q.`[`owner_equal`](/reference/memory/shared_ptr/owner_equal.md)`(p)`が`true`となる[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクト`q`が存在する限り、`o`の存続期間は終了しない。
 
 
 ## 備考

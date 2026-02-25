@@ -45,6 +45,8 @@ namespace std {
 | [`unique`](shared_ptr/unique.md)             | 所有権を持つユーザーが一人だけかを判定する       | C++11<br/> C++17から非推奨<br/> C++20で削除 |
 | [`operator bool`](shared_ptr/op_bool.md)     | 有効なリソースを所有しているかを判定する         | C++11 |
 | [`owner_before`](shared_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                 | C++11 |
+| [`owner_equal`](shared_ptr/owner_equal.md)   | 所有権ベースでの等値比較を行う                   | C++26 |
+| [`owner_hash`](shared_ptr/owner_hash.md)     | 所有権ベースでのハッシュ値を取得する             | C++26 |
 
 
 ## メンバ型

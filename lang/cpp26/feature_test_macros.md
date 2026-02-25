@@ -144,7 +144,7 @@
 |`__cpp_lib_simd`|`202506L`|データ並列ライブラリとして、[`<simd>`](/reference/simd.md.nolink)を追加|[`<simd>`](/reference/simd.md.nolink)|
 |`__cpp_lib_simd_complex`|`202502L`|[`<simd>`](/reference/simd.md.nolink)が[`std::complex`](/reference/complex/complex.md)をサポートする|[`<simd>`](/reference/simd.md.nolink)|
 |`__cpp_lib_simd_permutations`|`202506L`|[`<simd>`](/reference/simd.md.nolink)に`permute()`などを追加する|[`<simd>`](/reference/simd.md.nolink)|
-|`__cpp_lib_smart_ptr_owner_equality`|`202306L`|[`<memory>`](/reference/memory.md)に[`std::owner_hash`](/reference/memory/owner_hash.md.nolink)と[`std::owner_equal`](/reference/memory/owner_equal.md.nolink)を追加|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_smart_ptr_owner_equality`|`202306L`|[`<memory>`](/reference/memory.md)に[`std::owner_hash`](/reference/memory/owner_hash.md)と[`std::owner_equal`](/reference/memory/owner_equal.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_span`|`202311L`|[`std::mdspan`](/reference/mdspan/mdspan.md)に[`at()`](/reference/mdspan/mdspan/at.md)メンバ関数を追加|[`<span>`](/reference/span.md)|
 |`__cpp_lib_span_initializer_list`|`202311L`|[`std::span`](/reference/span/span.md)に[`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタを追加|[`<span>`](/reference/span.md)|
 |`__cpp_lib_sstream_from_string_view`|`202306L`|[`std::basic_stringstream`](/reference/sstream/basic_stringstream.md)などが[`std::basic_string_view`](/reference/string_view/basic_string_view.md)から構築可能に|[`<sstream>`](/reference/sstream.md)|

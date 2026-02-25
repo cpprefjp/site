@@ -354,7 +354,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 ### スマートポインタ・メモリ関連
 - 動的確保したオブジェクトに値の意味論をもたせてディープコピーさせるユーティリティクラスとして、[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md.nolink)クラスと[`std::polymorphic`](/reference/memory/polymorphic.md.nolink)クラスを追加
-- [`std::weak_ptr`](/reference/memory/weak_ptr.md)を非順序連想コンテナのキーとして使用できるよう、[`<memory>`](/reference/memory.md)に所有権ベースのハッシュ値を取得する関数オブジェクト[`std::owner_hash`](/reference/memory/owner_hash.md.nolink)、および所有権ベースの等値比較を行う関数オブジェクト[`std::owner_equal`](/reference/memory/owner_equal.md.nolink)を追加
+- [`std::weak_ptr`](/reference/memory/weak_ptr.md)を非順序連想コンテナのキーとして使用できるよう、[`<memory>`](/reference/memory.md)に所有権ベースのハッシュ値を取得する関数オブジェクト[`std::owner_hash`](/reference/memory/owner_hash.md)、および所有権ベースの等値比較を行う関数オブジェクト[`std::owner_equal`](/reference/memory/owner_equal.md)を追加
     - 関連して、[`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスと[`std::weak_ptr`](/reference/memory/weak_ptr.md)クラスのメンバ関数として、`owner_hash()`と`owner_equal()`を追加
 - [`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスとその関連機能を`constexpr`対応
 
