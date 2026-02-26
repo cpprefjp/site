@@ -14,7 +14,7 @@ constexpr T* operator->() noexcept;              // (2)
 保持している正常値のメンバにアクセスする。
 
 
-## 事前条件
+## 堅牢化された事前条件
 [`has_value()`](has_value.md) `== true`
 
 
@@ -70,3 +70,5 @@ int main()
 
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

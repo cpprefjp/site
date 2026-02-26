@@ -21,7 +21,7 @@ constexpr const T&& operator*() const&&;    // (4)
 - (4) : `*this` が `const` 右辺値である場合に、有効値への `const` 右辺値参照を返す
 
 
-## 要件
+## 堅牢化された事前条件
 [`has_value()`](has_value.md) `== true` であること。
 
 
@@ -81,3 +81,8 @@ int main()
 
 ## 関連項目
 - [`optional::value()`](value.md)
+
+
+## 参照
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

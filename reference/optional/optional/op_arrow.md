@@ -14,7 +14,7 @@ constexpr T* operator->();
 保持している有効値のメンバにアクセスする。
 
 
-## 要件
+## 堅牢化された事前条件
 `*this`が有効な値を保持していること
 
 
@@ -70,3 +70,5 @@ int main()
 
 ## 参照
 - [LWG Issue 2740. `constexpr optional<T>::operator->`](https://wg21.cmeerw.net/lwg/issue2740)
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

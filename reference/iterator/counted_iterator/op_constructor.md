@@ -19,7 +19,7 @@ constexpr counted_iterator(const counted_iterator<I2>& x);                // (3)
 
 `counted_iterator`オブジェクトを構築する。
 
-## 事前条件
+## 堅牢化された事前条件
 
 - (2) : `n >= 0`
 
@@ -69,3 +69,5 @@ int main() {
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

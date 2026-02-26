@@ -13,7 +13,7 @@ const_reference operator[](size_type frame_no) const; // (1) C++23
 任意の位置の要素を取得する。
 
 
-## 事前条件
+## 堅牢化された事前条件
 - `frame_no <` [`size()`](size.md)であること
 
 
@@ -60,3 +60,7 @@ int main() {
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 12 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

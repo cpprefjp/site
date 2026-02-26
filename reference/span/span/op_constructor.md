@@ -97,7 +97,7 @@ constexpr explicit(extent != dynamic_extent)
         - (`std::span<const T>`に対してのみ使用できる)
 
 
-## 事前条件
+## 堅牢化された事前条件
 - (2) :
     - `[first, first + count)`が妥当なイテレータ範囲であること
     - 型 `It` はコンセプト [`std::contiguous_iterator`](/reference/iterator/contiguous_iterator.md) のモデルであること
@@ -344,3 +344,5 @@ int main()
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
 - [P2447R6 `std::span` over an initializer list](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2447r6.html)
     - C++26から初期化子リストをとるコンストラクタが追加された
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

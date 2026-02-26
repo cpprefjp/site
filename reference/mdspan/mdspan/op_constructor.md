@@ -93,7 +93,7 @@ template<class OtherElementType, class OtherExtents,
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, OtherExtents>`が`true`
 
 
-## 事前条件
+## 堅牢化された事前条件
 - (1) : デフォルト構築された`map_`, `acc_`を用いたとき、半開区間`[0, map_.required_span_size())`が`ptr_`と`acc_`によってアクセス可能な範囲であること。
 - (4), (5), (6), (7) : このコンストラクタで構築された`map_`とデフォルト構築された`acc_`を用いたとき、半開区間`[0, map_.required_span_size())`が`p`と`acc_`によってアクセス可能な範囲であること。
 - (8) : デフォルト構築された`acc_`を用いたとき、半開区間`[0, m.required_span_size())`が`p`と`acc_`によってアクセス可能な範囲であること。
@@ -263,3 +263,5 @@ int main()
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

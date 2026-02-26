@@ -27,7 +27,7 @@ indirectly_readable<const I> &&
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 
-## 事前条件
+## 堅牢化された事前条件
 
 [`holds_alternative`](/reference/variant/holds_alternative.md)`<I>(v_) == true`
 
@@ -69,3 +69,5 @@ indirectly_readable<const I> &&
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

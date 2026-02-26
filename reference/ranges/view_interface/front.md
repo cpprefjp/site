@@ -22,7 +22,7 @@ Rangeの先頭の要素を取得する。
 - (1): `D`が[`forward_range`](../forward_range.md)であること。
 - (2): `const D`が[`forward_range`](../forward_range.md)であること。
 
-## 事前条件
+## 堅牢化された事前条件
 `!`[`empty`](empty.md)`()`
 
 ## 戻り値
@@ -49,3 +49,5 @@ Rangeの先頭の要素を取得する。
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

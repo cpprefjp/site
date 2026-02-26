@@ -16,7 +16,7 @@ namespace std {
 
 `counted_iterator`の指す要素をムーブする。
 
-## 事前条件
+## 堅牢化された事前条件
 
 カウントの値を`length`メンバ変数に保持するとして
 
@@ -83,3 +83,5 @@ int main() {
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [LWG Issue 3472. `counted_iterator` is missing preconditions](https://cplusplus.github.io/LWG/issue3472)
 - [LWG Issue 3953. `iter_move` for `common_iterator` and `counted_iterator` should return `decltype(auto)`](https://cplusplus.github.io/LWG/issue3953)
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

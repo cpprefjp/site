@@ -13,7 +13,7 @@ constexpr const_reference back() const;
 末尾文字を取得する。
 
 
-## 要件
+## 堅牢化された事前条件
 - `!`[`empty()`](empty.md)
 
 
@@ -58,3 +58,8 @@ int main()
 - [GCC](/implementation.md#gcc): 7.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

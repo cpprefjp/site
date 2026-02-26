@@ -22,7 +22,7 @@ namespace std {
 
 2つの`common_iterator`の指す要素を交換する。
 
-## 事前条件
+## 堅牢化された事前条件
 
 [`holds_alternative`](/reference/variant/holds_alternative.md)`<I>(x.v_)`、[`holds_alternative`](/reference/variant/holds_alternative.md)`<I2>(y.v_)`はどちらも`true`であること。
 
@@ -99,3 +99,5 @@ int main() {
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

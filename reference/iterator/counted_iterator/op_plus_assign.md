@@ -14,7 +14,7 @@ constexpr counted_iterator& operator+=(iter_difference_t<I> n) requires random_a
 
 イテレータ自身を`n`回進める。
 
-## 事前条件
+## 堅牢化された事前条件
 
 現在のカウントの値を`length`メンバ変数に保持するとして、`n <= length`
 
@@ -66,3 +66,5 @@ int main() {
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

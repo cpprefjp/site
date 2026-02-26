@@ -26,7 +26,7 @@ constexpr span<element_type, dynamic_extent>
 - (1) : `Count <= Extent`が`true`であること
 
 
-## 事前条件
+## 堅牢化された事前条件
 - (1) : `Count <=` [`size()`](size.md)が`true`であること
 - (2) : `count <=` [`size()`](size.md)が`true`であること
 
@@ -98,3 +98,5 @@ int main()
 ## 参照
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
 - [LWG Issue 3103. Errors in taking subview of `span` should be ill-formed where possible](https://wg21.cmeerw.net/lwg/issue3103)
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

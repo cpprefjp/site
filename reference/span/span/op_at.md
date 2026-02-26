@@ -13,7 +13,7 @@ constexpr reference operator[](size_type i) const;
 参照範囲から、任意の位置の要素を取得する。
 
 
-## 事前条件
+## 堅牢化された事前条件
 - `i <` [`size()`](size.md)が`true`であること
 
 
@@ -71,3 +71,5 @@ int main()
 
 ## 参照
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

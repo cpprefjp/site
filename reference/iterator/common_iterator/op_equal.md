@@ -26,7 +26,7 @@ namespace std {
 ## 概要
 2つの`common_iterator`オブジェクトが同じ要素を指しているかを判定する。
 
-## 事前条件
+## 堅牢化された事前条件
 
 `x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception.md)`()`、`y.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception.md)`()`はどちらも`false`であること。
 
@@ -105,3 +105,5 @@ true
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

@@ -13,7 +13,7 @@ constexpr void pop_back(); // (1) C++20
 末尾要素を削除する。
 
 
-## 要件
+## 堅牢化された事前条件
 [`empty()`](empty.md) `== false`であること。
 
 
@@ -51,3 +51,5 @@ int main()
 
 ## 参照
 - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

@@ -18,7 +18,7 @@ constexpr element_type&
 配列に対して、添字を使用して任意の位置の要素を参照する。
 
 
-## 要件
+## 堅牢化された事前条件
 - [`get()`](get.md) `!= nullptr && i >= 0`
 - 型`T`が`U[N]`の形式となっており、要素数が判明している場合、`i < N`であること
 
@@ -69,3 +69,5 @@ int main()
 
 ## 参照
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)

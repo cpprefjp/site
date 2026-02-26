@@ -17,7 +17,7 @@ constexpr reference operator[](size_t pos);  // (2) C++23
 任意の位置のビットにアクセスする。
 
 
-## 要件
+## 堅牢化された事前条件
 `pos <` [`size()`](size.md)であること。
 
 
@@ -59,3 +59,5 @@ false
 ## 参照
 - [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
