@@ -2,9 +2,70 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-26T09:15:59.959203</updated>
-  <id>d9afd829-9233-4928-ac34-c1bf4e677c89</id>
+  <updated>2026-02-26T14:07:58.570434</updated>
+  <id>ea5294a1-7ebc-420b-8162-02e4df1f8676</id>
 
+  
+    <entry>
+      <title>SIG_DFL -- sig_dflの説明とコードサンプルを変更</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
+      <id>545b61474c3de5abcab9a851c34826ef0bb23d18:reference/csignal/sig_dfl.md</id>
+      <updated>2026-02-26T23:02:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
+index 421eae196..6f2d241e4 100644
+--- a/reference/csignal/sig_dfl.md
++++ b/reference/csignal/sig_dfl.md
+@@ -7,7 +7,7 @@
+ ```
+ 
+ ## 概要
+-`signal`関数に渡される引数として、シグナルに対するデフォルトの処理を指定するマクロ。
++`signal`関数に渡される引数として、シグナルハンドラをデフォルトに設定するマクロ。
+ 
+ シグナル受信時に`signal`関数で`SIG_DFL`が指定されている場合、そのシグナルに対する実装定義のデフォルト処理が実行される。
+ 
+@@ -16,13 +16,21 @@
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
+ 
++void signal_handler(int)
++{
++  std::cout &amp;lt;&amp;lt; &amp;#34;Custom handler\n&amp;#34;;
++}
++
+ int main()
+ {
++  // 一度カスタムハンドラを設定
++  std::signal(SIGINT, signal_handler);
++  // その後デフォルト動作に戻す
+   std::signal(SIGINT, SIG_DFL);
+-  volatile std::sig_atomic_t flag = 0;
+-  while (!flag) {
++  std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C\n&amp;#34;;
++  // ここで Ctrl+C を押すと、デフォルト動作
++  while (true) {
+   }
+-  return 0;
+ }
+ ```
+ 
+@@ -31,7 +39,7 @@ int main()
+ ### 出力
+ 
+ ```
+-Press Ctrl+C to send SIGINT signal
++Press Ctrl+C
+ ```
+ 
+ ## 関連項目
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>SIG_DFL -- modified: syntax highlight</title>
@@ -650,66 +711,6 @@ index 87a021b7d..5af284873 100644
          * make_format_args[link /reference/format/make_format_args.md]
  
  
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>ignore -- basic_istream/ignore: P3223R2対応 (#1518)</title>
-      <link href="https://cpprefjp.github.io/reference/istream/basic_istream/ignore.html"/>
-      <id>ebde68c411f604e2b07e91bea3d1debcf2a11df0:reference/istream/basic_istream/ignore.md</id>
-      <updated>2026-02-11T15:32:25+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/istream/basic_istream/ignore.md b/reference/istream/basic_istream/ignore.md
-index b31b96a0f..62461e5e3 100644
---- a/reference/istream/basic_istream/ignore.md
-+++ b/reference/istream/basic_istream/ignore.md
-@@ -5,7 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--basic_istream&amp;lt;CharT, Traits&amp;gt;&amp;amp; ignore(streamsize n = 1, int_type delim = Traits::eof());
-+basic_istream&amp;amp; ignore(streamsize n = 1, int_type delim = Traits::eof());  // (1)
-+
-+basic_istream&amp;amp; ignore(streamsize n, char_type delim);  // (2) C++26
- ```
- 
- ## 概要
-@@ -19,9 +21,10 @@ basic_istream&amp;lt;CharT, Traits&amp;gt;&amp;amp; ignore(streamsize n = 1, int_type delim = Traits::
- - 2番目の仮引数`delim`を与えると、その文字が現れるまで入力して捨てる処理を実行する。この指定が不要なら、`Traits::eof()`を実引数に与える。
- 
- ## 効果
-+(1) : 下記の動作を行う。
- 
- 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
--1. 以下のいずれかを満たすまで、`this`内のストリームバッファから文字を入力する（どこへも出力することなく捨てる）。
-+2. 以下のいずれかを満たすまで、`this`内のストリームバッファから文字を入力する（どこへも出力することなく捨てる）。
-     - 実引数で指定された`n`文字まで入力した。
-         - `n == numeric_limits&amp;lt;streamsize&amp;gt;::max()`の場合、この条件は適用されない。
-     - EOFに達した。この場合、`setstate(eofbit)`を呼び出す。
-@@ -29,6 +32,12 @@ basic_istream&amp;lt;CharT, Traits&amp;gt;&amp;amp; ignore(streamsize n = 1, int_type delim = Traits::
-         - 次の文字を`c`として、`Traits::eq_int_type(Traits::to_int_type(c), delim)`が真の場合。
-         - `delim`が`Traits::eof()`である場合、この条件は適用されない。
- 
-+(2) : 下記と等価
-+```cpp
-+return ignore(n, traits::to_int_type(delim));
-+```
-+
-+
- ## 戻り値
- `*this`
- 
-@@ -71,3 +80,5 @@ TBD
- - C++98
- 
- ## 参照
-+- [P3223R2 Making std::istream::ignore less surprising](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3223r2.html)
-+    - C++26からオーバーロード(2)が追加された
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

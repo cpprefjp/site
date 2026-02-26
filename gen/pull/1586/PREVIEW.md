@@ -1,8 +1,8 @@
 # PR [\#1586](https://github.com/cpprefjp/site/pull/1586) プレビュー
-- &#x231a; 更新時刻: 2026-02-26 18:16:01 JST
+- &#x231a; 更新時刻: 2026-02-26 23:07:59 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1586)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Afeat%2Fcsignal)
-- **&#x2AEF;** ソースの変更: [`f5d6b94..ca74359`](https://github.com/cpprefjp/site/compare/f5d6b947178dfc66f36a78e6276f88a1996e41d5..ca74359aff5bb433096b262a4601203378dfe8da)
+- **&#x2AEF;** ソースの変更: [`f5d6b94..545b614`](https://github.com/cpprefjp/site/compare/f5d6b947178dfc66f36a78e6276f88a1996e41d5..545b61474c3de5abcab9a851c34826ef0bb23d18)
 
 ## 変更記事一覧 (789件)
 
