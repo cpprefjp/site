@@ -2,9 +2,115 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-26T09:01:12.642024</updated>
-  <id>eaabf92d-f448-4879-90a3-a647e4650797</id>
+  <updated>2026-02-26T09:15:59.959203</updated>
+  <id>d9afd829-9233-4928-ac34-c1bf4e677c89</id>
 
+  
+    <entry>
+      <title>SIG_DFL -- modified: syntax highlight</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
+      <id>ca74359aff5bb433096b262a4601203378dfe8da:reference/csignal/sig_dfl.md</id>
+      <updated>2026-02-26T18:11:07+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
+index af141d5b5..421eae196 100644
+--- a/reference/csignal/sig_dfl.md
++++ b/reference/csignal/sig_dfl.md
+@@ -26,15 +26,14 @@ int main()
+ }
+ ```
+ 
++* SIG_DFL[color ff0000]
++
+ ### 出力
+ 
+ ```
+ Press Ctrl+C to send SIGINT signal
+ ```
+ 
+-* SIG_DFL[color ff0000]
+-* std::signal[color ff0000]
+-
+ ## 関連項目
+ - [`signal`](/reference/csignal/signal.md)
+ - [`SIG_IGN`](/reference/csignal/sig_ign.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_ERR -- modified: syntax highlight</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_err.html"/>
+      <id>ca74359aff5bb433096b262a4601203378dfe8da:reference/csignal/sig_err.md</id>
+      <updated>2026-02-26T18:11:07+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_err.md b/reference/csignal/sig_err.md
+index 03d0fe390..62912be4c 100644
+--- a/reference/csignal/sig_err.md
++++ b/reference/csignal/sig_err.md
+@@ -36,14 +36,13 @@ int main()
+ }
+ ```
+ 
++* SIG_ERR[color ff0000]
++
+ ### 出力例
+ 
+ ```
+ Signal handler set successfully
+ ```
+ 
+-* SIG_ERR[color ff0000]
+-* std::signal[color ff0000]
+-
+ ## 関連項目
+ - [`signal`](/reference/csignal/signal.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_IGN -- modified: syntax highlight</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_ign.html"/>
+      <id>ca74359aff5bb433096b262a4601203378dfe8da:reference/csignal/sig_ign.md</id>
+      <updated>2026-02-26T18:11:07+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_ign.md b/reference/csignal/sig_ign.md
+index 741f5a511..ad9fcb737 100644
+--- a/reference/csignal/sig_ign.md
++++ b/reference/csignal/sig_ign.md
+@@ -28,14 +28,13 @@ int main()
+ }
+ ```
+ 
++* SIG_IGN[color ff0000]
++
+ ### 出力
+ 
+ ```
+ 0 1 2 3 4 5 6 7 8 9
+ ```
+ 
+-* SIG_IGN[color ff0000]
+-* std::signal[color ff0000]
+-
+ ## 関連項目
+ - [`signal`](/reference/csignal/signal.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>csignal -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
@@ -604,664 +710,6 @@ index b31b96a0f..62461e5e3 100644
  ## 参照
 +- [P3223R2 Making std::istream::ignore less surprising](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3223r2.html)
 +    - C++26からオーバーロード(2)が追加された
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>function_ref -- functional/function_ref: P3774R1対応 (#1569)</title>
-      <link href="https://cpprefjp.github.io/reference/functional/function_ref.html"/>
-      <id>3e16d097df838327193b45acccc7946647c2c478:reference/functional/function_ref.md</id>
-      <updated>2026-02-11T15:05:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref.md b/reference/functional/function_ref.md
-index 8d59b4374..c1f86340b 100644
---- a/reference/functional/function_ref.md
-+++ b/reference/functional/function_ref.md
-@@ -33,7 +33,7 @@ namespace std {
-     - ポインタ2個のオブジェクトサイズで実装可能。
- - 構築時に必ず呼び出し対象を指定する必要がある。デフォルト構築不可。
-     - `operator bool`を提供しない。
--- メンバ関数・メンバ変数を参照する場合は、[`std::nontype`](/reference/utility/nontype_t.md)タグを利用する。
-+- メンバ関数・メンバ変数を参照する場合は、[`std::constant_arg`](/reference/utility/constant_arg_t.md)タグを利用する。
-     - 対象オブジェクトの束縛タイミングは、構築時または呼び出し時のいずれもサポートする。
- - ダングリング(dangling)参照を避けるため、左辺値(lvalue)のみを取り扱う。
- 
-@@ -86,11 +86,11 @@ int main()
- 
-   // オブジェクト束縛済みメンバ関数を指定
-   Calc obj{ 3 };
--  std::cout &amp;lt;&amp;lt; hof({std::nontype&amp;lt;&amp;amp;Calc::eval&amp;gt;, obj}) &amp;lt;&amp;lt; std::endl;
-+  std::cout &amp;lt;&amp;lt; hof({std::constant_arg&amp;lt;&amp;amp;Calc::eval&amp;gt;, obj}) &amp;lt;&amp;lt; std::endl;
- }
- ```
- * std::function_ref[color ff0000]
--* std::nontype[link /reference/utility/nontype_t.md]
-+* std::constant_arg[link /reference/utility/constant_arg_t.md]
- 
- #### 出力
- ```
-@@ -118,3 +118,4 @@ int main()
- 
- ## 参照
- - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
-+- [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator= -- functional/function_ref: P3774R1対応 (#1569)</title>
-      <link href="https://cpprefjp.github.io/reference/functional/function_ref/op_assign.html"/>
-      <id>3e16d097df838327193b45acccc7946647c2c478:reference/functional/function_ref/op_assign.md</id>
-      <updated>2026-02-11T15:05:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref/op_assign.md b/reference/functional/function_ref/op_assign.md
-index 2c9f3166d..089778da8 100644
---- a/reference/functional/function_ref/op_assign.md
-+++ b/reference/functional/function_ref/op_assign.md
-@@ -19,7 +19,7 @@ template&amp;lt;class T&amp;gt; function_ref&amp;amp; operator=(T) = delete; // (2)
- - (2) : 以下の制約をみたすとき、代入演算子はdelete宣言される
-     - `T`が`function_ref`と同一型ではなく、かつ
-     - [`is_pointer_v`](/reference/type_traits/is_pointer.md)`&amp;lt;T&amp;gt;`が`false`であり、かつ
--    - `T`が[`nontype_t`](/reference/utility/nontype_t.md)の特殊化でないこと
-+    - `T`が[`constant_arg_t`](/reference/utility/constant_arg_t.md)の特殊化でないこと
- 
- 
- ## 効果
-@@ -72,3 +72,4 @@ int main()
- 
- ## 参照
- - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
-+- [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- functional/function_ref: P3774R1対応 (#1569)</title>
-      <link href="https://cpprefjp.github.io/reference/functional/function_ref/op_constructor.html"/>
-      <id>3e16d097df838327193b45acccc7946647c2c478:reference/functional/function_ref/op_constructor.md</id>
-      <updated>2026-02-11T15:05:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref/op_constructor.md b/reference/functional/function_ref/op_constructor.md
-index 297237e90..55801d20d 100644
---- a/reference/functional/function_ref/op_constructor.md
-+++ b/reference/functional/function_ref/op_constructor.md
-@@ -12,15 +12,15 @@ template&amp;lt;class F&amp;gt;
- constexpr function_ref(F&amp;amp;&amp;amp; f) noexcept;  // (2)
- 
- template&amp;lt;auto f&amp;gt;
--constexpr function_ref(nontype_t&amp;lt;f&amp;gt;) noexcept;  // (3)
-+constexpr function_ref(constant_arg_t&amp;lt;f&amp;gt;) noexcept;  // (3)
- template&amp;lt;auto f, class U&amp;gt;
--constexpr function_ref(nontype_t&amp;lt;f&amp;gt;, U&amp;amp;&amp;amp; obj) noexcept;  // (4)
-+constexpr function_ref(constant_arg_t&amp;lt;f&amp;gt;, U&amp;amp;&amp;amp; obj) noexcept;  // (4)
- template&amp;lt;auto f, class T&amp;gt;
--constexpr function_ref(nontype_t&amp;lt;f&amp;gt;, /*cv*/ T* obj) noexcept;  // (5)
-+constexpr function_ref(constant_arg_t&amp;lt;f&amp;gt;, /*cv*/ T* obj) noexcept;  // (5)
- 
- constexpr function_ref(const function_ref&amp;amp;) noexcept = default;  // (6)
- ```
--* nontype_t[link /reference/utility/nontype_t.md]
-+* constant_arg_t[link /reference/utility/constant_arg_t.md]
- 
- ## 概要
- `function_ref`オブジェクトを構築する。
-@@ -113,16 +113,16 @@ int main()
-   }
-   // (3) メンバ関数
-   {
--    std::function_ref&amp;lt;int(X&amp;amp;, int)&amp;gt; f3 = std::nontype&amp;lt;&amp;amp;X::ident&amp;gt;;
-+    std::function_ref&amp;lt;int(X&amp;amp;, int)&amp;gt; f3 = std::constant_arg&amp;lt;&amp;amp;X::ident&amp;gt;;
-     X obj;
-     std::cout &amp;lt;&amp;lt; &amp;#34;(3) : &amp;#34; &amp;lt;&amp;lt; f3(obj, 3) &amp;lt;&amp;lt; std::endl;
-   }
-   // (4), (5) メンバ関数＋オブジェクト束縛
-   {
-     X obj;
--    std::function_ref&amp;lt;int(int)&amp;gt; f4{std::nontype&amp;lt;&amp;amp;X::ident&amp;gt;, obj};
-+    std::function_ref&amp;lt;int(int)&amp;gt; f4{std::constant_arg&amp;lt;&amp;amp;X::ident&amp;gt;, obj};
-     std::cout &amp;lt;&amp;lt; &amp;#34;(4) : &amp;#34; &amp;lt;&amp;lt; f4(4) &amp;lt;&amp;lt; std::endl;
--    std::function_ref&amp;lt;int(int)&amp;gt; f5{std::nontype&amp;lt;&amp;amp;X::ident&amp;gt;, &amp;amp;obj};
-+    std::function_ref&amp;lt;int(int)&amp;gt; f5{std::constant_arg&amp;lt;&amp;amp;X::ident&amp;gt;, &amp;amp;obj};
-     std::cout &amp;lt;&amp;lt; &amp;#34;(5) : &amp;#34; &amp;lt;&amp;lt; f5(5) &amp;lt;&amp;lt; std::endl;
-   }
-   // (6) コピーコンストラクタ
-@@ -133,7 +133,7 @@ int main()
-   }
- }
- ```
--* std::nontype[link /reference/utility/nontype_t.md]
-+* std::constant_arg[link /reference/utility/constant_arg_t.md]
- 
- ### 出力
- ```
-@@ -159,3 +159,4 @@ int main()
- 
- ## 参照
- - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
-+- [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>推論補助 -- functional/function_ref: P3774R1対応 (#1569)</title>
-      <link href="https://cpprefjp.github.io/reference/functional/function_ref/op_deduction_guide.html"/>
-      <id>3e16d097df838327193b45acccc7946647c2c478:reference/functional/function_ref/op_deduction_guide.md</id>
-      <updated>2026-02-11T15:05:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref/op_deduction_guide.md b/reference/functional/function_ref/op_deduction_guide.md
-index b9a246b5d..605b74826 100644
---- a/reference/functional/function_ref/op_deduction_guide.md
-+++ b/reference/functional/function_ref/op_deduction_guide.md
-@@ -10,13 +10,13 @@ namespace std {
-   function_ref(F*) -&amp;gt; function_ref&amp;lt;F&amp;gt;; // (1)
- 
-   template&amp;lt;auto f&amp;gt;
--  function_ref(nontype_t&amp;lt;f&amp;gt;) -&amp;gt; function_ref&amp;lt;see below&amp;gt;; // (2)
-+  function_ref(constant_arg_t&amp;lt;f&amp;gt;) -&amp;gt; function_ref&amp;lt;see below&amp;gt;; // (2)
- 
-   template&amp;lt;auto f, class T&amp;gt;
--  function_ref(nontype_t&amp;lt;f&amp;gt;, T&amp;amp;&amp;amp;) -&amp;gt; function_ref&amp;lt;see below&amp;gt;; // (3)
-+  function_ref(constant_arg_t&amp;lt;f&amp;gt;, T&amp;amp;&amp;amp;) -&amp;gt; function_ref&amp;lt;see below&amp;gt;; // (3)
- }
- ```
--* nontype_t[link /reference/utility/nontype_t.md]
-+* constant_arg_t[link /reference/utility/constant_arg_t.md]
- 
- 
- ## 概要
-@@ -58,19 +58,19 @@ int main()
-   std::function_ref f1{&amp;amp;ident};
- 
-   // (2) 関数ポインタ/NTTP
--  std::function_ref f2{std::nontype&amp;lt;&amp;amp;ident&amp;gt;};
-+  std::function_ref f2{std::constant_arg&amp;lt;&amp;amp;ident&amp;gt;};
- 
-   // (3a) メンバ関数＋オブジェクト束縛
-   X obj{42};
--  std::function_ref f3a{std::nontype&amp;lt;&amp;amp;X::mf&amp;gt;, obj};
-+  std::function_ref f3a{std::constant_arg&amp;lt;&amp;amp;X::mf&amp;gt;, obj};
-   // (3b) メンバ変数＋オブジェクト束縛
--  std::function_ref f3b{std::nontype&amp;lt;&amp;amp;X::data&amp;gt;, obj};
-+  std::function_ref f3b{std::constant_arg&amp;lt;&amp;amp;X::data&amp;gt;, obj};
-   // (3c) 関数ポインタ＋第1引数束縛
--  std::function_ref f3c{std::nontype&amp;lt;&amp;amp;fun&amp;gt;, obj};
-+  std::function_ref f3c{std::constant_arg&amp;lt;&amp;amp;fun&amp;gt;, obj};
- }
- ```
- * std::function_ref[color ff0000]
--* std::nontype[link /reference/utility/nontype_t.md]
-+* std::constant_arg[link /reference/utility/constant_arg_t.md]
- 
- ### 出力
- ```
-@@ -90,3 +90,4 @@ int main()
- 
- ## 参照
- - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
-+- [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>utility -- functional/function_ref: P3774R1対応 (#1569)</title>
-      <link href="https://cpprefjp.github.io/reference/utility.html"/>
-      <id>3e16d097df838327193b45acccc7946647c2c478:reference/utility.md</id>
-      <updated>2026-02-11T15:05:02+09:00</updated>
-      
-        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;utility&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;utility&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;utility&amp;gt;&lt;/code&gt;ヘッダでは、その他のライブラリの至る所で使用される、幾つかの基本的な関数やクラステンプレートを定義する。&lt;/p&gt;
-&lt;p&gt;このヘッダでは、以下の標準ヘッダをインクルードする：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;initializer_list.html&#34;&gt;&amp;lt;initializer_list&amp;gt;&lt;/a&gt;&lt;/code&gt; (C++11)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;compare.html&#34;&gt;&amp;lt;compare&amp;gt;&lt;/a&gt;&lt;/code&gt; (C++20)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;演算子定義&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/rel_ops.html&#34;&gt;rel_ops&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;関係演算子(namespace)&lt;/td&gt;
-&lt;td&gt;C++20から非推奨&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;値の入れ替え&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/swap.html&#34;&gt;swap&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;二つのオブジェクトの値を交換する(function template)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/exchange.html&#34;&gt;exchange&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;値を書き換え、書き換え前の値を返す(function template)&lt;/td&gt;
-&lt;td&gt;C++14&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;転送と移動&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/forward.html&#34;&gt;forward&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;関数テンプレートの引数を転送する(function template)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/forward_like.html&#34;&gt;forward_like&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;第一テンプレート引数の&lt;code&gt;const&lt;/code&gt;性と参照修飾で引数を転送する(function template)&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/move.html&#34;&gt;move&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;左辺値を右辺値にキャストする(function template)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/move_if_noexcept.html&#34;&gt;move_if_noexcept&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;例外を投げないオブジェクトをムーブする(function template)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;型の修飾&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/as_const.html&#34;&gt;as_const&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;左辺値参照を&lt;code&gt;const&lt;/code&gt;左辺値参照にする (function template)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;型の値&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/declval.html&#34;&gt;declval&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;指定された型の値を得る(function template)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;整数比較&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/cmp_equal.html&#34;&gt;cmp_equal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;等値比較 (function template)&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/cmp_not_equal.html&#34;&gt;cmp_not_equal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;非等値比較 (function template)&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/cmp_less.html&#34;&gt;cmp_less&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;左辺が右辺より小さいかを比較 (function template)&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/cmp_less_equal.html&#34;&gt;cmp_less_equal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;左辺が右辺以下かを比較 (function template)&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/cmp_greater.html&#34;&gt;cmp_greater&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;左辺が右辺より大きいかを比較 (function template)&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/cmp_greater_equal.html&#34;&gt;cmp_greater_equal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;左辺が右辺以上かを比較 (function template)&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/in_range.html&#34;&gt;in_range&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;値が型のとりうる範囲内か判定する (function template)&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;列挙型&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/to_underlying.html&#34;&gt;to_underlying&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;列挙値を基底型に変換する (function template)&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;到達しない表明&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/unreachable.html&#34;&gt;unreachable&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;コードパス不到達を表明する (function)&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;組&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/pair.html&#34;&gt;pair&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;異なる型の二つの値の組(class template)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/make_pair.html&#34;&gt;make_pair&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pair&lt;/code&gt;を構築するヘルパ関数(function template)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/piecewise_construct_t.html&#34;&gt;piecewise_construct_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pair&lt;/code&gt;や&lt;code&gt;tuple&lt;/code&gt;の要素型のコンストラクタ引数を直接受け取って構築するためのタグ型(class)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/piecewise_construct_t.html&#34;&gt;piecewise_construct&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pair&lt;/code&gt;や&lt;code&gt;tuple&lt;/code&gt;の要素型のコンストラクタ引数を直接受け取って構築するためのタグ値(constant variable)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;tuple&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;tuple&lt;/code&gt;型の先行宣言(class template)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;直接構築&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/in_place_t.html&#34;&gt;in_place_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;要素型のコンストラクタ引数を直接受け取って構築するためのタグ型 (class)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/in_place_t.html&#34;&gt;in_place&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/in_place_type_t.html&#34;&gt;in_place_type_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;指定した要素型のコンストラクタ引数を直接受け取って構築するためのタグ型 (class)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/in_place_type_t.html&#34;&gt;in_place_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;指定した要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/in_place_index_t.html&#34;&gt;in_place_index_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;指定位置にある要素型のコンストラクタ引数を直接受け取って構築するためのタグ型 (class)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/in_place_index_t.html&#34;&gt;in_place_index&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;指定位置にある要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;定数引数&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/constant_arg_t.html&#34;&gt;constant_arg_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;定数引数を表現するためのタグ型 (class template)&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/constant_arg_t.html&#34;&gt;constant_arg&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;定数引数を表現するためのタグ値 (variable template)&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;コンパイル時の整数シーケンス&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/integer_sequence.html&#34;&gt;integer_sequence&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;任意の整数型のシーケンス(class template)&lt;/td&gt;
-&lt;td&gt;C++14&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/make_integer_sequence.html&#34;&gt;make_integer_sequence&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;要素数を指定して、0から始まる整数シーケンスを生成する(type-alias)&lt;/td&gt;
-&lt;td&gt;C++14&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/index_sequence.html&#34;&gt;index_sequence&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;size_t&lt;/code&gt;型の整数シーケンス(type-alias)&lt;/td&gt;
-&lt;td&gt;C++14&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/make_index_sequence.html&#34;&gt;make_index_sequence&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;要素数を指定して、0から始まる&lt;code&gt;size_t&lt;/code&gt;型整数シーケンスを生成する(type-alias)&lt;/td&gt;
-&lt;td&gt;C++14&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;utility/index_sequence_for.html&#34;&gt;index_sequence_for&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;型のシーケンスを、0から始まる&lt;code&gt;size_t&lt;/code&gt;型整数シーケンスに変換する(type-alias)&lt;/td&gt;
-&lt;td&gt;C++14&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;参照&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html&#34; target=&#34;_blank&#34;&gt;P2051R0 C++ Standard Library Issues to be moved in Prague&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>constant_arg_t -- functional/function_ref: P3774R1対応 (#1569)</title>
-      <link href="https://cpprefjp.github.io/reference/utility/constant_arg_t.html"/>
-      <id>3e16d097df838327193b45acccc7946647c2c478:reference/utility/constant_arg_t.md</id>
-      <updated>2026-02-11T15:05:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_arg_t.md b/reference/utility/constant_arg_t.md
-new file mode 100644
-index 000000000..56ca51d6c
---- /dev/null
-+++ b/reference/utility/constant_arg_t.md
-@@ -0,0 +1,75 @@
-+# constant_arg_t
-+* utility[meta header]
-+* std[meta namespace]
-+* class template[meta id-type]
-+* cpp26[meta cpp]
-+
-+```cpp
-+namespace std {
-+  template &amp;lt;auto V&amp;gt;
-+  struct constant_arg_t {
-+    explicit constant_arg_t() = default;
-+  };
-+
-+  template &amp;lt;auto V&amp;gt; constexpr constant_arg_t&amp;lt;V&amp;gt; constant_arg{};
-+}
-+```
-+
-+## 概要
-+`constant_arg_t`クラスは、オーバーロードのための空クラスである。
-+
-+標準ライブラリの特定機能において、定数引数をテンプレートパラメータとして受け取って構築するための関数オーバーロードを定義するためにある。
-+
-+
-+## 備考
-+デフォルトコンストラクタに`explicit`が付いているのは、`constant_arg_t&amp;lt;F&amp;gt; x = {};`のように`=`付きの波カッコ初期化を禁止するためである。ユーザーは通常、`constant_arg_t`型の変数テンプレートとして事前定義されている`constant_arg`を使用すればよいので、問題にはならない。
-+
-+
-+## 例
-+```cpp example
-+#include &amp;lt;functional&amp;gt;
-+#include &amp;lt;print&amp;gt;
-+#include &amp;lt;utility&amp;gt;
-+
-+void call(std::function_ref&amp;lt;void()&amp;gt; fn)
-+{
-+  fn();
-+}
-+
-+struct Dog {
-+  void cry() { std::println(&amp;#34;Bow-wow&amp;#34;); }
-+};
-+
-+int main()
-+{
-+  Dog dog;
-+  call({std::constant_arg&amp;lt;&amp;amp;Dog::cry&amp;gt;, dog});
-+}
-+```
-+* std::constant_arg[color ff0000]
-+* std::function_ref[link /reference/functional/function_ref.md]
-+
-+### 出力
-+```
-+Bow-wow
-+```
-+
-+
-+## バージョン
-+### 言語
-+- C++26
-+
-+### 処理系
-+- [Clang](/implementation.md#clang): ??
-+- [GCC](/implementation.md#gcc): ??
-+- [ICC](/implementation.md#icc): ??
-+- [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 関連項目
-+- [`function_ref`](/reference/functional/function_ref.md)
-+
-+
-+## 参照
-+- [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
-+- [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
