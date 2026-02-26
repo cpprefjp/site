@@ -1,0 +1,343 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_format_string - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,format,class,std,cpp23,format_string,wformat_string
+">
+        <meta name="title" content="basic_format_string - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_format_string - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_format_string - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/format/basic_format_string.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`basic_format_string`クラスは、コンパイル時の書式文字列を表すクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_format_string - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/format/basic_format_string.html" />
+        <meta name="twitter:description" content="`basic_format_string`クラスは、コンパイル時の書式文字列を表すクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;], &#34;alias&#34;: [&#34;format_string,wformat_string&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5f81c50cb060b8a4edf897a184c3ff3f6c31f56c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;chrono&gt;\n\nthread_local bool logging_enabled = true;\n\n// \u73fe\u5728\u6642\u523b\u4ed8\u304d\u3067\u3001\u6587\u5b57\u5217\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u3057\u3066\u30ed\u30b0\u51fa\u529b\u3059\u308b\ntemplate &lt;typename... Args&gt;\nvoid log(std::format_string&lt;Args...&gt; s, Args&amp;&amp;... args) {\n  if (!logging_enabled) {\n    return;\n  }\n\n  namespace chrono = std::chrono;\n  auto now = chrono::floor&lt;chrono::seconds&gt;(chrono::system_clock::now());\n  std::cout &lt;&lt; std::format(\&#34;{}: {}\&#34;,\n    chrono::zoned_time{\&#34;Asia/Tokyo\&#34;, now},\n    std::format(s, std::forward&lt;Args&gt;(args)...)\n  ) &lt;&lt; std::endl;\n}\n\nint main()\n{\n  log(\&#34;Hello {} World\&#34;, 42);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;basic_format_string&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/format.html" itemprop="url">
+              
+                <span itemprop="name">format</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">basic_format_string</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-08T11:44:37">
+        2026年01月08日 11時44分37秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/format/basic_format_string.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/format/basic_format_string.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_format_string</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">basic_format_string</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">format_string</span> <span class="o">=</span> <span class="n">basic_format_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n"><a href="../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">wformat_string</span> <span class="o">=</span> <span class="n">basic_format_string</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n"><a href="../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>basic_format_string</code>クラスは、コンパイル時の書式文字列を表すクラスである。</p>
+<p>C++20までは説明専用クラス<code>basic-format-string</code>として定義されていたが、C++23からはユーザーが利用できる正式な機能として定義される。</p>
+<p>このクラスは、書式文字列のコンパイル時チェックを行う。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">str</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span> <span class="s">"I am not a number"</span><span class="p">);</span> <span class="c1">// コンパイルエラー！</span>
+                                                     <span class="c1">// 書式文字列は「d」で整数を要求しているが、引数として文字列が渡された</span>
+</code></pre></div>
+</p>
+<p>このクラスのコンストラクタは、パラメータの書式文字列と、クラステンプレートパラメータの<code>Args...</code>を照合し、</p>
+<ul>
+<li>書式文字列の型チェック</li>
+<li>開きカッコと閉じカッコの一致</li>
+<li>その他、型ごとに許可されたオプションが正しいか</li>
+</ul>
+<p>などをチェックする。</p>
+<p>C++23で説明専用クラスでなく正式な機能として定義されたことにより、以下のように書式化を含むロギングなどをユーザーが定義できるようになる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">log</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format_string</span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">logging_enabled</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log_raw</span><span class="p">(</span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_format_string/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_format_string/get.html">get</a></code></td>
+<td>書式文字列を取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="5f81c50cb060b8a4edf897a184c3ff3f6c31f56c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span> <span class="kt">bool</span> <span class="n">logging_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="c1">// 現在時刻付きで、文字列フォーマットしてログ出力する</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">log</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::format_string</span></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">logging_enabled</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n"><a href="../chrono/system_clock/now.html">now</a></span> <span class="o">=</span> <span class="n"><a href="../chrono/time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../chrono/system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="p">());</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{}: {}"</span><span class="p">,</span>
+    <span class="n"><a href="../chrono/zoned_time.html">chrono::zoned_time</a></span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="p">},</span>
+    <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...)</span>
+  <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">log</span><span class="p">(</span><span class="s">"Hello {} World"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>2023-02-06 10:46:53 JST: Hello 42 World
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 13.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2508r1.html" target="_blank">P2508R1 Expose <code>std::basic-format-string&lt;charT, Args...&gt;</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

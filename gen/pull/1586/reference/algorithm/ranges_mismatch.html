@@ -1,0 +1,440 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>mismatch - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std::ranges,function template,cpp20
+">
+        <meta name="title" content="mismatch - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="mismatch - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="mismatch - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/ranges_mismatch.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="2つのシーケンスが一致していない場所を検索する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="mismatch - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/ranges_mismatch.html" />
+        <meta name="twitter:description" content="2つのシーケンスが一致していない場所を検索する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c36d99606d16097848c43ea99c78cd009a6f2aca&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;array&gt;\n#include &lt;list&gt;\n#include &lt;iterator&gt; // for begin, end\n#include &lt;string&gt;   // for to_string\n\n// mismatch \u306e\u7d50\u679c\u3067\u5f97\u3089\u308c\u305f pair \u306b\u5bfe\u3059\u308b\u60c5\u5831\u3092\u51fa\u529b\u3059\u308b\ntemplate &lt;class Range1, class Range2, class I1, class I2&gt;\nvoid print_mismatch_value(const Range1&amp; r1, const Range2&amp; r2, const I1&amp; i1, const I2&amp; i2) {\n  std::cout &lt;&lt; \&#34;mismatch index: \&#34; &lt;&lt; std::ranges::distance(std::begin(r1), i1) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;mismatch value: (\&#34; &lt;&lt; (std::ranges::end(r1) == i1 ? \&#34;end\&#34; : std::to_string(*i1)) &lt;&lt; \&#34;,\&#34;\n                                   &lt;&lt; (std::ranges::end(r2) == i2 ? \&#34;end\&#34; : std::to_string(*i2)) &lt;&lt; \&#34;)\&#34;\n            &lt;&lt; std::endl;\n}\n\nint main() {\n  const std::vector&lt;int&gt;   v  = { 1,2,3,4,3,2 };\n  const std::array&lt;int, 6&gt; v2 = { 1,2,4,3,2,1 };\n  const std::list&lt;int&gt;     v3 = { 1,2,3,4,3, };\n\n  // v \u3068 v2 \u3067\u7570\u306a\u308b\u5834\u6240\u3092\u63a2\u3059\n  {\n    auto [i1, i2] = std::ranges::mismatch(v, v2);\n    print_mismatch_value(v, v2, i1, i2);\n  }\n\n  std::cout &lt;&lt; std::endl;\n\n  // v \u3068 v3 \u3067\u7570\u306a\u308b\u5834\u6240\u3092\u63a2\u3059\u3002\n  {\n    auto [i1, i2] = std::ranges::mismatch(v3, v);\n    print_mismatch_value(v3, v, i1, i2);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;e056dcd088bc67ff59f0d399a1af45beaf04b620&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;execution&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nint main() {\n  std::vector&lt;int&gt; v1 = {1, 2, 3, 4, 5};\n  std::vector&lt;int&gt; v2 = {1, 2, 4, 4, 5};\n\n  // \u4e26\u5217\u306b2\u3064\u306e\u30b7\u30fc\u30b1\u30f3\u30b9\u304c\u7570\u306a\u308b\u5834\u6240\u3092\u63a2\u3059\n  auto [it1, it2] = std::ranges::mismatch(std::execution::par, v1, v2);\n  if (it1 == v1.end()) {\n    std::cout &lt;&lt; \&#34;all match\&#34; &lt;&lt; std::endl;\n  } else {\n    std::cout &lt;&lt; \&#34;mismatch at index: \&#34; &lt;&lt; std::distance(v1.begin(), it1) &lt;&lt; std::endl;\n    std::cout &lt;&lt; \&#34;values: \&#34; &lt;&lt; *it1 &lt;&lt; \&#34; vs \&#34; &lt;&lt; *it2 &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;ranges_mismatch&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/algorithm.html" itemprop="url">
+              
+                <span itemprop="name">algorithm</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">mismatch</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-02-05T04:53:18">
+        2026年02月05日 04時53分18秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm/ranges_mismatch.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm/ranges_mismatch.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">mismatch</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../iterator/input_iterator.html">input_iterator</a></span> <span class="n">I1</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="o">&gt;</span> <span class="n">S1</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/input_iterator.html">input_iterator</a></span> <span class="n">I2</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I2</span><span class="o">&gt;</span> <span class="n">S2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../functional/ranges_equal_to.html">ranges::equal_to</a></span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj1</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj2</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_comparable.html">indirectly_comparable</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Proj1</span><span class="p">,</span> <span class="n">Proj2</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="ranges_in_in_result.html">mismatch_result</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n">I1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">S1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">I2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">S2</span> <span class="n">last2</span><span class="p">,</span>
+             <span class="n">Pred</span> <span class="n">pred</span> <span class="o">=</span> <span class="p">{},</span>
+             <span class="n">Proj1</span> <span class="n">proj1</span> <span class="o">=</span> <span class="p">{},</span>
+             <span class="n">Proj2</span> <span class="n">proj2</span> <span class="o">=</span> <span class="p">{});</span> <span class="c1">// (1) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../ranges/input_range.html">input_range</a></span> <span class="n">R1</span><span class="p">,</span>
+            <span class="n"><a href="../ranges/input_range.html">input_range</a></span> <span class="n">R2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../functional/ranges_equal_to.html">ranges::equal_to</a></span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj1</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj2</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_comparable.html">indirectly_comparable</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R1</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R2</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Proj1</span><span class="p">,</span> <span class="n">Proj2</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="ranges_in_in_result.html">mismatch_result</a></span><span class="o">&lt;</span>
+    <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R2</span><span class="o">&gt;</span>
+  <span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n">R1</span><span class="o">&amp;&amp;</span> <span class="n">r1</span><span class="p">,</span>
+             <span class="n">R2</span><span class="o">&amp;&amp;</span> <span class="n">r2</span><span class="p">,</span>
+             <span class="n">Pred</span> <span class="n">pred</span> <span class="o">=</span> <span class="p">{},</span>
+             <span class="n">Proj1</span> <span class="n">proj1</span> <span class="o">=</span> <span class="p">{},</span>
+             <span class="n">Proj2</span> <span class="n">proj2</span> <span class="o">=</span> <span class="p">{});</span> <span class="c1">// (2) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span> <span class="n">Ep</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span> <span class="n">I1</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="o">&gt;</span> <span class="n">S1</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span> <span class="n">I2</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">I2</span><span class="o">&gt;</span> <span class="n">S2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../functional/ranges_equal_to.html">ranges::equal_to</a></span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj1</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj2</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_comparable.html">indirectly_comparable</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Proj1</span><span class="p">,</span> <span class="n">Proj2</span><span class="o">&gt;</span>
+  <span class="n"><a href="ranges_in_in_result.html">mismatch_result</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">I1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">S1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">I2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">S2</span> <span class="n">last2</span><span class="p">,</span>
+             <span class="n">Pred</span> <span class="n">pred</span> <span class="o">=</span> <span class="p">{},</span>
+             <span class="n">Proj1</span> <span class="n">proj1</span> <span class="o">=</span> <span class="p">{},</span>
+             <span class="n">Proj2</span> <span class="n">proj2</span> <span class="o">=</span> <span class="p">{});</span> <span class="c1">// (3) C++26</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span> <span class="n">Ep</span><span class="p">,</span>
+            <span class="n"><a href="../ranges/sized-random-access-range.html">sized-random-access-range</a></span> <span class="n">R1</span><span class="p">,</span>
+            <span class="n"><a href="../ranges/sized-random-access-range.html">sized-random-access-range</a></span> <span class="n">R2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../functional/ranges_equal_to.html">ranges::equal_to</a></span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj1</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj2</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_comparable.html">indirectly_comparable</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R1</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R2</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Proj1</span><span class="p">,</span> <span class="n">Proj2</span><span class="o">&gt;</span>
+  <span class="n"><a href="ranges_in_in_result.html">mismatch_result</a></span><span class="o">&lt;</span>
+    <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R2</span><span class="o">&gt;</span>
+  <span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">R1</span><span class="o">&amp;&amp;</span> <span class="n">r1</span><span class="p">,</span>
+             <span class="n">R2</span><span class="o">&amp;&amp;</span> <span class="n">r2</span><span class="p">,</span>
+             <span class="n">Pred</span> <span class="n">pred</span> <span class="o">=</span> <span class="p">{},</span>
+             <span class="n">Proj1</span> <span class="n">proj1</span> <span class="o">=</span> <span class="p">{},</span>
+             <span class="n">Proj2</span> <span class="n">proj2</span> <span class="o">=</span> <span class="p">{});</span> <span class="c1">// (4) C++26</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>2つのシーケンスが一致していない場所を検索する。</p>
+<ul>
+<li>(1): <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>を指定する</li>
+<li>(2): Rangeを直接指定する</li>
+<li>(3): (1)の並列アルゴリズム版。実行ポリシーを指定する</li>
+<li>(4): (2)の並列アルゴリズム版。実行ポリシーを指定する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>[first1,last1)</code> 内にあるイテレータ <code>i</code> と、<code>j == first2 + (i - first1)</code> であるイテレータ <code>j</code> について、</p>
+<ul>
+<li><code>j</code>が範囲<code>[first2, last2)</code>に含まれており、</li>
+<li><code>!(*i == *j)</code> もしくは</li>
+<li><code><a href="../functional/invoke.html">invoke</a>(pred, <a href="../functional/invoke.html">invoke</a>(proj1, *i), <a href="../functional/invoke.html">invoke</a>(proj2, *j)) == false</code> であるような、最初のイテレータのペア <code><a href="ranges_in_in_result.html">mismatch_result</a>{ .in1 = i, .in2 = j }</code> を返す。</li>
+</ul>
+<p>そのようなイテレータが見つからなかった場合は <code><a href="ranges_in_in_result.html">mismatch_result</a>{ .in1 = last1, .in2 = first2 + (last1 - first1)}</code> を返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>最大で <code>last1 - first1</code> 回の対応する<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>が適用される。</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="c36d99606d16097848c43ea99c78cd009a6f2aca"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a> // for begin, end</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a>   // for to_string</span><span class="cp"></span>
+
+<span class="c1">// mismatch の結果で得られた <a href="../utility/pair.html">pair</a> に対する情報を出力する</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Range1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Range2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">I1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">I2</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_mismatch_value</span><span class="p">(</span><span class="k">const</span> <span class="n">Range1</span><span class="o">&amp;</span> <span class="n">r1</span><span class="p">,</span> <span class="k">const</span> <span class="n">Range2</span><span class="o">&amp;</span> <span class="n">r2</span><span class="p">,</span> <span class="k">const</span> <span class="n">I1</span><span class="o">&amp;</span> <span class="n">i1</span><span class="p">,</span> <span class="k">const</span> <span class="n">I2</span><span class="o">&amp;</span> <span class="n">i2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mismatch index: "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../iterator/ranges_distance.html">ranges::distance</a></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">r1</span><span class="p">),</span> <span class="n">i1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mismatch value: ("</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/end.html">ranges::end</a></span><span class="p">(</span><span class="n">r1</span><span class="p">)</span> <span class="o">==</span> <span class="n">i1</span> <span class="o">?</span> <span class="s">"end"</span> <span class="o">:</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="o">*</span><span class="n">i1</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">","</span>
+                                   <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/end.html">ranges::end</a></span><span class="p">(</span><span class="n">r2</span><span class="p">)</span> <span class="o">==</span> <span class="n">i2</span> <span class="o">?</span> <span class="s">"end"</span> <span class="o">:</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="o">*</span><span class="n">i2</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">")"</span>
+            <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>   <span class="n">v</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span> <span class="p">};</span>
+  <span class="k">const</span> <span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span> <span class="p">};</span>
+  <span class="k">const</span> <span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>     <span class="n">v3</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="p">};</span>
+
+  <span class="c1">// v と v2 で異なる場所を探す</span>
+  <span class="p">{</span>
+    <span class="k">auto</span> <span class="p">[</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::ranges::mismatch</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+    <span class="n">print_mismatch_value</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// v と v3 で異なる場所を探す。</span>
+  <span class="p">{</span>
+    <span class="k">auto</span> <span class="p">[</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::ranges::mismatch</span></span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+    <span class="n">print_mismatch_value</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>mismatch index: 2
+mismatch value: (3,4)
+
+mismatch index: 5
+mismatch value: (end,2)
+</code></pre></p>
+<h3>並列アルゴリズムの例 (C++26)</h3>
+<p><div class="yata" id="e056dcd088bc67ff59f0d399a1af45beaf04b620"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+
+  <span class="c1">// 並列に2つのシーケンスが異なる場所を探す</span>
+  <span class="k">auto</span> <span class="p">[</span><span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::ranges::mismatch</span></span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">std::execution::par</a></span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">it1</span> <span class="o">==</span> <span class="n"><a href="../vector/vector/end.html">v1.end()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"all match"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mismatch at index: "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v1.begin()</a></span><span class="p">,</span> <span class="n">it1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"values: "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it1</span> <span class="o">&lt;&lt;</span> <span class="s">" vs "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>mismatch at index: 2
+values: 3 vs 4
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">mismatch_impl</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../iterator/input_iterator.html">input_iterator</a></span> <span class="n">I1</span><span class="p">,</span> <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="o">&gt;</span> <span class="n">S1</span><span class="p">,</span> <span class="n"><a href="../iterator/input_iterator.html">input_iterator</a></span> <span class="n">I2</span><span class="p">,</span> <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I2</span><span class="o">&gt;</span> <span class="n">S2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../functional/ranges_equal_to.html">ranges::equal_to</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">Proj1</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">Proj2</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_comparable.html">indirectly_comparable</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Proj1</span><span class="p">,</span> <span class="n">Proj2</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="ranges_in_in_result.html">mismatch_result</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">()(</span><span class="n">I1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">S1</span> <span class="n">last1</span><span class="p">,</span> <span class="n">I2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">S2</span> <span class="n">last2</span><span class="p">,</span> <span class="n">Pred</span> <span class="n">pred</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">Proj1</span> <span class="n">proj1</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">Proj2</span> <span class="n">proj2</span> <span class="o">=</span> <span class="p">{})</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">first1</span> <span class="o">!=</span> <span class="n">last1</span> <span class="o">&amp;&amp;</span> <span class="n">first</span> <span class="o">!=</span> <span class="n">last2</span><span class="p">;</span> <span class="o">++</span><span class="n">first1</span><span class="p">,</span> <span class="o">++</span><span class="n">first2</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">bool</span><span class="p">(</span><span class="n"><a href="../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n"><a href="../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n">proj1</span><span class="p">,</span> <span class="o">*</span><span class="n">first1</span><span class="p">),</span> <span class="n"><a href="../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n">proj2</span><span class="p">,</span> <span class="o">*</span><span class="n">first2</span><span class="p">))))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">first1</span><span class="p">,</span> <span class="n">first2</span><span class="p">};</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">first1</span><span class="p">,</span> <span class="n">first2</span><span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../ranges/input_range.html">input_range</a></span> <span class="n">R1</span><span class="p">,</span> <span class="n"><a href="../ranges/input_range.html">input_range</a></span> <span class="n">R2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../functional/ranges_equal_to.html">ranges::equal_to</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">Proj1</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">Proj2</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_comparable.html">indirectly_comparable</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R1</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R2</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Proj1</span><span class="p">,</span> <span class="n">Proj2</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="ranges_in_in_result.html">mismatch_result</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R1</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R2</span><span class="o">&gt;&gt;</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R1</span><span class="o">&amp;&amp;</span> <span class="n">r1</span><span class="p">,</span> <span class="n">R2</span><span class="o">&amp;&amp;</span> <span class="n">r2</span><span class="p">,</span> <span class="n">Pred</span> <span class="n">pred</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">Proj1</span> <span class="n">proj1</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">Proj2</span> <span class="n">proj2</span> <span class="o">=</span> <span class="p">{})</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)(</span><span class="n"><a href="../ranges/begin.html">begin</a></span><span class="p">(</span><span class="n">r1</span><span class="p">),</span> <span class="n"><a href="../ranges/end.html">end</a></span><span class="p">(</span><span class="n">r1</span><span class="p">),</span> <span class="n"><a href="../ranges/begin.html">begin</a></span><span class="p">(</span><span class="n">r2</span><span class="p">),</span> <span class="n"><a href="../ranges/end.html">end</a></span><span class="p">(</span><span class="n">r2</span><span class="p">),</span> <span class="n"><a href="../functional/ref.html">ref</a></span><span class="p">(</span><span class="n">pred</span><span class="p">),</span> <span class="n"><a href="../functional/ref.html">ref</a></span><span class="p">(</span><span class="n">proj1</span><span class="p">),</span> <span class="n"><a href="../functional/ref.html">ref</a></span><span class="p">(</span><span class="n">proj2</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">mismatch_impl</span> <span class="n">mismatch</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 10 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4861/algorithms" target="_blank">N4861 25 Algorithms library</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html" target="_blank">P3179R9 C++ parallel range algorithms</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
