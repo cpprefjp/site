@@ -70,6 +70,10 @@ void definition(); // 関数・変数・定数の宣言を記述します。
 (ここには、関数を実行するための値の事前条件を記述します。契約属性の`[[expects]]`に相当します。)
 
 
+## 堅牢化された事前条件
+(ここには、関数を実行するための値の事前条件を記述します。規格ではHardened preconditionsの項目です。)
+
+
 ## 効果
 (ここには、関数の内部で発生する効果を記述します。戻り値しかないような関数の場合には、項目を削除してください。)
 
@@ -179,3 +183,4 @@ int main()
 (ここには、その関数・変数・定数を理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)
 
 - [P0788R3 Standard Library Specification in a Concepts and Contracts World](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0788r3.pdf)
+- [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
