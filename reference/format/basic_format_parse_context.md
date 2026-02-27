@@ -34,6 +34,9 @@ namespace std {
 | [`advance_to`](basic_format_parse_context/advance_to.md) | 指定したイテレータを先頭イテレータとして設定する | C++20          |
 | `next_arg_id`   | フォーマット引数の番号を次に進める                 | C++20          |
 | `check_arg_id`  | フォーマット引数の番号指定が有効か確かめる         | C++20          |
+| [`check_dynamic_spec`](basic_format_parse_context/check_dynamic_spec.md) | 動的な幅・精度の引数の型を検証する | C++26 |
+| [`check_dynamic_spec_integral`](basic_format_parse_context/check_dynamic_spec_integral.md) | 動的な幅・精度の引数の型が整数型か検証する | C++26 |
+| [`check_dynamic_spec_string`](basic_format_parse_context/check_dynamic_spec_string.md) | 動的な幅・精度の引数の型が文字列型か検証する | C++26 |
 
 ## メンバ型
 
@@ -62,10 +65,10 @@ namespace std {
     size_t num_args_;
 
   public:
-    explicit constexpr basic_format_parse_context(basic_string_view<charT> fmt, size_t num_args = 0) noexcept
+    explicit constexpr basic_format_parse_context(basic_string_view<charT> fmt) noexcept
       :begin_(fmt.begin())
       ,end_(fmt.end())
-      ,num_args_(num_args)
+      ,num_args_(0)
     {}
 
     basic_format_parse_context(const basic_format_parse_context&) = delete;
@@ -108,6 +111,19 @@ namespace std {
         throw format_error("mixing of automatic and manual argument indexing");
       }
     }
+
+    template<class... Ts>
+    constexpr void check_dynamic_spec(size_t id) noexcept;
+
+    constexpr void check_dynamic_spec_integral(size_t id) noexcept
+    {
+      check_dynamic_spec<int, unsigned int, long long int, unsigned long long int>(id);
+    }
+
+    constexpr void check_dynamic_spec_string(size_t id) noexcept
+    {
+      check_dynamic_spec<const char_type*, basic_string_view<char_type>>(id);
+    }
   };
 }
 ```
@@ -126,3 +142,4 @@ namespace std {
 ## 参照
 
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+* [P2757R3 Type-checking format args](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2757r3.html)
