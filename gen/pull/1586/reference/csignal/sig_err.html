@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/csignal/sig_err.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`signal`関数の戻り値で、信号ハンドラの設定に失敗したことを示す値。" />
+        <meta property="og:description" content="`signal`関数の戻り値で、シグナルハンドラの設定に失敗したことを示す値。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="SIG_ERR - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/csignal/sig_err.html" />
-        <meta name="twitter:description" content="`signal`関数の戻り値で、信号ハンドラの設定に失敗したことを示す値。" />
+        <meta name="twitter:description" content="`signal`関数の戻り値で、シグナルハンドラの設定に失敗したことを示す値。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;162da6121aaf3ed91505463caff80a72386e5fce&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nstd::sig_atomic_t flag = 0;\n\nvoid signal_handler(int sig)\n{\n  flag = 1;\n}\n\nint main()\n{\n  if (std::signal(SIGINT, signal_handler) == SIG_ERR) {\n    std::cerr &lt;&lt; \&#34;Failed to set signal handler\&#34; &lt;&lt; std::endl;\n    return 1;\n  }\n  std::cout &lt;&lt; \&#34;Signal handler set successfully\&#34; &lt;&lt; std::endl; \n  while (!flag) {\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sig_err&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b93be83441a66f2979e642c975c5d1aba93ab839&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid signal_handler(int sig)\n{\n  flag = 1;\n}\n\nint main()\n{\n  if (std::signal(SIGINT, signal_handler) == SIG_ERR) {\n    std::cerr &lt;&lt; \&#34;Failed to set signal handler\&#34; &lt;&lt; std::endl;\n    return 1;\n  }\n  std::cout &lt;&lt; \&#34;Signal handler set successfully\&#34; &lt;&lt; std::endl; \n  while (!flag) {\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sig_err&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-26T09:11:07">
-        2026年02月26日 09時11分07秒
+      <span itemprop="datePublished" content="2026-02-27T09:34:57">
+        2026年02月27日 09時34分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,13 +217,13 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>signal</code>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>で、信号ハンドラの設定に失敗したことを示す値。</p>
+<p><code>signal</code>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>で、シグナルハンドラの設定に失敗したことを示す値。</p>
 <p><code>signal</code>関数が失敗した場合、この値が返される。</p>
 <h2>例</h2>
-<p><div class="yata" id="162da6121aaf3ed91505463caff80a72386e5fce"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<p><div class="yata" id="b93be83441a66f2979e642c975c5d1aba93ab839"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
-<span class="n">std</span><span class="o">::</span><span class="kt">sig_atomic_t</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">volatile</span> <span class="n">std</span><span class="o">::</span><span class="kt">sig_atomic_t</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">signal_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span>
 <span class="p">{</span>
@@ -245,6 +245,7 @@
 </div></p>
 <ul>
 <li>SIG_ERR[color ff0000]</li>
+<li>std::signal[color ff0000]</li>
 </ul>
 <h3>出力例</h3>
 <p><pre><code>Signal handler set successfully

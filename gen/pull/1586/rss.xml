@@ -2,9 +2,289 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-26T14:07:58.570434</updated>
-  <id>ea5294a1-7ebc-420b-8162-02e4df1f8676</id>
+  <updated>2026-02-27T09:39:57.609720</updated>
+  <id>7dd101c5-4433-4ffe-aa6c-77fa178421d8</id>
 
+  
+    <entry>
+      <title>csignal -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal.html"/>
+      <id>c104f5139887ebaca62b691ce8a8d9c1ee42dc4c:reference/csignal.md</id>
+      <updated>2026-02-27T18:34:57+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;ヘッダでは、シグナル操作のための機能を定義する。
+シグナルの集合、意味、及びデフォルトの処理は処理系定義である。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_atomic_t.html&#34;&gt;sig_atomic_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非同期シグナルハンドラからアトミックなエンティティとしてアクセス可能な整数型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;h3&gt;&lt;code&gt;signal&lt;/code&gt;関数用のハンドラ指定子&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_dfl.html&#34;&gt;SIG_DFL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルト動作を指定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_err.html&#34;&gt;SIG_ERR&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;関数が失敗したことを示す戻り値&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_ign.html&#34;&gt;SIG_IGN&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;シグナルを無視する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;シグナル番号を表すマクロ&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigint.html&#34;&gt;SIGINT&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;割り込みを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigill.html&#34;&gt;SIGILL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;不正な命令を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigabrt.html&#34;&gt;SIGABRT&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;abort&lt;/code&gt;関数などによる異常終了を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigfpe.html&#34;&gt;SIGFPE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;算術演算エラーを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigsegv.html&#34;&gt;SIGSEGV&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;無効なメモリアクセスを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigterm.html&#34;&gt;SIGTERM&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;終了要求を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/signal.html&#34;&gt;signal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;特定のシグナルに対するシグナルハンドラを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/raise.html&#34;&gt;raise&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムにシグナルを送信する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_DFL -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
+      <id>c104f5139887ebaca62b691ce8a8d9c1ee42dc4c:reference/csignal/sig_dfl.md</id>
+      <updated>2026-02-27T18:34:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
+index 6f2d241e4..9a00dac28 100644
+--- a/reference/csignal/sig_dfl.md
++++ b/reference/csignal/sig_dfl.md
+@@ -16,33 +16,39 @@
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
+ 
+-void signal_handler(int)
++volatile std::sig_atomic_t flag = 0;
++
++void handler(int)
+ {
+-  std::cout &amp;lt;&amp;lt; &amp;#34;Custom handler\n&amp;#34;;
++  flag = 1;
+ }
+ 
+ int main()
+ {
+-  // 一度カスタムハンドラを設定
+-  std::signal(SIGINT, signal_handler);
+-  // その後デフォルト動作に戻す
++  std::signal(SIGINT, handler);
++
++  std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C (handled)&amp;#34; &amp;lt;&amp;lt; std::endl;
++  while (!flag) {
++  }
++
++  // デフォルトに戻す
+   std::signal(SIGINT, SIG_DFL);
+-  std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C\n&amp;#34;;
+-  // ここで Ctrl+C を押すと、デフォルト動作
++
++  std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C again (default action)&amp;#34; &amp;lt;&amp;lt; std::endl;
+   while (true) {
+   }
+ }
+ ```
+ 
+ * SIG_DFL[color ff0000]
++* std::signal[color ff0000]
+ 
+ ### 出力
+ 
+ ```
+-Press Ctrl+C
++Press Ctrl+C (handled)
++Press Ctrl+C again (default action)
+ ```
+ 
+ ## 関連項目
+ - [`signal`](/reference/csignal/signal.md)
+-- [`SIG_IGN`](/reference/csignal/sig_ign.md)
+-- [`SIG_ERR`](/reference/csignal/sig_err.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_ERR -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_err.html"/>
+      <id>c104f5139887ebaca62b691ce8a8d9c1ee42dc4c:reference/csignal/sig_err.md</id>
+      <updated>2026-02-27T18:34:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_err.md b/reference/csignal/sig_err.md
+index 62912be4c..6b6c86393 100644
+--- a/reference/csignal/sig_err.md
++++ b/reference/csignal/sig_err.md
+@@ -7,7 +7,7 @@
+ ```
+ 
+ ## 概要
+-`signal`関数の戻り値で、信号ハンドラの設定に失敗したことを示す値。
++`signal`関数の戻り値で、シグナルハンドラの設定に失敗したことを示す値。
+ 
+ `signal`関数が失敗した場合、この値が返される。
+ 
+@@ -16,7 +16,7 @@
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
+ 
+-std::sig_atomic_t flag = 0;
++volatile std::sig_atomic_t flag = 0;
+ 
+ void signal_handler(int sig)
+ {
+@@ -37,6 +37,7 @@ int main()
+ ```
+ 
+ * SIG_ERR[color ff0000]
++* std::signal[color ff0000]
+ 
+ ### 出力例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_IGN -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_ign.html"/>
+      <id>c104f5139887ebaca62b691ce8a8d9c1ee42dc4c:reference/csignal/sig_ign.md</id>
+      <updated>2026-02-27T18:34:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_ign.md b/reference/csignal/sig_ign.md
+index ad9fcb737..52b123c25 100644
+--- a/reference/csignal/sig_ign.md
++++ b/reference/csignal/sig_ign.md
+@@ -15,13 +15,15 @@
+ ```cpp example
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
++#include &amp;lt;thread&amp;gt;
+ 
+ int main()
+ {
+   std::signal(SIGINT, SIG_IGN);
+   // Ctrl+Cを押してもプログラムは続行する
+   for (int i = 0; i &amp;lt; 10; ++i) {
+-    std::cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34;;
++    std::cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; std::flush;
++    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+   }
+   std::cout &amp;lt;&amp;lt; std::endl;
+   return 0;
+@@ -29,6 +31,7 @@ int main()
+ ```
+ 
+ * SIG_IGN[color ff0000]
++* std::signal[color ff0000]
+ 
+ ### 出力
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>SIG_DFL -- sig_dflの説明とコードサンプルを変更</title>
@@ -626,96 +906,6 @@ index 4d9cc3a7e..000000000
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>print -- print: fix inner link</title>
-      <link href="https://cpprefjp.github.io/reference/ostream/print.html"/>
-      <id>676ccee955da11ed1f52a5af4ebc5bb4fbccc1a3:reference/ostream/print.md</id>
-      <updated>2026-02-11T16:01:09+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ostream/print.md b/reference/ostream/print.md
-index 2be42adf9..0137c3753 100644
---- a/reference/ostream/print.md
-+++ b/reference/ostream/print.md
-@@ -35,7 +35,7 @@ namespace std {
-     vprint_unicode(os, fmt.get(), make_format_args(std::forward&amp;lt;Args&amp;gt;(args)...));
-     ```
-     * vprint_unicode[link vprint_unicode.md]
--    * fmt.get()[link /reference/format/format_string/get.md.nolink]
-+    * fmt.get()[link /reference/format/basic_format_string/get.md]
-     * make_format_args[link /reference/format/make_format_args.md]
- 
-     - そうでなければ、以下と等価：
-@@ -43,7 +43,7 @@ namespace std {
-     vprint_nonunicode(os, fmt.get(), make_format_args(std::forward&amp;lt;Args&amp;gt;(args)...));
-     ```
-     * vprint_nonunicode[link vprint_nonunicode.md]
--    * fmt.get()[link /reference/format/format_string/get.md.nolink]
-+    * fmt.get()[link /reference/format/basic_format_string/get.md]
-     * make_format_args[link /reference/format/make_format_args.md]
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>print -- print: fix inner link</title>
-      <link href="https://cpprefjp.github.io/reference/print/print.html"/>
-      <id>676ccee955da11ed1f52a5af4ebc5bb4fbccc1a3:reference/print/print.md</id>
-      <updated>2026-02-11T16:01:09+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/print/print.md b/reference/print/print.md
-index 87a021b7d..5af284873 100644
---- a/reference/print/print.md
-+++ b/reference/print/print.md
-@@ -48,7 +48,7 @@ namespace std {
-         vprint_unicode(stream, fmt.get(), make_format_args(std::forward&amp;lt;Args&amp;gt;(args)...));
-         ```
-         * vprint_unicode[link vprint_unicode.md]
--        * fmt.get()[link /reference/format/format_string/get.md.nolink]
-+        * fmt.get()[link /reference/format/basic_format_string/get.md]
-         * make_format_args[link /reference/format/make_format_args.md]
- 
-         - そうでなければ、以下と等価：
-@@ -56,7 +56,7 @@ namespace std {
-         vprint_nonunicode(stream, fmt.get(), make_format_args(std::forward&amp;lt;Args&amp;gt;(args)...));
-         ```
-         * vprint_nonunicode[link vprint_nonunicode.md]
--        * fmt.get()[link /reference/format/format_string/get.md.nolink]
-+        * fmt.get()[link /reference/format/basic_format_string/get.md]
-         * make_format_args[link /reference/format/make_format_args.md]
- 
-     - C++26 :
-@@ -69,7 +69,7 @@ namespace std {
-         ```
-         * vprint_unicode[link vprint_unicode.md]
-         * vprint_unicode_buffered[link vprint_unicode_buffered.md]
--        * fmt.get()[link /reference/format/format_string/get.md.nolink]
-+        * fmt.get()[link /reference/format/basic_format_string/get.md]
-         * make_format_args[link /reference/format/make_format_args.md]
- 
-         - そうでなければ、以下と等価：
-@@ -80,7 +80,7 @@ namespace std {
-         ```
-         * vprint_nonunicode[link vprint_nonunicode.md]
-         * vprint_nonunicode_buffered[link vprint_nonunicode_buffered.md]
--        * fmt.get()[link /reference/format/format_string/get.md.nolink]
-+        * fmt.get()[link /reference/format/basic_format_string/get.md]
-         * make_format_args[link /reference/format/make_format_args.md]
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
       </author>
     </entry>
   
