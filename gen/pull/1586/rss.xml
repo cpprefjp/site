@@ -2,9 +2,88 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-27T09:39:57.609720</updated>
-  <id>7dd101c5-4433-4ffe-aa6c-77fa178421d8</id>
+  <updated>2026-02-28T08:38:16.916079</updated>
+  <id>a0ccfe2f-00a9-4457-9ac2-fbd27acf069f</id>
 
+  
+    <entry>
+      <title>SIG_DFL -- modified: code examples</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
+      <id>e96f3f2982cc488aa0b944a71d6cfca4cc77933c:reference/csignal/sig_dfl.md</id>
+      <updated>2026-02-28T08:33:10+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
+index 9a00dac28..932c642e1 100644
+--- a/reference/csignal/sig_dfl.md
++++ b/reference/csignal/sig_dfl.md
+@@ -15,6 +15,8 @@
+ ```cpp example
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
++#include &amp;lt;thread&amp;gt;
++#include &amp;lt;chrono&amp;gt;
+ 
+ volatile std::sig_atomic_t flag = 0;
+ 
+@@ -29,13 +31,14 @@ int main()
+ 
+   std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C (handled)&amp;#34; &amp;lt;&amp;lt; std::endl;
+   while (!flag) {
++    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+   }
+ 
+   // デフォルトに戻す
+   std::signal(SIGINT, SIG_DFL);
+-
+   std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C again (default action)&amp;#34; &amp;lt;&amp;lt; std::endl;
+-  while (true) {
++  for (;;) {
++    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+   }
+ }
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_ERR -- modified: code examples</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_err.html"/>
+      <id>e96f3f2982cc488aa0b944a71d6cfca4cc77933c:reference/csignal/sig_err.md</id>
+      <updated>2026-02-28T08:33:10+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_err.md b/reference/csignal/sig_err.md
+index 6b6c86393..972e4e4f6 100644
+--- a/reference/csignal/sig_err.md
++++ b/reference/csignal/sig_err.md
+@@ -15,6 +15,8 @@
+ ```cpp example
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
++#include &amp;lt;thread&amp;gt;
++#include &amp;lt;chrono&amp;gt;
+ 
+ volatile std::sig_atomic_t flag = 0;
+ 
+@@ -31,6 +33,7 @@ int main()
+   }
+   std::cout &amp;lt;&amp;lt; &amp;#34;Signal handler set successfully&amp;#34; &amp;lt;&amp;lt; std::endl; 
+   while (!flag) {
++    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+   }
+   return 0;
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>csignal -- ご指摘頂いた箇所の修正</title>
@@ -766,146 +845,6 @@ index 000000000..741f5a511
       <author>
         <name>K10-K10</name>
         <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>契約プログラミング [P2900R14] -- C++26対応として、導入予定だったcontract_violationクラスのevaluation_exceptionメンバ関数を削除 #1570</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/contracts.html"/>
-      <id>760b77527ea4fbab8125cfdb3ee965dce0857405:lang/cpp26/contracts.md</id>
-      <updated>2026-02-13T17:56:17+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/contracts.md b/lang/cpp26/contracts.md
-index 6a77eabb5..a663549ae 100644
---- a/lang/cpp26/contracts.md
-+++ b/lang/cpp26/contracts.md
-@@ -413,7 +413,6 @@ void handle_contract_violation(const std::contracts::contract_violation&amp;amp; violati
- - **検出モード** (`detection_mode`): 契約違反がどのように検出されたか（述語が`false`に評価されたか、例外が発生したか）
- - **ソースロケーション** (`location`): 違反した契約アサーションのソースファイル名、行番号、関数名
- - **終了判定** (`is_terminating`): この違反後にプログラムが終了するかどうか
--- **評価例外** (`evaluation_exception`): 述語の評価中に例外が発生した場合、その例外オブジェクトへのアクセス
- 
- #### ハンドラの動作
- 契約違反が識別されると、`observe`または`enforce`セマンティクスの場合、契約違反ハンドラが呼び出される：
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>contract_violation -- C++26対応として、導入予定だったcontract_violationクラスのevaluation_exceptionメンバ関数を削除 #1570</title>
-      <link href="https://cpprefjp.github.io/reference/contracts/contract_violation.html"/>
-      <id>760b77527ea4fbab8125cfdb3ee965dce0857405:reference/contracts/contract_violation.md</id>
-      <updated>2026-02-13T17:56:17+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/contracts/contract_violation.md b/reference/contracts/contract_violation.md
-index ce96a3a2b..b4fec7583 100644
---- a/reference/contracts/contract_violation.md
-+++ b/reference/contracts/contract_violation.md
-@@ -6,16 +6,7 @@
- 
- ```cpp
- namespace std::contracts {
--  class contract_violation {
--  public:
--    const char* comment() const noexcept;
--    contracts::detection_mode detection_mode() const noexcept;
--    exception_ptr evaluation_exception() const noexcept;
--    bool is_terminating() const noexcept;
--    assertion_kind kind() const noexcept;
--    source_location location() const noexcept;
--    evaluation_semantic semantic() const noexcept;
--  };
-+  class contract_violation;
- }
- ```
- 
-@@ -28,11 +19,21 @@ namespace std::contracts {
- | ---- | ---- | ---- |
- | [`comment`](contract_violation/comment.md) | 契約違反の詳細を記録したchar列を返す | C++26 |
- | [`detection_mode`](contract_violation/detection_mode.md) | 契約違反が特定された方法を返す | C++26 |
--| [`evaluation_exception`](contract_violation/evaluation_exception.md) | 契約が例外を飛ばしたことによって終了した場合の例外へのポインタ | C++26 |
- | [`is_terminating`](contract_violation/is_terminating.md) | 契約違反によってプログラムがターミネートされるかを返す | C++26|
- | [`kind`](contract_violation/kind.md) | 違反した契約の種類 | C++26|
- | [`location`](contract_violation/location.md) | 契約違反が発生したソースコードの位置 | C++26|
- | [`semantic`](contract_violation/semantic.md) | 契約の評価方法 | C++26|
- 
-+## バージョン
-+### 言語
-+- C++26
-+
-+### 処理系
-+- [Clang](/implementation.md#clang): ??
-+- [GCC](/implementation.md#gcc): ??
-+- [Visual C++](/implementation.md#visual_cpp): ??
-+
- ## 参照
- - [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
-+- [P3819R0 Remove `evaluation_exception()` from contract-violation handling](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3819r0.pdf)
-+    - 導入予定だった`evaluation_exception()`メンバ関数を削除する提案
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>evaluation_exception.md -- C++26対応として、導入予定だったcontract_violationクラスのevaluation_exceptionメンバ関数を削除 #1570</title>
-      <link href="https://cpprefjp.github.io/reference/contracts/contract_violation/evaluation_exception.html"/>
-      <id>760b77527ea4fbab8125cfdb3ee965dce0857405:reference/contracts/contract_violation/evaluation_exception.md</id>
-      <updated>2026-02-13T17:56:17+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/contracts/contract_violation/evaluation_exception.md b/reference/contracts/contract_violation/evaluation_exception.md
-deleted file mode 100644
-index 4d9cc3a7e..000000000
---- a/reference/contracts/contract_violation/evaluation_exception.md
-+++ /dev/null
-@@ -1,35 +0,0 @@
--# evaluation_exception
--* contracts[meta header]
--* std::contracts[meta namespace]
--* function[meta id-type]
--* cpp26[meta cpp]
--* contract_violation[meta class]
--
--```cpp
--exception_ptr evaluation_exception() const noexcept;
--```
--
--## 概要
--契約の判定時に例外が投げられた場合、その例外へのポインタを返す。
--
--例外が飛ばなければ、空の`std::exception_ptr`を返す。
--
--## 戻り値
--契約の判定時に例外が投げられた場合、その例外へのポインタを返す。
--
--例外が飛ばなければ、空の`std::exception_ptr`を返す。
--
--## 例外
--投げない
--
--## バージョン
--### 言語
--- C++26
--
--### 処理系
--- [Clang](/implementation.md#clang): ??
--- [GCC](/implementation.md#gcc): ??
--- [Visual C++](/implementation.md#visual_cpp): ??
--
--## 参照
--- [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
       </author>
     </entry>
   

@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b93be83441a66f2979e642c975c5d1aba93ab839&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid signal_handler(int sig)\n{\n  flag = 1;\n}\n\nint main()\n{\n  if (std::signal(SIGINT, signal_handler) == SIG_ERR) {\n    std::cerr &lt;&lt; \&#34;Failed to set signal handler\&#34; &lt;&lt; std::endl;\n    return 1;\n  }\n  std::cout &lt;&lt; \&#34;Signal handler set successfully\&#34; &lt;&lt; std::endl; \n  while (!flag) {\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sig_err&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5a8fdfc0d5d135b730c9d52f4a8e838f9b16683f&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;chrono&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid signal_handler(int sig)\n{\n  flag = 1;\n}\n\nint main()\n{\n  if (std::signal(SIGINT, signal_handler) == SIG_ERR) {\n    std::cerr &lt;&lt; \&#34;Failed to set signal handler\&#34; &lt;&lt; std::endl;\n    return 1;\n  }\n  std::cout &lt;&lt; \&#34;Signal handler set successfully\&#34; &lt;&lt; std::endl; \n  while (!flag) {\n    std::this_thread::sleep_for(std::chrono::milliseconds(100));\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sig_err&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-27T09:34:57">
-        2026年02月27日 09時34分57秒
+      <span itemprop="datePublished" content="2026-02-27T23:33:10">
+        2026年02月27日 23時33分10秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -220,8 +220,10 @@
 <p><code>signal</code>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>で、シグナルハンドラの設定に失敗したことを示す値。</p>
 <p><code>signal</code>関数が失敗した場合、この値が返される。</p>
 <h2>例</h2>
-<p><div class="yata" id="b93be83441a66f2979e642c975c5d1aba93ab839"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<p><div class="yata" id="5a8fdfc0d5d135b730c9d52f4a8e838f9b16683f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
 
 <span class="k">volatile</span> <span class="n">std</span><span class="o">::</span><span class="kt">sig_atomic_t</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -238,6 +240,7 @@
   <span class="p">}</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Signal handler set successfully"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> 
   <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../thread/this_thread/sleep_for.html">std::this_thread::sleep_for</a></span><span class="p">(</span><span class="n"><a href="../chrono/duration_aliases.html">std::chrono::milliseconds</a></span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
