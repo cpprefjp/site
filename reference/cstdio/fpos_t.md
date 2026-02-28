@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 ファイルの位置を保持するための型。
 
-[`fgetpos()`](/reference/cstdio/fgetpos.md.nolink)関数や[`fsetpos()`](/reference/cstdio/fsetpos.md.nolink)関数で用いられる。これらの関数は[`fseek()`](/reference/cstdio/fseek.md.nolink)関数や[`ftell()`](/reference/cstdio/ftell.md.nolink)関数と違い、巨大なファイルやマルチバイトファイルに対しても適切に動作することを目的に設計された。
+[`fgetpos()`](/reference/cstdio/fgetpos.md)関数や[`fsetpos()`](/reference/cstdio/fsetpos.md)関数で用いられる。これらの関数は[`fseek()`](/reference/cstdio/fseek.md.nolink)関数や[`ftell()`](/reference/cstdio/ftell.md.nolink)関数と違い、巨大なファイルやマルチバイトファイルに対しても適切に動作することを目的に設計された。
 
 ## 例
 ```cpp example
@@ -43,8 +43,8 @@ int main() {
 
 ```
 * std::fpos_t[color ff0000]
-* std::fgetpos[link /reference/cstdio/fgetpos.md.nolink]
-* std::fsetpos[link /reference/cstdio/fsetpos.md.nolink]
+* std::fgetpos[link /reference/cstdio/fgetpos.md]
+* std::fsetpos[link /reference/cstdio/fsetpos.md]
 * std::fopen[link /reference/cstdio/fopen.md]
 * std::fclose[link /reference/cstdio/fclose.md]
 * std::fgetc[link /reference/cstdio/fgetc.md]

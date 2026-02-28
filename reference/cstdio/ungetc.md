@@ -16,7 +16,7 @@ namespace std {
 
 また、`c`は[`EOF`](/reference/cstdio/eof.md)であってはならない。
 
-この関数が呼び出されたのち、[`fseek`](/reference/cstdio/fseek.md.nolink)や[`fsetpos`](/reference/cstdio/fsetpos.md.nolink)、[`rewind`](/reference/cstdio/rewind.md.nolink)、[`fflush`](/reference/cstdio/fflush.md)を呼び出すと、その関数の呼び出しによって戻された文字は失われる。
+この関数が呼び出されたのち、[`fseek`](/reference/cstdio/fseek.md.nolink)や[`fsetpos`](/reference/cstdio/fsetpos.md)、[`rewind`](/reference/cstdio/rewind.md.nolink)、[`fflush`](/reference/cstdio/fflush.md)を呼び出すと、その関数の呼び出しによって戻された文字は失われる。
 
 ## 戻り値
 成功したら挿入した`c`を、そうでなければ[`EOF`](/reference/cstdio/eof.md)を返す。
