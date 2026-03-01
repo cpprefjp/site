@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-01T03:38:44">
-        2026年03月01日 03時38分44秒
+      <span itemprop="datePublished" content="2026-03-01T05:22:09">
+        2026年03月01日 05時22分09秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,7 +234,7 @@
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">)</span> <span class="o">==</span> <span class="n">SIG_ERR</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="signal.html">std::signal</a></span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">)</span> <span class="o">==</span> <span class="n"><span style="color:#ff0000">SIG_ERR</span></span><span class="p">)</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed to set signal handler"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
     <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
@@ -246,10 +246,6 @@
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<ul>
-<li>SIG_ERR[color ff0000]</li>
-<li>std::signal[link /reference/csignal/signal.md]</li>
-</ul>
 <h3>出力例</h3>
 <p><pre><code>Signal handler set successfully
 </code></pre></p>

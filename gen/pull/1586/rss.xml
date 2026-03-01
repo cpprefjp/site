@@ -2,9 +2,87 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-03-01T13:00:33.140908</updated>
-  <id>b55fef09-fd28-4d44-8730-38dd468279a3</id>
+  <updated>2026-03-01T14:26:59.407702</updated>
+  <id>63699085-cfd8-4dd6-aa0c-e21100d751e3</id>
 
+  
+    <entry>
+      <title>SIG_DFL -- deleted: Extra lines</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
+      <id>5263723210fed68f1951f7d5b110696e299bc7ee:reference/csignal/sig_dfl.md</id>
+      <updated>2026-03-01T14:22:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
+index e72f14246..dce1c15df 100644
+--- a/reference/csignal/sig_dfl.md
++++ b/reference/csignal/sig_dfl.md
+@@ -42,7 +42,6 @@ int main()
+   }
+ }
+ ```
+-
+ * SIG_DFL[color ff0000]
+ * std::signal[link /reference/csignal/signal.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_ERR -- deleted: Extra lines</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_err.html"/>
+      <id>5263723210fed68f1951f7d5b110696e299bc7ee:reference/csignal/sig_err.md</id>
+      <updated>2026-03-01T14:22:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_err.md b/reference/csignal/sig_err.md
+index ec33643f0..49f17b00c 100644
+--- a/reference/csignal/sig_err.md
++++ b/reference/csignal/sig_err.md
+@@ -38,7 +38,6 @@ int main()
+   return 0;
+ }
+ ```
+-
+ * SIG_ERR[color ff0000]
+ * std::signal[link /reference/csignal/signal.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_IGN -- deleted: Extra lines</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_ign.html"/>
+      <id>5263723210fed68f1951f7d5b110696e299bc7ee:reference/csignal/sig_ign.md</id>
+      <updated>2026-03-01T14:22:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_ign.md b/reference/csignal/sig_ign.md
+index 13f61da99..9d2d5e112 100644
+--- a/reference/csignal/sig_ign.md
++++ b/reference/csignal/sig_ign.md
+@@ -30,7 +30,6 @@ int main()
+   return 0;
+ }
+ ```
+-
+ * SIG_IGN[color ff0000]
+ * std::signal[link /reference/csignal/signal.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>SIG_IGN -- fixed: delete space</title>
@@ -475,67 +553,6 @@ index ad9fcb737..52b123c25 100644
  
  ### 出力
  
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>SIG_DFL -- sig_dflの説明とコードサンプルを変更</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
-      <id>545b61474c3de5abcab9a851c34826ef0bb23d18:reference/csignal/sig_dfl.md</id>
-      <updated>2026-02-26T23:02:56+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
-index 421eae196..6f2d241e4 100644
---- a/reference/csignal/sig_dfl.md
-+++ b/reference/csignal/sig_dfl.md
-@@ -7,7 +7,7 @@
- ```
- 
- ## 概要
--`signal`関数に渡される引数として、シグナルに対するデフォルトの処理を指定するマクロ。
-+`signal`関数に渡される引数として、シグナルハンドラをデフォルトに設定するマクロ。
- 
- シグナル受信時に`signal`関数で`SIG_DFL`が指定されている場合、そのシグナルに対する実装定義のデフォルト処理が実行される。
- 
-@@ -16,13 +16,21 @@
- #include &amp;lt;csignal&amp;gt;
- #include &amp;lt;iostream&amp;gt;
- 
-+void signal_handler(int)
-+{
-+  std::cout &amp;lt;&amp;lt; &amp;#34;Custom handler\n&amp;#34;;
-+}
-+
- int main()
- {
-+  // 一度カスタムハンドラを設定
-+  std::signal(SIGINT, signal_handler);
-+  // その後デフォルト動作に戻す
-   std::signal(SIGINT, SIG_DFL);
--  volatile std::sig_atomic_t flag = 0;
--  while (!flag) {
-+  std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C\n&amp;#34;;
-+  // ここで Ctrl+C を押すと、デフォルト動作
-+  while (true) {
-   }
--  return 0;
- }
- ```
- 
-@@ -31,7 +39,7 @@ int main()
- ### 出力
- 
- ```
--Press Ctrl+C to send SIGINT signal
-+Press Ctrl+C
- ```
- 
- ## 関連項目
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
