@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-03-01T12:43:43.744909</updated>
-  <id>b2c1d227-deae-4668-bc05-37877ed01914</id>
+  <updated>2026-03-01T13:00:33.140908</updated>
+  <id>b55fef09-fd28-4d44-8730-38dd468279a3</id>
 
+  
+    <entry>
+      <title>SIG_IGN -- fixed: delete space</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_ign.html"/>
+      <id>a9ee7268a957d6e7f3b32518806ebba2662f2078:reference/csignal/sig_ign.md</id>
+      <updated>2026-03-01T12:55:51+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_ign.md b/reference/csignal/sig_ign.md
+index 2d950eb97..13f61da99 100644
+--- a/reference/csignal/sig_ign.md
++++ b/reference/csignal/sig_ign.md
+@@ -15,7 +15,7 @@
+ ```cpp example
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
+-#include &amp;lt;thread &amp;gt;
++#include &amp;lt;thread&amp;gt;
+ #include &amp;lt;chrono&amp;gt;
+ 
+ int main()
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>SIG_DFL -- `std::signal`へのリンクを追加、インポートライブラリの修正</title>
@@ -509,112 +536,6 @@ index 421eae196..6f2d241e4 100644
  ```
  
  ## 関連項目
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>SIG_DFL -- modified: syntax highlight</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
-      <id>ca74359aff5bb433096b262a4601203378dfe8da:reference/csignal/sig_dfl.md</id>
-      <updated>2026-02-26T18:11:07+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
-index af141d5b5..421eae196 100644
---- a/reference/csignal/sig_dfl.md
-+++ b/reference/csignal/sig_dfl.md
-@@ -26,15 +26,14 @@ int main()
- }
- ```
- 
-+* SIG_DFL[color ff0000]
-+
- ### 出力
- 
- ```
- Press Ctrl+C to send SIGINT signal
- ```
- 
--* SIG_DFL[color ff0000]
--* std::signal[color ff0000]
--
- ## 関連項目
- - [`signal`](/reference/csignal/signal.md)
- - [`SIG_IGN`](/reference/csignal/sig_ign.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>SIG_ERR -- modified: syntax highlight</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_err.html"/>
-      <id>ca74359aff5bb433096b262a4601203378dfe8da:reference/csignal/sig_err.md</id>
-      <updated>2026-02-26T18:11:07+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_err.md b/reference/csignal/sig_err.md
-index 03d0fe390..62912be4c 100644
---- a/reference/csignal/sig_err.md
-+++ b/reference/csignal/sig_err.md
-@@ -36,14 +36,13 @@ int main()
- }
- ```
- 
-+* SIG_ERR[color ff0000]
-+
- ### 出力例
- 
- ```
- Signal handler set successfully
- ```
- 
--* SIG_ERR[color ff0000]
--* std::signal[color ff0000]
--
- ## 関連項目
- - [`signal`](/reference/csignal/signal.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>SIG_IGN -- modified: syntax highlight</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_ign.html"/>
-      <id>ca74359aff5bb433096b262a4601203378dfe8da:reference/csignal/sig_ign.md</id>
-      <updated>2026-02-26T18:11:07+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_ign.md b/reference/csignal/sig_ign.md
-index 741f5a511..ad9fcb737 100644
---- a/reference/csignal/sig_ign.md
-+++ b/reference/csignal/sig_ign.md
-@@ -28,14 +28,13 @@ int main()
- }
- ```
- 
-+* SIG_IGN[color ff0000]
-+
- ### 出力
- 
- ```
- 0 1 2 3 4 5 6 7 8 9
- ```
- 
--* SIG_IGN[color ff0000]
--* std::signal[color ff0000]
--
- ## 関連項目
- - [`signal`](/reference/csignal/signal.md)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
