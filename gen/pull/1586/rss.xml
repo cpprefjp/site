@@ -2,9 +2,100 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-28T08:38:16.916079</updated>
-  <id>a0ccfe2f-00a9-4457-9ac2-fbd27acf069f</id>
+  <updated>2026-03-01T12:43:43.744909</updated>
+  <id>b2c1d227-deae-4668-bc05-37877ed01914</id>
 
+  
+    <entry>
+      <title>SIG_DFL -- `std::signal`へのリンクを追加、インポートライブラリの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
+      <id>e1cf954eb21c1344ba2ab3d0d89cad9f4e95bda3:reference/csignal/sig_dfl.md</id>
+      <updated>2026-03-01T12:38:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
+index 932c642e1..e72f14246 100644
+--- a/reference/csignal/sig_dfl.md
++++ b/reference/csignal/sig_dfl.md
+@@ -44,7 +44,7 @@ int main()
+ ```
+ 
+ * SIG_DFL[color ff0000]
+-* std::signal[color ff0000]
++* std::signal[link /reference/csignal/signal.md]
+ 
+ ### 出力
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_ERR -- `std::signal`へのリンクを追加、インポートライブラリの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_err.html"/>
+      <id>e1cf954eb21c1344ba2ab3d0d89cad9f4e95bda3:reference/csignal/sig_err.md</id>
+      <updated>2026-03-01T12:38:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_err.md b/reference/csignal/sig_err.md
+index 972e4e4f6..ec33643f0 100644
+--- a/reference/csignal/sig_err.md
++++ b/reference/csignal/sig_err.md
+@@ -40,7 +40,7 @@ int main()
+ ```
+ 
+ * SIG_ERR[color ff0000]
+-* std::signal[color ff0000]
++* std::signal[link /reference/csignal/signal.md]
+ 
+ ### 出力例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_IGN -- `std::signal`へのリンクを追加、インポートライブラリの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_ign.html"/>
+      <id>e1cf954eb21c1344ba2ab3d0d89cad9f4e95bda3:reference/csignal/sig_ign.md</id>
+      <updated>2026-03-01T12:38:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_ign.md b/reference/csignal/sig_ign.md
+index 52b123c25..2d950eb97 100644
+--- a/reference/csignal/sig_ign.md
++++ b/reference/csignal/sig_ign.md
+@@ -15,7 +15,8 @@
+ ```cpp example
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
+-#include &amp;lt;thread&amp;gt;
++#include &amp;lt;thread &amp;gt;
++#include &amp;lt;chrono&amp;gt;
+ 
+ int main()
+ {
+@@ -31,7 +32,7 @@ int main()
+ ```
+ 
+ * SIG_IGN[color ff0000]
+-* std::signal[color ff0000]
++* std::signal[link /reference/csignal/signal.md]
+ 
+ ### 出力
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>SIG_DFL -- modified: code examples</title>
@@ -524,322 +615,6 @@ index 741f5a511..ad9fcb737 100644
 -
  ## 関連項目
  - [`signal`](/reference/csignal/signal.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>csignal -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal.html"/>
-      <id>ae081be17b6bd263d9e9d9e5183ccebd1fdd11c6:reference/csignal.md</id>
-      <updated>2026-02-15T00:39:52+09:00</updated>
-      
-        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;ヘッダでは、シグナル操作のための機能を定義する。
-シグナルの集合、意味、及びデフォルトの処理は処理系定義である。&lt;/p&gt;
-&lt;h2&gt;型&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_atomic_t.html&#34;&gt;sig_atomic_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;非同期シグナルハンドラからアトミックなエンティティとしてアクセス可能な整数型&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;マクロ&lt;/h2&gt;
-&lt;h3&gt;&lt;code&gt;signal&lt;/code&gt;関数用のハンドラ指定子&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_dfl.html&#34;&gt;SIG_DFL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;デフォルト動作を指定する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_err.html&#34;&gt;SIG_ERR&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;関数が失敗したことを示す戻り値&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_ign.html&#34;&gt;SIG_IGN&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;シグナルを無視する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;シグナル番号を表すマクロ&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigint.html&#34;&gt;SIGINT&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;割り込みを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigill.html&#34;&gt;SIGILL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;不正な命令を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigabrt.html&#34;&gt;SIGABRT&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;abort&lt;/code&gt;関数などによる異常終了を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigfpe.html&#34;&gt;SIGFPE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;算術演算エラーを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigsegv.html&#34;&gt;SIGSEGV&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;無効なメモリアクセスを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigterm.html&#34;&gt;SIGTERM&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;終了要求を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;関数&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/signal.html&#34;&gt;signal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;特定のシグナルに対するシグナルハンドラを設定する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/raise.html&#34;&gt;raise&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムにシグナルを送信する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>SIG_DFL -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
-      <id>ae081be17b6bd263d9e9d9e5183ccebd1fdd11c6:reference/csignal/sig_dfl.md</id>
-      <updated>2026-02-15T00:39:52+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
-new file mode 100644
-index 000000000..af141d5b5
---- /dev/null
-+++ b/reference/csignal/sig_dfl.md
-@@ -0,0 +1,41 @@
-+# SIG_DFL
-+* csignal[meta header]
-+* macro[meta id-type]
-+
-+```cpp
-+#define SIG_DFL see below
-+```
-+
-+## 概要
-+`signal`関数に渡される引数として、シグナルに対するデフォルトの処理を指定するマクロ。
-+
-+シグナル受信時に`signal`関数で`SIG_DFL`が指定されている場合、そのシグナルに対する実装定義のデフォルト処理が実行される。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;csignal&amp;gt;
-+#include &amp;lt;iostream&amp;gt;
-+
-+int main()
-+{
-+  std::signal(SIGINT, SIG_DFL);
-+  volatile std::sig_atomic_t flag = 0;
-+  while (!flag) {
-+  }
-+  return 0;
-+}
-+```
-+
-+### 出力
-+
-+```
-+Press Ctrl+C to send SIGINT signal
-+```
-+
-+* SIG_DFL[color ff0000]
-+* std::signal[color ff0000]
-+
-+## 関連項目
-+- [`signal`](/reference/csignal/signal.md)
-+- [`SIG_IGN`](/reference/csignal/sig_ign.md)
-+- [`SIG_ERR`](/reference/csignal/sig_err.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>SIG_ERR -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_err.html"/>
-      <id>ae081be17b6bd263d9e9d9e5183ccebd1fdd11c6:reference/csignal/sig_err.md</id>
-      <updated>2026-02-15T00:39:52+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_err.md b/reference/csignal/sig_err.md
-new file mode 100644
-index 000000000..03d0fe390
---- /dev/null
-+++ b/reference/csignal/sig_err.md
-@@ -0,0 +1,49 @@
-+# SIG_ERR
-+* csignal[meta header]
-+* macro[meta id-type]
-+
-+```cpp
-+#define SIG_ERR see below
-+```
-+
-+## 概要
-+`signal`関数の戻り値で、信号ハンドラの設定に失敗したことを示す値。
-+
-+`signal`関数が失敗した場合、この値が返される。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;csignal&amp;gt;
-+#include &amp;lt;iostream&amp;gt;
-+
-+std::sig_atomic_t flag = 0;
-+
-+void signal_handler(int sig)
-+{
-+  flag = 1;
-+}
-+
-+int main()
-+{
-+  if (std::signal(SIGINT, signal_handler) == SIG_ERR) {
-+    std::cerr &amp;lt;&amp;lt; &amp;#34;Failed to set signal handler&amp;#34; &amp;lt;&amp;lt; std::endl;
-+    return 1;
-+  }
-+  std::cout &amp;lt;&amp;lt; &amp;#34;Signal handler set successfully&amp;#34; &amp;lt;&amp;lt; std::endl; 
-+  while (!flag) {
-+  }
-+  return 0;
-+}
-+```
-+
-+### 出力例
-+
-+```
-+Signal handler set successfully
-+```
-+
-+* SIG_ERR[color ff0000]
-+* std::signal[color ff0000]
-+
-+## 関連項目
-+- [`signal`](/reference/csignal/signal.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>SIG_IGN -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_ign.html"/>
-      <id>ae081be17b6bd263d9e9d9e5183ccebd1fdd11c6:reference/csignal/sig_ign.md</id>
-      <updated>2026-02-15T00:39:52+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_ign.md b/reference/csignal/sig_ign.md
-new file mode 100644
-index 000000000..741f5a511
---- /dev/null
-+++ b/reference/csignal/sig_ign.md
-@@ -0,0 +1,41 @@
-+# SIG_IGN
-+* csignal[meta header]
-+* macro[meta id-type]
-+
-+```cpp
-+#define SIG_IGN see below
-+```
-+
-+## 概要
-+`signal`関数に渡される引数として、指定されたシグナルを無視させるマクロ。
-+
-+シグナル受信時に`signal`関数で`SIG_IGN`が指定されている場合、そのシグナルは無視される。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;csignal&amp;gt;
-+#include &amp;lt;iostream&amp;gt;
-+
-+int main()
-+{
-+  std::signal(SIGINT, SIG_IGN);
-+  // Ctrl+Cを押してもプログラムは続行する
-+  for (int i = 0; i &amp;lt; 10; ++i) {
-+    std::cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34;;
-+  }
-+  std::cout &amp;lt;&amp;lt; std::endl;
-+  return 0;
-+}
-+```
-+
-+### 出力
-+
-+```
-+0 1 2 3 4 5 6 7 8 9
-+```
-+
-+* SIG_IGN[color ff0000]
-+* std::signal[color ff0000]
-+
-+## 関連項目
-+- [`signal`](/reference/csignal/signal.md)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

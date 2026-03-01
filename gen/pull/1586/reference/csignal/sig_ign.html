@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9d482bc99758bb2dbf7b5bdecf4e3b3446481450&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n#include &lt;thread&gt;\n\nint main()\n{\n  std::signal(SIGINT, SIG_IGN);\n  // Ctrl+C\u3092\u62bc\u3057\u3066\u3082\u30d7\u30ed\u30b0\u30e9\u30e0\u306f\u7d9a\u884c\u3059\u308b\n  for (int i = 0; i &lt; 10; ++i) {\n    std::cout &lt;&lt; i &lt;&lt; \&#34; \&#34; &lt;&lt; std::flush;\n    std::this_thread::sleep_for(std::chrono::milliseconds(500));\n  }\n  std::cout &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sig_ign&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;24e66cef826f2314f2354bff41502a84f375acea&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n#include &lt;thread &gt;\n#include &lt;chrono&gt;\n\nint main()\n{\n  std::signal(SIGINT, SIG_IGN);\n  // Ctrl+C\u3092\u62bc\u3057\u3066\u3082\u30d7\u30ed\u30b0\u30e9\u30e0\u306f\u7d9a\u884c\u3059\u308b\n  for (int i = 0; i &lt; 10; ++i) {\n    std::cout &lt;&lt; i &lt;&lt; \&#34; \&#34; &lt;&lt; std::flush;\n    std::this_thread::sleep_for(std::chrono::milliseconds(500));\n  }\n  std::cout &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sig_ign&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-27T09:34:57">
-        2026年02月27日 09時34分57秒
+      <span itemprop="datePublished" content="2026-03-01T03:38:44">
+        2026年03月01日 03時38分44秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -220,9 +220,10 @@
 <p><code>signal</code>関数に渡される引数として、指定されたシグナルを無視させるマクロ。</p>
 <p>シグナル受信時に<code>signal</code>関数で<code>SIG_IGN</code>が指定されている場合、そのシグナルは無視される。</p>
 <h2>例</h2>
-<p><div class="yata" id="9d482bc99758bb2dbf7b5bdecf4e3b3446481450"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<p><div class="yata" id="24e66cef826f2314f2354bff41502a84f375acea"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;thread &gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -239,7 +240,7 @@
 </div></p>
 <ul>
 <li>SIG_IGN[color ff0000]</li>
-<li>std::signal[color ff0000]</li>
+<li>std::signal[link /reference/csignal/signal.md]</li>
 </ul>
 <h3>出力</h3>
 <p><pre><code>0 1 2 3 4 5 6 7 8 9
