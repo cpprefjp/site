@@ -17,7 +17,7 @@ stop_source& operator=(stop_source&& r) noexcept;      // (2)
 
 ## 効果
 - (1) : [`stop_source`](op_constructor.md)`(r).`[`swap`](swap.md)`(*this)`。これによって `*this` `==` `r` となる。
-- (2) : [`stop_source`](op_constructor.md)`(std::`[`move`](/reference/utility/move.md)`(r)).`[`swap`](swap.md)`(*this)`。これによって、`r.`[`stop_possible()`](stop_possible.md) `==` `true` となる。
+- (2) : [`stop_source`](op_constructor.md)`(std::`[`move`](/reference/utility/move.md)`(r)).`[`swap`](swap.md)`(*this)`。これによって、`r.`[`stop_possible()`](stop_possible.md) `==` `false` となる。
 
 ## 戻り値
 `*this`
