@@ -41,8 +41,8 @@ SDEF(bar, 1, 2, 3); // S bar = {1, 2, 3}; に展開される
 
 int main()
 {
-  DEBUG_LOG("hello");       // printf("[debug] hello\n"); に展開される
-  DEBUG_LOG("value:%d", 3); // printf("[debug] value:%d\n", 3); に展開される
+  DEBUG_LOG("hello");       // std::printf("[debug] hello\n"); に展開される
+  DEBUG_LOG("value:%d", 3); // std::printf("[debug] value:%d\n", 3); に展開される
 }
 ```
 
