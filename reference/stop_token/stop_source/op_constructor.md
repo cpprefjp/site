@@ -22,7 +22,7 @@ stop_source(stop_source&& rhs) noexcept;      // (4)
 ## 事後条件
 - (1) : [`stop_possible()`](stop_possible.md) `==` `true` かつ[`stop_requested()`](stop_requested.md) `==` `false`。
 - (2) : [`stop_possible()`](stop_possible.md) `==` `false` かつ[`stop_requested()`](stop_requested.md) `==` `false`。
-- (2) : `*this` `==` `rhs`。（`rhs`が停止状態を所有していれば、`*this`と`rhs`は同じ停止状態を共有するようになる）
+- (3) : `*this` `==` `rhs`。（`rhs`が停止状態を所有していれば、`*this`と`rhs`は同じ停止状態を共有するようになる）
 - (4) : もし`rhs`が停止状態を所有していればその所有権が`*this`へ移動し、`rhs.`[`stop_possible()`](stop_possible.md) `==` `false`となる。
 
 ## 例外
