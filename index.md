@@ -137,6 +137,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:nodchip様, link:https://twitter.com/nodchip, note:Hisayori Noda, fee:50, amount:1, period:2024-11-07]
 
+[sponsor name:tomoteru様, fee:20, amount:11, period:2027-03-06]
+
 [sponsor name:Hashitaku様, link:https://opencollective.com/hashitaku, fee:20, amount:1, period:2024-05-08]
 
 [sponsor name:Akira Kubo様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/HappyLuckyAkira/HappyLuckyAkira.jpg, link:https://x.com/HappyLuckyAkira, size:256, fee:20, amount:1, period:2025-10-12]
