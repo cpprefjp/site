@@ -213,18 +213,18 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;utility&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">forward</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>            <span class="c1">// (1) C++11</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../type_traits/remove_reference.html">remove_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">            </span><span class="c1">// (1) C++11</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (1) C++14</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../type_traits/remove_reference.html">remove_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1) C++14</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (2) C++11</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../type_traits/remove_reference.html">remove_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">           </span><span class="c1">// (2) C++11</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++14</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../type_traits/remove_reference.html">remove_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++14</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -232,32 +232,32 @@
 <p>関数テンプレートの引数を転送する。</p>
 <p>この関数は、渡された引数を<code>T&amp;&amp;</code>型にキャストして返す。（注：<code>T</code>が左辺値参照の場合には<code>T&amp;&amp;</code>も左辺値参照になり、それ以外の場合に<code>T&amp;&amp;</code>は右辺値参照になる。）</p>
 <p>この関数は、主に転送関数（forwarding function）の実装を単純化する目的で使われる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">forward_to_f</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">forward_to_f</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">forward_to_f</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">forward_to_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>この関数に渡した引数は、多くのケースにおいて右辺値参照にキャストされ、ムーブされることに注意すること。同じ引数に対して二回以上関数を呼び出しを行いたい場合は、<code>std::forward()</code>は使ってはならない：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">bad</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">bad</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>  <span class="c1">// xはここでムーブされるかもしれないので</span>
-  <span class="n">g</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>  <span class="c1">// この関数呼び出しは予想外の結果になる可能性がある</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w">  </span><span class="c1">// xはここでムーブされるかもしれないので</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w">  </span><span class="c1">// この関数呼び出しは予想外の結果になる可能性がある</span>
 <span class="p">}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">good</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">good</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>                   <span class="c1">// まだ使う場合は転送は行わず、</span>
-  <span class="n">g</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>  <span class="c1">// 最後に使うときのみ転送すれば安全</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">                   </span><span class="c1">// まだ使う場合は転送は行わず、</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n"><a href="">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w">  </span><span class="c1">// 最後に使うときのみ転送すれば安全</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -270,24 +270,24 @@
 <li>(2) : この形式が左辺値参照の型に対して呼ばれた場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。（例： <code>std::forward&lt;int&amp;&gt;(1)</code> は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>）</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="01c25f066b7516c1c08ccfd10092a7435466ee6d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="01c25f066b7516c1c08ccfd10092a7435466ee6d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">A1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">A2</span><span class="o">&gt;</span>
-<span class="n"><a href="../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">factory</span><span class="p">(</span><span class="n">A1</span><span class="o">&amp;&amp;</span> <span class="n">a1</span><span class="p">,</span> <span class="n">A2</span><span class="o">&amp;&amp;</span> <span class="n">a2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">T</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::forward</span></span><span class="o">&lt;</span><span class="n">A1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a1</span><span class="p">),</span> <span class="n"><span style="color:#ff0000">std::forward</span></span><span class="o">&lt;</span><span class="n">A2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a2</span><span class="p">)));</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">A1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">A2</span><span class="o">&gt;</span>
+<span class="n"><a href="../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">factory</span><span class="p">(</span><span class="n">A1</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">A2</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::forward</span></span><span class="o">&lt;</span><span class="n">A1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a1</span><span class="p">),</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::forward</span></span><span class="o">&lt;</span><span class="n">A2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a2</span><span class="p">)));</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">double</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="c1">//<a href="../memory/shared_ptr.html">std::shared_ptr</a>&lt;A&gt; sp1 = factory&lt;A&gt;(2, 1.414);  // error: 2 will not bind to int&amp;</span>
 
-  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="n"><a href="../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span> <span class="n">sp2</span> <span class="o">=</span> <span class="n">factory</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mf">1.414</span><span class="p">);</span>  <span class="c1">// OK</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mf">1.414</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -331,7 +331,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,12 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">copyable_function</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">S</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">copyable_function</span><span class="p">;</span> <span class="c1">// 宣言のみ</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">copyable_function</span><span class="p">;</span><span class="w"> </span><span class="c1">// 宣言のみ</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgTypes</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">copyable_function</span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span> <span class="cm">/*cv*/</span> <span class="cm">/*ref*/</span> <span class="k">noexcept</span><span class="p">(</span><span class="cm">/*noex*/</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">ArgTypes</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">copyable_function</span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span><span class="w"> </span><span class="cm">/*cv*/</span><span class="w"> </span><span class="cm">/*ref*/</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="cm">/*noex*/</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -335,22 +335,22 @@
 </table>
 <h2>例</h2>
 <h3>例1: 基本の使い方</h3>
-<p><div class="yata" id="4dadadcd2c809225636bf18eefcf122dfef40be6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4dadadcd2c809225636bf18eefcf122dfef40be6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 関数を代入</span>
-  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">add</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 関数を代入</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">;</span>
 
-  <span class="c1">// 関数オブジェクトを代入</span>
-  <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">  </span><span class="c1">// 関数オブジェクトを代入</span>
+<span class="w">  </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="c1">// 保持している関数を呼び出す</span>
-  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="copyable_function/op_call.html">f(1)</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 保持している関数を呼び出す</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="copyable_function/op_call.html">f(1)</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -358,39 +358,39 @@
 <p><pre><code>2
 </code></pre></p>
 <h3>例2: const性の伝搬</h3>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Functor</span> <span class="p">{</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s">"non-const"</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()()</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s">"const"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Functor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">operator</span><span class="p">()()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"non-const"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">operator</span><span class="p">()()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"const"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-- copyable_function"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-        <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>       <span class="n">mof1</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
-  <span class="k">const</span> <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>       <span class="n">mof2</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span> <span class="c1">// (呼び出し時に不適格)</span>
-        <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">mof3</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
-  <span class="k">const</span> <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">mof4</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof1: "</span> <span class="o">&lt;&lt;</span> <span class="n">mof1</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"-- copyable_function"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">        </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">       </span><span class="n">mof1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">       </span><span class="n">mof2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span><span class="w"> </span><span class="c1">// (呼び出し時に不適格)</span>
+<span class="w">        </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mof3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mof4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"mof1: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mof1</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="c1">//<a href="../iostream/cout.html">std::cout</a> &lt;&lt; "mof2: " &lt;&lt; mof2() &lt;&lt; <a href="../ostream/endl.html">std::endl</a>; // 不適格</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof3: "</span> <span class="o">&lt;&lt;</span> <span class="n">mof3</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof4: "</span> <span class="o">&lt;&lt;</span> <span class="n">mof4</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"mof3: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mof3</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"mof4: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mof4</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-- function"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-        <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>       <span class="n">fn1</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
-  <span class="k">const</span> <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>       <span class="n">fn2</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"-- function"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">        </span><span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">       </span><span class="n">fn1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">       </span><span class="n">fn2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span>
 <span class="c1">//      <a href="function.html">std::function</a>&lt;<a href="../string/basic_string.html">std::string</a>(void) const&gt; fn3 = Functor{}; // 不適格</span>
 <span class="c1">//const <a href="function.html">std::function</a>&lt;<a href="../string/basic_string.html">std::string</a>(void) const&gt; fn4 = Functor{}; // 不適格</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"fn1: "</span> <span class="o">&lt;&lt;</span> <span class="n">fn1</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"fn2: "</span> <span class="o">&lt;&lt;</span> <span class="n">fn2</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"fn1: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fn1</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"fn2: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fn2</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -404,35 +404,35 @@ fn1: non-const
 fn2: non-const
 </code></pre></p>
 <h3>例3: 左辺値/右辺値の伝搬</h3>
-<p><div class="yata" id="a89526c11534b9a266103f01c5b5e756c37f27ee"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a89526c11534b9a266103f01c5b5e756c37f27ee"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Functor</span> <span class="p">{</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()()</span> <span class="o">&amp;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s">"L-val"</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()()</span> <span class="o">&amp;&amp;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s">"R-val"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Functor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">operator</span><span class="p">()()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"L-val"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">operator</span><span class="p">()()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"R-val"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-- copyable_function"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>    <span class="n">mof1</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
-  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="o">&amp;&amp;&gt;</span> <span class="n">mof2</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof1/L-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">mof1</span><span class="p">()</span>            <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof1/R-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mof1</span><span class="p">)()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"-- copyable_function"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">    </span><span class="n">mof1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;&gt;</span><span class="w"> </span><span class="n">mof2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"mof1/L-val: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mof1</span><span class="p">()</span><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"mof1/R-val: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mof1</span><span class="p">)()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="c1">//<a href="../iostream/cout.html">std::cout</a> &lt;&lt; "mof2/L-val: " &lt;&lt; mof2()            &lt;&lt; <a href="../ostream/endl.html">std::endl</a>; // 不適格</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof2/R-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mof2</span><span class="p">)()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"mof2/R-val: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mof2</span><span class="p">)()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-- function"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>    <span class="n">fn1</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"-- function"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">    </span><span class="n">fn1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Functor</span><span class="p">{};</span>
 <span class="c1">//<a href="function.html">std::function</a>&lt;<a href="../string/basic_string.html">std::string</a>(void) &amp;&amp;&gt; fn2 = Functor{}; // 不適格</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"fn1/L-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">fn1</span><span class="p">()</span>            <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"fn1/R-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fn1</span><span class="p">)()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"fn1/L-val: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fn1</span><span class="p">()</span><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"fn1/R-val: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fn1</span><span class="p">)()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -446,27 +446,27 @@ fn1/L-val: L-val
 fn1/R-val: L-val
 </code></pre></p>
 <h3>例4: noexcept指定の伝搬</h3>
-<p><div class="yata" id="3c2bbd5ac34569ea3e8ec47a4906800aa06de429"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3c2bbd5ac34569ea3e8ec47a4906800aa06de429"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{}</span>
-<span class="kt">void</span> <span class="nf">func_noex</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func_noex</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>          <span class="n">mof1</span> <span class="o">=</span> <span class="n">func</span><span class="p">;</span>
-  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>          <span class="n">mof2</span> <span class="o">=</span> <span class="n">func_noex</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">          </span><span class="n">mof1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">          </span><span class="n">mof2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func_noex</span><span class="p">;</span>
 <span class="c1">//<span style="color:#ff0000">std::copyable_function</span>&lt;void(void) noexcept&gt; mof3 = func; // 不適格</span>
-  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">noexcept</span><span class="o">&gt;</span> <span class="n">mof4</span> <span class="o">=</span> <span class="n">func_noex</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">mof1</span><span class="p">()));</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">mof2</span><span class="p">()));</span>
-  <span class="k">static_assert</span><span class="p">(</span>    <span class="k">noexcept</span><span class="p">(</span><span class="n">mof4</span><span class="p">()));</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mof4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func_noex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n">mof1</span><span class="p">()));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n">mof2</span><span class="p">()));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="w">    </span><span class="k">noexcept</span><span class="p">(</span><span class="n">mof4</span><span class="p">()));</span>
 
-  <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>          <span class="n">fn1</span> <span class="o">=</span> <span class="n">func</span><span class="p">;</span>
-  <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>          <span class="n">fn2</span> <span class="o">=</span> <span class="n">func_noex</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">          </span><span class="n">fn1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w">          </span><span class="n">fn2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func_noex</span><span class="p">;</span>
 <span class="c1">//<a href="function.html">std::function</a>&lt;void(void) noexcept&gt; fn3 = func;      // 不適格</span>
 <span class="c1">//<a href="function.html">std::function</a>&lt;void(void) noexcept&gt; fn4 = func_noex; // 不適格</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">fn1</span><span class="p">()));</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">fn2</span><span class="p">()));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n">fn1</span><span class="p">()));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n">fn2</span><span class="p">()));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -511,7 +511,7 @@ fn1/R-val: L-val
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

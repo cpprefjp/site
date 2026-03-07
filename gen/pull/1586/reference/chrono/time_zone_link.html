@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">time_zone_link</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">time_zone_link</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">time_zone_link</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -222,12 +222,12 @@
 <p><code>time_zone_link</code>は、タイムゾーンの代替名を管理する型である。</p>
 <p>このクラスの機能は、<code><a href="locate_zone.html">std::chrono::locate_zone()</a></code>内で使用される。</p>
 <p>例として、キプロス共和国の首都ニコシアはアジアに属するが、多くのユーザーはヨーロッパで見つかることを期待している。ニコシアは、ヨーロッパとアジアどちらでも見つかるようリンクされており、現在の正式な地域だけでなく (Asia/Nicosia)、リンクされた地域も指定できるようになっている。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="k">const</span> <span class="n"><a href="time_zone.html">time_zone</a></span><span class="o">*</span> <span class="n">linked_tz</span> <span class="o">=</span> <span class="n"><a href="locate_zone.html">locate_zone</a></span><span class="p">(</span><span class="s">"Europe/Nicosia"</span><span class="p">);</span> <span class="c1">// タイムゾーンの代替名</span>
+<span class="k">const</span><span class="w"> </span><span class="n"><a href="time_zone.html">time_zone</a></span><span class="o">*</span><span class="w"> </span><span class="n">linked_tz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="locate_zone.html">locate_zone</a></span><span class="p">(</span><span class="s">"Europe/Nicosia"</span><span class="p">);</span><span class="w"> </span><span class="c1">// タイムゾーンの代替名</span>
 
 <span class="c1">// 実際にタイムゾーンの時間計算に使用されるのはリンク先のタイムゾーン名</span>
-<span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">linked_tz</span><span class="o">-&gt;</span><span class="n"><a href="time_zone/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// Asia/Nicosia</span>
+<span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">linked_tz</span><span class="o">-&gt;</span><span class="n"><a href="time_zone/name.html">name()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// Asia/Nicosia</span>
 </code></pre></div>
 </p>
 <p>また、<code>"UTC"</code>や<code>"GMT"</code>も代替名であり、本来の名前は<code>"Etc/UTC"</code>、<code>"Etc/GMT"</code>となっている。</p>
@@ -359,7 +359,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -219,72 +219,72 @@
 <p></p>
 <h2>概要</h2>
 <p>C++17まではラムダ式の生成するクロージャ型に定義される特殊メンバ関数はコピー/ムーブコンストラクタとデストラクタのみだったが、C++20からは状態を持たない、すなわちキャプチャをしていないラムダ式の場合にのみそのクロージャ型はデフォルトコンストラクタと代入演算子を持つようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[](){</span> <span class="k">return</span> <span class="mi">20</span><span class="p">;};</span>
-<span class="k">using</span> <span class="n">lambda_t</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">20</span><span class="p">;};</span>
+<span class="k">using</span><span class="w"> </span><span class="n">lambda_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
 
-<span class="n">lambda_t</span> <span class="n">l2</span><span class="p">{};</span>  <span class="c1">// ok、デフォルト構築</span>
+<span class="n">lambda_t</span><span class="w"> </span><span class="n">l2</span><span class="p">{};</span><span class="w">  </span><span class="c1">// ok、デフォルト構築</span>
 
-<span class="n">l2</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>             <span class="c1">// ok、コピー代入</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>  <span class="c1">// ok、ムーブ代入</span>
+<span class="n">l2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w">             </span><span class="c1">// ok、コピー代入</span>
+<span class="n">l2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">l</span><span class="p">);</span><span class="w">  </span><span class="c1">// ok、ムーブ代入</span>
 
 
-<span class="k">auto</span> <span class="n">lc</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">](){</span> <span class="k">return</span> <span class="n">n</span><span class="p">;};</span>
-<span class="k">using</span> <span class="n">clambda_t</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="n">lc</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">lc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">](){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;};</span>
+<span class="k">using</span><span class="w"> </span><span class="n">clambda_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">lc</span><span class="p">);</span>
 
-<span class="n">clambda_t</span> <span class="n">lc2</span><span class="p">{};</span>    <span class="c1">// ng、デフォルトコンストラクタはdeleteされている</span>
-<span class="n">clambda_t</span> <span class="n">lc3</span><span class="p">{</span><span class="n">lc</span><span class="p">};</span>  <span class="c1">// ok、コピー構築</span>
+<span class="n">clambda_t</span><span class="w"> </span><span class="n">lc2</span><span class="p">{};</span><span class="w">    </span><span class="c1">// ng、デフォルトコンストラクタはdeleteされている</span>
+<span class="n">clambda_t</span><span class="w"> </span><span class="n">lc3</span><span class="p">{</span><span class="n">lc</span><span class="p">};</span><span class="w">  </span><span class="c1">// ok、コピー構築</span>
 
 <span class="c1">// 共にng、コピー代入演算子はdeleteされている</span>
-<span class="n">lc3</span> <span class="o">=</span> <span class="n">lc</span><span class="p">;</span>
-<span class="n">lc3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">lc</span><span class="p">);</span>
+<span class="n">lc3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lc</span><span class="p">;</span>
+<span class="n">lc3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">lc</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>仕様</h2>
 <p>ラムダ式がキャプチャをしていない場合、そのクロージャ型にはデフォルトコンストラクタとコピー/ムーブ代入演算子が<code>default</code>指定で定義される。</p>
 <p>ラムダ式がキャプチャをしている場合、そのクロージャ型のデフォルトコンストラクタとコピー代入演算子は<code>delete</code>指定で定義される（ムーブ代入演算子は宣言されない）。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// キャプチャをしていないラムダ式のクロージャ型は次のようなメンバを持つ</span>
-<span class="k">struct</span> <span class="n">closure</span> <span class="p">{</span>
-  <span class="n">closure</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// C++20から</span>
-  <span class="n">closure</span><span class="p">(</span><span class="k">const</span> <span class="n">closure</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">closure</span><span class="p">(</span><span class="n">closure</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">closure</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">closure</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">  </span><span class="c1">// C++20から</span>
+<span class="w">  </span><span class="n">closure</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">closure</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">closure</span><span class="p">(</span><span class="n">closure</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="n">closure</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">closure</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span> <span class="c1">// C++20から</span>
-  <span class="n">closure</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">closure</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>      <span class="c1">// C++20から</span>
+<span class="w">  </span><span class="n">closure</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">closure</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++20から</span>
+<span class="w">  </span><span class="n">closure</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">closure</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">      </span><span class="c1">// C++20から</span>
 
-  <span class="k">auto</span> <span class="nf">operator</span><span class="p">()(</span><span class="n">params</span><span class="p">...)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">params</span><span class="p">...)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// キャプチャをしているラムダ式のクロージャ型は次のようなメンバを持つ</span>
-<span class="k">struct</span> <span class="n">closure</span> <span class="p">{</span>
-  <span class="n">closure</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-  <span class="n">closure</span><span class="p">(</span><span class="k">const</span> <span class="n">closure</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">closure</span><span class="p">(</span><span class="n">closure</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">closure</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">closure</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">closure</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">closure</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">closure</span><span class="p">(</span><span class="n">closure</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="n">closure</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">closure</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">closure</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">closure</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 
-  <span class="k">auto</span> <span class="nf">operator</span><span class="p">()(</span><span class="n">params</span><span class="p">...)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">params</span><span class="p">...)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 
-  <span class="c1">// コピーキャプチャした変数に対応するメンバ変数</span>
-  <span class="n">T1</span> <span class="n">c1</span><span class="p">;</span>
-  <span class="n">T2</span> <span class="n">c2</span><span class="p">;</span>
-  <span class="p">...</span>
+<span class="w">  </span><span class="c1">// コピーキャプチャした変数に対応するメンバ変数</span>
+<span class="w">  </span><span class="n">T1</span><span class="w"> </span><span class="n">c1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T2</span><span class="w"> </span><span class="n">c2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">...</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
 <p>以下の例では、「<a href="wording_for_lambdas_in_unevaluated_contexts.html">評価されない文脈でのラムダ式</a>」による仕様を同時に用いている。</p>
 <h3>連想コンテナの比較をカスタマイズする</h3>
-<p><div class="yata" id="d810e3bb05e321438e5ec0efcd0add3c823c4d35"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/set.html">&lt;set&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d810e3bb05e321438e5ec0efcd0add3c823c4d35"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/set.html">&lt;set&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/set/set.html">std::set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">decltype</span><span class="p">([](</span><span class="k">auto</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">auto</span> <span class="n">rhs</span><span class="p">){</span> <span class="k">return</span> <span class="n">lhs</span> <span class="o">&gt;</span> <span class="n">rhs</span><span class="p">;})</span><span class="o">&gt;</span> <span class="n">set</span><span class="p">{};</span>
-  <span class="n">set</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../reference/set/set.html">std::set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">([](</span><span class="k">auto</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rhs</span><span class="p">){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">;})</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="p">{};</span>
+<span class="w">  </span><span class="n">set</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">});</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">set</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">set</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -302,24 +302,24 @@
 0
 </code></pre></p>
 <h3><code>std::unique_ptr</code>にカスタムデリータを設定する</h3>
-<p><div class="yata" id="32fafd14a75237b503c545f8ac8e5b00c187eafb"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="32fafd14a75237b503c545f8ac8e5b00c187eafb"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/memory.html">&lt;memory&gt;</a></span>
 
-<span class="k">using</span> <span class="n">handle_t</span> <span class="o">=</span> <span class="kt">void</span><span class="o">*</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">handle_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">close_handle</span><span class="p">(</span><span class="n">handle_t</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"The handle was closed"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">close_handle</span><span class="p">(</span><span class="n">handle_t</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"The handle was closed"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">handle_t</span> <span class="nf">get_handle</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="kt">int</span> <span class="n">n</span><span class="p">{};</span>
-  <span class="k">return</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span>
+<span class="n">handle_t</span><span class="w"> </span><span class="nf">get_handle</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">handle_t</span> <span class="n">h</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">();</span>
-  <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">handle_t</span><span class="p">,</span> <span class="k">decltype</span><span class="p">([](</span><span class="k">auto</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span><span class="n">close_handle</span><span class="p">(</span><span class="n">h</span><span class="p">);})</span><span class="o">&gt;</span> <span class="n">handle</span><span class="p">{</span><span class="o">&amp;</span><span class="n">h</span><span class="p">};</span>
+<span class="w">  </span><span class="n">handle_t</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_handle</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">handle_t</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">([](</span><span class="k">auto</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">close_handle</span><span class="p">(</span><span class="n">h</span><span class="p">);})</span><span class="o">&gt;</span><span class="w"> </span><span class="n">handle</span><span class="p">{</span><span class="o">&amp;</span><span class="n">h</span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -329,19 +329,19 @@
 <h2>この機能が必要になった背景・経緯</h2>
 <p>これまでは、上記の例のように動作をカスタムする関数オブジェクトをテンプレートパラメータで受け取る設計のクラスをカスタマイズするためにラムダ式を用いる場合、そのラムダ式のクロージャオブジェクトをコンストラクタに引き渡す必要があった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// ラムダ式を一度変数に受けてから、コンストラクタに渡す</span>
-<span class="k">auto</span> <span class="n">greater</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">auto</span> <span class="n">rhs</span><span class="p">){</span> <span class="k">return</span> <span class="n">lhs</span> <span class="o">&gt;</span> <span class="n">rhs</span><span class="p">;};</span>
-<span class="n"><a href="../../reference/set/set.html">std::set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">decltype</span><span class="p">(</span><span class="n">greater</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">set</span><span class="p">{</span><span class="n">greater</span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">greater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rhs</span><span class="p">){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">;};</span>
+<span class="n"><a href="../../reference/set/set.html">std::set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">greater</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="p">{</span><span class="n">greater</span><span class="p">};</span>
 
-<span class="k">auto</span> <span class="n">custom_deleater</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span><span class="n">close_handle</span><span class="p">(</span><span class="n">h</span><span class="p">);};</span>
-<span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">handle_t</span><span class="p">,</span> <span class="k">decltype</span><span class="p">(</span><span class="n">custom_deleater</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">handle</span><span class="p">{</span><span class="o">&amp;</span><span class="n">h</span><span class="p">,</span> <span class="n">custom_deleater</span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">custom_deleater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">close_handle</span><span class="p">(</span><span class="n">h</span><span class="p">);};</span>
+<span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">handle_t</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">custom_deleater</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">handle</span><span class="p">{</span><span class="o">&amp;</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">custom_deleater</span><span class="p">};</span>
 </code></pre></div>
 </p>
 <p>これらのクラスは渡された関数オブジェクトの型が<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>可能であれば内部で<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>して初期化を行うため、本来はこのようにコンストラクタから渡す必要はない。しかし、C++17までのラムダ式はデフォルトコンストラクタが常に<code>delete</code>されていたためそれができなかった。</p>
 <p>また、そのように構築したオブジェクトを代入しようとする場合、ラムダ式のクロージャ型の代入演算子が常に<code>delete</code>されていたためできなかった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">greater</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">auto</span> <span class="n">rhs</span><span class="p">){</span> <span class="k">return</span> <span class="n">lhs</span> <span class="o">&gt;</span> <span class="n">rhs</span><span class="p">;};</span>
-<span class="n"><a href="../../reference/set/set.html">std::set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">decltype</span><span class="p">(</span><span class="n">greater</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">set1</span><span class="p">{</span><span class="n">greater</span><span class="p">},</span> <span class="n">set2</span><span class="p">{</span><span class="n">greater</span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">greater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rhs</span><span class="p">){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">;};</span>
+<span class="n"><a href="../../reference/set/set.html">std::set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">greater</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set1</span><span class="p">{</span><span class="n">greater</span><span class="p">},</span><span class="w"> </span><span class="n">set2</span><span class="p">{</span><span class="n">greater</span><span class="p">};</span>
 
-<span class="n">set1</span> <span class="o">=</span> <span class="n">set2</span><span class="p">;</span>  <span class="c1">// C++17まではコンパイルエラー</span>
+<span class="n">set1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set2</span><span class="p">;</span><span class="w">  </span><span class="c1">// C++17まではコンパイルエラー</span>
 </code></pre></div>
 </p>
 <p>ラムダ式は関数オブジェクトを生成する糖衣構文であるが、これらのことは対応する関数オブジェクトを直接書いた場合と一貫しておらず不便であるため、状態を持たないラムダ式に限って<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>と代入が可能になるように変更された。</p>
@@ -371,7 +371,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_trivially_destructible</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">is_trivially_destructible</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_trivially_destructible</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_trivially_destructible_v</span>
-    <span class="o">=</span> <span class="n">is_trivially_destructible</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>          <span class="c1">// C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_trivially_destructible_v</span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">is_trivially_destructible</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w">          </span><span class="c1">// C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -232,63 +232,63 @@
 <p>「トリビアルに破棄可能」とは、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>されないデストラクタを持っているということを意味する。</p>
 <h2>例</h2>
 <h3>基本的な使用例</h3>
-<p><div class="yata" id="a36e6cd37a606338f5514443fd7954c7bc80fdd2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a36e6cd37a606338f5514443fd7954c7bc80fdd2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">C1</span> <span class="p">{</span>
-  <span class="c1">// トリビアルなデストラクタを持っている</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// トリビアルなデストラクタを持っている</span>
 
-  <span class="c1">// 特殊関数ではないメンバ関数は持っている</span>
-  <span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 特殊関数ではないメンバ関数は持っている</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">C2</span> <span class="p">{</span>
-  <span class="c1">// 非トリビアルなデストラクタを持っている</span>
-  <span class="o">~</span><span class="n">C2</span><span class="p">()</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 非トリビアルなデストラクタを持っている</span>
+<span class="w">  </span><span class="o">~</span><span class="n">C2</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
 <span class="c1">// 組み込み型は全てトリビアルに破棄可能</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_destructible</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"int is trivially destructible"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_destructible</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"int* is trivially destructible"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_destructible</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"int is trivially destructible"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_destructible</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"int* is trivially destructible"</span><span class="p">);</span>
 
 <span class="c1">// ユーザー定義型は、ユーザー定義のデストラクタを持っていなければトリビアルに破棄可能</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_destructible</span></span><span class="o">&lt;</span><span class="n">C1</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"C1 is trivially destructible"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_destructible</span></span><span class="o">&lt;</span><span class="n">C2</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"C2 isn't trivially destructible"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_destructible</span></span><span class="o">&lt;</span><span class="n">C1</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"C1 is trivially destructible"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_destructible</span></span><span class="o">&lt;</span><span class="n">C2</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="s">"C2 isn't trivially destructible"</span><span class="p">);</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>包含する型がデストラクタを呼び出す必要があるかないかで、デストラクタの定義を分ける (C++11)</h3>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">TrivialBase</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TrivialBase</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="o">~</span><span class="n">TrivialBase</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="o">~</span><span class="n">TrivialBase</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">NonTrivialBase</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NonTrivialBase</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="o">~</span><span class="n">NonTrivialBase</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destruct"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">NonTrivialBase</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"destruct"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">A</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="conditional.html">std::conditional</a></span><span class="o">&lt;</span>
-            <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
-            <span class="n">TrivialBase</span><span class="p">,</span>
-            <span class="n">NonTrivialBase</span>
-          <span class="o">&gt;::</span><span class="n">type</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">x</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="conditional.html">std::conditional</a></span><span class="o">&lt;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
+<span class="w">            </span><span class="n">TrivialBase</span><span class="p">,</span>
+<span class="w">            </span><span class="n">NonTrivialBase</span>
+<span class="w">          </span><span class="o">&gt;::</span><span class="n">type</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">A</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>         <span class="c1">// trivially destructible</span>
-  <span class="n">A</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// non trivially destructible</span>
+<span class="w">  </span><span class="n">A</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">         </span><span class="c1">// trivially destructible</span>
+<span class="w">  </span><span class="n">A</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// non trivially destructible</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -296,25 +296,25 @@
 <p><pre><code>destruct
 </code></pre></p>
 <h3>包含する型がデストラクタを呼び出す必要があるかないかで、デストラクタの定義を分ける (C++20)</h3>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">x</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="o">~</span><span class="n">A</span><span class="p">()</span> <span class="n">requires</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destruct"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">A</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"destruct"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="o">~</span><span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="o">~</span><span class="n">A</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">A</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>         <span class="c1">// trivially destructible</span>
-  <span class="n">A</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// non trivially destructible</span>
+<span class="w">  </span><span class="n">A</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">         </span><span class="c1">// trivially destructible</span>
+<span class="w">  </span><span class="n">A</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// non trivially destructible</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -368,7 +368,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

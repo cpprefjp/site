@@ -213,12 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">enum</div><div class="header">&lt;bit&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">endian</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">enum</span> <span class="k">class</span> <span class="nc">endian</span> <span class="p">{</span>
-    <span class="n">little</span> <span class="o">=</span> <span class="err">以下参照</span><span class="p">,</span>
-    <span class="n">big</span> <span class="o">=</span> <span class="err">以下参照</span><span class="p">,</span>
-    <span class="n">native</span> <span class="o">=</span> <span class="err">以下参照</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">endian</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">little</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">以下参照</span><span class="p">,</span>
+<span class="w">    </span><span class="n">big</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">以下参照</span><span class="p">,</span>
+<span class="w">    </span><span class="n">native</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">以下参照</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -252,20 +252,20 @@
 <p>全てのスカラ型のサイズが1である場合、バイト順に意味はないため<code>little</code>、<code>big</code>、<code>native</code>は同じ値を持つ。そうでなければ、<code>little</code>と<code>big</code>は異なる値を持つ。</p>
 <p>全てのスカラ型がビッグエンディアンである場合、<code>native == big</code>。全てのスカラ型がリトルエンディアンである場合、<code>native == little</code>。そのどちらでもなければ、<code>native</code>は<code>big</code>でも<code>little</code>でもない値となる (mixed endian、PDPエンディアン、ミドルエンディアンなどと呼ばれるエンディアン方式)。</p>
 <h2>例</h2>
-<p><div class="yata" id="c1685d43fa01777a095391844879eb50b4365e96"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../bit.html">&lt;bit&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c1685d43fa01777a095391844879eb50b4365e96"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../bit.html">&lt;bit&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">std::endian::native</span></span> <span class="o">==</span> <span class="n"><span style="color:#ff0000">std::endian::little</span></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"実行環境はリトルエンディアンを使用する"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">std::endian::native</span></span> <span class="o">==</span> <span class="n"><span style="color:#ff0000">std::endian::big</span></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"実行環境はビッグエンディアンを使用する"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"実行環境はリトルでもビッグでもないエンディアンを使用する"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::endian::native</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::endian::little</span></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"実行環境はリトルエンディアンを使用する"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::endian::native</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::endian::big</span></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"実行環境はビッグエンディアンを使用する"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"実行環境はリトルでもビッグでもないエンディアンを使用する"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -305,7 +305,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

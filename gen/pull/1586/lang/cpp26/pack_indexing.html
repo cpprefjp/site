@@ -220,14 +220,14 @@
 <h2>概要</h2>
 <p>C++26では、可変引数テンプレートのパラメータパックに対してインデックスアクセスを行う添字構文が導入される。この機能により、パラメータパックの特定の要素に直接アクセスできるようになる。</p>
 <p>これにより、従来の再帰的テンプレートメタプログラミングやタプルの<code><a href="../../reference/tuple/tuple/get.html">std::get()</a></code>などを使用する必要がなくなり、コードの簡潔さと可読性が向上する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">auto</span> <span class="n">first_plus_last</span><span class="p">(</span><span class="n">T</span><span class="p">...</span> <span class="n">values</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">...[</span><span class="mi">0</span><span class="p">]</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">T</span><span class="p">...[</span><span class="mi">0</span><span class="p">](</span><span class="n">values</span><span class="p">...[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">values</span><span class="p">...[</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">first_plus_last</span><span class="p">(</span><span class="n">T</span><span class="p">...</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">...[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">...[</span><span class="mi">0</span><span class="p">](</span><span class="n">values</span><span class="p">...[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">values</span><span class="p">...[</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">values</span><span class="p">)</span><span class="mi">-1</span><span class="p">]);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">//first_plus_last(); // コンパイルエラー！</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">first_plus_last</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//first_plus_last(); // コンパイルエラー！</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">first_plus_last</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -235,23 +235,23 @@
 <p>インデックスが範囲外の場合、コンパイルエラーとなる。</p>
 <h2>例</h2>
 <h3>N番目の要素を取得する</h3>
-<p><div class="yata" id="3e8ae98ac6628f0d06d67779f0c6b4b8b7c31716"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3e8ae98ac6628f0d06d67779f0c6b4b8b7c31716"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../reference/tuple.html">&lt;tuple&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">I</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">print_nth</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// C++23実装 : タプルに変換してからI番目の要素を参照する</span>
-  <span class="c1">// auto value = <a href="../../reference/tuple/tuple/get.html">std::get</a>&lt;I&gt;(<a href="../../reference/tuple/forward_as_tuple.html">std::forward_as_tuple</a>(<a href="../../reference/utility/forward.html">std::forward</a>&lt;Args&gt;(args)...));</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print_nth</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// C++23実装 : タプルに変換してからI番目の要素を参照する</span>
+<span class="w">  </span><span class="c1">// auto value = <a href="../../reference/tuple/tuple/get.html">std::get</a>&lt;I&gt;(<a href="../../reference/tuple/forward_as_tuple.html">std::forward_as_tuple</a>(<a href="../../reference/utility/forward.html">std::forward</a>&lt;Args&gt;(args)...));</span>
 
-  <span class="c1">// C++26実装 : 添字構文でI番目の要素を参照する</span>
-  <span class="k">auto</span> <span class="n">value</span> <span class="o">=</span> <span class="n">args</span><span class="p">...[</span><span class="n">I</span><span class="p">];</span>
+<span class="w">  </span><span class="c1">// C++26実装 : 添字構文でI番目の要素を参照する</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">...[</span><span class="n">I</span><span class="p">];</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">print_nth</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">,</span> <span class="s">"D"</span><span class="p">);</span> <span class="c1">// 出力: C</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">print_nth</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="s">"C"</span><span class="p">,</span><span class="w"> </span><span class="s">"D"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 出力: C</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -283,7 +283,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

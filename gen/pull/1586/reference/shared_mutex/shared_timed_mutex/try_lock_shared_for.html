@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;shared_mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class shared_timed_mutex">shared_timed_mutex::</span><span class="token">try_lock_shared_for</span><span class="cpp cpp14" title="C++14で追加">(C++14)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rep</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Period</span><span class="o">&gt;</span>
-<span class="kt">bool</span> <span class="n">try_lock_shared_for</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../chrono/duration.html">chrono::duration</a></span><span class="o">&lt;</span><span class="n">Rep</span><span class="p">,</span> <span class="n">Period</span><span class="o">&gt;&amp;</span> <span class="n">rel_time</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rep</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Period</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">try_lock_shared_for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../chrono/duration.html">chrono::duration</a></span><span class="o">&lt;</span><span class="n">Rep</span><span class="p">,</span><span class="w"> </span><span class="n">Period</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">rel_time</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -243,48 +243,48 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>時計クラス、<code><a href="../../chrono/time_point.html">time_point</a></code>クラス、<code><a href="../../chrono/duration.html">duration</a></code>クラスの構築が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する場合、この関数はそれらの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="954a3eb17d6a7def55496193807bfb6d9ad8d0a6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../shared_mutex.html">&lt;shared_mutex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="954a3eb17d6a7def55496193807bfb6d9ad8d0a6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../shared_mutex.html">&lt;shared_mutex&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="k">mutable</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_timed_mutex</span> <span class="n">mtx_</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">value_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_timed_mutex</span><span class="w"> </span><span class="n">mtx_</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// メンバ変数value_への書き込みを排他的にする</span>
-  <span class="kt">void</span> <span class="n">add_value</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">mtx_</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">;</span> <span class="c1">// 排他ロックを取得する</span>
-    <span class="n">value_</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
-    <span class="n">mtx_</span><span class="p">.</span><span class="n"><a href="unlock.html">unlock()</a></span><span class="p">;</span> <span class="c1">// 排他ロックを手放す</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// メンバ変数value_への書き込みを排他的にする</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">add_value</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mtx_</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 排他ロックを取得する</span>
+<span class="w">    </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mtx_</span><span class="p">.</span><span class="n"><a href="unlock.html">unlock()</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 排他ロックを手放す</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// メンバ変数value_の値を読み込む</span>
-  <span class="kt">int</span> <span class="n">get_value</span><span class="p">()</span> <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// メンバ変数value_の値を読み込む</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get_value</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    <span class="c1">// 共有ロックの取得を試みる(3秒でタイムアウト)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">mtx_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock_shared_for</span></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">{</span>
-      <span class="c1">// 共有ロックの取得に失敗</span>
-      <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span> <span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
-      <span class="k">throw</span> <span class="nf"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 共有ロックの取得を試みる(3秒でタイムアウト)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">mtx_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock_shared_for</span></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// 共有ロックの取得に失敗</span>
+<span class="w">      </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="nf">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
+<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n">result</span> <span class="o">=</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="n">mtx_</span><span class="p">.</span><span class="n"><a href="unlock_shared.html">unlock_shared()</a></span><span class="p">;</span> <span class="c1">// 共有ロックを手放す</span>
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mtx_</span><span class="p">.</span><span class="n"><a href="unlock_shared.html">unlock_shared()</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 共有ロックを手放す</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">([</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span> <span class="n">x</span><span class="p">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">get_value</span><span class="p">();</span> <span class="p">});</span>
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t2</span><span class="p">([</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span> <span class="n">x</span><span class="p">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">get_value</span><span class="p">();</span> <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t1</span><span class="p">([</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">get_value</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t2</span><span class="p">([</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">get_value</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
 
-  <span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -319,7 +319,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

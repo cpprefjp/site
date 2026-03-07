@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;shared_mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">shared_lock</span><span class="cpp cpp14" title="C++14で追加">(C++14)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Mutex</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">shared_lock</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Mutex</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">shared_lock</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -340,27 +340,27 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="16e5d2d34009ee1e0d034adf9138af1fa603d269"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../shared_mutex.html">&lt;shared_mutex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="16e5d2d34009ee1e0d034adf9138af1fa603d269"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../shared_mutex.html">&lt;shared_mutex&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="k">mutable</span> <span class="n"><a href="shared_timed_mutex.html">std::shared_timed_mutex</a></span> <span class="n">mutex_</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">value_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n"><a href="shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="w"> </span><span class="n">mutex_</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="kt">int</span> <span class="n">read_access</span><span class="p">()</span> <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="c1">// lockのコンストラクタで、自動的にmutex_.lock_shared()を呼び出す</span>
-    <span class="n"><span style="color:#ff0000">std::shared_lock</span></span><span class="o">&lt;</span><span class="n"><a href="shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">mutex_</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-  <span class="p">}</span> <span class="c1">// lockのデストラクタで、自動的にmutex_.unlock_shared()を呼び出す</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">read_access</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// lockのコンストラクタで、自動的にmutex_.lock_shared()を呼び出す</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::shared_lock</span></span><span class="o">&lt;</span><span class="n"><a href="shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">mutex_</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// lockのデストラクタで、自動的にmutex_.unlock_shared()を呼び出す</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">read_access</span><span class="p">();</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">read_access</span><span class="p">();</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -410,7 +410,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;locale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">numpunct</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">numpunct</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="locale/facet.html">locale::facet</a></span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">numpunct</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="locale/facet.html">locale::facet</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -326,34 +326,34 @@
 </tbody>
 </table>
 <h3>例</h3>
-<p><div class="yata" id="7e49edf58211c1370ddb24561b3e6bee05384dd8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7e49edf58211c1370ddb24561b3e6bee05384dd8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../locale.html">&lt;locale&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">print_punct</span><span class="p">(</span><span class="n"><a href="locale.html">std::locale</a></span><span class="o">&amp;&amp;</span> <span class="n">loc</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_punct</span><span class="p">(</span><span class="n"><a href="locale.html">std::locale</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span href="https://cpprefjp.github.io/reference/locale/locale/name.md.nolink">loc.name()</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/locale/name.md.nolink">loc.name()</span></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">const</span> <span class="n"><span style="color:#ff0000">std::numpunct</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span> <span class="n">punct</span> <span class="o">=</span> <span class="n"><span href="https://cpprefjp.github.io/reference/locale/use_facet.md.nolink">std::use_facet</span></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::numpunct</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="p">(</span><span class="n">loc</span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::numpunct</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">punct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/use_facet.md.nolink">std::use_facet</span></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::numpunct</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="p">(</span><span class="n">loc</span><span class="p">);</span>
 
-  <span class="c1">// 小数点文字</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span href="https://cpprefjp.github.io/reference/locale/numpunct/decimal_point.md.nolink">punct.decimal_point()</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 小数点文字</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/numpunct/decimal_point.md.nolink">punct.decimal_point()</span></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 桁区切り文字</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span href="https://cpprefjp.github.io/reference/locale/numpunct/thousands_sep.md.nolink">punct.thousands_sep()</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 桁区切り文字</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/numpunct/thousands_sep.md.nolink">punct.thousands_sep()</span></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 何桁で区切るかの、桁数のシーケンス</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/numpunct/grouping.md.nolink">punct.grouping()</span></span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 何桁で区切るかの、桁数のシーケンス</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/numpunct/grouping.md.nolink">punct.grouping()</span></span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 日本語</span>
-  <span class="n">print_punct</span><span class="p">(</span><span class="n"><a href="locale.html">std::locale</a></span><span class="p">(</span><span class="s">"Japanese"</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// 日本語</span>
+<span class="w">  </span><span class="n">print_punct</span><span class="p">(</span><span class="n"><a href="locale.html">std::locale</a></span><span class="p">(</span><span class="s">"Japanese"</span><span class="p">));</span>
 
-  <span class="c1">// ドイツ語</span>
-  <span class="n">print_punct</span><span class="p">(</span><span class="n"><a href="locale.html">std::locale</a></span><span class="p">(</span><span class="s">"German"</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// ドイツ語</span>
+<span class="w">  </span><span class="n">print_punct</span><span class="p">(</span><span class="n"><a href="locale.html">std::locale</a></span><span class="p">(</span><span class="s">"German"</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -386,7 +386,7 @@ German_Germany.1252
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

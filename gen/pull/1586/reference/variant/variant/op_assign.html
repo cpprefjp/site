@@ -225,13 +225,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;variant&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class variant">variant::</span><span class="token">operator=</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n">variant</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">variant</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>              <span class="c1">// (1)</span>
-<span class="k">constexpr</span> <span class="n">variant</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">variant</span><span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span> <span class="c1">// (2)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n">variant</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">variant</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">              </span><span class="c1">// (1)</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">variant</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">variant</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span><span class="w"> </span><span class="c1">// (2)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">variant</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>               <span class="c1">// (3) C++17</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">variant</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>     <span class="c1">// (3) C++23</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">variant</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span><span class="w">               </span><span class="c1">// (3) C++17</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">variant</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span><span class="w">     </span><span class="c1">// (3) C++23</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -320,87 +320,87 @@
 <ul>
 <li>(3) : 以下のコードは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。第1テンプレート引数の型をとるコンストラクタ<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>と、第2テンプレート引数の型をとるコンストラクタ<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が定義されるため、曖昧になる：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
-<span class="n">v</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span> <span class="c1">// コンパイルエラー！</span>
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abc"</span><span class="p">;</span><span class="w"> </span><span class="c1">// コンパイルエラー！</span>
 </code></pre></div>
 </li>
 </ul>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="6d181ba143b8413d28c68e1e7048e562288ba264"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6d181ba143b8413d28c68e1e7048e562288ba264"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../variant.html">&lt;variant&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1) コピー代入</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
-    <span class="n">v2</span> <span class="o">=</span> <span class="n">v1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (1) コピー代入</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">));</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2) ムーブ代入</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
-    <span class="n">v2</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">v1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (2) ムーブ代入</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">v1</span><span class="p">);</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3) 型と値の切り替え</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (3) 型と値の切り替え</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-    <span class="c1">// 値を更新</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 値を更新</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
-    <span class="c1">// 保持する型を切り替え</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="sc">'a'</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 保持する型を切り替え</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="sc">'a'</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'a'</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>あいまいになりそうな代入の例 (C++20)</h3>
-<p><div class="yata" id="5c74072f5d4ee1e40f5e1a895e4df83c94c9147b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5c74072f5d4ee1e40f5e1a895e4df83c94c9147b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../variant.html">&lt;variant&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 縮小変換 (narrowing conversion) は行われないので、</span>
-  <span class="c1">// 0がfloat型に代入されたりはしない</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 縮小変換 (narrowing conversion) は行われないので、</span>
+<span class="w">  </span><span class="c1">// 0がfloat型に代入されたりはしない</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="p">{</span>
-    <span class="c1">// 文字列リテラルは、C++17では<a href="../../string/basic_string.html">std::string</a>よりもboolに優先的に変換されてしまう</span>
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span> <span class="c1">// C++17ではbool、C++20では<a href="../../string/basic_string.html">std::string</a></span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 文字列リテラルは、C++17では<a href="../../string/basic_string.html">std::string</a>よりもboolに優先的に変換されてしまう</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abc"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span><span class="w"> </span><span class="c1">// C++17ではbool、C++20では<a href="../../string/basic_string.html">std::string</a></span>
 
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
-    <span class="n">v2</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abc"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
 
-    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">v3</span><span class="p">;</span>
-    <span class="n">v3</span> <span class="o">=</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"abc"</span><span class="p">);</span> <span class="c1">// C++17/C++20で<a href="../../string/basic_string.html">std::string</a></span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v3</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v3</span><span class="p">;</span>
+<span class="w">    </span><span class="n">v3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"abc"</span><span class="p">);</span><span class="w"> </span><span class="c1">// C++17/C++20で<a href="../../string/basic_string.html">std::string</a></span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v3</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -440,7 +440,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,19 +225,19 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;array&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">tuple_size</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">tuple_size</span><span class="p">;</span> <span class="c1">// 先行宣言</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">tuple_size</span><span class="p">;</span><span class="w"> </span><span class="c1">// 先行宣言</span>
 
-  <span class="c1">// C++11</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">tuple_size</span><span class="o">&lt;</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">value</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// C++11</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">tuple_size</span><span class="o">&lt;</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// C++14</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">tuple_size</span><span class="o">&lt;</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&gt;</span>
-    <span class="o">:</span> <span class="n"><a href="../../type_traits/integral_constant.html">integral_constant</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="p">{};</span>
+<span class="w">  </span><span class="c1">// C++14</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">tuple_size</span><span class="o">&lt;</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;&gt;</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../type_traits/integral_constant.html">integral_constant</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -246,11 +246,11 @@
 <p>要素数は、<code><a href="../../type_traits/integral_constant.html">integral_constant</a></code>の機能を利用してコンパイル時の定数値として取得できる。</p>
 <p><code>&lt;array&gt;</code>ヘッダでは、<code><a href="../array.html">array</a></code>クラスに関する特殊化を定義する。</p>
 <h2>例</h2>
-<p><div class="yata" id="582d25161ec8a9fa267894c29a19cbb7b41ffb0d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="582d25161ec8a9fa267894c29a19cbb7b41ffb0d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../array.html">&lt;array&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::tuple_size</span></span><span class="o">&lt;</span><span class="n"><a href="../array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::tuple_size</span></span><span class="o">&lt;</span><span class="n"><a href="../array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -289,7 +289,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,12 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;system_error&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_error_code_enum</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="nl">is_error_code_enum</span> <span class="p">:</span> <span class="k">public</span> <span class="n"><a href="../type_traits/false_type.html">false_type</a></span> <span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_error_code_enum</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../type_traits/false_type.html">false_type</a></span><span class="w"> </span><span class="p">{};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_error_code_enum_v</span> <span class="o">=</span> <span class="n">is_error_code_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span> <span class="c1">// C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_error_code_enum_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">is_error_code_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -228,20 +228,20 @@
 <p><code>is_error_code_enum&lt;T&gt;::value == true</code>であることを要求する関数（<code><a href="error_code.html">error_code</a></code> の<a href="error_code/op_constructor.html">コンストラクタ</a>、および、<a href="error_code/op_assign.html">代入演算子</a>）に<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の列挙型を渡したい場合は、<code>is_error_code_enum</code>クラスを特殊化し、<code><a href="../type_traits/true_type.html">true_type</a></code>を継承するよう特殊化する必要がある。</p>
 <p>標準では、<code><a href="../ios/io_errc.html">io_errc</a></code>列挙型と<code><a href="../future/future_errc.html">future_errc</a></code>列挙型に対する<code><a href="../type_traits/true_type.html">true_type</a></code>の特殊化を提供する。</p>
 <h2>例</h2>
-<p><div class="yata" id="d36c09e78de1c13a16ea8c9fe9265a49338388bd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ios.html">&lt;ios&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../future.html">&lt;future&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d36c09e78de1c13a16ea8c9fe9265a49338388bd"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../system_error.html">&lt;system_error&gt;</a></span>
+<span class="cp">#include <a href="../ios.html">&lt;ios&gt;</a></span>
+<span class="cp">#include <a href="../future.html">&lt;future&gt;</a></span>
 
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">user_defined_error</span> <span class="p">{</span>
-  <span class="n">success</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">user_defined_error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_error_code_enum</span></span><span class="o">&lt;</span><span class="n"><a href="../ios/io_errc.html">std::io_errc</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_error_code_enum</span></span><span class="o">&lt;</span><span class="n"><a href="../future/future_errc.html">std::future_errc</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::is_error_code_enum</span></span><span class="o">&lt;</span><span class="n">user_defined_error</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_error_code_enum</span></span><span class="o">&lt;</span><span class="n"><a href="../ios/io_errc.html">std::io_errc</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_error_code_enum</span></span><span class="o">&lt;</span><span class="n"><a href="../future/future_errc.html">std::future_errc</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::is_error_code_enum</span></span><span class="o">&lt;</span><span class="n">user_defined_error</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -292,7 +292,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -219,7 +219,7 @@
 <p></p>
 <h2>概要</h2>
 <p>整数リテラルのプレフィックスとして<code>0b</code>もしくは<code>0B</code>を付けることで、2進数を表す値を記述できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1010</span><span class="p">;</span> <span class="c1">// 2進数の値1010を表す。xの値は、10進数の値10となる</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1010</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2進数の値1010を表す。xの値は、10進数の値10となる</span>
 </code></pre></div>
 </p>
 <p><code>0b</code>と<code>0B</code>に、機能としての違いはない。数値部分に入力できる数字は<code>0</code>と<code>1</code>のみである。</p>
@@ -239,16 +239,16 @@
 <li>2進数リテラルは、リテラル演算子と組み合わせて使用できる</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="a6e293b6deecc2807594821cb61459fd8a83604a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a6e293b6deecc2807594821cb61459fd8a83604a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1010</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1010</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 数値リテラルの桁区切り文字と組み合わせて、4桁区切りする</span>
-  <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1000</span><span class="err">'</span><span class="mi">1111</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 数値リテラルの桁区切り文字と組み合わせて、4桁区切りする</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1000'1111</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -285,7 +285,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

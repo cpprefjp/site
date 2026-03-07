@@ -237,7 +237,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class task_scheduler">task_scheduler::</span><span class="token">schedule</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><i>ts-sender</i></span> <span class="nf">schedule</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><i>ts-sender</i></span><span class="w"> </span><span class="nf">schedule</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -247,26 +247,26 @@
 <h2>説明専用エンティティ</h2>
 <h3>クラス<code>ts-sender</code></h3>
 <p>説明専用のクラス<code>task_scheduler::ts-sender</code>は下記の通り定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">task_scheduler</span><span class="o">::</span><span class="n">ts</span><span class="o">-</span><span class="n">sender</span> <span class="p">{</span> <span class="c1">// exposition only</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">task_scheduler</span><span class="o">::</span><span class="n">ts</span><span class="o">-</span><span class="n">sender</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// exposition only</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">using</span> <span class="n">sender_concept</span> <span class="o">=</span> <span class="n"><a href="../sender.html">sender_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sender_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../sender.html">sender_t</a></span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../receiver.html">receiver</a></span> <span class="n">R</span><span class="o">&gt;</span>
-  <span class="n"><i>state</i></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">connect</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rcvr</span><span class="p">);</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../receiver.html">receiver</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><i>state</i></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p><code>ts-sender</code>は<code><a href="../sender.html">sender</a></code>のモデルであり、<code><a href="../completion_signatures_of_t.html">completion_signatures_of_t</a>&lt;ts-sender&gt;</code>は下記となる :</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../completion_signatures.html">completion_signatures</a></span><span class="o">&lt;</span>
-  <span class="n"><a href="../set_value.html">set_value_t</a></span><span class="p">(),</span>
-  <span class="n"><a href="../set_error.html">set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../../system_error/error_code.html">error_code</a></span><span class="p">),</span>
-  <span class="n"><a href="../set_error.html">set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../../exception/exception_ptr.html">exception_ptr</a></span><span class="p">),</span>
-  <span class="n"><a href="../set_stopped.html">set_stopped_t</a></span><span class="p">()</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="../set_value.html">set_value_t</a></span><span class="p">(),</span>
+<span class="w">  </span><span class="n"><a href="../set_error.html">set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../../system_error/error_code.html">error_code</a></span><span class="p">),</span>
+<span class="w">  </span><span class="n"><a href="../set_error.html">set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../../exception/exception_ptr.html">exception_ptr</a></span><span class="p">),</span>
+<span class="w">  </span><span class="n"><a href="../set_stopped.html">set_stopped_t</a></span><span class="p">()</span><span class="o">&gt;</span>
 </code></pre></div>
 </p>
 <p>説明用の<code>sch</code>を<code>task_sender</code>型のオブジェクト、<code>sndr</code>を<code><a href="../schedule.html">schedule</a>(sch)</code>により得られる<code>ts-sender</code>型のオブジェクトとする。<code><a href="../get_completion_scheduler.html">get_completion_scheduler</a>&lt;<a href="../set_value.html">set_value_t</a>&gt;(<a href="../get_env.html">get_env</a>(sndr)) == sch</code>は<code>true</code>となる。オブジェクト<code>SENDER(sndr)</code>は、<code>sndr</code>または同オブジェクトからムーブ構築された<a href="../sender.html">Sender</a>オブジェクトとする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">receiver</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
-<span class="n"><i>state</i></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span> <span class="n">connect</span><span class="p">(</span><span class="n">Rcvr</span><span class="o">&amp;&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="o">&amp;&amp;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">receiver</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&gt;</span>
+<span class="n"><i>state</i></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="n">Rcvr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <ul>
@@ -275,17 +275,17 @@
 </ul>
 <h3>クラステンプレート<code>state</code></h3>
 <p>説明専用のクラステンプレート<code>task_scheduler::state</code>は下記の通り定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../receiver.html">receiver</a></span> <span class="n">R</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">task_scheduler</span><span class="o">::</span><span class="n">state</span> <span class="p">{</span> <span class="c1">// exposition only</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../receiver.html">receiver</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">task_scheduler</span><span class="o">::</span><span class="n">state</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// exposition only</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">using</span> <span class="n">operation_state_concept</span> <span class="o">=</span> <span class="n"><a href="../operation_state.html">operation_state_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../operation_state.html">operation_state_t</a></span><span class="p">;</span>
 
-  <span class="kt">void</span> <span class="nf">start</span><span class="p">()</span> <span class="o">&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p><code>state</code>の特殊化は<code><a href="../operation_state.html">operation_state</a></code>のモデルである。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">start</span><span class="p">()</span> <span class="o">&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <ul>
@@ -329,7 +329,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

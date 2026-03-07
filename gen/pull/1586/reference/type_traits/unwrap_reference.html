@@ -213,14 +213,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">unwrap_reference</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">unwrap_reference</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">unwrap_reference</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">unwrap_reference_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">unwrap_reference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">unwrap_reference_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">unwrap_reference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -232,62 +232,62 @@
 <li>そうでなければ、テンプレートパラメータ<code>T</code>をメンバ型<code>type</code>として定義する</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="905b695b2d8749f26095911f2ba27e80eb577768"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="905b695b2d8749f26095911f2ba27e80eb577768"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">t</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">X</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">X</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">X</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="p">{</span><span class="n">t</span><span class="p">};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">X</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="p">{</span><span class="n">t</span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n"><a href="../functional/reference_wrapper.html">std::reference_wrapper</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">type</span><span class="p">,</span>
-    <span class="kt">int</span><span class="o">&amp;</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n"><a href="../functional/reference_wrapper.html">std::reference_wrapper</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">&amp;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-    <span class="kt">int</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">int</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">type</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// Xクラスに参照を保持させたい場合に<a href="../functional/ref.html">std::ref</a>()を通して渡し、</span>
-  <span class="c1">// そうでなければ単に引数を転送する。</span>
-  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="n">X</span> <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
-  <span class="n">x</span><span class="p">.</span><span class="n">t</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// Xクラスに参照を保持させたい場合に<a href="../functional/ref.html">std::ref</a>()を通して渡し、</span>
+<span class="w">  </span><span class="c1">// そうでなければ単に引数を転送する。</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+<span class="w">  </span><span class="n">x</span><span class="p">.</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 
-  <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="n">X</span> <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
-  <span class="n">y</span><span class="p">.</span><span class="n">t</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">t</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">  </span><span class="n">y</span><span class="p">.</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">t</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
 <p><pre><code></code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">unwrap_reference</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span> <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">unwrap_reference</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">unwrap_reference</span><span class="o">&lt;</span><span class="n"><a href="../functional/reference_wrapper.html">reference_wrapper</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">unwrap_reference</span><span class="o">&lt;</span><span class="n"><a href="../functional/reference_wrapper.html">reference_wrapper</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -324,7 +324,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

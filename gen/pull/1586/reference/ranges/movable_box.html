@@ -220,23 +220,23 @@
 <p>テンプレートパラメーター制約 <code><a href="../concepts/move_constructible.html">move_constructible</a>&lt;T&gt; &amp;&amp; <a href="../type_traits/is_object.html">is_object_v</a>&lt;T&gt;</code> をもつ。</p>
 <h3>差分2</h3>
 <p><code>T</code>が<code><a href="../concepts/copyable.html">copyable</a></code>のモデルでない場合、コピー代入演算子は以下のように定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n"><i>movable-box</i></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n"><i>movable-box</i></span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="n"><a href="../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">that</span><span class="p">))</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">that</span><span class="p">)</span> <span class="n"><a href="../optional/optional/emplace.html">emplace</a></span><span class="p">(</span><span class="o">*</span><span class="n">that</span><span class="p">);</span>
-    <span class="k">else</span> <span class="nf"><a href="../optional/optional/reset.html">reset</a></span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n"><i>movable-box</i></span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><i>movable-box</i></span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">that</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="n"><a href="../optional/optional/emplace.html">emplace</a></span><span class="p">(</span><span class="o">*</span><span class="n">that</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n"><a href="../optional/optional/reset.html">reset</a></span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>差分3</h3>
 <p><code>T</code>が<code><a href="../concepts/movable.html">movable</a></code>のモデルでない場合、ムーブ代入演算子は以下のように定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n"><i>movable-box</i></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n"><i>movable-box</i></span><span class="o">&amp;&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="n"><a href="../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">that</span><span class="p">))</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">that</span><span class="p">)</span> <span class="n"><a href="../optional/optional/emplace.html">emplace</a></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">that</span><span class="p">));</span>
-    <span class="k">else</span> <span class="nf"><a href="../optional/optional/reset.html">reset</a></span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n"><i>movable-box</i></span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n"><i>movable-box</i></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">that</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="n"><a href="../optional/optional/emplace.html">emplace</a></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">that</span><span class="p">));</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n"><a href="../optional/optional/reset.html">reset</a></span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -277,7 +277,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,33 +213,33 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">atomic_exchange</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span>
-    <span class="n">atomic_exchange</span><span class="p">(</span>
-      <span class="k">volatile</span> <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">object</span><span class="p">,</span>
-      <span class="n">T</span> <span class="n">desired</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                              <span class="c1">// (1) C++11</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span>
-    <span class="n">atomic_exchange</span><span class="p">(</span>
-      <span class="k">volatile</span> <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">object</span><span class="p">,</span>
-      <span class="k">typename</span> <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value_type</span> <span class="n">desired</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++17</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span>
+<span class="w">    </span><span class="n">atomic_exchange</span><span class="p">(</span>
+<span class="w">      </span><span class="k">volatile</span><span class="w"> </span><span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">object</span><span class="p">,</span>
+<span class="w">      </span><span class="n">T</span><span class="w"> </span><span class="n">desired</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                              </span><span class="c1">// (1) C++11</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span>
+<span class="w">    </span><span class="n">atomic_exchange</span><span class="p">(</span>
+<span class="w">      </span><span class="k">volatile</span><span class="w"> </span><span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">object</span><span class="p">,</span>
+<span class="w">      </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="w"> </span><span class="n">desired</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++17</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span>
-    <span class="n">atomic_exchange</span><span class="p">(</span>
-      <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">object</span><span class="p">,</span>
-      <span class="n">T</span> <span class="n">desired</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                              <span class="c1">// (2) C++11</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span>
-    <span class="n">atomic_exchange</span><span class="p">(</span>
-      <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">object</span><span class="p">,</span>
-      <span class="k">typename</span> <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value_type</span> <span class="n">desired</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++17</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">T</span>
-    <span class="n">atomic_exchange</span><span class="p">(</span>
-      <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">object</span><span class="p">,</span>
-      <span class="k">typename</span> <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value_type</span> <span class="n">desired</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span>
+<span class="w">    </span><span class="n">atomic_exchange</span><span class="p">(</span>
+<span class="w">      </span><span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">object</span><span class="p">,</span>
+<span class="w">      </span><span class="n">T</span><span class="w"> </span><span class="n">desired</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                              </span><span class="c1">// (2) C++11</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span>
+<span class="w">    </span><span class="n">atomic_exchange</span><span class="p">(</span>
+<span class="w">      </span><span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">object</span><span class="p">,</span>
+<span class="w">      </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="w"> </span><span class="n">desired</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span>
+<span class="w">    </span><span class="n">atomic_exchange</span><span class="p">(</span>
+<span class="w">      </span><span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">object</span><span class="p">,</span>
+<span class="w">      </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="w"> </span><span class="n">desired</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -261,19 +261,19 @@
 <h2>備考</h2>
 <p>この関数は、特殊化された<code><a href="atomic.html">atomic</a></code>型に対して定義される。</p>
 <h2>例</h2>
-<p><div class="yata" id="e4701510d293406c5beaac990486a3cf23173752"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e4701510d293406c5beaac990486a3cf23173752"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../atomic.html">&lt;atomic&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">std::atomic_exchange</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"replaced 1 with 2"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"replace failed"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::atomic_exchange</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"replaced 1 with 2"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"replace failed"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -325,7 +325,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

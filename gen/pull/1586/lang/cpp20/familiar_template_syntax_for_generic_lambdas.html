@@ -219,27 +219,27 @@
 <p></p>
 <h2>概要</h2>
 <p>C++14では、ラムダ式のパラメータ型に<code>auto</code>キーワードを使用することで、任意の型のパラメータを受け取れるようになった：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">x</span><span class="p">,</span> <span class="k">auto</span> <span class="n">y</span><span class="p">)</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">);</span> <span class="c1">// xの型はint、yの型はconst char*</span>
-<span class="n">f</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="sc">'A'</span><span class="p">);</span>  <span class="c1">// xの型はdouble、yの型はchar</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span><span class="w"> </span><span class="c1">// xの型はint、yの型はconst char*</span>
+<span class="n">f</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">);</span><span class="w">  </span><span class="c1">// xの型はdouble、yの型はchar</span>
 </code></pre></div>
 </p>
 <p>C++20では、任意の型のパラメータを受け取るために、関数テンプレートと同様の、テンプレートパラメータの定義ができるようになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/vector/vector/empty.html">v.empty()</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">T</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><a href="../../reference/vector/vector/front.html">v.front()</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/empty.html">v.empty()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector/front.html">v.front()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">w</span><span class="p">;</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
 
-<span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="c1">// Tの型はint</span>
-<span class="n">f</span><span class="p">(</span><span class="n">w</span><span class="p">);</span> <span class="c1">// Tの型は<a href="../../reference/string/basic_string.html">std::string</a></span>
+<span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"> </span><span class="c1">// Tの型はint</span>
+<span class="n">f</span><span class="p">(</span><span class="n">w</span><span class="p">);</span><span class="w"> </span><span class="c1">// Tの型は<a href="../../reference/string/basic_string.html">std::string</a></span>
 </code></pre></div>
 </p>
 <h2>仕様</h2>
@@ -262,54 +262,54 @@
 <h2>この機能が必要になった背景・経緯</h2>
 <p><code>auto</code>キーワードを使用したジェネリックラムダは、柔軟さが足りなかった。たとえばパラメータを<code>std::vector</code>コンテナにして要素の型だけ可変にしたい場合、関数テンプレートでは「<code>template &lt;class T&gt; void f(std::vector&lt;T&gt; v)</code>」のように書けばよかった。しかし、<code>auto</code>キーワードの場合にはこのような型推論のための構文が使用できず、パラメータを<code>std::vector</code>に限定することがむずかしかった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 型Tが<a href="../../reference/vector/vector.html">std::vector</a>コンテナかを判定する</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="nl">is_std_vector</span> <span class="p">:</span> <span class="n"><a href="../../reference/type_traits/false_type.html">std::false_type</a></span> <span class="p">{</span> <span class="p">};</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">is_std_vector</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="n"><a href="../../reference/type_traits/true_type.html">std::true_type</a></span> <span class="p">{</span> <span class="p">};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_std_vector</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/false_type.html">std::false_type</a></span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_std_vector</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/true_type.html">std::true_type</a></span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 
-<span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">vector</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">is_std_vector</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">vector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">is_std_vector</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>テンプレート構文では以下のようになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>また、同じ状況において、<code>std::vector</code>として受け取ったコンテナ型の要素となる型を取り出したい場合、関数テンプレートでは型推論によって取り出された<code>T</code>型を単に使用すればよかった。<code>auto</code>キーワードを使用する場合には、以下のように<code>value_type</code>を取り出す冗長な指定が必要になった：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">vector</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">T</span> <span class="o">=</span> <span class="k">typename</span> <span class="k">decltype</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">vector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">decltype</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>ほかの状況として、2つめのパラメータが1つめのパラメータによって型を限定できる、という場合に、関数テンプレートでは以下のように記述できた：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Iterator</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span> <span class="n">it</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;::</span><span class="n">difference_type</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//…</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;::</span><span class="n">difference_type</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//…</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>auto</code>キーワードの場合は、そういった状況では<code>decltype</code>を使用しなければならなかった：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">advance</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">it</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">it</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">difference_type</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//…</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">advance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">it</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">difference_type</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//…</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>テンプレート構文では以下のようになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">advance</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Iterator</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Iterator</span> <span class="n">it</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;::</span><span class="n">difference_type</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//…</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">advance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Iterator</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;::</span><span class="n">difference_type</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//…</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>最後に、完全転送の問題として、<code>auto</code>キーワードを使用した場合、<code><a href="../../reference/utility/forward.html">std::forward()</a></code>関数に型を指定する唯一の方法は<code>decltype</code>を使用することだった：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>これは正しく動作し、この書き方はScott Meyersのブログでも記事で紹介されているが、Meyersが記事を書かなければならなかったということが、これがユーザーにとって難しい問題であることを表していた。</p>
 <p>テンプレート構文では以下のようになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -339,7 +339,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

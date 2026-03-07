@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">variable</div><div class="header">&lt;limits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class numeric_limits">numeric_limits::</span><span class="token">has_denorm</span><span class="cpp cpp23deprecated text-warning" title="C++23で非推奨">(C++23で非推奨)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="k">const</span> <span class="n"><a href="../float_denorm_style.html">float_denorm_style</a></span> <span class="n">has_denorm</span><span class="p">;</span>     <span class="c1">// (1) C++03</span>
-<span class="k">static</span> <span class="k">constexpr</span> <span class="n"><a href="../float_denorm_style.html">float_denorm_style</a></span> <span class="n">has_denorm</span><span class="p">;</span> <span class="c1">// (1) C++11</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../float_denorm_style.html">float_denorm_style</a></span><span class="w"> </span><span class="n">has_denorm</span><span class="p">;</span><span class="w">     </span><span class="c1">// (1) C++03</span>
+<span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../float_denorm_style.html">float_denorm_style</a></span><span class="w"> </span><span class="n">has_denorm</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++11</span>
 </code></pre></div>
 </p>
 <p>この機能は、C++23で非推奨となった。</p>
@@ -286,31 +286,31 @@
 </ul>
 <p>これらの理由から、この機能は有用なものではなく、最悪勘違いして使用される危険性があるため、非推奨とする。</p>
 <h2>例</h2>
-<p><div class="yata" id="d2150d5dd68e5ef50d2752d4c1f2be49e897dd43"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d2150d5dd68e5ef50d2752d4c1f2be49e897dd43"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../limits.html">&lt;limits&gt;</a></span>
+<span class="cp">#include <a href="../../stdexcept.html">&lt;stdexcept&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
-<span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="nf">denorm_string</span><span class="p">(</span><span class="n"><a href="../float_denorm_style.html">std::float_denorm_style</a></span> <span class="n">e</span><span class="p">)</span>
+<span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">denorm_string</span><span class="p">(</span><span class="n"><a href="../float_denorm_style.html">std::float_denorm_style</a></span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">std</span><span class="o">::</span><span class="nl">denorm_indeterminate</span><span class="p">:</span> <span class="k">return</span> <span class="s">"indeterminate"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">std</span><span class="o">::</span><span class="nl">denorm_absent</span><span class="p">:</span>        <span class="k">return</span> <span class="s">"absent"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">std</span><span class="o">::</span><span class="nl">denorm_present</span><span class="p">:</span>       <span class="k">return</span> <span class="s">"present"</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">throw</span> <span class="n"><a href="../../stdexcept.html">std::invalid_argument</a></span><span class="p">(</span><span class="s">"not support value"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">std</span><span class="o">::</span><span class="no">denorm_indeterminate</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"indeterminate"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">std</span><span class="o">::</span><span class="no">denorm_absent</span><span class="p">:</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"absent"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">std</span><span class="o">::</span><span class="no">denorm_present</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"present"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../../stdexcept.html">std::invalid_argument</a></span><span class="p">(</span><span class="s">"not support value"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../float_denorm_style.html">std::float_denorm_style</a></span> <span class="n">a</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">has_denorm</span></span><span class="p">;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../float_denorm_style.html">std::float_denorm_style</a></span> <span class="n">b</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">has_denorm</span></span><span class="p">;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../float_denorm_style.html">std::float_denorm_style</a></span> <span class="n">c</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">has_denorm</span></span><span class="p">;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../float_denorm_style.html">std::float_denorm_style</a></span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">has_denorm</span></span><span class="p">;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../float_denorm_style.html">std::float_denorm_style</a></span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">has_denorm</span></span><span class="p">;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../float_denorm_style.html">std::float_denorm_style</a></span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">has_denorm</span></span><span class="p">;</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"int : "</span> <span class="o">&lt;&lt;</span> <span class="n">denorm_string</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"float : "</span> <span class="o">&lt;&lt;</span> <span class="n">denorm_string</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"double : "</span> <span class="o">&lt;&lt;</span> <span class="n">denorm_string</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"int : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">denorm_string</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"float : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">denorm_string</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"double : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">denorm_string</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -340,7 +340,7 @@ double : present
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

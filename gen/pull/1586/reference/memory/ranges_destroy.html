@@ -213,25 +213,25 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">destroy</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="no-throw-input-iterator.html">no-throw-input-iterator</a></span> <span class="n">I</span><span class="p">,</span> <span class="n"><a href="no-throw-sentinel.html">no-throw-sentinel</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">S</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../concepts/destructible.html">destructible</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
-  <span class="k">constexpr</span> <span class="n">I</span> <span class="n">destroy</span><span class="p">(</span><span class="n">I</span> <span class="n">first</span><span class="p">,</span> <span class="n">S</span> <span class="n">last</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>            <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="no-throw-input-iterator.html">no-throw-input-iterator</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="no-throw-sentinel.html">no-throw-sentinel</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/destructible.html">destructible</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">destroy</span><span class="p">(</span><span class="n">I</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">            </span><span class="c1">// (1) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="no-throw-input-range.html">no-throw-input-range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../concepts/destructible.html">destructible</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">destroy</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="no-throw-input-range.html">no-throw-input-range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/destructible.html">destructible</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">destroy</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span> <span class="n">Ep</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span> <span class="n">I</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">S</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../concepts/destructible.html">destructible</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
-  <span class="n">I</span> <span class="n">destroy</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span> <span class="n">I</span> <span class="n">first</span><span class="p">,</span> <span class="n">S</span> <span class="n">last</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (3) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span><span class="w"> </span><span class="n">Ep</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/destructible.html">destructible</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="n">I</span><span class="w"> </span><span class="n">destroy</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">           </span><span class="c1">// (3) C++26</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span> <span class="n">Ep</span><span class="p">,</span>
-            <span class="n"><a href="../ranges/sized-random-access-range.html">sized-random-access-range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../concepts/destructible.html">destructible</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span>
-  <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">destroy</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (4) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span><span class="w"> </span><span class="n">Ep</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../ranges/sized-random-access-range.html">sized-random-access-range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/destructible.html">destructible</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">destroy</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -260,40 +260,40 @@
 </ul>
 <h2>効果</h2>
 <p>以下と等価：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(;</span> <span class="n">first</span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n">first</span><span class="p">)</span>
-  <span class="n"><a href="ranges_destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="addressof.html">addressof</a></span><span class="p">(</span><span class="o">*</span><span class="n">first</span><span class="p">));</span>
-<span class="k">return</span> <span class="n">first</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">last</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">first</span><span class="p">)</span>
+<span class="w">  </span><span class="n"><a href="ranges_destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="addressof.html">addressof</a></span><span class="p">(</span><span class="o">*</span><span class="n">first</span><span class="p">));</span>
+<span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="02438aafa8b1233e9f6850eb6d00ab3fb7f3eb25"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="02438aafa8b1233e9f6850eb6d00ab3fb7f3eb25"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">;</span>
 
-  <span class="c1">// メモリ確保。</span>
-  <span class="c1">// この段階では、[p, p + size)の領域は未初期化</span>
-  <span class="k">const</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="allocator/allocate.html">alloc.allocate</a></span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// メモリ確保。</span>
+<span class="w">  </span><span class="c1">// この段階では、[p, p + size)の領域は未初期化</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="allocator/allocate.html">alloc.allocate</a></span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
 
-  <span class="c1">// 未初期化領域[p, p + size)の各要素をデフォルト構築</span>
-  <span class="n"><a href="ranges_uninitialized_default_construct.html">std::ranges::uninitialized_default_construct</a></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/subrange.html">subrange</a></span><span class="p">{</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="n">size</span><span class="p">});</span>
+<span class="w">  </span><span class="c1">// 未初期化領域[p, p + size)の各要素をデフォルト構築</span>
+<span class="w">  </span><span class="n"><a href="ranges_uninitialized_default_construct.html">std::ranges::uninitialized_default_construct</a></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/subrange.html">subrange</a></span><span class="p">{</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">});</span>
 
-  <span class="c1">// pの領域が初期化され、かつvからpに要素がコピーされているか確認</span>
-  <span class="n"><a href="../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="c1">// pの領域が初期化され、かつvからpに要素がコピーされているか確認</span>
+<span class="w">  </span><span class="n"><a href="../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
 
-  <span class="c1">// 要素を破棄</span>
-  <span class="n"><span style="color:#ff0000">std::ranges::destroy</span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/subrange.html">subrange</a></span><span class="p">{</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="n">size</span><span class="p">});</span>
+<span class="w">  </span><span class="c1">// 要素を破棄</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::destroy</span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/subrange.html">subrange</a></span><span class="p">{</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">});</span>
 
-  <span class="c1">// メモリ解放</span>
-  <span class="n"><a href="allocator/deallocate.html">alloc.deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// メモリ解放</span>
+<span class="w">  </span><span class="n"><a href="allocator/deallocate.html">alloc.deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -303,24 +303,24 @@
 0
 </code></pre></p>
 <h3>並列アルゴリズムの例 (C++26)</h3>
-<p><div class="yata" id="64b89862c9f6e5cc449323e1cf509ead02294399"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="64b89862c9f6e5cc449323e1cf509ead02294399"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../execution.html">&lt;execution&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">;</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 並列に破棄</span>
-  <span class="n"><span style="color:#ff0000">std::ranges::destroy</span></span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">std::execution::par</a></span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 並列に破棄</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::destroy</span></span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">std::execution::par</a></span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
-  <span class="n">alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"done"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"done"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -364,7 +364,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

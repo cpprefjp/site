@@ -225,13 +225,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_format_arg">basic_format_arg::</span><span class="token">visit</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Visitor</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span>
-  <span class="n">visit</span><span class="p">(</span><span class="k">this</span> <span class="n">basic_format_arg</span> <span class="n">arg</span><span class="p">,</span> <span class="n">Visitor</span><span class="o">&amp;&amp;</span> <span class="n">vis</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Visitor</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span>
+<span class="w">  </span><span class="n">visit</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">basic_format_arg</span><span class="w"> </span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="n">Visitor</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">vis</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Visitor</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">R</span>
-  <span class="n">visit</span><span class="p">(</span><span class="k">this</span> <span class="n">basic_format_arg</span> <span class="n">arg</span><span class="p">,</span> <span class="n">Visitor</span><span class="o">&amp;&amp;</span> <span class="n">vis</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Visitor</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">R</span>
+<span class="w">  </span><span class="n">visit</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">basic_format_arg</span><span class="w"> </span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="n">Visitor</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">vis</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -245,14 +245,14 @@
 <li>
 <p>(1): 以下と等価
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">arg</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../variant/variant/visit.html">visit</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vis</span><span class="p">));</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../variant/variant/visit.html">visit</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vis</span><span class="p">));</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(2): 以下と等価
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">arg</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../variant/variant/visit.html">visit</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vis</span><span class="p">));</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../variant/variant/visit.html">visit</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vis</span><span class="p">));</span>
 </code></pre></div>
 </p>
 </li>
@@ -290,7 +290,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

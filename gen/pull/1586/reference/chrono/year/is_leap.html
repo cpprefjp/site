@@ -225,41 +225,41 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class year">year::</span><span class="token">is_leap</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">is_leap</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_leap</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>うるう年かを判定する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>コンストラクタで設定されて保持している年を表す値<code>y</code>があるとして、以下を返す：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="be2a367bd7f91e1ec3d15269ab1b8f39f4053033"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="be2a367bd7f91e1ec3d15269ab1b8f39f4053033"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 4年周期のうるう年</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2004</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2008</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2012</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2016</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2020</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 4年周期のうるう年</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2004</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2008</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2012</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2016</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2020</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
 
-  <span class="c1">// 400年周期のうるう年</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">1600</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2000</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2400</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 400年周期のうるう年</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">1600</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2000</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2400</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
 
-  <span class="c1">// 100年周期は、400年周期でない限り非うるう年</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">1900</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2100</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2200</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2300</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 100年周期は、400年周期でない限り非うるう年</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">1900</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2100</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2200</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">2300</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">is_leap()</span></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -293,7 +293,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

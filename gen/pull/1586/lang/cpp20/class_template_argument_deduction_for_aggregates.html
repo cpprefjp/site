@@ -220,13 +220,13 @@
 <h2>概要</h2>
 <p>C++17で導入されたクラステンプレートのテンプレート引数推論は、コンストラクタ引数からテンプレート引数を推論するものであった。</p>
 <p>C++20では、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のコンストラクタをもたない集成体クラステンプレートの初期化からクラステンプレート引数を推論できるようにする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n">T</span> <span class="n">y</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">Point</span> <span class="n">p1</span><span class="p">{</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">};</span> <span class="c1">// C++17:NG C++20:OK</span>
+<span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="p">{</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">};</span><span class="w"> </span><span class="c1">// C++17:NG C++20:OK</span>
 </code></pre></div>
 </p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
@@ -261,7 +261,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

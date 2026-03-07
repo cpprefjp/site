@@ -226,13 +226,13 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class boyer_moore_searcher">boyer_moore_searcher::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">boyer_moore_searcher</span><span class="p">(</span>
-  <span class="n">RandomAccessIterator1</span> <span class="n">pat_first</span><span class="p">,</span>
-  <span class="n">RandomAccessIterator1</span> <span class="n">pat_last</span><span class="p">,</span>
-  <span class="n">Hash</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">Hash</span><span class="p">(),</span>
-  <span class="n">BinaryPredicate</span> <span class="n">pred</span> <span class="o">=</span> <span class="n">BinaryPredicate</span><span class="p">());</span>                       <span class="c1">// (1)</span>
+<span class="w">  </span><span class="n">RandomAccessIterator1</span><span class="w"> </span><span class="n">pat_first</span><span class="p">,</span>
+<span class="w">  </span><span class="n">RandomAccessIterator1</span><span class="w"> </span><span class="n">pat_last</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Hash</span><span class="w"> </span><span class="n">hf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Hash</span><span class="p">(),</span>
+<span class="w">  </span><span class="n">BinaryPredicate</span><span class="w"> </span><span class="n">pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryPredicate</span><span class="p">());</span><span class="w">                       </span><span class="c1">// (1)</span>
 
-<span class="n">boyer_moore_searcher</span><span class="p">(</span><span class="k">const</span> <span class="n">boyer_moore_searcher</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span> <span class="c1">// (2)</span>
-<span class="n">boyer_moore_searcher</span><span class="p">(</span><span class="n">boyer_moore_searcher</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>      <span class="c1">// (3)</span>
+<span class="n">boyer_moore_searcher</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">boyer_moore_searcher</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2)</span>
+<span class="n">boyer_moore_searcher</span><span class="p">(</span><span class="n">boyer_moore_searcher</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">      </span><span class="c1">// (3)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -262,27 +262,27 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="80eaa4b9b0f53c5a2599da4d9e50e66438ba2702"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="80eaa4b9b0f53c5a2599da4d9e50e66438ba2702"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// text内のpatternを検索する</span>
-  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">text</span> <span class="o">=</span> <span class="s">"babcabaabaac"</span><span class="p">;</span>
-  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">"abaa"</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// text内のpatternを検索する</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"babcabaabaac"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abaa"</span><span class="p">;</span>
 
-  <span class="c1">// (1) patternを登録</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">boyer_moore_searcher</span> <span class="n">a</span> <span class="p">{</span>
-    <span class="n"><a href="../../string/basic_string/cbegin.html">pattern.cbegin()</a></span><span class="p">,</span>
-    <span class="n"><a href="../../string/basic_string/cend.html">pattern.cend()</a></span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (1) patternを登録</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">boyer_moore_searcher</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string/cbegin.html">pattern.cbegin()</a></span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string/cend.html">pattern.cend()</a></span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (2) コピーコンストラクタ</span>
-  <span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (2) コピーコンストラクタ</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 
-  <span class="c1">// (3) ムーブコンストラクタ</span>
-  <span class="k">auto</span> <span class="n">c</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (3) ムーブコンストラクタ</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -316,7 +316,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

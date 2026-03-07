@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;regex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class regex_iterator">regex_iterator::</span><span class="token">operator++</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">regex_iterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">();</span>   <span class="c1">// (1) 前置形式</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">regex_iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">();</span><span class="w">   </span><span class="c1">// (1) 前置形式</span>
 
-<span class="n">regex_iterator</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span> <span class="c1">// (2) 後置形式</span>
+<span class="n">regex_iterator</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) 後置形式</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -252,9 +252,9 @@
 </li>
 <li>
 <p>(2) の形式（後置形式）は、以下のように振る舞う。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">regex_iterator</span> <span class="n">tmp</span> <span class="o">=</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">regex_iterator</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 <span class="o">++</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
-<span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
 </code></pre></div>
 </p>
 </li>
@@ -273,19 +273,19 @@
     したがって、<code><a href="../regex_search.html">regex_search</a></code> にユーザ定義の特殊化バージョンを提供しても、呼ばれないかもしれない。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="818aee08f69f6558149a302d7c6047fec0818273"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="818aee08f69f6558149a302d7c6047fec0818273"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../../regex.html">&lt;regex&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"a*|b*|c*"</span><span class="p">);</span>
-  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">(</span><span class="s">"aaabbbccc"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../basic_regex.html">std::regex</a></span><span class="w"> </span><span class="n">re</span><span class="p">(</span><span class="s">"a*|b*|c*"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="s">"aaabbbccc"</span><span class="p">);</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sregex_iterator</span> <span class="n">it</span><span class="p">(</span><span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n"><a href="../../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">re</span><span class="p">),</span> <span class="n">end</span><span class="p">;</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">end</span><span class="p">;</span> <span class="n"><span style="color:#ff0000">++it</span></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"position = "</span> <span class="o">&lt;&lt;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n"><a href="../match_results/position.html">position()</a></span> <span class="o">&lt;&lt;</span> <span class="s">", length = "</span> <span class="o">&lt;&lt;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n"><a href="../match_results/length.html">length()</a></span> <span class="o">&lt;&lt;</span> <span class="s">", str = '"</span> <span class="o">&lt;&lt;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n"><a href="../match_results/str.html">str()</a></span> <span class="o">&lt;&lt;</span> <span class="s">"', prefix = '"</span> <span class="o">&lt;&lt;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n"><a href="../match_results/prefix.html">prefix()</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sregex_iterator</span><span class="w"> </span><span class="n">it</span><span class="p">(</span><span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">re</span><span class="p">),</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">++it</span></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"position = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n"><a href="../match_results/position.html">position()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", length = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n"><a href="../match_results/length.html">length()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", str = '"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n"><a href="../match_results/str.html">str()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"', prefix = '"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n"><a href="../match_results/prefix.html">prefix()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\''</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -362,7 +362,7 @@ position = 9, length = 0, str = '', prefix = ''
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

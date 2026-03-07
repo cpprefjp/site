@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_trivially_copyable</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">is_trivially_copyable</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_trivially_copyable</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_trivially_copyable_v</span>
-    <span class="o">=</span> <span class="n">is_trivially_copyable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>          <span class="c1">// C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_trivially_copyable_v</span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">is_trivially_copyable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w">          </span><span class="c1">// C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -250,19 +250,19 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 <p><code>T=std::unique_ptr&lt;int&gt;</code>の場合、#1と#2はどちらも制約を満たさないので資格のあるコピーコンストラクタを持たない。<br />
 <code>T=std::string</code>の場合、#2のみ制約を満たすので#2だけが資格のあるコピーコンストラクタである。<br />
 <code>T=int</code>の場合、#1と#2はどちらも制約を満たすが、#1のほうが#2より強く制約されているので、#1だけが資格のあるコピーコンストラクタである。</p>
-<p><div class="yata" id="41f746941527dc1ca1949a98e9990a022a417665"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">trivially_copy_constructible</span> <span class="o">=</span> <span class="n"><a href="is_trivially_copy_constructible.html">std::is_trivially_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">optional</span> <span class="p">{</span>
-    <span class="c1">// #1</span>
-    <span class="n">optional</span><span class="p">(</span><span class="n">optional</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">)</span>
-        <span class="n">requires</span> <span class="n">trivially_copy_constructible</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
-        <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-    <span class="c1">// #2</span>
-    <span class="n">optional</span><span class="p">(</span><span class="n">optional</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span>
-            <span class="n">requires</span> <span class="n"><a href="../concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="yata" id="41f746941527dc1ca1949a98e9990a022a417665"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../concepts.html">&lt;concepts&gt;</a></span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">trivially_copy_constructible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="is_trivially_copy_constructible.html">std::is_trivially_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// #1</span>
+<span class="w">    </span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">requires</span><span class="w"> </span><span class="n">trivially_copy_constructible</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// #2</span>
+<span class="w">    </span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span>
+<span class="w">            </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </div></p>
@@ -319,75 +319,75 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 <p>対象となるクラスの非静的メンバ変数及び全ての基底クラスもトリビアルコピー可能でなければならない</p>
 <p>しかし、デストラクタが削除されていてもトリビアルコピー可能となる問題があった。</p>
 <h2>例</h2>
-<p><div class="yata" id="ea2dd0d52e591e9af884db3a360c1c1214bcd199"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="k">struct</span> <span class="n">C1</span> <span class="p">{</span>
-  <span class="c1">// 非トリビアルな特殊関数を持っていない</span>
+<p><div class="yata" id="ea2dd0d52e591e9af884db3a360c1c1214bcd199"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../concepts.html">&lt;concepts&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 非トリビアルな特殊関数を持っていない</span>
 
-  <span class="c1">// 特殊関数ではないメンバ関数は持っている</span>
-  <span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 特殊関数ではないメンバ関数は持っている</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">C2</span> <span class="p">{</span>
-  <span class="c1">// デストラクタはuser-provided</span>
-  <span class="o">~</span><span class="n">C2</span><span class="p">()</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// デストラクタはuser-provided</span>
+<span class="w">  </span><span class="o">~</span><span class="n">C2</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">TrivialDestructor</span> <span class="p">{</span>
-  <span class="c1">// デストラクタはdefault指定されており、user-providedではない</span>
-  <span class="o">~</span><span class="n">TrivialDestructor</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">TrivialDestructor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// デストラクタはdefault指定されており、user-providedではない</span>
+<span class="w">  </span><span class="o">~</span><span class="n">TrivialDestructor</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">DeletedDestructor</span> <span class="p">{</span>
-  <span class="c1">// デストラクタはdeleteされている</span>
-  <span class="o">~</span><span class="n">DeletedDestructor</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">DeletedDestructor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// デストラクタはdeleteされている</span>
+<span class="w">  </span><span class="o">~</span><span class="n">DeletedDestructor</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="cp">#ifdef __cpp_concepts</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">trivially_copy_constructible</span> <span class="o">=</span> <span class="n"><a href="is_trivially_copy_constructible.html">std::is_trivially_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">optional</span> <span class="p">{</span>
-  <span class="k">alignas</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="n"><a href="../cstddef/byte.html">std::byte</a></span> <span class="n">value</span><span class="p">[</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)];</span>
-  <span class="kt">bool</span> <span class="n">engaged</span><span class="p">;</span>
-  <span class="c1">// #1: default指定されており、user-providedではない</span>
-  <span class="n">optional</span><span class="p">(</span><span class="n">optional</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">)</span>
-      <span class="n">requires</span> <span class="n">trivially_copy_constructible</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
-      <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">trivially_copy_constructible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="is_trivially_copy_constructible.html">std::is_trivially_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">alignas</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n"><a href="../cstddef/byte.html">std::byte</a></span><span class="w"> </span><span class="n">value</span><span class="p">[</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)];</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">engaged</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// #1: default指定されており、user-providedではない</span>
+<span class="w">  </span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="p">)</span>
+<span class="w">      </span><span class="k">requires</span><span class="w"> </span><span class="n">trivially_copy_constructible</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="c1">// #2: user-providedなコピーコンストラクタ</span>
-  <span class="n">optional</span><span class="p">(</span><span class="n">optional</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span>
-          <span class="n">requires</span> <span class="n"><a href="../concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
-      <span class="o">:</span> <span class="n">engaged</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">engaged</span><span class="p">)</span>
-  <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">engaged</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">new</span> <span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="n">T</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">value</span><span class="p">);</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// #2: user-providedなコピーコンストラクタ</span>
+<span class="w">  </span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span>
+<span class="w">          </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">engaged</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">engaged</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">engaged</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">value</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 <span class="cp">#endif</span>
 <span class="c1">// 組み込み型は全てトリビアルコピー可能</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"int is trivially copyable"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"int* is trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"int is trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"int* is trivially copyable"</span><span class="p">);</span>
 
 <span class="c1">// ユーザー定義型</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">C1</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"C1 is trivially copyable"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">C2</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"C2 isn't trivially copyable"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">TrivialDestructor</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"TrivialDestructor is trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">C1</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"C1 is trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">C2</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="s">"C2 isn't trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">TrivialDestructor</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"TrivialDestructor is trivially copyable"</span><span class="p">);</span>
 
 <span class="c1">// CWG issue 1734が適用された環境ではトリビアルコピー可能ではない</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">DeletedDestructor</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"DeletedDestructor isn't trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">DeletedDestructor</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="s">"DeletedDestructor isn't trivially copyable"</span><span class="p">);</span>
 
 <span class="cp">#ifdef __cpp_concepts</span>
 <span class="c1">// #1も#2も資格のあるコピーコンストラクタではなく、他に資格のあるコピー/ムーブ コンストラクタ/代入演算子がないためトリビアルコピー可能ではない</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">optional</span><span class="o">&lt;</span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"<a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt; isn't trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">optional</span><span class="o">&lt;</span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="s">"<a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt; isn't trivially copyable"</span><span class="p">);</span>
 <span class="c1">// #2が資格のあるコピーコンストラクタであるが、user-providedであるためトリビアルコピー可能ではない</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">optional</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"optional&lt;<a href="../string/basic_string.html">std::string</a>&gt; isn't trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">optional</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="s">"optional&lt;<a href="../string/basic_string.html">std::string</a>&gt; isn't trivially copyable"</span><span class="p">);</span>
 <span class="c1">// #1が資格のあるコピーコンストラクタであるのでトリビアルコピー可能</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"optional&lt;int&gt; is trivially copyable"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_trivially_copyable</span></span><span class="o">&lt;</span><span class="n">optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"optional&lt;int&gt; is trivially copyable"</span><span class="p">);</span>
 <span class="cp">#endif</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
@@ -433,7 +433,7 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

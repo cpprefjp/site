@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;istream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_istream">basic_istream::</span><span class="token">tellg</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">pos_type</span> <span class="nf">tellg</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">pos_type</span><span class="w"> </span><span class="nf">tellg</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -242,23 +242,23 @@
 <li><code>fail() == true</code>であれば、<code>pos_type(-1)</code>。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="fc6bb5ccd7ebaf73394092d4ee0ed1d67f93339a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="fc6bb5ccd7ebaf73394092d4ee0ed1d67f93339a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../sstream/basic_istringstream.html">std::istringstream</a></span> <span class="n">is</span><span class="p">(</span><span class="s">"103 201"</span><span class="p">);</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../sstream/basic_istringstream.html">std::istringstream</a></span><span class="w"> </span><span class="n">is</span><span class="p">(</span><span class="s">"103 201"</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="n">is</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">auto</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">is</span><span class="p">.</span><span class="n"><span style="color:#ff0000">tellg()</span></span><span class="p">;</span> <span class="c1">// 現在位置をposに保存。</span>
-  <span class="n">is</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">is</span><span class="p">.</span><span class="n"><span style="color:#ff0000">tellg()</span></span><span class="p">;</span><span class="w"> </span><span class="c1">// 現在位置をposに保存。</span>
+<span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n">is</span><span class="p">.</span><span class="n"><a href="seekg.html">seekg</a></span><span class="p">(</span><span class="n">pos</span><span class="p">);</span> <span class="c1">// 保存した位置を復元。</span>
-  <span class="n">is</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">is</span><span class="p">.</span><span class="n"><a href="seekg.html">seekg</a></span><span class="p">(</span><span class="n">pos</span><span class="p">);</span><span class="w"> </span><span class="c1">// 保存した位置を復元。</span>
+<span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -268,19 +268,19 @@
 201
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="n">pos_type</span> <span class="nf">tellg</span><span class="p">(</span><span class="n">pos_type</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="n"><a href="sentry.html">sentry</a></span> <span class="n">s</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf()</a></span><span class="o">-&gt;</span><span class="n"><a href="../../streambuf/basic_streambuf/pubseekoff.html">pubseekoff</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cur</span><span class="p">,</span> <span class="n">ios_base</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
-    <span class="err">例外を投げずに</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a>を設定する</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/exceptions.html">exceptions()</a></span> <span class="o">&amp;</span> <span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">throw</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">pos_type</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">pos_type</span><span class="w"> </span><span class="nf">tellg</span><span class="p">(</span><span class="n">pos_type</span><span class="w"> </span><span class="n">pos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="sentry.html">sentry</a></span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf()</a></span><span class="o">-&gt;</span><span class="n"><a href="../../streambuf/basic_streambuf/pubseekoff.html">pubseekoff</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">cur</span><span class="p">,</span><span class="w"> </span><span class="n">ios_base</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">例外を投げずに<a href="../../ios/ios_base/type-iostate.html">badbit</a>を設定する</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/exceptions.html">exceptions()</a></span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">throw</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pos_type</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -312,7 +312,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

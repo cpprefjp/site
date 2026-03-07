@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class recursive_mutex">recursive_mutex::</span><span class="token">try_lock</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span> <span class="nf">try_lock</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">try_lock</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -239,61 +239,61 @@
 <h2>備考</h2>
 <p>あるスレッドが再帰的に所有権を取得可能な最大回数（所有権カウントの上限値）は、規定されていない。所有権カウントの上限値に達している場合、所有権を取得済みのスレッドであっても<code>false</code>を返す（このとき所有権カウントの増加は行われない）。</p>
 <h2>例</h2>
-<p><div class="yata" id="b3a0a78b750290b3c2861f41cc4a8250dcaa11a9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b3a0a78b750290b3c2861f41cc4a8250dcaa11a9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../mutex.html">&lt;mutex&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../system_error.html">&lt;system_error&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">counter</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">count_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">recursive_mutex</span> <span class="n">mtx_</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">count_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">recursive_mutex</span><span class="w"> </span><span class="n">mtx_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="kt">int</span> <span class="n">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">mtx_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock</span></span><span class="p">())</span> <span class="p">{</span>
-      <span class="c1">// ロックの取得に失敗</span>
-      <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span> <span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
-      <span class="k">throw</span> <span class="nf"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">count_</span> <span class="o">+=</span> <span class="n">value</span><span class="p">;</span>
-    <span class="n"><a href="unlock.html">mtx_.unlock()</a></span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">mtx_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock</span></span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// ロックの取得に失敗</span>
+<span class="w">      </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="nf">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
+<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count_</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="unlock.html">mtx_.unlock()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">int</span> <span class="n">increment</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">mtx_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock</span></span><span class="p">())</span> <span class="p">{</span> <span class="c1">// ロックを取得する</span>
-      <span class="c1">// ロックの取得に失敗</span>
-      <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span> <span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
-      <span class="k">throw</span> <span class="nf"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// add()関数内でも同じミューテックスからロックを取得する</span>
-    <span class="n"><a href="unlock.html">mtx_.unlock()</a></span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">increment</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">mtx_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock</span></span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ロックを取得する</span>
+<span class="w">      </span><span class="c1">// ロックの取得に失敗</span>
+<span class="w">      </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="nf">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
+<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// add()関数内でも同じミューテックスからロックを取得する</span>
+<span class="w">    </span><span class="n"><a href="unlock.html">mtx_.unlock()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n"><a href="../mutex.html">std::mutex</a></span> <span class="n">print_mtx_</span><span class="p">;</span>
-<span class="kt">void</span> <span class="nf">print_value</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+<span class="n"><a href="../mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">print_mtx_</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_value</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">print_mtx_</span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"count == "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">print_mtx_</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"count == "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">counter</span> <span class="n">c</span><span class="p">;</span>
-<span class="kt">void</span> <span class="nf">change_count</span><span class="p">()</span>
+<span class="n">counter</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">change_count</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">increment</span><span class="p">();</span>
-  <span class="n">print_value</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">increment</span><span class="p">();</span>
+<span class="w">  </span><span class="n">print_value</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">(</span><span class="n">change_count</span><span class="p">);</span>
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t2</span><span class="p">(</span><span class="n">change_count</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">change_count</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">change_count</span><span class="p">);</span>
 
-  <span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -331,7 +331,7 @@ count == 2
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

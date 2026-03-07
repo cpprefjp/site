@@ -220,9 +220,9 @@
 <h2>概要</h2>
 <p>宣言のみで定義がない<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>へのポインタへの<code>delete</code>は、これまで<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす操作になっていた。</p>
 <p>C++26ではこれを<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>とし、コンパイル時エラーとする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">C</span><span class="p">;</span>          <span class="c1">// 不完全型の宣言</span>
-<span class="n">C</span><span class="o">*</span> <span class="n">cp</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>  <span class="c1">// 不完全型へのポインタはOK</span>
-<span class="k">delete</span> <span class="n">cp</span><span class="p">;</span>        <span class="c1">// C++23:未定義動作, C++26:コンパイルエラー</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">;</span><span class="w">          </span><span class="c1">// 不完全型の宣言</span>
+<span class="n">C</span><span class="o">*</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">  </span><span class="c1">// 不完全型へのポインタはOK</span>
+<span class="k">delete</span><span class="w"> </span><span class="n">cp</span><span class="p">;</span><span class="w">        </span><span class="c1">// C++23:未定義動作, C++26:コンパイルエラー</span>
 </code></pre></div>
 </p>
 <h2>参照</h2>
@@ -246,7 +246,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

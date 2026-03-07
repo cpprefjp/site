@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;system_error&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class error_code">error_code::</span><span class="token">operator=</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ErrorCodeEnum</span><span class="o">&gt;</span>
-<span class="n">error_code</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">ErrorCodeEnum</span> <span class="n">e</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ErrorCodeEnum</span><span class="o">&gt;</span>
+<span class="n">error_code</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">ErrorCodeEnum</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -235,7 +235,7 @@
 <p><code><a href="../is_error_code_enum.html">is_error_code_enum</a>&lt;ErrorCodeEnum&gt;::value == true</code>であること。</p>
 <p><code>false</code>だった場合、この関数は<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>から除外される。</p>
 <h2>効果</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="k">this</span> <span class="o">=</span> <span class="n"><a href="../make_error_code.html">make_error_code</a></span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../make_error_code.html">make_error_code</a></span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
@@ -243,29 +243,29 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="396bb0827a9b5a56fd3517fa5fced3bf7a871d1c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="396bb0827a9b5a56fd3517fa5fced3bf7a871d1c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../system_error.html">&lt;system_error&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n"><a href="../is_error_code_enum.html">is_error_code_enum</a></span><span class="o">&lt;</span><span class="n"><a href="../errc.html">std::errc</a></span><span class="o">&gt;</span> <span class="o">:</span> <span class="n"><a href="../../type_traits/true_type.html">std::true_type</a></span> <span class="p">{};</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="../is_error_code_enum.html">is_error_code_enum</a></span><span class="o">&lt;</span><span class="n"><a href="../errc.html">std::errc</a></span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../type_traits/true_type.html">std::true_type</a></span><span class="w"> </span><span class="p">{};</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../error_code.html">std::error_code</a></span><span class="w"> </span><span class="n">ec</span><span class="p">;</span>
 
-  <span class="n">ec</span> <span class="o">=</span> <span class="n"><a href="../errc.html">std::errc</a></span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../errc.html">std::errc</a></span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">ec</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"error"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"success"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ec</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"error"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"success"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="value.html">ec.value()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="category.html">ec.category()</a></span><span class="p">.</span><span class="n"><a href="../error_category/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="value.html">ec.value()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="category.html">ec.category()</a></span><span class="p">.</span><span class="n"><a href="../error_category/name.html">name()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -304,7 +304,7 @@ generic
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

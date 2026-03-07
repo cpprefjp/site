@@ -225,32 +225,32 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">variable</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">sends_stopped</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span> <span class="o">=</span> <span class="n"><a href="env.html">env&lt;&gt;</a></span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">sends_stopped</span> <span class="o">=</span>
-    <span class="o">!</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="type-list.html">type-list</a></span><span class="o">&lt;&gt;</span><span class="p">,</span>
-             <span class="n"><a href="gather-signatures.html">gather-signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_stopped.html">set_stopped_t</a></span><span class="p">,</span> <span class="n"><a href="completion_signatures_of_t.html">completion_signatures_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span><span class="p">,</span>
-                               <span class="n"><a href="type-list.html">type-list</a></span><span class="p">,</span> <span class="n"><a href="type-list.html">type-list</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="env.html">env&lt;&gt;</a></span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">sends_stopped</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="o">!</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="type-list.html">type-list</a></span><span class="o">&lt;&gt;</span><span class="p">,</span>
+<span class="w">             </span><span class="n"><a href="gather-signatures.html">gather-signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_stopped.html">set_stopped_t</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="completion_signatures_of_t.html">completion_signatures_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">                               </span><span class="n"><a href="type-list.html">type-list</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="type-list.html">type-list</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><a href="sender.html">Sender型</a><code>Sndr</code>が<a href="receiver.html">環境</a><code>Env</code>において非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を作成できるとき、<a href="completion_signatures.html">完了シグネチャ集合</a>が<a href="set_stopped.html">停止完了シグネチャ</a>を含むか否かを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="e4a21918070affccb60ab3a8cda8fd35491e74a3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="e4a21918070affccb60ab3a8cda8fd35491e74a3"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../concepts.html">&lt;concepts&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 停止完了シグネチャを持たないSender</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd1</span> <span class="o">=</span> <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="sc">'X'</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n"><span style="color:#ff0000">ex::sends_stopped</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">snd1</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 停止完了シグネチャを持たないSender</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">snd1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="sc">'X'</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::sends_stopped</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">snd1</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// 停止完了シグネチャ set_stopped_t()</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd2</span> <span class="o">=</span> <span class="n"><a href="just_stopped.html">ex::just_stopped</a></span><span class="p">();</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ex::sends_stopped</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">snd2</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 停止完了シグネチャ set_stopped_t()</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">snd2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="just_stopped.html">ex::just_stopped</a></span><span class="p">();</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ex::sends_stopped</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">snd2</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -294,7 +294,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -220,54 +220,54 @@
 <h2>概要</h2>
 <p>C++17で導入されたクラステンプレートのテンプレート引数推論は、コンストラクタ引数からテンプレート引数を推論するものであった。しかし、そのクラステンプレートのエイリアステンプレートを定義した場合に、エイリアステンプレートの変数定義からはクラステンプレートのテンプレート引数を推論できない問題があった。</p>
 <p>C++20では、エイリアステンプレートからでもコンストラクタ引数からクラステンプレート引数を推論できるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n">T</span> <span class="n">y</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 
-  <span class="n">Point</span><span class="p">(</span><span class="n">T</span> <span class="n">x_</span><span class="p">,</span> <span class="n">T</span> <span class="n">y_</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x_</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">y_</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">Point</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x_</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">y_</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">x_</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">MyPoint</span> <span class="o">=</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">MyPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Point</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="n">MyPoint</span> <span class="n">p1</span><span class="p">{</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">};</span> <span class="c1">// C++17:NG C++20:OK</span>
+<span class="n">MyPoint</span><span class="w"> </span><span class="n">p1</span><span class="p">{</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">};</span><span class="w"> </span><span class="c1">// C++17:NG C++20:OK</span>
 </code></pre></div>
 </p>
 <p>エイリアステンプレート側で制約を課した場合：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/concepts.html">&lt;concepts&gt;</a></span>
+<span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
-  <span class="n">C</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">);</span>                                <span class="c1">// #1</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">C</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">);</span><span class="w">                                </span><span class="c1">// #1</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="n">C</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">C</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><a href="../../reference/type_traits/type_identity.html">std::type_identity_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;</span><span class="p">;</span> <span class="c1">// #2</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">C</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">C</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/type_identity.html">std::type_identity_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// #2</span>
 
 <span class="c1">// 2つのテンプレート引数を同じ型、かつポインタ型に限定する</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">A</span> <span class="o">=</span> <span class="n">C</span><span class="o">&lt;</span><span class="n">V</span><span class="o">*</span><span class="p">,</span> <span class="n">V</span><span class="o">*&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">V</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">C</span><span class="o">&lt;</span><span class="n">V</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">*&gt;</span><span class="p">;</span>
 
 <span class="c1">// 2つのテンプレート引数を同じ型、かつ整数のポインタ型に限定する</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/integral.html">std::integral</a></span> <span class="n">W</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/integral.html">std::integral</a></span><span class="w"> </span><span class="n">W</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span><span class="p">;</span>
 
 
-<span class="kt">int</span> <span class="n">i</span><span class="p">{};</span>
-<span class="kt">double</span> <span class="n">d</span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">{};</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">{};</span>
 
-<span class="n">A</span> <span class="nf">a1</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span> <span class="c1">// A&lt;int&gt;に推論される</span>
-<span class="n">A</span> <span class="nf">a2</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>   <span class="c1">// エラー！ iからV*を推論できない (ポインタ型でないといけない)</span>
-<span class="n">A</span> <span class="nf">a3</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">);</span> <span class="c1">// エラー！</span>
-              <span class="c1">// #1: (int *, double *)から(V*, V*)を推論できない</span>
-              <span class="c1">// #2: C&lt;int *, double *&gt;からA&lt;V&gt;を推論できない</span>
+<span class="n">A</span><span class="w"> </span><span class="nf">a1</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// A&lt;int&gt;に推論される</span>
+<span class="n">A</span><span class="w"> </span><span class="nf">a2</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">   </span><span class="c1">// エラー！ iからV*を推論できない (ポインタ型でないといけない)</span>
+<span class="n">A</span><span class="w"> </span><span class="nf">a3</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="c1">// エラー！</span>
+<span class="w">              </span><span class="c1">// #1: (int *, double *)から(V*, V*)を推論できない</span>
+<span class="w">              </span><span class="c1">// #2: C&lt;int *, double *&gt;からA&lt;V&gt;を推論できない</span>
 
-<span class="n">B</span> <span class="nf">b1</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span> <span class="c1">// B&lt;int&gt;に推論される</span>
-<span class="n">B</span> <span class="nf">b2</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">);</span> <span class="c1">// エラー！ C&lt;double*, double*&gt;からB&lt;W&gt;を推論できない</span>
-              <span class="c1">// (整数のポインタ型でないといけない)</span>
+<span class="n">B</span><span class="w"> </span><span class="nf">b1</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// B&lt;int&gt;に推論される</span>
+<span class="n">B</span><span class="w"> </span><span class="nf">b2</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="c1">// エラー！ C&lt;double*, double*&gt;からB&lt;W&gt;を推論できない</span>
+<span class="w">              </span><span class="c1">// (整数のポインタ型でないといけない)</span>
 </code></pre></div>
 </p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
@@ -295,7 +295,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

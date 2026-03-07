@@ -226,8 +226,8 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;stop_token&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class stop_token">stop_token::</span><span class="token">stop_possible</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
-<span class="kt">bool</span> <span class="n">stop_possible</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
-<span class="kt">bool</span> <span class="nf">stop_possible</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">stop_possible</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">stop_possible</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -244,38 +244,38 @@
 <h2>備考</h2>
 <p>一度<code><a href="stop_requested.html">stop_requested()</a> == true</code>となった<code><a href="../stop_token.html">stop_token</a></code>は、自身と停止状態を共有する<code><a href="../stop_source.html">stop_source</a></code>が破棄されても<code><a href="stop_requested.html">stop_requested()</a> == true</code>かつ<code>stop_possible() == true</code>の状態のままになる。</p>
 <h2>例</h2>
-<p><div class="yata" id="8d63047e4628b5532004a6ee33e8a3f248e2a0a9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../stop_token.html">&lt;stop_token&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8d63047e4628b5532004a6ee33e8a3f248e2a0a9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../stop_token.html">&lt;stop_token&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../stop_source.html">std::stop_source</a></span> <span class="n">ss1</span><span class="p">;</span>
-  <span class="n"><a href="../stop_source.html">std::stop_source</a></span> <span class="n">ss2</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_source.html">std::stop_source</a></span><span class="w"> </span><span class="n">ss1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_source.html">std::stop_source</a></span><span class="w"> </span><span class="n">ss2</span><span class="p">;</span>
 
-  <span class="n"><a href="../stop_token.html">std::stop_token</a></span> <span class="n">st1</span> <span class="o">=</span> <span class="n">ss1</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
-  <span class="n"><a href="../stop_token.html">std::stop_token</a></span> <span class="n">st2</span> <span class="o">=</span> <span class="n">ss2</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
-  <span class="n"><a href="../stop_token.html">std::stop_token</a></span> <span class="n">st3</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">st1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ss1</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">st2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ss2</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">st3</span><span class="p">;</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st3</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st3</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 
-  <span class="c1">// 停止要求を作成する</span>
-  <span class="n">ss1</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 停止要求を作成する</span>
+<span class="w">  </span><span class="n">ss1</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st3</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st3</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 
-  <span class="c1">// stop_token に紐づく stop_source を破棄する</span>
-  <span class="n">ss1</span> <span class="o">=</span> <span class="n"><a href="../stop_source.html">std::stop_source</a></span><span class="p">{};</span>
-  <span class="n">ss2</span> <span class="o">=</span> <span class="n"><a href="../stop_source.html">std::stop_source</a></span><span class="p">{};</span>
+<span class="w">  </span><span class="c1">// stop_token に紐づく stop_source を破棄する</span>
+<span class="w">  </span><span class="n">ss1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../stop_source.html">std::stop_source</a></span><span class="p">{};</span>
+<span class="w">  </span><span class="n">ss2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../stop_source.html">std::stop_source</a></span><span class="p">{};</span>
 
-  <span class="c1">// 停止状態が停止要求を受け取った場合は、</span>
-  <span class="c1">// その後で stop_source が破棄されても <span style="color:#ff0000">stop_possible()</span> == true のままになる</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st3</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 停止状態が停止要求を受け取った場合は、</span>
+<span class="w">  </span><span class="c1">// その後で stop_source が破棄されても <span style="color:#ff0000">stop_possible()</span> == true のままになる</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st3</span><span class="p">.</span><span class="n"><span style="color:#ff0000">stop_possible()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -317,7 +317,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -220,11 +220,11 @@
 <h2>概要</h2>
 <p><code>char</code>の文字列リテラルに<code>u8</code>プレフィックスを付けることで、その文字列リテラルはUCS/Unicode文字コードのUTF-8符号化形式にエンコードされる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 変数sには、UTF-8エンコーディングされた「あいうえお」という文字列が代入される</span>
-<span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
 
 <span class="c1">// 文字列中にユニバーサルキャラクタ名を直接入力できる。</span>
 <span class="c1">// \uからはじめて4桁、もしくは\Uからはじめて8桁がユニバーサルキャラクタ名として扱われる。</span>
-<span class="kt">char</span> <span class="n">t</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"</span><span class="se">\U00020BB7</span><span class="s">野家"</span><span class="p">;</span> <span class="c1">// 𠮷野家</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">t</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"</span><span class="se">\U00020BB7</span><span class="s">野家"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 𠮷野家</span>
 </code></pre></div>
 </p>
 <p><code>u8</code>プレフィックスを指定しない場合は、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>のマルチバイト文字コードにエンコードされる。その<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の文字コードは、ASCII文字コードと互換があることは保証されない。そのため、UTF-8のASCII互換部分が、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の文字コードと互換があることも、保証されない。</p>
@@ -234,7 +234,7 @@
 <li>文字列リテラルに<code>u8</code>プレフィックスを付けることで、UTF-8にエンコードされた<code>char</code>型の配列に初期化される。</li>
 <li>
 <p>UTF-8の文字列リテラルとワイド文字列リテラルが隣接していた場合、文字列は連結されずに、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">wchar_t</span> <span class="n">ws</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"hello"</span> <span class="sa">L</span><span class="s">" world"</span><span class="p">;</span>     <span class="c1">// OK : L"hello world"</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">wchar_t</span><span class="w"> </span><span class="n">ws</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="w"> </span><span class="sa">L</span><span class="s">" world"</span><span class="p">;</span><span class="w">     </span><span class="c1">// OK : L"hello world"</span>
 <span class="c1">//wchar_t ws[] = u8"hello" L" world"; // コンパイルエラー！</span>
 </code></pre></div>
 </p>
@@ -249,18 +249,18 @@
 <h2>備考</h2>
 <p>C++11時点での標準ライブラリでは、文字列と整数の変換を行う関数、および入出力の機能は、UTF-8に対応していない。そのため、システムのマルチバイト文字コードに変換する必要がある。たとえば、コンソール、ターミナル、コマンドプロンプトといった標準出力の出力先にUTF-8で直接出力できない場合には、出力可能な文字コードに変換する必要がある。そのシステムのマルチバイト文字コードがUTF-8であれば、変換の必要はない。</p>
 <h2>例</h2>
-<p><div class="yata" id="edadda55df08d54fa7aa2490e5f5d566f644d003"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="edadda55df08d54fa7aa2490e5f5d566f644d003"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
 
-  <span class="c1">// バイト数を取得</span>
-  <span class="c1">// UTF-8のため、ひとつのコードポイント(≒文字)のバイト数は固定ではない</span>
-  <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">byte_size</span> <span class="o">=</span> <span class="n"><a href="../../reference/string/basic_string/size.html">s.size()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// バイト数を取得</span>
+<span class="w">  </span><span class="c1">// UTF-8のため、ひとつのコードポイント(≒文字)のバイト数は固定ではない</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">byte_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string/size.html">s.size()</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">byte_size</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">byte_size</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -301,7 +301,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

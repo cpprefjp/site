@@ -221,11 +221,11 @@
 <p>整数リテラルと浮動小数点数リテラルには、途中にシングルクォーテーション(<code>'</code>)を入力することで、値を読みやすくできる。</p>
 <p>日本を含む多くの国では、数値を3桁区切りする傾向がある。たとえば、「100万円」を表す場合、<code>0</code>を6個入力する必要があるが、<code>1000000</code>という数値を見て、即座に<code>0</code>の数が6個あることを認識するのは難しい。そういった状況では、「1,000,000円」のように3桁ごとにカンマで区切ることで、数値を読みやすくする工夫が行われる。</p>
 <p>C++においては、桁区切り文字としてシングルクォーテーションを使用する。これを使用して「100万円」を入力すると、以下のようになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">price</span> <span class="o">=</span> <span class="mi">1</span><span class="err">'</span><span class="mo">000</span><span class="err">'</span><span class="mo">000</span><span class="p">;</span> <span class="c1">// 100万円</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1'000'000</span><span class="p">;</span><span class="w"> </span><span class="c1">// 100万円</span>
 </code></pre></div>
 </p>
 <p>また、2進数を入力する場合には、4桁で区切ることで読みやすくできる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">binary_value</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1000</span><span class="err">'</span><span class="mi">1111</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">binary_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1000'1111</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>桁区切り文字は、数値を読みやすくするためだけにあり、それによる値への影響はない。</p>
@@ -238,26 +238,26 @@
 <li>浮動小数点数リテラルでは、小数部や指数部にも桁区切り文字を配置できる</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="0baa7461a40b83db5bb6bf7ebef58aece4315e89"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0baa7461a40b83db5bb6bf7ebef58aece4315e89"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/limits.html">&lt;limits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">decimal_value</span> <span class="o">=</span> <span class="mi">123</span><span class="err">'</span><span class="mi">456</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">decimal_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">decimal_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123'456</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">decimal_value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="kt">int</span> <span class="n">octal_value</span> <span class="o">=</span> <span class="mo">0123</span><span class="err">'</span><span class="mi">456</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">octal_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">octal_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mo">0123'456</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">octal_value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="kt">int</span> <span class="n">hex_value</span> <span class="o">=</span> <span class="mh">0x12</span><span class="err">'</span><span class="mi">34</span><span class="err">'</span><span class="mi">56</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">hex_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">hex_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x12'34'56</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex_value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="kt">int</span> <span class="n">binary_value</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1010</span><span class="err">'</span><span class="mi">1010</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">binary_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">binary_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1010'1010</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">binary_value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="kt">double</span> <span class="n">floating_point_value</span> <span class="o">=</span> <span class="mi">12</span><span class="err">'</span><span class="mf">345.678</span><span class="err">'</span><span class="mi">901</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/ios_base/precision.html">precision</a></span><span class="p">(</span><span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../../reference/limits/numeric_limits/max_digits10.html">max_digits10</a></span><span class="p">);</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">floating_point_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">floating_point_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12'345.678'901</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/ios_base/precision.html">precision</a></span><span class="p">(</span><span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../../reference/limits/numeric_limits/max_digits10.html">max_digits10</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">floating_point_value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -285,16 +285,16 @@
 <h2>検討されたほかの選択肢</h2>
 <h3>カンマ</h3>
 <p>桁区切り文字のために、真っ先に検討されたのはカンマ(<code>,</code>)である。しかしカンマには、配列リテラルの互換性を破壊する問題がある。たとえば、C++11まで有効だった、<code>123</code>、<code>456</code>を要素とする配列定義の以下の式が、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">123</span><span class="p">,</span><span class="mi">456</span><span class="p">};</span> <span class="c1">// スペースを空けずに複数個の要素を記述</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">ar</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">123</span><span class="p">,</span><span class="mi">456</span><span class="p">};</span><span class="w"> </span><span class="c1">// スペースを空けずに複数個の要素を記述</span>
 </code></pre></div>
 </p>
 <p>カンマを桁区切り文字として採用すると、値<code>123456</code>を唯一の要素とする配列の定義になってしまう。</p>
 <h3>アンダースコア</h3>
 <p>アンダースコアは、Perl、Ruby、Java 7、Adaといった多くの言語で、桁区切り文字として採用されている。これは文化的な互換性として非常に有力な候補となった。しかし、C++11で導入された<a href="../cpp11/user_defined_literals.html">ユーザー定義リテラル</a>は、アンダースコアを先頭としたリテラル演算子の定義を許可していたために、アンダースコアを桁区切り文字として採用すると、その互換性が破壊されてしまう。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_456</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
-<span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_456</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">123</span><span class="n">_456</span><span class="p">;</span> <span class="c1">// 値123を表すリテラル</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="n">_456</span><span class="p">;</span><span class="w"> </span><span class="c1">// 値123を表すリテラル</span>
 </code></pre></div>
 </p>
 <p>C++14という言語バージョンは、C++11の仕様に対するバグ修正を主な目的としている。上記のような数値を含むリテラル演算子を仕様のバグとして、これを許可しない規定を追加することも検討されたが、採用はされなかった。</p>
@@ -344,7 +344,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

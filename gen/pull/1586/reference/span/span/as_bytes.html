@@ -225,10 +225,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;span&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">as_bytes</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ElementType</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">Extent</span><span class="o">&gt;</span>
-  <span class="n">span</span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../../cstddef/byte.html">byte</a></span><span class="p">,</span> <span class="n">Extent</span> <span class="o">==</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span> <span class="o">?</span> <span class="nl"><a href="../dynamic_extent.html">dynamic_extent</a></span> <span class="p">:</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ElementType</span><span class="p">)</span> <span class="o">*</span> <span class="n">Extent</span><span class="o">&gt;</span>
-    <span class="n">as_bytes</span><span class="p">(</span><span class="n">span</span><span class="o">&lt;</span><span class="n">ElementType</span><span class="p">,</span> <span class="n">Extent</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ElementType</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">Extent</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">span</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../cstddef/byte.html">byte</a></span><span class="p">,</span><span class="w"> </span><span class="n">Extent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">ElementType</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Extent</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">as_bytes</span><span class="p">(</span><span class="n">span</span><span class="o">&lt;</span><span class="n">ElementType</span><span class="p">,</span><span class="w"> </span><span class="n">Extent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -237,7 +237,7 @@
 <p>この関数を使用することで、メモリ連続性をもつ要素列をバイト列として扱える。シリアライズやデータ転送といった、バイト指向アクセスが必要なシステムプログラミングに使用できる。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>以下と等価：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="p">{</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../../cstddef/byte.html">byte</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span><span class="p">),</span> <span class="n"><a href="size_bytes.html">s.size_bytes()</a></span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../cstddef/byte.html">byte</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span><span class="p">),</span><span class="w"> </span><span class="n"><a href="size_bytes.html">s.size_bytes()</a></span><span class="p">};</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
@@ -245,21 +245,21 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
 <p>定数時間</p>
 <h2>例</h2>
-<p><div class="yata" id="f48090114f24d30102a5cd4c97c09f6df44ae730"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../span.html">&lt;span&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f48090114f24d30102a5cd4c97c09f6df44ae730"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../span.html">&lt;span&gt;</a></span>
+<span class="cp">#include <a href="../../fstream.html">&lt;fstream&gt;</a></span>
 
 <span class="c1">// serialize(const char*, <a href="../../cstddef/size_t.html">std::size_t</a> length);</span>
 <span class="c1">// このインタフェースの代わりにspanを使用する。</span>
-<span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../../cstddef/byte.html">std::byte</a></span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../cstddef/byte.html">std::byte</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">file</span><span class="p">{</span><span class="s">"a.dat"</span><span class="p">};</span>
-  <span class="n">file</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span><span class="p">),</span> <span class="n"><a href="size.html">s.size()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="w"> </span><span class="n">file</span><span class="p">{</span><span class="s">"a.dat"</span><span class="p">};</span>
+<span class="w">  </span><span class="n">file</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span><span class="p">),</span><span class="w"> </span><span class="n"><a href="size.html">s.size()</a></span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-  <span class="n">serialize</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::as_bytes</span></span><span class="p">(</span><span class="n"><a href="../span.html">std::span</a></span><span class="p">{</span><span class="n">ar</span><span class="p">}));</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ar</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="n">serialize</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::as_bytes</span></span><span class="p">(</span><span class="n"><a href="../span.html">std::span</a></span><span class="p">{</span><span class="n">ar</span><span class="p">}));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -293,7 +293,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

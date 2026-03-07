@@ -225,10 +225,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;thread&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::this_thread">std::this_thread::</span><span class="token">sleep_until</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-<span class="k">namespace</span> <span class="n">this_thread</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Clock</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">sleep_until</span><span class="p">(</span><span class="k">const</span> <span class="n">chrono</span><span class="o">::</span><span class="n"><a href="../../chrono/time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span> <span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">abs_time</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">this_thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Clock</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">sleep_until</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">chrono</span><span class="o">::</span><span class="n"><a href="../../chrono/time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">abs_time</span><span class="p">);</span>
 <span class="p">}}</span>
 </code></pre></div>
 </p>
@@ -248,16 +248,16 @@
 <li>C++14 : 時計クラス、<code><a href="../../chrono/time_point.html">time_point</a></code>クラス、<code><a href="../../chrono/duration.html">duration</a></code>クラスの構築が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する場合、この関数はそれらの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="5d02ac514394d1654b3871735c432b1923a3c266"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5d02ac514394d1654b3871735c432b1923a3c266"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">abs_time</span> <span class="o">=</span> <span class="n"><a href="../../chrono/system_clock.html">std::chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../../chrono/system_clock/now.html">now()</a></span> <span class="o">+</span> <span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
-  <span class="c1">//...</span>
-  <span class="n"><span style="color:#ff0000">std::this_thread::sleep_until</span></span><span class="p">(</span><span class="n">abs_time</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">abs_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../chrono/system_clock.html">std::chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../../chrono/system_clock/now.html">now()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//...</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::this_thread::sleep_until</span></span><span class="p">(</span><span class="n">abs_time</span><span class="p">);</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -297,7 +297,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

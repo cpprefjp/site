@@ -213,14 +213,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;list&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">list</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">list</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">list</span><span class="p">;</span>
 
-  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-      <span class="k">using</span> <span class="n">list</span> <span class="o">=</span> <span class="n"><a href="">std::list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>  <span class="c1">// C++17から</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">pmr</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="">std::list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w">  </span><span class="c1">// C++17から</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -700,26 +700,26 @@
 </table>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="520400c79d41722da3fe670d9a5a834cb26cea2c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="520400c79d41722da3fe670d9a5a834cb26cea2c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../list.html">&lt;list&gt;</a></span>
+<span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><span style="color:#ff0000">std::list</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::list</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span><span class="p">;</span>
 
-  <span class="c1">// 先頭から要素を追加</span>
-  <span class="n"><a href="list/push_front.html">ls.push_front</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="list/push_front.html">ls.push_front</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 先頭から要素を追加</span>
+<span class="w">  </span><span class="n"><a href="list/push_front.html">ls.push_front</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="list/push_front.html">ls.push_front</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 
-  <span class="c1">// 末尾から要素を追加</span>
-  <span class="n"><a href="list/push_back.html">ls.push_back</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="list/push_back.html">ls.push_back</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 末尾から要素を追加</span>
+<span class="w">  </span><span class="n"><a href="list/push_back.html">ls.push_back</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="list/push_back.html">ls.push_back</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 
-  <span class="c1">// 要素を先頭から順番に表示</span>
-  <span class="n"><a href="../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="list/cbegin.html">ls.cbegin()</a></span><span class="p">,</span> <span class="n"><a href="list/cend.html">ls.cend()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="c1">// 要素を先頭から順番に表示</span>
+<span class="w">  </span><span class="n"><a href="../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="list/cbegin.html">ls.cbegin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="list/cend.html">ls.cend()</a></span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">){</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -729,83 +729,83 @@
 <h3><a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>を要素にする例 (C++17)</h3>
 <p><a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>を要素型に出来るようになった事で、階層構造や多分木などの再帰的データ構造を実装することが容易になる。<br />
 他にも、<code><a href="../vector/vector.html">vector</a></code>と<code><a href="../forward_list/forward_list.html">forward_list</a></code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>をサポートしている。</p>
-<p><div class="yata" id="146d840445919b99d3e77bc716cf0b53fb904c77"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="146d840445919b99d3e77bc716cf0b53fb904c77"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../list.html">&lt;list&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
 
 <span class="c1">//簡易なディレクトリ構造表現クラス</span>
-<span class="k">class</span> <span class="nc">directory</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">directory</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="c1">//不完全型（クラス定義内ではそのクラス自身は不完全）を要素型に指定</span>
-  <span class="n"><span style="color:#ff0000">std::list</span></span><span class="o">&lt;</span><span class="n">directory</span><span class="o">&gt;</span> <span class="n">m_subdir</span><span class="p">{};</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">m_name</span><span class="p">{};</span>
+<span class="w">  </span><span class="c1">//不完全型（クラス定義内ではそのクラス自身は不完全）を要素型に指定</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::list</span></span><span class="o">&lt;</span><span class="n">directory</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_subdir</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">m_name</span><span class="p">{};</span>
 
 <span class="k">public</span><span class="o">:</span>
 
-  <span class="n">directory</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="o">:</span> <span class="n">m_name</span><span class="p">{</span><span class="n">name</span><span class="p">}</span>
-  <span class="p">{}</span>
+<span class="w">  </span><span class="n">directory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_name</span><span class="p">{</span><span class="n">name</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{}</span>
 
-  <span class="c1">//サブディレクトリ追加</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Dir</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">add</span><span class="p">(</span><span class="n">Dir</span><span class="o">&amp;&amp;</span> <span class="n">dir</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/emplace_back.html">emplace_back</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Dir</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dir</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//サブディレクトリ追加</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Dir</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">Dir</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/emplace_back.html">emplace_back</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Dir</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dir</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//ディレクトリ名取得</span>
-  <span class="k">auto</span> <span class="n">get</span><span class="p">()</span> <span class="k">const</span> <span class="o">-&gt;</span> <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">m_name</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//ディレクトリ名取得</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_name</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">auto</span> <span class="n"><a href="list/begin.html">begin</a></span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/begin.html">begin</a></span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n"><a href="list/begin.html">begin</a></span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/begin.html">begin</a></span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">auto</span> <span class="n"><a href="list/end.html">end</a></span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/end.html">end</a></span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n"><a href="list/end.html">end</a></span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/end.html">end</a></span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">//ルートより下のディレクトリについて整形して出力</span>
-<span class="kt">void</span> <span class="nf">recursive_out</span><span class="p">(</span><span class="k">const</span> <span class="n">directory</span><span class="o">&amp;</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">depth</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">recursive_out</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">directory</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dir</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depth</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="p">)</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"| "</span><span class="p">;</span>
-  <span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">depth</span><span class="p">;</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="p">)</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">depth</span><span class="p">)</span><span class="w"> </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"| "</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">depth</span><span class="p">;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">depth</span><span class="p">)</span><span class="w"> </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"|-"</span> <span class="o">&lt;&lt;</span> <span class="n">dir</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"|-"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dir</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">subdir</span> <span class="p">:</span> <span class="n">dir</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">recursive_out</span><span class="p">(</span><span class="n">subdir</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">subdir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">recursive_out</span><span class="p">(</span><span class="n">subdir</span><span class="p">,</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">//ディレクトリ構造を出力する</span>
-<span class="kt">void</span> <span class="nf">out_directorytree</span><span class="p">(</span><span class="k">const</span> <span class="n">directory</span><span class="o">&amp;</span> <span class="n">dir</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">dir</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">out_directorytree</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">directory</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dir</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">subdir</span> <span class="p">:</span> <span class="n">dir</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">recursive_out</span><span class="p">(</span><span class="n">subdir</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">subdir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">recursive_out</span><span class="p">(</span><span class="n">subdir</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">directory</span> <span class="n">dir</span><span class="p">{</span><span class="s">"root"</span><span class="p">};</span>
-  <span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub1"</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">directory</span><span class="w"> </span><span class="n">dir</span><span class="p">{</span><span class="s">"root"</span><span class="p">};</span>
+<span class="w">  </span><span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub1"</span><span class="p">);</span>
 
-  <span class="n">directory</span> <span class="n">sub2</span><span class="p">{</span><span class="s">"sub2"</span><span class="p">};</span>
-  <span class="n">sub2</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub2.1"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">directory</span><span class="w"> </span><span class="n">sub2</span><span class="p">{</span><span class="s">"sub2"</span><span class="p">};</span>
+<span class="w">  </span><span class="n">sub2</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub2.1"</span><span class="p">);</span>
 
-  <span class="n">directory</span> <span class="n">sub22</span><span class="p">{</span><span class="s">"sub2.2"</span><span class="p">};</span>
-  <span class="n">sub22</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub2.2.1"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">directory</span><span class="w"> </span><span class="n">sub22</span><span class="p">{</span><span class="s">"sub2.2"</span><span class="p">};</span>
+<span class="w">  </span><span class="n">sub22</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub2.2.1"</span><span class="p">);</span>
 
-  <span class="n">sub2</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sub22</span><span class="p">));</span>
+<span class="w">  </span><span class="n">sub2</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sub22</span><span class="p">));</span>
 
-  <span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sub2</span><span class="p">));</span>
-  <span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub3"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sub2</span><span class="p">));</span>
+<span class="w">  </span><span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub3"</span><span class="p">);</span>
 
-  <span class="n">out_directorytree</span><span class="p">(</span><span class="n">dir</span><span class="p">);</span>
+<span class="w">  </span><span class="n">out_directorytree</span><span class="p">(</span><span class="n">dir</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -840,7 +840,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -222,48 +222,48 @@
 <h2>仕様</h2>
 <p>集成体初期化において基底クラスの初期化についても集成体初期化 <code>{ parameter1, parameter2, ... }</code> の様式で同様に入れ子にして記述する。</p>
 <h2>例</h2>
-<p><div class="yata" id="8930007fc0a39832385a05c18749dc7e90528b40"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8930007fc0a39832385a05c18749dc7e90528b40"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">base_a</span> <span class="p">{</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="n">base_b</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">d</span><span class="p">;</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span> <span class="kt">int</span> <span class="o">&gt;</span> <span class="n">vi</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="nl">derived</span><span class="p">:</span> <span class="n">base_a</span><span class="p">,</span> <span class="n">base_b</span> <span class="p">{</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">base_a</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">base_b</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">vi</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">derived</span><span class="o">:</span><span class="w"> </span><span class="n">base_a</span><span class="p">,</span><span class="w"> </span><span class="n">base_b</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// このような初期化を C++17 以降は本機能により使用できるようになった</span>
-  <span class="c1">// この初期化は C++14 以前では基底クラスの初期化として扱えず翻訳に失敗してしまう</span>
-  <span class="n">derived</span> <span class="n">o</span>
-  <span class="p">{</span> <span class="p">{</span> <span class="c1">// base_a; 本機能により基底クラスの初期化を { } で記述できる</span>
-      <span class="s">"abc"</span> <span class="c1">// base_a::s</span>
-    <span class="p">}</span>
-  <span class="p">,</span> <span class="p">{</span> <span class="c1">// base_b; 本機能により基底クラスの初期化を { } で記述できる</span>
-      <span class="mf">12.345</span> <span class="c1">// base_b::d</span>
-    <span class="p">,</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1">// base_b::v</span>
-    <span class="p">}</span>
-  <span class="p">,</span> <span class="sc">'d'</span> <span class="c1">// derived::c</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// このような初期化を C++17 以降は本機能により使用できるようになった</span>
+<span class="w">  </span><span class="c1">// この初期化は C++14 以前では基底クラスの初期化として扱えず翻訳に失敗してしまう</span>
+<span class="w">  </span><span class="n">derived</span><span class="w"> </span><span class="n">o</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// base_a; 本機能により基底クラスの初期化を { } で記述できる</span>
+<span class="w">      </span><span class="s">"abc"</span><span class="w"> </span><span class="c1">// base_a::s</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// base_b; 本機能により基底クラスの初期化を { } で記述できる</span>
+<span class="w">      </span><span class="mf">12.345</span><span class="w"> </span><span class="c1">// base_b::d</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w"> </span><span class="c1">// base_b::v</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="sc">'d'</span><span class="w"> </span><span class="c1">// derived::c</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> 
-    <span class="o">&lt;&lt;</span> <span class="s">"o.s = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-    <span class="o">&lt;&lt;</span> <span class="s">"o.d = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-    <span class="o">&lt;&lt;</span> <span class="s">"o.vi = "</span>
-    <span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"o.s = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"o.d = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"o.vi = "</span>
+<span class="w">    </span><span class="p">;</span>
 
-  <span class="p">{</span>
-    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">literals</span><span class="o">::</span><span class="n">string_literals</span><span class="p">;</span>
-    <span class="k">auto</span> <span class="n">separator</span> <span class="o">=</span> <span class="s">""</span><span class="n">s</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"[ "</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">o</span><span class="p">.</span><span class="n">vi</span> <span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">separator</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">;</span>
-      <span class="n">separator</span> <span class="o">=</span> <span class="s">", "</span><span class="n">s</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">std</span><span class="o">::</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" ]</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">literals</span><span class="o">::</span><span class="nn">string_literals</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">separator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="n">s</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"[ "</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">vi</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">separator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">      </span><span class="n">separator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">", "</span><span class="n">s</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" ]</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"o.c = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"o.c = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -276,46 +276,46 @@ o.c = d
 <h2>この機能が必要になった背景・経緯</h2>
 <p>この機能が無い C++14 までは、同様の事をしたい場合には基底クラスの初期化も含めたい派生型へ、基底クラスの初期化も行う構築子を記述する必要があった。</p>
 <p><div class="yata" id="b68fa1344c4f4265d1f9c323f2f00b47d401fd93"><div class="codehilite"><pre><span></span><code><span class="c1">// C++14 までの旧い仕様で同様の事をできるようにするために必要だった記述</span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">legacy_base</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">legacy_base</span>
 <span class="p">{</span>
-  <span class="c1">// いちいち書かなければならないのは面倒くさい</span>
-  <span class="n">legacy_base</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a_</span> <span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span> <span class="n">a_</span> <span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// いちいち書かなければならないのは面倒くさい</span>
+<span class="w">  </span><span class="n">legacy_base</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a_</span><span class="w"> </span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="w"> </span><span class="n">a_</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="k">struct</span> <span class="nl">legacy_derived</span><span class="p">:</span> <span class="n">legacy_base</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">legacy_derived</span><span class="o">:</span><span class="w"> </span><span class="n">legacy_base</span>
 <span class="p">{</span>
-  <span class="c1">// いちいち書かなければならないのは面倒くさい</span>
-  <span class="n">legacy_derived</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a_</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b_</span> <span class="p">)</span><span class="o">:</span> <span class="n">legacy_base</span><span class="p">(</span> <span class="n">a_</span> <span class="p">),</span> <span class="n">b</span><span class="p">(</span> <span class="n">b_</span> <span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-  <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// いちいち書かなければならないのは面倒くさい</span>
+<span class="w">  </span><span class="n">legacy_derived</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a_</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b_</span><span class="w"> </span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">legacy_base</span><span class="p">(</span><span class="w"> </span><span class="n">a_</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="w"> </span><span class="n">b_</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 初期化を簡潔に記述するためには legacy_derived, legacy_base の構築子に仕込みが必要だった</span>
-  <span class="n">legacy_derived</span> <span class="n">o</span><span class="p">{</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">456</span> <span class="p">};</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"o.a = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-    <span class="o">&lt;&lt;</span> <span class="s">"o.b = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-    <span class="p">;</span>
+<span class="w">  </span><span class="c1">// 初期化を簡潔に記述するためには legacy_derived, legacy_base の構築子に仕込みが必要だった</span>
+<span class="w">  </span><span class="n">legacy_derived</span><span class="w"> </span><span class="n">o</span><span class="p">{</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">456</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"o.a = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"o.b = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span>
+<span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p>このような面倒を本機能により簡潔に記述できるようにしたかった。</p>
 <p><div class="yata" id="edb3be5cca92457ca1cbed0ebc73dd545b28303a"><div class="codehilite"><pre><span></span><code><span class="c1">// C++17 以降は本機能により C++14 までのように仕込みを行わずとも簡潔に基底クラスの初期化を記述できるようになった</span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">legacy_base</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="nl">legacy_derived</span><span class="p">:</span> <span class="n">legacy_base</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">legacy_base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">legacy_derived</span><span class="o">:</span><span class="w"> </span><span class="n">legacy_base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">legacy_derived</span> <span class="n">o</span><span class="p">{</span> <span class="p">{</span> <span class="mi">123</span> <span class="p">},</span> <span class="mi">456</span> <span class="p">};</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"o.a = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-    <span class="o">&lt;&lt;</span> <span class="s">"o.b = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-    <span class="p">;</span>
+<span class="w">  </span><span class="n">legacy_derived</span><span class="w"> </span><span class="n">o</span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">456</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"o.a = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"o.b = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span>
+<span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -345,7 +345,7 @@ o.c = d
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

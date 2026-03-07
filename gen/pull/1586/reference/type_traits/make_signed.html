@@ -213,14 +213,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">make_signed</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">make_signed</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">make_signed</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">make_signed_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">make_signed</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span> <span class="c1">// C++14</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">make_signed_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">make_signed</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++14</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -234,35 +234,35 @@
 <li>型<code>T</code>がcv修飾されていた場合は、メンバ型<code>type</code>にも同じcv修飾が付加される。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="5c4f61966b0ce31d0e836b1cb6c2cc2e68111e56"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5c4f61966b0ce31d0e836b1cb6c2cc2e68111e56"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
 <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span>
-        <span class="n"><span style="color:#ff0000">std::make_signed</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-        <span class="kt">int</span>
-    <span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
-    <span class="s">"transform int to int"</span><span class="p">);</span>
+<span class="w">        </span><span class="n"><span style="color:#ff0000">std::make_signed</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">int</span>
+<span class="w">    </span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"transform int to int"</span><span class="p">);</span>
 
 <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span>
-        <span class="n"><span style="color:#ff0000">std::make_signed</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-        <span class="k">const</span> <span class="kt">int</span>
-    <span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
-    <span class="s">"transform const unsigned int to const int"</span><span class="p">);</span>
+<span class="w">        </span><span class="n"><span style="color:#ff0000">std::make_signed</span></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"transform const unsigned int to const int"</span><span class="p">);</span>
 
 <span class="c1">// my_enumと同じ幅を持つ符号付き整数型に変換</span>
-<span class="k">enum</span> <span class="nl">my_enum</span> <span class="p">:</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="p">{</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="p">};</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">my_enum</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="p">};</span>
 <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span>
-        <span class="n"><span style="color:#ff0000">std::make_signed</span></span><span class="o">&lt;</span><span class="n">my_enum</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-        <span class="kt">int</span>
-    <span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
-    <span class="s">"transform unsigned int based my_enum to int"</span><span class="p">);</span>
+<span class="w">        </span><span class="n"><span style="color:#ff0000">std::make_signed</span></span><span class="o">&lt;</span><span class="n">my_enum</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">int</span>
+<span class="w">    </span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"transform unsigned int based my_enum to int"</span><span class="p">);</span>
 
 <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span>
-        <span class="n"><span style="color:#ff0000">std::make_signed</span></span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-        <span class="kt">signed</span> <span class="kt">char</span>
-    <span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
-    <span class="s">"transform unsigned char to signed char"</span><span class="p">);</span>
+<span class="w">        </span><span class="n"><span style="color:#ff0000">std::make_signed</span></span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">signed</span><span class="w"> </span><span class="kt">char</span>
+<span class="w">    </span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"transform unsigned char to signed char"</span><span class="p">);</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
@@ -304,7 +304,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

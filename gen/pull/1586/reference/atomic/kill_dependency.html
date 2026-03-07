@@ -213,11 +213,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">kill_dependency</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp26deprecated text-warning" title="C++26で非推奨">(C++26で非推奨)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span> <span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (1) C++11</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">T</span> <span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26(非推奨)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">           </span><span class="c1">// (1) C++11</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++26(非推奨)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -238,41 +238,41 @@
 <p>この関数は、並行性およびコンパイラの最適化に関する深い理解をもつ専門家ですら正しく利用することが非常に難しい。</p>
 <p>安易に利用すると、この関数がアトミックウェポンと化してしまうので控えること。</p>
 <h2>例</h2>
-<p><div class="yata" id="29f6abc6eaff55af305da4fa35ddbc18fcd92228"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="29f6abc6eaff55af305da4fa35ddbc18fcd92228"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../atomic.html">&lt;atomic&gt;</a></span>
+<span class="cp">#include <a href="../thread.html">&lt;thread&gt;</a></span>
 
-<span class="n"><a href="atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">table</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="n"><a href="atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">table</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-  <span class="n">table</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-  <span class="n"><a href="atomic/store.html">a.store</a></span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order_release</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="atomic/store.html">a.store</a></span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="memory_order.html">std::memory_order_release</a></span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
 
-  <span class="kt">int</span> <span class="n">r0</span><span class="p">;</span>
-  <span class="k">do</span> <span class="p">{</span>
-    <span class="n">r0</span> <span class="o">=</span> <span class="n"><a href="atomic/load.html">a.load</a></span><span class="p">(</span><span class="n"><a href="memory_order.html">std::memory_order_consume</a></span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">r0</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r0</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 正しく同期化されており、必ず"3"が出力される。</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">r0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">r0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="atomic/load.html">a.load</a></span><span class="p">(</span><span class="n"><a href="memory_order.html">std::memory_order_consume</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">r0</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r0</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 正しく同期化されており、必ず"3"が出力される。</span>
 
-  <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">r0</span><span class="p">];</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 正しく同期化されており、必ず"5"が出力される。</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n">r0</span><span class="p">];</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 正しく同期化されており、必ず"5"が出力される。</span>
 
-  <span class="kt">int</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">r1</span><span class="p">];</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 正しく同期化されており、必ず"-1"が出力される。</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n">r1</span><span class="p">];</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 正しく同期化されており、必ず"-1"が出力される。</span>
 
-  <span class="kt">int</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n"><span style="color:#ff0000">std::kill_dependency</span></span><span class="p">(</span><span class="n">r1</span><span class="p">)];</span>  <span class="c1">// data race. 未定義動作。</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r3</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 最適化などの結果、"-1"以外が出力される可能性がある。</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n"><span style="color:#ff0000">std::kill_dependency</span></span><span class="p">(</span><span class="n">r1</span><span class="p">)];</span><span class="w">  </span><span class="c1">// data race. 未定義動作。</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 最適化などの結果、"-1"以外が出力される可能性がある。</span>
 
 
-  <span class="n"><a href="../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -295,14 +295,14 @@
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 </ul>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="w"> </span><span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
 <span class="p">{</span>
-  <span class="c1">// この実装では単に引数をそのまま返しているだけであり、データ依存性は切れていない。</span>
-  <span class="c1">// よって、仕様を正確に実装しているわけではない。</span>
-  <span class="c1">// 仕様通りにデータ依存性の切断を行うためには、コンパイラの最適化のコードに手を加えて</span>
-  <span class="c1">// この関数を特別扱いしなければならない。</span>
-  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// この実装では単に引数をそのまま返しているだけであり、データ依存性は切れていない。</span>
+<span class="w">  </span><span class="c1">// よって、仕様を正確に実装しているわけではない。</span>
+<span class="w">  </span><span class="c1">// 仕様通りにデータ依存性の切断を行うためには、コンパイラの最適化のコードに手を加えて</span>
+<span class="w">  </span><span class="c1">// この関数を特別扱いしなければならない。</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -340,7 +340,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

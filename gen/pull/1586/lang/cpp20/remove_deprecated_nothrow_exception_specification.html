@@ -219,7 +219,7 @@
 <p></p>
 <h2>概要</h2>
 <p>C++11で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出しないことを指定する<code><a href="../cpp11/noexcept.html">noexcept</a></code>が追加されたことによって古い<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様は非推奨化の後に削除されたが、なにも<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出しないことを表す<code>throw()</code>指定は<code>noexcept</code>と同じ意味になるよう仕様が変更されて非推奨機能として維持されていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="k">throw</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">throw</span><span class="p">();</span>
 <span class="c1">// 以下と同じ意味</span>
 <span class="c1">// void f() noexcept;</span>
 </code></pre></div>
@@ -251,7 +251,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

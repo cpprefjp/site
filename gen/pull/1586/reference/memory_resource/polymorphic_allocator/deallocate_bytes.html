@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;memory_resource&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::pmr">std::pmr::</span><span class="class" title="class polymorphic_allocator">polymorphic_allocator::</span><span class="token">deallocate_bytes</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">deallocate_bytes</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nbytes</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">alignment</span> <span class="o">=</span> <span class="k">alignof</span><span class="p">(</span><span class="n"><a href="../../cstddef/max_align_t.html">max_align_t</a></span><span class="p">));</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">deallocate_bytes</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nbytes</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">alignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="n"><a href="../../cstddef/max_align_t.html">max_align_t</a></span><span class="p">));</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -241,44 +241,44 @@
 </ul>
 <h2>効果</h2>
 <p>利用する<code>memory_resource</code>のポインタを<code>memory_rsrc</code>というメンバに保持しているとすると、以下と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">memory_rsrc</span><span class="o">-&gt;</span><span class="n"><a href="../memory_resource/deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">alignment</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">memory_rsrc</span><span class="o">-&gt;</span><span class="n"><a href="../memory_resource/deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">nbytes</span><span class="p">,</span><span class="w"> </span><span class="n">alignment</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="778100e9ece179f3a428711ad3635f24ea8fb64e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="778100e9ece179f3a428711ad3635f24ea8fb64e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n">polymorphic_allocator</span><span class="o">&lt;&gt;</span> <span class="n">alloc</span><span class="p">{};</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n">polymorphic_allocator</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{};</span>
 
-  <span class="c1">//int型10個分の領域をデフォルトアライメントで確保</span>
-  <span class="kt">void</span><span class="o">*</span> <span class="n">vp</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate_bytes.html">allocate_bytes</a></span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">N</span><span class="p">,</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">//int型10個分の領域をデフォルトアライメントで確保</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate_bytes.html">allocate_bytes</a></span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 
-  <span class="c1">//確保したメモリ領域へのポインタを所望の型のものにキャスト</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">vp</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//確保したメモリ領域へのポインタを所望の型のものにキャスト</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">vp</span><span class="p">);</span>
 
-  <span class="c1">//確保したメモリ領域にintのオブジェクトを構築（コンストラクタ呼び出し）</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="construct.html">construct</a></span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-  <span class="p">}</span>
-
-
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"address : "</span> <span class="o">&lt;&lt;</span> <span class="n">vp</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//確保したメモリ領域にintのオブジェクトを構築（コンストラクタ呼び出し）</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">alloc</span><span class="p">.</span><span class="n"><a href="construct.html">construct</a></span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
 
-  <span class="c1">//領域上のオブジェクトを破棄（デストラクタ呼び出し）</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="destroy.html">destroy</a></span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"address : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">vp</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">//確保したメモリ領域を解放</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">deallocate_bytes</span></span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">N</span><span class="p">,</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+
+<span class="w">  </span><span class="c1">//領域上のオブジェクトを破棄（デストラクタ呼び出し）</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">alloc</span><span class="p">.</span><span class="n"><a href="destroy.html">destroy</a></span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">//確保したメモリ領域を解放</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">deallocate_bytes</span></span><span class="p">(</span><span class="n">vp</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -331,7 +331,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

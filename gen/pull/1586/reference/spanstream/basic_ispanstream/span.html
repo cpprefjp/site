@@ -225,12 +225,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;spanstream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_ispanstream">basic_ispanstream::</span><span class="token">span</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../span/span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">charT</span><span class="o">&gt;</span> <span class="n">span</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../span/span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">span</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)</span>
 
-<span class="kt">void</span> <span class="nf">span</span><span class="p">(</span><span class="n"><a href="../../span/span.html">std::span</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>       <span class="c1">// (2)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">span</span><span class="p">(</span><span class="n"><a href="../../span/span.html">std::span</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">       </span><span class="c1">// (2)</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">ROS</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">span</span><span class="p">(</span><span class="n">ROS</span><span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                  <span class="c1">// (3)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ROS</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">span</span><span class="p">(</span><span class="n">ROS</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                  </span><span class="c1">// (3)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -251,41 +251,41 @@
 <li>(3) : <code>std::span&lt;const charT&gt;(std::forward&lt;ROS&gt;(s))</code> を <code>sp</code> とした時、<code>this-&gt;span(std::span&lt;charT&gt;(const_cast&lt;charT*&gt;(sp.data()), sp.size()))</code> と同等</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="c971eecd2b44f3059616736cd2d98f449569352a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../span.html">&lt;span&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../spanstream.html">&lt;spanstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c971eecd2b44f3059616736cd2d98f449569352a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../array.html">&lt;array&gt;</a></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../span.html">&lt;span&gt;</a></span>
+<span class="cp">#include <a href="../../spanstream.html">&lt;spanstream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">char</span> <span class="n">buf1</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="s">"default"</span><span class="p">;</span>
-  <span class="n"><a href="../../span/span.html">std::span&lt;char&gt;</a></span> <span class="n">span1</span><span class="p">{</span><span class="n">buf1</span><span class="p">};</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ispanstream</span> <span class="n">iss</span><span class="p">{</span><span class="n">span1</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf1</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"default"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../span/span.html">std::span&lt;char&gt;</a></span><span class="w"> </span><span class="n">span1</span><span class="p">{</span><span class="n">buf1</span><span class="p">};</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ispanstream</span><span class="w"> </span><span class="n">iss</span><span class="p">{</span><span class="n">span1</span><span class="p">};</span>
 
-  <span class="c1">// (1)</span>
-  <span class="n"><a href="../../span/span.html">std::span&lt;const char&gt;</a></span> <span class="n">read</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">iss.span();</span></span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="n"><a href="../../span/span.html">std::span&lt;const char&gt;</a></span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">iss.span();</span></span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(1)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">read</span><span class="p">.</span><span class="n"><a href="../../span/span/data.html">data()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(1)"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">read</span><span class="p">.</span><span class="n"><a href="../../span/span/data.html">data()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="kt">char</span> <span class="n">buf2</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="s">"overwritten"</span><span class="p">;</span>
-  <span class="n"><a href="../../span/span.html">std::span&lt;char&gt;</a></span> <span class="n">span2</span><span class="p">{</span><span class="n">buf2</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf2</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"overwritten"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../span/span.html">std::span&lt;char&gt;</a></span><span class="w"> </span><span class="n">span2</span><span class="p">{</span><span class="n">buf2</span><span class="p">};</span>
 
-  <span class="c1">// (2)</span>
-  <span class="n"><span style="color:#ff0000">iss.span(span2);</span></span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">iss.span(span2);</span></span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(2)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">iss</span><span class="p">.</span><span class="n">span</span><span class="p">().</span><span class="n"><a href="../../span/span/data.html">data()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(2)"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">iss</span><span class="p">.</span><span class="n">span</span><span class="p">().</span><span class="n"><a href="../../span/span/data.html">data()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="n">buf3</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'l'</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">,</span> <span class="sc">'s'</span><span class="p">,</span> <span class="sc">'t'</span><span class="p">,</span> <span class="sc">'\0'</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buf3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="sc">'s'</span><span class="p">,</span><span class="w"> </span><span class="sc">'t'</span><span class="p">,</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">};</span>
 
-  <span class="c1">// (3)</span>
-  <span class="n"><span style="color:#ff0000">iss.span(buf3);</span></span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">iss.span(buf3);</span></span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(3)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">iss</span><span class="p">.</span><span class="n">span</span><span class="p">().</span><span class="n"><a href="../../span/span/data.html">data()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(3)"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">iss</span><span class="p">.</span><span class="n">span</span><span class="p">().</span><span class="n"><a href="../../span/span/data.html">data()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -331,7 +331,7 @@ last
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

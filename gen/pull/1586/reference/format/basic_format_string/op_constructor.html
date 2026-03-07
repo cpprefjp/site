@@ -225,12 +225,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_format_string">basic_format_string::</span><span class="token">コンストラクタ</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">consteval</span>
-<span class="n">basic_format_string</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">);</span> <span class="c1">// (1) C++23</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">consteval</span>
+<span class="n">basic_format_string</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++23</span>
 
 <span class="k">constexpr</span>
-<span class="nf">basic_format_string</span><span class="p">(</span><span class="n"><a href="../runtime-format-string.html">runtime-format-string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
+<span class="n">basic_format_string</span><span class="p">(</span><span class="n"><a href="../runtime-format-string.html">runtime-format-string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -251,8 +251,8 @@
 <li>意味 : 書式文字列が引数列<code>args</code>と合わせて正しくなければ、定数式評価 (<code>consteval</code>) が実行できずコンパイルエラーとなる</li>
 <li>以下のようなコードはコンパイルエラーとなる：
 
-<div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">str</span> <span class="o">=</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span> <span class="s">"I am not a number"</span><span class="p">);</span> <span class="c1">// コンパイルエラー！型が合わない</span>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span><span class="w"> </span><span class="s">"I am not a number"</span><span class="p">);</span><span class="w"> </span><span class="c1">// コンパイルエラー！型が合わない</span>
 <span class="p">}</span>
 </code></pre></div>
 </li>
@@ -261,41 +261,41 @@
 </ul>
 <h2>実装例</h2>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 書式文字列のチェック</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="n">consteval</span> <span class="kt">void</span> <span class="n">fmt_checker</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">fmt_checker</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// …</span>
+<span class="w">  </span><span class="c1">// …</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="cm">/*カッコの開き・閉じが一致しない場合*/</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="s">"invalid brackets"</span><span class="p">;</span> <span class="c1">// throw式は定数式で実行できないため、</span>
-                              <span class="c1">// このパスを通ったらコンパイルエラーになる</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="cm">/*カッコの開き・閉じが一致しない場合*/</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="s">"invalid brackets"</span><span class="p">;</span><span class="w"> </span><span class="c1">// throw式は定数式で実行できないため、</span>
+<span class="w">                              </span><span class="c1">// このパスを通ったらコンパイルエラーになる</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// …</span>
+<span class="w">  </span><span class="c1">// …</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="cm">/*型が合わない時*/</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="s">"invalid type specifier"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="cm">/*型が合わない時*/</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="s">"invalid type specifier"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// …</span>
+<span class="w">  </span><span class="c1">// …</span>
 <span class="p">}</span>
 
-<span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">basic_format_string</span> <span class="p">{</span>
-    <span class="n"><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">basic_format_string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
 
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-      <span class="n">requires</span> <span class="n"><a href="../../concepts/convertible_to.html">std::convertible_to</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&gt;</span>
-    <span class="n">consteval</span> <span class="n">basic_format_string</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span>
-      <span class="o">:</span> <span class="n">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n">fmt_checker</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../concepts/convertible_to.html">std::convertible_to</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&gt;</span>
+<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="n">basic_format_string</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">fmt_checker</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">format_string</span> <span class="o">=</span> <span class="n">basic_format_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n"><a href="../../type_traits/type_identity.html">std::type_identity_t</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">format_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">basic_format_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../type_traits/type_identity.html">std::type_identity_t</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -333,7 +333,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

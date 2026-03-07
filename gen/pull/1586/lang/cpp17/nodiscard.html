@@ -229,16 +229,16 @@
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="07c009a4ec36662e28a66cf0059cb71502bed650"><div class="codehilite"><pre><span></span><code><span class="c1">//無視してはいけないデータ型</span>
-<span class="k">struct</span> <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="n">error_info</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">error_info</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="n">error_info</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">error_info</span><span class="p">{};</span> <span class="p">}</span>
+<span class="n">error_info</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">error_info</span><span class="p">{};</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">//関数の戻り値を必ず使用すること</span>
-<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">int</span> <span class="n">g</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">();</span> <span class="c1">//無視してはいけない型を無視したため、警告が発生するだろう</span>
-  <span class="n">g</span><span class="p">();</span> <span class="c1">//戻り値を無視したため、警告が発生するだろう</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">//無視してはいけない型を無視したため、警告が発生するだろう</span>
+<span class="w">  </span><span class="n">g</span><span class="p">();</span><span class="w"> </span><span class="c1">//戻り値を無視したため、警告が発生するだろう</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -286,7 +286,7 @@ nodiscard.cpp:11:3: warning: ignoring return value of function declared with 'no
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,11 +213,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;locale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">wstring_convert</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp17deprecated text-warning" title="C++17で非推奨">(C++17で非推奨)</span><span class="cpp cpp26removed text-danger" title="C++26で削除">(C++26で削除)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Codecvt</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Elem</span> <span class="o">=</span> <span class="kt">wchar_t</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Wide_alloc</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">Elem</span><span class="o">&gt;</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Byte_alloc</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">wstring_convert</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Codecvt</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Elem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">wchar_t</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Wide_alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">Elem</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Byte_alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">wstring_convert</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -343,23 +343,23 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="e44d0d02129c7cf6a98eb13dabc1466adc4ab61c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../codecvt.html">&lt;codecvt&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e44d0d02129c7cf6a98eb13dabc1466adc4ab61c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="../codecvt.html">&lt;codecvt&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">wstring_convert</span><span class="o">&lt;</span><span class="n"><a href="../codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">char32_t</span><span class="o">&gt;</span> <span class="n">converter</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">wstring_convert</span><span class="o">&lt;</span><span class="n"><a href="../codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">converter</span><span class="p">;</span>
 
-  <span class="c1">// UTF-8からUTF-32に変換</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">u8str</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
-  <span class="n"><a href="../string/basic_string.html">std::u32string</a></span> <span class="n">u32str</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n"><a href="wstring_convert/from_bytes.html">from_bytes</a></span><span class="p">(</span><span class="n">u8str</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// UTF-8からUTF-32に変換</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">u8str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::u32string</a></span><span class="w"> </span><span class="n">u32str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="n"><a href="wstring_convert/from_bytes.html">from_bytes</a></span><span class="p">(</span><span class="n">u8str</span><span class="p">);</span>
 
-  <span class="c1">// コードポイント数を取得</span>
-  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">codepoint_count</span> <span class="o">=</span> <span class="n">u32str</span><span class="p">.</span><span class="n"><a href="../string/basic_string/size.html">size()</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">codepoint_count</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// コードポイント数を取得</span>
+<span class="w">  </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">codepoint_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u32str</span><span class="p">.</span><span class="n"><a href="../string/basic_string/size.html">size()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">codepoint_count</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -401,7 +401,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

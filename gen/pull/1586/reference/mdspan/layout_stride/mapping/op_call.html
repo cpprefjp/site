@@ -237,8 +237,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;mdspan&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class layout_stride::mapping">layout_stride::mapping::</span><span class="token">operator()</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Indices</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">index_type</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Indices</span><span class="p">...</span> <span class="n">i</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Indices</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">index_type</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">Indices</span><span class="p">...</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -253,34 +253,34 @@
 <p>多次元インデクス値<code><a href="../../extents/index-cast.html">extents_type::index-cast(i)</a></code>は、多次元配列サイズ<code>extents_</code>における有効なインデクスであること。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>説明用のパラメータパック<code>P</code>において、<code><a href="../../../type_traits/is_same.html">is_same_v</a>&lt;<a href="../../../utility/index_sequence_for.html">index_sequence_for</a>&lt;Indices...&gt;, <a href="../../../utility/index_sequence.html">index_sequence</a>&lt;P...&gt;&gt;</code>が<code>true</code>となるとき、以下と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="p">((</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">index_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Indices</span><span class="p">...)</span> <span class="o">*</span> <span class="n"><a href="stride.html">stride</a></span><span class="p">(</span><span class="n">P</span><span class="p">))</span> <span class="o">+</span> <span class="p">...</span> <span class="o">+</span> <span class="mi">0</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="p">((</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">index_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Indices</span><span class="p">...)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n"><a href="stride.html">stride</a></span><span class="p">(</span><span class="n">P</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="72376ae37c87fba0c721fbdc9d600ad70ad4f240"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="72376ae37c87fba0c721fbdc9d600ad70ad4f240"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../../array.html">&lt;array&gt;</a></span>
+<span class="cp">#include <a href="../../../mdspan.html">&lt;mdspan&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="n">Ext3D</span> <span class="o">=</span> <span class="n"><a href="../../extents.html">std::dextents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">Mapping</span> <span class="o">=</span> <span class="n"><a href="../mapping.html">std::layout_stride::mapping</a></span><span class="o">&lt;</span><span class="n">Ext3D</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="n"><a href="../../../array/array.html">std::array</a></span> <span class="n">strides</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-  <span class="n">Mapping</span> <span class="n">map</span><span class="p">{</span><span class="n">Ext3D</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="n">strides</span><span class="p">};</span>
-  <span class="c1">// map(i,j,k):</span>
-  <span class="c1">// i=   0  |   1   |   2   |   3</span>
-  <span class="c1">//   ------+-------+-------+-------</span>
-  <span class="c1">// j/k -&gt;</span>
-  <span class="c1">// |  0  3 |  6  9 | 12 15 | 18 21</span>
-  <span class="c1">// V  1  4 |  7 10 | 13 16 | 19 22</span>
-  <span class="c1">//    2  5 |  8 11 | 14 17 | 20 23</span>
-  <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
-  <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Ext3D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../extents.html">std::dextents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../mapping.html">std::layout_stride::mapping</a></span><span class="o">&lt;</span><span class="n">Ext3D</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../../array/array.html">std::array</a></span><span class="w"> </span><span class="n">strides</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="n">Mapping</span><span class="w"> </span><span class="n">map</span><span class="p">{</span><span class="n">Ext3D</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="n">strides</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// map(i,j,k):</span>
+<span class="w">  </span><span class="c1">// i=   0  |   1   |   2   |   3</span>
+<span class="w">  </span><span class="c1">//   ------+-------+-------+-------</span>
+<span class="w">  </span><span class="c1">// j/k -&gt;</span>
+<span class="w">  </span><span class="c1">// |  0  3 |  6  9 | 12 15 | 18 21</span>
+<span class="w">  </span><span class="c1">// V  1  4 |  7 10 | 13 16 | 19 22</span>
+<span class="w">  </span><span class="c1">//    2  5 |  8 11 | 14 17 | 20 23</span>
+<span class="w">  </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">23</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -319,7 +319,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

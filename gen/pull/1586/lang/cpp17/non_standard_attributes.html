@@ -224,17 +224,17 @@
 <h2>仕様</h2>
 <p>C++標準が定義していない属性かつコンパイラにとって不明な属性は無視する。</p>
 <h2>例</h2>
-<p><div class="yata" id="98e01d0b5025f9603cddf509417ce6def6127284"><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">deprecated</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="c1">//C++標準に規定されている属性</span>
+<p><div class="yata" id="98e01d0b5025f9603cddf509417ce6def6127284"><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">deprecated</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="c1">//C++標準に規定されている属性</span>
 
-<span class="p">[[</span><span class="n">gnu</span><span class="o">::</span><span class="n">deprecated</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="c1">//C++標準に規定されていないが、コンパイラにとって既知の属性</span>
-  <span class="c1">//注意:ClangとGCCでは既知であるが、他のコンパイラでは未知の可能性がある</span>
+<span class="p">[[</span><span class="n">gnu</span><span class="o">::</span><span class="n">deprecated</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="c1">//C++標準に規定されていないが、コンパイラにとって既知の属性</span>
+<span class="w">  </span><span class="c1">//注意:ClangとGCCでは既知であるが、他のコンパイラでは未知の可能性がある</span>
 
-<span class="p">[[</span><span class="n">UNKNOWN</span><span class="o">::</span><span class="n">unknown_attribute</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">h</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="c1">//C++標準に規定されておらず、コンパイラにとって未知の属性</span>
+<span class="p">[[</span><span class="n">UNKNOWN</span><span class="o">::</span><span class="n">unknown_attribute</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">h</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="c1">//C++標準に規定されておらず、コンパイラにとって未知の属性</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
@@ -273,7 +273,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

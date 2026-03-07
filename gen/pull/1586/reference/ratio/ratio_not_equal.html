@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;ratio&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">ratio_not_equal</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">R2</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">ratio_not_equal</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">R2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">ratio_not_equal</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">R2</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">ratio_not_equal_v</span>
-    <span class="o">=</span> <span class="n">ratio_not_equal</span><span class="o">&lt;</span><span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>     <span class="c1">// C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">R2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ratio_not_equal_v</span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">ratio_not_equal</span><span class="o">&lt;</span><span class="n">R1</span><span class="p">,</span><span class="w"> </span><span class="n">R2</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w">     </span><span class="c1">// C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -228,14 +228,14 @@
 <h2>効果</h2>
 <p><code>ratio_not_equal</code>は、<code><a href="ratio_equal.html">ratio_equal</a>&lt;R1, R2&gt;::value == false</code>であれば<code><a href="../type_traits/true_type.html">true_type</a></code>から派生し、そうでなければ<code><a href="../type_traits/false_type.html">false_type</a></code>から派生する。</p>
 <h2>例</h2>
-<p><div class="yata" id="92022a09781a56a9eee7c0214e6556b3d80925a2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ratio.html">&lt;ratio&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="92022a09781a56a9eee7c0214e6556b3d80925a2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ratio.html">&lt;ratio&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><a href="ratio.html">std::ratio</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">r2</span> <span class="o">=</span> <span class="n"><a href="ratio.html">std::ratio</a></span><span class="o">&lt;</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="ratio.html">std::ratio</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="ratio.html">std::ratio</a></span><span class="o">&lt;</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">&gt;</span><span class="p">;</span>
 
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::ratio_not_equal</span></span><span class="o">&lt;</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"r1 != r2"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::ratio_not_equal</span></span><span class="o">&lt;</span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r2</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"r1 != r2"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -273,7 +273,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

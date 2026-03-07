@@ -225,14 +225,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;memory_resource&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::pmr">std::pmr::</span><span class="class" title="class polymorphic_allocator">polymorphic_allocator::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">polymorphic_allocator</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">//(1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">polymorphic_allocator</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">           </span><span class="c1">//(1)</span>
 
-<span class="n">polymorphic_allocator</span><span class="p">(</span><span class="n">memory_resource</span><span class="o">*</span> <span class="n">r</span><span class="p">);</span>  <span class="c1">//(2)</span>
+<span class="n">polymorphic_allocator</span><span class="p">(</span><span class="n">memory_resource</span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">  </span><span class="c1">//(2)</span>
 
-<span class="n">polymorphic_allocator</span><span class="p">(</span><span class="k">const</span> <span class="n">polymorphic_allocator</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>    <span class="c1">//(3)</span>
+<span class="n">polymorphic_allocator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">polymorphic_allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">    </span><span class="c1">//(3)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="n">polymorphic_allocator</span><span class="p">(</span><span class="k">const</span> <span class="n">polymorphic_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">//(4)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">polymorphic_allocator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">polymorphic_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">//(4)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -264,31 +264,31 @@
 <h2>備考</h2>
 <p>どのコンストラクタからの初期化においても、取得する<code>memory_resource</code>の所有権を保持しない。</p>
 <h2>例</h2>
-<p><div class="yata" id="ee9a0fa793bb0e2507a68b2f9180492a5fd912da"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ee9a0fa793bb0e2507a68b2f9180492a5fd912da"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">//(1) デフォルト構築</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{};</span>
-  <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//(1) デフォルト構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//(2) memory_resourceを受けて構築</span>
-  <span class="p">{</span>
-    <span class="k">auto</span><span class="o">*</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><a href="../null_memory_resource.html">null_memory_resource</a></span><span class="p">();</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{</span><span class="n">rs</span><span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(2) memory_resourceを受けて構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><a href="../null_memory_resource.html">null_memory_resource</a></span><span class="p">();</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{</span><span class="n">rs</span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//(3) 同じ型の<span style="color:#ff0000">polymorphic_allocator</span>からコピー構築</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc1</span><span class="p">{};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{</span><span class="n">alloc1</span><span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(3) 同じ型の<span style="color:#ff0000">polymorphic_allocator</span>からコピー構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc1</span><span class="p">{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{</span><span class="n">alloc1</span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//(4) 変換可能な型の<span style="color:#ff0000">polymorphic_allocator</span>からコピー構築</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">short</span><span class="o">&gt;</span> <span class="n">alloc1</span><span class="p">{};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{</span><span class="n">alloc1</span><span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(4) 変換可能な型の<span style="color:#ff0000">polymorphic_allocator</span>からコピー構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">short</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc1</span><span class="p">{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">polymorphic_allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{</span><span class="n">alloc1</span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -328,7 +328,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

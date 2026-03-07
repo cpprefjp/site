@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_common_reference</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TQual</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">UQual</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">basic_common_reference</span> <span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TQual</span><span class="p">,</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UQual</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">basic_common_reference</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -242,36 +242,36 @@
 <p>上記のいずれかの規則に違反した特殊化を定義したとしてもコンパイルエラーにはならず、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
 <p>なお、<code>common_type, basic_common_reference</code>以外の<code><a href="../type_traits.html">&lt;type_traits&gt;</a></code>内テンプレートに対する<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の特殊化は許可されていない。</p>
 <h2>例</h2>
-<p><div class="yata" id="389408dd37836fb35a0c2854ed4dde6a5329f021"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="389408dd37836fb35a0c2854ed4dde6a5329f021"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../concepts.html">&lt;concepts&gt;</a></span>
 
 <span class="c1">//共通の参照型を作るための基底型</span>
-<span class="k">struct</span> <span class="n">B</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="c1">//std::common_referenceにアダプトしたい2つの型</span>
-<span class="k">struct</span> <span class="nl">T</span> <span class="p">:</span> <span class="n">B</span> <span class="p">{};</span>
-<span class="k">struct</span> <span class="nl">U</span> <span class="p">:</span> <span class="n">B</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="c1">//std::common_referenceおよびstd::<a href="../concepts/common_reference_with.html">common_reference_with</a>にアダプトする</span>
-<span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TQual</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">UQual</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n"><span style="color:#ff0000">basic_common_reference</span></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">TQual</span><span class="p">,</span> <span class="n">UQual</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">B</span><span class="o">&amp;</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TQual</span><span class="p">,</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UQual</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><span style="color:#ff0000">basic_common_reference</span></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">TQual</span><span class="p">,</span><span class="w"> </span><span class="n">UQual</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="o">&amp;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">//対称性のために引数順を逆にしたものも定義する</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TQual</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">UQual</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n"><span style="color:#ff0000">basic_common_reference</span></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">TQual</span><span class="p">,</span> <span class="n">UQual</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">B</span><span class="o">&amp;</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">//対称性のために引数順を逆にしたものも定義する</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TQual</span><span class="p">,</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UQual</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><span style="color:#ff0000">basic_common_reference</span></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">TQual</span><span class="p">,</span><span class="w"> </span><span class="n">UQual</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="o">&amp;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><a href="common_reference.html">std::common_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">B</span><span class="o">&amp;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><a href="common_reference.html">std::common_reference_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">B</span><span class="o">&amp;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><a href="common_reference.html">std::common_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="o">&amp;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><a href="common_reference.html">std::common_reference_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="o">&amp;&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -318,7 +318,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

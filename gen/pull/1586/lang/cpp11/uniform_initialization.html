@@ -219,59 +219,59 @@
 <p></p>
 <h2>概要</h2>
 <p>「一様初期化 (uniform initialization)」は、コンストラクタの呼び出しを、リスト初期化と合わせて波カッコ <code>{ }</code>で記述する構文である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 従来のコンストラクタ呼び出し</span>
-  <span class="n">X</span> <span class="n">x1</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-  <span class="n">X</span> <span class="n">x2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 従来のコンストラクタ呼び出し</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x1</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-  <span class="c1">// 一様初期化構文によるコンストラクタ呼び出し</span>
-  <span class="n">X</span> <span class="n">x3</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-  <span class="n">X</span> <span class="n">x4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// 一様初期化構文によるコンストラクタ呼び出し</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x3</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>この機能によって、まず<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が確定している文脈において、コンストラクタの引数を波カッコ内に列挙したものを<code>return</code>文で返せるようになる。その際、<code>return</code>文にはコンストラクタ呼び出しのために、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を記述する必要はない：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="n">X</span> <span class="nf">createX</span><span class="p">()</span>
+<span class="n">X</span><span class="w"> </span><span class="nf">createX</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">};</span> <span class="c1">// OK</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">};</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>これは、関数に引数を渡す場合も同様である。</p>
 <p>また、丸カッコによる初期化は、状況によって意図せず関数宣言構文とみなされてしまうことがあるが、波カッコによる初期化を行うことで、意図通りに解釈される：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">();</span>  <span class="c1">// x は引数を持たず X を返す関数の宣言！（おそらく意図と異なる）</span>
-  <span class="n">X</span> <span class="n">y</span><span class="p">{};</span>  <span class="c1">// y はデフォルトコンストラクタで初期化した X 型の変数</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">();</span><span class="w">  </span><span class="c1">// x は引数を持たず X を返す関数の宣言！（おそらく意図と異なる）</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">y</span><span class="p">{};</span><span class="w">  </span><span class="c1">// y はデフォルトコンストラクタで初期化した X 型の変数</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p><div class="yata" id="76190b4afdaa371810169b63ba9e39f19e691b1e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="76190b4afdaa371810169b63ba9e39f19e691b1e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iterator.html">&lt;iterator&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// コンパイルエラー！関数宣言構文とみなされるが、パラメータ名（<a href="../../reference/iostream/cin.html">std::cin</a>）が名前空間修飾付きのため、エラー</span>
+<span class="w">  </span><span class="c1">// コンパイルエラー！関数宣言構文とみなされるが、パラメータ名（<a href="../../reference/iostream/cin.html">std::cin</a>）が名前空間修飾付きのため、エラー</span>
 <span class="c1">//<a href="../../reference/vector/vector.html">std::vector</a>&lt;char&gt; vec(<a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a>&lt;char&gt;(<a href="../../reference/iostream/cin.html">std::cin</a>),</span>
 <span class="c1">//                      <a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a>&lt;char&gt;());</span>
 
-  <span class="c1">// vec は引数 2 つのコンストラクタで初期化された <a href="../../reference/vector/vector.html">std::vector</a>&lt;char&gt; 型の変数</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">{</span><span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../reference/iostream/cin.html">std::cin</a></span><span class="p">),</span>
-                        <span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">()};</span>
+<span class="w">  </span><span class="c1">// vec は引数 2 つのコンストラクタで初期化された <a href="../../reference/vector/vector.html">std::vector</a>&lt;char&gt; 型の変数</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">{</span><span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../reference/iostream/cin.html">std::cin</a></span><span class="p">),</span>
+<span class="w">                        </span><span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">()};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -280,40 +280,40 @@
 <li>波カッコによる初期化子リストを<code>auto</code>で受けた場合、そのオブジェクトは<code><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>型に推論される</li>
 <li>
 <p>関数テンプレートのパラメータとして波カッコの初期化子リストを渡して型推論させることはできない。波カッコの初期化子リストを受ける側で構築する型が確定しないためである</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="p">{}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">});</span> <span class="c1">// コンパイルエラー！Tの型を推論できない</span>
+<span class="w">  </span><span class="n">f</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">});</span><span class="w"> </span><span class="c1">// コンパイルエラー！Tの型を推論できない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>関数のパラメータ型が確定している場合、波カッコによる初期化子リストを渡せる</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">)</span> <span class="p">{}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">});</span> <span class="c1">// OK</span>
+<span class="w">  </span><span class="n">f</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">});</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が確定している場合、波カッコによる初期化子リストを<code>return</code>文で返せる。確定していない場合は返せない</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">)</span> <span class="p">{}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[]()</span> <span class="o">-&gt;</span> <span class="n">X</span> <span class="p">{</span> <span class="k">return</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">};</span> <span class="p">};</span> <span class="c1">// OK</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">};</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="c1">//auto g = []() { return {3, 'a'}; };      // コンパイルエラー！戻り値の型を推論できない</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -321,40 +321,40 @@
 </li>
 <li>
 <p><code><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>型を受け取るコンストラクタとデフォルトコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される</p>
-<p><div class="yata" id="07427854853f1f23d01a05488e7f3af6a17ce473"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/initializer_list.html">&lt;initializer_list&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="07427854853f1f23d01a05488e7f3af6a17ce473"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/initializer_list.html">&lt;initializer_list&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"default constructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"default constructor"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n">X</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"initializer-list constructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"initializer-list constructor"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 「default constructor」が出力される</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// 「default constructor」が出力される</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 </li>
 <li>
 <p><code><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>型を受け取るコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、<code><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>型を受け取るコンストラクタが優先して呼び出される。そのような状況で非<code><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>のコンストラクタを呼び出す場合は、丸カッコでのコンストラクタ呼び出しが必要となる</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">double</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n">X</span> <span class="n">x1</span> <span class="o">=</span> <span class="p">{</span><span class="mf">3.0</span><span class="p">};</span> <span class="c1">// 「1」が出力される</span>
+<span class="n">X</span><span class="w"> </span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">3.0</span><span class="p">};</span><span class="w"> </span><span class="c1">// 「1」が出力される</span>
 </code></pre></div>
 </p>
 </li>
@@ -363,34 +363,34 @@
 <ul>
 <li>
 <p>波カッコによるコンストラクタ呼び出しで渡す引数は、先頭から順番に評価されることが保証される</p>
-<p><div class="yata" id="0356d2baff8a7c50a4152a9a3e3c7bc6cf613756"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0356d2baff8a7c50a4152a9a3e3c7bc6cf613756"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">g</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">h</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">h</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">3</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x1</span> <span class="p">{</span> <span class="n">f</span><span class="p">(),</span> <span class="n">g</span><span class="p">(),</span> <span class="n">h</span><span class="p">()</span> <span class="p">};</span> <span class="c1">// 1, 2, 3の順で出力される</span>
-  <span class="n">X</span> <span class="n">x2</span><span class="p">(</span><span class="n">f</span><span class="p">(),</span> <span class="n">g</span><span class="p">(),</span> <span class="n">h</span><span class="p">());</span>    <span class="c1">// 1, 2, 3が順不同で出力される</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x1</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">f</span><span class="p">(),</span><span class="w"> </span><span class="n">g</span><span class="p">(),</span><span class="w"> </span><span class="n">h</span><span class="p">()</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// 1, 2, 3の順で出力される</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x2</span><span class="p">(</span><span class="n">f</span><span class="p">(),</span><span class="w"> </span><span class="n">g</span><span class="p">(),</span><span class="w"> </span><span class="n">h</span><span class="p">());</span><span class="w">    </span><span class="c1">// 1, 2, 3が順不同で出力される</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -426,7 +426,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

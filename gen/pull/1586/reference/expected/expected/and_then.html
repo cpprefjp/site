@@ -225,10 +225,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;expected&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class expected">expected::</span><span class="token">and_then</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">and_then</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">;</span>        <span class="c1">// (1)</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">and_then</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">;</span>  <span class="c1">// (2)</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">and_then</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="o">&amp;&amp;</span><span class="p">;</span>       <span class="c1">// (3)</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">and_then</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="k">const</span> <span class="o">&amp;&amp;</span><span class="p">;</span> <span class="c1">// (4)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">and_then</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="p">;</span><span class="w">        </span><span class="c1">// (1)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">and_then</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="p">;</span><span class="w">  </span><span class="c1">// (2)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">and_then</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">;</span><span class="w">       </span><span class="c1">// (3)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">and_then</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -236,10 +236,10 @@
 エラー値を保持していれば、そのまま返す。</p>
 <p>実際には複数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が提供されるが、大まかには下記シグニチャのようにみなせる。
 <code>and_then</code>へは、引数リストに1個の<code>T</code>型をとり<code>std::expected&lt;Return, E&gt;</code>型を返す関数や関数オブジェクトを与える。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">E</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">expected</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Return</span><span class="o">&gt;</span>
-  <span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="p">,</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">and_then</span><span class="p">(</span><span class="n"><a href="../../functional/function.html">function</a></span><span class="o">&lt;</span><span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="p">,</span> <span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">func</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">expected</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Return</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">and_then</span><span class="p">(</span><span class="n"><a href="../../functional/function.html">function</a></span><span class="o">&lt;</span><span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">func</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -266,20 +266,20 @@
 <li>
 <p>(1), (2) : 次の処理と等価
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n"><a href="has_value.html">has_value</a></span><span class="p">())</span>
-  <span class="k">return</span> <span class="n"><a href="../../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n"><a href="value.html">value()</a></span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="has_value.html">has_value</a></span><span class="p">())</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="value.html">value()</a></span><span class="p">);</span>
 <span class="k">else</span>
-  <span class="k">return</span> <span class="nf">U</span><span class="p">(</span><span class="n"><a href="../unexpect_t.html">unexpect</a></span><span class="p">,</span> <span class="n"><a href="error.html">error()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">U</span><span class="p">(</span><span class="n"><a href="../unexpect_t.html">unexpect</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="error.html">error()</a></span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(3), (4) : 次の処理と等価
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n"><a href="has_value.html">has_value</a></span><span class="p">())</span>
-  <span class="k">return</span> <span class="n"><a href="../../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="value.html">value()</a></span><span class="p">));</span>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="has_value.html">has_value</a></span><span class="p">())</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="value.html">value()</a></span><span class="p">));</span>
 <span class="k">else</span>
-  <span class="k">return</span> <span class="nf">U</span><span class="p">(</span><span class="n"><a href="../unexpect_t.html">unexpect</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="error.html">error()</a></span><span class="p">));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">U</span><span class="p">(</span><span class="n"><a href="../unexpect_t.html">unexpect</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="error.html">error()</a></span><span class="p">));</span>
 </code></pre></div>
 </p>
 </li>
@@ -287,30 +287,30 @@
 <h2>備考</h2>
 <p><code>and_then</code>は、メソッドチェーンをサポートするモナド風(monadic)操作として導入された。</p>
 <h2>例</h2>
-<p><div class="yata" id="d9e07f949837af24699810048e950316ecf0069e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../expected.html">&lt;expected&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d9e07f949837af24699810048e950316ecf0069e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../expected.html">&lt;expected&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
 <span class="c1">// 正数なら2倍／それ以外はエラー値を返す関数</span>
-<span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">twice</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">twice</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><a href="../unexpected.html">std::unexpected</a></span><span class="p">{</span><span class="s">"out of domain"</span><span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../unexpected.html">std::unexpected</a></span><span class="p">{</span><span class="s">"out of domain"</span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">and_then</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">and_then</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 
-  <span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">v2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">and_then</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="error.html">error()</a></span> <span class="o">==</span> <span class="s">"out of domain"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">v2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">and_then</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="error.html">error()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"out of domain"</span><span class="p">);</span>
 
-  <span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">e1</span> <span class="o">=</span> <span class="n"><a href="../unexpected.html">std::unexpected</a></span><span class="p">{</span><span class="s">"NaN"</span><span class="p">};</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">and_then</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="error.html">error()</a></span> <span class="o">==</span> <span class="s">"NaN"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../unexpected.html">std::unexpected</a></span><span class="p">{</span><span class="s">"NaN"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">and_then</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="error.html">error()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"NaN"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -355,7 +355,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

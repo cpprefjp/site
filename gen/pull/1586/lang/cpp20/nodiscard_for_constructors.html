@@ -230,24 +230,24 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="da9eaa4c867899f86a7a57a4dd9106a8d106483c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="da9eaa4c867899f86a7a57a4dd9106a8d106483c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/fstream.html">&lt;fstream&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">File</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file_</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">File</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="w"> </span><span class="n">file_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// リソース確保しないコンストラクタ</span>
-  <span class="n">File</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// リソース確保しないコンストラクタ</span>
+<span class="w">  </span><span class="n">File</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="c1">// リソース確保するコンストラクタ</span>
-  <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
-  <span class="k">explicit</span> <span class="n">File</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">filename</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">file_</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// リソース確保するコンストラクタ</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">file_</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">File</span><span class="p">{};</span>        <span class="c1">// 警告なし</span>
-  <span class="n">File</span><span class="p">{</span><span class="s">"a.txt"</span><span class="p">};</span> <span class="c1">// 警告 : File::File(const <a href="../../reference/string/basic_string.html">std::string</a>&amp;)コンストラクタの戻り値が無視されている</span>
-  <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span><span class="n">File</span><span class="p">{</span><span class="s">"a.txt"</span><span class="p">});</span> <span class="c1">// 警告なし</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">File</span><span class="p">{};</span><span class="w">        </span><span class="c1">// 警告なし</span>
+<span class="w">  </span><span class="n">File</span><span class="p">{</span><span class="s">"a.txt"</span><span class="p">};</span><span class="w"> </span><span class="c1">// 警告 : File::File(const <a href="../../reference/string/basic_string.html">std::string</a>&amp;)コンストラクタの戻り値が無視されている</span>
+<span class="w">  </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span><span class="n">File</span><span class="p">{</span><span class="s">"a.txt"</span><span class="p">});</span><span class="w"> </span><span class="c1">// 警告なし</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -286,7 +286,7 @@ prog.cc:11:12: note: declared here
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

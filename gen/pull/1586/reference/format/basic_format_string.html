@@ -213,15 +213,15 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_format_string</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">basic_format_string</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">basic_format_string</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">format_string</span> <span class="o">=</span> <span class="n">basic_format_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n"><a href="../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">format_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">basic_format_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">wformat_string</span> <span class="o">=</span> <span class="n">basic_format_string</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n"><a href="../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">wformat_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">basic_format_string</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -229,8 +229,8 @@
 <p><code>basic_format_string</code>クラスは、コンパイル時の書式文字列を表すクラスである。</p>
 <p>C++20までは説明専用クラス<code>basic-format-string</code>として定義されていたが、C++23からはユーザーが利用できる正式な機能として定義される。</p>
 <p>このクラスは、書式文字列のコンパイル時チェックを行う。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">str</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span> <span class="s">"I am not a number"</span><span class="p">);</span> <span class="c1">// コンパイルエラー！</span>
-                                                     <span class="c1">// 書式文字列は「d」で整数を要求しているが、引数として文字列が渡された</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span><span class="w"> </span><span class="s">"I am not a number"</span><span class="p">);</span><span class="w"> </span><span class="c1">// コンパイルエラー！</span>
+<span class="w">                                                     </span><span class="c1">// 書式文字列は「d」で整数を要求しているが、引数として文字列が渡された</span>
 </code></pre></div>
 </p>
 <p>このクラスのコンストラクタは、パラメータの書式文字列と、クラステンプレートパラメータの<code>Args...</code>を照合し、</p>
@@ -241,11 +241,11 @@
 </ul>
 <p>などをチェックする。</p>
 <p>C++23で説明専用クラスでなく正式な機能として定義されたことにより、以下のように書式化を含むロギングなどをユーザーが定義できるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">log</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format_string</span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">logging_enabled</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">log_raw</span><span class="p">(</span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format_string</span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">logging_enabled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">log_raw</span><span class="p">(</span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -272,30 +272,30 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="5f81c50cb060b8a4edf897a184c3ff3f6c31f56c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5f81c50cb060b8a4edf897a184c3ff3f6c31f56c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../format.html">&lt;format&gt;</a></span>
+<span class="cp">#include <a href="../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span> <span class="kt">bool</span> <span class="n">logging_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">logging_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 
 <span class="c1">// 現在時刻付きで、文字列フォーマットしてログ出力する</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">log</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::format_string</span></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">logging_enabled</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::format_string</span></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">logging_enabled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
-  <span class="k">auto</span> <span class="n"><a href="../chrono/system_clock/now.html">now</a></span> <span class="o">=</span> <span class="n"><a href="../chrono/time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../chrono/system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="p">());</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{}: {}"</span><span class="p">,</span>
-    <span class="n"><a href="../chrono/zoned_time.html">chrono::zoned_time</a></span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="p">},</span>
-    <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...)</span>
-  <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../chrono/time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../chrono/system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{}: {}"</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../chrono/zoned_time.html">chrono::zoned_time</a></span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="p">},</span>
+<span class="w">    </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...)</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">log</span><span class="p">(</span><span class="s">"Hello {} World"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<span class="w">  </span><span class="n">log</span><span class="p">(</span><span class="s">"Hello {} World"</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -334,7 +334,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

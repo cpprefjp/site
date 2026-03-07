@@ -225,18 +225,18 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;regex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class regex_error">regex_error::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">explicit</span> <span class="nf">regex_error</span><span class="p">(</span><span class="n"><a href="../regex_constants/error_type.html">regex_constants::error_type</a></span> <span class="n">ecode</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">explicit</span><span class="w"> </span><span class="n">regex_error</span><span class="p">(</span><span class="n"><a href="../regex_constants/error_type.html">regex_constants::error_type</a></span><span class="w"> </span><span class="n">ecode</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>エラーコードを受け取ってオブジェクトを構築する。</p>
 <h2>例</h2>
-<p><div class="yata" id="9e80d0061c2600d5239e42fe9a24f72461531fc7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9e80d0061c2600d5239e42fe9a24f72461531fc7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../regex.html">&lt;regex&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 開き丸カッコに対応した閉じ丸カッコがない、というエラーコードの例外を送出</span>
-  <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">regex_error</span><span class="p">(</span><span class="n"><a href="../regex_constants/error_type.html">std::regex_constants::error_paren</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 開き丸カッコに対応した閉じ丸カッコがない、というエラーコードの例外を送出</span>
+<span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">regex_error</span><span class="p">(</span><span class="n"><a href="../regex_constants/error_type.html">std::regex_constants::error_paren</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -272,7 +272,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

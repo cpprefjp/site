@@ -221,36 +221,36 @@
 <p>従来<code>for</code>文しか使用できなかった初期化を<code>if</code>文と<code>switch</code>文でも使えるようになった。</p>
 <p><code>for</code>文は下記のように初期化と条件式を同時に書くことができる。
 初期化で宣言した変数は<code>for</code>文のスコープのみで有効であり<code>for</code>文の外では参照できない特徴がある。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//i はこのスコープ内で有効</span>
-  <span class="err">…</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//i はこのスコープ内で有効</span>
+<span class="w">  </span><span class="err">…</span>
 <span class="p">}</span>
 <span class="c1">//この時点で i は無効</span>
 </code></pre></div>
 </p>
 <p>C++17では<code>if</code>文と<code>switch</code>文においても、<code>for</code>文との一貫性を持った初期化を記述できるようになった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">status_code</span> <span class="n">c</span> <span class="o">=</span> <span class="n">bar</span><span class="p">();</span> <span class="n">c</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//ステータスコード c が成功ではなかったら、何かして、処理を終了する</span>
-  <span class="err">…</span>
-  <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="c1">//ステータスコード c が成功だったら、何かして、処理を続行する</span>
-  <span class="err">…</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status_code</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar</span><span class="p">();</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//ステータスコード c が成功ではなかったら、何かして、処理を終了する</span>
+<span class="w">  </span><span class="err">…</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//ステータスコード c が成功だったら、何かして、処理を続行する</span>
+<span class="w">  </span><span class="err">…</span>
 <span class="p">}</span>
 <span class="c1">//この時点で c は無効</span>
 
-<span class="k">switch</span> <span class="p">(</span><span class="n">Foo</span> <span class="n">gadget</span><span class="p">{</span><span class="n">args</span><span class="p">};</span> <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n">gadget</span><span class="p">.</span><span class="n">status</span><span class="p">())</span> <span class="p">{</span>
-<span class="k">case</span> <span class="nl">OK</span><span class="p">:</span>
-  <span class="c1">//正常</span>
-  <span class="n">gadget</span><span class="p">.</span><span class="n">zip</span><span class="p">();</span>
-  <span class="k">break</span><span class="p">;</span>
-<span class="k">case</span> <span class="nl">Warn</span><span class="p">:</span>
-  <span class="c1">//異常だが、続行</span>
-  <span class="n">gadget</span><span class="p">.</span><span class="n">log</span><span class="p">();</span>
-  <span class="k">break</span><span class="p">;</span>
-<span class="k">case</span> <span class="nl">Bad</span><span class="p">:</span>
-  <span class="c1">//異常なので、中断</span>
-  <span class="k">throw</span> <span class="n">BadFoo</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">message</span><span class="p">());</span>
+<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">Foo</span><span class="w"> </span><span class="n">gadget</span><span class="p">{</span><span class="n">args</span><span class="p">};</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gadget</span><span class="p">.</span><span class="n">status</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="k">case</span><span class="w"> </span><span class="no">OK</span><span class="p">:</span>
+<span class="w">  </span><span class="c1">//正常</span>
+<span class="w">  </span><span class="n">gadget</span><span class="p">.</span><span class="n">zip</span><span class="p">();</span>
+<span class="w">  </span><span class="k">break</span><span class="p">;</span>
+<span class="k">case</span><span class="w"> </span><span class="no">Warn</span><span class="p">:</span>
+<span class="w">  </span><span class="c1">//異常だが、続行</span>
+<span class="w">  </span><span class="n">gadget</span><span class="p">.</span><span class="n">log</span><span class="p">();</span>
+<span class="w">  </span><span class="k">break</span><span class="p">;</span>
+<span class="k">case</span><span class="w"> </span><span class="no">Bad</span><span class="p">:</span>
+<span class="w">  </span><span class="c1">//異常なので、中断</span>
+<span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="n">BadFoo</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">message</span><span class="p">());</span>
 <span class="p">}</span>
 <span class="c1">//この時点で gadget, s は無効</span>
 </code></pre></div>
@@ -270,51 +270,51 @@ selection statement:
 <p>この機能と、等しい意味を持つ従来記法は下記の通りである。</p>
 <p>初期化付き<code>if</code>文。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">//新しい</span>
-<span class="k">if</span> <span class="p">(</span> <span class="n">init</span><span class="o">-</span><span class="n">statement</span> <span class="n">condition</span> <span class="p">)</span> <span class="n">statement</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">init</span><span class="o">-</span><span class="n">statement</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">statement</span>
 
 <span class="c1">//従来</span>
 <span class="p">{</span>
-  <span class="n">init</span><span class="o">-</span><span class="n">statement</span>
-  <span class="k">if</span> <span class="p">(</span> <span class="n">condition</span> <span class="p">)</span> <span class="n">statement</span>
+<span class="w">  </span><span class="n">init</span><span class="o">-</span><span class="n">statement</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">statement</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>初期化付き<code>if-else</code>文。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">//新しい</span>
-<span class="k">if</span> <span class="p">(</span> <span class="n">init</span><span class="o">-</span><span class="n">statement</span> <span class="n">condition</span> <span class="p">)</span> <span class="n">statement</span> <span class="k">else</span> <span class="n">statement</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">init</span><span class="o">-</span><span class="n">statement</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">statement</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">statement</span>
 
 <span class="c1">//従来</span>
 <span class="p">{</span>
-  <span class="n">init</span><span class="o">-</span><span class="n">statement</span>
-  <span class="k">if</span> <span class="p">(</span> <span class="n">condition</span> <span class="p">)</span> <span class="n">statement</span> <span class="k">else</span> <span class="n">statement</span>
+<span class="w">  </span><span class="n">init</span><span class="o">-</span><span class="n">statement</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">statement</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">statement</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>初期化付き<code>switch</code>文。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">//新しい</span>
-<span class="k">switch</span> <span class="p">(</span> <span class="n">init</span><span class="o">-</span><span class="n">statement</span> <span class="n">condition</span> <span class="p">)</span> <span class="n">statement</span>
+<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">init</span><span class="o">-</span><span class="n">statement</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">statement</span>
 
 <span class="c1">//従来</span>
 <span class="p">{</span>
-  <span class="n">init</span><span class="o">-</span><span class="n">statement</span>
-  <span class="k">switch</span> <span class="p">(</span> <span class="n">condition</span> <span class="p">)</span> <span class="n">statement</span>
+<span class="w">  </span><span class="n">init</span><span class="o">-</span><span class="n">statement</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">statement</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
 <p>異常があれば関数を脱出する1行の<code>if</code>文がより短く記述できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">status_code</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">get_value</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">status_code</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_value</span><span class="p">();</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">status_code</span> <span class="n">c</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="n">c</span> <span class="o">!=</span> <span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">c</span><span class="p">;</span> <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">status_code</span> <span class="n">c</span> <span class="o">=</span> <span class="n">do_more_stuff</span><span class="p">();</span> <span class="n">c</span> <span class="o">!=</span> <span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">c</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status_code</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status_code</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">do_more_stuff</span><span class="p">();</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="k">return</span> <span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>また、ロックを取得してからリストにアクセスする場合なども短く記述できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">mx</span><span class="p">);</span> <span class="n">shared_flag</span><span class="p">)</span> <span class="p">{</span> <span class="n">unsafe_ping</span><span class="p">();</span> <span class="n">shared_flag</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">mx</span><span class="p">);</span><span class="w"> </span><span class="n">shared_flag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">unsafe_ping</span><span class="p">();</span><span class="w"> </span><span class="n">shared_flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>出力</h3>
@@ -325,23 +325,23 @@ selection statement:
 具体的には、単一かつ配列ではない変数しか宣言できず、その変数の初期値が条件になってしまうので、変数を宣言したうえで別の式を条件にすることはできなかった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// ポインターを受け取ってnullチェックをするパターンは、C++14まででもよく見かけた。</span>
 <span class="c1">// しかし、この条件を反転(nullptrのとき真)することさえ不可能であった。</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">auto</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_some_object</span><span class="p">())</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span> <span class="c1">// pがnullptrでなければ真</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_some_object</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// pがnullptrでなければ真</span>
 </code></pre></div>
 </p>
 <p>C++14まででも初期化付きの条件分岐と同様の意味を持つ記述は不可能ではないが、外側にスコープを追加する必要があり冗長な記述になっていた:</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">status_code</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">get_value</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">status_code</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_value</span><span class="p">();</span>
 
-  <span class="p">{</span>
-    <span class="n">status_code</span> <span class="n">c</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">c</span><span class="p">;</span> <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="n">status_code</span> <span class="n">c</span> <span class="o">=</span> <span class="n">do_more_stuff</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">c</span><span class="p">;</span> <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">status_code</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">status_code</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">do_more_stuff</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">return</span> <span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">status_code</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -352,8 +352,8 @@ selection statement:
 しかし従来の記述が冗長である問題は解決しない。</p>
 <p>従来の記述を面倒に思い、時にプログラマは外側のスコープを省略して書いてしまう:</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">//{ このカッコを省略してしまった</span>
-<span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">m</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span> <span class="k">return</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="p">}</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 <span class="c1">//} このカッコを省略してしまった</span>
 
 <span class="c1">// "it" は不要なのにここでも使えてしまう、すなわちリークしてしまう</span>
@@ -397,7 +397,7 @@ selection statement:
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

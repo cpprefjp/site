@@ -223,56 +223,56 @@
 <h2>仕様</h2>
 <p><code>consteval</code>指定子の付いた関数(即時関数)は、定数式評価されない場合はエラーとなる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
-<span class="n">consteval</span> <span class="kt">int</span> <span class="nf">sqr</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sqr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// OK</span>
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>  <span class="c1">// エラー: 定数式評価されない</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqr</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqr</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: 定数式評価されない</span>
 </code></pre></div>
 </p>
 <p>ただし、他の即時関数の中では、即時関数が定数式評価されなくてもエラーとはならない。これは、呼び出し元が即時関数であれば、結局はコンパイル時に評価されるからである。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
-<span class="n">consteval</span> <span class="kt">int</span> <span class="nf">sqrsqr</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">sqr</span><span class="p">(</span><span class="n">sqr</span><span class="p">(</span><span class="n">n</span><span class="p">));</span> <span class="c1">// ここでは定数式ではないがOK</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sqrsqr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sqr</span><span class="p">(</span><span class="n">sqr</span><span class="p">(</span><span class="n">n</span><span class="p">));</span><span class="w"> </span><span class="c1">// ここでは定数式ではないがOK</span>
 <span class="p">}</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">dblsqr</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">sqr</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// エラー: 定数式評価されず、呼び出し元が即時関数ではない</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">dblsqr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">sqr</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// エラー: 定数式評価されず、呼び出し元が即時関数ではない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>即時関数のポインタを取得することはできない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
-<span class="k">using</span> <span class="n">Int2Int</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
-<span class="n">Int2Int</span> <span class="o">*</span><span class="n">pf</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">;</span> <span class="c1">// エラー</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Int2Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="n">Int2Int</span><span class="w"> </span><span class="o">*</span><span class="n">pf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqr</span><span class="p">;</span><span class="w"> </span><span class="c1">// エラー</span>
 </code></pre></div>
 </p>
 <p>定数式として評価できない部分があっても、評価しようとしなければエラーとならない。</p>
-<p><div class="yata" id="7cb87c32c588dfc98c9aadb870b6c7491e6fed1c"><div class="codehilite"><pre><span></span><code><span class="n">consteval</span> <span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="s">"n should not be negative"</span><span class="p">;</span> <span class="c1">// throwは定数式として評価できないが、ここを通らなければOK</span>
-  <span class="p">}</span>
+<p><div class="yata" id="7cb87c32c588dfc98c9aadb870b6c7491e6fed1c"><div class="codehilite"><pre><span></span><code><span class="k">consteval</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="s">"n should not be negative"</span><span class="p">;</span><span class="w"> </span><span class="c1">// throwは定数式として評価できないが、ここを通らなければOK</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// OK</span>
-  <span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// エラー</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"> </span><span class="c1">// エラー</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p>この性質は様々なチェックをコンパイル時に行うために活用できる。たとえば、<code><a href="../../reference/format/format.html">std::format</a></code>におけるコンパイル時の書式文字列チェックで使用されている。</p>
 <h2>例</h2>
 <p><div class="yata" id="92cb0f1fecf349f6677252d58f05e3d5a861453b"><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
-<span class="n">consteval</span> <span class="kt">int</span> <span class="nf">sqr</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sqr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// OK</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqr</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">10000</span><span class="p">,</span> <span class="s">"100 * 100 == 10000"</span><span class="p">);</span>
-  <span class="c1">// int x = 100;</span>
-  <span class="c1">// int r2 = sqr(x);  // エラー: 定数式評価されない</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="s">"100 * 100 == 10000"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// int x = 100;</span>
+<span class="w">  </span><span class="c1">// int r2 = sqr(x);  // エラー: 定数式評価されない</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -313,7 +313,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

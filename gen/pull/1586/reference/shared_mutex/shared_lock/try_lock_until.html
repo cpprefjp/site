@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;shared_mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class shared_lock">shared_lock::</span><span class="token">try_lock_until</span><span class="cpp cpp14" title="C++14で追加">(C++14)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Clock</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-<span class="kt">bool</span> <span class="n">try_lock_until</span><span class="p">(</span><span class="k">const</span> <span class="n">chrono</span><span class="o">::</span><span class="n"><a href="../../chrono/time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span> <span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">abs_time</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Clock</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">try_lock_until</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">chrono</span><span class="o">::</span><span class="n"><a href="../../chrono/time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">abs_time</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -252,30 +252,30 @@
 <li><code><a href="../../system_error/errc.html">resource_deadlock_would_occur</a></code> ： <code><a href="owns_lock.html">owns_lock()</a> == true</code>の状態でこの関数が呼び出された</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="dff9294e2e4ea69d3205a4d634e48cd1648e2c67"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../shared_mutex.html">&lt;shared_mutex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="dff9294e2e4ea69d3205a4d634e48cd1648e2c67"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../system_error.html">&lt;system_error&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
+<span class="cp">#include <a href="../../shared_mutex.html">&lt;shared_mutex&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
-  <span class="p">{</span>
-    <span class="c1">// 遅延ロックする(ここではロックを取得しない)</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span> <span class="n"><a href="../../mutex/defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 遅延ロックする(ここではロックを取得しない)</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../mutex/defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
 
-    <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
-    <span class="n"><a href="../../chrono/steady_clock.html">chrono::steady_clock</a></span><span class="o">::</span><span class="n">time_point</span> <span class="n">tp</span> <span class="o">=</span> <span class="n"><a href="../../chrono/steady_clock.html">chrono::steady_clock</a></span><span class="o">::</span><span class="n"><a href="../../chrono/steady_clock/now.html">now()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../chrono/steady_clock.html">chrono::steady_clock</a></span><span class="o">::</span><span class="n">time_point</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../chrono/steady_clock.html">chrono::steady_clock</a></span><span class="o">::</span><span class="n"><a href="../../chrono/steady_clock/now.html">now()</a></span><span class="p">;</span>
 
-    <span class="c1">// 共有ロックの取得を試みる(3秒でタイムアウト)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">lock</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock_until</span></span><span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">{</span>
-      <span class="c1">// 共有ロックの取得に失敗</span>
-      <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span> <span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
-      <span class="k">throw</span> <span class="n"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 共有ロックの取得を試みる(3秒でタイムアウト)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">lock</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock_until</span></span><span class="p">(</span><span class="n">tp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// 共有ロックの取得に失敗</span>
+<span class="w">      </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="nf">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
+<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n"><a href="owns_lock.html">owns_lock()</a></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n"><a href="owns_lock.html">owns_lock()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -310,7 +310,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

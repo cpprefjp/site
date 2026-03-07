@@ -303,19 +303,19 @@
 </table>
 <h2>例</h2>
 <p>C++14では、以下のコードはコンパイルエラーとなるが、C++17では問題なくコンパイルされる。</p>
-<p><div class="yata" id="0a794659da6df71f62924610cb7df96845eadb06"><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span><span class="o">&gt;</span> 
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{};</span>
+<p><div class="yata" id="0a794659da6df71f62924610cb7df96845eadb06"><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-<span class="n">A</span><span class="o">&lt;&amp;</span><span class="n">n</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// ok</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="n">A</span><span class="o">&lt;&amp;</span><span class="n">n</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span><span class="o">*</span> <span class="nf">p</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span> <span class="p">}</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="n">p</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// error in C++14</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">p</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="n">p</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// error in C++14</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span><span class="o">*</span> <span class="nf">q</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span> <span class="p">}</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="n">q</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">;</span> <span class="c1">// ok!</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">q</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="n">q</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok!</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){}</span>
 </code></pre></div>
 </div></p>
 <h3>出力例</h3>
@@ -334,15 +334,15 @@ template&lt;int *p&gt;
 <h2>この機能が必要になった背景・経緯</h2>
 <p>http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4198.html を google 翻訳して編集</p>
 <p>ポインタ、参照、およびメンバへのポインタに対する構文上の制限はぎこちなく、妥当なリファクタリングを妨げていた。例えば：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">A</span> <span class="p">{};</span>
-<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-<span class="n">A</span><span class="o">&lt;&amp;</span><span class="n">n</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// ok</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="n">A</span><span class="o">&lt;&amp;</span><span class="n">n</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="o">*</span><span class="nf">p</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span> <span class="p">}</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="n">p</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// error</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">p</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="n">p</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="o">*</span><span class="nf">q</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span> <span class="p">}</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="n">q</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">;</span> <span class="c1">// ok!</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">q</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="n">q</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok!</span>
 </code></pre></div>
 </p>
 <p>これまでの制限の歴史的な理由は、C++がこれまでポインタ、参照、またはメンバへのポインタ型の定数式のための十分に強力な仕様を持っていなかったことが原因だった。しかし、それはもはや当てはまらない。現状では、そのようなテンプレート引数を評価するには実装が必要だが、結果がnullでないことが判明した場合は結果を破棄する必要がある。</p>
@@ -371,7 +371,7 @@ template&lt;int *p&gt;
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

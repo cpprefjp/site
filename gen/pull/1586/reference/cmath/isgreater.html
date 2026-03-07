@@ -213,19 +213,19 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">isgreater</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="kt">bool</span> <span class="n">isgreater</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">);</span>             <span class="c1">// (1) C++11からC++20まで</span>
-  <span class="kt">bool</span> <span class="nf">isgreater</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">);</span>           <span class="c1">// (2) C++11からC++20まで</span>
-  <span class="kt">bool</span> <span class="nf">isgreater</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// (3) C++11からC++20まで</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isgreater</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">             </span><span class="c1">// (1) C++11からC++20まで</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isgreater</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">           </span><span class="c1">// (2) C++11からC++20まで</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isgreater</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3) C++11からC++20まで</span>
 
-  <span class="k">constexpr</span> <span class="kt">bool</span>
-    <span class="nf">isgreater</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span> <span class="n">x</span><span class="p">,</span>
-              <span class="n"><i>floating-point-type</i></span> <span class="n">y</span><span class="p">);</span>           <span class="c1">// (4) C++23</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span>
+<span class="w">    </span><span class="nf">isgreater</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span><span class="w"> </span><span class="n">x</span><span class="p">,</span>
+<span class="w">              </span><span class="n"><i>floating-point-type</i></span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">           </span><span class="c1">// (4) C++23</span>
 
-  <span class="kt">bool</span>
-    <span class="nf">isgreater</span><span class="p">(</span><span class="n"><i>Integral</i></span> <span class="n">x</span><span class="p">,</span> <span class="n"><i>Integral</i></span> <span class="n">y</span><span class="p">);</span>          <span class="c1">// (5) C++11</span>
-  <span class="k">constexpr</span> <span class="kt">bool</span>
-    <span class="nf">isgreater</span><span class="p">(</span><span class="n"><i>Integral</i></span> <span class="n">x</span><span class="p">,</span> <span class="n"><i>Integral</i></span> <span class="n">y</span><span class="p">);</span>          <span class="c1">// (5) C++23</span>
+<span class="w">  </span><span class="kt">bool</span>
+<span class="w">    </span><span class="nf">isgreater</span><span class="p">(</span><span class="n"><i>Integral</i></span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n"><i>Integral</i></span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">          </span><span class="c1">// (5) C++11</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span>
+<span class="w">    </span><span class="nf">isgreater</span><span class="p">(</span><span class="n"><i>Integral</i></span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n"><i>Integral</i></span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">          </span><span class="c1">// (5) C++23</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -248,34 +248,34 @@
 <li>C++23では、(1), (2), (3)が(4)に統合され、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む浮動小数点数型への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義された</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="cd9838cde1d31ae6c7f5a7cba12de435c48c94ee"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="cd9838cde1d31ae6c7f5a7cba12de435c48c94ee"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../cmath.html">&lt;cmath&gt;</a></span>
+<span class="cp">#include <a href="../limits.html">&lt;limits&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"isgreater("</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="s">") = "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::isgreater</span></span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"isgreater("</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">") = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::isgreater</span></span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">test</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
-  <span class="n">test</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>
-  <span class="n">test</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
 
-  <span class="n">test</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-0.0</span><span class="p">);</span>
 
-  <span class="k">const</span> <span class="kt">double</span> <span class="n">inf</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/infinity.html">infinity()</a></span><span class="p">;</span>
-  <span class="k">const</span> <span class="kt">double</span> <span class="n">nan</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/quiet_nan.html">quiet_NaN()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">inf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/infinity.html">infinity()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">nan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/quiet_nan.html">quiet_NaN()</a></span><span class="p">;</span>
 
-  <span class="n">test</span><span class="p">(</span><span class="n">inf</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
-  <span class="n">test</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">inf</span><span class="p">);</span>
-  <span class="n">test</span><span class="p">(</span><span class="n">inf</span><span class="p">,</span> <span class="n">inf</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="n">inf</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">inf</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="n">inf</span><span class="p">,</span><span class="w"> </span><span class="n">inf</span><span class="p">);</span>
 
-  <span class="n">test</span><span class="p">(</span><span class="n">nan</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
-  <span class="n">test</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">nan</span><span class="p">);</span>
-  <span class="n">test</span><span class="p">(</span><span class="n">nan</span><span class="p">,</span> <span class="n">nan</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="n">nan</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">nan</span><span class="p">);</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="n">nan</span><span class="p">,</span><span class="w"> </span><span class="n">nan</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -331,7 +331,7 @@ isgreater(nan, nan) = false
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

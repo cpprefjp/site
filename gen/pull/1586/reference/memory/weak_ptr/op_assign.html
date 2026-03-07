@@ -226,35 +226,35 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class weak_ptr">weak_ptr::</span><span class="token">operator=</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">weak_ptr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>      <span class="c1">// (1) C++11</span>
-<span class="k">constexpr</span> <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">weak_ptr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>      <span class="c1">// (1) C++26</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">      </span><span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&amp;</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">      </span><span class="c1">// (1) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>   <span class="c1">// (2) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>   <span class="c1">// (2) C++26</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">   </span><span class="c1">// (2) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&amp;</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">   </span><span class="c1">// (2) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (3) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (3) C++26</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&amp;</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3) C++26</span>
 
 <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">weak_ptr</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (4) C++14</span>
-<span class="k">constexpr</span> <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">weak_ptr</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (4) C++26</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">weak_ptr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">           </span><span class="c1">// (4) C++14</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&amp;</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">weak_ptr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">           </span><span class="c1">// (4) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>        <span class="c1">// (5) C++14</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">weak_ptr</span><span class="o">&amp;</span>
-<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>        <span class="c1">// (5) C++26</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">        </span><span class="c1">// (5) C++14</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">weak_ptr</span><span class="o">&amp;</span>
+<span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">        </span><span class="c1">// (5) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -283,65 +283,65 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="aaad38f8e8451eb4fb6c1b640a8166fb49326141"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="aaad38f8e8451eb4fb6c1b640a8166fb49326141"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../memory.html">&lt;memory&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="c1">// 他のweak_ptrオブジェクトの監視対象を、新たに監視する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp1</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wp1_org</span> <span class="o">=</span> <span class="n">sp1</span><span class="p">;</span> <span class="c1">// wp1_orgはsp1を監視する</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wp1</span><span class="p">;</span>
-  <span class="n">wp1</span> <span class="o">=</span> <span class="n">wp1_org</span><span class="p">;</span> <span class="c1">// wp1はwp1_orgの監視対象を監視する</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="c1">// 他のweak_ptrオブジェクトの監視対象を、新たに監視する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp1</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp1_org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp1</span><span class="p">;</span><span class="w"> </span><span class="c1">// wp1_orgはsp1を監視する</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">wp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wp1_org</span><span class="p">;</span><span class="w"> </span><span class="c1">// wp1はwp1_orgの監視対象を監視する</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">wp1</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wp1</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// 他の変換可能なweak_ptrオブジェクトの監視対象を、新たに監視する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp2</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wp2_org</span> <span class="o">=</span> <span class="n">sp2</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">wp2</span><span class="p">;</span>
-  <span class="n">wp2</span> <span class="o">=</span> <span class="n">wp2_org</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// 他の変換可能なweak_ptrオブジェクトの監視対象を、新たに監視する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp2</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp2_org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp2</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp2</span><span class="p">;</span>
+<span class="w">  </span><span class="n">wp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wp2_org</span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n"><a href="../shared_ptr/static_pointer_cast.html">std::static_pointer_cast</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">wp2</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">))</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../shared_ptr/static_pointer_cast.html">std::static_pointer_cast</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">wp2</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3)</span>
-  <span class="c1">// shared_ptrオブジェクトを新たに監視する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp3</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wp3</span><span class="p">;</span>
-  <span class="n">wp3</span> <span class="o">=</span> <span class="n">sp3</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="c1">// shared_ptrオブジェクトを新たに監視する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp3</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp3</span><span class="p">;</span>
+<span class="w">  </span><span class="n">wp3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp3</span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">wp3</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wp3</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (4)</span>
-  <span class="c1">// weak_ptrオブジェクトの監視対象を移動する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp4</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wp4_org</span> <span class="o">=</span> <span class="n">sp4</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wp4</span><span class="p">;</span>
-  <span class="n">wp4</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">wp4_org</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (4)</span>
+<span class="w">  </span><span class="c1">// weak_ptrオブジェクトの監視対象を移動する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp4</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp4_org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp4</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp4</span><span class="p">;</span>
+<span class="w">  </span><span class="n">wp4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">wp4_org</span><span class="p">);</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">wp4</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wp4</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (5)</span>
-  <span class="c1">// 変換可能なweak_ptrオブジェクトの監視対象を移動する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp5</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wp5_org</span> <span class="o">=</span> <span class="n">sp5</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">wp5</span><span class="p">;</span>
-  <span class="n">wp5</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">wp5_org</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (5)</span>
+<span class="w">  </span><span class="c1">// 変換可能なweak_ptrオブジェクトの監視対象を移動する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp5</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp5_org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp5</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp5</span><span class="p">;</span>
+<span class="w">  </span><span class="n">wp5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">wp5_org</span><span class="p">);</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n"><a href="../shared_ptr/static_pointer_cast.html">std::static_pointer_cast</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">wp5</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">))</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../shared_ptr/static_pointer_cast.html">std::static_pointer_cast</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">wp5</span><span class="p">.</span><span class="n"><a href="lock.html">lock()</a></span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -386,7 +386,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

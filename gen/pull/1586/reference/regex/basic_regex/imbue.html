@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;regex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_regex">basic_regex::</span><span class="token">imbue</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">locale_type</span> <span class="nf">imbue</span><span class="p">(</span><span class="n">locale_type</span> <span class="n">loc</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">locale_type</span><span class="w"> </span><span class="nf">imbue</span><span class="p">(</span><span class="n">locale_type</span><span class="w"> </span><span class="n">loc</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -245,23 +245,23 @@
     その場合、<code>locale_type</code> は <code><a href="../../locale/locale.html">locale</a></code> である。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="e6ef8c66e9ae231674f3f94f19b10ead1a83035a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e6ef8c66e9ae231674f3f94f19b10ead1a83035a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="../../regex.html">&lt;regex&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">const</span> <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">" abc "</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">re</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">w+"</span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">" abc "</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">regex</span><span class="w"> </span><span class="n">re</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">w+"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../regex_search.html">std::regex_search</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../regex_search.html">std::regex_search</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">re</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">auto</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n"><span style="color:#ff0000">imbue</span></span><span class="p">(</span><span class="n"><a href="../../locale/locale.html">std::locale</a></span><span class="o">::</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/locale/classic.md.nolink">classic()</span></span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../regex_search.html">std::regex_search</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="n"><span style="color:#ff0000">imbue</span></span><span class="p">(</span><span class="n"><a href="../../locale/locale.html">std::locale</a></span><span class="o">::</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/locale/classic.md.nolink">classic()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../regex_search.html">std::regex_search</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">re</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n">re</span> <span class="o">=</span> <span class="s">"</span><span class="se">\\</span><span class="s">w+"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../regex_search.html">std::regex_search</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">re</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="se">\\</span><span class="s">w+"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../regex_search.html">std::regex_search</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">re</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -301,7 +301,7 @@ true
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

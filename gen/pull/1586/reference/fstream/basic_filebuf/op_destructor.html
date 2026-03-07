@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;fstream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_filebuf">basic_filebuf::</span><span class="token">デストラクタ</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">basic_filebuf</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">basic_filebuf</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -235,11 +235,11 @@
 そこで<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生した場合、catchして何も行わない（再送出しない）。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">basic_filebuf</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="n">close</span><span class="p">();</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">basic_filebuf</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">close</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -271,7 +271,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

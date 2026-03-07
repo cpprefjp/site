@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unique_lock">unique_lock::</span><span class="token">try_lock_for</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rep</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Period</span><span class="o">&gt;</span>
-<span class="kt">bool</span> <span class="n">try_lock_for</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../chrono/duration.html">chrono::duration</a></span><span class="o">&lt;</span><span class="n">Rep</span><span class="p">,</span> <span class="n">Period</span><span class="o">&gt;&amp;</span> <span class="n">rel_time</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rep</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Period</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">try_lock_for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../chrono/duration.html">chrono::duration</a></span><span class="o">&lt;</span><span class="n">Rep</span><span class="p">,</span><span class="w"> </span><span class="n">Period</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">rel_time</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -250,40 +250,40 @@
 <li><code><a href="../../system_error/errc.html">resource_deadlock_would_occur</a></code> ： <code><a href="owns_lock.html">owns_lock()</a> == true</code>の状態でこの関数が呼び出された</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="a8b4e38605b9c1679d034d7bd2b2e425f59008c1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a8b4e38605b9c1679d034d7bd2b2e425f59008c1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../mutex.html">&lt;mutex&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
+<span class="cp">#include <a href="../../system_error.html">&lt;system_error&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">timed_mutex</span> <span class="n">mtx_</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">value_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">timed_mutex</span><span class="w"> </span><span class="n">mtx_</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// メンバ変数value_への書き込みを排他的にする</span>
-  <span class="kt">void</span> <span class="n">add_value</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">timed_mutex</span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx_</span><span class="p">,</span> <span class="n"><a href="../defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// メンバ変数value_への書き込みを排他的にする</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">add_value</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">timed_mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx_</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
 
-    <span class="c1">// ロックの取得を試みる(3秒でタイムアウト)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">lk</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock_for</span></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">{</span>
-      <span class="c1">// ロックの取得に失敗</span>
-      <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span> <span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
-      <span class="k">throw</span> <span class="nf"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">value_</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// ロックの取得を試みる(3秒でタイムアウト)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">lk</span><span class="p">.</span><span class="n"><span style="color:#ff0000">try_lock_for</span></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// ロックの取得に失敗</span>
+<span class="w">      </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="nf">ec</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../system_error/errc.html">std::errc::device_or_resource_busy</a></span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../system_error/generic_category.html">std::generic_category()</a></span><span class="p">);</span>
+<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../../system_error/system_error.html">std::system_error</a></span><span class="p">(</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">([</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span> <span class="n">x</span><span class="p">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="p">});</span>
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t2</span><span class="p">([</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span> <span class="n">x</span><span class="p">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t1</span><span class="p">([</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t2</span><span class="p">([</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
 
-  <span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -322,7 +322,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -219,7 +219,7 @@
 <p></p>
 <h2>概要</h2>
 <p><code>nullptr</code>は、ヌルポインタ値を表すキーワードである。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>C++03まで、ヌルポインタを表すために<code>0</code>数値リテラルや<code><a href="../../reference/cstddef/null.html">NULL</a></code>マクロを使用していた。C++11からは、<code>nullptr</code>キーワードでヌルポインタ値を表すことを推奨する。</p>
@@ -253,14 +253,14 @@
 </ul>
 <p>2つの<code><a href="../../reference/cstddef/nullptr_t.html">nullptr_t</a></code>型を比較した場合、<code>==</code>、<code>&lt;=</code>、<code>&gt;=</code>演算子の結果は<code>true</code>となり、それ以外の演算子は<code>false</code>となる。</p>
 <h2>例</h2>
-<p><div class="yata" id="71934ad181d6be99c7d9f032455577949ddd65ee"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="71934ad181d6be99c7d9f032455577949ddd65ee"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"p is nullptr"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"p is nullptr"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -269,19 +269,19 @@
 </code></pre></p>
 <h2>この機能が必要になった背景・経緯</h2>
 <p>以下のような関数テンプレートを考える：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">p</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>この関数にヌルポインタ値を渡したい場合、<code>0</code>や<code>NULL</code>マクロを使用すると、テンプレートの型推論によって整数型と見なされてしまっていた。これによって、引数をほかの関数に転送するプログラムを書く際に型が合わない問題が発生した。</p>
 <p>この問題を回避するために、以下のようなヌルポインタ値を取得する関数がユーザーによって書かれていた：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">T</span><span class="o">*</span> <span class="n">nullptr_value</span><span class="p">()</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">nullptr_value</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">nullptr_value</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullptr_value</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <p>これはユーザーの工夫によって問題を解決しているが、このような状況をより簡単に解決し、C++を教え、学ぶのをより容易にするために、<code>nullptr</code>キーワードが導入された。</p>
@@ -289,21 +289,21 @@
 <p><code>nullptr</code>はキーワードとして定義されることが決まる前に、いくつかの設計選択があった。</p>
 <p>以下のような、任意のポインタ型に変換可能なクラスとして定義することが提案された：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">const</span>
-<span class="k">class</span> <span class="err">{</span>
+<span class="k">class</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// 任意のポインタ型への変換演算子</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">operator</span> <span class="n">T</span><span class="o">*</span><span class="p">()</span> <span class="k">const</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 任意のポインタ型への変換演算子</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">operator</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="c1">// 任意のメンバポインタ型への変換演算子</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">operator</span> <span class="n">T</span> <span class="n">C</span><span class="o">::*</span><span class="p">()</span> <span class="k">const</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 任意のメンバポインタ型への変換演算子</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">operator</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">C</span><span class="o">::*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
 <span class="k">private</span><span class="o">:</span>
- <span class="kt">void</span> <span class="k">operator</span><span class="o">&amp;</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// アドレスは取得できない</span>
-<span class="p">}</span> <span class="k">nullptr</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="o">&amp;</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// アドレスは取得できない</span>
+<span class="p">}</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
 </code></pre></div>
 </p>
 <p>これは言語機能ではなくライブラリで解決する案である。この案の問題としては、<code>nullptr</code>オブジェクトを使用する前に、ヘッダをインクルードしなければならない、というものがある。ヌルポインタ値は多くの一般的な状況で必要になるため、ヘッダをインクルードしない選択肢として、キーワードの<code>nullptr</code>が採用された。</p>
@@ -336,7 +336,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

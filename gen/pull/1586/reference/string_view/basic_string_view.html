@@ -213,23 +213,23 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;string_view&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_string_view</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span> <span class="o">=</span> <span class="n"><a href="../string/char_traits.html">char_traits</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span>
-  <span class="k">class</span> <span class="nc"><a href="">basic_string_view</a></span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Traits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../string/char_traits.html">char_traits</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="">basic_string_view</a></span><span class="p">;</span>
 
-  <span class="k">using</span> <span class="n"><a href="">string_view</a></span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">u8<a href="">string_view</a></span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="n">char8_t</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// C++20から</span>
-  <span class="k">using</span> <span class="n">u16<a href="">string_view</a></span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">u32<a href="">string_view</a></span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">wstring_view</span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n"><a href="">string_view</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">u8<a href="">string_view</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char8_t</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++20から</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">u16<a href="">string_view</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">u32<a href="">string_view</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">wstring_view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code>std::basic_string_view</code>は、文字列の所有権を保持せず、文字列のコピーを持つのではなく参照をして、参照先の文字列を加工して扱うクラスである。</p>
 <p>文字配列型である文字列リテラルに対して、<code><a href="../string/basic_string.html">std::basic_string</a></code>クラスが持つような便利なメンバ関数群を使用できる。文字列リテラルは静的記憶域に保存されるため、文字列リテラルをこのクラスのオブジェクトに参照させて、そのオブジェクトを持ち回ったとしても参照先の文字列リテラルの寿命が尽きるような問題は発生しない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="">string_view</a></span> <span class="n">sv</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span> <span class="c1">// この式の評価がおわったあとも、文字列リテラル "Hello World" の寿命は尽きない</span>
-<span class="n"><a href="">string_view</a></span> <span class="n">hello</span> <span class="o">=</span> <span class="n"><a href="basic_string_view/substr.html">sv.substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// 先頭5文字を抽出する</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="">string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span><span class="p">;</span><span class="w"> </span><span class="c1">// この式の評価がおわったあとも、文字列リテラル "Hello World" の寿命は尽きない</span>
+<span class="n"><a href="">string_view</a></span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="basic_string_view/substr.html">sv.substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"> </span><span class="c1">// 先頭5文字を抽出する</span>
 </code></pre></div>
 </p>
 <p>このクラスの実装としては、文字配列の参照する先頭文字へのポインタと、文字数の2つをメンバ変数として持つ。これらの変数を変動させることによって、部分文字列の抽出や、限定された範囲内での検索といったことを実現する。</p>
@@ -732,22 +732,22 @@
 <p>上記の各<code>*string_view</code>に対する<code>hash</code>クラスの特殊化は、それぞれ対応する<a href="../string.html"><code>*string</code>型に対する特殊化</a>と同じハッシュ値を算出する。</p>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="de8da19da34446d77b6a17722c890273e1260085"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="de8da19da34446d77b6a17722c890273e1260085"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string_view.html">&lt;string_view&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 文字列リテラルから部分文字列を取得する。</span>
-  <span class="c1">// その際、メモリアロケートは発生しない</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">).</span><span class="n"><a href="basic_string_view/substr.html">substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 文字列リテラルから部分文字列を取得する。</span>
+<span class="w">  </span><span class="c1">// その際、メモリアロケートは発生しない</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">).</span><span class="n"><a href="basic_string_view/substr.html">substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 文字列リテラル内から特定の文字列を検索する。</span>
-  <span class="c1">// この例でも、メモリアロケートや文字列オブジェクトのコピーなどは発生しない</span>
-  <span class="n"><span style="color:#ff0000">std::string_view</span></span> <span class="n">sv</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
-  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pos</span> <span class="o">=</span> <span class="n"><a href="basic_string_view/find.html">sv.find</a></span><span class="p">(</span><span class="s">"rl"</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="o">::</span><span class="n">npos</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"found"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 文字列リテラル内から特定の文字列を検索する。</span>
+<span class="w">  </span><span class="c1">// この例でも、メモリアロケートや文字列オブジェクトのコピーなどは発生しない</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="basic_string_view/find.html">sv.find</a></span><span class="p">(</span><span class="s">"rl"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="o">::</span><span class="n">npos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"found"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -756,33 +756,33 @@
 found
 </code></pre></p>
 <h3>stringとconst char*の共通インタフェースとして使用する</h3>
-<p><div class="yata" id="9c80879792986848c141b262d39af46e2515072a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9c80879792986848c141b262d39af46e2515072a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../string_view.html">&lt;string_view&gt;</a></span>
 
 <span class="c1">// string, const char*、<a href="">string_view</a>のどれでも受け取れる関数</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::string_view</span></span> <span class="n">sv</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="w"> </span><span class="n">sv</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">sv</span><span class="p">.</span><span class="n"><a href="basic_string_view/substr.html">substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n"><a href="basic_string_view/substr.html">substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 文字列リテラル (char配列) を渡す</span>
-  <span class="n">f</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 文字列リテラル (char配列) を渡す</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
 
-  <span class="c1">// const char*を渡す</span>
-  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">chars</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">chars</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// const char*を渡す</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">chars</span><span class="p">);</span>
 
-  <span class="c1">// 左辺値のstringを渡す</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 左辺値のstringを渡す</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
 
-  <span class="c1">// stringの一時オブジェクトを渡す</span>
-  <span class="c1">// 関数f()内ではこの一時オブジェクトが生存しているので、</span>
-  <span class="c1">// <a href="">string_view</a>参照しても問題ない</span>
-  <span class="n">f</span><span class="p">(</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"Hello"</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// stringの一時オブジェクトを渡す</span>
+<span class="w">  </span><span class="c1">// 関数f()内ではこの一時オブジェクトが生存しているので、</span>
+<span class="w">  </span><span class="c1">// <a href="">string_view</a>参照しても問題ない</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"Hello"</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -793,24 +793,24 @@ Hell
 Hell
 </code></pre></p>
 <h3>文字列リテラルを範囲として使用する場合にヌル文字が含まれないようにする</h3>
-<p><div class="yata" id="6f0b10ec15808f0634e877001de17c8a5ea96711"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6f0b10ec15808f0634e877001de17c8a5ea96711"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string_view.html">&lt;string_view&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 文字列リテラルを範囲として使用すると、ヌル文字が要素に含まれる</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'['</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="nl">c</span> <span class="p">:</span> <span class="s">"ABC"</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">']'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 文字列リテラルを範囲として使用すると、ヌル文字が要素に含まれる</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'['</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"ABC"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">']'</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// <a href="">string_view</a>を使用すると、ヌル文字が要素に含まれない</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'['</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="nl">c</span> <span class="p">:</span> <span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="p">{</span><span class="s">"ABC"</span><span class="p">})</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">']'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// <a href="">string_view</a>を使用すると、ヌル文字が要素に含まれない</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'['</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="p">{</span><span class="s">"ABC"</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">']'</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -879,7 +879,7 @@ C
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

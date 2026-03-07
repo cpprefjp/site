@@ -225,12 +225,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class shared_ptr">shared_ptr::</span><span class="token">推論補助</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../weak_ptr.html">weak_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>      <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../weak_ptr.html">weak_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w">      </span><span class="c1">// (1)</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">D</span><span class="o">&gt;</span>
-  <span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../unique_ptr.html">unique_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">D</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (2)</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../unique_ptr.html">unique_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -246,36 +246,36 @@
 <li>(<code><a href="../unique_ptr.html">std::unique_ptr</a></code>の推論補助ページがないためここに書くが、) 生ポインタから<code>std::unique_ptr</code>への変換も推論できない。これは、クラス内で<code>using pointer = T*;</code>のように<code>T*</code>の別名を付けたうえで、コンストラクタが<code>explicit unique_ptr(pointer);</code>のように、<code>T*</code>を直接使用せず、別名を使用しているためである</li>
 <li>これらは、生ポインタが配列か単一要素かを、一意に決められないためである。<code>std::shared_ptr</code>と<code><a href="../unique_ptr.html">std::unique_ptr</a></code>には、単一要素版と配列版が定義されるが、推論補助では、引数からどちらを使用するかを決められない
   <br />
-<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
-<span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span> <span class="n">sp</span> <span class="p">{</span><span class="n">p</span><span class="p">};</span> <span class="c1">// 単一版か配列版かを決められないため、エラーとなるべき</span>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="p">{</span><span class="n">p</span><span class="p">};</span><span class="w"> </span><span class="c1">// 単一版か配列版かを決められないため、エラーとなるべき</span>
 </code></pre></div>
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="d23b796dbac06c7b0cb3c6e8d72ee7e03127fb05"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d23b796dbac06c7b0cb3c6e8d72ee7e03127fb05"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../../type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="c1">// weak_ptrからshared_ptrへの変換</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp1_org</span> <span class="p">{</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)};</span> <span class="c1">// 注: 生ポインタからの変換は、推論できない</span>
-  <span class="n"><a href="../weak_ptr.html">std::weak_ptr</a></span> <span class="n">wp</span> <span class="o">=</span> <span class="n">sp1_org</span><span class="p">;</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span> <span class="n">sp1</span> <span class="p">{</span><span class="n">wp</span><span class="p">};</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">sp1</span><span class="p">),</span>
-    <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="c1">// weak_ptrからshared_ptrへの変換</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp1_org</span><span class="w"> </span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)};</span><span class="w"> </span><span class="c1">// 注: 生ポインタからの変換は、推論できない</span>
+<span class="w">  </span><span class="n"><a href="../weak_ptr.html">std::weak_ptr</a></span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp1_org</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="w"> </span><span class="n">sp1</span><span class="w"> </span><span class="p">{</span><span class="n">wp</span><span class="p">};</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="n">sp1</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// unique_ptrからshared_ptrへの変換</span>
-  <span class="n"><a href="../unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">up</span> <span class="p">{</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)};</span> <span class="c1">// 注: 生ポインタからunique_ptr&lt;T&gt;は推論できない</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span> <span class="n">sp2</span> <span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">up</span><span class="p">)};</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">sp2</span><span class="p">),</span>
-    <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// unique_ptrからshared_ptrへの変換</span>
+<span class="w">  </span><span class="n"><a href="../unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)};</span><span class="w"> </span><span class="c1">// 注: 生ポインタからunique_ptr&lt;T&gt;は推論できない</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="w"> </span><span class="n">sp2</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">up</span><span class="p">)};</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="n">sp2</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -317,7 +317,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

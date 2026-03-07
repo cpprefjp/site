@@ -221,15 +221,15 @@
 <p>C++11では、テンプレート定義をエクスポートする機能を削除する。</p>
 <p>テンプレートのエクスポート機能は、ヘッダファイルでテンプレートを宣言し、ソースファイルでテンプレートを定義することで、コンパイル時間の短縮を目指すものであった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// f.h</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// f.cpp</span>
-<span class="k">export</span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">export</span><span class="w"> </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">...</span>
+<span class="w">  </span><span class="p">...</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -260,7 +260,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

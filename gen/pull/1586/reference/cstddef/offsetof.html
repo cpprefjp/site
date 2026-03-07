@@ -229,20 +229,20 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>type</code> 中の <code>member</code> へのオフセット値を示す <code>size_t</code> 型の値</p>
 <h2>例</h2>
-<p><div class="yata" id="ddbe46e3baaa94f030f5e1164fe2aa608e43e02e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstddef.html">&lt;cstddef&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ddbe46e3baaa94f030f5e1164fe2aa608e43e02e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdio.html">&lt;cstdio&gt;</a></span>
+<span class="cp">#include <a href="../cstddef.html">&lt;cstddef&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">mystruct</span> <span class="p">{</span>
-  <span class="kt">char</span> <span class="n">singlechar</span><span class="p">;</span>
-  <span class="kt">char</span> <span class="n">arraymember</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-  <span class="kt">char</span> <span class="n">anotherchar</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">mystruct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">singlechar</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">arraymember</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">anotherchar</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"<span style="color:#ff0000">offsetof</span>(mystruct,singlechar) is %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">offsetof</span></span><span class="p">(</span><span class="n">mystruct</span><span class="p">,</span><span class="n">singlechar</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"<span style="color:#ff0000">offsetof</span>(mystruct,arraymember) is %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">offsetof</span></span><span class="p">(</span><span class="n">mystruct</span><span class="p">,</span><span class="n">arraymember</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"<span style="color:#ff0000">offsetof</span>(mystruct,anotherchar) is %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">offsetof</span></span><span class="p">(</span><span class="n">mystruct</span><span class="p">,</span><span class="n">anotherchar</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"<span style="color:#ff0000">offsetof</span>(mystruct,singlechar) is %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">offsetof</span></span><span class="p">(</span><span class="n">mystruct</span><span class="p">,</span><span class="n">singlechar</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"<span style="color:#ff0000">offsetof</span>(mystruct,arraymember) is %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">offsetof</span></span><span class="p">(</span><span class="n">mystruct</span><span class="p">,</span><span class="n">arraymember</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"<span style="color:#ff0000">offsetof</span>(mystruct,anotherchar) is %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">offsetof</span></span><span class="p">(</span><span class="n">mystruct</span><span class="p">,</span><span class="n">anotherchar</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -268,7 +268,7 @@ offsetof(mystruct,anotherchar) is 11
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

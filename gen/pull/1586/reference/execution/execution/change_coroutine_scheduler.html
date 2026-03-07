@@ -225,62 +225,62 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">change_coroutine_scheduler</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="scheduler.html">scheduler</a></span> <span class="n">Sch</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">change_coroutine_scheduler</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="n">type</span> <span class="n"><a href="scheduler.html">scheduler</a></span><span class="p">;</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="scheduler.html">scheduler</a></span><span class="w"> </span><span class="n">Sch</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">change_coroutine_scheduler</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n"><a href="scheduler.html">scheduler</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="scheduler.html">scheduler</a></span> <span class="n">Sch</span><span class="o">&gt;</span>
-  <span class="n">change_coroutine_scheduler</span><span class="p">(</span><span class="n">Sch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">change_coroutine_scheduler</span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="scheduler.html">scheduler</a></span><span class="w"> </span><span class="n">Sch</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">change_coroutine_scheduler</span><span class="p">(</span><span class="n">Sch</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">change_coroutine_scheduler</span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>タスク<code><a href="task.html">execution::task</a></code>を<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型とする<a href="../../../lang/cpp20/coroutines.html">コルーチン</a>において、<code>co_await</code>式でタスク<a href="scheduler.html">Scheduler</a>変更を表現するタグ型。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">co_await</span> <span class="n">change_coroutine_scheduler</span><span class="p">{</span><span class="n">sch</span><span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">co_await</span><span class="w"> </span><span class="n">change_coroutine_scheduler</span><span class="p">{</span><span class="n">sch</span><span class="p">}</span>
 </code></pre></div>
 </p>
 <p>タスクコルーチンにおいて後続の非同期処理を実行するタスク<a href="scheduler.html">Scheduler</a>を<code>sch</code>に変更する。同<code>co_await</code>式は変更前のタスクSchedulerを返す。</p>
 <p>詳細仕様は<code><a href="task/promise_type/await_transform.html">task::promise_type::await_transform</a></code>を参照のこと。</p>
 <h2>例</h2>
-<p><div class="yata" id="a193e15d0a3ec01055b3dccb834bdf44cb7287b9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="a193e15d0a3ec01055b3dccb834bdf44cb7287b9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="n"><a href="task.html">ex::task</a></span><span class="o">&lt;&gt;</span> <span class="n">work</span><span class="p">()</span>
+<span class="n"><a href="task.html">ex::task</a></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">work</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// sch0 := 本コルーチン(Sender)を開始したScheduler</span>
-  <span class="c1">// shc1 := co_await式で利用する別Scheduler（並列Schedulerを利用）</span>
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#0"</span><span class="p">);</span>
-  <span class="n"><a href="scheduler.html">ex::scheduler</a></span> <span class="k">auto</span> <span class="n">sch1</span> <span class="o">=</span> <span class="n"><a href="get_parallel_scheduler.html">ex::get_parallel_scheduler</a></span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// sch0 := 本コルーチン(Sender)を開始したScheduler</span>
+<span class="w">  </span><span class="c1">// shc1 := co_await式で利用する別Scheduler（並列Schedulerを利用）</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#0"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="scheduler.html">ex::scheduler</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sch1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="get_parallel_scheduler.html">ex::get_parallel_scheduler</a></span><span class="p">();</span>
 
-  <span class="n">co_await</span> <span class="p">(</span><span class="n">ex</span><span class="o">::</span><span class="n">schedule</span><span class="p">(</span><span class="n">sch1</span><span class="p">)</span> <span class="o">|</span> <span class="n"><a href="then.html">ex::then</a></span><span class="p">([]{</span>
-    <span class="c1">// Scheduler sch1上で非同期処理を実行</span>
-    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#1"</span><span class="p">);</span>
-  <span class="p">}));</span>
-  <span class="c1">// コルーチンタスクのデフォルト動作:</span>
-  <span class="c1">//   co_await式はScheduler Affinityを維持するため</span>
-  <span class="c1">//   コルーチン後続処理は元Scheduler上で実行される</span>
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#0"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">co_await</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="o">::</span><span class="n">schedule</span><span class="p">(</span><span class="n">sch1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="then.html">ex::then</a></span><span class="p">([]{</span>
+<span class="w">    </span><span class="c1">// Scheduler sch1上で非同期処理を実行</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#1"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}));</span>
+<span class="w">  </span><span class="c1">// コルーチンタスクのデフォルト動作:</span>
+<span class="w">  </span><span class="c1">//   co_await式はScheduler Affinityを維持するため</span>
+<span class="w">  </span><span class="c1">//   コルーチン後続処理は元Scheduler上で実行される</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#0"</span><span class="p">);</span>
 
-  <span class="c1">// 本コルーチンのタスクSchedulerをinline_schedulerへ変更</span>
-  <span class="n">co_await</span> <span class="n"><span style="color:#ff0000">ex::change_coroutine_scheduler</span></span><span class="p">{</span><span class="n"><a href="inline_scheduler.html">ex::inline_scheduler</a></span><span class="p">{}};</span>
+<span class="w">  </span><span class="c1">// 本コルーチンのタスクSchedulerをinline_schedulerへ変更</span>
+<span class="w">  </span><span class="k">co_await</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::change_coroutine_scheduler</span></span><span class="p">{</span><span class="n"><a href="inline_scheduler.html">ex::inline_scheduler</a></span><span class="p">{}};</span>
 
-  <span class="n">co_await</span> <span class="p">(</span><span class="n">ex</span><span class="o">::</span><span class="n">schedule</span><span class="p">(</span><span class="n">sch</span><span class="p">)</span> <span class="o">|</span> <span class="n"><a href="then.html">ex::then</a></span><span class="p">([]{</span>
-    <span class="c1">// Scheduler sch1上で非同期処理を実行</span>
-    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#1"</span><span class="p">);</span>
-  <span class="p">}));</span>
-  <span class="c1">// inline_scheduler動作:</span>
-  <span class="c1">//   co_await式のScheduler Affinity維持を抑止するため</span>
-  <span class="c1">//   同式中で変更したScheduler上でコルーチン後続処理が実行される</span>
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#1"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">co_await</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="o">::</span><span class="n">schedule</span><span class="p">(</span><span class="n">sch</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="then.html">ex::then</a></span><span class="p">([]{</span>
+<span class="w">    </span><span class="c1">// Scheduler sch1上で非同期処理を実行</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#1"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}));</span>
+<span class="w">  </span><span class="c1">// inline_scheduler動作:</span>
+<span class="w">  </span><span class="c1">//   co_await式のScheduler Affinity維持を抑止するため</span>
+<span class="w">  </span><span class="c1">//   同式中で変更したScheduler上でコルーチン後続処理が実行される</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"run on Scheduler#1"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">work</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">work</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -325,7 +325,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

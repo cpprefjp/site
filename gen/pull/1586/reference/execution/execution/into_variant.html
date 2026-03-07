@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">into_variant</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">into_variant_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">into_variant_t</span> <span class="n">into_variant</span><span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">into_variant_t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">into_variant_t</span><span class="w"> </span><span class="n">into_variant</span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -237,23 +237,23 @@
 <h2>効果</h2>
 <p>説明用の式<code>sndr</code>に対して<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさないとき、呼び出し式<code>into_variant(sndr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <p>そうでなければ、呼び出し式<code>into_variant(sndr)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">into_variant</span><span class="p">,</span> <span class="p">{},</span> <span class="n">sndr</span><span class="p">))</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">into_variant</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="n">sndr</span><span class="p">))</span>
 </code></pre></div>
 </p>
 <h3>Senderアルゴリズムタグ <code>into_variant</code></h3>
 <p>Senderアルゴリズム動作説明用のクラステンプレート<code><a href="impls-for.html">impls-for</a></code>に対して、下記の特殊化が定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">into_variant_t</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">get</span><span class="o">-</span><span class="n">state</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">complete</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">into_variant_t</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="impls-for.html">default-impls</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Env</span><span class="o">&gt;</span>
-    <span class="k">static</span> <span class="n">consteval</span> <span class="kt">void</span> <span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">auto</span> <span class="n">cs</span> <span class="o">=</span> <span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n">Env</span><span class="p">)...</span><span class="o">&gt;</span><span class="p">();</span>
-      <span class="n"><a href="decay-copyable-result-datums.html">decay-copyable-result-datums</a></span><span class="p">(</span><span class="n">cs</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">consteval</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">auto</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n">Env</span><span class="p">)...</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">      </span><span class="n"><a href="decay-copyable-result-datums.html">decay-copyable-result-datums</a></span><span class="p">(</span><span class="n">cs</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -261,9 +261,9 @@
 <ul>
 <li>子<a href="sender.html">Sender</a>の<a href="value_types_of_t.html">値完了シグネチャを集約</a>した<code><a href="../../variant/variant.html">variant</a>&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;...&gt;, ...&gt;</code>型を<code><a href="../../type_traits/type_identity.html">type_identity</a></code>クラステンプレートのパラメータに格納して返す。</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span>
-  <span class="o">-&gt;</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity</a></span><span class="o">&lt;</span><span class="n"><a href="value_types_of_t.html">value_types_of_t</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">)</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../type_traits/type_identity.html">type_identity</a></span><span class="o">&lt;</span><span class="n"><a href="value_types_of_t.html">value_types_of_t</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -273,14 +273,14 @@
 <li><a href="set_value.html">値完了</a>の場合、引数パック<code>args...</code>から送信値を構築して接続先<a href="receiver.html">Receiver</a>の<a href="set_value.html">値完了関数</a>を呼び出す。</li>
 <li><a href="set_error.html">エラー完了</a>または<a href="set_stopped.html">停止完了</a>の場合、接続先<a href="receiver.html">Receiver</a>の同種完了関数に全引数を転送する。</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">State</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Tag</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span>
-    <span class="k">auto</span><span class="p">,</span> <span class="n">State</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">,</span> <span class="n">Tag</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span> <span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">variant_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">State</span><span class="o">::</span><span class="n">type</span><span class="p">;</span>
-    <span class="n"><a href="set_value.html">TRY-SET-VALUE</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span> <span class="n">variant_type</span><span class="p">(</span><span class="n"><a href="decayed-tuple.html">decayed-tuple</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">{</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...}));</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="n">Tag</span><span class="p">()(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tag</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">    </span><span class="k">auto</span><span class="p">,</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">Tag</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">variant_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">State</span><span class="o">::</span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="set_value.html">TRY-SET-VALUE</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">variant_type</span><span class="p">(</span><span class="n"><a href="decayed-tuple.html">decayed-tuple</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">{</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...}));</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Tag</span><span class="p">()(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -288,85 +288,85 @@
 <p>Senderアルゴリズム構築時および<a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
 <a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
 <h2>例</h2>
-<p><div class="yata" id="371cb21927b0180e3f42a1f5dd75f913c35824d7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="371cb21927b0180e3f42a1f5dd75f913c35824d7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../tuple.html">&lt;tuple&gt;</a></span>
+<span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../variant.html">&lt;variant&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">FizzBuzzSender</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">sender_concept</span> <span class="o">=</span> <span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FizzBuzzSender</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sender_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
 
-  <span class="c1">// FizzBuzzSenderは2種類の値完了シグネチャを持つ</span>
-  <span class="k">using</span> <span class="n">completion_signatures</span> <span class="o">=</span> <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
-    <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
-    <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">)</span>
-  <span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Self</span><span class="o">&gt;</span>
-  <span class="k">static</span> <span class="n">consteval</span> <span class="k">auto</span> <span class="n">get_completion_signatures</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">completion_signatures</span><span class="p">{};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// FizzBuzzSenderは2種類の値完了シグネチャを持つ</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">completion_signatures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">)</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Self</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">consteval</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get_completion_signatures</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">completion_signatures</span><span class="p">{};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// Operation State型</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">State</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">operation_state_concept</span> <span class="o">=</span> <span class="n"><a href="operation_state.html">ex::operation_state_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Operation State型</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="operation_state.html">ex::operation_state_t</a></span><span class="p">;</span>
 
-    <span class="n">State</span><span class="p">(</span><span class="n">Rcvr</span> <span class="n">rcvr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span>
-      <span class="o">:</span> <span class="n">rcvr_</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)},</span> <span class="n">val_</span><span class="p">{</span><span class="n">val</span><span class="p">}</span> <span class="p">{}</span>
+<span class="w">    </span><span class="n">State</span><span class="p">(</span><span class="n">Rcvr</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">rcvr_</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)},</span><span class="w"> </span><span class="n">val_</span><span class="p">{</span><span class="n">val</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
 
-    <span class="kt">void</span> <span class="n">start</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
-      <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">string_literals</span><span class="p">;</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">val_</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="s">"FizzBuzz"</span><span class="n">s</span><span class="p">);</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val_</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="s">"Fizz"</span><span class="n">s</span><span class="p">);</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val_</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="s">"Buzz"</span><span class="n">s</span><span class="p">);</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="n">val_</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">start</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">string_literals</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="n">s</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span><span class="w"> </span><span class="s">"Fizz"</span><span class="n">s</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span><span class="w"> </span><span class="s">"Buzz"</span><span class="n">s</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span><span class="w"> </span><span class="n">val_</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n">Rcvr</span> <span class="n">rcvr_</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">val_</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="n">Rcvr</span><span class="w"> </span><span class="n">rcvr_</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
-  <span class="k">auto</span> <span class="n">connect</span><span class="p">(</span><span class="n">Rcvr</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">State</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n">val_</span><span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="n">Rcvr</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">State</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n">val_</span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">int</span> <span class="n">val_</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">val_</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">overload</span> <span class="p">:</span> <span class="n">Ts</span><span class="p">...</span> <span class="p">{</span> <span class="k">using</span> <span class="n">Ts</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span> <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">overload</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Ts</span><span class="p">...</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Ts</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
-<span class="cp">#if 0</span><span class="c"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span>
+<span class="cp">#if 0</span>
 <span class="c">  // 関数呼び出し</span>
 <span class="c">  <a href="sender.html">ex::sender</a> auto snd0 = FizzBuzzSender{val};</span>
 <span class="c">  <a href="sender.html">ex::sender</a> auto sndr = <span style="color:#ff0000">ex::into_variant</span>(snd0);</span>
 <span class="cp">#else</span>
-  <span class="c1">// パイプライン記法</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n">FizzBuzzSender</span><span class="p">{</span><span class="n">val</span><span class="p">}</span> <span class="o">|</span> <span class="n"><span style="color:#ff0000">ex::into_variant</span></span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// パイプライン記法</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzzSender</span><span class="p">{</span><span class="n">val</span><span class="p">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::into_variant</span></span><span class="p">();</span>
 <span class="cp">#endif</span>
-  <span class="k">auto</span> <span class="p">[</span><span class="n">result</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">).</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">result</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">).</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
 
-  <span class="c1">// result := variant&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int&gt;, <a href="../../tuple/tuple.html">tuple</a>&lt;string&gt;&gt;型</span>
-  <span class="n"><a href="../../variant/visit.html">std::visit</a></span><span class="p">(</span><span class="n">overload</span><span class="p">{</span>
-    <span class="p">[](</span><span class="n"><a href="../../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"(int) {}"</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
-    <span class="p">},</span>
-    <span class="p">[](</span><span class="n"><a href="../../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"(str) {}"</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
-    <span class="p">}</span>
-  <span class="p">},</span> <span class="n">result</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// result := variant&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int&gt;, <a href="../../tuple/tuple.html">tuple</a>&lt;string&gt;&gt;型</span>
+<span class="w">  </span><span class="n"><a href="../../variant/visit.html">std::visit</a></span><span class="p">(</span><span class="n">overload</span><span class="p">{</span>
+<span class="w">    </span><span class="p">[](</span><span class="n"><a href="../../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"(int) {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">[](</span><span class="n"><a href="../../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"(str) {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -414,7 +414,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

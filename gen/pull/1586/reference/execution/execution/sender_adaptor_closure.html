@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">sender_adaptor_closure</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../class-type.html">class-type</a></span> <span class="n">D</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">sender_adaptor_closure</span> <span class="p">{</span> <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../class-type.html">class-type</a></span><span class="w"> </span><span class="n">D</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sender_adaptor_closure</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -240,7 +240,7 @@
 <p>パイプ可能Senderアダプタクロージャオブジェクト(pipeable sender adaptor closure object)とは、1つ以上の<code><a href="sender.html">sender</a></code>を引数にとり、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として<code><a href="sender.html">sender</a></code>を返す関数オブジェクトである。</p>
 <p>パイプ可能Senderアダプタクロージャオブジェクト<code>c</code>と型<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>のモデルである式<code>sndr</code>に対して、下記の2つの式は等価であり、いずれも<code><a href="sender.html">sender</a></code>を生成する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">c</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span>
-<span class="n">sndr</span> <span class="o">|</span> <span class="n">c</span>
+<span class="n">sndr</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">c</span>
 </code></pre></div>
 </p>
 <p>さらにパイプ可能Senderアダプタクロージャオブジェクト<code>d</code>が与えられたとき、式 <code>c | d</code> は別のパイプ可能Senderアダプタクロージャオブジェクト<code>e</code>となる。
@@ -299,7 +299,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

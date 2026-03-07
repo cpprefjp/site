@@ -213,14 +213,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">unique_ptr</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="c1">// 単一オブジェクト版</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">D</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="default_delete.html">default_delete</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
-  <span class="k">class</span> <span class="nc">unique_ptr</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 単一オブジェクト版</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="default_delete.html">default_delete</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">unique_ptr</span><span class="p">;</span>
 
-  <span class="c1">// 配列版</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">D</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="p">[],</span> <span class="n">D</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 配列版</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="p">[],</span><span class="w"> </span><span class="n">D</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -440,27 +440,27 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="318ba981ea70714a255fa49b6b3891491bdbafc3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="318ba981ea70714a255fa49b6b3891491bdbafc3"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdlib.html">&lt;cstdlib&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">hoge</span> <span class="p">{</span>
-  <span class="n">hoge</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"hoge::hoge()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
-  <span class="o">~</span><span class="n">hoge</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"hoge::~hoge()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">hoge</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">hoge</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"hoge::hoge()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">hoge</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"hoge::~hoge()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">hoge</span><span class="o">&gt;</span> <span class="n">p0</span><span class="p">(</span><span class="k">new</span> <span class="n">hoge</span><span class="p">());</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">hoge</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p0</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">hoge</span><span class="p">());</span>
 
-  <span class="c1">// hogeオブジェクトの所有権をp0からp1に移動</span>
-  <span class="c1">// p0は何も所有していない状態になる</span>
-  <span class="n"><a href="">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">hoge</span><span class="o">&gt;</span> <span class="n">p1</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p0</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// hogeオブジェクトの所有権をp0からp1に移動</span>
+<span class="w">  </span><span class="c1">// p0は何も所有していない状態になる</span>
+<span class="w">  </span><span class="n"><a href="">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">hoge</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p0</span><span class="p">));</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">p0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../cstdlib/abort.html">std::abort</a></span><span class="p">();</span> <span class="c1">// p0は空</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../cstdlib/abort.html">std::abort</a></span><span class="p">();</span><span class="w"> </span><span class="c1">// p0は空</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// p1が所有しているリソースが解放される</span>
+<span class="w">  </span><span class="c1">// p1が所有しているリソースが解放される</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -515,7 +515,7 @@ hoge::~hoge()
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

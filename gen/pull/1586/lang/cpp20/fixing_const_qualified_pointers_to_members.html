@@ -219,10 +219,10 @@
 <p></p>
 <h2>概要</h2>
 <p>C++11で<a href="../cpp11/ref_qualifier_for_this.html">メンバ関数を左辺値／右辺値修飾</a>する機能が導入された。その際、以下の例において、同じ関数を呼び出す場合でも、メンバ関数ポインタを介した方だけが<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となっていた：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span> <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">;</span> <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="n">X</span><span class="p">{}.</span><span class="n">foo</span><span class="p">();</span>        <span class="c1">// OK</span>
-<span class="p">(</span><span class="n">X</span><span class="p">{}.</span><span class="o">*&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">foo</span><span class="p">)();</span> <span class="c1">// コンパイルエラー！</span>
+<span class="n">X</span><span class="p">{}.</span><span class="n">foo</span><span class="p">();</span><span class="w">        </span><span class="c1">// OK</span>
+<span class="p">(</span><span class="n">X</span><span class="p">{}.</span><span class="o">*&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">foo</span><span class="p">)();</span><span class="w"> </span><span class="c1">// コンパイルエラー！</span>
 </code></pre></div>
 </p>
 <p>これは、「<code>.*</code>式において、右辺値オブジェクトに対して左辺値修飾されたメンバ関数ポインタを呼び出すことは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる」という仕様によるものであった。</p>
@@ -253,7 +253,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

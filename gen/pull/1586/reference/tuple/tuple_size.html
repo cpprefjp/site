@@ -213,28 +213,28 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;tuple&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">tuple_size</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">tuple_size</span><span class="p">;</span>                   <span class="c1">// (1) C++11 宣言のみで定義なし</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">tuple_size</span><span class="p">;</span><span class="w">                   </span><span class="c1">// (1) C++11 宣言のみで定義なし</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">tuple_size</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>          <span class="c1">// (2) C++11</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">tuple_size</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w">          </span><span class="c1">// (2) C++11</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">tuple_size</span><span class="o">&lt;</span><span class="k">volatile</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>       <span class="c1">// (3) C++11</span>
-                                      <span class="c1">// C++20で非推奨</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">tuple_size</span><span class="o">&lt;</span><span class="k">volatile</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w">       </span><span class="c1">// (3) C++11</span>
+<span class="w">                                      </span><span class="c1">// C++20で非推奨</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">tuple_size</span><span class="o">&lt;</span><span class="k">const</span> <span class="k">volatile</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (4) C++11</span>
-                                      <span class="c1">// C++20で非推奨</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">tuple_size</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4) C++11</span>
+<span class="w">                                      </span><span class="c1">// C++20で非推奨</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Types</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">tuple_size</span><span class="o">&lt;</span><span class="n"><a href="tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;&gt;</span>
-    <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="../type_traits/integral_constant.html">integral_constant</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">...(</span><span class="n">Types</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">{};</span> <span class="c1">// (5) C++11</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Types</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">tuple_size</span><span class="o">&lt;</span><span class="n"><a href="tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;&gt;</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../type_traits/integral_constant.html">integral_constant</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Types</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// (5) C++11</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">tuple_size_v</span> <span class="o">=</span>
-    <span class="n">tuple_size</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>                                    <span class="c1">// (6) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">tuple_size_v</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">tuple_size</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w">                                    </span><span class="c1">// (6) C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -259,12 +259,12 @@
 <li>(3), (4) : これらの部分特殊化は、型の<code>volatile</code>修飾を部分的に非推奨にすることにともなって、非推奨化される</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="565d3e5960a9a3c72f0af14714496b5950943ac7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="565d3e5960a9a3c72f0af14714496b5950943ac7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../tuple.html">&lt;tuple&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::tuple_size</span></span><span class="o">&lt;</span>      <span class="n"><a href="tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::tuple_size</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::tuple_size</span></span><span class="o">&lt;</span><span class="w">      </span><span class="n"><a href="tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::tuple_size</span></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -312,7 +312,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

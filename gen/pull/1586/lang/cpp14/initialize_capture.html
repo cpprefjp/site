@@ -219,17 +219,17 @@
 <p></p>
 <h2>概要</h2>
 <p>「初期化キャプチャ(init-capture)」は、任意の式の結果をラムダ式にキャプチャする機能である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">increment</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// increment(3)の戻り値を、変数aとしてラムダ式内で使用する</span>
-  <span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">=</span> <span class="n">increment</span><span class="p">(</span><span class="mi">3</span><span class="p">)](</span><span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">  </span><span class="c1">// increment(3)の戻り値を、変数aとしてラムダ式内で使用する</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">increment</span><span class="p">(</span><span class="mi">3</span><span class="p">)](</span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// result == 6</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// result == 6</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -237,16 +237,16 @@
 <ul>
 <li>
 <p>変数をムーブによってキャプチャする</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span> <span class="c1">// 巨大な配列</span>
-<span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="p">{</span> <span class="cm">/* … */</span> <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="c1">// 巨大な配列</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">v</span><span class="p">)]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* … */</span><span class="w"> </span><span class="p">};</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>ひとつの変数に対して、コピーキャプチャと参照キャプチャを同時に行う</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">]</span> <span class="p">{</span>
-  <span class="c1">// このラムダ式内で、変数bはaのコピー、変数cはaへの参照</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// このラムダ式内で、変数bはaのコピー、変数cはaへの参照</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -260,62 +260,62 @@
 </code></pre></p>
 <p>1行目は、初期化式の結果を、任意の識別子で受け取る構文。</p>
 <p>2行目は、初期化式の結果への参照を、任意の識別子で受け取る構文。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-<span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>            <span class="c1">// 式x + 1の結果を変数名aとして、ラムダ式内で使用する</span>
-          <span class="o">&amp;</span><span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span>               <span class="c1">// 変数xへの参照を変数名bとして、ラムダ式内で使用する</span>
-          <span class="n">c</span> <span class="p">{</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">v</span><span class="p">)}]</span> <span class="p">{};</span> <span class="c1">// 波カッコによる初期化構文を使用して、変数vを変数cにムーブする</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">            </span><span class="c1">// 式x + 1の結果を変数名aとして、ラムダ式内で使用する</span>
+<span class="w">          </span><span class="o">&amp;</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w">               </span><span class="c1">// 変数xへの参照を変数名bとして、ラムダ式内で使用する</span>
+<span class="w">          </span><span class="n">c</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">v</span><span class="p">)}]</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// 波カッコによる初期化構文を使用して、変数vを変数cにムーブする</span>
 </code></pre></div>
 </p>
 <p>初期化キャプチャの初期化式は、ラムダ式を定義した時点で評価される。</p>
 <p>初期化キャプチャでは、パラメータパックのキャプチャはできない。</p>
 <h2>例</h2>
 <h3>unique_ptrの所有権を移動させる</h3>
-<p><div class="yata" id="22b4ed0134fe54c0063ce9919888d2580b7e09c1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="22b4ed0134fe54c0063ce9919888d2580b7e09c1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="../../reference/memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-  <span class="c1">// pの所有権を、ラムダ式内の変数qに移動させる</span>
-  <span class="c1">// unique_ptrは、ムーブはできるがコピーはできない型だが、</span>
-  <span class="c1">// そのためにpを参照キャプチャすると、寿命が切れたpに不正アクセスしてしまう</span>
-  <span class="c1">// 可能性がある。</span>
-  <span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">q</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p</span><span class="p">)]</span> <span class="p">{};</span>
+<span class="w">  </span><span class="c1">// pの所有権を、ラムダ式内の変数qに移動させる</span>
+<span class="w">  </span><span class="c1">// unique_ptrは、ムーブはできるがコピーはできない型だが、</span>
+<span class="w">  </span><span class="c1">// そのためにpを参照キャプチャすると、寿命が切れたpに不正アクセスしてしまう</span>
+<span class="w">  </span><span class="c1">// 可能性がある。</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p</span><span class="p">)]</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p>出力 :</p>
 <p><pre><code></code></pre></p>
 <h3>promiseの所有権を別なスレッドに移動させる</h3>
-<p><div class="yata" id="945d5f835702ab994d15d2640a24b28f794b93cd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/future.html">&lt;future&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="945d5f835702ab994d15d2640a24b28f794b93cd"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../reference/thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../reference/future.html">&lt;future&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/future/promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/future/future.html">std::future</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n"><a href="../../reference/future/promise/get_future.html">p.get_future()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/future/promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/future/future.html">std::future</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/future/promise/get_future.html">p.get_future()</a></span><span class="p">;</span>
 
-  <span class="c1">// 時間のかかる処理用のスレッドに、</span>
-  <span class="c1">// 処理結果を書き込むためのpromiseオブジェクトを移動させる。</span>
-  <span class="c1">//</span>
-  <span class="c1">// 処理結果を書き込むスレッドにはpromiseオブジェクトの所有権を持たせ、</span>
-  <span class="c1">// 処理結果を読み込むスレッドにはfutureオブジェクトの所有権を持たせる。</span>
-  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="n">t</span> <span class="p">{[</span><span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p</span><span class="p">)]()</span> <span class="k">mutable</span> <span class="p">{</span>
-    <span class="c1">// …時間のかかる処理…</span>
+<span class="w">  </span><span class="c1">// 時間のかかる処理用のスレッドに、</span>
+<span class="w">  </span><span class="c1">// 処理結果を書き込むためのpromiseオブジェクトを移動させる。</span>
+<span class="w">  </span><span class="c1">//</span>
+<span class="w">  </span><span class="c1">// 処理結果を書き込むスレッドにはpromiseオブジェクトの所有権を持たせ、</span>
+<span class="w">  </span><span class="c1">// 処理結果を読み込むスレッドにはfutureオブジェクトの所有権を持たせる。</span>
+<span class="w">  </span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">{[</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p</span><span class="p">)]()</span><span class="w"> </span><span class="k">mutable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// …時間のかかる処理…</span>
 
-    <span class="c1">// 処理の結果を書き込む</span>
-    <span class="n"><a href="../../reference/future/promise/set_value.html">x.set_value</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-  <span class="p">}};</span>
+<span class="w">    </span><span class="c1">// 処理の結果を書き込む</span>
+<span class="w">    </span><span class="n"><a href="../../reference/future/promise/set_value.html">x.set_value</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}};</span>
 
-  <span class="c1">// 別スレッドでの処理結果を読み込む</span>
-  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="../../reference/future/future/get.html">f.get()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 別スレッドでの処理結果を読み込む</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/future/future/get.html">f.get()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/thread/thread/join.html">t.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -349,7 +349,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

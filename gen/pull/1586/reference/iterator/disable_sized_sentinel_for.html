@@ -213,15 +213,15 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">variable</div><div class="header">&lt;iterator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">disable_sized_sentinel_for</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">I</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">disable_sized_sentinel_for</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">S</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">I</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">disable_sized_sentinel_for</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
-  <span class="c1">// <a href="reverse_iterator.html">reverse_iterator</a>に対する特殊化</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Iterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Iterator2</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">Iterator1</span><span class="p">,</span> <span class="n">Iterator2</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">disable_sized_sentinel_for</span><span class="o">&lt;</span><span class="n"><a href="reverse_iterator.html">reverse_iterator</a></span><span class="o">&lt;</span><span class="n">Iterator1</span><span class="o">&gt;</span><span class="p">,</span>
-                                                   <span class="n"><a href="reverse_iterator.html">reverse_iterator</a></span><span class="o">&lt;</span><span class="n">Iterator2</span><span class="o">&gt;&gt;</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// <a href="reverse_iterator.html">reverse_iterator</a>に対する特殊化</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator2</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">Iterator1</span><span class="p">,</span><span class="w"> </span><span class="n">Iterator2</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">disable_sized_sentinel_for</span><span class="o">&lt;</span><span class="n"><a href="reverse_iterator.html">reverse_iterator</a></span><span class="o">&lt;</span><span class="n">Iterator1</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">                                                   </span><span class="n"><a href="reverse_iterator.html">reverse_iterator</a></span><span class="o">&lt;</span><span class="n">Iterator2</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -272,7 +272,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

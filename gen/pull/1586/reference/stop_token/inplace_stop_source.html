@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;stop_token&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">inplace_stop_source</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">inplace_stop_source</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">inplace_stop_source</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -281,24 +281,24 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="a7df609f1ae4f1f87062d2e1f5ccd671f3cd8e34"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../stop_token.html">&lt;stop_token&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a7df609f1ae4f1f87062d2e1f5ccd671f3cd8e34"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../stop_token.html">&lt;stop_token&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><span style="color:#ff0000">std::inplace_stop_source</span></span> <span class="n">ss</span><span class="p">;</span>
-  <span class="n"><a href="inplace_stop_token.html">std::inplace_stop_token</a></span> <span class="n">st</span> <span class="o">=</span> <span class="n">ss</span><span class="p">.</span><span class="n"><a href="inplace_stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::inplace_stop_source</span></span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="inplace_stop_token.html">std::inplace_stop_token</a></span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="inplace_stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
 
-  <span class="kt">bool</span> <span class="n">invoked</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="n"><a href="inplace_stop_callback.html">std::inplace_stop_callback</a></span> <span class="n">cb</span> <span class="p">{</span><span class="n">st</span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span> <span class="n">invoked</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="p">}};</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">invoked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="inplace_stop_callback.html">std::inplace_stop_callback</a></span><span class="w"> </span><span class="n">cb</span><span class="w"> </span><span class="p">{</span><span class="n">st</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">invoked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}};</span>
 
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n"><a href="inplace_stop_token/stop_requested.html">stop_requested()</a></span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">invoked</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n"><a href="inplace_stop_token/stop_requested.html">stop_requested()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">invoked</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 
-  <span class="n">ss</span><span class="p">.</span><span class="n"><a href="inplace_stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="inplace_stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n"><a href="inplace_stop_token/stop_requested.html">stop_requested()</a></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">invoked</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n"><a href="inplace_stop_token/stop_requested.html">stop_requested()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">invoked</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -342,7 +342,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

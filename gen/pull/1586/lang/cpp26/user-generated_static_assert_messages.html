@@ -220,22 +220,22 @@
 <h2>概要</h2>
 <p>C++26では、<code><a href="../cpp11/static_assert.html">static_assert</a></code>に指定する表明失敗時の<a class="cpprefjp-defined-word" data-desc="診断情報。コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="../../implementation-compliance.html#dfn-diagnostic-message">診断メッセージ</a>として、文字列リテラルだけでなく<a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>の文字列オブジェクトも指定できるようになる。</p>
 <p>例えば、将来的に<code><a href="../../reference/format/format.html">std::format()</a></code>関数が<code>constexpr</code>対応した場合、それによって作られた<code><a href="../../reference/string/basic_string.html">std::string</a></code>オブジェクトを<a class="cpprefjp-defined-word" data-desc="診断情報。コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="../../implementation-compliance.html#dfn-diagnostic-message">診断メッセージ</a>として使用できる。</p>
-<p><div class="yata" id="ea02d5f618e687e27de60423a01763c810572b5e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ea02d5f618e687e27de60423a01763c810572b5e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span>
+<span class="cp">#include <a href="../../reference/format.html">&lt;format&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span>
-    <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"type T size should 4, actual:{}"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span>
+<span class="w">    </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"type T size should 4, actual:{}"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+<span class="w">  </span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// OK</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int64_t.html">std::int64_t</a></span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// Error! "type T size should 4, actual:8"</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int64_t.html">std::int64_t</a></span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// Error! "type T size should 4, actual:8"</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -279,7 +279,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -243,8 +243,8 @@
 <li>base-clause：省略可、継承元の指定、例えば<code>: public base_class</code>のように書く</li>
 </ul>
 <p>すなわち<code>final</code>を書くことができる位置は、クラス名の後、継承元の指定の前となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">derived_class</span> <span class="k">final</span> <span class="o">:</span> <span class="k">public</span> <span class="n">base_class</span> <span class="p">{</span>
-  <span class="p">...</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">derived_class</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">base_class</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">...</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -267,49 +267,49 @@ declarator:
 <li>pure-specifier（省略可）：純粋仮想関数の指定、<code>= 0</code>のように書く</li>
 </ul>
 <p>すなわち<code>override</code>および<code>final</code>を書くことができる位置は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型の後置の後、純粋仮想関数の指定の前となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">AAA</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="k">auto</span> <span class="n">func_virt</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="k">const</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">final</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AAA</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">func_virt</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
 <p><div class="yata" id="b3a777abe4dabe2e841a768c5c15bceb3c35a800"><div class="codehilite"><pre><span></span><code><span class="c1">// 基底クラス</span>
-<span class="k">class</span> <span class="nc">base</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">func_final</span><span class="p">()</span> <span class="k">final</span><span class="p">;</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">func_virt</span><span class="p">();</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">func_virt_int</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
-  <span class="kt">void</span> <span class="nf">func_non_virt</span><span class="p">();</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_final</span><span class="p">()</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_virt</span><span class="p">();</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_virt_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_non_virt</span><span class="p">();</span>
 <span class="p">};</span>
 
 <span class="c1">// 派生クラス</span>
-<span class="k">class</span> <span class="nc">derived</span> <span class="o">:</span> <span class="k">public</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="c1">// NG, final メンバ関数はオーバーライドできない</span>
-  <span class="kt">void</span> <span class="n">func_final</span><span class="p">();</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// NG, final メンバ関数はオーバーライドできない</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_final</span><span class="p">();</span>
 
-  <span class="c1">// OK, オーバーライドできている</span>
-  <span class="kt">void</span> <span class="nf">func_virt</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// OK, オーバーライドできている</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_virt</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
 
-  <span class="c1">// NG, 引数の個数、型が違っており、オーバーライドできてない</span>
-  <span class="kt">void</span> <span class="nf">func_virt_int</span><span class="p">(</span><span class="kt">short</span> <span class="n">a</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// NG, 引数の個数、型が違っており、オーバーライドできてない</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_virt_int</span><span class="p">(</span><span class="kt">short</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
 
-  <span class="c1">// NG, 基底クラスの func_non_virt() は仮想関数では無いので、オーバーライドできていない</span>
-  <span class="kt">void</span> <span class="nf">func_non_virt</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// NG, 基底クラスの func_non_virt() は仮想関数では無いので、オーバーライドできていない</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_non_virt</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// オーバーライド不可の基底クラス</span>
-<span class="k">class</span> <span class="nc">base_f</span> <span class="k">final</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">func_virt</span><span class="p">();</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">base_f</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_virt</span><span class="p">();</span>
 <span class="p">};</span>
 
 <span class="c1">// NG, final基底クラスからの継承はできない</span>
-<span class="k">class</span> <span class="nc">derived_f</span> <span class="o">:</span> <span class="k">public</span> <span class="n">base_f</span> <span class="p">{</span>
-  <span class="c1">// NG, （結果的に）final基底クラスのメンバ関数はオーバーライドできない</span>
-  <span class="kt">void</span> <span class="n">func_virt</span><span class="p">();</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">derived_f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">base_f</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// NG, （結果的に）final基底クラスのメンバ関数はオーバーライドできない</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">func_virt</span><span class="p">();</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -368,29 +368,29 @@ class base_f final {
 </ul>
 <p>例えば下記のようなコードは<code>final</code>や<code>override</code>をキーワードとすると文法違反となる：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">//クラス名に使っている可能性がある</span>
-<span class="k">class</span> <span class="nc">override</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">override</span><span class="w"> </span><span class="p">{</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">hoge</span> <span class="p">{</span>
-  <span class="c1">//メンバ関数名に使っている可能性がある</span>
-  <span class="kt">void</span> <span class="k">final</span><span class="p">();</span>
-  <span class="c1">//メンバ変数名に使っている可能性がある</span>
-  <span class="kt">int</span> <span class="k">override</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">hoge</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//メンバ関数名に使っている可能性がある</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">final</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">//メンバ変数名に使っている可能性がある</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">//関数名に使っている可能性がある</span>
-<span class="kt">int</span> <span class="nf">final</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">final</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">//変数名に使っている可能性がある</span>
-  <span class="kt">int</span> <span class="k">override</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">return</span> <span class="k">override</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//変数名に使っている可能性がある</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>文法上、無名クラスを<code>final</code>でオーバーライド不可と宣言することはできない。<code>class final { ... }</code>と書いたとき、finalという名前のクラスと解釈しなければ、過去との互換性が保てないためである。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">//オーバーライド不可の無名クラスでは無く、final という名前のクラスと解釈される</span>
-<span class="k">class</span> <span class="nc">final</span> <span class="p">{</span>
-  <span class="p">...</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">final</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">...</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -404,16 +404,16 @@ class base_f final {
 </ul>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>       <span class="c1">// derived may explicitly override</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">g</span><span class="p">();</span>       <span class="c1">// derived may explicitly override</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">()</span> <span class="o">:</span> <span class="k">new</span><span class="p">;</span> <span class="c1">// derived _must_ explicitly override</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span><span class="w">       </span><span class="c1">// derived may explicitly override</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">();</span><span class="w">       </span><span class="c1">// derived may explicitly override</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">h</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">new</span><span class="p">;</span><span class="w"> </span><span class="c1">// derived _must_ explicitly override</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>       <span class="c1">// OK, backward compatibility </span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="o">:</span> <span class="n">A</span><span class="p">;</span>   <span class="c1">// OK, optionally explicit</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">();</span> <span class="c1">// Error: requires overrider list</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span><span class="w">       </span><span class="c1">// OK, backward compatibility </span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w">   </span><span class="c1">// OK, optionally explicit</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">h</span><span class="p">();</span><span class="w"> </span><span class="c1">// Error: requires overrider list</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -424,18 +424,18 @@ class base_f final {
 </ul>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">B</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">D</span> <span class="k">explicit</span> <span class="o">:</span> <span class="k">public</span> <span class="n">B</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>          <span class="c1">// ok: overrides B::f</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span>      <span class="c1">// ill-formed: new virtual function introduced</span>
-  <span class="k">new</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">g2</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span> <span class="c1">// ok: new virtual function introduced</span>
-  <span class="kt">void</span> <span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>               <span class="c1">// ill-formed: overriding without "virtual"</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span>      <span class="c1">// ill-formed: new virtual function introduced</span>
-  <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>        <span class="c1">// ill-formed: return type does not match B::h</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span><span class="w">          </span><span class="c1">// ok: overrides B::f</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span><span class="w">      </span><span class="c1">// ill-formed: new virtual function introduced</span>
+<span class="w">  </span><span class="k">new</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g2</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span><span class="w"> </span><span class="c1">// ok: new virtual function introduced</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w">               </span><span class="c1">// ill-formed: overriding without "virtual"</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span><span class="w">      </span><span class="c1">// ill-formed: new virtual function introduced</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w">        </span><span class="c1">// ill-formed: return type does not match B::h</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -461,29 +461,29 @@ class base_f final {
 </li>
 </ul>
 <p>間違えてオーバーライドしてしまう例：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">some_func</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func</span><span class="p">();</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">derived</span> <span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">some_func</span><span class="p">();</span>  <span class="c1">// error, accidental override with check_names attribute</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func</span><span class="p">();</span> <span class="c1">// OK, override with virtual keyword</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">derived</span><span class="w"> </span><span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func</span><span class="p">();</span><span class="w">  </span><span class="c1">// error, accidental override with check_names attribute</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK, override with virtual keyword</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>間違えてオーバーライドできていない例：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">some_func1</span><span class="p">();</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func2</span><span class="p">(</span><span class="kt">float</span><span class="p">);</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func3</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-  <span class="k">virtual</span> <span class="kt">long</span> <span class="nf">some_func4</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func1</span><span class="p">();</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func2</span><span class="p">(</span><span class="kt">float</span><span class="p">);</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func3</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">some_func4</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">derived</span> <span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">sone_func1</span><span class="p">();</span>  <span class="c1">// error, mis-spelled name</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func2</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span> <span class="c1">// error, no bad argument type</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func3</span><span class="p">();</span> <span class="c1">// error, missing cv-qualification</span>
-  <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">some_func4</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span> <span class="c1">// ill-formed: return type does not match B::h</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">derived</span><span class="w"> </span><span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sone_func1</span><span class="p">();</span><span class="w">  </span><span class="c1">// error, mis-spelled name</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func2</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span><span class="w"> </span><span class="c1">// error, no bad argument type</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func3</span><span class="p">();</span><span class="w"> </span><span class="c1">// error, missing cv-qualification</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">some_func4</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="c1">// ill-formed: return type does not match B::h</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -497,16 +497,16 @@ class base_f final {
 </ul>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">some_func</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func</span><span class="p">();</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">derived1</span> <span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span> <span class="o">:</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">some_func</span><span class="p">();</span>  <span class="c1">// error, accidental override with check_names attribute</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">derived1</span><span class="w"> </span><span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_func</span><span class="p">();</span><span class="w">  </span><span class="c1">// error, accidental override with check_names attribute</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">derived2</span> <span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span> <span class="o">:</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">some_func</span> <span class="p">[[</span><span class="k">override</span><span class="p">]]</span> <span class="p">();</span> <span class="c1">// OK, override with virtual keyword</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">derived2</span><span class="w"> </span><span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">some_func</span><span class="w"> </span><span class="p">[[</span><span class="k">override</span><span class="p">]]</span><span class="w"> </span><span class="p">();</span><span class="w"> </span><span class="c1">// OK, override with virtual keyword</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -558,32 +558,32 @@ class base_f final {
 </table>
 <p>注：表中のSFやWFという単語は、SF: Strongly Favor, WF: Weakly Favor, WA: Weakly Against, SA: Strongly Againstの略である。</p>
 <p>コンテキスト依存キーワード（この例では<code>hides_name</code>という名前になっている）にはDaveed Vandevoordeが指摘した問題がある。この問題は<code>[[hiding]]</code>属性や<code>strictdecl</code>キーワードならば発生しない：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Z</span> <span class="p">{};</span>
-<span class="k">struct</span> <span class="n">X</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Z</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span>
 <span class="p">{</span>
-  <span class="c1">// これはどういう意味？</span>
-  <span class="c1">// 構造体の宣言？</span>
-  <span class="c1">// それとも変数の宣言？</span>
-  <span class="k">struct</span> <span class="n">Z</span> <span class="n">hides_name</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// これはどういう意味？</span>
+<span class="w">  </span><span class="c1">// 構造体の宣言？</span>
+<span class="w">  </span><span class="c1">// それとも変数の宣言？</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">Z</span><span class="w"> </span><span class="n">hides_name</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">C</span> <span class="p">{};</span>
-<span class="k">struct</span> <span class="n">A</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="n">C</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">A</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span>
 <span class="p">{</span>
-  <span class="c1">// これより前に宣言した C という名前の構造体の名前を隠す？</span>
-  <span class="c1">// それとも変数の宣言？</span>
-  <span class="k">struct</span> <span class="n">C</span> <span class="n">hides_name</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// これより前に宣言した C という名前の構造体の名前を隠す？</span>
+<span class="w">  </span><span class="c1">// それとも変数の宣言？</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="n">hides_name</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// これで解決する？</span>
-<span class="k">struct</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">A</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span>
 <span class="p">{</span>
-  <span class="n">hides_name</span> <span class="k">struct</span> <span class="n">hides_name</span> <span class="n">C</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n">hides_name</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">hides_name</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -643,32 +643,32 @@ class base_f final {
 </ul>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">B1</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">M</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">B1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="k">struct</span> <span class="n">B2</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">M</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="k">struct</span> <span class="p">[[</span><span class="n">base_check</span><span class="p">]]</span> <span class="nl">D</span><span class="p">:</span> <span class="n">B1</span><span class="p">,</span> <span class="n">B2</span> <span class="p">{</span>
-  <span class="k">enum</span> <span class="p">{</span> <span class="n">N</span> <span class="p">};</span>    <span class="c1">// hides B1::N but cannot take an attribute</span>
-  <span class="k">using</span> <span class="n">B1</span><span class="o">::</span><span class="n">M</span><span class="p">;</span>   <span class="c1">// hides B2::M but cannot take an attribute</span>
+<span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="n">base_check</span><span class="p">]]</span><span class="w"> </span><span class="n">D</span><span class="o">:</span><span class="w"> </span><span class="n">B1</span><span class="p">,</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">};</span><span class="w">    </span><span class="c1">// hides B1::N but cannot take an attribute</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">B1</span><span class="o">::</span><span class="n">M</span><span class="p">;</span><span class="w">   </span><span class="c1">// hides B2::M but cannot take an attribute</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <ul>
 <li>N3234にある通り、<code>new</code>コンテキスト依存キーワードはメンバ関数名の後にしか書けないため、メンバ関数をメンバ変数で隠した場合に<code>new</code>を宣言したいが文法上不可能な問題がある。</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">B</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">B</span>
 <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"B::f()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"B::f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;}</span>
 <span class="p">};</span>
-<span class="k">struct</span> <span class="n">D</span> <span class="k">explicit</span> <span class="o">:</span> <span class="n">B</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">B</span>
 <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span> <span class="kt">void</span> <span class="k">operator</span><span class="p">()()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"D::foo::operator()()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}};</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"D::foo::operator()()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="p">}};</span>
 
-  <span class="c1">// B::f()を隠してしまうので文法違反</span>
-  <span class="n">foo</span> <span class="n">f</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// B::f()を隠してしまうので文法違反</span>
+<span class="w">  </span><span class="n">foo</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -718,7 +718,7 @@ class base_f final {
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

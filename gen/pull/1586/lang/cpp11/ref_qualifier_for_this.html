@@ -221,45 +221,45 @@
 <p>メンバ関数の<code>CV</code>修飾は、<code>*this</code>が<code>const</code>／<code>volatile</code>である場合とそうでない場合でメンバ関数を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>できる。</p>
 <p>同じように、メンバ関数に対して<code>&amp;</code>もしくは<code>&amp;&amp;</code>の参照修飾子を付加することで、<code>*this</code>が左辺値である場合に呼び出されるメンバ関数の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>、<code>*this</code>が右辺値である場合に呼び出されるメンバ関数の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を定義できる。</p>
 <p>これを使用することで、「一時オブジェクトな<code>*this</code>に対して特定のメンバ関数を呼び出せてはならない制約」、「<code>*this</code>が左辺値もしくは右辺値である場合の効率的な実装を使い分ける」といった設計ができるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="c1">// 代入演算子は、*thisが左辺値である場合のみ呼び出せるようにする</span>
-  <span class="n">X</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">&amp;</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 代入演算子は、*thisが左辺値である場合のみ呼び出せるようにする</span>
+<span class="w">  </span><span class="n">X</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">lvalue</span><span class="p">;</span>
-  <span class="n">lvalue</span> <span class="o">=</span> <span class="n">X</span><span class="p">();</span> <span class="c1">// OK : lvalueオブジェクトは左辺値</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">lvalue</span><span class="p">;</span>
+<span class="w">  </span><span class="n">lvalue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK : lvalueオブジェクトは左辺値</span>
 
 <span class="c1">//X() = lvalue; // コンパイルエラー！右辺値のオブジェクトに対して代入演算子は呼び出せない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>参照修飾子は、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>子と組み合わせて使用できる：</p>
-<p><div class="yata" id="9012b6bab2aa9b0e1d880865d059f726aaac4660"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9012b6bab2aa9b0e1d880865d059f726aaac4660"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="o">&amp;</span>       <span class="c1">// *thisが非constな左辺値である場合に呼び出される</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w">       </span><span class="c1">// *thisが非constな左辺値である場合に呼び出される</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="c1">// *thisがconstな左辺値である場合に呼び出される</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="c1">// *thisがconstな左辺値である場合に呼び出される</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="o">&amp;&amp;</span>      <span class="c1">// *thisが右辺値である場合に呼び出される</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="mi">3</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">      </span><span class="c1">// *thisが右辺値である場合に呼び出される</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
-  <span class="k">const</span> <span class="n">X</span> <span class="n">cx</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">cx</span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">f</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>   <span class="c1">// 1</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">cx</span><span class="p">.</span><span class="n">f</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>  <span class="c1">// 2</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">X</span><span class="p">().</span><span class="n">f</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 3</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w">   </span><span class="c1">// 1</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cx</span><span class="p">.</span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w">  </span><span class="c1">// 2</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">X</span><span class="p">().</span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 3</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -268,9 +268,9 @@
 <li>コンストラクタとデストラクタに対しては、参照修飾子を付加できない</li>
 <li>
 <p><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>のみされたメンバ関数と、参照修飾のみされたメンバ関数では<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>できない</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="o">&amp;</span><span class="p">;</span>     <span class="c1">// コンパイルエラー！</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="p">;</span><span class="w">     </span><span class="c1">// コンパイルエラー！</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -280,30 +280,30 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="5bbcef460d244f24398dc3533d1dba82189e382b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5bbcef460d244f24398dc3533d1dba82189e382b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">data_</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">X</span><span class="p">()</span> <span class="o">:</span> <span class="n">data_</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data_</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="c1">// *thisが左辺値の場合は、保持しているvectorオブジェクトへの参照を返す</span>
-  <span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">data</span><span class="p">()</span> <span class="k">const</span><span class="o">&amp;</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="n">data_</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="c1">// *thisが左辺値の場合は、保持しているvectorオブジェクトへの参照を返す</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">data_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="c1">// *thisが右辺値の場合は参照を返すと一時オブジェクトの寿命が尽きてしまうため、</span>
-  <span class="c1">// ムーブで返す</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">()</span> <span class="o">&amp;&amp;</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">data_</span><span class="p">);</span> <span class="p">}</span>
+<span class="w">  </span><span class="c1">// *thisが右辺値の場合は参照を返すと一時オブジェクトの寿命が尽きてしまうため、</span>
+<span class="w">  </span><span class="c1">// ムーブで返す</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">data_</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">X</span><span class="p">().</span><span class="n">data</span><span class="p">();</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">().</span><span class="n">data</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -337,7 +337,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

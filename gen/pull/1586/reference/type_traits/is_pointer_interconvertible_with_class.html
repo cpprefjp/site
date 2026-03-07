@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_pointer_interconvertible_with_class</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">M</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_pointer_interconvertible_with_class</span><span class="p">(</span><span class="n">M</span> <span class="n">S</span><span class="o">::*</span><span class="n">m</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">S</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">M</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_pointer_interconvertible_with_class</span><span class="p">(</span><span class="n">M</span><span class="w"> </span><span class="n">S</span><span class="o">::*</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -228,22 +228,22 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="927a5215036186818edf62b8b6fdd5a94ee35930"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="927a5215036186818edf62b8b6fdd5a94ee35930"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="nl">C</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span> <span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_with_class</span></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="p">));</span>
-  <span class="k">static_assert</span><span class="p">(</span> <span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_with_class</span></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">B</span><span class="o">::</span><span class="n">b</span> <span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_with_class</span></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">a</span><span class="w"> </span><span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_with_class</span></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">B</span><span class="o">::</span><span class="n">b</span><span class="w"> </span><span class="p">));</span>
 
-  <span class="c1">// 見た目に反して &amp;C::b は int(B::*) 型を持つためS=Bに型推論されてしまう。</span>
-  <span class="k">static_assert</span><span class="p">(</span> <span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_with_class</span></span><span class="p">(</span> <span class="o">&amp;</span><span class="n">C</span><span class="o">::</span><span class="n">b</span> <span class="p">));</span>
-  <span class="c1">// テンプレートパラメータS=Cを明示することで M(C::*) の検査となる。</span>
-  <span class="c1">// このケースではCはスタンダードレイアウトクラスではなくfalseとなる。</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_with_class</span></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">C</span><span class="o">::</span><span class="n">b</span> <span class="p">));</span>
+<span class="w">  </span><span class="c1">// 見た目に反して &amp;C::b は int(B::*) 型を持つためS=Bに型推論されてしまう。</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_with_class</span></span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">C</span><span class="o">::</span><span class="n">b</span><span class="w"> </span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// テンプレートパラメータS=Cを明示することで M(C::*) の検査となる。</span>
+<span class="w">  </span><span class="c1">// このケースではCはスタンダードレイアウトクラスではなくfalseとなる。</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_with_class</span></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">C</span><span class="o">::</span><span class="n">b</span><span class="w"> </span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -285,7 +285,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -237,52 +237,52 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class env">env::</span><span class="token">query</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">QueryTag</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n"><a href="../../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">query</span><span class="p">(</span><span class="n">QueryTag</span> <span class="n">q</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">QueryTag</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">QueryTag</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><a href="../../queryable.html">クエリオブジェクト</a><code>q</code>をキーとして、対応する値を問い合わせる。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <p>説明専用のコンセプト<code>has-query</code>を次のように定義したとき、<code>(has-query&lt;Envs, QueryTag&gt; || ...)</code>が<code>true</code>であること。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Env</span><span class="p">,</span> <span class="k">class</span> <span class="nc">QueryTag</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">has</span><span class="o">-</span><span class="n">query</span> <span class="o">=</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="k">const</span> <span class="n">Env</span><span class="o">&amp;</span> <span class="n">env</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">env</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">QueryTag</span><span class="p">());</span>
-  <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Env</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">QueryTag</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">has</span><span class="o">-</span><span class="n">query</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Env</span><span class="o">&amp;</span><span class="w"> </span><span class="n">env</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">env</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">QueryTag</span><span class="p">());</span>
+<span class="w">  </span><span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>効果</h2>
 <p>説明用の<code>fe</code>を、<code>env</code>クラステンプレートの説明専用メンバ変数<code>envs0_</code>, ..., <code>envsN_</code>のうち最初に式<code>fe.query(q)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../../implementation-compliance.html#dfn-well-formed">適格</a>となる要素としたとき、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">fe</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">fe</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>式<code>noexcept(fe.query(q))</code>が<code>true</code>のとき、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出しない。
 それ以外の場合、式<code>fe.query(q)</code>から送出される<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</p>
 <h2>例</h2>
-<p><div class="yata" id="d6be577c0755ea0601657bfe452dce059ab9cb77"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../stop_token.html">&lt;stop_token&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">using</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="d6be577c0755ea0601657bfe452dce059ab9cb77"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../../concepts.html">&lt;concepts&gt;</a></span>
+<span class="cp">#include <a href="../../../stop_token.html">&lt;stop_token&gt;</a></span>
+<span class="cp">#include <a href="../../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">using</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// get_allocatorとget_stop_tokenをサポートするクエリ可能オブジェクト</span>
-  <span class="k">auto</span> <span class="n">env0</span> <span class="o">=</span> <span class="n"><a href="../env.html">ex::env</a></span><span class="p">{</span>
-    <span class="n"><a href="../prop.html">ex::prop</a></span><span class="p">(</span><span class="n"><a href="../../get_allocator.html">std::get_allocator</a></span><span class="p">,</span> <span class="n"><a href="../../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">byte</span><span class="o">&gt;</span><span class="p">{}),</span>
-    <span class="n"><a href="../prop.html">ex::prop</a></span><span class="p">(</span><span class="n"><a href="../../get_stop_token.html">std::get_stop_token</a></span><span class="p">,</span> <span class="n"><a href="../../../stop_token/never_stop_token.html">std::never_stop_token</a></span><span class="p">{})</span>
-  <span class="p">};</span>
-  <span class="k">auto</span> <span class="n">token0</span> <span class="o">=</span> <span class="n">env0</span><span class="p">.</span><span class="n"><span style="color:#ff0000">query</span></span><span class="p">(</span><span class="n"><a href="../../get_stop_token.html">std::get_stop_token</a></span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">token0</span><span class="p">),</span> <span class="n"><a href="../../../stop_token/never_stop_token.html">std::never_stop_token</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// get_allocatorとget_stop_tokenをサポートするクエリ可能オブジェクト</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">env0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../env.html">ex::env</a></span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../prop.html">ex::prop</a></span><span class="p">(</span><span class="n"><a href="../../get_allocator.html">std::get_allocator</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">byte</span><span class="o">&gt;</span><span class="p">{}),</span>
+<span class="w">    </span><span class="n"><a href="../prop.html">ex::prop</a></span><span class="p">(</span><span class="n"><a href="../../get_stop_token.html">std::get_stop_token</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../../stop_token/never_stop_token.html">std::never_stop_token</a></span><span class="p">{})</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">token0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">env0</span><span class="p">.</span><span class="n"><span style="color:#ff0000">query</span></span><span class="p">(</span><span class="n"><a href="../../get_stop_token.html">std::get_stop_token</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">token0</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../../stop_token/never_stop_token.html">std::never_stop_token</a></span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// env0のget_stop_tokenクエリオブジェクト動作を上書き</span>
-  <span class="k">auto</span> <span class="n">env1</span> <span class="o">=</span> <span class="n"><a href="../env.html">ex::env</a></span><span class="p">{</span>
-    <span class="n"><a href="../prop.html">ex::prop</a></span><span class="p">(</span><span class="n"><a href="../../get_stop_token.html">std::get_stop_token</a></span><span class="p">,</span> <span class="n"><a href="../../../stop_token/stop_token.html">std::stop_token</a></span><span class="p">{}),</span>
-    <span class="n">env0</span>
-  <span class="p">};</span>
-  <span class="k">auto</span> <span class="n">token1</span> <span class="o">=</span> <span class="n">env1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">query</span></span><span class="p">(</span><span class="n"><a href="../../get_stop_token.html">std::get_stop_token</a></span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">token1</span><span class="p">),</span> <span class="n"><a href="../../../stop_token/stop_token.html">std::stop_token</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// env0のget_stop_tokenクエリオブジェクト動作を上書き</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">env1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../env.html">ex::env</a></span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../prop.html">ex::prop</a></span><span class="p">(</span><span class="n"><a href="../../get_stop_token.html">std::get_stop_token</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../../stop_token/stop_token.html">std::stop_token</a></span><span class="p">{}),</span>
+<span class="w">    </span><span class="n">env0</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">token1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">env1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">query</span></span><span class="p">(</span><span class="n"><a href="../../get_stop_token.html">std::get_stop_token</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">token1</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../../stop_token/stop_token.html">std::stop_token</a></span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -321,7 +321,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -237,9 +237,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;thread&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">formatter</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">formatter</span><span class="o">&lt;</span><span class="kr">thread</span><span class="o">::</span><span class="n">id</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">formatter</span><span class="o">&lt;</span><span class="kr">thread</span><span class="o">::</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -249,13 +249,13 @@
 <p><pre><code>[[fill] [align] [width]]
 </code></pre></p>
 <h2>例</h2>
-<p><div class="yata" id="8d44d331ec8bf8a433ef6b687dddf7c6ac732fdb"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8d44d331ec8bf8a433ef6b687dddf7c6ac732fdb"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../../thread.html">&lt;thread&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n"><a href="../../this_thread.html">std::this_thread</a></span><span class="o">::</span><span class="n"><a href="../../this_thread/get_id.html">get_id()</a></span><span class="p">);</span>
-  <span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{: &gt;30}"</span><span class="p">,</span> <span class="n"><a href="../../this_thread.html">std::this_thread</a></span><span class="o">::</span><span class="n"><a href="../../this_thread/get_id.html">get_id()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../this_thread.html">std::this_thread</a></span><span class="o">::</span><span class="n"><a href="../../this_thread/get_id.html">get_id()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{: &gt;30}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../this_thread.html">std::this_thread</a></span><span class="o">::</span><span class="n"><a href="../../this_thread/get_id.html">get_id()</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -306,7 +306,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

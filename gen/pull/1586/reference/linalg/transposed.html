@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;linalg&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::linalg">std::linalg::</span><span class="token">transposed</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">linalg</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">ElementType</span><span class="p">,</span> <span class="k">class</span> <span class="nc"><a href="../mdspan/extents.html">Extents</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc"><a href="../mdspan/LayoutMappingPolicy.html">Layout</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc"><a href="../mdspan/AccessorPolicy.html">Accessor</a></span><span class="o">&gt;</span>
-    <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">transposed</span><span class="p">(</span><span class="n"><a href="../mdspan/mdspan.html">mdspan</a></span><span class="o">&lt;</span><span class="n">ElementType</span><span class="p">,</span> <span class="n"><a href="../mdspan/extents.html">Extents</a></span><span class="p">,</span> <span class="n"><a href="../mdspan/LayoutMappingPolicy.html">Layout</a></span><span class="p">,</span> <span class="n"><a href="../mdspan/AccessorPolicy.html">Accessor</a></span><span class="o">&gt;</span> <span class="n">a</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">linalg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ElementType</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../mdspan/extents.html">Extents</a></span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../mdspan/LayoutMappingPolicy.html">Layout</a></span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../mdspan/AccessorPolicy.html">Accessor</a></span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transposed</span><span class="p">(</span><span class="n"><a href="../mdspan/mdspan.html">mdspan</a></span><span class="o">&lt;</span><span class="n">ElementType</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../mdspan/extents.html">Extents</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../mdspan/LayoutMappingPolicy.html">Layout</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../mdspan/AccessorPolicy.html">Accessor</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -245,8 +245,8 @@
 <li>
 <p><code>Layout</code>が<code><a href="../mdspan/layout_left.html">layout_left</a></code>または<code><a href="../mdspan/layout_right.html">layout_right</a></code>または<code><a href="layout_blas_packed.html">layout_blas_packed</a></code>の特殊化であるとき、</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data_handle</span><span class="p">(),</span>
-  <span class="n">ReturnMapping</span><span class="p">(</span><span class="n"><a href="layout_transpose/transpose-extents.html">transpose-extents</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">extents</span><span class="p">())),</span>
-  <span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
+<span class="w">  </span><span class="n">ReturnMapping</span><span class="p">(</span><span class="n"><a href="layout_transpose/transpose-extents.html">transpose-extents</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">extents</span><span class="p">())),</span>
+<span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
 </code></pre></div>
 </p>
 </li>
@@ -255,70 +255,70 @@
 </li>
 </ul>
 <p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data_handle</span><span class="p">(),</span>
-  <span class="n">ReturnMapping</span><span class="p">(</span><span class="n">transpose</span><span class="o">-</span><span class="n">extents</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">extents</span><span class="p">()),</span> <span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span>
-  <span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
+<span class="w">  </span><span class="n">ReturnMapping</span><span class="p">(</span><span class="n">transpose</span><span class="o">-</span><span class="n">extents</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">extents</span><span class="p">()),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span>
+<span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="err">* transpose-extents[link layout_transpose/transpose-extents.md]</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">*</span> transpose-extents[link layout_transpose/transpose-extents.md]
 </code></pre></div>
 </p>
 <ul>
 <li><code>Layout</code>が<code><a href="../mdspan/layout_right_padded.html">layout_right_padded&lt;PaddingValue&gt;</a></code>であるとき、</li>
 </ul>
 <p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data_handle</span><span class="p">(),</span>
-  <span class="n">ReturnMapping</span><span class="p">(</span><span class="n">transpose</span><span class="o">-</span><span class="n">extents</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">extents</span><span class="p">()),</span> <span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">stride</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span>
-  <span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
+<span class="w">  </span><span class="n">ReturnMapping</span><span class="p">(</span><span class="n">transpose</span><span class="o">-</span><span class="n">extents</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">extents</span><span class="p">()),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">stride</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span>
+<span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="err">* transpose-extents[link layout_transpose/transpose-extents.md]</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">*</span> transpose-extents[link layout_transpose/transpose-extents.md]
 </code></pre></div>
 </p>
 <ul>
 <li>
 <p><code>Layout</code>が<code><a href="../mdspan/layout_stride.html">layout_stride</a></code>であるとき、</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data_handle</span><span class="p">(),</span>
-  <span class="n">ReturnMapping</span><span class="p">(</span><span class="n"><a href="layout_transpose/transpose-extents.html">transpose-extents</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">extents</span><span class="p">()),</span>
-                <span class="n">array</span><span class="p">{</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">stride</span><span class="p">(</span><span class="mi">0</span><span class="p">)}),</span>
-  <span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
+<span class="w">  </span><span class="n">ReturnMapping</span><span class="p">(</span><span class="n"><a href="layout_transpose/transpose-extents.html">transpose-extents</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">extents</span><span class="p">()),</span>
+<span class="w">                </span><span class="n">array</span><span class="p">{</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">stride</span><span class="p">(</span><span class="mi">0</span><span class="p">)}),</span>
+<span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p><code>Layout</code>が<code><a href="layout_transpose.html">layout_transpose</a></code>の特殊化であるとき、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data_handle</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">nested_mapping</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data_handle</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">().</span><span class="n">nested_mapping</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>それ以外のとき、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data_handle</span><span class="p">(),</span> <span class="n">ReturnMapping</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">()),</span> <span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data_handle</span><span class="p">(),</span><span class="w"> </span><span class="n">ReturnMapping</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">mapping</span><span class="p">()),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">accessor</span><span class="p">())</span>
 </code></pre></div>
 </p>
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="f0b3341f886015f37501f9abf1fc52526a1f87b2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../linalg.html">&lt;linalg&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f0b3341f886015f37501f9abf1fc52526a1f87b2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../linalg.html">&lt;linalg&gt;</a></span>
+<span class="cp">#include <a href="../mdspan.html">&lt;mdspan&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
 
-  <span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span> <span class="n">mat0</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat0</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">mat0</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="c1">// 1 2</span>
-  <span class="c1">// 3 4</span>
-  <span class="c1">// 5 6</span>
+<span class="w">  </span><span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span><span class="w"> </span><span class="n">mat0</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat0</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mat0</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 1 2</span>
+<span class="w">  </span><span class="c1">// 3 4</span>
+<span class="w">  </span><span class="c1">// 5 6</span>
 
-  <span class="k">auto</span> <span class="n">mat1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::linalg::transposed</span></span><span class="p">(</span><span class="n">mat0</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat1</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">mat1</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
-  <span class="c1">// 1 3 5</span>
-  <span class="c1">// 2 4 6</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">mat1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::linalg::transposed</span></span><span class="p">(</span><span class="n">mat0</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat1</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mat1</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 1 3 5</span>
+<span class="w">  </span><span class="c1">// 2 4 6</span>
 
-  <span class="c1">// transposed戻り値は書き換え可能なmdspan</span>
-  <span class="n">mat0</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>  <span class="c1">// 6 -&gt; 42</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">((</span><span class="n">mat1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">42</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// transposed戻り値は書き換え可能なmdspan</span>
+<span class="w">  </span><span class="n">mat0</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">  </span><span class="c1">// 6 -&gt; 42</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">((</span><span class="n">mat1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -363,7 +363,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

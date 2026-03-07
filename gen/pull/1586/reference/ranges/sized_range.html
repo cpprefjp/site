@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">sized_range</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n"><a href="">sized_range</a></span> <span class="o">=</span> <span class="n"><a href="range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n">requires</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="size.html">ranges::size</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc"><a href="">sized_range</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="size.html">ranges::size</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -234,21 +234,21 @@
 <p>構文要件では、<code>ranges::size(t)</code>という呼び出しが可能であることしか要求されない。これは例えば<code>T</code>のメンバ関数<code>size()</code>が整数を返せば満たしてしまうが、その<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>が償却定数でない場合は<code>sized_range</code>のモデルとはならないので、<code><a href="disable_sized_range.html">disable_sized_range</a></code>を<code>true</code>に特殊化して<code><a href="size.html">ranges::size</a>(t)</code>を無効化する必要がある。</p>
 <p>2番目の要件は、イテレータが<code><a href="../iterator/input_iterator.html">input_iterator</a></code>または<code><a href="../iterator/output_iterator.html">output_iterator</a></code>であるときは、<code><a href="begin.html">ranges::begin</a></code>を呼び出すまでは大きさが定まらない、といった依存関係が許可されることを意味している。</p>
 <h2>例</h2>
-<p><div class="yata" id="e200f8f42087cd0850999b0e7a12d5b6f28f90c2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../forward_list.html">&lt;forward_list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e200f8f42087cd0850999b0e7a12d5b6f28f90c2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../list.html">&lt;list&gt;</a></span>
+<span class="cp">#include <a href="../forward_list.html">&lt;forward_list&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// vectorは<a href="">sized_range</a></span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::ranges::sized_range</span></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// vectorは<a href="">sized_range</a></span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::ranges::sized_range</span></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// listも<a href="">sized_range</a></span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::ranges::sized_range</span></span><span class="o">&lt;</span><span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// listも<a href="">sized_range</a></span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::ranges::sized_range</span></span><span class="o">&lt;</span><span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// forward_listは<a href="">sized_range</a>ではない</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::ranges::sized_range</span></span><span class="o">&lt;</span><span class="n"><a href="../forward_list/forward_list.html">std::forward_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// forward_listは<a href="">sized_range</a>ではない</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::ranges::sized_range</span></span><span class="o">&lt;</span><span class="n"><a href="../forward_list/forward_list.html">std::forward_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -288,7 +288,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -237,11 +237,11 @@
 <li>それ以外の場合、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の<a href="../../iterator/is_integer_like.html">符号付き整数のような型</a>で、幅が<code>W</code>の幅以上の型</li>
 </ol>
 <h2>実装例(MSVC)</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">_Ty</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">_Iota_diff_t</span> <span class="o">=</span> <span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/is_integral.html">is_integral_v</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Ty</span><span class="p">)</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="kt">int</span><span class="p">,</span>
-    <span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Ty</span><span class="p">)</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">),</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="n">_Signed128</span><span class="o">&gt;&gt;</span><span class="p">,</span>
-  <span class="n"><a href="../../iterator/iter_difference_t.html">iter_difference_t</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">_Ty</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">_Iota_diff_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/is_integral.html">is_integral_v</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">  </span><span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Ty</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Ty</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="n">_Signed128</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+<span class="w">  </span><span class="n"><a href="../../iterator/iter_difference_t.html">iter_difference_t</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>バージョン</h2>
@@ -278,7 +278,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

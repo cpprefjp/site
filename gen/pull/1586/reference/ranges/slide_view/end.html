@@ -225,11 +225,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class slide_view">slide_view::</span><span class="token">end</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="k">auto</span> <span class="nf">end</span><span class="p">()</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">simple</span><span class="o">-</span><span class="n"><a href="../view.html">view</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><i>slide-caches-nothing</i></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">V</span><span class="o">&gt;</span><span class="p">));</span> <span class="c1">// (1) C++23</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">end</span><span class="p">()</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">simple</span><span class="o">-</span><span class="n"><a href="../view.html">view</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><i>slide-caches-nothing</i></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="p">));</span><span class="w"> </span><span class="c1">// (1) C++23</span>
 
-<span class="k">constexpr</span> <span class="k">auto</span> <span class="nf">end</span><span class="p">()</span> <span class="k">const</span>
-  <span class="n">requires</span> <span class="n"><i>slide-caches-nothing</i></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">V</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (2) C++23</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><i>slide-caches-nothing</i></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++23</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -250,19 +250,19 @@
 </ul>
 <p>ここで、<code>iterator</code>と<code>sentinel</code>は説明専用のクラスであり、<code>Const</code>は各<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に応じて<code>false</code>または<code>true</code>となる。<code>slide-caches-nothing&lt;V&gt;</code>は<code>forward_range&lt;V&gt;</code>かつ<code>V</code>が<code>random_access_range</code>または<code>sized_range</code>であることを表す説明専用のコンセプトである。</p>
 <h2>例</h2>
-<p><div class="yata" id="67495de6eb71427f3c62a93194251a690f99a154"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="67495de6eb71427f3c62a93194251a690f99a154"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">slide_view</span> <span class="n">sv</span><span class="p">{</span><span class="n">v</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">slide_view</span><span class="w"> </span><span class="n">sv</span><span class="p">{</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 
-  <span class="c1">// イテレータ範囲で全スライドを出力</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">sv</span><span class="p">.</span><span class="n"><a href="begin.html">begin</a></span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">sv</span><span class="p">.</span><span class="n"><span style="color:#ff0000">end</span></span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="o">*</span><span class="n">it</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// イテレータ範囲で全スライドを出力</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n"><a href="begin.html">begin</a></span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n"><span style="color:#ff0000">end</span></span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">it</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -304,7 +304,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

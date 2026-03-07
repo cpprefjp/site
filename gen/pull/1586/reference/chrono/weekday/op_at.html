@@ -225,11 +225,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class weekday">weekday::</span><span class="token">operator[]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n"><a href="../weekday_indexed.html">weekday_indexed</a></span>
-  <span class="k">operator</span><span class="p">[](</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../weekday_indexed.html">weekday_indexed</a></span>
+<span class="w">  </span><span class="k">operator</span><span class="p">[](</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 
-<span class="k">constexpr</span> <span class="n"><a href="../weekday_last.html">weekday_last</a></span>
-  <span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../last_spec.html">last_spec</a></span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>          <span class="c1">// (2) C++20</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../weekday_last.html">weekday_last</a></span>
+<span class="w">  </span><span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../last_spec.html">last_spec</a></span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">          </span><span class="c1">// (2) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -246,25 +246,25 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="3963bbec451e0f9da16314c339d9921e3e7d45be"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3963bbec451e0f9da16314c339d9921e3e7d45be"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">{</span>
-    <span class="c1">// 2019年11月の3回目の日曜日が何日か</span>
-    <span class="n"><a href="../year_month_weekday.html">year_month_weekday</a></span> <span class="n">base_date</span> <span class="o">=</span> <span class="mi">2019</span><span class="n">y</span><span class="o">/</span><span class="n"><a href="../month_constants.html">November</a></span><span class="o">/</span><span class="n"><a href="../weekday_constants.html">Sunday</a></span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
-    <span class="n"><a href="../year_month_day.html">year_month_day</a></span> <span class="n">date</span><span class="p">{</span><span class="n">sys_days</span><span class="p">{</span><span class="n">base_date</span><span class="p">}};</span> <span class="c1">// 年/月/日に変換</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../year_month_day/day.html">date.day()</a></span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 日を取得</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="c1">// 2019年11月の最後の日曜日が何日か</span>
-    <span class="n"><a href="../year_month_weekday_last.html">year_month_weekday_last</a></span> <span class="n">base_date</span> <span class="o">=</span> <span class="mi">2019</span><span class="n">y</span><span class="o">/</span><span class="n"><a href="../month_constants.html">November</a></span><span class="o">/</span><span class="n"><a href="../weekday_constants.html">Sunday</a></span><span class="p">[</span><span class="n"><a href="../last_spec.html">last</a></span><span class="p">];</span>
-    <span class="n"><a href="../year_month_day.html">year_month_day</a></span> <span class="n">date</span><span class="p">{</span><span class="n">sys_days</span><span class="p">{</span><span class="n">base_date</span><span class="p">}};</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../year_month_day/day.html">date.day()</a></span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 2019年11月の3回目の日曜日が何日か</span>
+<span class="w">    </span><span class="n"><a href="../year_month_weekday.html">year_month_weekday</a></span><span class="w"> </span><span class="n">base_date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2019</span><span class="n">y</span><span class="o">/</span><span class="n"><a href="../month_constants.html">November</a></span><span class="o">/</span><span class="n"><a href="../weekday_constants.html">Sunday</a></span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="w">    </span><span class="n"><a href="../year_month_day.html">year_month_day</a></span><span class="w"> </span><span class="n">date</span><span class="p">{</span><span class="n">sys_days</span><span class="p">{</span><span class="n">base_date</span><span class="p">}};</span><span class="w"> </span><span class="c1">// 年/月/日に変換</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../year_month_day/day.html">date.day()</a></span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 日を取得</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 2019年11月の最後の日曜日が何日か</span>
+<span class="w">    </span><span class="n"><a href="../year_month_weekday_last.html">year_month_weekday_last</a></span><span class="w"> </span><span class="n">base_date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2019</span><span class="n">y</span><span class="o">/</span><span class="n"><a href="../month_constants.html">November</a></span><span class="o">/</span><span class="n"><a href="../weekday_constants.html">Sunday</a></span><span class="p">[</span><span class="n"><a href="../last_spec.html">last</a></span><span class="p">];</span>
+<span class="w">    </span><span class="n"><a href="../year_month_day.html">year_month_day</a></span><span class="w"> </span><span class="n">date</span><span class="p">{</span><span class="n">sys_days</span><span class="p">{</span><span class="n">base_date</span><span class="p">}};</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../year_month_day/day.html">date.day()</a></span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -300,7 +300,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

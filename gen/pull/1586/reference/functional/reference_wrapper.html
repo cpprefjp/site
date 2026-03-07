@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">reference_wrapper</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">reference_wrapper</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">reference_wrapper</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -390,31 +390,31 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="6384e867acb067597db7663e4916950a053bbb13"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6384e867acb067597db7663e4916950a053bbb13"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="o">++</span><span class="n">x</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-  <span class="c1">// 関数テンプレートの型推論によって、xの型が非参照のintと見なされる</span>
+<span class="w">  </span><span class="c1">// 関数テンプレートの型推論によって、xの型が非参照のintと見なされる</span>
 <span class="c1">//g(x);</span>
 
-  <span class="c1">// 関数テンプレートに変数を参照として渡す</span>
-  <span class="n">g</span><span class="p">(</span><span class="n"><a href="ref.html">std::ref</a></span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// 関数テンプレートに変数を参照として渡す</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n"><a href="ref.html">std::ref</a></span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -422,27 +422,27 @@
 <p><pre><code>4
 </code></pre></p>
 <h3><a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>を保持する例</h3>
-<p><div class="yata" id="428b0728aec00d3a0840f819f16279211bc77d17"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="428b0728aec00d3a0840f819f16279211bc77d17"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">my_struct</span><span class="p">;</span>
-<span class="n">my_struct</span><span class="o">&amp;</span> <span class="n">get_my_struct</span><span class="p">();</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">my_struct</span><span class="p">;</span>
+<span class="n">my_struct</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">get_my_struct</span><span class="p">();</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="n">my_struct</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">get_my_struct</span><span class="p">();</span> <span class="c1">// 不完全型 my_struct の使用</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="n">my_struct</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_my_struct</span><span class="p">();</span><span class="w"> </span><span class="c1">// 不完全型 my_struct の使用</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">my_struct</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">my_struct</span>
 <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Hello, world!"</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Hello, world!"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n">my_struct</span><span class="o">&amp;</span> <span class="n">get_my_struct</span><span class="p">()</span>
+<span class="n">my_struct</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">get_my_struct</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static</span> <span class="n">my_struct</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">my_struct</span><span class="p">{};</span>
-  <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">my_struct</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_struct</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -485,7 +485,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

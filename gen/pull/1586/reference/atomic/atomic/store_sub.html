@@ -226,14 +226,14 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class atomic">atomic::</span><span class="token">store_sub</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span>
-  <span class="nf">store_sub</span><span class="p">(</span><span class="n">difference_type</span> <span class="n">operand</span><span class="p">,</span>
-            <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
-            <span class="p">)</span> <span class="k">volatile</span> <span class="k">noexcept</span><span class="p">;</span>                      <span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="nf">store_sub</span><span class="p">(</span><span class="n">difference_type</span><span class="w"> </span><span class="n">operand</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../memory_order.html">memory_order</a></span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                      </span><span class="c1">// (1) C++26</span>
 
-<span class="k">constexpr</span> <span class="kt">void</span>
-  <span class="nf">store_sub</span><span class="p">(</span><span class="n">difference_type</span> <span class="n">operand</span><span class="p">,</span>
-            <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
-            <span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                               <span class="c1">// (2) C++26</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span>
+<span class="w">  </span><span class="nf">store_sub</span><span class="p">(</span><span class="n">difference_type</span><span class="w"> </span><span class="n">operand</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../memory_order.html">memory_order</a></span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                               </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -278,16 +278,16 @@
 </ul>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="4edc18ab010c232ef357268de754bd44273a4711"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4edc18ab010c232ef357268de754bd44273a4711"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../atomic.html">&lt;atomic&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-  <span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">store_sub</span></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">store_sub</span></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n"><a href="load.html">x.load()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="load.html">x.load()</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -295,21 +295,21 @@
 <p><pre><code>1
 </code></pre></p>
 <h3>並列に減算する例</h3>
-<p><div class="yata" id="9cd3f706e4280205db5d340ffafd24a7c6c29f7c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9cd3f706e4280205db5d340ffafd24a7c6c29f7c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../atomic.html">&lt;atomic&gt;</a></span>
+<span class="cp">#include <a href="../../algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">{</span><span class="mi">100</span><span class="p">};</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">{</span><span class="mi">100</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-  <span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../../execution/execution/execution_policy.html">std::execution::par_unseq</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
-    <span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">store_sub</span></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../../execution/execution/execution_policy.html">std::execution::par_unseq</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+<span class="w">    </span><span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">store_sub</span></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
 
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n"><a href="load.html">x.load()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="load.html">x.load()</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -348,7 +348,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

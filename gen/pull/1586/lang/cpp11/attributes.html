@@ -232,24 +232,24 @@
 <h3><a href="#noreturn" id="noreturn"><code>[[noreturn]]</code>属性</a></h3>
 <p><code>[[noreturn]]</code>は、関数が決して返らないことを示すための属性である。</p>
 <p>この属性を指定することで、「関数が返らない」という情報を使用してコンパイラが任意の最適化を行える。また、返らない処理をラップした関数に<code>[[noreturn]]</code>属性を付けることで、「関数が返らないパスが存在する」というコンパイラからの警告を抑制するためにも使用できる：</p>
-<p><div class="yata" id="1da3e47509ca098da6a08967eccb93c4ba59c09c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1da3e47509ca098da6a08967eccb93c4ba59c09c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/stdexcept.html">&lt;stdexcept&gt;</a></span>
 
-<span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">report_error</span><span class="p">()</span>
+<span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">report_error</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">"error"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">"error"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n">report_error</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">report_error</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -262,54 +262,54 @@
 <p><code><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></code>順序付けを実装したC++処理系は存在せず、本属性の代替機能も提供されない。</p>
 <p><code>[[carries_dependency]]</code>は、並行プログラミングのアトミック操作において、値に依存した順序付け <code><a href="../../reference/atomic/memory_order.html">memory_order</a></code>を、関数をまたいで伝播することを明示するための属性である。</p>
 <p>以下は、<code><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></code>を使用した順序付けの例である：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
-<span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
+<span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
 
 <span class="c1">// 以下のコードはr1の値に依存しているため、実行順序が保証される</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">r1</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">r2</span> <span class="o">=</span> <span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n">T</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>ここでは、<code>r1</code>に関連する操作が全て同一関数内で行われているが、一部の操作が別の関数になっていると、別の関数になった操作に値の依存があるかどうか・依存として扱ってよいのかどうかがコンパイラに判断できない可能性がある。そのような状況で、関数のパラメータおよび<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>のそれぞれが値の依存性を伝播させることを明示するために<code>[[carries_dependency]]</code>属性を使用する。</p>
 <h4>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>で値の依存性を伝播させる</h4>
 <p>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>に対して値の依存性を持たせる場合、関数に対して<code>[[carries_dependency]]</code>属性を付加する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
-<span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]]</span> <span class="n">T</span><span class="o">*</span> <span class="n">f</span><span class="p">()</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
+<span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]]</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">r1</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">r2</span> <span class="o">=</span> <span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n">T</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h4>関数のパラメータで値の依存性を伝播させる</h4>
 <p>関数のパラメータに対して値の依存性を持たせる場合、各パラメータ名のうしろに<code>[[carries_dependency]]</code>属性を付加する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]])</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]])</span>
 <span class="p">{</span>
-  <span class="n">T</span> <span class="n">r2</span> <span class="o">=</span> <span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n">T</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]])</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]])</span>
 <span class="p">{</span>
-  <span class="c1">// …</span>
+<span class="w">  </span><span class="c1">// …</span>
 <span class="p">}</span>
 
-<span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
-<span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
+<span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
+<span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
 
 <span class="c1">// 関数f()と関数g()の呼び出し、およびその関数内の操作が、</span>
 <span class="c1">// r1に依存した操作であるとして実行順序が保証される</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">r1</span><span class="p">)</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
 <span class="k">else</span>
-  <span class="nf">g</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p><code>[[carries_dependency]]</code>属性を付けて宣言した関数がほかの翻訳単位で<code>[[carries_dependency]]</code>属性を付けずに宣言された場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
@@ -392,7 +392,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

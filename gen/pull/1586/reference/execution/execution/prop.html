@@ -225,19 +225,19 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">prop</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">QueryTag</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ValueType</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">prop</span> <span class="p">{</span>
-    <span class="n">QueryTag</span> <span class="n">query_</span><span class="p">;</span>   <span class="c1">// exposition only</span>
-    <span class="n">ValueType</span> <span class="n">value_</span><span class="p">;</span>  <span class="c1">// exposition only</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">QueryTag</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ValueType</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">prop</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QueryTag</span><span class="w"> </span><span class="n">query_</span><span class="p">;</span><span class="w">   </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n">ValueType</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 
-    <span class="k">constexpr</span> <span class="k">const</span> <span class="n">ValueType</span><span class="o">&amp;</span> <span class="n">query</span><span class="p">(</span><span class="n">QueryTag</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="n">QueryTag</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">QueryTag</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ValueType</span><span class="o">&gt;</span>
-  <span class="n">prop</span><span class="p">(</span><span class="n">QueryTag</span><span class="p">,</span> <span class="n">ValueType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">prop</span><span class="o">&lt;</span><span class="n">QueryTag</span><span class="p">,</span> <span class="n"><a href="../../type_traits/unwrap_reference.html">unwrap_reference_t</a></span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">QueryTag</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ValueType</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">prop</span><span class="p">(</span><span class="n">QueryTag</span><span class="p">,</span><span class="w"> </span><span class="n">ValueType</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">prop</span><span class="o">&lt;</span><span class="n">QueryTag</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../type_traits/unwrap_reference.html">unwrap_reference_t</a></span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -245,20 +245,20 @@
 <p><code>QueryTag</code>型<a href="../queryable.html">クエリオブジェクト</a>のキーと<code>ValueType</code>型の値から、<a href="../queryable.html">クエリ可能オブジェクト</a>を構築する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
 <p>説明用の<code>prop-like</code>テンプレートクラスを用いて、<code>QueryTag</code>と<code>ValueType</code>が<code><a href="../../functional/callable.html">callable</a>&lt;QueryTag, prop-like&lt;ValueType&gt;&gt;</code>のモデルであること。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">ValueType</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">prop</span><span class="o">-</span><span class="n">like</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="n">ValueType</span><span class="o">&amp;</span> <span class="n">query</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ValueType</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">prop</span><span class="o">-</span><span class="n">like</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="14330b24c3d5e7b0f342230aaf0fd1b4da42fa07"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../stop_token.html">&lt;stop_token&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="14330b24c3d5e7b0f342230aaf0fd1b4da42fa07"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../stop_token.html">&lt;stop_token&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">env0</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::prop</span></span><span class="p">(</span><span class="n"><a href="../get_stop_token.html">std::get_stop_token</a></span><span class="p">,</span> <span class="n"><a href="../../stop_token/never_stop_token.html">std::never_stop_token</a></span><span class="p">{});</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">env0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::prop</span></span><span class="p">(</span><span class="n"><a href="../get_stop_token.html">std::get_stop_token</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../stop_token/never_stop_token.html">std::never_stop_token</a></span><span class="p">{});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -301,7 +301,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_layout_compatible</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">is_layout_compatible</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_layout_compatible</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_layout_compatible_v</span>
-    <span class="o">=</span> <span class="n">is_layout_compatible</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_layout_compatible_v</span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">is_layout_compatible</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -243,29 +243,29 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="1fadc2b8ad148c8081363649f3b69037717c4f91"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1fadc2b8ad148c8081363649f3b69037717c4f91"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">E0</span> <span class="o">:</span> <span class="kt">int</span> <span class="p">{</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="p">};</span>
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">E1</span> <span class="o">:</span> <span class="kt">int</span> <span class="p">{</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="p">};</span>
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">E2</span> <span class="o">:</span> <span class="kt">char</span> <span class="p">{</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="p">};</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="p">};</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">Z</span><span class="w"> </span><span class="p">};</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="n">Z</span> <span class="p">{</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="n">X1</span> <span class="p">{</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">s</span><span class="p">;</span> <span class="kt">int</span> <span class="n">m</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Z</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X1</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span>    <span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="w">    </span><span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="k">static_assert</span><span class="p">(</span>    <span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">E0</span><span class="p">,</span> <span class="n">E1</span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">E0</span><span class="p">,</span> <span class="n">E2</span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">E0</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="w">    </span><span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">E0</span><span class="p">,</span><span class="w"> </span><span class="n">E1</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">E0</span><span class="p">,</span><span class="w"> </span><span class="n">E2</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">E0</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="k">static_assert</span><span class="p">(</span>    <span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">Z</span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span>    <span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">X1</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="w">    </span><span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Z</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="w">    </span><span class="n"><span style="color:#ff0000">std::is_layout_compatible_v</span></span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">X1</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -307,7 +307,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

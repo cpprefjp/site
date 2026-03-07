@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">tag_of_t</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="sender.html">sender</a></span> <span class="n">Sndr</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">tag_of_t</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="sender.html">sender</a></span><span class="w"> </span><span class="n">Sndr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">tag_of_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -237,7 +237,7 @@
 <ul>
 <li>
 <p>次の宣言が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であれば、<code>tag_of_t&lt;Sndr&gt;</code>は<code>decltype(auto(tag))</code>の別名となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">tag</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="p">...</span><span class="n">children</span><span class="p">]</span> <span class="o">=</span> <span class="n">sndr</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="n">children</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
 </code></pre></div>
 </p>
 </li>
@@ -249,15 +249,15 @@
 <p>実行制御ライブラリのSenderアルゴリズムから生成された<a href="sender.html">Sender</a><code>sndr</code>は、<a href="../../../lang/cpp17/structured_bindings.html">構造化束縛</a>によってSenderアルゴリズムタグ<code>tag</code>、データ<code>data</code>、0個以上の子Senderパック<code>...children</code>の組へと分解される。</p>
 <p>この仕様は<a href="transform_sender.html">Sender変換</a>が行われる可能性のあるSenderアルゴリズムに対してのみ要求されるものであり、ユーザ定義のSender型において構造化束縛による分解をサポートする必要はない。</p>
 <h2>例</h2>
-<p><div class="yata" id="c8e2c42b45ab44a8644b53e2e99e127843f43a0e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="c8e2c42b45ab44a8644b53e2e99e127843f43a0e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../concepts.html">&lt;concepts&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
-  <span class="k">using</span> <span class="n">Tag</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::tag_of_t</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span> <span class="n"><a href="just.html">ex::just_t</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::tag_of_t</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="just.html">ex::just_t</a></span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -301,7 +301,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

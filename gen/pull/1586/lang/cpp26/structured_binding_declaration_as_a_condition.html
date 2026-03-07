@@ -221,39 +221,39 @@
 <p>C++26では、<code>if</code>文、<code>while</code>文、<code>for</code>文、<code>switch</code>文の条件式において構造化束縛を使用できるようになる。</p>
 <p>C++23までは、条件分岐文の初期化式で構造化束縛は使用できたが、その場合に条件式を別途指定する必要があった。C++26では構造化束縛した全体が<code>bool</code>型に変換可能であれば、条件式として構造化束縛を使用できるようになった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++23</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">to</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../../reference/charconv/to_chars.html">std::to_chars</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n"><a href="../../reference/system_error/errc.html">std::errc</a></span><span class="p">{})</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">to</span><span class="p">);</span>
-  <span class="err">…</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/charconv/to_chars.html">std::to_chars</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span><span class="w"> </span><span class="n">ec</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../reference/system_error/errc.html">std::errc</a></span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">);</span>
+<span class="w">  </span><span class="err">…</span>
 <span class="p">}</span>
 
 <span class="c1">// C++26</span>
 <span class="c1">// <a href="../../reference/charconv/to_chars.html">std::to_chars</a>の戻り値型である<a href="../../reference/charconv/to_chars_result.html">std::to_chars_result</a>は、</span>
 <span class="c1">// boolへの変換演算子をもつ</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">to</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../../reference/charconv/to_chars.html">std::to_chars</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="mi">42</span><span class="p">))</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">to</span><span class="p">);</span>
-  <span class="err">…</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/charconv/to_chars.html">std::to_chars</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">);</span>
+<span class="w">  </span><span class="err">…</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>なお、条件分岐文での初期化式と、全体を<code>bool</code>変換する条件式は別で指定できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/charconv.html">&lt;charconv&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../reference/charconv.html">&lt;charconv&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string_view.html">&lt;string_view&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">123</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">char</span> <span class="n">out</span><span class="p">[</span><span class="mi">50</span><span class="p">]{};</span>
-  <span class="k">auto</span> <span class="n">begin</span> <span class="o">=</span> <span class="n"><a href="../../reference/iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
-  <span class="k">auto</span> <span class="n">end</span> <span class="o">=</span> <span class="n"><a href="../../reference/iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">out</span><span class="p">[</span><span class="mi">50</span><span class="p">]{};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">begin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span> <span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../../reference/charconv/to_chars.html">std::to_chars</a></span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">ptr</span> <span class="o">-</span> <span class="n">begin</span><span class="p">));</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"conversion failed."</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/charconv/to_chars.html">std::to_chars</a></span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">begin</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"conversion failed."</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -283,7 +283,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

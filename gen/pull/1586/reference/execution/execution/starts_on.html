@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">starts_on</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">starts_on_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">starts_on_t</span> <span class="n">starts_on</span><span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">starts_on_t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">starts_on_t</span><span class="w"> </span><span class="n">starts_on</span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -237,8 +237,8 @@
 <p>説明用の式<code>sch</code>と<code>sndr</code>に対して、<code>decltype((sch))</code>が<code><a href="scheduler.html">scheduler</a></code>を満たさない、もしくは<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさないとき、呼び出し式<code>starts_on(sch, sndr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <p>そうでなければ、呼び出し式<code>starts_on(sch, sndr)</code>は<code>sch</code>が1回だけ評価されることを除いて、下記と等価。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span>
-  <span class="n"><a href="query-with-default.html">query-with-default</a></span><span class="p">(</span><span class="n"><a href="get_domain.html">get_domain</a></span><span class="p">,</span> <span class="n">sch</span><span class="p">,</span> <span class="n"><a href="default_domain.html">default_domain()</a></span><span class="p">),</span>
-  <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">starts_on</span><span class="p">,</span> <span class="n">sch</span><span class="p">,</span> <span class="n">sndr</span><span class="p">))</span>
+<span class="w">  </span><span class="n"><a href="query-with-default.html">query-with-default</a></span><span class="p">(</span><span class="n"><a href="get_domain.html">get_domain</a></span><span class="p">,</span><span class="w"> </span><span class="n">sch</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="default_domain.html">default_domain()</a></span><span class="p">),</span>
+<span class="w">  </span><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">starts_on</span><span class="p">,</span><span class="w"> </span><span class="n">sch</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">))</span>
 </code></pre></div>
 </p>
 <h3>Senderアルゴリズムタグ <code>starts_on</code></h3>
@@ -247,20 +247,20 @@
 <ul>
 <li>
 <p>式<code>starts_on.transform_env(out_sndr, env)</code>は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">sch</span><span class="p">,</span> <span class="n">_</span><span class="p">]</span> <span class="o">=</span> <span class="n">out_sndr</span><span class="p">;</span>
-<span class="k">return</span> <span class="nf"><a href="../queryable.html">JOIN-ENV</a></span><span class="p">(</span><span class="n"><a href="scheduler.html">SCHED-ENV</a></span><span class="p">(</span><span class="n">sch</span><span class="p">),</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV</a></span><span class="p">(</span><span class="n">env</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">sch</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">out_sndr</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="n"><a href="../queryable.html">JOIN-ENV</a></span><span class="p">(</span><span class="n"><a href="scheduler.html">SCHED-ENV</a></span><span class="p">(</span><span class="n">sch</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../forwarding_query.html">FWD-ENV</a></span><span class="p">(</span><span class="n">env</span><span class="p">));</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>式<code>starts_on.transform_sender(out_sndr, env)</code>は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">sch</span><span class="p">,</span> <span class="n">sndr</span><span class="p">]</span> <span class="o">=</span> <span class="n">out_sndr</span><span class="p">;</span>
-<span class="k">return</span> <span class="nf"><a href="let_value.html">let_value</a></span><span class="p">(</span>
-  <span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n">sch</span><span class="p">),</span>
-  <span class="p">[</span><span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">)]()</span> <span class="k">mutable</span>
-    <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
-  <span class="p">});</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">sch</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">out_sndr</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="n"><a href="let_value.html">let_value</a></span><span class="p">(</span>
+<span class="w">  </span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n">sch</span><span class="p">),</span>
+<span class="w">  </span><span class="p">[</span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">)]()</span><span class="w"> </span><span class="k">mutable</span>
+<span class="w">    </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
 </code></pre></div>
 </p>
 </li>
@@ -276,33 +276,33 @@
 <li><code>sch</code>上でのスケジューリングが失敗した場合、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の実行エージェント上で<code>out_rcvr</code>の<a href="set_error.html">エラー完了</a>が行われるべき。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="a4db9ef3c358b24e615ee386bf3a32579c30e8af"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="a4db9ef3c358b24e615ee386bf3a32579c30e8af"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"main#{}"</span><span class="p">,</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"main#{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
 
-  <span class="n"><a href="run_loop.html">ex::run_loop</a></span> <span class="n">loop</span><span class="p">;</span>
-  <span class="n"><a href="../../thread/jthread.html">std::jthread</a></span> <span class="n">worker</span><span class="p">{[</span><span class="o">&amp;</span><span class="p">]{</span>
-    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"start worker#{}"</span><span class="p">,</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
-    <span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/run.html">run()</a></span><span class="p">;</span>
-  <span class="p">}};</span>
+<span class="w">  </span><span class="n"><a href="run_loop.html">ex::run_loop</a></span><span class="w"> </span><span class="n">loop</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/jthread.html">std::jthread</a></span><span class="w"> </span><span class="n">worker</span><span class="p">{[</span><span class="o">&amp;</span><span class="p">]{</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"start worker#{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/run.html">run()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}};</span>
 
-  <span class="n"><a href="scheduler.html">ex::scheduler</a></span> <span class="k">auto</span> <span class="n">sch</span> <span class="o">=</span> <span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/get_scheduler.html">get_scheduler()</a></span><span class="p">;</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span>
-    <span class="n"><span style="color:#ff0000">ex::starts_on</span></span><span class="p">(</span><span class="n">sch</span><span class="p">,</span> <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">21</span><span class="p">))</span>
-    <span class="o">|</span> <span class="n"><a href="then.html">ex::then</a></span><span class="p">([](</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"on worker#{}"</span><span class="p">,</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
-      <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="scheduler.html">ex::scheduler</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/get_scheduler.html">get_scheduler()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">ex::starts_on</span></span><span class="p">(</span><span class="n">sch</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">21</span><span class="p">))</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="then.html">ex::then</a></span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"on worker#{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">});</span>
 
-  <span class="k">auto</span> <span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)).</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"val={}"</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">val</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)).</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"val={}"</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
 
-  <span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/finish.html">finish()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/finish.html">finish()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -352,7 +352,7 @@ val=42
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

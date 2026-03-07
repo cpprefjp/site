@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;iterator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class istreambuf_iterator">istreambuf_iterator::</span><span class="token">operator*</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">CharT</span> <span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="k">const</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">CharT</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -234,17 +234,17 @@
 <p><code>sbuf_-&gt;sgetc()</code>で文字を読み込んで返す。</p>
 <p>※<code>sbuf_</code>はメンバ変数として保持している<code>streambuf_type</code>オブジェクトへのポインタ</p>
 <h2>例</h2>
-<p><div class="yata" id="024ee241a7d66ef1b826d9fe773fc2205194be0b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="024ee241a7d66ef1b826d9fe773fc2205194be0b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">ss</span><span class="p">;</span>
-  <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">"123"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../sstream/basic_stringstream.html">std::stringstream</a></span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"123"</span><span class="p">;</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">istreambuf_iterator</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">it</span><span class="p">(</span><span class="n">ss</span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">istreambuf_iterator</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="p">(</span><span class="n">ss</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -269,7 +269,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

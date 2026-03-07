@@ -213,10 +213,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">range_adaptor_closure</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">D</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../type_traits/is_class.html">is_class_v</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">D</span><span class="p">,</span> <span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;&gt;</span>
-  <span class="k">class</span> <span class="nc">range_adaptor_closure</span> <span class="p">{</span> <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../type_traits/is_class.html">is_class_v</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">range_adaptor_closure</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -238,77 +238,77 @@
 <p>各処理系がRangeアダプタを実装する際、どのRangeアダプタでも共通するコードを基底クラスにまとめることが行われ、パイプライン記法をサポートする<code>operator|</code>も基底クラスに対して実装された。
 そのような経験を踏まえ、Rangeアダプタクロージャオブジェクトの基底クラスとして<code>range_adaptor_closure</code>が標準化された。</p>
 <p>ユーザーは、以下のように<code>range_adaptor_closure</code>を継承することで、Rangeアダプタクロージャオブジェクトを定義することができる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">user_defined_closure_t</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">user_defined_closure_t</span><span class="o">&gt;</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">user_defined_closure_t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">user_defined_closure_t</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="c1">// user_defined_viewを構築して返す</span>
-    <span class="k">return</span> <span class="n">user_defined_view</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// user_defined_viewを構築して返す</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">user_defined_view</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">user_defined_closure_t</span> <span class="n">user_defined</span><span class="p">;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">user_defined_closure_t</span><span class="w"> </span><span class="n">user_defined</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>パイプライン記法をサポートする方法は規定されていないが、一般には処理系がRangeと<code>range_adaptor_closure</code>を引数とする以下のような<code>operator|</code>を定義することで行われると考えられる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">requires</span> <span class="n"><a href="../concepts/derived_from.html">std::derived_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">|</span> <span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">raco</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">raco</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/derived_from.html">std::derived_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">raco</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">raco</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="155556897a5c0fcf28966af21eb1b4a9e47f6158"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="155556897a5c0fcf28966af21eb1b4a9e47f6158"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">closure_t</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">closure_t</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
-  <span class="n">F</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">closure_t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">closure_t</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">constexpr</span> <span class="n">closure_t</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="o">:</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">closure_t</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-  <span class="n">requires</span> <span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">F</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">R</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">F</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">adaptor_t</span> <span class="p">{</span>
-  <span class="n">F</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">adaptor_t</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">constexpr</span> <span class="n">adaptor_t</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="o">:</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">adaptor_t</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">F</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">closure_t</span><span class="p">(</span><span class="n"><a href="../functional/bind_back.html">std::bind_back</a></span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">F</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">closure_t</span><span class="p">(</span><span class="n"><a href="../functional/bind_back.html">std::bind_back</a></span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">closure_t</span> <span class="n">user_defined_join</span>
-  <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-    <span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n"><a href="join_view.html">std::ranges::join_view</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
-    <span class="p">};</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">closure_t</span><span class="w"> </span><span class="n">user_defined_join</span>
+<span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="join_view.html">std::ranges::join_view</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+<span class="w">    </span><span class="p">};</span>
 
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">adaptor_t</span> <span class="n">user_defined_transform</span>
-  <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
-    <span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n"><a href="transform_view.html">std::ranges::transform_view</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
-    <span class="p">};</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">adaptor_t</span><span class="w"> </span><span class="n">user_defined_transform</span>
+<span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="transform_view.html">std::ranges::transform_view</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="w">    </span><span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">vv</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">6</span><span class="p">}};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">6</span><span class="p">}};</span>
 
-  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">vv</span> <span class="o">|</span> <span class="n">user_defined_join</span> <span class="o">|</span> <span class="n">user_defined_transform</span><span class="p">([](</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span> <span class="p">}));</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">vv</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">user_defined_join</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">user_defined_transform</span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -316,29 +316,29 @@
 <p><pre><code>[0, 1, 4, 9, 16, 25, 36]
 </code></pre></p>
 <h2>例 ジェネレータを使用してRangeアダプタを定義する</h2>
-<p><div class="yata" id="3f79821be3c050565c57212d919c812ce0a5c792"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3f79821be3c050565c57212d919c812ce0a5c792"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../generator.html">&lt;generator&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">positive_impl</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">positive_impl</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">positive_impl</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">positive_impl</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="range.html">std::ranges::range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../generator/generator.html">std::generator</a></span><span class="o">&lt;</span><span class="n"><a href="range_value_t.html">std::ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">co_yield</span> <span class="n">n</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="range.html">std::ranges::range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../generator/generator.html">std::generator</a></span><span class="o">&lt;</span><span class="n"><a href="range_value_t.html">std::ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">co_yield</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">positive_impl</span> <span class="n">positive</span><span class="p">;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">positive_impl</span><span class="w"> </span><span class="n">positive</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">-7</span><span class="p">};</span>
 
-  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">v</span> <span class="o">|</span> <span class="n">positive</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">positive</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -380,7 +380,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

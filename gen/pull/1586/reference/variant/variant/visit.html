@@ -225,13 +225,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;variant&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class variant">variant::</span><span class="token">visit</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Self</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Visitor</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span>
-  <span class="n">visit</span><span class="p">(</span><span class="k">this</span> <span class="n">Self</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">Visitor</span><span class="o">&amp;&amp;</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Self</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Visitor</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span>
+<span class="w">  </span><span class="n">visit</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">Visitor</span><span class="o">&amp;&amp;</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Self</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Visitor</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">R</span>
-  <span class="n">visit</span><span class="p">(</span><span class="k">this</span> <span class="n">Self</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">Visitor</span><span class="o">&amp;&amp;</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Self</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Visitor</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">R</span>
+<span class="w">  </span><span class="n">visit</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">Visitor</span><span class="o">&amp;&amp;</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -243,66 +243,66 @@
 <p>この関数は、非メンバ関数版の<code><a href="../visit.html">std::visit()</a></code>と同様の動作をするメンバ関数である。ただし、複数の<code>variant</code>オブジェクトから呼び出す関数を決定したい場合には、非メンバ関数版を使用する必要がある。</p>
 <h3>switch文の自動化／Visitorパターン</h3>
 <p><code>variant</code>オブジェクトに代入される型は実行時に決定される。そのため、通常の方法では、以下のように<code>switch</code>文を使用して実行時に代入された型に応じた処理を行うことになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">T1</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">T2</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">T3</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">T1</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">T2</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">T3</span><span class="p">);</span>
 
-<span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">T3</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+<span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="p">,</span><span class="w"> </span><span class="n">T3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
 
-<span class="k">switch</span> <span class="p">(</span><span class="n"><a href="index.html">v.index()</a></span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
-    <span class="n">f</span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
-    <span class="k">break</span><span class="p">;</span>
+<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="index.html">v.index()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
 
-  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-    <span class="n">f</span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
-    <span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
 
-  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-    <span class="n">f</span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
-    <span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>この<code>visit()</code>メンバ関数を使用することで、そのような分岐を内部で解決してくれる。これは、GoFのデザインパターンのひとつであるVisitorパターンに対応する機能である。</p>
 <p>注意点としては、非メンバ関数の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を各型に対応した関数として<code>visit()</code>メンバ関数に指定することはできないということである。引数の型が静的に決まらなければ関数ポインタを取得できないため、関数ポインタでは<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の集合をまとめて<code>visit()</code>メンバ関数に渡すことができない。そのため、<code>visit()</code>メンバ関数に指定する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の集合には、必然的に関数オブジェクトを使用することになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Visitor</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T1</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T2</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T3</span><span class="p">)</span> <span class="p">{}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Visitor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">T1</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">T2</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">T3</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">T3</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
-<span class="n">v</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="n">Visitor</span><span class="p">{});</span> <span class="c1">// vに実行時に代入された型に応じた関数オーバーロードを呼び出す</span>
+<span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="p">,</span><span class="w"> </span><span class="n">T3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="n">v</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="n">Visitor</span><span class="p">{});</span><span class="w"> </span><span class="c1">// vに実行時に代入された型に応じた関数オーバーロードを呼び出す</span>
 </code></pre></div>
 </p>
 <h3>呼び出された関数から<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を返す</h3>
 <p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を返す場合は、それぞれの関数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に単に<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を定義すればよいが、全ての<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>で共通の型でなければならない。これは、<code>visit()</code>メンバ関数自体の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型は静的に決定されなければならないためである。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Visitor</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T1</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
-  <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T2</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
-  <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T3</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span><span class="p">;</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Visitor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">T1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">T2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">T3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">T3</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+<span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="p">,</span><span class="w"> </span><span class="n">T3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
 
 <span class="c1">// vに実行時に代入された型に応じた関数オーバーロードを呼び出し、戻り値を受け取る</span>
-<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="n">Visitor</span><span class="p">{});</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="n">Visitor</span><span class="p">{});</span>
 </code></pre></div>
 </p>
 <h3>全ての候補型で共通の操作を行う場合は、ジェネリックラムダを使用できる</h3>
 <p>代入される型ごとに<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を定義できることは有用だが、すでに操作が共通化されていたり、共通の操作にアダプトできる場合 (GoFのデザインパターンのひとつであるAdapterパターンなど)、使用するビジター関数オブジェクトとして、ジェネリックラムダを使用できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">T3</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="p">,</span><span class="w"> </span><span class="n">T3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
 
 <span class="c1">// T1, T2, T3のいずれの型が代入されたとしても、処理内容は共通</span>
-<span class="n">std</span><span class="o">::</span><span class="n">visit</span><span class="p">([](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-<span class="p">},</span> <span class="n">v</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">visit</span><span class="p">([](</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">},</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>効果</h2>
 <p>型<code>V</code>を以下のように定義する：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">V</span> <span class="o">=</span> <span class="n">OVERRIDE_REF</span><span class="p">(</span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">COPY_CONST</span><span class="p">(</span><span class="n"><a href="../../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">variant</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OVERRIDE_REF</span><span class="p">(</span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">COPY_CONST</span><span class="p">(</span><span class="n"><a href="../../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">variant</span><span class="p">));</span>
 </code></pre></div>
 </p>
 <p>以下と等価である：</p>
@@ -310,47 +310,47 @@
 <li>
 <p>(1):
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf"><a href="../visit.html">std::visit</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vis</span><span class="p">),</span> <span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="../visit.html">std::visit</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vis</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(2):
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n"><a href="../visit.html">std::visit</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vis</span><span class="p">),</span> <span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="../visit.html">std::visit</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vis</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="f5b490281bea9aac85b3f811b0d6f979a37567cd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f5b490281bea9aac85b3f811b0d6f979a37567cd"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../variant.html">&lt;variant&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
 <span class="c1">// 2倍にする。</span>
 <span class="c1">// 整数だったら数値を2倍にし、</span>
 <span class="c1">// 文字列だったら同じ文字列を2回繰り返す</span>
-<span class="k">struct</span> <span class="n">TimesTwoVisitor</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">n</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">n</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">TimesTwoVisitor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">s</span> <span class="o">+=</span> <span class="n">s</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">visit</span></span><span class="p">(</span><span class="n">TimesTwoVisitor</span><span class="p">{});</span>
-  <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">visit</span></span><span class="p">([](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">visit</span></span><span class="p">(</span><span class="n">TimesTwoVisitor</span><span class="p">{});</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">visit</span></span><span class="p">([](</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
 
-  <span class="n">v</span> <span class="o">=</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
-  <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">visit</span></span><span class="p">(</span><span class="n">TimesTwoVisitor</span><span class="p">{});</span>
-  <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">visit</span></span><span class="p">([](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">});</span>
+<span class="w">  </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">visit</span></span><span class="p">(</span><span class="n">TimesTwoVisitor</span><span class="p">{});</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">visit</span></span><span class="p">([](</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -390,7 +390,7 @@ HelloHello
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;stacktrace&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class stacktrace_entry">stacktrace_entry::</span><span class="token">operator==</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">stacktrace_entry</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
-                       <span class="k">const</span> <span class="n">stacktrace_entry</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">stacktrace_entry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span>
+<span class="w">                       </span><span class="k">const</span><span class="w"> </span><span class="n">stacktrace_entry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -238,25 +238,25 @@
 <li>この演算子により、<code>operator!=</code>が使用可能になる</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="ae6aca56691675a7e6c95df1aa8c0bb2facbf27a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../stacktrace.html">&lt;stacktrace&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ae6aca56691675a7e6c95df1aa8c0bb2facbf27a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../stacktrace.html">&lt;stacktrace&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../basic_stacktrace.html">std::stacktrace</a></span> <span class="n">st</span> <span class="o">=</span> <span class="n"><a href="../basic_stacktrace.html">std::stacktrace</a></span><span class="o">::</span><span class="n"><a href="../basic_stacktrace/current.html">current</a></span><span class="p">();</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace_entry</span> <span class="n">a</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace_entry</span> <span class="n">b</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace_entry</span> <span class="n">c</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../basic_stacktrace.html">std::stacktrace</a></span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../basic_stacktrace.html">std::stacktrace</a></span><span class="o">::</span><span class="n"><a href="../basic_stacktrace/current.html">current</a></span><span class="p">();</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace_entry</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace_entry</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace_entry</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">c</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">g</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">g</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -294,7 +294,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

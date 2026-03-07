@@ -223,28 +223,28 @@
 <h2>仕様</h2>
 <p>名前空間に属性を付加する場合<code>namespace</code>の直後に属性を記述する。列挙型の場合<code>enum</code>/<code>enum class</code>の列挙子の直後に属性を記述する。</p>
 <h2>例</h2>
-<p><div class="yata" id="77a5d6381a84d039fc0589a641ece29903419536"><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">foo</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">var_a</span><span class="p">;</span>
+<p><div class="yata" id="77a5d6381a84d039fc0589a641ece29903419536"><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">var_a</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">namespace</span> <span class="p">[[</span><span class="n">deprecated</span><span class="p">]]</span> <span class="n">bar</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">var_a</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="p">[[</span><span class="nn">deprecated</span><span class="p">]]</span><span class="w"> </span><span class="nn">bar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">var_a</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">enum</span> <span class="n">FOO</span> <span class="p">{</span>
-  <span class="n">FOO_A</span><span class="p">,</span>
-  <span class="n">FOO_B</span> <span class="p">[[</span><span class="n">deprecated</span><span class="p">]],</span>
-  <span class="n">FOO_C</span><span class="p">,</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">FOO</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">FOO_A</span><span class="p">,</span>
+<span class="w">  </span><span class="n">FOO_B</span><span class="w"> </span><span class="p">[[</span><span class="n">deprecated</span><span class="p">]],</span>
+<span class="w">  </span><span class="n">FOO_C</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">FOO_A</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">FOO_B</span><span class="p">;</span> <span class="c1">//警告される</span>
-  <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">foo</span><span class="o">::</span><span class="n">var_a</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">bar</span><span class="o">::</span><span class="n">var_a</span><span class="p">;</span> <span class="c1">//警告される</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOO_A</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOO_B</span><span class="p">;</span><span class="w"> </span><span class="c1">//警告される</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foo</span><span class="o">::</span><span class="n">var_a</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar</span><span class="o">::</span><span class="n">var_a</span><span class="p">;</span><span class="w"> </span><span class="c1">//警告される</span>
 
-  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -292,7 +292,7 @@ namespace [[deprecated]] bar {
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -224,14 +224,14 @@
 <li>ラムダ式での構造化束縛のキャプチャ</li>
 </ol>
 <p>ラムダ式でコピーキャプチャした変数を、評価されない文脈のみで使用した場合に、その変数はクロージャオブジェクトのメンバ変数になることを仮定していた。この変更ではその仮定をやめ、式の型のみを規定するようになった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-  <span class="p">[</span><span class="o">=</span><span class="p">]</span> <span class="p">{</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">y1</span><span class="p">;</span>        <span class="c1">// y1はfloat型をもつ</span>
-    <span class="k">decltype</span><span class="p">((</span><span class="n">x</span><span class="p">))</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">y1</span><span class="p">;</span> <span class="c1">// y2はconst float&amp;型をもつ。ラムダ式がmutableではなくxが左辺値であるため</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">;</span>   <span class="c1">// r1はfloat&amp;型をもつ</span>
-    <span class="k">decltype</span><span class="p">((</span><span class="n">r</span><span class="p">))</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">y2</span><span class="p">;</span> <span class="c1">// r2はconst float&amp;型をもつ</span>
-  <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="p">[</span><span class="o">=</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">y1</span><span class="p">;</span><span class="w">        </span><span class="c1">// y1はfloat型をもつ</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">((</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="n">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y1</span><span class="p">;</span><span class="w"> </span><span class="c1">// y2はconst float&amp;型をもつ。ラムダ式がmutableではなくxが左辺値であるため</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y1</span><span class="p">;</span><span class="w">   </span><span class="c1">// r1はfloat&amp;型をもつ</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">((</span><span class="n">r</span><span class="p">))</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y2</span><span class="p">;</span><span class="w"> </span><span class="c1">// r2はconst float&amp;型をもつ</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -262,7 +262,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

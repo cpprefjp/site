@@ -213,46 +213,46 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;numeric&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">adjacent_difference</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">OutputIterator</span><span class="o">&gt;</span>
-  <span class="n">OutputIterator</span>
-    <span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
-                        <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-                        <span class="n">OutputIterator</span> <span class="n">result</span><span class="p">);</span>     <span class="c1">// (1) C++03</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">OutputIterator</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">OutputIterator</span>
-    <span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
-                        <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-                        <span class="n">OutputIterator</span> <span class="n">result</span><span class="p">);</span>     <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">OutputIterator</span>
+<span class="w">    </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">     </span><span class="c1">// (1) C++03</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">OutputIterator</span>
+<span class="w">    </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">     </span><span class="c1">// (1) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryOperation</span><span class="o">&gt;</span>
-  <span class="n">OutputIterator</span>
-    <span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
-                        <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-                        <span class="n">OutputIterator</span> <span class="n">result</span><span class="p">,</span>
-                        <span class="n">BinaryOperation</span> <span class="n">binary_op</span><span class="p">);</span> <span class="c1">// (2) C++03</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryOperation</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">OutputIterator</span>
-    <span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
-                        <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-                        <span class="n">OutputIterator</span> <span class="n">result</span><span class="p">,</span>
-                        <span class="n">BinaryOperation</span> <span class="n">binary_op</span><span class="p">);</span> <span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">OutputIterator</span>
+<span class="w">    </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">result</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">BinaryOperation</span><span class="w"> </span><span class="n">binary_op</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) C++03</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">OutputIterator</span>
+<span class="w">    </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">result</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">BinaryOperation</span><span class="w"> </span><span class="n">binary_op</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="o">&gt;</span>
-  <span class="n">ForwardIterator2</span>
-    <span class="n">adjacent_difference</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-                        <span class="n">ForwardIterator1</span> <span class="n">first</span><span class="p">,</span>
-                        <span class="n">ForwardIterator1</span> <span class="n">last</span><span class="p">,</span>
-                        <span class="n">ForwardIterator2</span> <span class="n">result</span><span class="p">);</span>   <span class="c1">// (3) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ForwardIterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ForwardIterator2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">ForwardIterator2</span>
+<span class="w">    </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">ForwardIterator1</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">ForwardIterator1</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">ForwardIterator2</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">   </span><span class="c1">// (3) C++17</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">BinaryOperation</span><span class="o">&gt;</span>
-  <span class="n">ForwardIterator2</span>
-    <span class="n">adjacent_difference</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-                        <span class="n">ForwardIterator1</span> <span class="n">first</span><span class="p">,</span>
-                        <span class="n">ForwardIterator1</span> <span class="n">last</span><span class="p">,</span>
-                        <span class="n">ForwardIterator2</span> <span class="n">result</span><span class="p">,</span>
-                        <span class="n">BinaryOperation</span> <span class="n">binary_op</span><span class="p">);</span> <span class="c1">// (4) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ForwardIterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ForwardIterator2</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">ForwardIterator2</span>
+<span class="w">    </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">ForwardIterator1</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">ForwardIterator1</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">ForwardIterator2</span><span class="w"> </span><span class="n">result</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">BinaryOperation</span><span class="w"> </span><span class="n">binary_op</span><span class="p">);</span><span class="w"> </span><span class="c1">// (4) C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -322,7 +322,7 @@
 </li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><div class="codehilite"><pre><span></span><code><span class="n">result</span> <span class="o">+</span> <span class="p">(</span><span class="n">last</span> <span class="o">-</span> <span class="n">first</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">result</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">last</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">first</span><span class="p">)</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
@@ -332,34 +332,34 @@
 <li>(1), (2) : <code>result</code>は<code>first</code>と同値になるだろう</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="e2c19572467c6008d00435417863ec8296824daa"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e2c19572467c6008d00435417863ec8296824daa"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../numeric.html">&lt;numeric&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Range</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="n">Range</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Range</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Range</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">for</span><span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">r</span><span class="p">)</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" --&gt; "</span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"end"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" --&gt; "</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"end"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">};</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">diffs</span><span class="p">(</span><span class="n"><a href="../vector/vector/size.html">v.size()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.8</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diffs</span><span class="p">(</span><span class="n"><a href="../vector/vector/size.html">v.size()</a></span><span class="p">);</span>
 
-  <span class="c1">// (1) : operator-()を使用して、隣接要素の差を計算する</span>
-  <span class="n"><span style="color:#ff0000">std::adjacent_difference</span></span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span> <span class="n"><a href="../vector/vector/begin.html">diffs.begin()</a></span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">diffs</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (1) : operator-()を使用して、隣接要素の差を計算する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::adjacent_difference</span></span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../vector/vector/begin.html">diffs.begin()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">diffs</span><span class="p">);</span>
 
-  <span class="c1">// (2) : 最後の引数として与えた任意の2項演算関数によって、</span>
-  <span class="c1">//       隣接要素の差を計算する</span>
-  <span class="n"><span style="color:#ff0000">std::adjacent_difference</span></span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span> <span class="n"><a href="../vector/vector/begin.html">diffs.begin()</a></span><span class="p">,</span>
-    <span class="p">[](</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">;</span> <span class="c1">// 2点間の距離の計算</span>
-    <span class="p">});</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">diffs</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (2) : 最後の引数として与えた任意の2項演算関数によって、</span>
+<span class="w">  </span><span class="c1">//       隣接要素の差を計算する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::adjacent_difference</span></span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../vector/vector/begin.html">diffs.begin()</a></span><span class="p">,</span>
+<span class="w">    </span><span class="p">[](</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2点間の距離の計算</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">diffs</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -368,43 +368,43 @@
 0 --&gt; 0.04 --&gt; 0.12 --&gt; 0.2 --&gt; 0.28 --&gt; end
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
 
 <span class="c1">// (2)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryOperation</span><span class="o">&gt;</span>
-<span class="n">OutputIterator</span> <span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
-                                   <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-                                   <span class="n">OutputIterator</span> <span class="n">result</span><span class="p">,</span>
-                                   <span class="n">BinaryOperation</span> <span class="n">binary_op</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation</span><span class="o">&gt;</span>
+<span class="n">OutputIterator</span><span class="w"> </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                                   </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                                   </span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">result</span><span class="p">,</span>
+<span class="w">                                   </span><span class="n">BinaryOperation</span><span class="w"> </span><span class="n">binary_op</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">==</span> <span class="n">last</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">last</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 
-  <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">;</span>
 
-  <span class="n">value_type</span> <span class="n">acc</span> <span class="o">=</span> <span class="o">*</span><span class="n">first</span><span class="p">;</span>
-  <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="n">acc</span><span class="p">;</span>
-  <span class="o">++</span><span class="n">result</span><span class="p">;</span>
-  <span class="o">++</span><span class="n">first</span><span class="p">;</span>
+<span class="w">  </span><span class="n">value_type</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">first</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc</span><span class="p">;</span>
+<span class="w">  </span><span class="o">++</span><span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="o">++</span><span class="n">first</span><span class="p">;</span>
 
-  <span class="k">while</span> <span class="p">(</span><span class="n">first</span> <span class="o">!=</span> <span class="n">last</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">value_type</span> <span class="n">val</span> <span class="o">=</span> <span class="o">*</span><span class="n">first</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="n">binary_op</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">acc</span><span class="p">));</span>
-    <span class="n">acc</span> <span class="o">=</span> <span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">value_type</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">first</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_op</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">acc</span><span class="p">));</span>
+<span class="w">    </span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
 
-    <span class="o">++</span><span class="n">result</span><span class="p">;</span>
-    <span class="o">++</span><span class="n">first</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="o">++</span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="o">++</span><span class="n">first</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// (1)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">OutputIterator</span><span class="o">&gt;</span>
-<span class="n">OutputIterator</span> <span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span> <span class="n">OutputIterator</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="o">&gt;</span>
+<span class="n">OutputIterator</span><span class="w"> </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">;</span>
-  <span class="k">return</span> <span class="nf">adjacent_difference</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n"><a href="../functional/minus.html">std::minus</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">adjacent_difference</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../functional/minus.html">std::minus</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -435,7 +435,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

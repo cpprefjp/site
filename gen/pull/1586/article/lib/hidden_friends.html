@@ -212,37 +212,37 @@
         
   <h1 itemprop="name"><span class="token">Hidden Friends</span></h1>
 <div itemprop="articleBody"><p>クラスの定義内で<code>friend</code>として定義されている関数のことを<em>Hidden Friends</em>と呼ぶ。<em>Hidden Friends</em>な関数は通常のメンバ関数やグローバル関数の様に呼ぶことは出来ず、<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>でのみ呼び出すことができる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">NS</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">NS</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="c1">// メンバ関数</span>
-    <span class="kt">void</span> <span class="n">mem_func</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">    </span><span class="c1">// メンバ関数</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">mem_func</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 
-    <span class="c1">// Hidden Friends</span>
-    <span class="k">friend</span> <span class="kt">void</span> <span class="n">hidden_friend</span><span class="p">(</span><span class="n">C</span><span class="o">&amp;</span> <span class="n">self</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="c1">// Hidden Friends</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hidden_friend</span><span class="p">(</span><span class="n">C</span><span class="o">&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// 普通の非メンバ関数</span>
-  <span class="kt">void</span> <span class="nf">free_func</span><span class="p">(</span><span class="n">C</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// 普通の非メンバ関数</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">free_func</span><span class="p">(</span><span class="n">C</span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">NS</span><span class="o">::</span><span class="n">C</span> <span class="n">c</span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">NS</span><span class="o">::</span><span class="n">C</span><span class="w"> </span><span class="n">c</span><span class="p">{};</span>
 
-  <span class="c1">// メンバ関数</span>
-  <span class="n">c</span><span class="p">.</span><span class="n">mem_func</span><span class="p">();</span>           <span class="c1">// ok</span>
-  <span class="n">mem_func</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>            <span class="c1">// ng</span>
-  <span class="n">NS</span><span class="o">::</span><span class="n">mem_func</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>        <span class="c1">// ng</span>
+<span class="w">  </span><span class="c1">// メンバ関数</span>
+<span class="w">  </span><span class="n">c</span><span class="p">.</span><span class="n">mem_func</span><span class="p">();</span><span class="w">           </span><span class="c1">// ok</span>
+<span class="w">  </span><span class="n">mem_func</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">            </span><span class="c1">// ng</span>
+<span class="w">  </span><span class="n">NS</span><span class="o">::</span><span class="n">mem_func</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">        </span><span class="c1">// ng</span>
 
-  <span class="c1">// Hidden friends</span>
-  <span class="n">c</span><span class="p">.</span><span class="n">hidden_friend</span><span class="p">();</span>      <span class="c1">// ng</span>
-  <span class="n">hidden_friend</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>       <span class="c1">// ok</span>
-  <span class="n">NS</span><span class="o">::</span><span class="n">hidden_friend</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>   <span class="c1">// ng</span>
+<span class="w">  </span><span class="c1">// Hidden friends</span>
+<span class="w">  </span><span class="n">c</span><span class="p">.</span><span class="n">hidden_friend</span><span class="p">();</span><span class="w">      </span><span class="c1">// ng</span>
+<span class="w">  </span><span class="n">hidden_friend</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">       </span><span class="c1">// ok</span>
+<span class="w">  </span><span class="n">NS</span><span class="o">::</span><span class="n">hidden_friend</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">   </span><span class="c1">// ng</span>
 
-  <span class="c1">// 普通の非メンバ関数</span>
-  <span class="n">c</span><span class="p">.</span><span class="n">free_func</span><span class="p">();</span>          <span class="c1">// ng</span>
-  <span class="n">free_func</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>           <span class="c1">// ok</span>
-  <span class="n">NS</span><span class="o">::</span><span class="n">free_func</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>       <span class="c1">// ok</span>
+<span class="w">  </span><span class="c1">// 普通の非メンバ関数</span>
+<span class="w">  </span><span class="n">c</span><span class="p">.</span><span class="n">free_func</span><span class="p">();</span><span class="w">          </span><span class="c1">// ng</span>
+<span class="w">  </span><span class="n">free_func</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">           </span><span class="c1">// ok</span>
+<span class="w">  </span><span class="n">NS</span><span class="o">::</span><span class="n">free_func</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">       </span><span class="c1">// ok</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -282,7 +282,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

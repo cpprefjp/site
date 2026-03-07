@@ -227,9 +227,9 @@
   <div class="identifier-type">function</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class shared_ptr">shared_ptr::</span><span class="token">operator[]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="c1">// 配列版のみ</span>
 <span class="n">element_type</span><span class="o">&amp;</span>
-  <span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../../cstddef/ptrdiff_t.html">ptrdiff_t</a></span> <span class="n">i</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1) C++17</span>
-<span class="k">constexpr</span> <span class="n">element_type</span><span class="o">&amp;</span>
-  <span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../../cstddef/ptrdiff_t.html">ptrdiff_t</a></span> <span class="n">i</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../../cstddef/ptrdiff_t.html">ptrdiff_t</a></span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++17</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">element_type</span><span class="o">&amp;</span>
+<span class="w">  </span><span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../../cstddef/ptrdiff_t.html">ptrdiff_t</a></span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -246,17 +246,17 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="4867d85db23394a521ca5eda0b0bd8f5e35fb949"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4867d85db23394a521ca5eda0b0bd8f5e35fb949"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../memory.html">&lt;memory&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 要素数がコンパイル時に判明している場合の型指定</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">p1</span> <span class="p">{</span><span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="mi">1024</span><span class="p">]};</span>
-  <span class="n"><span style="color:#ff0000">p1[1]</span></span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 要素数がコンパイル時に判明している場合の型指定</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="p">[</span><span class="mi">1024</span><span class="p">]};</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">p1[1]</span></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
 
-  <span class="c1">// 要素数がコンパイル時に判明していない場合の型指定</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">p2</span> <span class="p">{</span><span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="mi">3</span><span class="p">]};</span>
-  <span class="n"><span style="color:#ff0000">p2[2]</span></span> <span class="o">=</span> <span class="mf">2.56</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 要素数がコンパイル時に判明していない場合の型指定</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="p">[</span><span class="mi">3</span><span class="p">]};</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">p2[2]</span></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.56</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -294,7 +294,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

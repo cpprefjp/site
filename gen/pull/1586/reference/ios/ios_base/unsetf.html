@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class ios_base">ios_base::</span><span class="token">unsetf</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="type-fmtflags.html">fmtflags</a></span> <span class="nf">unsetf</span><span class="p">(</span><span class="n"><a href="type-fmtflags.html">fmtflags</a></span> <span class="n">mask</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="type-fmtflags.html">fmtflags</a></span><span class="w"> </span><span class="nf">unsetf</span><span class="p">(</span><span class="n"><a href="type-fmtflags.html">fmtflags</a></span><span class="w"> </span><span class="n">mask</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -241,36 +241,36 @@
 <li>設定後に戻す必要が無いような場合には、本関数より各種マニピュレータを使用した方が便利だろう。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="79db5f1f75add311f9554b5a348bff0b635527b0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="79db5f1f75add311f9554b5a348bff0b635527b0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// bool をアルファベット形式で出力</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="setf.html">setf</a></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">boolalpha</a></span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="nb">true</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// bool をアルファベット形式で出力</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="setf.html">setf</a></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">boolalpha</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
 
-  <span class="c1">// bool を非アルファベット形式（数値形式）で出力</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><span style="color:#ff0000">unsetf</span></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">boolalpha</a></span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="nb">true</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// bool を非アルファベット形式（数値形式）で出力</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><span style="color:#ff0000">unsetf</span></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">boolalpha</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
 
-  <span class="c1">// 浮動小数点を科学表記で出力</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="setf.html">setf</a></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">scientific</a></span><span class="p">,</span> <span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">floatfield</a></span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">123.456</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 浮動小数点を科学表記で出力</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="setf.html">setf</a></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">scientific</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">floatfield</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123.456</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
 
-  <span class="c1">// 浮動小数点を固定表記で出力</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="setf.html">setf</a></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">fixed</a></span><span class="p">,</span> <span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">floatfield</a></span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">123.456</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 浮動小数点を固定表記で出力</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="setf.html">setf</a></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">fixed</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">floatfield</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123.456</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
 
-  <span class="c1">// 浮動小数点を標準の形式で出力</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><span style="color:#ff0000">unsetf</span></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">floatfield</a></span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">123.456</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 浮動小数点を標準の形式で出力</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><span style="color:#ff0000">unsetf</span></span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="type-fmtflags.html">floatfield</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123.456</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
 
-  <span class="c1">// マニピュレータを使用して上記と等価の設定をした例</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="nb">true</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../noboolalpha.html">std::noboolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="nb">true</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../scientific.html">std::scientific</a></span> <span class="o">&lt;&lt;</span> <span class="mf">123.456</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../fixed.html">std::fixed</a></span> <span class="o">&lt;&lt;</span> <span class="mf">123.456</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../defaultfloat.html">std::defaultfloat</a></span> <span class="o">&lt;&lt;</span> <span class="mf">123.456</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>    <span class="c1">// C++11 から</span>
+<span class="w">  </span><span class="c1">// マニピュレータを使用して上記と等価の設定をした例</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../boolalpha.html">std::boolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../noboolalpha.html">std::noboolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../scientific.html">std::scientific</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123.456</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../fixed.html">std::fixed</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123.456</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../defaultfloat.html">std::defaultfloat</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123.456</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span><span class="w">    </span><span class="c1">// C++11 から</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -321,7 +321,7 @@ true
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

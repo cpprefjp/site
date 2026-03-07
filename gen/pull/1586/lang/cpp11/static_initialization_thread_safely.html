@@ -220,13 +220,13 @@
 <h2>概要</h2>
 <p>ブロックスコープを持つ<code>static</code>変数の初期化は、スレッドセーフであることが規定された。</p>
 <p><code>static</code>変数の初期化が完了するまで、他のスレッドは初期化処理の前で待機する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">singleton</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">static</span> <span class="n">singleton</span><span class="o">&amp;</span> <span class="n">get_instance</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">static</span> <span class="n">singleton</span> <span class="n">instance</span><span class="p">;</span> <span class="c1">// この初期化はスレッドセーフ</span>
-    <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">singleton</span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_instance</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span><span class="w"> </span><span class="c1">// この初期化はスレッドセーフ</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -244,40 +244,40 @@
 <li><code>static</code>変数のデストラクタは、全てのスレッドが終了したあとに、宣言と逆の順番にデストラクタが呼び出され、破棄される</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="7e76dfce3853223fb170c9d79858dc934340c9e6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7e76dfce3853223fb170c9d79858dc934340c9e6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">singleton</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">value_</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">static</span> <span class="n">singleton</span><span class="o">&amp;</span> <span class="n">get_instance</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">static</span> <span class="n">singleton</span> <span class="n">instance</span><span class="p">;</span> <span class="c1">// この初期化はスレッドセーフ</span>
-    <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">singleton</span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_instance</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span><span class="w"> </span><span class="c1">// この初期化はスレッドセーフ</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">int</span> <span class="n">get</span><span class="p">()</span> <span class="k">const</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="n">value_</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 4スレッドで並行に、</span>
-  <span class="c1">// singletonのstatic変数へとアクセスする</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="o">&gt;</span> <span class="n">threads</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="n">t</span><span class="p">([]</span> <span class="p">{</span>
-      <span class="c1">// singletonのメンバ変数value_が</span>
-      <span class="c1">// 常に初期化された状態であることを確認</span>
-      <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">singleton</span><span class="o">::</span><span class="n">get_instance</span><span class="p">().</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="p">});</span>
-    <span class="n">threads</span><span class="p">.</span><span class="n"><a href="../../reference/vector/vector/push_back.html">push_back</a></span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 4スレッドで並行に、</span>
+<span class="w">  </span><span class="c1">// singletonのstatic変数へとアクセスする</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">threads</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// singletonのメンバ変数value_が</span>
+<span class="w">      </span><span class="c1">// 常に初期化された状態であることを確認</span>
+<span class="w">      </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">singleton</span><span class="o">::</span><span class="n">get_instance</span><span class="p">().</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="n">threads</span><span class="p">.</span><span class="n"><a href="../../reference/vector/vector/push_back.html">push_back</a></span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="o">&amp;</span> <span class="nl">t</span> <span class="p">:</span> <span class="n">threads</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/thread/thread/join.html">t.join()</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">threads</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -319,7 +319,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

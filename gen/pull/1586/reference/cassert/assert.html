@@ -214,11 +214,11 @@
         
   <div class="identifier-type">macro</div><div class="header">&lt;cassert&gt;</div><h1 itemprop="name"><span class="token">assert</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#if !defined(NDEBUG)</span>
-  <span class="cp">#define <a href="">assert</a>(expr) <i>implementation-defined</i> </span><span class="c1">// (1) C++03</span>
-  <span class="cp">#define <a href="">assert</a>(...) <i>implementation-defined</i>  </span><span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="cp">#define <a href="">assert</a>(expr) <i>implementation-defined</i> </span><span class="c1">// (1) C++03</span>
+<span class="w">  </span><span class="cp">#define <a href="">assert</a>(...) <i>implementation-defined</i>  </span><span class="c1">// (1) C++26</span>
 <span class="cp">#else</span>
-  <span class="cp">#define <a href="">assert</a>(ignore) ((void)0)            </span><span class="c1">// (2) C++03</span>
-  <span class="cp">#define <a href="">assert</a>(...) ((void)0)               </span><span class="c1">// (2) C++26</span>
+<span class="w">  </span><span class="cp">#define <a href="">assert</a>(ignore) ((void)0)            </span><span class="c1">// (2) C++03</span>
+<span class="w">  </span><span class="cp">#define <a href="">assert</a>(...) ((void)0)               </span><span class="c1">// (2) C++26</span>
 <span class="cp">#endif</span>
 </code></pre></div>
 </p>
@@ -255,20 +255,20 @@
 <p>実行環境や入力によって起こりえるエラーに対するエラー処理としてこのマクロを使用すると無効化された場合に意図しない動作となることがあるので、別な手段として、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>、<code>bool</code>型の返却値などを検討すること。</p>
 <h2>例</h2>
 <h3>assertマクロの基本的な使い方</h3>
-<p><div class="yata" id="816ab7966a1b1daae5533f5845cfc5783121b965"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="816ab7966a1b1daae5533f5845cfc5783121b965"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// パラメータxは、正数でなければならない</span>
-  <span class="n"><a href="">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// パラメータxは、正数でなければならない</span>
+<span class="w">  </span><span class="n"><a href="">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 
-  <span class="c1">// …xを使った処理…</span>
+<span class="w">  </span><span class="c1">// …xを使った処理…</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>  <span class="c1">// OK</span>
-  <span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// プログラムが異常終了する</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"> </span><span class="c1">// プログラムが異常終了する</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -276,17 +276,17 @@
 <p><pre><code>prog.exe: prog.cc:6: void f(int): Assertion `x &gt;= 0' failed.
 </code></pre></p>
 <h3>定数式としてassertマクロを使用する (C++17)</h3>
-<p><div class="yata" id="4f6e4f99529f30bffa6fc2d2f92b1985d40c0297"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4f6e4f99529f30bffa6fc2d2f92b1985d40c0297"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// constexpr関数内に式として<a href="">assert</a>マクロを使用する</span>
-  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// constexpr関数内に式として<a href="">assert</a>マクロを使用する</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="c1">//constexpr int b = f(-1); // コンパイルエラー！</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -294,20 +294,20 @@
 <h3>出力</h3>
 <p><pre><code></code></pre></p>
 <h3>カンマを含む条件式をassertマクロで使用する (C++26)</h3>
-<p><div class="yata" id="3b31955d436017ab3ce52a549edee9f90a4a27f2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3b31955d436017ab3ce52a549edee9f90a4a27f2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="">assert</a></span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">);</span>   <span class="c1">// C++26 : OK</span>
-  <span class="n"><a href="">assert</a></span><span class="p">((</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">));</span> <span class="c1">// C++23までは、カンマを含む式は全体を丸カッコで囲む必要がある</span>
+<span class="w">  </span><span class="n"><a href="">assert</a></span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">);</span><span class="w">   </span><span class="c1">// C++26 : OK</span>
+<span class="w">  </span><span class="n"><a href="">assert</a></span><span class="p">((</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">));</span><span class="w"> </span><span class="c1">// C++23までは、カンマを含む式は全体を丸カッコで囲む必要がある</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -342,7 +342,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -237,96 +237,96 @@
 <p>もしデストラクタの呼び出し中に自身のコールバックが別のスレッドで実行中だった場合は、そのコールバックの呼び出しから処理が戻るまでは、<code>stop_callback</code>のコンストラクタで受け取った関数オブジェクトが破棄されないようにデストラクタの実行がブロックされる。<br />
 もしデストラクタの呼び出し中に自身のコールバックが同じスレッドで実行中だった場合は、デストラクタの実行はブロックされない。</p>
 <h2>例</h2>
-<p><div class="yata" id="6a0125b8237c2c006d6b8b6f93ba024c9a182dec"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../stop_token.html">&lt;stop_token&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6a0125b8237c2c006d6b8b6f93ba024c9a182dec"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
+<span class="cp">#include <a href="../../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../../stop_token.html">&lt;stop_token&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
 
 <span class="c1">// CallbackFunc の状態を表す構造体</span>
-<span class="k">struct</span> <span class="n">CallbackFuncStatus</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">CallbackFuncStatus</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">started</span> <span class="p">{</span> <span class="nb">false</span> <span class="p">};</span>
-  <span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">finished</span> <span class="p">{</span> <span class="nb">false</span> <span class="p">};</span>
-  <span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">destructed</span> <span class="p">{</span> <span class="nb">false</span> <span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">started</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">finished</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">destructed</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">};</span>
 <span class="p">};</span>
 
 <span class="c1">// 停止要求に応じて呼び出される関数オブジェクト</span>
-<span class="k">struct</span> <span class="n">CallbackFunc</span> <span class="p">{</span>
-  <span class="n">CallbackFunc</span><span class="p">(</span><span class="n">CallbackFuncStatus</span><span class="o">*</span> <span class="n">cfs</span><span class="p">)</span> <span class="o">:</span> <span class="n">cfs_</span><span class="p">(</span><span class="n">cfs</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="n">CallbackFunc</span><span class="p">(</span><span class="n">CallbackFunc</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">cfs_</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="p">;</span>
-    <span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">CallbackFunc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">CallbackFunc</span><span class="p">(</span><span class="n">CallbackFuncStatus</span><span class="o">*</span><span class="w"> </span><span class="n">cfs</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cfs_</span><span class="p">(</span><span class="n">cfs</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="n">CallbackFunc</span><span class="p">(</span><span class="n">CallbackFunc</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n">CallbackFunc</span> <span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">CallbackFunc</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">cfs_</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="p">;</span>
-    <span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">CallbackFunc</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">CallbackFunc</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="o">~</span><span class="n">CallbackFunc</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">cfs_</span><span class="p">)</span> <span class="p">{</span> <span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">destructed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">CallbackFunc</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">cfs_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">destructed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()()</span> <span class="p">{</span>
-    <span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">started</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="n"><a href="../../thread/this_thread/sleep_for.html">std::this_thread::sleep_for</a></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::milliseconds</a></span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
-    <span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">finished</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="p">()()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">started</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../thread/this_thread/sleep_for.html">std::this_thread::sleep_for</a></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::milliseconds</a></span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+<span class="w">    </span><span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">finished</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="k">private</span><span class="o">:</span>
-  <span class="n">CallbackFuncStatus</span><span class="o">*</span> <span class="n">cfs_</span> <span class="p">{</span> <span class="k">nullptr</span> <span class="p">};</span>
+<span class="w">  </span><span class="n">CallbackFuncStatus</span><span class="o">*</span><span class="w"> </span><span class="n">cfs_</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">};</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// デストラクタ呼び出しのときに別のスレッドで自身のコールバックが実行中な場合のサンプル</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_source.html">stop_source</a></span> <span class="n">ss</span><span class="p">;</span>
-    <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t</span><span class="p">;</span>
-    <span class="n">CallbackFuncStatus</span> <span class="n">cfs</span><span class="p">;</span>
-    <span class="p">{</span>
-      <span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_callback.html">stop_callback</a></span> <span class="n">cb</span> <span class="p">{</span> <span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">,</span> <span class="n">CallbackFunc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cfs</span><span class="p">)</span> <span class="p">};</span>
+<span class="w">  </span><span class="c1">// デストラクタ呼び出しのときに別のスレッドで自身のコールバックが実行中な場合のサンプル</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_source.html">stop_source</a></span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<span class="w">    </span><span class="n">CallbackFuncStatus</span><span class="w"> </span><span class="n">cfs</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_callback.html">stop_callback</a></span><span class="w"> </span><span class="n">cb</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">,</span><span class="w"> </span><span class="n">CallbackFunc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cfs</span><span class="p">)</span><span class="w"> </span><span class="p">};</span>
 
-      <span class="c1">// 別スレッドで cb のコールバックを呼び出す</span>
-      <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span> <span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span> <span class="p">});</span>
-      <span class="n"><a href="../../thread/this_thread/sleep_for.html">std::this_thread::sleep_for</a></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::milliseconds</a></span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+<span class="w">      </span><span class="c1">// 別スレッドで cb のコールバックを呼び出す</span>
+<span class="w">      </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="n"><a href="../../thread/this_thread/sleep_for.html">std::this_thread::sleep_for</a></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::milliseconds</a></span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
 
-      <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">started</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-      <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">destructed</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">started</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">destructed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 
-    <span class="p">}</span> <span class="c1">// ここで cb のデストラクタが呼び出されるが、</span>
-      <span class="c1">// 別のスレッドで自身のコールバックを実行中なので、</span>
-      <span class="c1">// それが完了するまでデストラクタの実行がブロックされ、</span>
-      <span class="c1">// <a href="../stop_callback.html">stop_callback</a> のコンストラクタに渡した関数オブジェクトは破棄されない。</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// ここで cb のデストラクタが呼び出されるが、</span>
+<span class="w">      </span><span class="c1">// 別のスレッドで自身のコールバックを実行中なので、</span>
+<span class="w">      </span><span class="c1">// それが完了するまでデストラクタの実行がブロックされ、</span>
+<span class="w">      </span><span class="c1">// <a href="../stop_callback.html">stop_callback</a> のコンストラクタに渡した関数オブジェクトは破棄されない。</span>
 
-    <span class="c1">// デストラクタの呼び出しが完了したならば、</span>
-    <span class="c1">// それに先立って関数オブジェクトも破棄されているはず。</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">finished</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">destructed</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// デストラクタの呼び出しが完了したならば、</span>
+<span class="w">    </span><span class="c1">// それに先立って関数オブジェクトも破棄されているはず。</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">finished</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">destructed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 
-    <span class="n"><a href="../../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// デストラクタ呼び出しのときに同じスレッドで自身のコールバックが実行中な場合のサンプル</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_source.html">stop_source</a></span> <span class="n">ss</span><span class="p">;</span>
-    <span class="n"><a href="../../functional/function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">reset_cb</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// デストラクタ呼び出しのときに同じスレッドで自身のコールバックが実行中な場合のサンプル</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_source.html">stop_source</a></span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../functional/function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reset_cb</span><span class="p">;</span>
 
-    <span class="k">auto</span> <span class="n">on_callback</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span> <span class="n">reset_cb</span><span class="p">();</span> <span class="p">};</span> <span class="c1">// 停止要求に応じて呼び出される関数オブジェクト。</span>
-    <span class="k">auto</span> <span class="n">cb</span> <span class="o">=</span> <span class="n"><a href="../../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_callback.html">stop_callback</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">on_callback</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">,</span> <span class="n">on_callback</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">on_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">reset_cb</span><span class="p">();</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// 停止要求に応じて呼び出される関数オブジェクト。</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_callback.html">stop_callback</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">on_callback</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">,</span><span class="w"> </span><span class="n">on_callback</span><span class="p">);</span>
 
-    <span class="n">reset_cb</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span> <span class="n">cb</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span> <span class="p">};</span> <span class="c1">// on_callback の中から呼び出す処理。cb を破棄する。</span>
+<span class="w">    </span><span class="n">reset_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cb</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// on_callback の中から呼び出す処理。cb を破棄する。</span>
 
-    <span class="c1">// この中で reset_cb() が呼び出され、 cb のデストラクタが呼び出される。</span>
-    <span class="c1">// デストラクタとコールバックが同じスレッド上で呼び出されている場合は、</span>
-    <span class="c1">// デストラクタの実行はブロックされない。</span>
-    <span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// この中で reset_cb() が呼び出され、 cb のデストラクタが呼び出される。</span>
+<span class="w">    </span><span class="c1">// デストラクタとコールバックが同じスレッド上で呼び出されている場合は、</span>
+<span class="w">    </span><span class="c1">// デストラクタの実行はブロックされない。</span>
+<span class="w">    </span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cb</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cb</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -366,7 +366,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

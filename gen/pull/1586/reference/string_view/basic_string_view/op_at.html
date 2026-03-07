@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;string_view&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_string_view">basic_string_view::</span><span class="token">operator[]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n">const_reference</span> <span class="k">operator</span><span class="p">[](</span><span class="n">size_type</span> <span class="n">pos</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n">const_reference</span><span class="w"> </span><span class="k">operator</span><span class="p">[](</span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -235,7 +235,7 @@
 <li><code>pos &lt; <a href="size.html">size()</a></code></li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n"><a href="data.html">data()</a></span><span class="p">[</span><span class="n">pos</span><span class="p">];</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="data.html">data()</a></span><span class="p">[</span><span class="n">pos</span><span class="p">];</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
@@ -243,15 +243,15 @@
 <h2>備考</h2>
 <p><code><a href="../../string/basic_string.html">std::basic_string</a>::<a href="../../string/basic_string/op_at.html">operator[]</a></code>は<code>s[s.size()]</code>で<code>CharT()</code>を返すが、<code>std::basic_string_view</code>クラスのこの演算子では<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす</p>
 <h2>例</h2>
-<p><div class="yata" id="f35c910cbee736c301eb132cbd0b48f2638631d5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f35c910cbee736c301eb132cbd0b48f2638631d5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../string_view.html">&lt;string_view&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../basic_string_view.html">std::string_view</a></span> <span class="n">sv</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span><span class="p">;</span>
 
-  <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">sv[6]</span></span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'W'</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">sv[6]</span></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'W'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -286,7 +286,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,22 +225,22 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;string_view&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_string_view">basic_string_view::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                        <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                        </span><span class="c1">// (1)</span>
 
-<span class="k">constexpr</span> <span class="nf"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span>
-            <span class="k">const</span> <span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>      <span class="c1">// (2)</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">      </span><span class="c1">// (2)</span>
 
-<span class="k">constexpr</span> <span class="nf"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="k">const</span> <span class="n">CharT</span><span class="o">*</span> <span class="n">str</span><span class="p">);</span>                 <span class="c1">// (3)</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CharT</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">);</span><span class="w">                 </span><span class="c1">// (3)</span>
 
-<span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>                         <span class="c1">// (4) C++23</span>
+<span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">                         </span><span class="c1">// (4) C++23</span>
 
-<span class="k">constexpr</span> <span class="nf"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="k">const</span> <span class="n">CharT</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">len</span><span class="p">);</span>  <span class="c1">// (5)</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CharT</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w">  </span><span class="c1">// (5)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">It</span><span class="p">,</span> <span class="k">class</span> <span class="nc">End</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="n">It</span> <span class="n">begin</span><span class="p">,</span> <span class="n">End</span> <span class="n">end</span><span class="p">);</span>                <span class="c1">// (6) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">It</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">End</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="n">It</span><span class="w"> </span><span class="n">begin</span><span class="p">,</span><span class="w"> </span><span class="n">End</span><span class="w"> </span><span class="n">end</span><span class="p">);</span><span class="w">                </span><span class="c1">// (6) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span> <span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">);</span>                   <span class="c1">// (7) C++23</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n"><a href="../basic_string_view.html">basic_string_view</a></span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">                   </span><span class="c1">// (7) C++23</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -302,73 +302,73 @@
 <ul>
 <li><code>basic_string_view</code>のコンストラクタに<code>template&lt;size_t N&gt;basic_string_view(const charT (&amp;str)[N])</code>タイプの配列を受け取るコンストラクタが無いのは次の使い方をしたとき<code>str</code>のサイズが<code>sizeof(buf)</code>となり、それは利用者の意図しない挙動になる可能性が高いと判断されたからである。</li>
 </ul>
-<p><div class="yata" id="48839da2c518d012b0685521daa1c23dcfd773d3"><div class="codehilite"><pre><span></span><code><span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
-<span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="s">"abc"</span><span class="p">);</span>
-<span class="n"><a href="../basic_string_view.html">string_view</a></span> <span class="nf">str</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
+<p><div class="yata" id="48839da2c518d012b0685521daa1c23dcfd773d3"><div class="codehilite"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+<span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">"abc"</span><span class="p">);</span>
+<span class="n"><a href="../basic_string_view.html">string_view</a></span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
 </code></pre></div>
 </div></p>
 <ul>
 <li>ヌル文字を含む文字列リテラル全体から<code>basic_string_view</code>を構築したい場合は<code><a href="op_sv.html">std::string_view_literals::svリテラル</a></code>を用いる。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="9c39a16cb8fcaa6529b74eaa25f172f0324c10b0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9c39a16cb8fcaa6529b74eaa25f172f0324c10b0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../string_view.html">&lt;string_view&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="c1">// デフォルト構築</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../basic_string_view.html">std::string_view</a></span> <span class="n">sv</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">sv.data()</a></span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">sv.size()</a></span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="c1">// デフォルト構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">sv.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">sv.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// コピーコンストラクタ。コピー元と同じ文字列を参照する</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../basic_string_view.html">std::string_view</a></span> <span class="n">base</span><span class="p">{</span><span class="s">"Hello World"</span><span class="p">};</span>
-    <span class="n"><a href="../basic_string_view.html">std::string_view</a></span> <span class="n">sv</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// コピーコンストラクタ。コピー元と同じ文字列を参照する</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">base</span><span class="p">{</span><span class="s">"Hello World"</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">;</span>
 
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(2) : "</span> <span class="o">&lt;&lt;</span> <span class="n">sv</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(2) : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3)</span>
-  <span class="c1">// 文字配列を受けとって参照するコンストラクタ</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../basic_string_view.html">std::string_view</a></span> <span class="n">sv</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(3) : "</span> <span class="o">&lt;&lt;</span> <span class="n">sv</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="c1">// 文字配列を受けとって参照するコンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(3) : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (5)</span>
-  <span class="c1">// 文字配列と文字数を受けとって部分文字列を参照するコンストラクタ</span>
-  <span class="p">{</span>
-    <span class="c1">// "Hello World"の先頭5文字"Hello"を参照</span>
-    <span class="n"><a href="../basic_string_view.html">std::string_view</a></span> <span class="n">sv</span><span class="p">{</span><span class="s">"Hello World"</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(5) : "</span> <span class="o">&lt;&lt;</span> <span class="n">sv</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (5)</span>
+<span class="w">  </span><span class="c1">// 文字配列と文字数を受けとって部分文字列を参照するコンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// "Hello World"の先頭5文字"Hello"を参照</span>
+<span class="w">    </span><span class="n"><a href="../basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="p">{</span><span class="s">"Hello World"</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(5) : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (6)</span>
-  <span class="c1">// 文字のイテレータ範囲を受け取って参照するコンストラクタ</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
-    <span class="n"><a href="../basic_string_view.html">std::string_view</a></span> <span class="n">sv</span><span class="p">{</span><span class="n"><a href="../../string/basic_string/begin.html">s.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../string/basic_string/begin.html">s.begin()</a></span> <span class="o">+</span> <span class="mi">5</span><span class="p">};</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(6) : "</span> <span class="o">&lt;&lt;</span> <span class="n">sv</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (6)</span>
+<span class="w">  </span><span class="c1">// 文字のイテレータ範囲を受け取って参照するコンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="p">{</span><span class="n"><a href="../../string/basic_string/begin.html">s.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string/begin.html">s.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(6) : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (7)</span>
-  <span class="c1">// <a href="../../ranges/contiguous_range.html">contiguous_range</a>からの構築</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../vector/vector.html">std::vector</a></span> <span class="n">vec</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'H'</span><span class="p">,</span> <span class="sc">'e'</span><span class="p">,</span> <span class="sc">'l'</span><span class="p">,</span> <span class="sc">'l'</span><span class="p">,</span> <span class="sc">'o'</span><span class="p">,</span> <span class="sc">'\0'</span><span class="p">,</span> <span class="sc">'!'</span><span class="p">};</span>
-    <span class="c1">// 参照するのは入力範囲先頭からそのサイズ（`std::<a href="../../ranges/size.html">ranges::size</a>()`）分</span>
-    <span class="n"><a href="../basic_string_view.html">std::string_view</a></span> <span class="n">sv</span><span class="p">{</span><span class="n">vec</span><span class="p">};</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(7) : "</span> <span class="o">&lt;&lt;</span> <span class="n">sv</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (7)</span>
+<span class="w">  </span><span class="c1">// <a href="../../ranges/contiguous_range.html">contiguous_range</a>からの構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'H'</span><span class="p">,</span><span class="w"> </span><span class="sc">'e'</span><span class="p">,</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">,</span><span class="w"> </span><span class="sc">'!'</span><span class="p">};</span>
+<span class="w">    </span><span class="c1">// 参照するのは入力範囲先頭からそのサイズ（`std::<a href="../../ranges/size.html">ranges::size</a>()`）分</span>
+<span class="w">    </span><span class="n"><a href="../basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="p">{</span><span class="n">vec</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(7) : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-    <span class="c1">// explicitのため、このような初期化や暗黙変換は無効</span>
-    <span class="c1">//<a href="../basic_string_view.html">std::string_view</a> sv = {vec};</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// explicitのため、このような初期化や暗黙変換は無効</span>
+<span class="w">    </span><span class="c1">//<a href="../basic_string_view.html">std::string_view</a> sv = {vec};</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -426,7 +426,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -231,15 +231,15 @@
 <p>以下の例では、<code>getstr()</code> が返す一時オブジェクトが範囲for文の末端まで延命されている。</p>
 <p><div class="yata" id="c7dbc65cbd3367d314497a2f1096258960d3a214"><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../module/std.html">import std;</a></span>
 
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">getstr</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"notUB"</span><span class="p">};</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">getstr</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s">"notUB"</span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">getstr</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">getstr</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -253,43 +253,43 @@ B
 <h2>この機能が必要になった背景・経緯</h2>
 <p>範囲for文をより安全に使えるように改善するために仕様が変更された。</p>
 <p>従来の仕様では、範囲for文を使う際に気が付きにくいダングリング参照を発生させる可能性があった。</p>
-<p><div class="yata" id="1cbda0cb754e2e35fbde33b3633362c25d9a2eca"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1cbda0cb754e2e35fbde33b3633362c25d9a2eca"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">getstr</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"UB"</span><span class="p">};</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">getstr</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s">"UB"</span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">getstr</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">getstr</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p>このコードでは <code>getstr()</code> が一時オブジェクトとして <code>std::vector&lt;std::string&gt;</code> を返し、範囲for文の範囲はその0番目の <code>std::string</code> の参照で初期化される。</p>
 <p>この範囲for文は次のように展開される。</p>
-<p><div class="yata" id="c79b5ac08f7dd201c24e925f14b879773c838858"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c79b5ac08f7dd201c24e925f14b879773c838858"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">getstr</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"UB"</span><span class="p">};</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">getstr</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s">"UB"</span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">{</span>
-    <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">getstr</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-    <span class="k">auto</span> <span class="n">e</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
-    <span class="k">for</span><span class="p">(;</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">e</span><span class="p">;</span> <span class="o">++</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getstr</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -298,14 +298,14 @@ B
 <h3><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>規定について</h3>
 <p>"一時オブジェクトが関数の引数として生成された場合" とは、次のサンプルコードにおける <code>f2(T t)</code> の実引数 <code>t</code> として、呼び出される関数のスコープで生成されるような場合である。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// P2718R0より引用</span>
-<span class="k">using</span> <span class="n">T</span> <span class="o">=</span> <span class="n"><a href="../../reference/list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">f1</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">f2</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span>        <span class="p">{</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
-<span class="n">T</span> <span class="n">g</span><span class="p">();</span>
+<span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">T</span><span class="w"> </span><span class="nf">g</span><span class="p">();</span>
 
-<span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">f1</span><span class="p">(</span><span class="n">g</span><span class="p">()))</span> <span class="p">{}</span>  <span class="c1">// OK: g()の戻り値は延命される</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">f2</span><span class="p">(</span><span class="n">g</span><span class="p">()))</span> <span class="p">{}</span>  <span class="c1">// 未定義動作</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">f1</span><span class="p">(</span><span class="n">g</span><span class="p">()))</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// OK: g()の戻り値は延命される</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">f2</span><span class="p">(</span><span class="n">g</span><span class="p">()))</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// 未定義動作</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -352,7 +352,7 @@ B
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

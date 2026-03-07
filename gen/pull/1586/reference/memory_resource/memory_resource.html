@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;memory_resource&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::pmr">std::pmr::</span><span class="token">memory_resource</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">pmr</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">memory_resource</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">pmr</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">memory_resource</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -315,103 +315,103 @@
 </tbody>
 </table>
 <h2>実装する例</h2>
-<p><div class="yata" id="6ab416e52927deadf8e958c32cc0d23ffbdf1c2d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory_resource.html">&lt;memory_resource&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstddef.html">&lt;cstddef&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6ab416e52927deadf8e958c32cc0d23ffbdf1c2d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../memory_resource.html">&lt;memory_resource&gt;</a></span>
+<span class="cp">#include <a href="../cstddef.html">&lt;cstddef&gt;</a></span>
 
 <span class="c1">//スタック領域からメモリを割り当てるmemory_resource実装</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">stack_resource</span> <span class="p">:</span> <span class="k">public</span> <span class="n"><span style="color:#ff0000">std::pmr::memory_resource</span></span> <span class="p">{</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">stack_resource</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::pmr::memory_resource</span></span><span class="w"> </span><span class="p">{</span>
 
-  <span class="n">stack_resource</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="c1">//コピーに意味がないので禁止</span>
-  <span class="n">stack_resource</span><span class="p">(</span><span class="k">const</span> <span class="n">stack_resource</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-  <span class="n">stack_resource</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">stack_resource</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">stack_resource</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//コピーに意味がないので禁止</span>
+<span class="w">  </span><span class="n">stack_resource</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">stack_resource</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">stack_resource</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">stack_resource</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 
-  <span class="kt">void</span><span class="o">*</span> <span class="nf">do_allocate</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">bytes</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">alignment</span><span class="p">)</span> <span class="k">override</span> <span class="p">{</span>
-    <span class="c1">//空きがない</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="n">m_index</span><span class="p">)</span> <span class="k">throw</span> <span class="n"><a href="../new/bad_alloc.html">std::bad_alloc</a></span><span class="p">{};</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">do_allocate</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">alignment</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//空きがない</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m_index</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../new/bad_alloc.html">std::bad_alloc</a></span><span class="p">{};</span>
 
-    <span class="c1">//2の累乗をチェック（AVX512のアライメント要求である64byteを最大としておく）</span>
-    <span class="kt">bool</span> <span class="n">is_pow2</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pow2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">pow2</span> <span class="o">&lt;=</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="p">(</span><span class="mi">64</span><span class="p">);</span> <span class="n">pow2</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">alignment</span> <span class="o">==</span> <span class="n">pow2</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">is_pow2</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="c1">//2の累乗をチェック（AVX512のアライメント要求である64byteを最大としておく）</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_pow2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">pow2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">pow2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="p">(</span><span class="mi">64</span><span class="p">);</span><span class="w"> </span><span class="n">pow2</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">alignment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">pow2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">is_pow2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="c1">//2の累乗でないアライメント要求はalignof(<a href="../cstddef/max_align_t.html">std::max_align_t</a>)へ</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_pow2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">alignment</span> <span class="o">=</span> <span class="k">alignof</span><span class="p">(</span><span class="n"><a href="../cstddef/max_align_t.html">std::max_align_t</a></span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="c1">//2の累乗でないアライメント要求はalignof(<a href="../cstddef/max_align_t.html">std::max_align_t</a>)へ</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">is_pow2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">alignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="n"><a href="../cstddef/max_align_t.html">std::max_align_t</a></span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">auto</span> <span class="n">addr</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_buffer</span><span class="p">[</span><span class="n">m_index</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_buffer</span><span class="p">[</span><span class="n">m_index</span><span class="p">]);</span>
 
-    <span class="c1">//アライメント要求に合わせる</span>
-    <span class="k">while</span> <span class="p">((</span><span class="n">addr</span> <span class="o">&amp;</span> <span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="p">(</span><span class="n">alignment</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="o">++</span><span class="n">addr</span><span class="p">;</span>
-      <span class="o">++</span><span class="n">m_index</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="c1">//アライメント要求に合わせる</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">addr</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="p">(</span><span class="n">alignment</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="o">++</span><span class="n">addr</span><span class="p">;</span>
+<span class="w">      </span><span class="o">++</span><span class="n">m_index</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n">m_index</span> <span class="o">+=</span> <span class="n">bytes</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_index</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bytes</span><span class="p">;</span>
 
-    <span class="c1">//サイズが足りなくなったら</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="n">m_index</span><span class="p">)</span> <span class="k">throw</span> <span class="n"><a href="../new/bad_alloc.html">std::bad_alloc</a></span><span class="p">{};</span>
+<span class="w">    </span><span class="c1">//サイズが足りなくなったら</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m_index</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../new/bad_alloc.html">std::bad_alloc</a></span><span class="p">{};</span>
 
-    <span class="k">return</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="nf">do_deallocate</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">bytes</span><span class="p">,</span> <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">alignment</span><span class="p">)</span> <span class="k">override</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">addr</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/byte.html">std::byte</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-    <span class="k">auto</span> <span class="n">end</span> <span class="o">=</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">m_buffer</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">do_deallocate</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">alignment</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/byte.html">std::byte</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">m_buffer</span><span class="p">);</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">m_buffer</span> <span class="o">&lt;=</span> <span class="n">addr</span> <span class="o">&amp;&amp;</span> <span class="n">addr</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">//当てた領域をゼロ埋めするだけ</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">bytes</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">addr</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
-          <span class="n">addr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../cstddef/byte.html">std::byte</a></span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_buffer</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">//当てた領域をゼロ埋めするだけ</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">bytes</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">addr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../cstddef/byte.html">std::byte</a></span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-  <span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">bool</span> <span class="nf">do_is_equal</span><span class="p">(</span><span class="k">const</span> <span class="n">memory_resource</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="k">override</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">do_is_equal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">memory_resource</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">other</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="k">private</span><span class="o">:</span>
-  <span class="n"><a href="../cstddef/byte.html">std::byte</a></span> <span class="n">m_buffer</span><span class="p">[</span><span class="n">N</span><span class="p">]{};</span>
-  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">m_index</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><a href="../cstddef/byte.html">std::byte</a></span><span class="w"> </span><span class="n">m_buffer</span><span class="p">[</span><span class="n">N</span><span class="p">]{};</span>
+<span class="w">  </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">m_index</span><span class="p">{};</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="n">stack_resource</span><span class="o">&lt;</span><span class="mi">100</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{};</span>
-  <span class="n"><span style="color:#ff0000">std::pmr::memory_resource</span></span><span class="o">*</span> <span class="n">mr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">  </span><span class="n">stack_resource</span><span class="o">&lt;</span><span class="mi">100</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::pmr::memory_resource</span></span><span class="o">*</span><span class="w"> </span><span class="n">mr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">;</span>
 
-  <span class="c1">//int1つ分の領域をintのアライメント要求（多くの環境で共に4バイト）でメモリ確保</span>
-  <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">mr</span><span class="o">-&gt;</span><span class="n"><a href="memory_resource/allocate.html">allocate</a></span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-  <span class="c1">//placement new して構築</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p_int</span> <span class="o">=</span> <span class="k">new</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="kt">int</span><span class="p">{</span> <span class="mi">256</span> <span class="p">};</span>
+<span class="w">  </span><span class="c1">//int1つ分の領域をintのアライメント要求（多くの環境で共に4バイト）でメモリ確保</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mr</span><span class="o">-&gt;</span><span class="n"><a href="memory_resource/allocate.html">allocate</a></span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">//placement new して構築</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p_int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p_int</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="c1">//一応アドレスを出力</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p_int</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p_int</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//一応アドレスを出力</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p_int</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">//デストラクタを呼び出してオブジェクトを破棄</span>
-  <span class="n"><a href="../memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p_int</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//デストラクタを呼び出してオブジェクトを破棄</span>
+<span class="w">  </span><span class="n"><a href="../memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p_int</span><span class="p">);</span>
 
-  <span class="c1">//メモリの解放</span>
-  <span class="n">mr</span><span class="o">-&gt;</span><span class="n"><a href="memory_resource/deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">//メモリの解放</span>
+<span class="w">  </span><span class="n">mr</span><span class="o">-&gt;</span><span class="n"><a href="memory_resource/deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
 
-  <span class="n">stack_resource</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span> <span class="n">s2</span><span class="p">{};</span>
-  <span class="c1">//自分以外とはtrueにならない</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">mr</span> <span class="o">==</span> <span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">mr</span> <span class="o">==</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">stack_resource</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="p">{};</span>
+<span class="w">  </span><span class="c1">//自分以外とはtrueにならない</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">mr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">mr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -467,7 +467,7 @@ false
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

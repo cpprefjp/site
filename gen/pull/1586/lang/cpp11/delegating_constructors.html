@@ -219,13 +219,13 @@
 <p></p>
 <h2>概要</h2>
 <p>「委譲コンストラクタ (delegating constructors)」は、コンストラクタから、同じクラスの他のコンストラクタに処理を委譲する機能である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i_</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">i_</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// (1) : int型のパラメータを受け取るコンストラクタ</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">i_</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// (1) : int型のパラメータを受け取るコンストラクタ</span>
 
-  <span class="n">X</span><span class="p">()</span> <span class="o">:</span> <span class="n">X</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="p">{}</span>      <span class="c1">// (2) : デフォルトコンストラクタ。</span>
-                      <span class="c1">//       (1)のコンストラクタに初期値を渡して初期化処理を委譲する</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">      </span><span class="c1">// (2) : デフォルトコンストラクタ。</span>
+<span class="w">                      </span><span class="c1">//       (1)のコンストラクタに初期値を渡して初期化処理を委譲する</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -242,38 +242,38 @@
 <li>委譲先のコンストラクタから<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合、委譲先のコンストラクタの関数tryブロックのcatch節が呼び出され、そこから暗黙に再送出が行われ、委譲元の関数tryブロックのcatch節も呼び出される。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="60fecd1e7fab6dc72e9b26e252951a59377c3fa6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="60fecd1e7fab6dc72e9b26e252951a59377c3fa6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Parameter</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">name</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Parameter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">id_</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">name_</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id_</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span> <span class="c1">// (1)</span>
-    <span class="o">:</span> <span class="n">id_</span><span class="p">(</span><span class="n">id</span><span class="p">),</span> <span class="n">name_</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"invoked (1) constructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="c1">// (1)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">id_</span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="n">name_</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"invoked (1) constructor"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n">X</span><span class="p">(</span><span class="k">const</span> <span class="n">Parameter</span><span class="o">&amp;</span> <span class="n">param</span><span class="p">)</span>          <span class="c1">// (2)</span>
-    <span class="o">:</span> <span class="n">X</span><span class="p">(</span><span class="n">param</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">param</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>        <span class="c1">// 処理を他のコンストラクタに委譲する</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"invoked (2) constructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Parameter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">param</span><span class="p">)</span><span class="w">          </span><span class="c1">// (2)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">param</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">param</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="w">        </span><span class="c1">// 処理を他のコンストラクタに委譲する</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"invoked (2) constructor"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Parameter</span> <span class="n">param</span><span class="p">;</span>
-  <span class="n">param</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="n">param</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Alice"</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Parameter</span><span class="w"> </span><span class="n">param</span><span class="p">;</span>
+<span class="w">  </span><span class="n">param</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="n">param</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">;</span>
 
-  <span class="n">X</span> <span class="n">x</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -308,7 +308,7 @@ invoked (2) constructor
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

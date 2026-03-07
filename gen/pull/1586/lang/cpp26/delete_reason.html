@@ -220,24 +220,24 @@
 <h2>概要</h2>
 <p>C++26では、関数をdelete宣言する際に、その理由をコンパイル時文字列で指定できるようになる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 別名の新たなAPIを用意する場合に、そちらに誘導する</span>
-<span class="kt">void</span> <span class="nf">newapi</span><span class="p">();</span>
-<span class="kt">void</span> <span class="nf">oldapi</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">(</span><span class="s">"This old API is outdated and already been removed. Please use newapi() instead."</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">newapi</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">oldapi</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="s">"This old API is outdated and already been removed. Please use newapi() instead."</span><span class="p">);</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span><span class="cm">/* … */</span><span class="p">};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">};</span>
 
 <span class="c1">// 一部のオーバーロードが危険であるために禁止する場合</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">factory</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span><span class="cm">/* process lvalue */</span><span class="p">}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">factory</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">(</span><span class="s">"Using rvalue to construct A may result in dangling reference"</span><span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">factory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="cm">/* process lvalue */</span><span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">factory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="s">"Using rvalue to construct A may result in dangling reference"</span><span class="p">);</span>
 
 <span class="c1">// 一部の自動定義される特殊メンバ関数が</span>
 <span class="c1">// 低パフォーマンスを引き起こすために禁止する場合</span>
-<span class="k">struct</span> <span class="n">MoveOnly</span> <span class="p">{</span>
-  <span class="c1">// … (with move members defaulted or defined)</span>
-  <span class="n">MoveOnly</span><span class="p">(</span><span class="k">const</span> <span class="n">MoveOnly</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">(</span><span class="s">"Copy-construction is expensive; please use move construction instead."</span><span class="p">);</span>
-  <span class="n">MoveOnly</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">MoveOnly</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">(</span><span class="s">"Copy-assignment is expensive; please use move assignment instead."</span><span class="p">);</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">MoveOnly</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// … (with move members defaulted or defined)</span>
+<span class="w">  </span><span class="n">MoveOnly</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MoveOnly</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="s">"Copy-construction is expensive; please use move construction instead."</span><span class="p">);</span>
+<span class="w">  </span><span class="n">MoveOnly</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MoveOnly</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="s">"Copy-assignment is expensive; please use move assignment instead."</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -267,7 +267,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

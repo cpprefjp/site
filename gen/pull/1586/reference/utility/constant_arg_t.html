@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;utility&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">constant_arg_t</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span> <span class="n">V</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">constant_arg_t</span> <span class="p">{</span>
-    <span class="k">explicit</span> <span class="n">constant_arg_t</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">constant_arg_t</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">constant_arg_t</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span> <span class="n">V</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="n">constant_arg_t</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">constant_arg</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">constant_arg_t</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="n">constant_arg</span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -229,23 +229,23 @@
 <h2>備考</h2>
 <p>デフォルトコンストラクタに<code>explicit</code>が付いているのは、<code>constant_arg_t&lt;F&gt; x = {};</code>のように<code>=</code>付きの波カッコ初期化を禁止するためである。ユーザーは通常、<code>constant_arg_t</code>型の変数テンプレートとして事前定義されている<code>constant_arg</code>を使用すればよいので、問題にはならない。</p>
 <h2>例</h2>
-<p><div class="yata" id="156b723eee68b5c82d19644e78ffea54872a4d56"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="156b723eee68b5c82d19644e78ffea54872a4d56"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">call</span><span class="p">(</span><span class="n"><a href="../functional/function_ref.html">std::function_ref</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">fn</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="n"><a href="../functional/function_ref.html">std::function_ref</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">fn</span><span class="p">();</span>
+<span class="w">  </span><span class="n">fn</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">Dog</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">cry</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Bow-wow"</span><span class="p">);</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">cry</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Bow-wow"</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Dog</span> <span class="n">dog</span><span class="p">;</span>
-  <span class="n">call</span><span class="p">({</span><span class="n"><span style="color:#ff0000">std::constant_arg</span></span><span class="o">&lt;&amp;</span><span class="n">Dog</span><span class="o">::</span><span class="n">cry</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">dog</span><span class="p">});</span>
+<span class="w">  </span><span class="n">Dog</span><span class="w"> </span><span class="n">dog</span><span class="p">;</span>
+<span class="w">  </span><span class="n">call</span><span class="p">({</span><span class="n"><span style="color:#ff0000">std::constant_arg</span></span><span class="o">&lt;&amp;</span><span class="n">Dog</span><span class="o">::</span><span class="n">cry</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">dog</span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -290,7 +290,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

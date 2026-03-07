@@ -221,31 +221,31 @@
 <p>C++20からは、ラムダ式でのデフォルトコピーのキャプチャ指定<code>[=]</code>での<code>this</code>ポインタのキャプチャは非推奨となる。</p>
 <p>C++20からは<code>[=, this]</code>のようにデフォルトコピーのキャプチャと<code>this</code>を別々に指定できるようになるため、両方のキャプチャが必要になる場合は、それぞれ指定すること。</p>
 <h2>例</h2>
-<p><div class="yata" id="9427d4bc51da5776e4ba639e6335f339e2a22303"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9427d4bc51da5776e4ba639e6335f339e2a22303"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-    <span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">=</span><span class="p">]</span> <span class="p">{</span>        <span class="c1">// C++20からは非推奨な方法：</span>
-      <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="n">g</span><span class="p">();</span> <span class="c1">// 従来は[=]の指定でthisポインタもキャプチャされ、クラスのメンバをラムダ式内で扱えていた</span>
-    <span class="p">};</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">=</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// C++20からは非推奨な方法：</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">g</span><span class="p">();</span><span class="w"> </span><span class="c1">// 従来は[=]の指定でthisポインタもキャプチャされ、クラスのメンバをラムダ式内で扱えていた</span>
+<span class="w">    </span><span class="p">};</span>
 
-    <span class="k">auto</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">=</span><span class="p">,</span> <span class="k">this</span><span class="p">]</span> <span class="p">{</span>  <span class="c1">// C++20から推奨される方法：</span>
-      <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="n">g</span><span class="p">();</span> <span class="c1">// [=, this]と別々に指定することで、thisポインタもキャプチャしていることが明示される</span>
-    <span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// C++20から推奨される方法：</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">g</span><span class="p">();</span><span class="w"> </span><span class="c1">// [=, this]と別々に指定することで、thisポインタもキャプチャしていることが明示される</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">int</span> <span class="n">g</span><span class="p">()</span> <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span><span class="p">().</span><span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="n">X</span><span class="p">().</span><span class="n">f</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -275,7 +275,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -226,14 +226,14 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class enable_shared_from_this">enable_shared_from_this::</span><span class="token">shared_from_this</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../shared_ptr.html">shared_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
-  <span class="n">shared_from_this</span><span class="p">();</span>             <span class="c1">// (1) C++11</span>
-<span class="k">constexpr</span> <span class="n"><a href="../shared_ptr.html">shared_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
-  <span class="n">shared_from_this</span><span class="p">();</span>             <span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="n">shared_from_this</span><span class="p">();</span><span class="w">             </span><span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../shared_ptr.html">shared_ptr</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">shared_from_this</span><span class="p">();</span><span class="w">             </span><span class="c1">// (1) C++26</span>
 
-<span class="n"><a href="../shared_ptr.html">shared_ptr</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">T</span><span class="o">&gt;</span>
-  <span class="n">shared_from_this</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>       <span class="c1">// (2) C++11</span>
-<span class="k">constexpr</span> <span class="n"><a href="../shared_ptr.html">shared_ptr</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">T</span><span class="o">&gt;</span>
-  <span class="n">shared_from_this</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>       <span class="c1">// (2) C++26</span>
+<span class="n"><a href="../shared_ptr.html">shared_ptr</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">shared_from_this</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">       </span><span class="c1">// (2) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../shared_ptr.html">shared_ptr</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">shared_from_this</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">       </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -246,7 +246,7 @@
 要件を満たしていない場合は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
 <h3>C++17から</h3>
 <p>保持する<code>this</code>を指すポインタを<code>weak_this</code>（<code>weak_ptr&lt;T&gt;</code>）とすると、以下と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">weak_this</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">weak_this</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（C++17から）</h2>
@@ -256,23 +256,23 @@
 <p><code>enable_shared_from_this&lt;T&gt;</code>の派生クラス型<code>T</code>のコンストラクタ内ではまだ<code>enable_shared_from_this</code>の保持する<code>this</code>を指すポインタが設定されていないので、（<code>T</code>のコンストラクタ内では）本関数によって<code>this</code>を指す<code>shared_ptr</code>を取得することはできない。<br />
 その場合、C++14までならば<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>となり、C++17以降は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="d8aca3a8a5fd55e24eaba263e516783a57299fb1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d8aca3a8a5fd55e24eaba263e516783a57299fb1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../memory.html">&lt;memory&gt;</a></span>
 
-<span class="k">struct</span> <span class="nl">X</span> <span class="p">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_shared_from_this</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="c1">// thisを指すshared_ptrオブジェクトを作る</span>
-    <span class="k">return</span> <span class="n">shared_from_this</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_shared_from_this</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// thisを指すshared_ptrオブジェクトを作る</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">shared_from_this</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">(</span><span class="k">new</span> <span class="n">X</span><span class="p">());</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">X</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">f</span><span class="p">();</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">q</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -313,7 +313,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

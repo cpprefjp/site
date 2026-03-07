@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;variant&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">monostate</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">monostate</span> <span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">monostate</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -304,20 +304,20 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="854aecd2f5e8c9b52e8db9dd57f007e798d34971"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="854aecd2f5e8c9b52e8db9dd57f007e798d34971"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../variant.html">&lt;variant&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// デフォルト構築で空にする</span>
-  <span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::monostate</span></span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// デフォルト構築で空にする</span>
+<span class="w">  </span><span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::monostate</span></span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::monostate</span></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"empty"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::monostate</span></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"empty"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n">v</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::monostate</span></span><span class="p">{};</span> <span class="c1">// 空にする</span>
+<span class="w">  </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::monostate</span></span><span class="p">{};</span><span class="w"> </span><span class="c1">// 空にする</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -359,7 +359,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

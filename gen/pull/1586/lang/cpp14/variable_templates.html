@@ -221,43 +221,43 @@
 <p>変数定義時のテンプレート指定を可能にする。</p>
 <p>C++11までは、関数、クラス、型の別名をテンプレートで定義できた。C++14からは、変数もテンプレートで定義できるようになった。これにより、型もしくは整数値をパラメータにとり、そのパラメータの組み合わせごとに変数の値を保持できるようになった。</p>
 <p>これはたとえば、円周率πの値を、数値型ごとの有効桁数で取得するために使用できる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">T</span> <span class="n">pi</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.14159265358979323846</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.14159265358979323846</span><span class="p">);</span>
 
 <span class="c1">// 円の面積を求める</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">area_of_circle_with_radius</span><span class="p">(</span><span class="n">T</span> <span class="n">r</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="w"> </span><span class="n">area_of_circle_with_radius</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>従来であれば、このような目的には、関数テンプレートが使用されていた。型<code>T</code>の円周率を返す関数<code>pi()</code>を定義すればよかった。しかし、多倍長整数のように、コピーのコストが高いものについては、関数テンプレートよりも、変数テンプレートを使用した方が効率がよくなる。</p>
 <p>そのほかの用途としては、関数呼び出しの丸カッコを省略できるため、2文字ではあるがより短いコードを書けるようにできる、というものもある。たとえば、型<code>T</code>が整数型か判定する<code><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></code>型特性は、以下のように、<code>::value</code>を付けるか、クラスのインスタンスを作成して<code>bool</code>への変換演算子を呼び出す必要がある：</p>
-<p><div class="yata" id="c8d434d58b36e585232946f322a26bb35059c1ce"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c8d434d58b36e585232946f322a26bb35059c1ce"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span> <span class="p">{}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p>変数テンプレートを使用することで、以下のように記述できる：</p>
-<p><div class="yata" id="db0b236f2fe40c53ceb70cb9ef3931de9ff35497"><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_integral_v</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<p><div class="yata" id="db0b236f2fe40c53ceb70cb9ef3931de9ff35497"><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_integral_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;&gt;</span>
-<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_integral_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_integral_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 
 <span class="c1">// 以下のようにラッパーとして定義してもよい</span>
 <span class="c1">// #include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 <span class="c1">// template &lt;class T&gt;</span>
 <span class="c1">// constexpr bool is_integral_v = <a href="../../reference/type_traits/is_integral.html">std::is_integral</a>&lt;int&gt;::value;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">is_integral_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_integral_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -277,25 +277,25 @@
 <li>テンプレート変数の宣言は明示的なインスタンス化よりも前に行わなければならない。（§14.7.2 Explicit instantiation）</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="f2ad02f685d2928090b8b191512cacd4beb8cb60"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f2ad02f685d2928090b8b191512cacd4beb8cb60"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iomanip.html">&lt;iomanip&gt;</a></span>
+<span class="cp">#include <a href="../../reference/limits.html">&lt;limits&gt;</a></span>
 
 <span class="c1">// ネイピア数: http://www.wolframalpha.com/input/?i=Napier%27s%20constant</span>
 <span class="n"><span style="color:#ff0000">template &lt; typename T = float &gt;</span></span>
-<span class="k">constexpr</span> <span class="k">auto</span> <span class="n">napier</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span> <span class="mf">2.718</span><span class="err">'</span><span class="mi">281</span><span class="err">'</span><span class="mi">828</span><span class="err">'</span><span class="mi">459</span><span class="err">'</span><span class="mo">045</span><span class="err">'</span><span class="mi">235</span><span class="err">'</span><span class="mi">360</span><span class="err">'</span><span class="mi">287</span><span class="err">'</span><span class="mi">471</span><span class="err">'</span><span class="mi">352</span><span class="err">'</span><span class="mi">662</span><span class="err">'</span><span class="mi">497</span><span class="err">'</span><span class="mi">757</span><span class="err">'</span><span class="mi">247</span><span class="err">'</span><span class="mi">093</span><span class="err">'</span><span class="mi">699</span><span class="err">'</span><span class="mi">959</span><span class="err">'</span><span class="mi">5L</span> <span class="p">);</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">napier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="mf">2.718'281'828'459'045'235'360'287'471'352'662'497'757'247'093'699'959'5L</span><span class="w"> </span><span class="p">);</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">FloatingPoint</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">precision</span> <span class="o">=</span> <span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">FloatingPoint</span><span class="o">&gt;::</span><span class="n"><a href="../../reference/limits/numeric_limits/max_digits10.html">max_digits10</a></span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">FloatingPoint</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">precision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">FloatingPoint</span><span class="o">&gt;::</span><span class="n"><a href="../../reference/limits/numeric_limits/max_digits10.html">max_digits10</a></span><span class="p">;</span>
 
-<span class="k">auto</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
-    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">)</span>       <span class="o">&lt;&lt;</span> <span class="n">napier</span><span class="o">&lt;&gt;</span>            <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
-    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">)</span>      <span class="o">&lt;&lt;</span> <span class="n">napier</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span>      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
-    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">napier</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
-    <span class="o">&lt;&lt;</span> <span class="s">"2.7182818284590452353602874713526624977572470936999595"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">)</span><span class="w">       </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">napier</span><span class="o">&lt;&gt;</span><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">)</span><span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">napier</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">napier</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"2.7182818284590452353602874713526624977572470936999595"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -345,7 +345,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

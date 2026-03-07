@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class utc_clock">utc_clock::</span><span class="token">from_sys</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-<span class="k">static</span> <span class="n"><a href="../utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
-  <span class="n">from_sys</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="k">static</span><span class="w"> </span><span class="n"><a href="../utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="n">from_sys</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -235,24 +235,24 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>u.<a href="../time_point/time_since_epoch.html">time_since_epoch()</a> - t.<a href="../time_point/time_since_epoch.html">time_since_epoch()</a></code>が1970年1月1日からの挿入されたうるう秒の合計と等しくなるような<code><a href="../utc_time.html">utc_time</a></code>型オブジェクト<code>u</code>を返す。<code>t</code>がうるう秒が挿入されたちょうどその日付だえる場合、この変換ではうるう秒が挿入されたものとしてカウントされる。</p>
 <h2>例</h2>
-<p><div class="yata" id="e8338f3ebb8d12a01ec2c39dd51f2f83493b4e0d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e8338f3ebb8d12a01ec2c39dd51f2f83493b4e0d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// ここでは日付 (<a href="../sys_time.html">sys_days</a>) から日付 (日単位の<a href="../utc_time.html">utc_time</a>) に変換しているが、</span>
-  <span class="c1">// 日時 (<a href="../sys_time.html">sys_seconds</a>) を渡せば日時 (<a href="../utc_time.html">utc_seconds</a>) が返る。</span>
-  <span class="c1">// <a href="../system_clock.html">system_clock</a>::time_pointを渡せば、それと同じ時間単位のutc_clockのtime_pointが返る</span>
-  <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../sys_time.html">sys_days</a></span><span class="p">{</span><span class="n"><a href="../month_constants.html">July</a></span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2015</span><span class="p">};</span>
-  <span class="k">auto</span> <span class="n">u</span> <span class="o">=</span> <span class="n">utc_clock</span><span class="o">::</span><span class="n"><span style="color:#ff0000">from_sys</span></span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="c1">// 日単位のUTC時間が返る</span>
+<span class="w">  </span><span class="c1">// ここでは日付 (<a href="../sys_time.html">sys_days</a>) から日付 (日単位の<a href="../utc_time.html">utc_time</a>) に変換しているが、</span>
+<span class="w">  </span><span class="c1">// 日時 (<a href="../sys_time.html">sys_seconds</a>) を渡せば日時 (<a href="../utc_time.html">utc_seconds</a>) が返る。</span>
+<span class="w">  </span><span class="c1">// <a href="../system_clock.html">system_clock</a>::time_pointを渡せば、それと同じ時間単位のutc_clockのtime_pointが返る</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../sys_time.html">sys_days</a></span><span class="p">{</span><span class="n"><a href="../month_constants.html">July</a></span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2015</span><span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utc_clock</span><span class="o">::</span><span class="n"><span style="color:#ff0000">from_sys</span></span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="c1">// 日単位のUTC時間が返る</span>
 
-  <span class="k">auto</span> <span class="n">leap_seconds</span> <span class="o">=</span> <span class="n"><a href="../duration_cast.html">duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span> <span class="o">-</span> <span class="n">t</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">leap_seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../duration_cast.html">duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="p">);</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">t</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">u</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">leap_seconds</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">leap_seconds</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -293,7 +293,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="header">&lt;array&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class array">array::</span><span class="token">推論補助</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">U</span><span class="o">&gt;</span>
-  <span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">...)</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="k">sizeof</span><span class="p">...(</span><span class="n">U</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">...)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">sizeof</span><span class="p">...(</span><span class="n">U</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -242,30 +242,30 @@
 <li><code>std::array</code>クラステンプレートは0要素の配列もサポートしているが、推論補助では1要素以上の配列しか受け付けられない。0要素の配列からは、要素型が推論できない</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="f56a509c7a2f9715558e8f9dd8ba69733a3bf0cc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f56a509c7a2f9715558e8f9dd8ba69733a3bf0cc"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../array.html">&lt;array&gt;</a></span>
+<span class="cp">#include <a href="../../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../array.html">std::array</a></span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">ar</span><span class="p">),</span>
-    <span class="n"><a href="../array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../array.html">std::array</a></span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="n">ar</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="../array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// 受け付けない例1</span>
-  <span class="c1">// 0要素の配列</span>
-  <span class="c1">// <a href="../array.html">std::array</a> empty_ar {}; // コンパイルエラー！0要素配列は<a href="../array.html">std::array</a>に推論できない</span>
+<span class="w">  </span><span class="c1">// 受け付けない例1</span>
+<span class="w">  </span><span class="c1">// 0要素の配列</span>
+<span class="w">  </span><span class="c1">// <a href="../array.html">std::array</a> empty_ar {}; // コンパイルエラー！0要素配列は<a href="../array.html">std::array</a>に推論できない</span>
 
-  <span class="c1">// 受け付けない例2</span>
-  <span class="c1">// 異なる要素型の配列</span>
-  <span class="c1">// int mixed_raw_ar[] = {1, 0u}; // OK。異なる要素型が混ざっていても、左辺の型によって要素がint型に変換される</span>
-  <span class="c1">// <a href="../array.html">std::array</a> mixed_ar = {1, 0u}; // コンパイルエラー！すべての要素型は同じ型となるべき</span>
+<span class="w">  </span><span class="c1">// 受け付けない例2</span>
+<span class="w">  </span><span class="c1">// 異なる要素型の配列</span>
+<span class="w">  </span><span class="c1">// int mixed_raw_ar[] = {1, 0u}; // OK。異なる要素型が混ざっていても、左辺の型によって要素がint型に変換される</span>
+<span class="w">  </span><span class="c1">// <a href="../array.html">std::array</a> mixed_ar = {1, 0u}; // コンパイルエラー！すべての要素型は同じ型となるべき</span>
 
-  <span class="c1">// 受け付けない例3</span>
-  <span class="c1">// 文字列リテラルの代入</span>
-  <span class="c1">// <a href="../array.html">std::array</a> s = "Hello"; // コンパイルエラー！<a href="../array.html">std::array</a>&lt;char, 6&gt;を意図していたが、ポインタに変換されて推論できない</span>
-  <span class="c1">// <a href="../array.html">std::array</a> s {"Hello"}; // OKだが、<a href="../array.html">std::array</a>&lt;const char*, 1&gt;となる</span>
+<span class="w">  </span><span class="c1">// 受け付けない例3</span>
+<span class="w">  </span><span class="c1">// 文字列リテラルの代入</span>
+<span class="w">  </span><span class="c1">// <a href="../array.html">std::array</a> s = "Hello"; // コンパイルエラー！<a href="../array.html">std::array</a>&lt;char, 6&gt;を意図していたが、ポインタに変換されて推論できない</span>
+<span class="w">  </span><span class="c1">// <a href="../array.html">std::array</a> s {"Hello"}; // OKだが、<a href="../array.html">std::array</a>&lt;const char*, 1&gt;となる</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -307,7 +307,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

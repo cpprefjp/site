@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;rcu&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">rcu_domain</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">rcu_domain</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">rcu_domain</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -260,18 +260,18 @@ RCU保護区間は<code><a href="rcu_domain/lock.html">lock</a></code>呼び出�
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="5b4b974dfad1f03b2420b52d121b846ff0d9b476"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../rcu.html">&lt;rcu&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5b4b974dfad1f03b2420b52d121b846ff0d9b476"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../rcu.html">&lt;rcu&gt;</a></span>
+<span class="cp">#include <a href="../mutex.html">&lt;mutex&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><span style="color:#ff0000">std::rcu_domain</span></span><span class="o">&amp;</span> <span class="n">dom</span> <span class="o">=</span> <span class="n"><a href="rcu_default_domain.html">std::rcu_default_domain</a></span><span class="p">();</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::rcu_domain</span></span><span class="o">&amp;</span><span class="w"> </span><span class="n">dom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="rcu_default_domain.html">std::rcu_default_domain</a></span><span class="p">();</span>
 
-  <span class="p">{</span>
-    <span class="n"><a href="../mutex/scoped_lock.html">std::scoped_lock</a></span> <span class="n">rlock</span><span class="p">(</span><span class="n">dom</span><span class="p">);</span>
-    <span class="c1">// dom.lock()が呼ばれる</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../mutex/scoped_lock.html">std::scoped_lock</a></span><span class="w"> </span><span class="n">rlock</span><span class="p">(</span><span class="n">dom</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// dom.lock()が呼ばれる</span>
 
-  <span class="p">}</span> <span class="c1">// dom.unlock()が呼ばれる</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// dom.unlock()が呼ばれる</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -316,7 +316,7 @@ RCU保護区間は<code><a href="rcu_domain/lock.html">lock</a></code>呼び出�
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

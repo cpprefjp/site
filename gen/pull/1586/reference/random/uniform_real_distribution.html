@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">uniform_real_distribution</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RealType</span> <span class="o">=</span> <span class="kt">double</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">uniform_real_distribution</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">RealType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">uniform_real_distribution</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -363,26 +363,26 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="1b1bb11f848d4524a0cd8f627b5da331ef7b5f7e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1b1bb11f848d4524a0cd8f627b5da331ef7b5f7e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../random.html">&lt;random&gt;</a></span>
+<span class="cp">#include <a href="../fstream.html">&lt;fstream&gt;</a></span>
+<span class="cp">#include <a href="../cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
-  <span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
-  <span class="n"><a href="default_random_engine.html">std::default_random_engine</a></span> <span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="random_device.html">std::random_device</a></span><span class="w"> </span><span class="n">seed_gen</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seed_gen</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="default_random_engine.html">std::default_random_engine</a></span><span class="w"> </span><span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
 
-  <span class="c1">// 0.0以上1.0未満の値を等確率で発生させる</span>
-  <span class="n"><span style="color:#ff0000">std::uniform_real_distribution</span></span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 0.0以上1.0未満の値を等確率で発生させる</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::uniform_real_distribution</span></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
 
-  <span class="n"><a href="../fstream/basic_ofstream.html">std::ofstream</a></span> <span class="n">result_file</span><span class="p">(</span><span class="s">"uniform_real_distribution.tsv"</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 一様実数分布で乱数を生成する</span>
-    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="uniform_real_distribution/op_call.html">dist(engine)</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../fstream/basic_ofstream.html">std::ofstream</a></span><span class="w"> </span><span class="n">result_file</span><span class="p">(</span><span class="s">"uniform_real_distribution.tsv"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 一様実数分布で乱数を生成する</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="uniform_real_distribution/op_call.html">dist(engine)</a></span><span class="p">;</span>
 
-    <span class="n">result_file</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n">result_file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\t\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -421,7 +421,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

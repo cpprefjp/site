@@ -221,34 +221,34 @@
 <p>「SFINAE (Substitution Failure Is Not An Errorの略称、スフィネェと読む)」は、テンプレートの置き換えに失敗した際に、即時にコンパイルエラーとはせず、置き換えに失敗した関数を<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の候補から除外するという言語機能である。</p>
 <p>たとえば、関数のシグニチャの一部として「<code>typename T::value_type</code>」が書いてあり、型<code>T</code>が<code>value_type</code>という型を持っていない場合、その関数が<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>から除外される。これによって型が任意の機能を持っているかを、コンパイル時に判定できた。</p>
 <p>しかしC++03において、SFINAEによって「型<code>T</code>に関する任意の式が有効かどうかを判定できるか」は仕様として曖昧だった。C++11ではこの曖昧さが取り除かれ、任意の式が有効かどうかでSFINAEが処理されることとなった。</p>
-<p><div class="yata" id="4dfea5a9f1f89c50e3479b440114909830e9a957"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4dfea5a9f1f89c50e3479b440114909830e9a957"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="o">&gt;</span>
-<span class="k">auto</span> <span class="n">is_addable</span><span class="p">(</span><span class="n">T1</span> <span class="n">a</span><span class="p">,</span> <span class="n">T2</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n"><span style="color:#ff0000">a + b</span></span><span class="p">,</span> <span class="kt">bool</span><span class="p">())</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="o">&gt;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">is_addable</span><span class="p">(</span><span class="n">T1</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n"><span style="color:#ff0000">a + b</span></span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="p">())</span>
 <span class="p">{</span>
-  <span class="c1">// decltype(<span style="color:#ff0000">a + b</span>, bool())は、式<span style="color:#ff0000">a + b</span>を評価しつつ、</span>
-  <span class="c1">// 戻り値の型としてはboolを返すという動作。</span>
-  <span class="c1">// 組み込みのカンマ演算子の</span>
-  <span class="c1">// 「`a, b`は`a`を評価しつつ式の結果としては`b`を返す」という仕様を利用している</span>
+<span class="w">  </span><span class="c1">// decltype(<span style="color:#ff0000">a + b</span>, bool())は、式<span style="color:#ff0000">a + b</span>を評価しつつ、</span>
+<span class="w">  </span><span class="c1">// 戻り値の型としてはboolを返すという動作。</span>
+<span class="w">  </span><span class="c1">// 組み込みのカンマ演算子の</span>
+<span class="w">  </span><span class="c1">// 「`a, b`は`a`を評価しつつ式の結果としては`b`を返す」という仕様を利用している</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"型T1とT2の間で、+演算子による加算が可能"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"型T1とT2の間で、+演算子による加算が可能"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">auto</span> <span class="n">is_addable</span><span class="p">(...)</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">is_addable</span><span class="p">(...)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"型T1とT2の間では、+演算子による加算はできない"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"型T1とT2の間では、+演算子による加算はできない"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// int型とint型で+演算子による加算が可能か</span>
-  <span class="n">is_addable</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// int型とint型で+演算子による加算が可能か</span>
+<span class="w">  </span><span class="n">is_addable</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 
-  <span class="c1">// int型とX型で+演算子による加算が可能か</span>
-  <span class="n">is_addable</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">X</span><span class="p">());</span>
+<span class="w">  </span><span class="c1">// int型とX型で+演算子による加算が可能か</span>
+<span class="w">  </span><span class="n">is_addable</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -263,16 +263,16 @@
 <li>置き換えは、関数型、テンプレートパラメータ宣言および(もしあれば)テンプレート要件の中で使用される、全ての型と式に起こる。式は、非定数式を許可する<code>sizeof</code>、<code>decltype</code>および他のコンテキストの内部の配列の範囲、あるいは非型テンプレート引数として現われるもののような定数式だけでなく、一般的な式(つまり非定数式)も含んでいる。【注釈：関数がインスタンス化される場合に限り、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様中の等価な置き換えを行い、置き換えが無効の型もしくは式に帰着する場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。】</li>
 <li>置き換えが無効の型もしくは式に帰着する場合、あるいは置き換えられたテンプレート要件を満たせない場合、型推論は失敗する。無効の型もしくは式は、もし置き換えられた引数を使用して書かれた場合、<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。アクセスチェックは置換プロセスの一部としては行わない。したがって、推論が成功する場合、関数がインスタンス化される場合、アクセスエラーは今までどおり生じる可能性がある。関数型とそのテンプレートパラメータの型の直接のコンテキスト中の無効の型と式だけが、推論失敗に帰着できる。【注釈:置き換えられた型と式の評価は、クラステンプレート特殊化および(または)関数テンプレート特殊化のインスタンス化、暗黙に定義された関数等の生成のような副作用に帰着する場合がある。そのような副作用は「直接のコンテキスト」ではなく<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>なプログラムに帰着できる】</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{</span>
-  <span class="n">Y</span><span class="p">(</span><span class="n">X</span><span class="p">){}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Y</span><span class="p">(</span><span class="n">X</span><span class="p">){}</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">auto</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">t1</span><span class="p">,</span> <span class="n">T</span> <span class="n">t2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">);</span> <span class="c1">// #1</span>
-<span class="n">X</span> <span class="nf">f</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Y</span><span class="p">);</span> <span class="c1">// #2</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">t2</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">t1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t2</span><span class="p">);</span><span class="w"> </span><span class="c1">// #1</span>
+<span class="n">X</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span><span class="w"> </span><span class="c1">// #2</span>
 
-<span class="n">X</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">;</span>
-<span class="n">X</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">);</span> <span class="c1">// #1の推論に失敗し(X+Xができない)、 #2を呼ぶ</span>
+<span class="n">X</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">;</span>
+<span class="n">X</span><span class="w"> </span><span class="n">x3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">);</span><span class="w"> </span><span class="c1">// #1の推論に失敗し(X+Xができない)、 #2を呼ぶ</span>
 </code></pre></div>
 </p>
 <p>注釈：型推論は次の理由で失敗する可能性がある:</p>
@@ -280,16 +280,16 @@
 <li>異なる長さの複数パラメータパックを含んでいるパック拡張をインスタンス化することを試みること。</li>
 <li>要素型を持った配列を作成することを試みること。<code>void</code>、関数型、参照型あるいは抽象型クラス型、あるいは0または負のサイズで配列を作成することを試みること。</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
-<span class="kt">int</span> <span class="n">I</span> <span class="o">=</span> <span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">f</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// 無効な配列</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 無効な配列</span>
 </code></pre></div>
 </p>
 <ul>
 <li>修飾名中のクラス型ではない型を使用することを試みること</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">B</span><span class="o">*</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">B</span><span class="o">*</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <ul>
@@ -301,26 +301,26 @@
 </ul>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">I</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">X</span> <span class="p">{</span> <span class="p">};</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">class</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">Z</span> <span class="p">{</span> <span class="p">};</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">Y</span><span class="o">*</span><span class="p">){}</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">X</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="n">N</span><span class="o">&gt;*</span><span class="p">){}</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">h</span><span class="p">(</span><span class="n">Z</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="k">template</span> <span class="n">TT</span><span class="o">&gt;*</span><span class="p">){}</span>
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{};</span>
-<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">Y</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">N</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Z</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">Y</span><span class="o">*</span><span class="p">){}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">X</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="n">N</span><span class="o">&gt;*</span><span class="p">){}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="n">Z</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">TT</span><span class="o">&gt;*</span><span class="p">){}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Y</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="k">struct</span> <span class="n">D</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">TT</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">TT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 推論はこれらの場合に失敗する：</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// AはメンバYを含んでいない</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// BのYメンバは型ではない</span>
-  <span class="n">g</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// CのNメンバは非型ではない</span>
-  <span class="n">h</span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// DのTTメンバはテンプレートではない</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 推論はこれらの場合に失敗する：</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// AはメンバYを含んでいない</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// BのYメンバは型ではない</span>
+<span class="w">  </span><span class="n">g</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// CのNメンバは非型ではない</span>
+<span class="w">  </span><span class="n">h</span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// DのTTメンバはテンプレートではない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -329,24 +329,24 @@
 <li><code>void</code>への参照の作成を試みること</li>
 <li><code>T</code>がクラス型でない場合に「<code>T</code>のメンバへのポインタ」の作成を試みること</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">T</span><span class="o">::*</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">T</span><span class="o">::*</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <ul>
 <li>非型テンプレートパラメータに無効の型を渡すことを試みること</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span> <span class="p">{};</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">()</span><span class="o">&gt;*</span><span class="p">);</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
-<span class="kt">int</span> <span class="n">i0</span> <span class="o">=</span> <span class="n">f</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">()</span><span class="o">&gt;*</span><span class="p">);</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <ul>
 <li>テンプレート引数式、あるいは式の関数宣言のなかでの、使用のいずれかでの無効の変換を試みること</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">T</span><span class="o">*&gt;</span> <span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">i2</span> <span class="o">=</span> <span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// 1からint*に変換できない</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">*&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1からint*に変換できない</span>
 </code></pre></div>
 </p>
 <ul>
@@ -354,99 +354,99 @@
 </ul>
 <h2>例</h2>
 <h3>is_addableのメタ関数版</h3>
-<p><div class="yata" id="5cafa2f188197eea0d812542d481598ea07c8493"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5cafa2f188197eea0d812542d481598ea07c8493"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">is_addable_impl</span> <span class="p">{</span>
-  <span class="c1">// 要件を満たしていればtrue_type型を返す</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-  <span class="k">static</span> <span class="k">auto</span> <span class="n">check</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">,</span> <span class="n">U</span><span class="o">*</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span>
-    <span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">+</span> <span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(),</span>
-    <span class="n"><a href="../../reference/type_traits/true_type.html">std::true_type</a></span><span class="p">());</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">is_addable_impl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 要件を満たしていればtrue_type型を返す</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span>
+<span class="w">    </span><span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">    </span><span class="n"><a href="../../reference/type_traits/true_type.html">std::true_type</a></span><span class="p">());</span>
 
-  <span class="c1">// 要件を満たしていなければfalse_type型を返す</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-  <span class="k">static</span> <span class="k">auto</span> <span class="n">check</span><span class="p">(...)</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/type_traits/false_type.html">std::false_type</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 要件を満たしていなければfalse_type型を返す</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">check</span><span class="p">(...)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/false_type.html">std::false_type</a></span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">is_addable</span>
-  <span class="p">:</span> <span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">is_addable_impl</span><span class="o">::</span><span class="n">check</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span><span class="p">(</span>
-               <span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">,</span> <span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">))</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">is_addable</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">is_addable_impl</span><span class="o">::</span><span class="n">check</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">               </span><span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">))</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// int型とint型で+演算子による加算が可能か</span>
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">is_addable</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"int + int is valid"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// int型とint型で+演算子による加算が可能か</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">is_addable</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"int + int is valid"</span><span class="p">);</span>
 
-  <span class="c1">// int型とX型で+演算子による加算が可能か</span>
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">is_addable</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">X</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"int + X is invalid"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// int型とX型で+演算子による加算が可能か</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">is_addable</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"int + X is invalid"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>型が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>かを判定するメタ関数is_complete_type</h3>
-<p><div class="yata" id="fe0d36019e4f30822a56d250ed61320339763a63"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="fe0d36019e4f30822a56d250ed61320339763a63"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">is_complete_type_impl</span> <span class="p">{</span>
-  <span class="c1">// sizeof(T)が有効かどうかで完全型かを判定する</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">static</span> <span class="k">auto</span> <span class="n">check</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span>
-    <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">),</span>
-    <span class="n"><a href="../../reference/type_traits/true_type.html">std::true_type</a></span><span class="p">());</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">is_complete_type_impl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// sizeof(T)が有効かどうかで完全型かを判定する</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span>
+<span class="w">    </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="../../reference/type_traits/true_type.html">std::true_type</a></span><span class="p">());</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">static</span> <span class="k">auto</span> <span class="n">check</span><span class="p">(...)</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/type_traits/false_type.html">std::false_type</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">check</span><span class="p">(...)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/false_type.html">std::false_type</a></span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">is_complete_type</span>
-  <span class="p">:</span> <span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">is_complete_type_impl</span><span class="o">::</span><span class="n">check</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">))</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">is_complete_type</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">is_complete_type_impl</span><span class="o">::</span><span class="n">check</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">))</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{};</span>
-<span class="k">struct</span> <span class="n">B</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">is_complete_type</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"A is complete type"</span><span class="p">);</span>
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">is_complete_type</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"B is incomplete type"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">is_complete_type</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"A is complete type"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">is_complete_type</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"B is incomplete type"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>関数が特定の引数で呼び出し可能かを判定するメタ関数is_callable</h3>
-<p><div class="yata" id="0c70f9d04b8842af40673e48cd36af9ef8c19a13"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0c70f9d04b8842af40673e48cd36af9ef8c19a13"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">is_callable_impl</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
-  <span class="k">static</span> <span class="n"><a href="../../reference/type_traits/true_type.html">std::true_type</a></span>
-    <span class="n">check</span><span class="p">(</span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">()(</span><span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">()...),</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">is_callable_impl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/true_type.html">std::true_type</a></span>
+<span class="w">    </span><span class="n">check</span><span class="p">(</span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">()(</span><span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">()...),</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">);</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
-  <span class="k">static</span> <span class="n"><a href="../../reference/type_traits/false_type.html">std::false_type</a></span> <span class="n">check</span><span class="p">(...);</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/false_type.html">std::false_type</a></span><span class="w"> </span><span class="n">check</span><span class="p">(...);</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">is_callable</span>
-  <span class="p">:</span> <span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">is_callable_impl</span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;::</span><span class="k">template</span> <span class="n">check</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">))</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">is_callable</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">is_callable_impl</span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;::</span><span class="k">template</span><span class="w"> </span><span class="n">check</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">))</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">char</span> <span class="n">b</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">is_callable</span><span class="o">&lt;</span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="p">,</span>
-                <span class="s">"f is callable with follow arguments: [int, char, const <a href="../../reference/string/basic_string.html">std::string</a>&amp;]"</span><span class="p">);</span>
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">is_callable</span><span class="o">&lt;</span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
-                <span class="s">"f is not callable with int type one argument"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">is_callable</span><span class="o">&lt;</span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="p">,</span>
+<span class="w">                </span><span class="s">"f is callable with follow arguments: [int, char, const <a href="../../reference/string/basic_string.html">std::string</a>&amp;]"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">is_callable</span><span class="o">&lt;</span><span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
+<span class="w">                </span><span class="s">"f is not callable with int type one argument"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -480,7 +480,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

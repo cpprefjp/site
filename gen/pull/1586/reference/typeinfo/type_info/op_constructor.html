@@ -225,25 +225,25 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;typeinfo&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class type_info">type_info::</span><span class="token">コンストラクタ</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">type_info</span><span class="p">(</span><span class="k">const</span> <span class="n">type_info</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">type_info</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">type_info</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>type_infoオブジェクトの構築</h2>
 <p><code>type_info</code>クラスは、<code>typeid</code>演算子を使用することによってのみオブジェクトを生成できる。</p>
 <p>ユーザーが<code>type_info</code>クラスを<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>、コピー、ムーブすることはできない。</p>
 <h2>例</h2>
-<p><div class="yata" id="89ad4f1b942ed63e71fee63b0d221fad6bca7593"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../typeinfo.html">&lt;typeinfo&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="89ad4f1b942ed63e71fee63b0d221fad6bca7593"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../typeinfo.html">&lt;typeinfo&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// デフォルト構築は不可能</span>
-  <span class="c1">// std::type_info t0;</span>
+<span class="w">  </span><span class="c1">// デフォルト構築は不可能</span>
+<span class="w">  </span><span class="c1">// std::type_info t0;</span>
 
-  <span class="c1">// コピー(ムーブ)も不可能</span>
-  <span class="c1">// std::type_info t1 = typeid(int);</span>
+<span class="w">  </span><span class="c1">// コピー(ムーブ)も不可能</span>
+<span class="w">  </span><span class="c1">// std::type_info t1 = typeid(int);</span>
 
-  <span class="c1">// const参照ならOK</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">type_info</span><span class="o">&amp;</span> <span class="n">rt</span> <span class="o">=</span> <span class="k">typeid</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// const参照ならOK</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">type_info</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -267,7 +267,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

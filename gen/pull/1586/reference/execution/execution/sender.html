@@ -225,14 +225,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">sender</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">sender</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">sender</span><span class="p">;</span>
 
-  <span class="k">struct</span> <span class="n">sender_t</span> <span class="p">{};</span>  <span class="c1">// タグ型</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sender_t</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// タグ型</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">enable_sender</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">enable_sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -251,42 +251,42 @@
 </ul>
 <h2>要件</h2>
 <p>説明専用コンセプト<code>is-sender</code>, <code>enable-sender</code>を以下のように定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">is</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span>
-  <span class="n"><a href="../../concepts/derived_from.html">derived_from</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Sndr</span><span class="o">::</span><span class="n">sender_concept</span><span class="p">,</span> <span class="n">sender_t</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">is</span><span class="o">-</span><span class="n">sender</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="n"><a href="../../concepts/derived_from.html">derived_from</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">::</span><span class="n">sender_concept</span><span class="p">,</span><span class="w"> </span><span class="n">sender_t</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">enable</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span>
-  <span class="n">is</span><span class="o">-</span><span class="n">sender</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span> <span class="o">||</span>
-  <span class="n"><a href="../is-awaitable.html">is-awaitable</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="env-promise.html">env-promise</a></span><span class="o">&lt;</span><span class="n"><a href="env.html">env&lt;&gt;</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">enable</span><span class="o">-</span><span class="n">sender</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="n">is</span><span class="o">-</span><span class="n">sender</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="w"> </span><span class="o">||</span>
+<span class="w">  </span><span class="n"><a href="../is-awaitable.html">is-awaitable</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="env-promise.html">env-promise</a></span><span class="o">&lt;</span><span class="n"><a href="env.html">env&lt;&gt;</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>enable_sender</code>変数テンプレートを以下のように定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">enable_sender</span> <span class="o">=</span> <span class="n">enable</span><span class="o">-</span><span class="n">sender</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">enable_sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enable</span><span class="o">-</span><span class="n">sender</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>sender</code>コンセプトは、以下のように定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">sender</span> <span class="o">=</span>
-  <span class="n">enable_sender</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&amp;</span> <span class="n">sndr</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">{</span> <span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../queryable.html">queryable</a></span><span class="p">;</span>
-  <span class="p">}</span> <span class="o">&amp;&amp;</span>
-  <span class="n"><a href="../../concepts/move_constructible.html">move_constructible</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-  <span class="n"><a href="../../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Sndr</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">sender</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="n">enable_sender</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../queryable.html">queryable</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="n"><a href="../../concepts/move_constructible.html">move_constructible</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="n"><a href="../../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>備考</h2>
 <p><a class="cpprefjp-defined-word" data-desc="標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">プログラム定義型</a>が<code>sender</code>コンセプトを満たす場合、ユーザは<code>enable_sender</code>変数テンプレートを<code>true</code>として特殊化してもよい。そのような特殊化は定数式で利用可能かつ<code>const bool</code>型をもつこと。</p>
 <h2>例</h2>
-<p><div class="yata" id="9fb3672febf2b77ff6503fb5eca8be069ea578ff"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="9fb3672febf2b77ff6503fb5eca8be069ea578ff"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 値42を送信するSender</span>
-  <span class="n"><span style="color:#ff0000">ex::sender</span></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 値42を送信するSender</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">ex::sender</span></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -332,7 +332,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

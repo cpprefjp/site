@@ -224,12 +224,12 @@
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// UTF-16／UTF-32符号化形式の文字列。</span>
 <span class="c1">// uプレフィックスを付けた文字列リテラルはchar16_tのシーケンスとなる。</span>
 <span class="c1">// Uプレフィックスを付けた文字列リテラルはchar32_tのシーケンスとなる。</span>
-<span class="kt">char16_t</span> <span class="n">s16</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"あいうえお"</span><span class="p">;</span>
-<span class="kt">char32_t</span> <span class="n">s32</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="kt">char16_t</span><span class="w"> </span><span class="n">s16</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="kt">char32_t</span><span class="w"> </span><span class="n">s32</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
 
 <span class="c1">// 文字列中にユニバーサルキャラクタ名を直接入力できる。</span>
 <span class="c1">// \uからはじめて4桁、もしくは\Uからはじめて8桁がユニバーサルキャラクタ名として扱われる。</span>
-<span class="kt">char16_t</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"</span><span class="se">\U00020BB7</span><span class="s">野家"</span><span class="p">;</span> <span class="c1">// 𠮷野家</span>
+<span class="kt">char16_t</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u</span><span class="s">"</span><span class="se">\U00020BB7</span><span class="s">野家"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 𠮷野家</span>
 </code></pre></div>
 </p>
 <p>ただし、C++11時点で、標準ライブラリでは<code>char16_t</code>と<code>char32_t</code>の入出力はサポートしない。そのため、それらの文字・文字列はシステムの文字コードに変換して入出力する必要がある。</p>
@@ -262,14 +262,14 @@
 <ul>
 <li>
 <p><code>char16_t</code>文字・文字列リテラルと<code>char32_t</code>文字・文字列リテラルのなかには、UCS／Unicodeのユニバーサルキャラクタ名を直接記述できる。たとえば、<code>char16_t</code>文字リテラル<code>u'\u215A'</code>は<a href="http://www.charbase.com/215a-unicode-vulgar-fraction-five-sixths" target="_blank">U+215A</a>コードポイントの文字である<code>'⅚'</code> (VULGAR FRACTION FIVE SIXTHS) を表す。<code>\u</code>の場合は16進数で4桁固定のユニバーサルキャラクタ名を、<code>\U</code>の場合は16進数で8桁固定のユニバーサルキャラクタ名を記述する。</p>
-<p><div class="yata" id="50bc65b0236de1f39e77fb2be1282ec657522f86"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="50bc65b0236de1f39e77fb2be1282ec657522f86"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">char16_t</span> <span class="n">a</span> <span class="o">=</span> <span class="n">u</span><span class="err">'\</span><span class="n">u215A</span><span class="err">'</span><span class="p">;</span>
-  <span class="kt">char16_t</span> <span class="n">b</span> <span class="o">=</span> <span class="n">u</span><span class="sc">'⅚'</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char16_t</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="err">'</span><span class="n">\u215A</span><span class="err">'</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char16_t</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u</span><span class="sc">'⅚'</span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -282,39 +282,39 @@
 <p>C++11時点の規格では、UCSの規格としてISO/IEC 10646-1:1993を参照する。</p>
 <h2>例</h2>
 <h3>サロゲートペアを含む状況</h3>
-<p><div class="yata" id="f305032cfd779ab92a157aed2c69850143c97d61"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f305032cfd779ab92a157aed2c69850143c97d61"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::u16string</a></span> <span class="n">s16</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"𠮷野家"</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span> <span class="n">s32</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"𠮷野家"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::u16string</a></span><span class="w"> </span><span class="n">s16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u</span><span class="s">"𠮷野家"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span><span class="w"> </span><span class="n">s32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"𠮷野家"</span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s16</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// サロゲートペアを含むので1文字分多い</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s32</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// UTF-32にサロゲートペアはない</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s16</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// サロゲートペアを含むので1文字分多い</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s32</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// UTF-32にサロゲートペアはない</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>UTF-32に文字コード変換して簡易的にコードポイント数を算出する</h3>
-<p><div class="yata" id="c4cf63fe879a899be9daebeb012b870ef0c98020"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/codecvt.html">&lt;codecvt&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c4cf63fe879a899be9daebeb012b870ef0c98020"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="../../reference/codecvt.html">&lt;codecvt&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
-  <span class="n"><a href="../../reference/locale/wstring_convert.html">std::wstring_convert</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">char32_t</span><span class="o">&gt;</span> <span class="n">converter</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
+<span class="w">  </span><span class="n"><a href="../../reference/locale/wstring_convert.html">std::wstring_convert</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">converter</span><span class="p">;</span>
 
-  <span class="c1">// UTF-8からUTF-32に変換</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">u8str</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span> <span class="n">u32str</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n"><a href="../../reference/locale/wstring_convert/from_bytes.html">from_bytes</a></span><span class="p">(</span><span class="n">u8str</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// UTF-8からUTF-32に変換</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">u8str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span><span class="w"> </span><span class="n">u32str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="n"><a href="../../reference/locale/wstring_convert/from_bytes.html">from_bytes</a></span><span class="p">(</span><span class="n">u8str</span><span class="p">);</span>
 
-  <span class="c1">// コードポイント数を取得</span>
-  <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">codepoint_count</span> <span class="o">=</span> <span class="n">u32str</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">codepoint_count</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// コードポイント数を取得</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">codepoint_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u32str</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">codepoint_count</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -363,7 +363,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -232,22 +232,22 @@ attribute-using-prefix:
 <p>属性の先頭部分に<code>using</code>、名前空間、コロン<code>:</code>の順に記述し、その後に続けて属性の名前を記述する。</p>
 <p><code>using</code>で名前空間を指定した場合は、続く属性の名前に名前空間は指定できない。<code>using</code>で複数の名前空間を指定することもできない。</p>
 <h2>例</h2>
-<p><div class="yata" id="fd6402a31d56c14df87eb635fafa16e047cce5a6"><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span> <span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="c1">//正しい</span>
+<p><div class="yata" id="fd6402a31d56c14df87eb635fafa16e047cce5a6"><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span><span class="w"> </span><span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="c1">//正しい</span>
 
-<span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="c1">//正しい</span>
+<span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="c1">//正しい</span>
 
-<span class="p">[[</span><span class="k">using</span> <span class="nl">CC</span><span class="p">:</span> <span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">debug</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">h</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="c1">//正しい、上記の [[CC::opt(1), CC::debug]] と同じ意味になる</span>
+<span class="p">[[</span><span class="k">using</span><span class="w"> </span><span class="n">CC</span><span class="o">:</span><span class="w"> </span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">debug</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">h</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="c1">//正しい、上記の [[CC::opt(1), CC::debug]] と同じ意味になる</span>
 
-<span class="p">[[</span><span class="k">using</span> <span class="nl">CC</span><span class="p">:</span> <span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span> <span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">i</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="c1">//正しい、上記と同じ意味になる</span>
+<span class="p">[[</span><span class="k">using</span><span class="w"> </span><span class="n">CC</span><span class="o">:</span><span class="w"> </span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span><span class="w"> </span><span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">i</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="c1">//正しい、上記と同じ意味になる</span>
 
-<span class="p">[[</span><span class="k">using</span> <span class="nl">CC</span><span class="p">:</span> <span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span> <span class="kt">void</span> <span class="n">j</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="c1">//間違い、usingと名前空間の指定は混在できない</span>
+<span class="p">[[</span><span class="k">using</span><span class="w"> </span><span class="n">CC</span><span class="o">:</span><span class="w"> </span><span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">j</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="c1">//間違い、usingと名前空間の指定は混在できない</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
@@ -284,7 +284,7 @@ attribute-using-prefix:
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

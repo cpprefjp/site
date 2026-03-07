@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">scoped_lock</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">MutexTypes</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">scoped_lock</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">MutexTypes</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">scoped_lock</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -226,14 +226,14 @@
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// デッドロックが発生するコード：</span>
 <span class="c1">// thread 1</span>
 <span class="p">{</span>
-  <span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk1</span><span class="p">{</span><span class="n">m1</span><span class="p">};</span>
-  <span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk2</span><span class="p">{</span><span class="n">m2</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk1</span><span class="p">{</span><span class="n">m1</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk2</span><span class="p">{</span><span class="n">m2</span><span class="p">};</span>
 <span class="p">}</span>
 
 <span class="c1">// thread 2</span>
 <span class="p">{</span>
-  <span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk1</span><span class="p">{</span><span class="n">m2</span><span class="p">};</span> <span class="c1">// ロックの取得順に一貫性がない</span>
-  <span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk2</span><span class="p">{</span><span class="n">m1</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk1</span><span class="p">{</span><span class="n">m2</span><span class="p">};</span><span class="w"> </span><span class="c1">// ロックの取得順に一貫性がない</span>
+<span class="w">  </span><span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk2</span><span class="p">{</span><span class="n">m1</span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -283,22 +283,22 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="f348d2619b559e447da8ba3464bce3a8617be3f7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f348d2619b559e447da8ba3464bce3a8617be3f7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../mutex.html">&lt;mutex&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="mutex.html">std::mutex</a></span> <span class="n">m1</span><span class="p">;</span>
-  <span class="n"><a href="timed_mutex.html">std::timed_mutex</a></span> <span class="n">m2</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">m1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="timed_mutex.html">std::timed_mutex</a></span><span class="w"> </span><span class="n">m2</span><span class="p">;</span>
 
-  <span class="p">{</span>
-    <span class="c1">// m1とm2のロックを取得</span>
-    <span class="n"><span style="color:#ff0000">std::scoped_lock</span></span> <span class="n">lk</span><span class="p">{</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">};</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// m1とm2のロックを取得</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::scoped_lock</span></span><span class="w"> </span><span class="n">lk</span><span class="p">{</span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">};</span>
 
-    <span class="c1">// m1のミューテックスで保護されたデータと、</span>
-    <span class="c1">// m2のミューテックスで保護されたデータを操作・・・</span>
+<span class="w">    </span><span class="c1">// m1のミューテックスで保護されたデータと、</span>
+<span class="w">    </span><span class="c1">// m2のミューテックスで保護されたデータを操作・・・</span>
 
-  <span class="p">}</span> <span class="c1">// lkのデストラクタによって、m1とm2のロックを解放</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// lkのデストラクタによって、m1とm2のロックを解放</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -342,7 +342,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,14 +225,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;streambuf&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_streambuf">basic_streambuf::</span><span class="token">imbue</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span> <span class="o">=</span> <span class="n">char_traits</span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span>
-  <span class="k">class</span> <span class="nc">basic_streambuf</span> <span class="p">{</span>
-  <span class="k">protected</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">imbue</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Traits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">char_traits</span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">basic_streambuf</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">protected</span><span class="o">:</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">imbue</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../locale/locale.html">locale</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">);</span>
 
-    <span class="err">……</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="err">……</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -244,13 +244,13 @@
 <p><code>basic_streambuf</code>での実装は何も行わない。</p>
 <p><code>basic_streambuf</code>の派生クラスでは、必要に応じてオーバーライドして処理を追加してよい。</p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span> <span class="o">=</span> <span class="n">char_traits</span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span>
-  <span class="k">class</span> <span class="nc">basic_streambuf</span> <span class="p">{</span>
-  <span class="k">protected</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">imbue</span><span class="p">(</span><span class="k">const</span> <span class="n">locale</span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Traits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">char_traits</span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">basic_streambuf</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">protected</span><span class="o">:</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">imbue</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">locale</span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -281,7 +281,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

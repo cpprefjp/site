@@ -229,25 +229,25 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">comp_ellint_3</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="kt">double</span>
-    <span class="n">comp_ellint_3</span><span class="p">(</span><span class="kt">double</span> <span class="n">k</span><span class="p">,</span>
-                  <span class="kt">double</span> <span class="n">nu</span><span class="p">);</span>              <span class="c1">// (1) C++17</span>
-  <span class="n"><i>floating-point-type</i></span>
-    <span class="nf">comp_ellint_3</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span> <span class="n">k</span><span class="p">,</span>
-                  <span class="n"><i>floating-point-type</i></span> <span class="n">nu</span><span class="p">);</span> <span class="c1">// (1) C++23</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">double</span>
+<span class="w">    </span><span class="nf">comp_ellint_3</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">k</span><span class="p">,</span>
+<span class="w">                  </span><span class="kt">double</span><span class="w"> </span><span class="n">nu</span><span class="p">);</span><span class="w">              </span><span class="c1">// (1) C++17</span>
+<span class="w">  </span><span class="n"><i>floating-point-type</i></span>
+<span class="w">    </span><span class="nf">comp_ellint_3</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span><span class="w"> </span><span class="n">k</span><span class="p">,</span>
+<span class="w">                  </span><span class="n"><i>floating-point-type</i></span><span class="w"> </span><span class="n">nu</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++23</span>
 
-  <span class="n"><i>Promoted</i></span>
-    <span class="nf">comp_ellint_3</span><span class="p">(</span><span class="n"><i>Arithmetic1</i></span> <span class="n">k</span><span class="p">,</span>
-                  <span class="n"><i>Arithmetic2</i></span> <span class="n">nu</span><span class="p">);</span>         <span class="c1">// (2) C++17</span>
+<span class="w">  </span><span class="n"><i>Promoted</i></span>
+<span class="w">    </span><span class="nf">comp_ellint_3</span><span class="p">(</span><span class="n"><i>Arithmetic1</i></span><span class="w"> </span><span class="n">k</span><span class="p">,</span>
+<span class="w">                  </span><span class="n"><i>Arithmetic2</i></span><span class="w"> </span><span class="n">nu</span><span class="p">);</span><span class="w">         </span><span class="c1">// (2) C++17</span>
 
-  <span class="kt">float</span>
-    <span class="nf">comp_ellint_3f</span><span class="p">(</span><span class="kt">float</span> <span class="n">k</span><span class="p">,</span>
-                   <span class="kt">float</span> <span class="n">nu</span><span class="p">);</span>              <span class="c1">// (3) C++17</span>
+<span class="w">  </span><span class="kt">float</span>
+<span class="w">    </span><span class="nf">comp_ellint_3f</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">k</span><span class="p">,</span>
+<span class="w">                   </span><span class="kt">float</span><span class="w"> </span><span class="n">nu</span><span class="p">);</span><span class="w">              </span><span class="c1">// (3) C++17</span>
 
-  <span class="kt">long</span> <span class="kt">double</span>
-    <span class="nf">comp_ellint_3l</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">k</span><span class="p">,</span>
-                   <span class="kt">long</span> <span class="kt">double</span> <span class="n">nu</span><span class="p">);</span>        <span class="c1">// (4) C++17</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span>
+<span class="w">    </span><span class="nf">comp_ellint_3l</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">k</span><span class="p">,</span>
+<span class="w">                   </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">nu</span><span class="p">);</span><span class="w">        </span><span class="c1">// (4) C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -278,28 +278,28 @@ $$
 <li>(1) : C++23では、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む浮動小数点数型への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義された</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="b63f987ea41940618ea4fcbceb20956f7d387837"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b63f987ea41940618ea4fcbceb20956f7d387837"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cmath.html">&lt;cmath&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">p</span><span class="p">(</span><span class="kt">double</span> <span class="n">k</span><span class="p">,</span> <span class="kt">double</span> <span class="n">nu</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"comp_ellint_3("</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">nu</span> <span class="o">&lt;&lt;</span> <span class="s">") = "</span><span class="p">;</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::comp_ellint_3</span></span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">nu</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">domain_error</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(domain_error)</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">p</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"comp_ellint_3("</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nu</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">") = "</span><span class="p">;</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::comp_ellint_3</span></span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">domain_error</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(domain_error)</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>   <span class="c1">// π / 2 √2</span>
-  <span class="n">p</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 1.17745</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>   <span class="c1">// ∞</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>    <span class="c1">// π / 2</span>
-  <span class="n">p</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// 1.68575</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>    <span class="c1">// ∞</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>    <span class="c1">// ∞</span>
-  <span class="n">p</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// ∞</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>    <span class="c1">// ∞</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span><span class="w">   </span><span class="c1">// π / 2 √2</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1.17745</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span><span class="w">   </span><span class="c1">// ∞</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">    </span><span class="c1">// π / 2</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1.68575</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">    </span><span class="c1">// ∞</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">    </span><span class="c1">// ∞</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// ∞</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">    </span><span class="c1">// ∞</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -366,7 +366,7 @@ comp_ellint_3(1, 1) = inf
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

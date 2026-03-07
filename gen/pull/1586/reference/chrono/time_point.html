@@ -213,10 +213,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">time_point</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Clock</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Duration</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">Clock</span><span class="o">::</span><span class="n"><a href="duration.html">duration</a></span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">time_point</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Clock</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Clock</span><span class="o">::</span><span class="n"><a href="duration.html">duration</a></span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">time_point</span><span class="p">;</span>
 <span class="p">}}</span>
 </code></pre></div>
 </p>
@@ -477,21 +477,21 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="25d820489db87c8ed541aae73818da81b4d7f846"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="25d820489db87c8ed541aae73818da81b4d7f846"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../chrono.html">&lt;chrono&gt;</a></span>
+<span class="cp">#include <a href="../ctime.html">&lt;ctime&gt;</a></span>
+<span class="cp">#include <a href="../iomanip.html">&lt;iomanip&gt;</a></span>
 
-<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 現在日時を取得</span>
-  <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n">time_point</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/now.html">now()</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 現在日時を取得</span>
+<span class="w">  </span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n">time_point</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/now.html">now()</a></span><span class="p">;</span>
 
-  <span class="c1">// 出力</span>
-  <span class="n"><a href="../ctime/time_t.html">std::time_t</a></span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/to_time_t.html">to_time_t</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-  <span class="k">const</span> <span class="n"><span href="https://cpprefjp.github.io/reference/ctime/tm.md.nolink">std::tm</span></span><span class="o">*</span> <span class="n">lt</span> <span class="o">=</span> <span class="n"><span href="https://cpprefjp.github.io/reference/ctime/localtime.md.nolink">std::localtime</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="s">"%c"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 出力</span>
+<span class="w">  </span><span class="n"><a href="../ctime/time_t.html">std::time_t</a></span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/to_time_t.html">to_time_t</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><span href="https://cpprefjp.github.io/reference/ctime/tm.md.nolink">std::tm</span></span><span class="o">*</span><span class="w"> </span><span class="n">lt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span href="https://cpprefjp.github.io/reference/ctime/localtime.md.nolink">std::localtime</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span><span class="w"> </span><span class="s">"%c"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -532,7 +532,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -234,61 +234,61 @@
 </ul>
 <h3>クラス宣言での指定</h3>
 <p>クラス宣言では、<code>class</code>／<code>struct</code>キーワードとクラス名の間に<code>[[maybe_unused]]</code>属性を指定する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="err">[[</span><span class="nc">maybe_unused</span><span class="p">]]</span> <span class="n">X</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h3>型の別名宣言での指定</h3>
 <p><code>using</code>キーワードによる型の別名宣言の場合は、<code>=</code>の前に<code>[[maybe_unused]]</code>属性を指定する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">integer</span> <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>typedef</code>キーワードによる型の別名宣言の場合は、<code>typedef</code>キーワードの前に<code>[[maybe_unused]]</code>属性を指定する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="k">typedef</span> <span class="kt">int</span> <span class="n">integer</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">integer</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h3>変数宣言での指定</h3>
 <p>変数宣言では、先頭に<code>[[maybe_unused]]</code>属性を指定する。これは、型、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>、記憶域指定よりも前である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h3>関数宣言での指定</h3>
 <p>関数宣言では、先頭に<code>[[maybe_unused]]</code>属性を指定する。これは、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型、リンケージ指定よりも前である。ただし、関数テンプレートの場合には、テンプレートパラメータ宣言の後ろに<code>[[maybe_unused]]</code>属性を指定する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span>
-<span class="kr">inline</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h3>列挙型と列挙子での指定</h3>
 <p>列挙型では、クラスと同様に<code>enum</code>／<code>enum class</code>と型名の間に<code>[[maybe_unused]]</code>属性を指定する。</p>
 <p>列挙子では、列挙子の識別子とカンマの間に<code>[[maybe_unused]]</code>属性を指定する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="err">[[</span><span class="nc">maybe_unused</span><span class="p">]]</span> <span class="n">E</span> <span class="p">{</span>
-  <span class="n">A</span> <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]],</span>
-  <span class="n">B</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">A</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]],</span>
+<span class="w">  </span><span class="n">B</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
 <p><div class="yata" id="13d597e47e3d1de493154a416c0c80690161ce71"><div class="codehilite"><pre><span></span><code><span class="cp">#define NDEBUG</span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
 
 <span class="c1">//警告は発生しない</span>
-<span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">f</span><span class="p">([[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">flag1</span><span class="p">,</span>
-                        <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">flag2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="n">flag1</span> <span class="o">&amp;&amp;</span> <span class="n">flag2</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">([[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">flag1</span><span class="p">,</span>
+<span class="w">                        </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">flag2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flag1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">flag2</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">//警告が発生する場合がある</span>
-<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="kt">bool</span> <span class="n">flag3</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">flag4</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">bool</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">flag3</span> <span class="o">&amp;&amp;</span> <span class="n">flag4</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b2</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">flag3</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">flag4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flag3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">flag4</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b2</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n">g</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -329,7 +329,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

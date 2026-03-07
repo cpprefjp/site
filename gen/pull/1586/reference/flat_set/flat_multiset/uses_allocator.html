@@ -225,12 +225,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;flat_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">uses_allocator</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="p">,</span> <span class="k">class</span> <span class="nc">KeyContainer</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">uses_allocator</span><span class="o">&lt;</span><span class="n">flat_multiset</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Compare</span><span class="p">,</span> <span class="n">KeyContainer</span><span class="o">&gt;</span><span class="p">,</span>
-                        <span class="n">Alloc</span><span class="o">&gt;</span>
-    <span class="o">:</span> <span class="n"><a href="../../type_traits/bool_constant.html">bool_constant</a></span><span class="o">&lt;</span><span class="n">uses_allocator_v</span><span class="o">&lt;</span><span class="n">KeyContainer</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Key</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Compare</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">KeyContainer</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">uses_allocator</span><span class="o">&lt;</span><span class="n">flat_multiset</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Compare</span><span class="p">,</span><span class="w"> </span><span class="n">KeyContainer</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">Alloc</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../type_traits/bool_constant.html">bool_constant</a></span><span class="o">&lt;</span><span class="n">uses_allocator_v</span><span class="o">&lt;</span><span class="n">KeyContainer</span><span class="p">,</span><span class="w"> </span><span class="n">Alloc</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -238,14 +238,14 @@
 <p><code>uses_allocator</code>の、<code>flat_multiset</code>に対する特殊化。</p>
 <p>アロケータを指定する<code>flat_multiset</code>の<code><a href="op_constructor.html">コンストラクタ</a></code>において、指定されたアロケータと、<code>KeyContainer</code>のアロケータが合致するかをチェックするのに使われる。</p>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../flat_set.html">&lt;flat_set&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../flat_set.html">&lt;flat_set&gt;</a></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="n">fs_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">flat_multiset</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">fs_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">flat_multiset</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::uses_allocator</span></span><span class="o">&lt;</span><span class="n">fs_t</span><span class="p">,</span> <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::uses_allocator</span></span><span class="o">&lt;</span><span class="n">fs_t</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -282,7 +282,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

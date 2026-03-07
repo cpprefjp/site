@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;locale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class wstring_convert">wstring_convert::</span><span class="token">state</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp17deprecated text-warning" title="C++17で非推奨">(C++17で非推奨)</span><span class="cpp cpp26removed text-danger" title="C++26で削除">(C++26で削除)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">state_type</span> <span class="nf">state</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">state_type</span><span class="w"> </span><span class="nf">state</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>このクラスはC++17から非推奨となり、C++26で削除された。</p>
@@ -237,29 +237,29 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code>state_type</code>型のコピーコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない限り、この関数は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない。</p>
 <h2>例</h2>
-<p><div class="yata" id="909e17450daa23cddd377479464d0887ff379aa1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../codecvt.html">&lt;codecvt&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cwchar&gt;</span><span class="cp"></span>
+<p><div class="yata" id="909e17450daa23cddd377479464d0887ff379aa1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="../../codecvt.html">&lt;codecvt&gt;</a></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cwchar&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">wstring_convert</span><span class="o">&lt;</span><span class="n"><a href="../../codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">char32_t</span><span class="o">&gt;</span> <span class="n">converter</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">wstring_convert</span><span class="o">&lt;</span><span class="n"><a href="../../codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">converter</span><span class="p">;</span>
 
-  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">input</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
-  <span class="n"><a href="../../string/basic_string.html">std::u32string</a></span> <span class="n">result</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="n"><span href="https://cpprefjp.github.io/reference/cwchar/mbstate_t.md.nolink">std::mbstate_t</span></span> <span class="n">state</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n">state</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::u32string</a></span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span href="https://cpprefjp.github.io/reference/cwchar/mbstate_t.md.nolink">std::mbstate_t</span></span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="n">state</span><span class="p">();</span>
 
-  <span class="c1">// 全ての文字が変換された</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/cwchar/mbsinit.md.nolink">std::mbsinit</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">state</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"converted all"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="c1">// 変換されなかった文字がある</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"converted partial"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 全ての文字が変換された</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/cwchar/mbsinit.md.nolink">std::mbsinit</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"converted all"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// 変換されなかった文字がある</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"converted partial"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -299,7 +299,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

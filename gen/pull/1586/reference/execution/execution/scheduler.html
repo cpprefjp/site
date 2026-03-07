@@ -225,21 +225,21 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">scheduler</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sch</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">scheduler</span> <span class="o">=</span>
-    <span class="n"><a href="../../concepts/derived_from.html">derived_from</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;::</span><span class="n">scheduler_concept</span><span class="p">,</span> <span class="n">scheduler_t</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n"><a href="../queryable.html">queryable</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n">requires</span><span class="p">(</span><span class="n">Sch</span><span class="o">&amp;&amp;</span> <span class="n">sch</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">{</span> <span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sch</span><span class="p">))</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="sender.html">sender</a></span><span class="p">;</span>
-      <span class="p">{</span> <span class="k">auto</span><span class="p">(</span><span class="n"><a href="get_completion_scheduler.html">get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span>
-          <span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sch</span><span class="p">)))))</span> <span class="p">}</span>
-            <span class="o">-&gt;</span> <span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;&gt;</span><span class="p">;</span>
-    <span class="p">}</span> <span class="o">&amp;&amp;</span>
-    <span class="n"><a href="../../concepts/equality_comparable.html">equality_comparable</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n"><a href="../../concepts/copyable.html">copyable</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sch</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">scheduler</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n"><a href="../../concepts/derived_from.html">derived_from</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;::</span><span class="n">scheduler_concept</span><span class="p">,</span><span class="w"> </span><span class="n">scheduler_t</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="n"><a href="../queryable.html">queryable</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="k">requires</span><span class="p">(</span><span class="n">Sch</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sch</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="sender.html">sender</a></span><span class="p">;</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="k">auto</span><span class="p">(</span><span class="n"><a href="get_completion_scheduler.html">get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">          </span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sch</span><span class="p">)))))</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="n"><a href="../../concepts/equality_comparable.html">equality_comparable</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="n"><a href="../../concepts/copyable.html">copyable</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 
-  <span class="k">struct</span> <span class="n">scheduler_t</span> <span class="p">{};</span>  <span class="c1">// タグ型</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">scheduler_t</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// タグ型</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -278,13 +278,13 @@
 <li>式<code>o2.query(<a href="get_domain.html">get_domain</a>)</code>は<code>sch.query(<a href="get_domain.html">get_domain</a>)</code>と等価。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="ffa0b39ad40caa8669517508a07b4044e1c84bc6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="ffa0b39ad40caa8669517508a07b4044e1c84bc6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="run_loop.html">ex::run_loop</a></span> <span class="n">loop</span><span class="p">;</span>
-  <span class="n"><span style="color:#ff0000">ex::scheduler</span></span> <span class="k">auto</span> <span class="n">sch</span> <span class="o">=</span> <span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/get_scheduler.html">get_scheduler()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="run_loop.html">ex::run_loop</a></span><span class="w"> </span><span class="n">loop</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">ex::scheduler</span></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/get_scheduler.html">get_scheduler()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -330,7 +330,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

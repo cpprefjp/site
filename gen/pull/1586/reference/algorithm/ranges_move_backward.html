@@ -213,42 +213,42 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">move_backward</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span> <span class="n">I1</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="o">&gt;</span> <span class="n">S1</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span> <span class="n">I2</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_movable.html">indirectly_movable</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span>
-    <span class="n">move_backward</span><span class="p">(</span><span class="n">I1</span> <span class="n">first</span><span class="p">,</span>
-                  <span class="n">S1</span> <span class="n">last</span><span class="p">,</span>
-                  <span class="n">I2</span> <span class="n">result</span><span class="p">);</span>           <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span><span class="w"> </span><span class="n">I1</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S1</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span><span class="w"> </span><span class="n">I2</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../iterator/indirectly_movable.html">indirectly_movable</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">I2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">I2</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">move_backward</span><span class="p">(</span><span class="n">I1</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">S1</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">I2</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">           </span><span class="c1">// (1) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../ranges/bidirectional_range.html">bidirectional_range</a></span> <span class="n">R</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span> <span class="n">I</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_movable.html">indirectly_movable</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span>
-    <span class="n">move_backward</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span>
-                  <span class="n">I</span> <span class="n">result</span><span class="p">);</span>            <span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../ranges/bidirectional_range.html">bidirectional_range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../iterator/indirectly_movable.html">indirectly_movable</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">move_backward</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">I</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">            </span><span class="c1">// (2) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span> <span class="n">Ep</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span> <span class="n">I1</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="o">&gt;</span> <span class="n">S1</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span> <span class="n">I2</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_movable.html">indirectly_movable</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span>
-  <span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span>
-    <span class="n">move_backward</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-                  <span class="n">I1</span> <span class="n">first</span><span class="p">,</span>
-                  <span class="n">S1</span> <span class="n">last</span><span class="p">,</span>
-                  <span class="n">I2</span> <span class="n">result</span><span class="p">);</span>           <span class="c1">// (3) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span><span class="w"> </span><span class="n">Ep</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span><span class="w"> </span><span class="n">I1</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S1</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span><span class="w"> </span><span class="n">I2</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../iterator/indirectly_movable.html">indirectly_movable</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">I2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">I2</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">move_backward</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">I1</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">S1</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">I2</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">           </span><span class="c1">// (3) C++26</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span> <span class="n">Ep</span><span class="p">,</span>
-            <span class="n"><a href="../ranges/sized-random-access-range.html">sized-random-access-range</a></span> <span class="n">R</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span> <span class="n">I</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../iterator/indirectly_movable.html">indirectly_movable</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span>
-  <span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span>
-    <span class="n">move_backward</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-                  <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span>
-                  <span class="n">I</span> <span class="n">result</span><span class="p">);</span>            <span class="c1">// (4) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span><span class="w"> </span><span class="n">Ep</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../ranges/sized-random-access-range.html">sized-random-access-range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../iterator/indirectly_movable.html">indirectly_movable</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">move_backward</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">I</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">            </span><span class="c1">// (4) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -266,9 +266,9 @@
 <p><code>[first,last)</code> 内にある要素を、それぞれ <code>[result - (last-first),result)</code> へムーブする。</p>
 <p>ムーブは <code>last - 1</code> から順番に行い、1 以上 <code>last - first</code> 以下であるそれぞれの <code>n</code> について、<code>*(result - n) = std::move(*(last - n))</code> を行う。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span> <span class="p">{</span>
-  <span class="p">.</span><span class="n">in</span>  <span class="o">=</span> <span class="n">last</span><span class="p">,</span>
-  <span class="p">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">result</span> <span class="o">-</span> <span class="p">(</span><span class="n">last</span> <span class="o">-</span> <span class="n">first</span><span class="p">),</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="ranges_in_out_result.html">move_backward_result</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">.</span><span class="n">in</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">  </span><span class="p">.</span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">last</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">first</span><span class="p">),</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -278,32 +278,32 @@
 <p><code>last</code> が <code>[result - (last-first),result)</code> の範囲内にあるときには、<code><a href="move.html">move()</a></code> の代わりに <code>move_backward()</code> を使うべきである。</p>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="0c37cda352ff12932d30017e921e0f7395e800dd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0c37cda352ff12932d30017e921e0f7395e800dd"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">v</span>       <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">else</span>   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(null)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">v</span><span class="w">       </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">else</span><span class="w">   </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"(null)"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../vector/vector/emplace_back.html">v.emplace_back</a></span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../vector/vector/emplace_back.html">v.emplace_back</a></span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 0,1,2 の値がある範囲を、2,3,4 の値がある範囲へムーブする</span>
-  <span class="n"><span style="color:#ff0000">std::ranges::move_backward</span></span><span class="p">(</span><span class="n">v</span> <span class="o">|</span> <span class="n"><a href="../ranges/take_view.html">std::views::take</a></span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 0,1,2 の値がある範囲を、2,3,4 の値がある範囲へムーブする</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::move_backward</span></span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="../ranges/take_view.html">std::views::take</a></span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
 
-  <span class="c1">// 以下のコードだと期待した結果にならないことを確認しよう。</span>
-  <span class="c1">// 移動元の後方と移動先の前方で範囲が重なっている場合は、move_backwardを使わないといけない</span>
-  <span class="c1">// <a href="ranges_move.html">std::ranges::move</a>(v | <a href="../ranges/take_view.html">std::views::take</a>(3), <a href="../vector/vector/begin.html">v.begin()</a> + 2);</span>
+<span class="w">  </span><span class="c1">// 以下のコードだと期待した結果にならないことを確認しよう。</span>
+<span class="w">  </span><span class="c1">// 移動元の後方と移動先の前方で範囲が重なっている場合は、move_backwardを使わないといけない</span>
+<span class="w">  </span><span class="c1">// <a href="ranges_move.html">std::ranges::move</a>(v | <a href="../ranges/take_view.html">std::views::take</a>(3), <a href="../vector/vector/begin.html">v.begin()</a> + 2);</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">print</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">print</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -315,22 +315,22 @@
 2
 </code></pre></p>
 <h3>並列アルゴリズムの例 (C++26)</h3>
-<p><div class="yata" id="031cc5820116d08a948aad0a26c9d45394554c3e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="031cc5820116d08a948aad0a26c9d45394554c3e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="cp">#include <a href="../execution.html">&lt;execution&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 
-  <span class="c1">// 並列に先頭3要素を後方へムーブ</span>
-  <span class="n"><span style="color:#ff0000">std::ranges::move_backward</span></span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">std::execution::par</a></span><span class="p">,</span>
-                             <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 並列に先頭3要素を後方へムーブ</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::move_backward</span></span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">std::execution::par</a></span><span class="p">,</span>
+<span class="w">                             </span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">' '</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -371,7 +371,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

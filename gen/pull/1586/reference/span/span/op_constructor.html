@@ -225,38 +225,38 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;span&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class span">span::</span><span class="token">コンストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">span</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                                     <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n">span</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                                     </span><span class="c1">// (1) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">It</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
-  <span class="n">span</span><span class="p">(</span><span class="n">It</span> <span class="n">first</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">count</span><span class="p">);</span>                             <span class="c1">// (2) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">It</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="n">extent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+<span class="w">  </span><span class="n">span</span><span class="p">(</span><span class="n">It</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">count</span><span class="p">);</span><span class="w">                             </span><span class="c1">// (2) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">It</span><span class="p">,</span> <span class="k">class</span> <span class="nc">End</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
-  <span class="n">span</span><span class="p">(</span><span class="n">It</span> <span class="n">first</span><span class="p">,</span> <span class="n">End</span> <span class="n">last</span><span class="p">);</span>                                    <span class="c1">// (3) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">It</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">End</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="n">extent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+<span class="w">  </span><span class="n">span</span><span class="p">(</span><span class="n">It</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">End</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">                                    </span><span class="c1">// (3) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">span</span><span class="p">(</span>
-  <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (4) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">span</span><span class="p">(</span>
+<span class="w">  </span><span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">           </span><span class="c1">// (4) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">span</span><span class="p">(</span><span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                     <span class="c1">// (5) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">span</span><span class="p">(</span><span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                     </span><span class="c1">// (5) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">span</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>               <span class="c1">// (6) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">span</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">               </span><span class="c1">// (6) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
-  <span class="n">span</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">);</span>                                                 <span class="c1">// (7) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="n">extent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+<span class="w">  </span><span class="n">span</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">                                                 </span><span class="c1">// (7) C++20</span>
 
-<span class="k">constexpr</span> <span class="nf">span</span><span class="p">(</span><span class="k">const</span> <span class="n">span</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>          <span class="c1">// (8) C++20</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">span</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">span</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">          </span><span class="c1">// (8) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherElementType</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">OtherExtent</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span> <span class="o">&amp;&amp;</span> <span class="n">OtherExtent</span> <span class="o">==</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
-  <span class="n">span</span><span class="p">(</span><span class="k">const</span> <span class="n">span</span><span class="o">&lt;</span><span class="n">OtherElementType</span><span class="p">,</span> <span class="n">OtherExtent</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (9) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OtherElementType</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">OtherExtent</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="n">extent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">OtherExtent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+<span class="w">  </span><span class="n">span</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">span</span><span class="o">&lt;</span><span class="n">OtherElementType</span><span class="p">,</span><span class="w"> </span><span class="n">OtherExtent</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (9) C++20</span>
 
-<span class="k">constexpr</span> <span class="nf">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
-  <span class="n">span</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span>                  <span class="c1">// (10) C++26</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="n">extent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+<span class="w">  </span><span class="n">span</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">il</span><span class="p">);</span><span class="w">                  </span><span class="c1">// (10) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -408,142 +408,142 @@
 </ul>
 <h2>例</h2>
 <h3>基本的な使い方 (C++20)</h3>
-<p><div class="yata" id="3e7974f36e36096d6ef9a62836cff436b207522c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../span.html">&lt;span&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3e7974f36e36096d6ef9a62836cff436b207522c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../span.html">&lt;span&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../array.html">&lt;array&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-  <span class="c1">// (1) デフォルトコンストラクタ</span>
-  <span class="p">{</span>
-    <span class="c1">// 長さ0の参照範囲をもつspanオブジェクト</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="empty.html">s1.empty()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (1) デフォルトコンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 長さ0の参照範囲をもつspanオブジェクト</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="empty.html">s1.empty()</a></span><span class="p">);</span>
 
-    <span class="c1">// 動的な要素数をもつspanオブジェクト</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s2</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="empty.html">s2.empty()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 動的な要素数をもつspanオブジェクト</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="empty.html">s2.empty()</a></span><span class="p">);</span>
 
-    <span class="c1">// 以下はコンパイルエラーになる。</span>
-    <span class="c1">// 長さ1以上のspanは、参照範囲を設定しなければならない</span>
-    <span class="c1">// <a href="../span.html">std::span</a>&lt;int, 1&gt; s3{};</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 以下はコンパイルエラーになる。</span>
+<span class="w">    </span><span class="c1">// 長さ1以上のspanは、参照範囲を設定しなければならない</span>
+<span class="w">    </span><span class="c1">// <a href="../span.html">std::span</a>&lt;int, 1&gt; s3{};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2) イテレータと要素数の組を指定</span>
-  <span class="p">{</span>
-    <span class="c1">// vの先頭3要素を参照する。</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (2) イテレータと要素数の組を指定</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// vの先頭3要素を参照する。</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">{</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3) 範囲を指定</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">3</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (3) 範囲を指定</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">{</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (4) 組み込み配列への参照を指定</span>
-  <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span> <span class="o">==</span> <span class="n">ar</span><span class="p">);</span> <span class="c1">// 元の配列をコピーせず、参照している</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (4) 組み込み配列への参照を指定</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ar</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ar</span><span class="p">);</span><span class="w"> </span><span class="c1">// 元の配列をコピーせず、参照している</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (5) <a href="../../array/array.html">std::array</a>オブジェクトへの参照を指定</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../array/array.html">std::array</a></span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="n"><a href="../../array/array/size.html">ar.size()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../array/array/data.html">ar.data()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (5) <a href="../../array/array.html">std::array</a>オブジェクトへの参照を指定</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../array/array.html">std::array</a></span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../array/array/size.html">ar.size()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../array/array/data.html">ar.data()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (6) const <a href="../../array/array.html">std::array</a>オブジェクトへの参照を指定</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../array/array.html">std::array</a></span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-    <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">car</span> <span class="o">=</span> <span class="n">ar</span><span class="p">;</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n">car</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (6) const <a href="../../array/array.html">std::array</a>オブジェクトへの参照を指定</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../array/array.html">std::array</a></span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">car</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ar</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">{</span><span class="n">car</span><span class="p">};</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="n"><a href="../../array/array/size.html">car.size()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../array/array/data.html">car.data()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../array/array/size.html">car.size()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../array/array/data.html">car.data()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (7) メモリの連続性をもつイテレータをもつオブジェクトの要素全体を参照させる</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">{</span><span class="n">v</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s1.size()</a></span> <span class="o">==</span> <span class="n"><a href="../../vector/vector/size.html">v.size()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s1.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (7) メモリの連続性をもつイテレータをもつオブジェクトの要素全体を参照させる</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s1</span><span class="p">{</span><span class="n">v</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s1.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../vector/vector/size.html">v.size()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s1.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
 
-    <span class="c1">// <a href="../../string_view/basic_string_view.html">std::string_view</a>の代わり</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">str</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">s2</span><span class="p">{</span><span class="n">str</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s2.size()</a></span> <span class="o">==</span> <span class="n"><a href="../../string/basic_string/size.html">str.size()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s2.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../string/basic_string/data.html">str.data()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// <a href="../../string_view/basic_string_view.html">std::string_view</a>の代わり</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="p">{</span><span class="n">str</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s2.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../string/basic_string/size.html">str.size()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s2.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../string/basic_string/data.html">str.data()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (8) コピーコンストラクタ</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">{</span><span class="n">v</span><span class="p">};</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (8) コピーコンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s1</span><span class="p">{</span><span class="n">v</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span>
 
-    <span class="c1">// コピー元とコピー先が同じ範囲を参照する</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s1.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s2.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// コピー元とコピー先が同じ範囲を参照する</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s1.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s2.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (9) 変換コンストラクタ</span>
-  <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (9) 変換コンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ar</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s3</span> <span class="o">=</span> <span class="n"><a href="first.html">s2.first</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">s4</span> <span class="o">=</span> <span class="n">s3</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s1</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="first.html">s2.first</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3</span><span class="p">;</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s4.size()</a></span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s4.data()</a></span> <span class="o">==</span> <span class="n">ar</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s4.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s4.data()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ar</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>初期化子リストからspanを構築する (C++26)</h3>
-<p><div class="yata" id="c0270b6725baea02308c9bf7e1d713a4dfc414df"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../span.html">&lt;span&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c0270b6725baea02308c9bf7e1d713a4dfc414df"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../span.html">&lt;span&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">print_list</span><span class="p">(</span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">bool</span> <span class="n">first</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">first</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">','</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_list</span><span class="p">(</span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">','</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-  <span class="n">print_list</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="n">print_list</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
 
-  <span class="n">print_list</span><span class="p">({{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">}});</span> <span class="c1">// C++20からOK</span>
-  <span class="n">print_list</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">});</span>   <span class="c1">// C++26からOK</span>
+<span class="w">  </span><span class="n">print_list</span><span class="p">({{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">}});</span><span class="w"> </span><span class="c1">// C++20からOK</span>
+<span class="w">  </span><span class="n">print_list</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">});</span><span class="w">   </span><span class="c1">// C++26からOK</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -594,7 +594,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;istream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_istream">basic_istream::</span><span class="token">sync</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">sync</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">sync</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -246,24 +246,24 @@
 </li>
 </ul>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">sync</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="n"><a href="sentry.html">sentry</a></span> <span class="n">s</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">sb</span> <span class="o">=</span> <span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf()</a></span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">sb</span><span class="o">-&gt;</span><span class="n"><a href="../../streambuf/basic_streambuf/pubsync.html">pubsync()</a></span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n"><a href="../../ios/basic_ios/setstate.html">setstate</a></span><span class="p">(</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
-    <span class="err">例外を投げずに</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a>を設定する</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n"><a href="../../ios/basic_ios/exceptions.html">exceptions()</a></span> <span class="o">&amp;</span> <span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">throw</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">sync</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="sentry.html">sentry</a></span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="o">-&gt;</span><span class="n"><a href="../../streambuf/basic_streambuf/pubsync.html">pubsync()</a></span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n"><a href="../../ios/basic_ios/setstate.html">setstate</a></span><span class="p">(</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">例外を投げずに<a href="../../ios/ios_base/type-iostate.html">badbit</a>を設定する</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n"><a href="../../ios/basic_ios/exceptions.html">exceptions()</a></span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">throw</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -293,7 +293,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

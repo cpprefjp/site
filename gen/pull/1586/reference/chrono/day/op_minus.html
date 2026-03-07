@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">operator-</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="n">day</span> <span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span> <span class="n">day</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../duration_aliases.html">days</a></span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../duration_aliases.html">days</a></span> <span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span> <span class="n">day</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">day</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">day</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">days</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">days</a></span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">day</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">day</span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -250,15 +250,15 @@
 <li>(2)は減算の結果として負数になる場合、負数として差が求まる</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="54a5d47c3d1258e455fa1a7a15740f2903071445"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="54a5d47c3d1258e455fa1a7a15740f2903071445"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">day</span><span class="p">{</span><span class="mi">31</span><span class="p">}</span> <span class="o">-</span> <span class="n"><a href="../duration_aliases.html">chrono::days</a></span><span class="p">{</span><span class="mi">2</span><span class="p">}</span> <span class="o">==</span> <span class="n">chrono</span><span class="o">::</span><span class="n">day</span><span class="p">{</span><span class="mi">29</span><span class="p">});</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">day</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="o">-</span> <span class="n">chrono</span><span class="o">::</span><span class="n">day</span><span class="p">{</span><span class="mi">3</span><span class="p">}</span> <span class="o">==</span> <span class="n"><a href="../duration_aliases.html">chrono::days</a></span><span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">day</span><span class="p">{</span><span class="mi">31</span><span class="p">}</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">chrono::days</a></span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">chrono</span><span class="o">::</span><span class="n">day</span><span class="p">{</span><span class="mi">29</span><span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">day</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">chrono</span><span class="o">::</span><span class="n">day</span><span class="p">{</span><span class="mi">3</span><span class="p">}</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">chrono::days</a></span><span class="p">{</span><span class="mi">-2</span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -292,7 +292,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">get_completion_signatures</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Env</span><span class="o">&gt;</span>
-  <span class="n">consteval</span> <span class="k">auto</span> <span class="n">get_completion_signatures</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="completion_signatures.html">valid-completion-signatures</a></span> <span class="k">auto</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">consteval</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get_completion_signatures</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="completion_signatures.html">valid-completion-signatures</a></span><span class="w"> </span><span class="k">auto</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -240,15 +240,15 @@
 <p><code>sizeof...(Env) &lt;= 1</code></p>
 <h2>効果</h2>
 <p>説明用の式<code>except</code>を、<code><a href="../../concepts/move_constructible.html">move_constructible</a>&lt;Except&gt; &amp;&amp; <a href="../../concepts/derived_from.html">derived_from</a>&lt;Except, <a href="../../exception/exception.html">exception</a>&gt;</code>が<code>true</code>となる<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>なクラス<code>Except</code>の右辺値とする。<code>e</code>がコア定数式かつその型が<code><a href="completion_signatures.html">valid-completion-signatures</a></code>を満たすならば、式<code>CHECKED-COMPLSIGS(e)</code>を<code>e</code>とする。そうでなければ下記の式となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="k">throw</span> <span class="n">except</span><span class="p">,</span> <span class="n"><a href="completion_signatures.html">completion_signatures</a></span><span class="p">())</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">except</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="completion_signatures.html">completion_signatures</a></span><span class="p">())</span>
 </code></pre></div>
 </p>
 <p>説明用の式<code>get-complsigs&lt;Sndr, Env...&gt;()</code>を、<code><a href="../../type_traits/remove_reference.html">remove_reference_t</a>&lt;Sndr&gt;::template get_completion_signatures&lt;Sndr, Env...&gt;()</code>と等価な式とする。</p>
 <p><code>sizeof...(Env) == 0</code>が<code>true</code>ならば、説明用の型<code>NewSndr</code>を<code>Sndr</code>とする。そうでなければ、下記の通り定義される式<code>s</code>を用いて<code>decltype(s)</code>とする。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span>
-  <span class="n"><a href="get-domain-late.html">get-domain-late</a></span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">()...),</span>
-  <span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(),</span>
-  <span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">()...)</span>
+<span class="w">  </span><span class="n"><a href="get-domain-late.html">get-domain-late</a></span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">()...),</span>
+<span class="w">  </span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">  </span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">()...)</span>
 </code></pre></div>
 </p>
 <p>下記の通り定義される式<code>e</code>を用いて、<code>return e;</code>と等価。</p>
@@ -258,9 +258,9 @@
 <li>
 <p>そうではなく、<code><a href="../is-awaitable.html">is-awaitable</a>&lt;NewSndr, <a href="env-promise.html">env-promise</a>&lt;Env&gt;...&gt; == true</code>ならば</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="completion_signatures.html">completion_signatures</a></span><span class="o">&lt;</span>
-  <span class="n"><a href="set_value.html">SET-VALUE-SIG</a></span><span class="p">(</span><span class="n"><a href="connect.html">await-result-type</a></span><span class="o">&lt;</span><span class="n">NewSndr</span><span class="p">,</span> <span class="n"><a href="env-promise.html">env-promise</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">),</span>
-  <span class="n"><a href="set_error.html">set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="p">),</span>
-  <span class="n"><a href="set_stopped.html">set_stopped_t</a></span><span class="p">()</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="set_value.html">SET-VALUE-SIG</a></span><span class="p">(</span><span class="n"><a href="connect.html">await-result-type</a></span><span class="o">&lt;</span><span class="n">NewSndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="env-promise.html">env-promise</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">),</span>
+<span class="w">  </span><span class="n"><a href="set_error.html">set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="p">),</span>
+<span class="w">  </span><span class="n"><a href="set_stopped.html">set_stopped_t</a></span><span class="p">()</span><span class="o">&gt;</span>
 </code></pre></div>
 </p>
 </li>
@@ -276,24 +276,24 @@
 <code>Sigs...</code>を<code><a href="completion_signatures_of_t.html">completion_signatures_of_t</a>&lt;Sndr, <a href="env_of_t.html">env_of_t</a>&lt;Rcvr&gt;&gt;</code>による<code><a href="completion_signatures.html">completion_signatures</a></code>特殊化のテンプレートパラメータと定義する。
 <code>CSO</code>を完了関数とする。</p>
 <p>Sender型<code>Sndr</code>、もしくは式<code>CSO(rcvr, args...)</code>を呼び出す<a href="operation_state.html">Operation State</a>が潜在的に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出するならば、<code>Sigs...</code>の完了シグネチャ<code>Sig</code>は次の式が<code>true</code>となるべき。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><i>MATCHING-SIG</i></span><span class="p">(</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n">CSO</span><span class="o">&gt;</span><span class="p">(</span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)...),</span> <span class="n">Sig</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><i>MATCHING-SIG</i></span><span class="p">(</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n">CSO</span><span class="o">&gt;</span><span class="p">(</span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)...),</span><span class="w"> </span><span class="n">Sig</span><span class="p">)</span>
 </code></pre></div>
 </p>
 <p>説明用の関数型<code>F1</code>, <code>F2</code>をそれぞれ<code>R1(Args1...)</code>, <code>R2(Args2...)</code>としたとき、説明専用の式<code>MATCHING-SIG(F1, F2)</code>は、<code><a href="../../concepts/same_as.html">same_as</a>&lt;R1(Args1&amp;&amp;...), R2(Args&amp;&amp;...)&gt; == true</code>となる場合にかぎって<code>true</code>となる。</p>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 値42を送信するSender</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 値42を送信するSender</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 
-  <span class="c1">// 値完了シグネチャ set_value_t(int)</span>
-  <span class="k">auto</span> <span class="n">sigs</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::get_completion_signatures</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sigs</span><span class="p">),</span>
-    <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 値完了シグネチャ set_value_t(int)</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">sigs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::get_completion_signatures</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sigs</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -338,7 +338,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,40 +213,40 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">make_format_args</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Context</span> <span class="o">=</span> <span class="n">format_context</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n"><i>format_arg_store</i></span><span class="o">&lt;</span><span class="n">Context</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
-    <span class="n">make_format_args</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>         <span class="c1">// (1) C++20</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Context</span> <span class="o">=</span> <span class="n">format_context</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><i>format_arg_store</i></span><span class="o">&lt;</span><span class="n">Context</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
-    <span class="n">make_format_args</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>         <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format_context</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><i>format_arg_store</i></span><span class="o">&lt;</span><span class="n">Context</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">make_format_args</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">         </span><span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format_context</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><i>format_arg_store</i></span><span class="o">&lt;</span><span class="n">Context</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">make_format_args</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">         </span><span class="c1">// (1) C++26</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n"><i>format_arg_store</i></span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
-    <span class="n">make_wformat_args</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>        <span class="c1">// (2) C++20</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><i>format_arg_store</i></span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
-    <span class="n">make_wformat_args</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>        <span class="c1">// (2) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><i>format_arg_store</i></span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">make_wformat_args</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">        </span><span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><i>format_arg_store</i></span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">make_wformat_args</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">        </span><span class="c1">// (2) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>可変長引数の型を消去して、<code><a href="basic_format_arg.html">basic_format_arg</a></code>の列に変換する。
 <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型 <em><code>format_arg_store</code></em> は便宜上次の通り定義されるが、その型名は規格に含まれない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Context</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n"><i>format_arg_store</i></span> <span class="p">{</span> <span class="c1">// exposition only</span>
-    <span class="n"><a href="../array/array.html">array</a></span><span class="o">&lt;</span><span class="n"><a href="basic_format_arg.html">basic_format_arg</a></span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">...(</span><span class="n">Args</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">args</span><span class="p">;</span>
-  <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Context</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><i>format_arg_store</i></span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="../array/array.html">array</a></span><span class="o">&lt;</span><span class="n"><a href="basic_format_arg.html">basic_format_arg</a></span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Args</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">args</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code><a href="basic_format_args.html">basic_format_args</a></code>は<code>format_arg_store</code>から構築できる。
 <code>make_format_args</code>の結果はただちに<code>basic_format_args</code>へ変換するのが意図された使い方である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="n">string</span> <span class="n">format</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">string_view</a></span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="n">string</span><span class="w"> </span><span class="n">format</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">string_view</a></span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">vformat</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="p">{</span><span class="n">make_format_args</span><span class="p">(</span><span class="n">args</span><span class="p">...)});</span> <span class="c1">// format_arg_store から format_args へ暗黙変換</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">vformat</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">make_format_args</span><span class="p">(</span><span class="n">args</span><span class="p">...)});</span><span class="w"> </span><span class="c1">// format_arg_store から format_args へ暗黙変換</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -254,21 +254,21 @@
 <p>すべての引数の型<code>Ti</code>について<code>Context::formatter_type&lt;Ti&gt;</code>が<code>Formatter</code>要件を満たすこと。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <h3>(1)</h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="p">{</span><span class="n"><a href="basic_format_arg/op_constructor.html">basic_format_arg</a></span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="basic_format_arg/op_constructor.html">basic_format_arg</a></span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...}</span>
 </code></pre></div>
 </p>
 <h3>(2)</h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">make_format_args</span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">make_format_args</span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="aecb4732974ae99fde75697f07409283d005c8a2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="aecb4732974ae99fde75697f07409283d005c8a2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../format.html">&lt;format&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="s">"0x{:x} 0b{:04b}"</span><span class="p">;</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="n"><a href="vformat.html">std::vformat</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::make_format_args</span></span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0x{:x} 0b{:04b}"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="vformat.html">std::vformat</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::make_format_args</span></span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -276,18 +276,18 @@
 <p><pre><code>0xa 0b0110
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Context</span> <span class="o">=</span> <span class="n">format_context</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n">format_arg_store</span><span class="o">&lt;</span><span class="n">Context</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">make_format_args</span><span class="p">(</span><span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span><span class="n"><a href="basic_format_arg/op_constructor.html">basic_format_arg</a></span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...}</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format_context</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">format_arg_store</span><span class="o">&lt;</span><span class="n">Context</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">make_format_args</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="basic_format_arg/op_constructor.html">basic_format_arg</a></span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n">format_arg_store</span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">make_wformat_args</span><span class="p">(</span><span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">make_format_args</span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">format_arg_store</span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">make_wformat_args</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">make_format_args</span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -324,7 +324,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,23 +225,23 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;shared_mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class shared_lock">shared_lock::</span><span class="token">コンストラクタ</span><span class="cpp cpp14" title="C++14で追加">(C++14)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">shared_lock</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                                           <span class="c1">// (1)</span>
-<span class="k">explicit</span> <span class="nf">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">);</span>                              <span class="c1">// (2)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">shared_lock</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                                           </span><span class="c1">// (1)</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">                              </span><span class="c1">// (2)</span>
 
-<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="n"><a href="../../mutex/defer_lock.html">defer_lock_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                <span class="c1">// (3)</span>
-<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="n"><a href="../../mutex/try_to_lock.html">try_to_lock_t</a></span><span class="p">);</span>                        <span class="c1">// (4)</span>
-<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="n"><a href="../../mutex/adopt_lock.html">adopt_lock_t</a></span><span class="p">);</span>                         <span class="c1">// (5)</span>
+<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../mutex/defer_lock.html">defer_lock_t</a></span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                </span><span class="c1">// (3)</span>
+<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../mutex/try_to_lock.html">try_to_lock_t</a></span><span class="p">);</span><span class="w">                        </span><span class="c1">// (4)</span>
+<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../mutex/adopt_lock.html">adopt_lock_t</a></span><span class="p">);</span><span class="w">                         </span><span class="c1">// (5)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Clock</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span>
-            <span class="k">const</span> <span class="n">chrono</span><span class="o">::</span><span class="n"><a href="../../chrono/time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span> <span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">abs_time</span><span class="p">);</span> <span class="c1">// (6)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Clock</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">chrono</span><span class="o">::</span><span class="n"><a href="../../chrono/time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">abs_time</span><span class="p">);</span><span class="w"> </span><span class="c1">// (6)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rep</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Period</span><span class="o">&gt;</span>
-<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span>
-            <span class="k">const</span> <span class="n"><a href="../../chrono/duration.html">chrono::duration</a></span><span class="o">&lt;</span><span class="n">Rep</span><span class="p">,</span> <span class="n">Period</span><span class="o">&gt;&amp;</span> <span class="n">rel_time</span><span class="p">);</span>       <span class="c1">// (7)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rep</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Period</span><span class="o">&gt;</span>
+<span class="n">shared_lock</span><span class="p">(</span><span class="n">mutex_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../chrono/duration.html">chrono::duration</a></span><span class="o">&lt;</span><span class="n">Rep</span><span class="p">,</span><span class="w"> </span><span class="n">Period</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">rel_time</span><span class="p">);</span><span class="w">       </span><span class="c1">// (7)</span>
 
-<span class="n">shared_lock</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_lock</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>                         <span class="c1">// (8)</span>
-<span class="n">shared_lock</span><span class="p">(</span><span class="n">shared_lock</span><span class="o">&amp;&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                            <span class="c1">// (9)</span>
+<span class="n">shared_lock</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_lock</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">                         </span><span class="c1">// (8)</span>
+<span class="n">shared_lock</span><span class="p">(</span><span class="n">shared_lock</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                            </span><span class="c1">// (9)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -279,65 +279,65 @@
 <li>(9) : <code>u</code>は共有ミューテックスオブジェクトへの有効なポインタを指さず、<code><a href="owns_lock.html">owns_lock()</a> == false</code>となる。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="ac0fe48c7a71ca4f32b8beaeb098d97479d516e9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../shared_mutex.html">&lt;shared_mutex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a> // move</span><span class="cp"></span>
+<p><div class="yata" id="ac0fe48c7a71ca4f32b8beaeb098d97479d516e9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../shared_mutex.html">&lt;shared_mutex&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a> </span><span class="c1">// move</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
-  <span class="p">{</span>
-    <span class="c1">// (1) : デフォルト構築</span>
-    <span class="c1">// ミューテックスを参照しない</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="c1">// (2)</span>
-    <span class="c1">// ミューテックスへの参照を受け取る</span>
-    <span class="c1">// 内部でmtx.lock()を呼び出す</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="c1">// (3)</span>
-    <span class="c1">// コンストラクタ時点では共有ロック取得せず、あとから取得する</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span> <span class="n"><a href="../../mutex/defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
-    <span class="n"><a href="lock.html">lk.lock()</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="c1">// (4)</span>
-    <span class="c1">// コンストラクタ内でmtx.try_lock_shared()を呼び出す</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span> <span class="n"><a href="../../mutex/try_to_lock.html">std::try_to_lock</a></span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="c1">// (5)</span>
-    <span class="c1">// 共有ロックを取得済みのミューテックスを受け取り、</span>
-    <span class="c1">// コンストラクタでは共有ロックを取得しない</span>
-    <span class="n"><a href="../shared_timed_mutex/lock_shared.html">mtx.lock_shared()</a></span><span class="p">;</span> <span class="c1">// 事前に共有ロックを取得する</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span> <span class="n"><a href="../../mutex/adopt_lock.html">std::adopt_lock</a></span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// (1) : デフォルト構築</span>
+<span class="w">    </span><span class="c1">// ミューテックスを参照しない</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// (2)</span>
+<span class="w">    </span><span class="c1">// ミューテックスへの参照を受け取る</span>
+<span class="w">    </span><span class="c1">// 内部でmtx.lock()を呼び出す</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// (3)</span>
+<span class="w">    </span><span class="c1">// コンストラクタ時点では共有ロック取得せず、あとから取得する</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../mutex/defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="lock.html">lk.lock()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// (4)</span>
+<span class="w">    </span><span class="c1">// コンストラクタ内でmtx.try_lock_shared()を呼び出す</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../mutex/try_to_lock.html">std::try_to_lock</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// (5)</span>
+<span class="w">    </span><span class="c1">// 共有ロックを取得済みのミューテックスを受け取り、</span>
+<span class="w">    </span><span class="c1">// コンストラクタでは共有ロックを取得しない</span>
+<span class="w">    </span><span class="n"><a href="../shared_timed_mutex/lock_shared.html">mtx.lock_shared()</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 事前に共有ロックを取得する</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../mutex/adopt_lock.html">std::adopt_lock</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-    <span class="n"><a href="../../chrono/steady_clock.html">chrono::steady_clock</a></span><span class="o">::</span><span class="n">time_point</span> <span class="n">tp</span> <span class="o">=</span> <span class="n"><a href="../../chrono/steady_clock.html">chrono::steady_clock</a></span><span class="o">::</span><span class="n"><a href="../../chrono/steady_clock/now.html">now()</a></span> <span class="o">+</span> <span class="n"><a href="../../chrono/duration_aliases.html">chrono::seconds</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../chrono/steady_clock.html">chrono::steady_clock</a></span><span class="o">::</span><span class="n">time_point</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../chrono/steady_clock.html">chrono::steady_clock</a></span><span class="o">::</span><span class="n"><a href="../../chrono/steady_clock/now.html">now()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../chrono/duration_aliases.html">chrono::seconds</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-    <span class="c1">// (6)</span>
-    <span class="c1">// コンストラクタ内でmtx.try_lock_until_shared(tp)を呼び出す</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span> <span class="n">tp</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span> <span class="n">d</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// (6)</span>
+<span class="w">    </span><span class="c1">// コンストラクタ内でmtx.try_lock_until_shared(tp)を呼び出す</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="w"> </span><span class="nf">d</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-    <span class="c1">// (7)</span>
-    <span class="c1">// コンストラクタ内でmtx.try_lock_for_shared(d)を呼び出す</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk1</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// (7)</span>
+<span class="w">    </span><span class="c1">// コンストラクタ内でmtx.try_lock_for_shared(d)を呼び出す</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk1</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
 
-    <span class="c1">// (9)</span>
-    <span class="c1">// lk1からミューテックスの所有権を移動する</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span> <span class="n">lk2</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">lk1</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// (9)</span>
+<span class="w">    </span><span class="c1">// lk1からミューテックスの所有権を移動する</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n"><a href="../shared_timed_mutex.html">std::shared_timed_mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">lk1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -372,7 +372,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

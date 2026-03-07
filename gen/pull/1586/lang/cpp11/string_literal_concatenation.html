@@ -221,16 +221,16 @@
 <p>C99互換として、文字列リテラルとワイド文字列リテラルが並んでいたとき、ワイド文字列リテラルとして結合することが規定された。</p>
 <p>それまでは、文字列リテラルとワイド文字列リテラルの結合は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>だった。</p>
 <h2>例</h2>
-<p><div class="yata" id="f7cf9601ffbe6d0fc00d54d03ea852fe29539078"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f7cf9601ffbe6d0fc00d54d03ea852fe29539078"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// s1とs2、どちらもwchar_t配列となる</span>
-  <span class="k">const</span> <span class="kt">wchar_t</span> <span class="n">s1</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"hello"</span> <span class="sa">L</span><span class="s">" world"</span><span class="p">;</span>
-  <span class="k">const</span> <span class="kt">wchar_t</span> <span class="n">s2</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">L</span><span class="s">"hello"</span> <span class="s">" world"</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// s1とs2、どちらもwchar_t配列となる</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">wchar_t</span><span class="w"> </span><span class="n">s1</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="w"> </span><span class="sa">L</span><span class="s">" world"</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">wchar_t</span><span class="w"> </span><span class="n">s2</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">L</span><span class="s">"hello"</span><span class="w"> </span><span class="s">" world"</span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::wcout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::wcout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::wcout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::wcout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -260,7 +260,7 @@ hello world
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

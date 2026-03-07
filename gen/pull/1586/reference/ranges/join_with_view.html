@@ -213,16 +213,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">join_with_view</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="input_range.html">input_range</a></span> <span class="n">V</span><span class="p">,</span> <span class="n"><a href="forward_range.html">forward_range</a></span> <span class="n">Pattern</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="input_range.html">input_range</a></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;&gt;</span>
-          <span class="o">&amp;&amp;</span> <span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">Pattern</span><span class="o">&gt;</span>
-          <span class="o">&amp;&amp;</span> <span class="n"><i>compatible-joinable-ranges</i></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Pattern</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">join_with_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">join_with_view</span><span class="o">&lt;</span><span class="n">V</span><span class="p">,</span> <span class="n">Pattern</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="input_range.html">input_range</a></span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="forward_range.html">forward_range</a></span><span class="w"> </span><span class="n">Pattern</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="input_range.html">input_range</a></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;&gt;</span>
+<span class="w">          </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">Pattern</span><span class="o">&gt;</span>
+<span class="w">          </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><i>compatible-joinable-ranges</i></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Pattern</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">join_with_view</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">join_with_view</span><span class="o">&lt;</span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">Pattern</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">……</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// (1)</span>
 
-  <span class="k">namespace</span> <span class="n">views</span> <span class="p">{</span>
-    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="cm">/*unspecified*/</span> <span class="n">join_with</span> <span class="o">=</span> <span class="cm">/*unspecified*/</span><span class="p">;</span>      <span class="c1">// (2)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">views</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="cm">/*unspecified*/</span><span class="w"> </span><span class="n">join_with</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/*unspecified*/</span><span class="p">;</span><span class="w">      </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -282,15 +282,15 @@
 </ul>
 <h2>備考</h2>
 <p>本説明に用いる説明専用要素を以下のように定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">compatible</span><span class="o">-</span><span class="n">joinable</span><span class="o">-</span><span class="n">ranges</span> <span class="o">=</span>            <span class="c1">// 説明専用</span>
-      <span class="n"><a href="../concepts/common_with.html">common_with</a></span><span class="o">&lt;</span><span class="n"><a href="range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-      <span class="n"><a href="../concepts/common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-      <span class="n"><a href="../concepts/common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="range_rvalue_reference_t.html">range_rvalue_reference_t</a></span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">P</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">compatible</span><span class="o">-</span><span class="n">joinable</span><span class="o">-</span><span class="n">ranges</span><span class="w"> </span><span class="o">=</span><span class="w">            </span><span class="c1">// 説明専用</span>
+<span class="w">      </span><span class="n"><a href="../concepts/common_with.html">common_with</a></span><span class="o">&lt;</span><span class="n"><a href="range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">      </span><span class="n"><a href="../concepts/common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">      </span><span class="n"><a href="../concepts/common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="range_rvalue_reference_t.html">range_rvalue_reference_t</a></span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">bidirectional</span><span class="o">-</span><span class="n">common</span> <span class="o">=</span> <span class="n"><a href="bidirectional_range.html">bidirectional_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="common_range.html">common_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">;</span>    <span class="c1">// 説明専用</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">bidirectional</span><span class="o">-</span><span class="n">common</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="bidirectional_range.html">bidirectional_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="common_range.html">common_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">;</span><span class="w">    </span><span class="c1">// 説明専用</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -386,18 +386,18 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="4e256855188129b1caf8f68994c646a788bfeffc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4e256855188129b1caf8f68994c646a788bfeffc"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-  <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">sv</span> <span class="o">=</span> <span class="p">{</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s">"world"</span><span class="p">};</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">sv</span> <span class="o">|</span> <span class="n"><span style="color:#ff0000">views::join_with</span></span><span class="p">(</span><span class="sc">'-'</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><span style="color:#ff0000">views::join_with</span></span><span class="p">(</span><span class="sc">'-'</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -416,16 +416,16 @@ d
 </code></pre></p>
 <p>ネストされた <code>char</code> のRangeが平坦な <code>char</code> のRangeになっている。</p>
 <h2>例 (結果を文字列にする)</h2>
-<p><div class="yata" id="d49ae68fbdcca3dccbfa32c88c5a52163febcc3f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d49ae68fbdcca3dccbfa32c88c5a52163febcc3f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-  <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">sv</span> <span class="o">=</span> <span class="p">{</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s">"world"</span><span class="p">};</span>
 
-  <span class="n">println</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">sv</span> <span class="o">|</span> <span class="n"><span style="color:#ff0000">views::join_with</span></span><span class="p">(</span><span class="s">"-C++23-"</span><span class="n">sv</span><span class="p">)</span> <span class="o">|</span> <span class="n"><a href="to.html">ranges::to</a></span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><span style="color:#ff0000">views::join_with</span></span><span class="p">(</span><span class="s">"-C++23-"</span><span class="n">sv</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="to.html">ranges::to</a></span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -470,7 +470,7 @@ d
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -244,18 +244,18 @@ $b$ や $p$ については <code><a href="../cfloat.html">&lt;cfloat&gt;</a></c
 <h2>備考</h2>
 <p>規格で <code>1E-5</code>（$10^{-5}$）以下であることが規定されている。</p>
 <h2>例</h2>
-<p><div class="yata" id="3be68c3bca612455aed96ea5b71b751929a4fa8d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cfloat.html">&lt;cfloat&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3be68c3bca612455aed96ea5b71b751929a4fa8d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../iomanip.html">&lt;iomanip&gt;</a></span>
+<span class="cp">#include <a href="../cfloat.html">&lt;cfloat&gt;</a></span>
+<span class="cp">#include <a href="../cmath.html">&lt;cmath&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n"><a href="flt_dig.html">FLT_DIG</a></span><span class="p">);</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">FLT_EPSILON</span></span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n"><a href="flt_dig.html">FLT_DIG</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">FLT_EPSILON</span></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
 
-  <span class="c1">// 以下の式と等価</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../cmath/pow.html">std::pow</a></span><span class="p">(</span><span class="n"><a href="flt_radix.html">FLT_RADIX</a></span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n"><a href="flt_mant_dig.html">FLT_MANT_DIG</a></span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 以下の式と等価</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../cmath/pow.html">std::pow</a></span><span class="p">(</span><span class="n"><a href="flt_radix.html">FLT_RADIX</a></span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n"><a href="flt_mant_dig.html">FLT_MANT_DIG</a></span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -280,7 +280,7 @@ $b$ や $p$ については <code><a href="../cfloat.html">&lt;cfloat&gt;</a></c
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

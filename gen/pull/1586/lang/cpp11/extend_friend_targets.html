@@ -234,21 +234,21 @@ friend typename-specifier ;        // 追加
 <li><code>friend</code>宣言に指定された型の<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>は無視される</li>
 </ul>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Derived</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">base</span> <span class="p">{</span>
-  <span class="c1">// 派生クラスから、baseクラスのprivate機能にアクセスできるようにする</span>
-  <span class="k">friend</span> <span class="n">Derived</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 派生クラスから、baseクラスのprivate機能にアクセスできるようにする</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="n">Derived</span><span class="p">;</span>
 
-  <span class="c1">// privateなデフォルトコンストラクタ</span>
-  <span class="n">base</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// privateなデフォルトコンストラクタ</span>
+<span class="w">  </span><span class="n">base</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">derived</span> <span class="o">:</span> <span class="k">public</span> <span class="n">base</span><span class="o">&lt;</span><span class="n">derived</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">base</span><span class="o">&lt;</span><span class="n">derived</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">derived</span> <span class="n">d</span><span class="p">;</span>
+<span class="w">  </span><span class="n">derived</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -278,7 +278,7 @@ friend typename-specifier ;        // 追加
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

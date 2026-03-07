@@ -260,12 +260,12 @@ C++17では下記リストの演算子に関しては<code>a</code>, <code>b</co
 <p>3番目の規則については、
 代入演算子<code>operator=</code>を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>した場合を考えると理解しやすい。
 言語組み込み代入演算子<code>=</code>のオペランドは右から左の順、つまり<code>a()</code>, <code>b()</code>の順で評価される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span>  <span class="nf">a</span><span class="p">();</span>
-<span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w">  </span><span class="nf">a</span><span class="p">();</span>
+<span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">b</span><span class="p">();</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">b</span><span class="p">()</span> <span class="o">=</span> <span class="n">a</span><span class="p">();</span> <span class="c1">// 部分式a(), b()の順で評価される</span>
+<span class="w">  </span><span class="n">b</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">();</span><span class="w"> </span><span class="c1">// 部分式a(), b()の順で評価される</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -274,19 +274,19 @@ C++17では下記リストの演算子に関しては<code>a</code>, <code>b</co
 このとき3番目の規則が存在しなかったとすると、1番目の関数呼び出しに関する規則が適用される。
 関数呼び出しの評価順序は左から右の順、つまり<code>b()</code>, <code>a()</code>の順で評価されるため、
 言語組み込み代入演算子オペランドの評価順序と逆になってしまう。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Hoge</span> <span class="p">{</span>
-  <span class="c1">// 代入演算子オーバーロード</span>
-  <span class="n">Hoge</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Hoge</span><span class="o">&amp;</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Hoge</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 代入演算子オーバーロード</span>
+<span class="w">  </span><span class="n">Hoge</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Hoge</span><span class="o">&amp;</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="n">Hoge</span>  <span class="nf">a</span><span class="p">();</span>
-<span class="n">Hoge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">();</span>
+<span class="n">Hoge</span><span class="w">  </span><span class="nf">a</span><span class="p">();</span>
+<span class="n">Hoge</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">b</span><span class="p">();</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 実際には b().operator=(a()); が呼び出されるため</span>
-  <span class="c1">// 仮に3番目の規則が存在しなかったら...</span>
-  <span class="n">b</span><span class="p">()</span> <span class="o">=</span> <span class="n">a</span><span class="p">();</span> <span class="c1">// b(), a()の順で評価される（逆になってしまう！）</span>
+<span class="w">  </span><span class="c1">// 実際には b().operator=(a()); が呼び出されるため</span>
+<span class="w">  </span><span class="c1">// 仮に3番目の規則が存在しなかったら...</span>
+<span class="w">  </span><span class="n">b</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">();</span><span class="w"> </span><span class="c1">// b(), a()の順で評価される（逆になってしまう！）</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -296,13 +296,13 @@ C++17では下記リストの演算子に関しては<code>a</code>, <code>b</co
 3番目の規則は「演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>にわざと関数呼び出しの規則を当てはめない」ことで、
 演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の有無に関わらず自然な動作を実現するための規則である。</p>
 <h2>例</h2>
-<p><div class="yata" id="35e69b586ff7e53bc967b43a09dbcca0feb1982b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/map.html">&lt;map&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="35e69b586ff7e53bc967b43a09dbcca0feb1982b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/map.html">&lt;map&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span><span class="p">;</span>
-  <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">// C++17 では右から左に評価されるため m は {{0, 0}} になる</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<span class="w">  </span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// C++17 では右から左に評価されるため m は {{0, 0}} になる</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -314,11 +314,11 @@ C++17では下記リストの演算子に関しては<code>a</code>, <code>b</co
 <p>例に出てきたプログラムは非常に単純だが、
 C++14やそれ以前のC++の規格では動作が不定であった。
 代入式の評価順序が規定されていなかったためである。</p>
-<p><div class="yata" id="426cb06a72e44d7f99f38fef632702e871a7137f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/map.html">&lt;map&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="426cb06a72e44d7f99f38fef632702e871a7137f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/map.html">&lt;map&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span><span class="p">;</span>
-  <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">// C++14 では m が {{0, 0}} か {{0, 1}} のどちらになるか不定</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<span class="w">  </span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// C++14 では m が {{0, 0}} か {{0, 1}} のどちらになるか不定</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -328,7 +328,7 @@ C++14やそれ以前のC++の規格では動作が不定であった。
 このプログラムの動作は不定であった。</p>
 <p>シフト演算子は左結合なので<code>std::cout</code>, <code>f()</code>, <code>g()</code>, <code>h()</code>の順に評価されそうだが、
 演算子の結合と評価順には直接的な関係はなく、C++プログラマが期待する評価順は保証されなかった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">g</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">h</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">h</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <p><code>std::cout</code>はシフト演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を行っているため、
@@ -372,7 +372,7 @@ C++の既存のプログラムを壊すこと無く、なおかつ、
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -219,20 +219,20 @@
 <p></p>
 <h2>概要</h2>
 <p>C++14まで、以下のように書いていた「指定された型の定数を受け取る」意図の非型テンプレートパラメータ(non-type template parameter)だが、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">T</span> <span class="n">V</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="p">;</span>
 
-<span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>C++17ではこの用途のためのシンタックスシュガー(糖衣構文、syntactic sugar)が導入され、テンプレートパラメータを<code>auto</code>にして値を受け取ることができるようになった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span> <span class="n">X</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">X</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="n">A</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>    <span class="c1">// OK</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// OK</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="sc">'a'</span><span class="o">&gt;</span><span class="p">;</span>  <span class="c1">// OK</span>
-<span class="n">A</span><span class="o">&lt;</span><span class="mf">3.14</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// コンパイルエラー (浮動小数点数は渡せない)</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span><span class="w">    </span><span class="c1">// OK</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="sc">'a'</span><span class="o">&gt;</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="n">A</span><span class="o">&lt;</span><span class="mf">3.14</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// コンパイルエラー (浮動小数点数は渡せない)</span>
 </code></pre></div>
 </p>
 <p>テンプレートの中では、<code>decltype</code>を使用すれば<code>X</code>の型を取得できる。</p>
@@ -251,17 +251,17 @@
 <p>なお、[temp.param]/4 は C++20 で変更予定である。<a href="http://eel.is/c++draft/temp.param" target="_blank">Working Draft, Standard</a>を参照。</p>
 <p>この他にも変更点が多くある。<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r2.html" target="_blank">P0127R2 Declaring non-type template arguments with auto</a>を参照。</p>
 <h2>例</h2>
-<p><div class="yata" id="745c78ec6bda6712f19f87db6a4e2b30edf9eccd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="745c78ec6bda6712f19f87db6a4e2b30edf9eccd"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span><span class="o">*</span> <span class="n">X</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n"><a href="../cpp11/decltype.html">decltype</a></span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">X</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../cpp11/decltype.html">decltype</a></span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span> <span class="kt">int</span><span class="o">*&gt;</span><span class="p">{});</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">{});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -271,16 +271,16 @@
 <p>以下、<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r1.html" target="_blank">P0127R1 Declaring non-type template arguments with auto</a>より引用した。</p>
 <p>この提案では、<code>auto</code>プレースホルダ型指定子を使用して型でないテンプレートパラメータを宣言できるようにすることを提案する。望ましい効果は、同様の構文が総称ラムダに対して機能するのと同じように、対応する型ではないテンプレート引数の型が自動的に推定されることである。</p>
 <p>現在、型ではないテンプレートパラメータの型を明示的に指定しなければならない。これは、任意の型の定数引数を取ることを意図したテンプレートを書くときに不必要な冗長性と柔軟性の低下を招く。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span> <span class="p">{</span> <span class="p">};</span>    <span class="c1">// 定義</span>
-<span class="n">S</span><span class="o">&lt;</span><span class="n"><a href="../cpp11/decltype.html">decltype</a></span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>                    <span class="c1">// インスタンス化</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">v</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span><span class="w">    </span><span class="c1">// 定義</span>
+<span class="n">S</span><span class="o">&lt;</span><span class="n"><a href="../cpp11/decltype.html">decltype</a></span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w">                    </span><span class="c1">// インスタンス化</span>
 </code></pre></div>
 </p>
 <p>この例では、<code>decltype</code>を使用して、<code>x</code>の型と値の両方を<code>S</code>に渡す前に、<code>x</code>の型（コンパイル時定数）を取得する。目的は、<code>x</code>の型を別のテンプレート引数として渡す必要がないように<code>S</code>の宣言を変更できるようにすることである。これにより、次のようなより簡単なインスタンス化が可能になる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">S</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span> <span class="c1">// desired instantiation </span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">S</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">// desired instantiation </span>
 </code></pre></div>
 </p>
 <p>これは、テンプレートパラメータリストで<code>auto</code>キーワードを使用できるようにすることで実現できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span> <span class="n">v</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span><span class="p">;</span> <span class="c1">// type of v is deduced</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">v</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="p">;</span><span class="w"> </span><span class="c1">// type of v is deduced</span>
 </code></pre></div>
 </p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
@@ -311,7 +311,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

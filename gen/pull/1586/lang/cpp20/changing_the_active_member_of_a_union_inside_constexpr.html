@@ -219,23 +219,23 @@
 <p></p>
 <h2>概要</h2>
 <p>C++20より、共用体初期化後に別のメンバを初期化する事（アクティブメンバの切り替え）が定数式で行えるようになる。</p>
-<p><div class="yata" id="67c67061019d1a6ac84867d844778b50857773c2"><div class="codehilite"><pre><span></span><code><span class="k">union</span> <span class="n">U</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+<p><div class="yata" id="67c67061019d1a6ac84867d844778b50857773c2"><div class="codehilite"><pre><span></span><code><span class="k">union</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// fをアクティブメンバとして初期化</span>
-  <span class="n">U</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">f</span> <span class="o">=</span> <span class="mf">3.1415f</span> <span class="p">};</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// fをアクティブメンバとして初期化</span>
+<span class="w">  </span><span class="n">U</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1415f</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="c1">// u.nへアクティブメンバを切り替え、C++17まではコンパイルエラー</span>
-  <span class="n">u</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  
+<span class="w">  </span><span class="c1">// u.nへアクティブメンバを切り替え、C++17まではコンパイルエラー</span>
+<span class="w">  </span><span class="n">u</span><span class="p">.</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span>
 
-  <span class="k">return</span> <span class="n">u</span><span class="p">.</span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">f</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -270,7 +270,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -220,26 +220,26 @@
 <h2>概要</h2>
 <p>C++23まで、定数式内での<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出、そのコードに到達した時点でコンパイルエラーとなっていた。</p>
 <p>C++26からは定数式内での<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出ができるようになり、ユーザーはその<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を捕捉できるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">consteval</span> <span class="k">auto</span> <span class="nf">hello</span><span class="p">(</span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
-      <span class="k">throw</span> <span class="n">invalid_argument</span><span class="p">{</span><span class="s">"empty name provided"</span><span class="p">};</span> <span class="c1">// C++23: このコードに到達した時点でthrow式側でコンパイルエラー</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">consteval</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">hello</span><span class="p">(</span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">invalid_argument</span><span class="p">{</span><span class="s">"empty name provided"</span><span class="p">};</span><span class="w"> </span><span class="c1">// C++23: このコードに到達した時点でthrow式側でコンパイルエラー</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">return</span> <span class="n">concat_into_a_fixed_string</span><span class="p">(</span><span class="s">"hello "</span><span class="p">,</span><span class="n">input</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">concat_into_a_fixed_string</span><span class="p">(</span><span class="s">"hello "</span><span class="p">,</span><span class="n">input</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="k">const</span> <span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="s">""</span><span class="p">);</span> <span class="c1">// C++26: 呼び出し側でコンパイルエラー</span>
-<span class="k">const</span> <span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="s">"Hana"</span><span class="p">);</span>
+<span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hello</span><span class="p">(</span><span class="s">""</span><span class="p">);</span><span class="w"> </span><span class="c1">// C++26: 呼び出し側でコンパイルエラー</span>
+<span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hello</span><span class="p">(</span><span class="s">"Hana"</span><span class="p">);</span>
 
-<span class="k">try</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="k">auto</span> <span class="n">c</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="s">""</span><span class="p">);</span> <span class="c1">// C++26: 例外を捕捉</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">validation_error</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// everything is fine</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hello</span><span class="p">(</span><span class="s">""</span><span class="p">);</span><span class="w"> </span><span class="c1">// C++26: 例外を捕捉</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">validation_error</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// everything is fine</span>
 <span class="p">}</span>
 
 <span class="c1">// C++23: concat関数の深い場所にあるthrow式側でコンパイルエラー</span>
 <span class="c1">// C++26: 呼び出し側で「文字列が長すぎる」のようなコンパイルエラーになる</span>
-<span class="k">const</span> <span class="k">auto</span> <span class="n">d</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="s">"Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Kenneth Lloyd Martin Nero Oliver Paul Quincy Randolph Sherman Thomas Uncas Victor William Xerxes Yancy Zeus"</span><span class="p">);</span>
+<span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hello</span><span class="p">(</span><span class="s">"Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Kenneth Lloyd Martin Nero Oliver Paul Quincy Randolph Sherman Thomas Uncas Victor William Xerxes Yancy Zeus"</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
@@ -282,7 +282,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

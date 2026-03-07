@@ -225,25 +225,25 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="class" title="class path">path::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">path</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                                      <span class="c1">// (1)</span>
-<span class="n">path</span><span class="p">(</span><span class="k">const</span> <span class="n">path</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>                                  <span class="c1">// (2)</span>
-<span class="n">path</span><span class="p">(</span><span class="n">path</span><span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                              <span class="c1">// (3)</span>
-<span class="n">path</span><span class="p">(</span><span class="n">string_type</span><span class="o">&amp;&amp;</span> <span class="n">source</span><span class="p">,</span> <span class="n"><a href="format.html">format</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span> <span class="c1">// (4)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">path</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                                      </span><span class="c1">// (1)</span>
+<span class="n">path</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">path</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                                  </span><span class="c1">// (2)</span>
+<span class="n">path</span><span class="p">(</span><span class="n">path</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                              </span><span class="c1">// (3)</span>
+<span class="n">path</span><span class="p">(</span><span class="n">string_type</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="format.html">format</a></span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span><span class="w"> </span><span class="c1">// (4)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Source</span><span class="o">&gt;</span>
-<span class="n">path</span><span class="p">(</span><span class="k">const</span> <span class="n">Source</span><span class="o">&amp;</span> <span class="n">source</span><span class="p">,</span> <span class="n"><a href="format.html">format</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span> <span class="c1">// (5)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Source</span><span class="o">&gt;</span>
+<span class="n">path</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Source</span><span class="o">&amp;</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="format.html">format</a></span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span><span class="w"> </span><span class="c1">// (5)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="n">path</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-     <span class="n"><a href="format.html">format</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span>                       <span class="c1">// (6)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">path</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">     </span><span class="n"><a href="format.html">format</a></span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span><span class="w">                       </span><span class="c1">// (6)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Source</span><span class="o">&gt;</span>
-<span class="n">path</span><span class="p">(</span><span class="k">const</span> <span class="n">Source</span><span class="o">&amp;</span> <span class="n">source</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span>
-     <span class="n"><a href="format.html">format</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span>                       <span class="c1">// (7)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Source</span><span class="o">&gt;</span>
+<span class="n">path</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Source</span><span class="o">&amp;</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../locale/locale.html">locale</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span>
+<span class="w">     </span><span class="n"><a href="format.html">format</a></span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span><span class="w">                       </span><span class="c1">// (7)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="n">path</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-     <span class="k">const</span> <span class="n"><a href="../../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span> <span class="n"><a href="format.html">format</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span>    <span class="c1">// (8)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">path</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">     </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../locale/locale.html">locale</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="format.html">format</a></span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="format.html">auto_format</a></span><span class="p">);</span><span class="w">    </span><span class="c1">// (8)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -303,96 +303,96 @@
 <li>(1) : このクラスはメンバ変数として<code>string_type</code>型のオブジェクトを持つ。<code><a href="../../string/basic_string.html">std::basic_string</a></code>クラスのデフォルトのアロケータである<code><a href="../../memory/allocator.html">std::allocator</a></code>クラスは、デフォルトコンストラクタで<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない。そのため、<code>path</code>クラスのデフォルトコンストラクタもまた<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を決して送出しない</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="90eb3eb5f1a7cb47f2cefe23479f3e4e6a5a485c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="90eb3eb5f1a7cb47f2cefe23479f3e4e6a5a485c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../filesystem.html">&lt;filesystem&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="c1">// デフォルト構築</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p</span><span class="p">{};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="c1">// デフォルト構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p</span><span class="p">{};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// コピー構築</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p</span> <span class="o">=</span> <span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">q</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// コピー構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3)</span>
-  <span class="c1">// ムーブ構築</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p</span> <span class="o">=</span> <span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">q</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">generic_string</span><span class="p">()</span> <span class="o">==</span> <span class="s">"a/b/c"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="c1">// ムーブ構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">generic_string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (4)</span>
-  <span class="c1">// 内部表現形式のbasic_stringで構築。</span>
-  <span class="c1">// この文字列は、システムのファイルシステムが規定する文字コードを持つこと。</span>
-  <span class="c1">// POSIXでは<a href="../../string/basic_string.html">std::string</a>、Windowsでは<a href="../../string/basic_string.html">std::wstring</a>。</span>
-  <span class="c1">// ここではPOSIX環境であるとして<a href="../../string/basic_string.html">std::string</a>を使用する</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">raw_path</span> <span class="o">=</span> <span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">raw_path</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="generic_string.html">p.generic_string()</a></span> <span class="o">==</span> <span class="s">"a/b/c"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (4)</span>
+<span class="w">  </span><span class="c1">// 内部表現形式のbasic_stringで構築。</span>
+<span class="w">  </span><span class="c1">// この文字列は、システムのファイルシステムが規定する文字コードを持つこと。</span>
+<span class="w">  </span><span class="c1">// POSIXでは<a href="../../string/basic_string.html">std::string</a>、Windowsでは<a href="../../string/basic_string.html">std::wstring</a>。</span>
+<span class="w">  </span><span class="c1">// ここではPOSIX環境であるとして<a href="../../string/basic_string.html">std::string</a>を使用する</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">raw_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">raw_path</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="generic_string.html">p.generic_string()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (5)</span>
-  <span class="c1">// 文字コード規定の文字配列、文字列オブジェクトから構築。</span>
-  <span class="c1">// Windows環境では、この方法ではUTF-8文字列を代入してはならない</span>
-  <span class="c1">// (<a href="../u8path.html">std::filesystem::u8path()</a>関数で変換したパスを代入すること)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p1</span> <span class="o">=</span> <span class="s">"a/b/c"</span><span class="p">;</span>  <span class="c1">// システムのマルチバイト文字コードの文字配列を代入</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p2</span> <span class="o">=</span> <span class="sa">L</span><span class="s">"a/b/c"</span><span class="p">;</span> <span class="c1">// システムのワイド文字コードの文字配列を代入</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p3</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"a/b/c"</span><span class="p">;</span> <span class="c1">// UTF-16エンコーディングの文字配列を代入</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p4</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"a/b/c"</span><span class="p">;</span> <span class="c1">// UTF-32エンコーディングの文字配列を代入</span>
+<span class="w">  </span><span class="c1">// (5)</span>
+<span class="w">  </span><span class="c1">// 文字コード規定の文字配列、文字列オブジェクトから構築。</span>
+<span class="w">  </span><span class="c1">// Windows環境では、この方法ではUTF-8文字列を代入してはならない</span>
+<span class="w">  </span><span class="c1">// (<a href="../u8path.html">std::filesystem::u8path()</a>関数で変換したパスを代入すること)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">;</span><span class="w">  </span><span class="c1">// システムのマルチバイト文字コードの文字配列を代入</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">L</span><span class="s">"a/b/c"</span><span class="p">;</span><span class="w"> </span><span class="c1">// システムのワイド文字コードの文字配列を代入</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u</span><span class="s">"a/b/c"</span><span class="p">;</span><span class="w"> </span><span class="c1">// UTF-16エンコーディングの文字配列を代入</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"a/b/c"</span><span class="p">;</span><span class="w"> </span><span class="c1">// UTF-32エンコーディングの文字配列を代入</span>
 
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">p5_base</span> <span class="o">=</span> <span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p5</span> <span class="o">=</span> <span class="n">p5_base</span><span class="p">;</span> <span class="c1">// システムのマルチバイト文字コードのstringオブジェクトを代入</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">p5_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p5_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// システムのマルチバイト文字コードのstringオブジェクトを代入</span>
 
-    <span class="n"><a href="../../string/basic_string.html">std::wstring</a></span> <span class="n">p6_base</span> <span class="o">=</span> <span class="sa">L</span><span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p6</span> <span class="o">=</span> <span class="n">p6_base</span><span class="p">;</span> <span class="c1">// システムのワイド文字コードのwstringオブジェクトを代入</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::wstring</a></span><span class="w"> </span><span class="n">p6_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">L</span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p6_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// システムのワイド文字コードのwstringオブジェクトを代入</span>
 
-    <span class="n"><a href="../../string/basic_string.html">std::u16string</a></span> <span class="n">p7_base</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p7</span> <span class="o">=</span> <span class="n">p7_base</span><span class="p">;</span> <span class="c1">// u16stringオブジェクトを代入</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::u16string</a></span><span class="w"> </span><span class="n">p7_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u</span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p7_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// u16stringオブジェクトを代入</span>
 
-    <span class="n"><a href="../../string/basic_string.html">std::u32string</a></span> <span class="n">p8_base</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p8</span> <span class="o">=</span> <span class="n">p8_base</span><span class="p">;</span> <span class="c1">// u32stringオブジェクトを代入</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::u32string</a></span><span class="w"> </span><span class="n">p8_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p8_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// u32stringオブジェクトを代入</span>
 
-    <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">p9_base</span> <span class="o">=</span> <span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p9</span> <span class="o">=</span> <span class="n">p9_base</span><span class="p">;</span> <span class="c1">// システムのマルチバイト文字コードの文字列を参照する<a href="../../string_view/basic_string_view.html">string_view</a>オブジェクトを代入</span>
+<span class="w">    </span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">p9_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p9_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// システムのマルチバイト文字コードの文字列を参照する<a href="../../string_view/basic_string_view.html">string_view</a>オブジェクトを代入</span>
 
-    <span class="n">std</span><span class="o">::</span><span class="n">wstring_view</span> <span class="n">p10_base</span> <span class="o">=</span> <span class="sa">L</span><span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p10</span> <span class="o">=</span> <span class="n">p10_base</span><span class="p">;</span> <span class="c1">// システムのワイド文字コードの文字列を参照するwstring_viewオブジェクトを代入</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">wstring_view</span><span class="w"> </span><span class="n">p10_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">L</span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p10_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// システムのワイド文字コードの文字列を参照するwstring_viewオブジェクトを代入</span>
 
-    <span class="n">std</span><span class="o">::</span><span class="n">u16<a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">p11_base</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p11</span> <span class="o">=</span> <span class="n">p11_base</span><span class="p">;</span> <span class="c1">// UTF-16エンコーディングの文字列を参照するu16<a href="../../string_view/basic_string_view.html">string_view</a>オブジェクトを代入</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">u16<a href="../../string_view/basic_string_view.html">string_view</a></span><span class="w"> </span><span class="n">p11_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u</span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p11_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// UTF-16エンコーディングの文字列を参照するu16<a href="../../string_view/basic_string_view.html">string_view</a>オブジェクトを代入</span>
 
-    <span class="n">std</span><span class="o">::</span><span class="n">u32<a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">p12_base</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p12</span> <span class="o">=</span> <span class="n">p12_base</span><span class="p">;</span> <span class="c1">// UTF-32エンコーディングの文字列を参照するu32<a href="../../string_view/basic_string_view.html">string_view</a>オブジェクトを代入</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">u32<a href="../../string_view/basic_string_view.html">string_view</a></span><span class="w"> </span><span class="n">p12_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p12_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// UTF-32エンコーディングの文字列を参照するu32<a href="../../string_view/basic_string_view.html">string_view</a>オブジェクトを代入</span>
 
-    <span class="c1">// C++20以降</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">u8<a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">p13_base</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p13</span> <span class="o">=</span> <span class="n">p13_base</span><span class="p">;</span> <span class="c1">// UTF-8エンコーディングの文字列を参照するu8<a href="../../string_view/basic_string_view.html">string_view</a>オブジェクトを代入</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// C++20以降</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">u8<a href="../../string_view/basic_string_view.html">string_view</a></span><span class="w"> </span><span class="n">p13_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p13</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p13_base</span><span class="p">;</span><span class="w"> </span><span class="c1">// UTF-8エンコーディングの文字列を参照するu8<a href="../../string_view/basic_string_view.html">string_view</a>オブジェクトを代入</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (6)</span>
-  <span class="c1">// 文字範囲から構築</span>
-  <span class="p">{</span>
-    <span class="c1">// システムのマルチバイト文字コードの文字範囲を代入</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">p1_base</span> <span class="o">=</span> <span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p1</span> <span class="p">{</span><span class="n"><a href="../../string/basic_string/begin.html">p1_base.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../string/basic_string/end.html">p1_base.end()</a></span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (6)</span>
+<span class="w">  </span><span class="c1">// 文字範囲から構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// システムのマルチバイト文字コードの文字範囲を代入</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">p1_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="../../string/basic_string/begin.html">p1_base.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string/end.html">p1_base.end()</a></span><span class="p">};</span>
 
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">p2_base</span> <span class="o">=</span> <span class="s">"a/b/c"</span><span class="p">;</span>
-    <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p2</span> <span class="p">{</span><span class="n">p2_base</span><span class="p">,</span> <span class="n">p2_base</span> <span class="o">+</span> <span class="n"><a href="../../string/char_traits.html">std::char_traits</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n"><a href="../../string/char_traits/length.html">length</a></span><span class="p">(</span><span class="n">p2_base</span><span class="p">)};</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p2_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a/b/c"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="p">{</span><span class="n">p2_base</span><span class="p">,</span><span class="w"> </span><span class="n">p2_base</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../string/char_traits.html">std::char_traits</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n"><a href="../../string/char_traits/length.html">length</a></span><span class="p">(</span><span class="n">p2_base</span><span class="p">)};</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -430,7 +430,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

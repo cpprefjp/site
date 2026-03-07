@@ -213,10 +213,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="token">is_block_file</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span> <span class="p">{</span>
-  <span class="kt">bool</span> <span class="n">is_block_file</span><span class="p">(</span><span class="n"><a href="file_status.html">file_status</a></span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                      <span class="c1">// (1)</span>
-  <span class="kt">bool</span> <span class="nf">is_block_file</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>                               <span class="c1">// (2)</span>
-  <span class="kt">bool</span> <span class="nf">is_block_file</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (3)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_block_file</span><span class="p">(</span><span class="n"><a href="file_status.html">file_status</a></span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                      </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_block_file</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                               </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_block_file</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -229,8 +229,8 @@
 <li>(2) : <code>return is_block_file(<a href="status.html">status</a>(p));</code></li>
 <li>(3) :
   <br />
-<div class="codehilite"><pre><span></span><code><span class="n"><a href="file_status.html">file_status</a></span> <span class="n">s</span> <span class="o">=</span> <span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ec</span><span class="p">);</span>
-<span class="k">return</span> <span class="nf">is_block_file</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="file_status.html">file_status</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span>
+<span class="k">return</span><span class="w"> </span><span class="n">is_block_file</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
 </code></pre></div>
 </li>
 </ul>
@@ -242,29 +242,29 @@
 </ul>
 <h2>例</h2>
 <h3>Linux環境の例</h3>
-<p><div class="yata" id="be29d06e9a0071316bcc8df19f29b42f11da2779"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="be29d06e9a0071316bcc8df19f29b42f11da2779"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../filesystem.html">&lt;filesystem&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="c1">// 取得済みのファイル状態を使用して、ブロックスペシャルファイルかを確認</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="n"><a href="status.html">fs::status</a></span><span class="p">(</span><span class="s">"/dev/disk0"</span><span class="p">)));</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="c1">// 取得済みのファイル状態を使用して、ブロックスペシャルファイルかを確認</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="n"><a href="status.html">fs::status</a></span><span class="p">(</span><span class="s">"/dev/disk0"</span><span class="p">)));</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// パスを指定して、ブロックスペシャルファイルかを確認。</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="s">"/dev/disk0"</span><span class="p">));</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="s">"/dev/sda"</span><span class="p">));</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="s">"/dev/loop0"</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// パスを指定して、ブロックスペシャルファイルかを確認。</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="s">"/dev/disk0"</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="s">"/dev/sda"</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="s">"/dev/loop0"</span><span class="p">));</span>
 
-  <span class="c1">// (3)</span>
-  <span class="c1">// エラー情報を例外ではなくerror_codeで受け取る</span>
-  <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">;</span>
-  <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="s">"/dev/disk0"</span><span class="p">,</span> <span class="n">ec</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">ec</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="c1">// エラー情報を例外ではなくerror_codeで受け取る</span>
+<span class="w">  </span><span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="n">ec</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::is_block_file</span></span><span class="p">(</span><span class="s">"/dev/disk0"</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -298,7 +298,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

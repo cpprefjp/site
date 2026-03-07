@@ -224,21 +224,21 @@
 <h2>仕様</h2>
 <p><code>[[fallthrough]]</code>属性はフォールスルーしたい各<code>case</code>の最後の式に記述する。ただし最後の<code>case</code>/<code>default</code>に記述するとコンパイルエラーとなる。</p>
 <h2>例</h2>
-<p><div class="yata" id="40c673ef9b10eb0de62802768ce1cbea5a287d3f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="40c673ef9b10eb0de62802768ce1cbea5a287d3f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span> <span class="c1">//caseの間に1つも文がなければフォールスルーは警告されない</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"case 2</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-    <span class="p">[[</span><span class="n">fallthrough</span><span class="p">]];</span>
-  <span class="k">case</span> <span class="mi">3</span><span class="o">:</span> <span class="c1">//[[fallthrough]]属性の記述によりフォールスルー警告は無効化される</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"case 3</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="k">case</span> <span class="mi">4</span><span class="o">:</span> <span class="c1">//コンパイラがフォールスルーを警告する</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"case 4</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-    <span class="c1">//[[fallthrough]]; //最後のcaseには記述できない、コンパイルエラーになる</span>
-  <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="c1">//caseの間に1つも文がなければフォールスルーは警告されない</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"case 2</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">[[</span><span class="n">fallthrough</span><span class="p">]];</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"> </span><span class="c1">//[[fallthrough]]属性の記述によりフォールスルー警告は無効化される</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"case 3</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="w"> </span><span class="c1">//コンパイラがフォールスルーを警告する</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"case 4</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//[[fallthrough]]; //最後のcaseには記述できない、コンパイルエラーになる</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -282,7 +282,7 @@ fallthrough.cpp:12:3: note: here
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

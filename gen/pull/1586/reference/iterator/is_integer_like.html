@@ -213,12 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">variable</div><div class="header">&lt;iterator&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is-integer-like</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is</span><span class="o">-</span><span class="n">integer</span><span class="o">-</span><span class="n">like</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is</span><span class="o">-</span><span class="n">integer</span><span class="o">-</span><span class="n">like</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is</span><span class="o">-</span><span class="kt">signed</span><span class="o">-</span><span class="n">integer</span><span class="o">-</span><span class="n">like</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is</span><span class="o">-</span><span class="kt">signed</span><span class="o">-</span><span class="n">integer</span><span class="o">-</span><span class="n">like</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -255,19 +255,19 @@
 <li><code><a href="../limits/numeric_limits/min.html">numeric_limits&lt;I&gt;::min()</a></code>と<code><a href="../limits/numeric_limits/max.html">numeric_limits&lt;I&gt;::max()</a></code>はそれぞれ、<code>I</code>の表現可能な値の最小値と最大値を返す。<code><a href="../limits/numeric_limits/lowest.html">numeric_limits&lt;I&gt;::lowest()</a></code>は<code>numeric_limits&lt;I&gt;::max()</code>を返す。</li>
 </ul>
 <h2>実装例 (MSVC)</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">_Is_nonbool_integral</span> <span class="o">=</span> <span class="n"><a href="../type_traits/is_integral.html">is_integral_v</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n"><a href="../type_traits/is_same.html">is_same_v</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">_Is_nonbool_integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../type_traits/is_integral.html">is_integral_v</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n"><a href="../type_traits/is_same.html">is_same_v</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">_Ty</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">_Integer_class</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">{</span>
-  <span class="k">typename</span> <span class="n">_Ty</span><span class="o">::</span><span class="n">_Signed_type</span><span class="p">;</span>
-  <span class="k">typename</span> <span class="n">_Ty</span><span class="o">::</span><span class="n">_Unsigned_type</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">_Ty</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">_Integer_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Ty</span><span class="o">::</span><span class="n">_Signed_type</span><span class="p">;</span>
+<span class="w">  </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Ty</span><span class="o">::</span><span class="n">_Unsigned_type</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">_Ty</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">_Integer_like</span> <span class="o">=</span> <span class="n">_Is_nonbool_integral</span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;&gt;</span> <span class="o">||</span> <span class="n">_Integer_class</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">_Ty</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">_Integer_like</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_Is_nonbool_integral</span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">_Integer_class</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">_Ty</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">_Signed_integer_like</span> <span class="o">=</span> <span class="n">_Integer_like</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">_Ty</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">_Signed_integer_like</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_Integer_like</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>上記の説明のうち構文的な要件を素直に実装している。MSVCでは、128ビット整数が<em>integer-class</em>型である。</p>
@@ -303,7 +303,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -237,27 +237,27 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;mdspan&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class layout_left::mapping">layout_left::mapping::</span><span class="token">コンストラクタ</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">mapping</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n">mapping</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1)</span>
 
-<span class="k">constexpr</span> <span class="nf">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n">mapping</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// (2)</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">mapping</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">mapping</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">  </span><span class="c1">// (2)</span>
 
-<span class="k">constexpr</span> <span class="nf">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n">extents_type</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (3)</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">mapping</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">extents_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (3)</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherExtents</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="p">,</span> <span class="n">extents_type</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n">mapping</span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="o">&gt;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (4)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OtherExtents</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="p">,</span><span class="w"> </span><span class="n">extents_type</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">mapping</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">mapping</span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (4)</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherExtents</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="p">,</span> <span class="n">extents_type</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../layout_right/mapping.html">layout_right::mapping</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="o">&gt;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (5)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OtherExtents</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="p">,</span><span class="w"> </span><span class="n">extents_type</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">mapping</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../layout_right/mapping.html">layout_right::mapping</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (5)</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../../layout_left_padded/mapping.html">LayoutLeftPaddedMapping</a></span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../layout_left_padded/mapping.html">LayoutLeftPaddedMapping</a></span><span class="o">::</span><span class="n">extents_type</span><span class="p">,</span> <span class="n">extents_type</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../layout_left_padded/mapping.html">LayoutLeftPaddedMapping</a></span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (7) C++26</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../../layout_left_padded/mapping.html">LayoutLeftPaddedMapping</a></span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../layout_left_padded/mapping.html">LayoutLeftPaddedMapping</a></span><span class="o">::</span><span class="n">extents_type</span><span class="p">,</span><span class="w"> </span><span class="n">extents_type</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">mapping</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../layout_left_padded/mapping.html">LayoutLeftPaddedMapping</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (7) C++26</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherExtents</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extents_type</span><span class="o">::</span><span class="n"><a href="../../extents/rank.html">rank()</a></span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-  <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../layout_stride/mapping.html">layout_stride::mapping</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="o">&gt;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (6)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OtherExtents</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="p">(</span><span class="n">extents_type</span><span class="o">::</span><span class="n"><a href="../../extents/rank.html">rank()</a></span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="n">mapping</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../layout_stride/mapping.html">layout_stride::mapping</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (6)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -324,52 +324,52 @@
 <li>(7) : <code>!<a href="../../../type_traits/is_convertible.html">is_convertible_v</a>&lt;typename LayoutLeftPaddedMapping::extents_type, extents_type&gt;</code></li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="d2b0bbef45cc0ea10d29cd3a25e9a6a27208f2c9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d2b0bbef45cc0ea10d29cd3a25e9a6a27208f2c9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../../array.html">&lt;array&gt;</a></span>
+<span class="cp">#include <a href="../../../mdspan.html">&lt;mdspan&gt;</a></span>
 
-<span class="k">using</span> <span class="n">Ext3x4</span> <span class="o">=</span> <span class="n"><a href="../../extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">Ext3xN</span> <span class="o">=</span> <span class="n"><a href="../../extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n"><a href="../../../span/dynamic_extent.html">std::dynamic_extent</a></span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Ext3x4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Ext3xN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../../span/dynamic_extent.html">std::dynamic_extent</a></span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1) : デフォルトコンストラクタ</span>
-  <span class="p">{</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span> <span class="n">map1_3x4</span><span class="p">;</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">map1_3xN</span><span class="p">;</span>
-    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map1_3x4</span><span class="p">.</span><span class="n"><a href="required_span_size.html">required_span_size()</a></span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
-    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map1_3xN</span><span class="p">.</span><span class="n"><a href="required_span_size.html">required_span_size()</a></span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="c1">// (2) : コピーコンストラクタ</span>
-  <span class="p">{</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">map2_a</span><span class="p">;</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">map2_b</span> <span class="o">=</span> <span class="n">map2_a</span><span class="p">;</span>
-    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map2_a</span> <span class="o">==</span> <span class="n">map2_b</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="c1">// (3) : extentsから構築</span>
-  <span class="p">{</span>
-    <span class="n">Ext3xN</span> <span class="n">ext</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">map3</span> <span class="o">=</span> <span class="n">ext</span><span class="p">;</span>
-    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map3</span><span class="p">.</span><span class="n">extents</span><span class="p">()</span> <span class="o">==</span> <span class="n">ext</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="c1">// (4) : layout_left::mappingからの変換コンストラクタ</span>
-  <span class="p">{</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span> <span class="n">map4_3x4</span><span class="p">;</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">map4_3xN</span> <span class="o">=</span> <span class="n">map4_3x4</span><span class="p">;</span>
-    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map4_3x4</span> <span class="o">==</span> <span class="n">map4_3xN</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="c1">// (5) : layout_right::mappingからの変換コンストラクタ</span>
-  <span class="p">{</span>
-    <span class="k">using</span> <span class="n">Ext1D</span> <span class="o">=</span> <span class="n"><a href="../../extents.html">std::dextents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="n"><a href="../../layout_right/mapping.html">std::layout_right::mapping</a></span><span class="o">&lt;</span><span class="n">Ext1D</span><span class="o">&gt;</span> <span class="n">src5</span><span class="p">{</span><span class="n">Ext1D</span><span class="p">{</span><span class="mi">5</span><span class="p">}};</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext1D</span><span class="o">&gt;</span>  <span class="n">dst5</span> <span class="o">=</span> <span class="n">src5</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="c1">// (6) : layout_stride::mappingからの変換コンストラクタ</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../../array/array.html">std::array</a></span> <span class="n">strides</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-    <span class="n"><a href="../../layout_stride/mapping.html">std::layout_stride::mapping</a></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span> <span class="n">src6</span><span class="p">{{},</span> <span class="n">strides</span><span class="p">};</span>
-    <span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span>   <span class="n">dst6</span><span class="p">{</span><span class="n">src6</span><span class="p">};</span>  <span class="c1">// (explicit)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1) : デフォルトコンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map1_3x4</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map1_3xN</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map1_3x4</span><span class="p">.</span><span class="n"><a href="required_span_size.html">required_span_size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map1_3xN</span><span class="p">.</span><span class="n"><a href="required_span_size.html">required_span_size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// (2) : コピーコンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map2_a</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map2_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map2_a</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map2_a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">map2_b</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// (3) : extentsから構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Ext3xN</span><span class="w"> </span><span class="n">ext</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map3</span><span class="p">.</span><span class="n">extents</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ext</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// (4) : layout_left::mappingからの変換コンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map4_3x4</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3xN</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map4_3xN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map4_3x4</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map4_3x4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">map4_3xN</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// (5) : layout_right::mappingからの変換コンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Ext1D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../extents.html">std::dextents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../layout_right/mapping.html">std::layout_right::mapping</a></span><span class="o">&lt;</span><span class="n">Ext1D</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src5</span><span class="p">{</span><span class="n">Ext1D</span><span class="p">{</span><span class="mi">5</span><span class="p">}};</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext1D</span><span class="o">&gt;</span><span class="w">  </span><span class="n">dst5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src5</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// (6) : layout_stride::mappingからの変換コンストラクタ</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../../array/array.html">std::array</a></span><span class="w"> </span><span class="n">strides</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../layout_stride/mapping.html">std::layout_stride::mapping</a></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src6</span><span class="p">{{},</span><span class="w"> </span><span class="n">strides</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::layout_left::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span><span class="w">   </span><span class="n">dst6</span><span class="p">{</span><span class="n">src6</span><span class="p">};</span><span class="w">  </span><span class="c1">// (explicit)</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -415,7 +415,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

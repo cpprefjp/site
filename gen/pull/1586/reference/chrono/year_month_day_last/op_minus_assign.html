@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class year_month_day_last">year_month_day_last::</span><span class="token">operator-=</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n">year_month_day_last</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">-=</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../duration_aliases.html">months</a></span><span class="o">&amp;</span> <span class="n">m</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
-<span class="k">constexpr</span> <span class="n">year_month_day_last</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">-=</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../duration_aliases.html">years</a></span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (2) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n">year_month_day_last</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">-=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">months</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">year_month_day_last</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">-=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">years</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (2) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -252,20 +252,20 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="fa7171cdafb06a431264c5c51b5939d25a141bb4"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="fa7171cdafb06a431264c5c51b5939d25a141bb4"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day_last</span> <span class="n">date</span> <span class="o">=</span> <span class="n"><a href="../year/op_y.html">2021y</a></span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="n"><a href="../last_spec.html">chrono::last</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day_last</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../year/op_y.html">2021y</a></span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="n"><a href="../last_spec.html">chrono::last</a></span><span class="p">;</span>
 
-  <span class="n">date</span> <span class="o">-=</span> <span class="n"><a href="../duration_aliases.html">chrono::months</a></span><span class="p">{</span><span class="mi">1</span><span class="p">};</span> <span class="c1">// 1ヶ月戻す</span>
-  <span class="n">date</span> <span class="o">-=</span> <span class="n"><a href="../duration_aliases.html">chrono::years</a></span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>  <span class="c1">// 1年戻す</span>
+<span class="w">  </span><span class="n">date</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">chrono::months</a></span><span class="p">{</span><span class="mi">1</span><span class="p">};</span><span class="w"> </span><span class="c1">// 1ヶ月戻す</span>
+<span class="w">  </span><span class="n">date</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">chrono::years</a></span><span class="p">{</span><span class="mi">1</span><span class="p">};</span><span class="w">  </span><span class="c1">// 1年戻す</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../year_month_day.html">chrono::year_month_day</a></span><span class="p">{</span><span class="n">date</span><span class="p">}</span> <span class="o">==</span> <span class="n"><a href="../year/op_y.html">2020y</a></span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="mi">29</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../year_month_day.html">chrono::year_month_day</a></span><span class="p">{</span><span class="n">date</span><span class="p">}</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../year/op_y.html">2020y</a></span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="mi">29</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -303,7 +303,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -226,28 +226,28 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class atomic_ref">atomic_ref::</span><span class="token">compare_exchange_weak</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span>
-  <span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">expected</span><span class="p">,</span>
-                        <span class="n">T</span> <span class="n">desired</span><span class="p">,</span>
-                        <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">success</span><span class="p">,</span>
-                        <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">failure</span>
-                        <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>     <span class="c1">// (1) C++20</span>
-<span class="k">constexpr</span> <span class="kt">bool</span>
-  <span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;</span> <span class="n">expected</span><span class="p">,</span>
-                        <span class="n">value_type</span> <span class="n">desired</span><span class="p">,</span>
-                        <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">success</span><span class="p">,</span>
-                        <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">failure</span>
-                        <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>     <span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">T</span><span class="w"> </span><span class="n">desired</span><span class="p">,</span>
+<span class="w">                        </span><span class="n"><a href="../memory_order.html">memory_order</a></span><span class="w"> </span><span class="n">success</span><span class="p">,</span>
+<span class="w">                        </span><span class="n"><a href="../memory_order.html">memory_order</a></span><span class="w"> </span><span class="n">failure</span>
+<span class="w">                        </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">     </span><span class="c1">// (1) C++20</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span>
+<span class="w">  </span><span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">value_type</span><span class="w"> </span><span class="n">desired</span><span class="p">,</span>
+<span class="w">                        </span><span class="n"><a href="../memory_order.html">memory_order</a></span><span class="w"> </span><span class="n">success</span><span class="p">,</span>
+<span class="w">                        </span><span class="n"><a href="../memory_order.html">memory_order</a></span><span class="w"> </span><span class="n">failure</span>
+<span class="w">                        </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">     </span><span class="c1">// (1) C++26</span>
 
 <span class="kt">bool</span>
-  <span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">expected</span><span class="p">,</span>
-                        <span class="n">T</span> <span class="n">desired</span><span class="p">,</span>
-                        <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
-                        <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>     <span class="c1">// (2) C++20</span>
-<span class="k">constexpr</span> <span class="kt">bool</span>
-  <span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;</span> <span class="n">expected</span><span class="p">,</span>
-                        <span class="n">value_type</span> <span class="n">desired</span><span class="p">,</span>
-                        <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
-                        <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>     <span class="c1">// (2) C++26</span>
+<span class="w">  </span><span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">T</span><span class="w"> </span><span class="n">desired</span><span class="p">,</span>
+<span class="w">                        </span><span class="n"><a href="../memory_order.html">memory_order</a></span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
+<span class="w">                        </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">     </span><span class="c1">// (2) C++20</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span>
+<span class="w">  </span><span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">value_type</span><span class="w"> </span><span class="n">desired</span><span class="p">,</span>
+<span class="w">                        </span><span class="n"><a href="../memory_order.html">memory_order</a></span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
+<span class="w">                        </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">     </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -284,31 +284,31 @@
 <p>逆に言えば、そのような状況でないなら常にループで<code>compare_exchange_weak()</code>を利用すれば良い。</p>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="6369d3d3a2dfe3d2e9e66e56866644ae93e52d05"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6369d3d3a2dfe3d2e9e66e56866644ae93e52d05"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../atomic.html">&lt;atomic&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">{</span><span class="n">value</span><span class="p">};</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">{</span><span class="n">value</span><span class="p">};</span>
 
-    <span class="c1">// x == expectedなので、xは2に置き換えられる</span>
-    <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">compare_exchange_weak</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// x == expectedなので、xは2に置き換えられる</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">compare_exchange_weak</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">expected</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">{</span><span class="n">value</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">{</span><span class="n">value</span><span class="p">};</span>
 
-    <span class="c1">// x != expectedなので、expectedがxの値で置き換えられる</span>
-    <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">compare_exchange_weak</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// x != expectedなので、expectedがxの値で置き換えられる</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">compare_exchange_weak</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">expected</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -317,66 +317,66 @@
 false 3 3
 </code></pre></p>
 <h3>競合を回避しながら値を更新する例</h3>
-<p><div class="yata" id="767afe689fdb44e274c56c22515b93a2ab06bb0c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="767afe689fdb44e274c56c22515b93a2ab06bb0c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../atomic.html">&lt;atomic&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">my_integer</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">value_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">my_integer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// std::atomic_ref&lt;int&gt;::<a href="fetch_add.html">fetch_add</a>(1)相当</span>
-  <span class="kt">void</span> <span class="n">atomic_increment</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span><span class="p">{</span><span class="n">value_</span><span class="p">};</span>
-    <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n"><a href="load.html">r.load()</a></span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">desired</span><span class="p">;</span>
-    <span class="k">do</span> <span class="p">{</span>
-      <span class="n">desired</span> <span class="o">=</span> <span class="n">expected</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="c1">// 他のスレッドによってrの値が書き換わっている可能性があるため、</span>
-    <span class="c1">// r != expectedだったらexpected = rに更新する。</span>
-    <span class="c1">// r == expectedだったらその値に+1して値更新する。</span>
-    <span class="c1">// 変更前の値に依存して変更後の値が必要な場合に、このようなdo/whileループが必要となる</span>
-    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">r.compare_exchange_weak</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">desired</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// std::atomic_ref&lt;int&gt;::<a href="fetch_add.html">fetch_add</a>(1)相当</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">atomic_increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="p">{</span><span class="n">value_</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="load.html">r.load()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">desired</span><span class="p">;</span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">desired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 他のスレッドによってrの値が書き換わっている可能性があるため、</span>
+<span class="w">    </span><span class="c1">// r != expectedだったらexpected = rに更新する。</span>
+<span class="w">    </span><span class="c1">// r == expectedだったらその値に+1して値更新する。</span>
+<span class="w">    </span><span class="c1">// 変更前の値に依存して変更後の値が必要な場合に、このようなdo/whileループが必要となる</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">r.compare_exchange_weak</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="n">desired</span><span class="p">));</span>
 
-    <span class="c1">// 変更前の値に依存した値更新のパターンは、以下のようになる：</span>
-    <span class="c1">// expected = current.load();</span>
-    <span class="c1">// do {</span>
-    <span class="c1">//   desired = function(expected); // expectedに何らかの変換を行う</span>
-    <span class="c1">// }</span>
-    <span class="c1">// while (!current.compare_exchange_weak(expected, desired));</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 変更前の値に依存した値更新のパターンは、以下のようになる：</span>
+<span class="w">    </span><span class="c1">// expected = current.load();</span>
+<span class="w">    </span><span class="c1">// do {</span>
+<span class="w">    </span><span class="c1">//   desired = function(expected); // expectedに何らかの変換を行う</span>
+<span class="w">    </span><span class="c1">// }</span>
+<span class="w">    </span><span class="c1">// while (!current.compare_exchange_weak(expected, desired));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// アトミックな値の上書き</span>
-  <span class="kt">void</span> <span class="n">atomic_store</span><span class="p">(</span><span class="kt">int</span> <span class="n">new_value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span><span class="p">{</span><span class="n">value_</span><span class="p">};</span>
-    <span class="c1">// 変更前の値に依存しない場合は、Spurious Failureを回避するためのwhile文のみ必要となる</span>
-    <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n"><a href="load.html">r.load()</a></span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">r.compare_exchange_weak</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">new_value</span><span class="p">))</span> <span class="p">{}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// アトミックな値の上書き</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">atomic_store</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="p">{</span><span class="n">value_</span><span class="p">};</span>
+<span class="w">    </span><span class="c1">// 変更前の値に依存しない場合は、Spurious Failureを回避するためのwhile文のみ必要となる</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="load.html">r.load()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">r.compare_exchange_weak</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="n">new_value</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 非アトミックな値の取得</span>
-  <span class="kt">int</span> <span class="n">get</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 非アトミックな値の取得</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">my_integer</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">my_integer</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="c1">// 複数スレッドでインクリメントを呼んでも、</span>
-  <span class="c1">// 最終的に全てのインクリメントが処理された値になる</span>
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t1</span> <span class="p">{[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">x</span><span class="p">.</span><span class="n">atomic_increment</span><span class="p">();</span>
-  <span class="p">}};</span>
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t2</span> <span class="p">{[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]</span> <span class="p">{</span>
-    <span class="n">x</span><span class="p">.</span><span class="n">atomic_increment</span><span class="p">();</span>
-  <span class="p">}};</span>
+<span class="w">  </span><span class="c1">// 複数スレッドでインクリメントを呼んでも、</span>
+<span class="w">  </span><span class="c1">// 最終的に全てのインクリメントが処理された値になる</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">{[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="p">.</span><span class="n">atomic_increment</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}};</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">{[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="p">.</span><span class="n">atomic_increment</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}};</span>
 
-  <span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -422,7 +422,7 @@ false 3 3
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

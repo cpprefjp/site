@@ -223,15 +223,15 @@
 <h2>仕様</h2>
 <p><code>alignas()</code> は変数宣言やクラスのメンバ変数宣言に使用するか、構造体やクラスの宣言時に使用できる。</p>
 <p>変数やクラスのメンバ変数宣言時に使用した場合、宣言した変数をアライメントする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">alignas</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="kt">int</span> <span class="n">i</span><span class="p">;</span> <span class="c1">//32バイト境界にアライメントする</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">alignas</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">//32バイト境界にアライメントする</span>
 </code></pre></div>
 </p>
 <p>構造体やクラスの宣言時に使用した場合、その型のインスタンス全てをアライメントする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="nf">alignas</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="n">hoge</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">alignas</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="n">hoge</span><span class="w"> </span><span class="p">{</span>
 <span class="p">};</span>
 
-<span class="n">hoge</span> <span class="n">a</span><span class="p">;</span> <span class="c1">//32バイト境界にアライメントする</span>
-<span class="n">hoge</span> <span class="n">b</span><span class="p">;</span> <span class="c1">//32バイト境界にアライメントする</span>
+<span class="n">hoge</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">//32バイト境界にアライメントする</span>
+<span class="n">hoge</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">//32バイト境界にアライメントする</span>
 </code></pre></div>
 </p>
 <ul>
@@ -242,41 +242,41 @@
 <p><pre><code>error: requested alignment is not a positive power of 2
 </code></pre></p>
 <h2>例</h2>
-<p><div class="yata" id="0df60b01e84a6c1785bbecb03577fadea94a6f45"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0df60b01e84a6c1785bbecb03577fadea94a6f45"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">test</span> <span class="p">{</span>
-  <span class="k">alignas</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="kt">int</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i1_n</span><span class="p">;</span>
-  <span class="k">alignas</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="kt">int</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i2_n</span><span class="p">;</span>
-  <span class="k">alignas</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="kt">int</span> <span class="n">i4</span><span class="p">,</span> <span class="n">i4_n</span><span class="p">;</span>
-  <span class="k">alignas</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kt">int</span> <span class="n">i8</span><span class="p">,</span> <span class="n">i8_n</span><span class="p">;</span>
-  <span class="k">alignas</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="kt">int</span> <span class="n">i16</span><span class="p">,</span> <span class="n">i16_n</span><span class="p">;</span>
-  <span class="k">alignas</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">alignas</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="kt">int</span> <span class="n">i8_16</span><span class="p">,</span> <span class="n">i8_16_n</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">test</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">alignas</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">i1_n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">alignas</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i2</span><span class="p">,</span><span class="w"> </span><span class="n">i2_n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">alignas</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i4</span><span class="p">,</span><span class="w"> </span><span class="n">i4_n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">alignas</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i8</span><span class="p">,</span><span class="w"> </span><span class="n">i8_n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">alignas</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i16</span><span class="p">,</span><span class="w"> </span><span class="n">i16_n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">alignas</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="k">alignas</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i8_16</span><span class="p">,</span><span class="w"> </span><span class="n">i8_16_n</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">distance</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">//Zero is ill-formed in GCC 4.9.</span>
-  <span class="c1">//alignas(0) test a;</span>
+<span class="w">  </span><span class="c1">//Zero is ill-formed in GCC 4.9.</span>
+<span class="w">  </span><span class="c1">//alignas(0) test a;</span>
 
-  <span class="n">test</span> <span class="n">t</span><span class="p">;</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"alignas(1) int i1:   "</span> <span class="o">&lt;&lt;</span> <span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i1_n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"alignas(2) int i2:   "</span> <span class="o">&lt;&lt;</span> <span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i2_n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"alignas(4) int i4:   "</span> <span class="o">&lt;&lt;</span> <span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i4_n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"alignas(8) int i8:   "</span> <span class="o">&lt;&lt;</span> <span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i8_n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i8</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"alignas(16) int i16: "</span> <span class="o">&lt;&lt;</span> <span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i16_n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i16</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"alignas(1) int i1:   "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i1_n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"alignas(2) int i2:   "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i2_n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"alignas(4) int i4:   "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i4_n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i4</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"alignas(8) int i8:   "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i8_n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"alignas(16) int i16: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i16_n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i16</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"alignas(8) alignas(16) int i8_16: "</span> <span class="o">&lt;&lt;</span> 
-    <span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i8_16_n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i8_16</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"alignas(8) alignas(16) int i8_16: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">distance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i8_16_n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">i8_16</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -324,7 +324,7 @@ alignas(8) alignas(16) int i8_16: 16
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -222,82 +222,82 @@
 <p>これにより、範囲for文で使用するための変数を、範囲for文のスコープ外 (前) で宣言しなくてもよくなり、範囲for文用の変数のスコープを限定できるようになる。</p>
 <p>従来の範囲for文で記述していた以下のようなプログラムは、</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="n">T</span> <span class="n">thing</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">thing</span><span class="p">.</span><span class="n">items</span><span class="p">())</span> <span class="p">{</span>
-    <span class="c1">// 注: "for (auto&amp; x : f().items())" のように書いてはならない</span>
-    <span class="n">mutate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-    <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">thing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">thing</span><span class="p">.</span><span class="n">items</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 注: "for (auto&amp; x : f().items())" のように書いてはならない</span>
+<span class="w">    </span><span class="n">mutate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>C++20では、初期化式をともなう範囲for文を使用して、以下のように記述できる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">T thing = f();</span></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">thing</span><span class="p">.</span><span class="n">items</span><span class="p">())</span> <span class="p">{</span>
-  <span class="n">mutate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-  <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><span style="color:#ff0000">T thing = f();</span></span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">thing</span><span class="p">.</span><span class="n">items</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">mutate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>また同様に、範囲for文にインデックスを持たせる以下のようなプログラムは、</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">foo</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">foo</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>C++20では以下のように記述できる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">std::size_t i = 0;</span></span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">foo</span><span class="p">())</span> <span class="p">{</span>
-  <span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-  <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::size_t i = 0;</span></span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">foo</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>仕様</h2>
 <p>新たな範囲for文の構文は、以下の通り：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">init</span><span class="o">-</span><span class="nl">statement</span><span class="p">:</span>
-  <span class="n">expression</span><span class="o">-</span><span class="n">statement</span>
-  <span class="n">simple</span><span class="o">-</span><span class="n">declaration</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">init</span><span class="o">-</span><span class="n">statement</span><span class="o">:</span>
+<span class="w">  </span><span class="n">expression</span><span class="o">-</span><span class="n">statement</span>
+<span class="w">  </span><span class="n">simple</span><span class="o">-</span><span class="n">declaration</span>
 
-<span class="n">iteration</span><span class="o">-</span><span class="nl">statement</span><span class="p">:</span>
-  <span class="k">for</span> <span class="p">(</span> <span class="n">init</span><span class="o">-</span><span class="n">statement</span> <span class="n">opt</span> <span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="nl">declaration</span> <span class="p">:</span> <span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="n">initializer</span> <span class="p">)</span> <span class="n">statement</span>
+<span class="n">iteration</span><span class="o">-</span><span class="n">statement</span><span class="o">:</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">init</span><span class="o">-</span><span class="n">statement</span><span class="w"> </span><span class="n">opt</span><span class="w"> </span><span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="n">declaration</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="n">initializer</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">statement</span>
 </code></pre></div>
 </p>
 <p>この改定では、範囲for文に初期化式であるinit-statement (セミコロン含む) が省略可能として追加になる。</p>
 <p>範囲for文のfor文への展開は以下のようになる：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="n">init</span><span class="o">-</span><span class="n">statement</span> <span class="n">opt</span>
-  <span class="k">auto</span> <span class="o">&amp;&amp;</span><span class="n">__range</span> <span class="o">=</span> <span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="n">initializer</span> <span class="p">;</span>
-  <span class="k">auto</span> <span class="n">__begin</span> <span class="o">=</span> <span class="n">begin</span><span class="o">-</span><span class="n">expr</span> <span class="p">;</span>
-  <span class="k">auto</span> <span class="n">__end</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">expr</span> <span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">__begin</span> <span class="o">!=</span> <span class="n">__end</span><span class="p">;</span> <span class="o">++</span><span class="n">__begin</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="n">declaration</span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
-    <span class="n">statement</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">init</span><span class="o">-</span><span class="n">statement</span><span class="w"> </span><span class="n">opt</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">__range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="n">initializer</span><span class="w"> </span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">__begin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">begin</span><span class="o">-</span><span class="n">expr</span><span class="w"> </span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">__end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end</span><span class="o">-</span><span class="n">expr</span><span class="w"> </span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">__begin</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">__end</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">__begin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="n">declaration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
+<span class="w">    </span><span class="n">statement</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="200eabffb748334f056f9a535b97aab6f24b337f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="200eabffb748334f056f9a535b97aab6f24b337f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">data_</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">items</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data_</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">items</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">data_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n">X</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">X</span><span class="p">{};</span> <span class="p">}</span>
+<span class="n">X</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">X</span><span class="p">{};</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">auto thing = foo();</span></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">thing</span><span class="p">.</span><span class="n">items</span><span class="p">())</span> <span class="p">{</span>
-    <span class="c1">// 要素を書き換えた結果を使ってなにかする</span>
-    <span class="o">++</span><span class="n">x</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><span style="color:#ff0000">auto thing = foo();</span></span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">thing</span><span class="p">.</span><span class="n">items</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 要素を書き換えた結果を使ってなにかする</span>
+<span class="w">    </span><span class="o">++</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -332,7 +332,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

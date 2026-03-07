@@ -223,37 +223,37 @@
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// large_features.h</span>
 
 <span class="c1">// インスタンス化すると巨大なサイズになるクラス・関数</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">large_class</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">large_class</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">large_function</span><span class="p">()</span> <span class="p">{}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">large_function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// user1.cpp</span>
-<span class="cp">#include</span> <span class="cpf">"large_features.h"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"large_features.h"</span>
 
-<span class="kt">void</span> <span class="nf">user1</span><span class="p">()</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">user1</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// large_class&lt;int&gt;とlarge_function&lt;int&gt;()を</span>
-  <span class="c1">// インスタンス化して使用する</span>
-  <span class="n">large_class</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n">large_function</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// large_class&lt;int&gt;とlarge_function&lt;int&gt;()を</span>
+<span class="w">  </span><span class="c1">// インスタンス化して使用する</span>
+<span class="w">  </span><span class="n">large_class</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">large_function</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// user2.cpp</span>
-<span class="cp">#include</span> <span class="cpf">"large_features.h"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"large_features.h"</span>
 
 <span class="c1">// この翻訳単位では、large_class&lt;int&gt;とlarge_function&lt;int&gt;()を</span>
 <span class="c1">// インスタンス化しない</span>
-<span class="k">extern</span> <span class="k">template</span> <span class="k">class</span> <span class="nc">large_class</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">extern</span> <span class="k">template</span> <span class="n">large_function</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">extern</span><span class="w"> </span><span class="k">template</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">large_class</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">extern</span><span class="w"> </span><span class="k">template</span><span class="w"> </span><span class="n">large_function</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
 
-<span class="kt">void</span> <span class="nf">user2</span><span class="p">()</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">user2</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">large_class</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n">large_function</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">large_class</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">large_function</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -284,7 +284,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

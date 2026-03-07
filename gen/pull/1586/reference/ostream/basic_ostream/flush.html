@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ostream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_ostream">basic_ostream::</span><span class="token">flush</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">flush</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">flush</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -243,12 +243,12 @@
 <h2>備考</h2>
 <p>本関数は、直接呼ぶのではなく、同名のマニピュレータ <code><a href="../flush.html">flush</a></code>、あるいは改行を伴うマニピュレータ <code><a href="../endl.html">endl</a></code> から間接的に呼び出されるのが一般的である。</p>
 <h2>例</h2>
-<p><div class="yata" id="f622af92845a5db5043fefda0bfea45146399b3e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f622af92845a5db5043fefda0bfea45146399b3e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"cpprefjp"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><span style="color:#ff0000">flush()</span></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"cpprefjp"</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"cpprefjp"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><span style="color:#ff0000">flush()</span></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"cpprefjp"</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -256,25 +256,25 @@
 <p><pre><code>cpprefjpcpprefjp
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
-<span class="n"><a href="../basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n"><a href="../basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;::</span><span class="n">flush</span><span class="p">()</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Traits</span><span class="o">&gt;</span>
+<span class="n"><a href="../basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n"><a href="../basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="o">&gt;::</span><span class="n">flush</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">())</span> <span class="p">{</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="n"><a href="sentry.html">sentry</a></span> <span class="n">s</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">()</span><span class="o">-&gt;</span><span class="n"><a href="../../streambuf/basic_streambuf/pubsync.html">pubsync</a></span><span class="p">()</span> <span class="o">==</span> <span class="n">pos_type</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
-          <span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/setstate.html">setstate</a></span><span class="p">(</span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
-      <span class="c1">// ここで、本ストリームの状態に <a href="../../ios/ios_base.html">ios_base</a>::<a href="../../ios/ios_base/type-iostate.html">badbit</a> を設定する（例外は投げない）</span>
-      <span class="k">if</span> <span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/exceptions.html">exceptions</a></span><span class="p">()</span> <span class="o">&amp;</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">throw</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="sentry.html">sentry</a></span><span class="w"> </span><span class="nf">s</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">()</span><span class="o">-&gt;</span><span class="n"><a href="../../streambuf/basic_streambuf/pubsync.html">pubsync</a></span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">pos_type</span><span class="p">(</span><span class="mi">-1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/setstate.html">setstate</a></span><span class="p">(</span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// ここで、本ストリームの状態に <a href="../../ios/ios_base.html">ios_base</a>::<a href="../../ios/ios_base/type-iostate.html">badbit</a> を設定する（例外は投げない）</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="../../ios/basic_ios/exceptions.html">exceptions</a></span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -304,7 +304,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

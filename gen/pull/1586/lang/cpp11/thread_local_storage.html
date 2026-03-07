@@ -222,21 +222,21 @@
 <p>変数宣言の際に、記憶域として<code>thread_local</code>キーワードを指定することで、スレッドごとの静的記憶域に変数が保持される。</p>
 <p><code>static</code>キーワードを記憶域として使用した変数は、プログラムを通してひとつの状態を持ち、プログラム終了時に変数が破棄される。<code>thread_local</code>キーワードの場合はスレッドごとに状態を持ち、スレッド終了時に変数が破棄される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// スレッドごとに、0から始まるIDを生成して返す関数</span>
-<span class="kt">int</span> <span class="nf">create_id</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">create_id</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="">thread_local</a></span> <span class="kt">int</span> <span class="n">current_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">current_id</span><span class="o">++</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="">thread_local</a></span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">current_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">current_id</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// 2つのスレッドそれぞれで、IDが0から始まる</span>
-<span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">t1</span><span class="p">([]{</span>
-  <span class="kt">int</span> <span class="n">id1</span> <span class="o">=</span> <span class="n">create_id</span><span class="p">();</span> <span class="c1">// id1 == 0</span>
-  <span class="kt">int</span> <span class="n">id2</span> <span class="o">=</span> <span class="n">create_id</span><span class="p">();</span> <span class="c1">// id2 == 1</span>
+<span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="nf">t1</span><span class="p">([]{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_id</span><span class="p">();</span><span class="w"> </span><span class="c1">// id1 == 0</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_id</span><span class="p">();</span><span class="w"> </span><span class="c1">// id2 == 1</span>
 <span class="p">});</span>
 
-<span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">t2</span><span class="p">([]{</span>
-  <span class="kt">int</span> <span class="n">id1</span> <span class="o">=</span> <span class="n">create_id</span><span class="p">();</span> <span class="c1">// id1 == 0</span>
-  <span class="kt">int</span> <span class="n">id2</span> <span class="o">=</span> <span class="n">create_id</span><span class="p">();</span> <span class="c1">// id2 == 1</span>
+<span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="nf">t2</span><span class="p">([]{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_id</span><span class="p">();</span><span class="w"> </span><span class="c1">// id1 == 0</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_id</span><span class="p">();</span><span class="w"> </span><span class="c1">// id2 == 1</span>
 <span class="p">});</span>
 
 <span class="n"><a href="../../reference/thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
@@ -252,39 +252,39 @@
 <li>プログラム終了時の動作は、<code><a href="../../reference/cstdlib/exit.html">std::exit()</a></code>関数と<code><a href="../../reference/cstdlib/quick_exit.html">std::quick_exit()</a></code>関数のページを参照。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="2a4599bfd3c0907e015d1b59d19a455faf2a9777"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/random.html">&lt;random&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="2a4599bfd3c0907e015d1b59d19a455faf2a9777"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../reference/random.html">&lt;random&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span>
 
 <span class="c1">// 範囲[min_inclusive, max_inclusive]でランダム一様分布する整数を生成する。</span>
 <span class="c1">// スレッドごとに乱数の状態を持つ。</span>
-<span class="kt">int</span> <span class="nf">random_range</span><span class="p">(</span><span class="kt">int</span> <span class="n">min_inclusive</span><span class="p">,</span> <span class="kt">int</span> <span class="n">max_inclusive</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">random_range</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">min_inclusive</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">max_inclusive</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/random/random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
-  <span class="n"><span style="color:#ff0000">thread_local</span></span> <span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
-  <span class="n"><a href="../../reference/random/uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">min_inclusive</span><span class="p">,</span> <span class="n">max_inclusive</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/random/random_device.html">std::random_device</a></span><span class="w"> </span><span class="n">seed_gen</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seed_gen</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">thread_local</span></span><span class="w"> </span><span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span><span class="w"> </span><span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/random/uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="n">min_inclusive</span><span class="p">,</span><span class="w"> </span><span class="n">max_inclusive</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 複数のスレッドから並行にrandom_range()関数を呼び出せる</span>
-  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">([]{</span>
-    <span class="kt">int</span> <span class="n">random_value</span> <span class="o">=</span> <span class="n">random_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 複数のスレッドから並行にrandom_range()関数を呼び出せる</span>
+<span class="w">  </span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t1</span><span class="p">([]{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">random_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
 
-    <span class="c1">// ※coutに対する一度の書き込みはスレッドセーフであるため、3つの書き込みを1つに統合。</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"thread1 : "</span> <span class="o">+</span> <span class="n"><a href="../../reference/string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">random_value</span><span class="p">)</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">});</span>
+<span class="w">    </span><span class="c1">// ※coutに対する一度の書き込みはスレッドセーフであるため、3つの書き込みを1つに統合。</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"thread1 : "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../reference/string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">random_value</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
 
-  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="n">t2</span><span class="p">([]{</span>
-    <span class="kt">int</span> <span class="n">random_value</span> <span class="o">=</span> <span class="n">random_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"thread2 : "</span> <span class="o">+</span> <span class="n"><a href="../../reference/string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">random_value</span><span class="p">)</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t2</span><span class="p">([]{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">random_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"thread2 : "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../reference/string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">random_value</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
 
-  <span class="n"><a href="../../reference/thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../reference/thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -369,7 +369,7 @@ thread2 : 4
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

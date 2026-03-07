@@ -219,18 +219,18 @@
 <p></p>
 <h2>概要</h2>
 <p>C++26では、カンマ後ではない「<code>...</code>」の使用を非推奨化する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">a</span><span class="p">(</span><span class="n">Ts</span><span class="p">...);</span>       <span class="c1">// OK, 関数テンプレートのパラメータパック</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">Ts</span><span class="p">...);</span><span class="w">       </span><span class="c1">// OK, 関数テンプレートのパラメータパック</span>
 
-<span class="kt">void</span> <span class="nf">b</span><span class="p">(</span><span class="k">auto</span><span class="p">...);</span>     <span class="c1">// OK, 関数テンプレートのパラメータパック</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="k">auto</span><span class="p">...);</span><span class="w">     </span><span class="c1">// OK, 関数テンプレートのパラメータパック</span>
 
-<span class="kt">void</span> <span class="nf">c</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="p">...);</span>    <span class="c1">// OK, Cとの互換性もある</span>
-<span class="kt">void</span> <span class="nf">d</span><span class="p">(...);</span>         <span class="c1">// OK, Cとの互換性もある</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w">    </span><span class="c1">// OK, Cとの互換性もある</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">d</span><span class="p">(...);</span><span class="w">         </span><span class="c1">// OK, Cとの互換性もある</span>
 
-<span class="kt">void</span> <span class="nf">e</span><span class="p">(</span><span class="kt">int</span><span class="p">...);</span>      <span class="c1">// C++23:OK, C++26:非推奨, C17:不適格</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">...);</span>    <span class="c1">// C++23:OK, C++26:非推奨, C17:不適格</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">e</span><span class="p">(</span><span class="kt">int</span><span class="p">...);</span><span class="w">      </span><span class="c1">// C++23:OK, C++26:非推奨, C17:不適格</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">...);</span><span class="w">    </span><span class="c1">// C++23:OK, C++26:非推奨, C17:不適格</span>
 
-<span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span> <span class="c1">// 不適格、あいまい</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w"> </span><span class="c1">// 不適格、あいまい</span>
 </code></pre></div>
 </p>
 <p>この構文は、C言語 (C89) の互換性としてC++98で導入されたが、C17では<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となっている。C言語との互換性としてこの構文を維持する必要がなくなったため、非推奨となった。</p>
@@ -255,7 +255,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

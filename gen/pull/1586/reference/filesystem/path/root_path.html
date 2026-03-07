@@ -225,29 +225,29 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="class" title="class path">path::</span><span class="token">root_path</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">path</span> <span class="nf">root_path</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">path</span><span class="w"> </span><span class="nf">root_path</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>パスが保持しているルートパスを取得する。</p>
 <p>ルートパスは、ルート名とディレクトリ区切り文字を合わせた文字列である。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n"><a href="root_name.html">root_name()</a></span> <span class="o">/</span> <span class="n"><a href="root_directory.html">root_directory()</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="root_name.html">root_name()</a></span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n"><a href="root_directory.html">root_directory()</a></span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
 <h3>POSIXベースシステムでの例</h3>
-<p><div class="yata" id="862866023a5a6a043dc7f643c98123812fd3fdf6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="862866023a5a6a043dc7f643c98123812fd3fdf6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../filesystem.html">&lt;filesystem&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p</span> <span class="o">=</span> <span class="s">"/usr/bin/clang"</span><span class="p">;</span>
-  <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">root_p</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">root_path()</span></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"/usr/bin/clang"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">root_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">root_path()</span></span><span class="p">;</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">root_p</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">root_p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -255,17 +255,17 @@
 <p><pre><code>"/"
 </code></pre></p>
 <h3>Windowsでの例</h3>
-<p><div class="yata" id="200dba771c3997350066d877a66d7b780b845fa2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="200dba771c3997350066d877a66d7b780b845fa2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../filesystem.html">&lt;filesystem&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">p</span> <span class="o">=</span> <span class="s">"C:/Program Files/a.txt"</span><span class="p">;</span>
-  <span class="n"><a href="../path.html">fs::path</a></span> <span class="n">root_p</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">root_path()</span></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"C:/Program Files/a.txt"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../path.html">fs::path</a></span><span class="w"> </span><span class="n">root_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">root_path()</span></span><span class="p">;</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">root_p</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">root_p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -300,7 +300,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,36 +225,36 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class chunk_view">chunk_view::</span><span class="token">size</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="k">auto</span> <span class="nf">size</span><span class="p">()</span> <span class="n">requires</span> <span class="n"><a href="../sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">;</span>             <span class="c1">// (1) C++23</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">;</span><span class="w">             </span><span class="c1">// (1) C++23</span>
 
-<span class="k">constexpr</span> <span class="k">auto</span> <span class="nf">size</span><span class="p">()</span> <span class="k">const</span> <span class="n">requires</span> <span class="n"><a href="../sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">V</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (2) C++23</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++23</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>要素数（チャンク数）を取得する。</p>
 <h2>効果</h2>
 <p>以下と等価：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf"><i>to-unsigned-like</i></span><span class="p">(</span><span class="n"><i>div-ceil</i></span><span class="p">(</span><span class="n"><a href="../../iterator/ranges_distance.html">ranges::distance</a></span><span class="p">(</span><span class="n">base_</span><span class="p">),</span> <span class="n">n_</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><i>to-unsigned-like</i></span><span class="p">(</span><span class="n"><i>div-ceil</i></span><span class="p">(</span><span class="n"><a href="../../iterator/ranges_distance.html">ranges::distance</a></span><span class="p">(</span><span class="n">base_</span><span class="p">),</span><span class="w"> </span><span class="n">n_</span><span class="p">));</span>
 </code></pre></div>
 </p>
 <p>ここで、<code>to-unsigned-like</code>は説明専用の関数であり、整数型を対応する符号なし整数型に変換する。<code>div-ceil(x, y)</code>は<code>x</code>を<code>y</code>で割った切り上げを計算する説明専用の関数である。</p>
 <h2>備考</h2>
 <p>元のRangeの要素数を<code>n</code>で割った切り上げがチャンク数となる。</p>
 <h2>例</h2>
-<p><div class="yata" id="025f3d1fcca9e8c22aaac70372cec3e05b71f039"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="025f3d1fcca9e8c22aaac70372cec3e05b71f039"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span>
 
-  <span class="c1">// 3要素ずつのチャンクに分割</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">chunk_view</span> <span class="n">cv1</span><span class="p">{</span><span class="n">v</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"chunk_view(8 elements, chunk <span style="color:#ff0000">size</span> 3): "</span> <span class="o">&lt;&lt;</span> <span class="n">cv1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">size</span></span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" chunks"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 3要素ずつのチャンクに分割</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">chunk_view</span><span class="w"> </span><span class="n">cv1</span><span class="p">{</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"chunk_view(8 elements, chunk <span style="color:#ff0000">size</span> 3): "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cv1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">size</span></span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" chunks"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 5要素ずつのチャンクに分割</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">chunk_view</span> <span class="n">cv2</span><span class="p">{</span><span class="n">v</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"chunk_view(8 elements, chunk <span style="color:#ff0000">size</span> 5): "</span> <span class="o">&lt;&lt;</span> <span class="n">cv2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">size</span></span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" chunks"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 5要素ずつのチャンクに分割</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">chunk_view</span><span class="w"> </span><span class="n">cv2</span><span class="p">{</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"chunk_view(8 elements, chunk <span style="color:#ff0000">size</span> 5): "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cv2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">size</span></span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" chunks"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -294,7 +294,7 @@ chunk_view(8 elements, chunk size 5): 2 chunks
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

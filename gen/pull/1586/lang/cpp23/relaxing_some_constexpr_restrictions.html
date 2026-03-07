@@ -223,9 +223,9 @@
 <h2>この機能が必要になった背景・経緯</h2>
 <p>これまでは、いかなる実引数での呼び出しでも定数式実行できない<code>constexpr</code>関数が存在するだけでプログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>になっていた。</p>
 <p>例えば以下のような場合である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span> <span class="c1">// error! fはいかなるxについても定数式実行不可能</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// error! fはいかなるxについても定数式実行不可能</span>
 </code></pre></div>
 </p>
 <p><code>g</code>は<code>constexpr</code>でない関数<code>f</code>を呼び出すため、プログラムの中で実際に<code>g</code>が定数式実行されない場合であっても、このコードは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。
@@ -234,10 +234,10 @@
 <p>例えば、<code>std::optional</code>の<code>reset</code>メンバメソッドが<code>constexpr</code>に対応するのはC++23以降である。
 これは<code>std::optional</code>の内部実装が<code>union</code>のアクティブメンバを更新しているからであり、これを定数式内で実行するにはC++20を待たねばならなかった（参考：<a href="../cpp20/changing_the_active_member_of_a_union_inside_constexpr.html">定数式内での共用体のアクティブメンバの変更を許可</a>）。</p>
 <p>よって、以下のコードはC++17では<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>だが、C++23では正しいコードとなる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../../reference/optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">opt</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../../reference/optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">opt</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">opt</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+<span class="w">  </span><span class="n">opt</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -249,21 +249,21 @@
 <span class="cp">#  define MYLIB_CXX23_CONSTEXPR</span>
 <span class="cp">#endif</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">MYLIB_CXX23_CONSTEXPR</span> <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../../reference/optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">opt</span><span class="p">)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">MYLIB_CXX23_CONSTEXPR</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../../reference/optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">opt</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">opt</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+<span class="w">  </span><span class="n">opt</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>あるいはより細かく指定するためにそれぞれの機能テストマクロを使うしかなかった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 <span class="cp">#if __cpp_lib_optional &gt;= 202106</span>
 <span class="k">constexpr</span>
 <span class="cp">#endif</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../../reference/optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">opt</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../../reference/optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">opt</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">opt</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+<span class="w">  </span><span class="n">opt</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -323,7 +323,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

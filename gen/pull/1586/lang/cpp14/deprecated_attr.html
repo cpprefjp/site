@@ -223,13 +223,13 @@
 <p>「この古いAPIは互換性のために残しているが、将来のバージョンでは削除される可能性がある。削除される前に、新しいAPIを使用するようにユーザーコードを修正してほしい」</p>
 <p>このようなアナウンスは、リリースノートやAPI個別のドキュメントに記載されることが多いが、この方法ではユーザーに気づかれにくい。古いAPIを使用したときに、コンパイラに警告を表示させ、ユーザーに確実に非推奨の情報を伝えたい場合に、この<code>[[deprecated]]</code>属性を使用する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_func() function"</span><span class="p">)]]</span>
-<span class="kt">void</span> <span class="n">old_func</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">old_func</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">void</span> <span class="n">new_func</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">new_func</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">old_func</span><span class="p">();</span> <span class="c1">// warning: 'void old_func()' is deprecated: please use new_func() function</span>
+<span class="w">  </span><span class="n">old_func</span><span class="p">();</span><span class="w"> </span><span class="c1">// warning: 'void old_func()' is deprecated: please use new_func() function</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -259,50 +259,50 @@
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="cdd7ae60279ad5dbbd8ec372b156674cb692fc93"><div class="codehilite"><pre><span></span><code><span class="c1">// 非推奨なクラス</span>
-<span class="k">class</span> <span class="err">[[</span><span class="nc">deprecated</span><span class="p">(</span><span class="s">"please use new_class class"</span><span class="p">)]]</span> <span class="n">old_class</span> <span class="p">{};</span>
+<span class="k">class</span><span class="w"> </span><span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_class class"</span><span class="p">)]]</span><span class="w"> </span><span class="n">old_class</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="c1">// 非推奨な型の別名</span>
-<span class="k">using</span> <span class="n">old_type</span> <span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_type type"</span><span class="p">)]]</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">old_type</span><span class="w"> </span><span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_type type"</span><span class="p">)]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 
 <span class="c1">// 非推奨な変数</span>
 <span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_variable variable"</span><span class="p">)]]</span>
-<span class="kt">int</span> <span class="n">old_variable</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">old_variable</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="c1">// 非推奨な非静的メンバ変数</span>
-  <span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_member_variable"</span><span class="p">)]]</span>
-  <span class="kt">int</span> <span class="n">old_member_variable</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 非推奨な非静的メンバ変数</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_member_variable"</span><span class="p">)]]</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">old_member_variable</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// 非推奨な関数</span>
 <span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_func() function"</span><span class="p">)]]</span>
-<span class="kt">void</span> <span class="n">old_func</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">old_func</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="c1">// 非推奨な列挙型</span>
-<span class="k">enum</span> <span class="k">class</span> <span class="err">[[</span><span class="nc">deprecated</span><span class="p">(</span><span class="s">"please use new_enum"</span><span class="p">)]]</span> <span class="n">old_enum</span> <span class="p">{};</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"please use new_enum"</span><span class="p">)]]</span><span class="w"> </span><span class="n">old_enum</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">class_templ</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">class_templ</span><span class="p">;</span>
 
 <span class="c1">// 非推奨なテンプレートの特殊化</span>
-<span class="k">template</span> <span class="o">&lt;&gt;</span>
-<span class="k">class</span> <span class="err">[[</span><span class="nc">deprecated</span><span class="p">(</span><span class="s">"don't use class_templ&lt;int&gt; specialization"</span><span class="p">)]]</span> <span class="n">class_templ</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"don't use class_templ&lt;int&gt; specialization"</span><span class="p">)]]</span><span class="w"> </span><span class="n">class_templ</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">old_class</span> <span class="n">c</span><span class="p">;</span>
-  <span class="n">old_type</span> <span class="n">t</span><span class="p">;</span>
+<span class="w">  </span><span class="n">old_class</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="n">old_type</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 
-  <span class="n">old_variable</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">old_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-  <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n">x</span><span class="p">.</span><span class="n">old_member_variable</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">x</span><span class="p">.</span><span class="n">old_member_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-  <span class="n">old_func</span><span class="p">();</span>
+<span class="w">  </span><span class="n">old_func</span><span class="p">();</span>
 
-  <span class="n">old_enum</span> <span class="n">e</span><span class="p">;</span>
+<span class="w">  </span><span class="n">old_enum</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
 
-  <span class="n">class_templ</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ct</span><span class="p">;</span>
+<span class="w">  </span><span class="n">class_templ</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ct</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -373,7 +373,7 @@ prog.cc:45:3: warning: 'class_templ&lt;int&gt;' is deprecated: don't use class_t
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

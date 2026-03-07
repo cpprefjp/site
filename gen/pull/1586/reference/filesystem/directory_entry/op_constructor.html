@@ -225,11 +225,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="class" title="class directory_entry">directory_entry::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">directory_entry</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>                  <span class="c1">// (1)</span>
-<span class="n">directory_entry</span><span class="p">(</span><span class="k">const</span> <span class="n">directory_entry</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>     <span class="c1">// (2)</span>
-<span class="n">directory_entry</span><span class="p">(</span><span class="n">directory_entry</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span> <span class="c1">// (3)</span>
-<span class="k">explicit</span> <span class="nf">directory_entry</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>               <span class="c1">// (4)</span>
-<span class="n">directory_entry</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span><span class="p">);</span>   <span class="c1">// (5)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">directory_entry</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">                  </span><span class="c1">// (1)</span>
+<span class="n">directory_entry</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">directory_entry</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">     </span><span class="c1">// (2)</span>
+<span class="n">directory_entry</span><span class="p">(</span><span class="n">directory_entry</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3)</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">directory_entry</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">               </span><span class="c1">// (4)</span>
+<span class="n">directory_entry</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span><span class="w">   </span><span class="c1">// (5)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -251,19 +251,19 @@
 <li>(4) : ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、<code><a href="../filesystem_error.html">std::filesystem::filesystem_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="3a88d66a1b954e7ce989748660d0d99d04789c5c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3a88d66a1b954e7ce989748660d0d99d04789c5c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../filesystem.html">&lt;filesystem&gt;</a></span>
+<span class="cp">#include <a href="../../fstream.html">&lt;fstream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"dir/a.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"dir/a.txt"</span><span class="p">};</span>
 
-  <span class="n">fs</span><span class="o">::</span><span class="n">directory_entry</span> <span class="n">x</span><span class="p">{</span><span class="s">"dir/a.txt"</span><span class="p">};</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="path.html">x.path()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">fs</span><span class="o">::</span><span class="n">directory_entry</span><span class="w"> </span><span class="n">x</span><span class="p">{</span><span class="s">"dir/a.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="path.html">x.path()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -298,7 +298,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

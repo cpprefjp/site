@@ -225,11 +225,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;expected&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class expected">expected::</span><span class="token">emplace</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1)</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">emplace</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">emplace</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">il</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -253,62 +253,62 @@
 <li>
 <p>(1) : 次の処理と等価
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n"><a href="has_value.html">has_value</a></span><span class="p">())</span> <span class="p">{</span>
-  <span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">unex</span><span class="p">));</span>
-  <span class="n">has_val</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="has_value.html">has_value</a></span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">unex</span><span class="p">));</span>
+<span class="w">  </span><span class="n">has_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">return</span> <span class="o">*</span><span class="n"><a href="../../memory/construct_at.html">construct_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n"><a href="../../memory/construct_at.html">construct_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(2) : 次の処理と等価
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n"><a href="has_value.html">has_value</a></span><span class="p">())</span> <span class="p">{</span>
-  <span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">unex</span><span class="p">));</span>
-  <span class="n">has_val</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="has_value.html">has_value</a></span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">unex</span><span class="p">));</span>
+<span class="w">  </span><span class="n">has_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">return</span> <span class="o">*</span><span class="n"><a href="../../memory/construct_at.html">construct_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">il</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n"><a href="../../memory/construct_at.html">construct_at</a></span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">il</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 </code></pre></div>
 </p>
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="c2beae86466ef43db66e7837c8f40497fec0273a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../expected.html">&lt;expected&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c2beae86466ef43db66e7837c8f40497fec0273a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../expected.html">&lt;expected&gt;</a></span>
+<span class="cp">#include <a href="../../numeric.html">&lt;numeric&gt;</a></span>
 
 <span class="c1">// 引数リスト または 初期化子リスト＋引数リスト から例外送出なしに構築可能な型</span>
-<span class="k">struct</span> <span class="n">ComplexType</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ComplexType</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-  <span class="n">ComplexType</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="k">noexcept</span>
-    <span class="o">:</span> <span class="n">result</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="n">ComplexType</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">,</span> <span class="kt">int</span> <span class="n">init</span><span class="p">)</span> <span class="k">noexcept</span>
-    <span class="o">:</span> <span class="n">result</span><span class="p">(</span><span class="n"><a href="../../numeric/accumulate.html">std::accumulate</a></span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">list</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">init</span><span class="p">))</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">ComplexType</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="n">ComplexType</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="p">(</span><span class="n"><a href="../../numeric/accumulate.html">std::accumulate</a></span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">init</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="n">ComplexType</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../unexpected.html">std::unexpected</a></span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-    <span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">.</span><span class="n">result</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="n">ComplexType</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../unexpected.html">std::unexpected</a></span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">.</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="n">ComplexType</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../unexpected.html">std::unexpected</a></span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-    <span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="mi">5</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">.</span><span class="n">result</span> <span class="o">==</span> <span class="mi">15</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../expected.html">std::expected</a></span><span class="o">&lt;</span><span class="n">ComplexType</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../unexpected.html">std::unexpected</a></span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">.</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -347,7 +347,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

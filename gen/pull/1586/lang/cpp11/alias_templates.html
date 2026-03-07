@@ -220,36 +220,36 @@
 <h2>概要</h2>
 <p>「エイリアステンプレート (alias templates)」は、テンプレートによって型の別名を定義する機能である。これによって、パラメータ化した型の別名付けができる。</p>
 <p>エイリアステンプレートによる型の別名付けには、<code>typedef</code>キーワードではなく<code>using</code>キーワードを使用する：</p>
-<p><div class="yata" id="65c48231715cd01db94e79c5f41a2b8f353c0314"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="65c48231715cd01db94e79c5f41a2b8f353c0314"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
 
 <span class="c1">// 型<a href="../../reference/vector/vector.html">std::vector</a>に別名Vecを付ける。</span>
 <span class="c1">// 要素型Tはパラメータ化する</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">Vec</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 要素型を渡して<a href="../../reference/vector/vector.html">std::vector</a>型の別名を使用する</span>
-  <span class="n">Vec</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/vector/vector/push_back.html">v.push_back</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../../reference/vector/vector/push_back.html">v.push_back</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../../reference/vector/vector/push_back.html">v.push_back</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 要素型を渡して<a href="../../reference/vector/vector.html">std::vector</a>型の別名を使用する</span>
+<span class="w">  </span><span class="n">Vec</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector/push_back.html">v.push_back</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector/push_back.html">v.push_back</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector/push_back.html">v.push_back</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p><code>using</code>キーワードによる型の別名付けは、非テンプレートに対しても使用できる。この機能を「エイリアス宣言 (alias declaration)」という：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">// int型にIntegerという別名を付ける</span>
-<span class="k">using</span> <span class="n">Integer</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 
 <span class="c1">// int型を2つパラメータとしてとり、int型を返す関数ポインタに、</span>
 <span class="c1">// FunctionPointerという名前を付ける</span>
-<span class="k">using</span> <span class="n">FunctionPointer</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+<span class="k">using</span><span class="w"> </span><span class="n">FunctionPointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
 
 <span class="c1">// decltypeと組み合わせることで、</span>
 <span class="c1">// 特定関数への関数ポインタの型をより簡単に取得できる</span>
-<span class="k">using</span> <span class="n">FunctionPointerByDecltype</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
+<span class="k">using</span><span class="w"> </span><span class="n">FunctionPointerByDecltype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>仕様</h2>
@@ -257,14 +257,14 @@
 <li>テンプレートによる型の別名付けは、<code>using</code>キーワードによるもののみを許可し、<code>typedef</code>キーワードに対しては許可しない</li>
 <li>
 <p>エイリアステンプレートによって付けられた型の別名と元の型は等価と見なされ、それらの間で<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>はできない</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">Vec</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vec</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// コンパイルエラー！再定義と見なされる</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// コンパイルエラー！再定義と見なされる</span>
 </code></pre></div>
 </p>
 </li>
@@ -274,26 +274,26 @@
 </ul>
 <h2>この機能が必要になった背景・経緯</h2>
 <p>エイリアステンプレートがなかったころは、パラメータ化した型の別名付けとして、クラステンプレートを使用していた：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Vec</span> <span class="p">{</span>
-  <span class="k">typedef</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">type</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Vec</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">Vec</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span> <span class="n">v</span><span class="p">;</span>
+<span class="n">Vec</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
 <span class="n"><a href="../../reference/vector/vector/push_back.html">v.push_back</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>このような回避策は標準ライブラリでも、<code>std::allocator</code>クラスの<code>rebind</code>で使用されている。<code>T</code>型のメモリアロケータを使用している状況でほかの型をアロケートする必要ができた際には、<code>U</code>型をアロケートする<code>std::allocator</code>型を取得する機能が必要とされる。そのような状況のために用意されている<code>rebind</code>は、以下のように定義される：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">allocator</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">rebind</span> <span class="p">{</span> <span class="k">typedef</span> <span class="n">allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">other</span><span class="p">;</span> <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">allocator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">rebind</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">other</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 <span class="p">};</span>
 
-<span class="k">typedef</span> <span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">void_alloc</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">void_alloc</span><span class="p">;</span>
 
 <span class="c1">// int型をアロケートするallocator型を取得</span>
-<span class="k">typedef</span> <span class="n">void_alloc</span><span class="o">::</span><span class="n">rebind</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">other</span> <span class="n">int_alloc</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">void_alloc</span><span class="o">::</span><span class="n">rebind</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">other</span><span class="w"> </span><span class="n">int_alloc</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>前述した例での<code>::type</code>や、アロケータの例での<code>other</code>は冗長であり、必要とされることが多いこの機能には言語サポートが求められた。こういった経緯から、パラメータ化した型の別名付けが、言語機能としてサポートされることとなった。</p>
@@ -323,7 +323,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

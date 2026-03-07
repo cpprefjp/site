@@ -213,12 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">pointer_traits</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Ptr</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">pointer_traits</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Ptr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">pointer_traits</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">pointer_traits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">pointer_traits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -306,18 +306,18 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="5c3adee7d2598f9470e96c66f1ab6d86ac405c8a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5c3adee7d2598f9470e96c66f1ab6d86ac405c8a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// スマートポインタの要素型を取得する</span>
-  <span class="k">using</span> <span class="n">smart_ptr_element</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::pointer_traits</span></span><span class="o">&lt;</span><span class="n"><a href="shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">element_type</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">smart_ptr_element</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"element type is int"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// スマートポインタの要素型を取得する</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">smart_ptr_element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::pointer_traits</span></span><span class="o">&lt;</span><span class="n"><a href="shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">element_type</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">smart_ptr_element</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"element type is int"</span><span class="p">);</span>
 
-  <span class="c1">// ポインタの要素型を取得する</span>
-  <span class="k">using</span> <span class="n">ptr_element</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::pointer_traits</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;::</span><span class="n">element_type</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">ptr_element</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"element type is int"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ポインタの要素型を取得する</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">ptr_element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::pointer_traits</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;::</span><span class="n">element_type</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">ptr_element</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"element type is int"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -357,7 +357,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

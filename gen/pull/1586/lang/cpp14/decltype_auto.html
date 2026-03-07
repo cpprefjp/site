@@ -219,46 +219,46 @@
 <p></p>
 <h2>概要</h2>
 <p><code>decltype(auto)</code>は、<code>decltype</code>に与える式を右辺の式で置き換えて型推論する機能である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
-<span class="k">decltype</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// cの型はint</span>
-<span class="n"><a href="">decltype(auto)</a></span>  <span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// dの型もint。autoが式「a + b」で置き換えられる</span>
+<span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// cの型はint</span>
+<span class="n"><a href="">decltype(auto)</a></span><span class="w">  </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// dの型もint。autoが式「a + b」で置き換えられる</span>
 </code></pre></div>
 </p>
 <p>参照の変数を<code>auto</code>キーワードで型推論した場合は<code>T</code>となるが、<code>decltype(auto)</code>で型推論した場合は<code>T&amp;</code>となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-<span class="k">auto</span>           <span class="n">a</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// aの型はint</span>
-<span class="k">decltype</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>    <span class="n">b</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// bの型はint&amp;</span>
-<span class="n"><a href="">decltype(auto)</a></span> <span class="n">c</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// cの型はint&amp;</span>
+<span class="k">auto</span><span class="w">           </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// aの型はint</span>
+<span class="k">decltype</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// bの型はint&amp;</span>
+<span class="n"><a href="">decltype(auto)</a></span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// cの型はint&amp;</span>
 </code></pre></div>
 </p>
 <p>この機能は、<a href="return_type_deduction_for_normal_functions.html">通常関数の戻り値型推論</a>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型プレースホルダーとしても使用できる：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// autoの場合はintが戻り値型となるが、</span>
 <span class="c1">// <a href="">decltype(auto)</a>とすることでint&amp;が戻り値型となる。</span>
-<span class="n"><a href="">decltype(auto)</a></span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span>
+<span class="n"><a href="">decltype(auto)</a></span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="d2248163be45759fb52761dc1b497c647fc3fcfe"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d2248163be45759fb52761dc1b497c647fc3fcfe"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="k">auto</span>           <span class="n">a</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// aの型はint</span>
-  <span class="k">decltype</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>    <span class="n">b</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// bの型はint&amp;</span>
-  <span class="n"><a href="">decltype(auto)</a></span> <span class="n">c</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// cの型はint&amp;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w">           </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// aの型はint</span>
+<span class="w">  </span><span class="k">decltype</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// bの型はint&amp;</span>
+<span class="w">  </span><span class="n"><a href="">decltype(auto)</a></span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// cの型はint&amp;</span>
 
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">b</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -287,7 +287,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

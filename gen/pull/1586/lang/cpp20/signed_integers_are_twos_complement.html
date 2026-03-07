@@ -233,86 +233,86 @@
 </ul>
 <h2>例</h2>
 <h3>ビット値・ビット演算の例</h3>
-<p><div class="yata" id="3dea0ca7cf42762a9b5c40e03e09d392f808942e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3dea0ca7cf42762a9b5c40e03e09d392f808942e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 符号反転したビット値</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mi">1011</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 符号反転したビット値</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b0000'1011</span><span class="p">);</span>
 
-    <span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span> <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="p">(</span><span class="o">~</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span> <span class="c1">// 負数は、ビット反転して+1した値</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b1111</span><span class="err">'</span><span class="mo">0101</span><span class="p">));</span>
-  <span class="p">}</span>
-  <span class="c1">// 0と-0は同じビット値</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span> <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span><span class="w"> </span><span class="c1">// 負数は、ビット反転して+1した値</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b1111'0101</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// 0と-0は同じビット値</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-0</span><span class="p">;</span>
 
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mo">0000</span><span class="p">));</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mo">0000</span><span class="p">));</span>
-  <span class="p">}</span>
-  <span class="c1">// 論理左シフト演算</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b0100</span><span class="err">'</span><span class="mo">0000</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b0000'0000</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b0000'0000</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// 論理左シフト演算</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b0100'0000</span><span class="p">));</span>
 
-    <span class="n">x</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="p">));</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b1000</span><span class="err">'</span><span class="mo">0000</span><span class="p">));</span>
-  <span class="p">}</span>
-  <span class="c1">// 算術右シフト演算</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">124</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b1000</span><span class="err">'</span><span class="mo">0100</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">-128</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b1000'0000</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// 算術右シフト演算</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-124</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b1000'0100</span><span class="p">));</span>
 
-    <span class="n">x</span> <span class="o">&gt;&gt;=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="o">-</span><span class="mi">31</span><span class="p">));</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b1110</span><span class="err">'</span><span class="mo">0001</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">-31</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b1110'0001</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>符号付き整数型は一意なオブジェクト表現をもつ</h3>
-<p><div class="yata" id="9ecf3569cec2ee6916d478c907ff5817cd861802"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9ecf3569cec2ee6916d478c907ff5817cd861802"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">short</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">short</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
 
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int16_t.html">std::int16_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int64_t.html">std::int64_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int16_t.html">std::int16_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/int64_t.html">std::int64_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>三方比較演算子の例</h3>
-<p><div class="yata" id="6e73e8f2a0192b23987f5e54ed0c9be000de52e5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/compare.html">&lt;compare&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6e73e8f2a0192b23987f5e54ed0c9be000de52e5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/compare.html">&lt;compare&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
-  <span class="c1">// 符号付き整数型は全順序をもつ</span>
-  <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n"><a href="../../reference/compare/strong_ordering.html">std::strong_ordering</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 符号付き整数型は全順序をもつ</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../reference/compare/strong_ordering.html">std::strong_ordering</a></span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -355,7 +355,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -226,17 +226,17 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;stacktrace&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_stacktrace">basic_stacktrace::</span><span class="token">コンストラクタ</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">basic_stacktrace</span><span class="p">()</span>
-  <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_default_constructible.html">is_nothrow_default_constructible_v</a></span><span class="o">&lt;</span><span class="n">allocator_type</span><span class="o">&gt;</span><span class="p">);</span>  <span class="c1">// (1) C++23</span>
+<span class="w">  </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_default_constructible.html">is_nothrow_default_constructible_v</a></span><span class="o">&lt;</span><span class="n">allocator_type</span><span class="o">&gt;</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1) C++23</span>
 
-<span class="k">explicit</span> <span class="nf">basic_stacktrace</span><span class="p">(</span><span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++23</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">basic_stacktrace</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">allocator_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">alloc</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++23</span>
 
-<span class="n">basic_stacktrace</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_stacktrace</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">);</span>                 <span class="c1">// (3) C++23</span>
-<span class="n">basic_stacktrace</span><span class="p">(</span><span class="n">basic_stacktrace</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>             <span class="c1">// (4) C++23</span>
+<span class="n">basic_stacktrace</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">basic_stacktrace</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span><span class="w">                 </span><span class="c1">// (3) C++23</span>
+<span class="n">basic_stacktrace</span><span class="p">(</span><span class="n">basic_stacktrace</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">             </span><span class="c1">// (4) C++23</span>
 
-<span class="n">basic_stacktrace</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_stacktrace</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">,</span>
-                 <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                   <span class="c1">// (5) C++23</span>
-<span class="n">basic_stacktrace</span><span class="p">(</span><span class="n">basic_stacktrace</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">,</span>
-                 <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                   <span class="c1">// (6) C++23</span>
+<span class="n">basic_stacktrace</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">basic_stacktrace</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">,</span>
+<span class="w">                 </span><span class="k">const</span><span class="w"> </span><span class="n">allocator_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">alloc</span><span class="p">);</span><span class="w">                   </span><span class="c1">// (5) C++23</span>
+<span class="n">basic_stacktrace</span><span class="p">(</span><span class="n">basic_stacktrace</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">,</span>
+<span class="w">                 </span><span class="k">const</span><span class="w"> </span><span class="n">allocator_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">alloc</span><span class="p">);</span><span class="w">                   </span><span class="c1">// (6) C++23</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -266,42 +266,42 @@
 <li>実装は、これらのコンストラクタのほかに、<code><a href="current.html">current()</a></code>関数によるスタックトレース履歴を保持するための追加のコンストラクタをもっている可能性がある</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="6a916e486cef922fb25fa59526037613b66e25d2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../stacktrace.html">&lt;stacktrace&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6a916e486cef922fb25fa59526037613b66e25d2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../stacktrace.html">&lt;stacktrace&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// (1) デフォルト構築</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span> <span class="n">st1</span><span class="p">{};</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="p">.</span><span class="n"><a href="empty.html">empty()</a></span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// (1) デフォルト構築</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span><span class="w"> </span><span class="n">st1</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="p">.</span><span class="n"><a href="empty.html">empty()</a></span><span class="p">);</span>
 
-  <span class="c1">// (2) アロケータを指定して構築</span>
-  <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n"><a href="../stacktrace_entry.html">std::stacktrace_entry</a></span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{};</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span> <span class="n">st2</span><span class="p">{</span><span class="n">alloc</span><span class="p">};</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st2</span><span class="p">.</span><span class="n"><a href="empty.html">empty()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (2) アロケータを指定して構築</span>
+<span class="w">  </span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n"><a href="../stacktrace_entry.html">std::stacktrace_entry</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{};</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span><span class="w"> </span><span class="n">st2</span><span class="p">{</span><span class="n">alloc</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st2</span><span class="p">.</span><span class="n"><a href="empty.html">empty()</a></span><span class="p">);</span>
 
-  <span class="c1">// (3) コピー構築</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span> <span class="n">st3</span> <span class="o">=</span> <span class="n">st1</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st3</span> <span class="o">==</span> <span class="n">st1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (3) コピー構築</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span><span class="w"> </span><span class="n">st3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">st1</span><span class="p">);</span>
 
-  <span class="c1">// (4) ムーブ構築</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span> <span class="n">st4</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">st3</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st4</span> <span class="o">==</span> <span class="n">st1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (4) ムーブ構築</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span><span class="w"> </span><span class="n">st4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">st3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">st1</span><span class="p">);</span>
 
-  <span class="c1">// (5) アロケータを指定してコピー構築</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span> <span class="n">st5</span><span class="p">{</span><span class="n">st1</span><span class="p">,</span> <span class="n">alloc</span><span class="p">};</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st5</span> <span class="o">==</span> <span class="n">st1</span><span class="p">);</span> <span class="c1">// アロケータは比較されない</span>
+<span class="w">  </span><span class="c1">// (5) アロケータを指定してコピー構築</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span><span class="w"> </span><span class="n">st5</span><span class="p">{</span><span class="n">st1</span><span class="p">,</span><span class="w"> </span><span class="n">alloc</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">st1</span><span class="p">);</span><span class="w"> </span><span class="c1">// アロケータは比較されない</span>
 
-  <span class="c1">// (6) アロケータを指定してムーブ構築</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span> <span class="n">st6</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">st5</span><span class="p">),</span> <span class="n">alloc</span><span class="p">};</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st6</span> <span class="o">==</span> <span class="n">st1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (6) アロケータを指定してムーブ構築</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stacktrace</span><span class="w"> </span><span class="n">st6</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">st5</span><span class="p">),</span><span class="w"> </span><span class="n">alloc</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st6</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">st1</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">g</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">g</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -335,7 +335,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

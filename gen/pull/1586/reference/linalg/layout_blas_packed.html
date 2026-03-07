@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;linalg&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::linalg">std::linalg::</span><span class="token">layout_blas_packed</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">linalg</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">,</span> <span class="k">class</span> <span class="nc">StorageOrder</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">layout_blas_packed</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">linalg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Triangle</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StorageOrder</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">layout_blas_packed</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -259,53 +259,53 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="798a0efeb11baea87b2192736c68df86682b4d4f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../linalg.html">&lt;linalg&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">linalg</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">linalg</span><span class="p">;</span>
+<p><div class="yata" id="798a0efeb11baea87b2192736c68df86682b4d4f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../linalg.html">&lt;linalg&gt;</a></span>
+<span class="cp">#include <a href="../mdspan.html">&lt;mdspan&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../string_view.html">&lt;string_view&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">linalg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">linalg</span><span class="p">;</span>
 
 <span class="c1">// 行列(matrix)の要素表示</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">E</span><span class="p">,</span> <span class="k">class</span> <span class="nc">L</span><span class="p">,</span> <span class="k">class</span> <span class="nc">A</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">print_mat</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">A</span><span class="o">&gt;&amp;</span> <span class="n">mat</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">L</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print_mat</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">mat</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">mat</span><span class="p">.</span><span class="n">rank</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
-  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}:"</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n"><a href="../mdspan/mdspan/extent.html">mat.extent</a></span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n"><a href="../mdspan/mdspan/extent.html">mat.extent</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../print/print.html">std::print</a></span><span class="p">(</span><span class="s">" {:2}"</span><span class="p">,</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]);</span>
-    <span class="p">}</span>
-    <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">mat</span><span class="p">.</span><span class="n">rank</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}:"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n"><a href="../mdspan/mdspan/extent.html">mat.extent</a></span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n"><a href="../mdspan/mdspan/extent.html">mat.extent</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../print/print.html">std::print</a></span><span class="p">(</span><span class="s">" {:2}"</span><span class="p">,</span><span class="w"> </span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">double</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">};</span>
 
-  <span class="c1">// 列優先格納順の下三角要素から4x4対称行列を構築</span>
-  <span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span><span class="o">&lt;</span>
-    <span class="kt">double</span><span class="p">,</span>
-    <span class="n"><a href="../mdspan/extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
-    <span class="n"><span style="color:#ff0000">linalg::layout_blas_packed</span></span><span class="o">&lt;</span><span class="n"><a href="lower_triangle_t.html">linalg::lower_triangle_t</a></span><span class="p">,</span> <span class="n"><a href="column_major_t.html">linalg::column_major_t</a></span><span class="o">&gt;</span>
-  <span class="o">&gt;</span> <span class="n">mat1</span><span class="p">{</span><span class="n">arr</span><span class="p">};</span>
-  <span class="c1">// 1 - -  -</span>
-  <span class="c1">// 2 5 -  -</span>
-  <span class="c1">// 3 6 8  -</span>
-  <span class="c1">// 4 7 9 10</span>
-  <span class="n">print_mat</span><span class="p">(</span><span class="s">"mat1"</span><span class="p">,</span> <span class="n">mat1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 列優先格納順の下三角要素から4x4対称行列を構築</span>
+<span class="w">  </span><span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="kt">double</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../mdspan/extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">linalg::layout_blas_packed</span></span><span class="o">&lt;</span><span class="n"><a href="lower_triangle_t.html">linalg::lower_triangle_t</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="column_major_t.html">linalg::column_major_t</a></span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mat1</span><span class="p">{</span><span class="n">arr</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// 1 - -  -</span>
+<span class="w">  </span><span class="c1">// 2 5 -  -</span>
+<span class="w">  </span><span class="c1">// 3 6 8  -</span>
+<span class="w">  </span><span class="c1">// 4 7 9 10</span>
+<span class="w">  </span><span class="n">print_mat</span><span class="p">(</span><span class="s">"mat1"</span><span class="p">,</span><span class="w"> </span><span class="n">mat1</span><span class="p">);</span>
 
-  <span class="c1">// 行優先格納順の下三角要素から4x4対称行列を構築</span>
-  <span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span><span class="o">&lt;</span>
-    <span class="kt">double</span><span class="p">,</span>
-    <span class="n"><a href="../mdspan/extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
-    <span class="n"><span style="color:#ff0000">linalg::layout_blas_packed</span></span><span class="o">&lt;</span><span class="n"><a href="lower_triangle_t.html">linalg::lower_triangle_t</a></span><span class="p">,</span> <span class="n"><a href="row_major_t.html">linalg::row_major_t</a></span><span class="o">&gt;</span>
-  <span class="o">&gt;</span> <span class="n">mat2</span><span class="p">{</span><span class="n">arr</span><span class="p">};</span>
-  <span class="c1">// 1 - -  -</span>
-  <span class="c1">// 2 3 -  -</span>
-  <span class="c1">// 4 5 6  -</span>
-  <span class="c1">// 7 8 9 10</span>
-  <span class="n">print_mat</span><span class="p">(</span><span class="s">"mat2"</span><span class="p">,</span> <span class="n">mat2</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 行優先格納順の下三角要素から4x4対称行列を構築</span>
+<span class="w">  </span><span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="kt">double</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../mdspan/extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">linalg::layout_blas_packed</span></span><span class="o">&lt;</span><span class="n"><a href="lower_triangle_t.html">linalg::lower_triangle_t</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="row_major_t.html">linalg::row_major_t</a></span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mat2</span><span class="p">{</span><span class="n">arr</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// 1 - -  -</span>
+<span class="w">  </span><span class="c1">// 2 3 -  -</span>
+<span class="w">  </span><span class="c1">// 4 5 6  -</span>
+<span class="w">  </span><span class="c1">// 7 8 9 10</span>
+<span class="w">  </span><span class="n">print_mat</span><span class="p">(</span><span class="s">"mat2"</span><span class="p">,</span><span class="w"> </span><span class="n">mat2</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -363,7 +363,7 @@ mat2:
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

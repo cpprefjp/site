@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class zoned_time">zoned_time::</span><span class="token">get_sys_time</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n"><a href="../duration.html">duration</a></span><span class="o">&gt;</span> <span class="n">get_sys_time</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n"><a href="../duration.html">duration</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_sys_time</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -235,22 +235,22 @@
 <p>このシステム時間は、指定されたタイムゾーンの時間には変換されていない、UTCタイムゾーンの時間である。</p>
 <p>指定されたタイムゾーンに変換された時間は、<code><a href="get_local_time.html">get_local_time()</a></code>関数で取得できる。</p>
 <h2>例</h2>
-<p><div class="yata" id="b9664af02616bd5faad5c6884d7727701fe02342"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b9664af02616bd5faad5c6884d7727701fe02342"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">now</span> <span class="o">=</span> <span class="n"><a href="../system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../system_clock/now.html">now()</a></span><span class="p">;</span>
-  <span class="n"><a href="../local_time.html">chrono::local_time</a></span> <span class="n">local_now</span><span class="p">{</span><span class="n">now</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../system_clock/now.html">now()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../local_time.html">chrono::local_time</a></span><span class="w"> </span><span class="n">local_now</span><span class="p">{</span><span class="n">now</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="p">};</span>
 
-  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt1</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">now</span><span class="p">};</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">get_sys_time()</span></span> <span class="o">==</span> <span class="n">now</span><span class="p">);</span>
+<span class="w">  </span><span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="w"> </span><span class="n">zt1</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">get_sys_time()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">now</span><span class="p">);</span>
 
-  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt2</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">local_now</span><span class="p">};</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">get_sys_time()</span></span> <span class="o">==</span> <span class="n">now</span><span class="p">);</span>
+<span class="w">  </span><span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="w"> </span><span class="n">zt2</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span><span class="w"> </span><span class="n">local_now</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">get_sys_time()</span></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">now</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -284,7 +284,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

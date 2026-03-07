@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;optional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class optional">optional::</span><span class="token">デストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">optional</span><span class="p">();</span>           <span class="c1">// C++17</span>
-<span class="k">constexpr</span> <span class="o">~</span><span class="n">optional</span><span class="p">();</span> <span class="c1">// C++23</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">optional</span><span class="p">();</span><span class="w">           </span><span class="c1">// C++17</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="o">~</span><span class="n">optional</span><span class="p">();</span><span class="w"> </span><span class="c1">// C++23</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -234,42 +234,42 @@
 <h2>効果</h2>
 <p>有効値を保持している場合、型<code>T</code>が非トリビアルなデストラクタを持っているならデストラクタを呼び出す。有効値を保持していない場合は、なにもしない。</p>
 <h2>例</h2>
-<p><div class="yata" id="6be9f274225bafe319ad628849288e815e87adb2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6be9f274225bafe319ad628849288e815e87adb2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../optional.html">&lt;optional&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="c1">// ユーザー定義のデストラクタを持つ</span>
-  <span class="o">~</span><span class="n">A</span><span class="p">()</span>
-  <span class="p">{</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ユーザー定義のデストラクタを持つ</span>
+<span class="w">  </span><span class="o">~</span><span class="n">A</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span>
-  <span class="c1">// ユーザー定義のデストラクタを持たない</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ユーザー定義のデストラクタを持たない</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
-  <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">A</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 
-  <span class="c1">// ユーザー定義のデストラクタを持つ。</span>
-  <span class="c1">// (ユーザー定義のデストラクタを持つ型のメンバ変数を持っている)</span>
+<span class="w">  </span><span class="c1">// ユーザー定義のデストラクタを持つ。</span>
+<span class="w">  </span><span class="c1">// (ユーザー定義のデストラクタを持つ型のメンバ変数を持っている)</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_optional</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_optional</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_optional</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_optional</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_optional</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_optional</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">();</span>
 
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">opt_int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="p">}</span> <span class="c1">// Aのデストラクタが呼ばれる</span>
-    <span class="c1">// Bのデストラクタは呼ばれない</span>
-    <span class="c1">// Cのデストラクタは呼ばれる</span>
-    <span class="c1">// opt_intのデストラクタは呼ばれない</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">opt_int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// Aのデストラクタが呼ばれる</span>
+<span class="w">    </span><span class="c1">// Bのデストラクタは呼ばれない</span>
+<span class="w">    </span><span class="c1">// Cのデストラクタは呼ばれる</span>
+<span class="w">    </span><span class="c1">// opt_intのデストラクタは呼ばれない</span>
 
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span> <span class="n">a_null</span><span class="p">;</span>
-  <span class="p">}</span> <span class="c1">// Aのデストラクタは呼ばれない</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a_null</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// Aのデストラクタは呼ばれない</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -310,7 +310,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

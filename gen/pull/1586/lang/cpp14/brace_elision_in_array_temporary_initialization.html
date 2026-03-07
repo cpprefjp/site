@@ -219,21 +219,21 @@
 <p></p>
 <h2>概要</h2>
 <p>C++11では、集成体初期化とリスト初期化の両方を含む場合、二重に波カッコを書くことが必須となっていた。そのため、<code>public</code>メンバ変数として組み込み配列を持つ<code><a href="../../reference/array/array.html">std::array</a></code>クラスのオブジェクトを初期化する場合、以下のように、不要とも思える二重の波カッコを書かなければならなかった：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">}};</span> <span class="c1">// OK : </span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}};</span><span class="w"> </span><span class="c1">// OK : </span>
 <span class="c1">//<a href="../../reference/array/array.html">std::array</a>&lt;int, 3&gt; ar = { 1, 2, 3 }; // コンパイルエラー！本当はこう書きたい</span>
 </code></pre></div>
 </p>
 <p>C++14ではこの制限が緩和され、内側の波カッコを省略できることになった：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">ar1</span> <span class="o">=</span> <span class="p">{{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">}};</span> <span class="c1">// OK : これまで通り</span>
-<span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">ar2</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>   <span class="c1">// OK : 波カッコが一組でよくなった</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ar1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}};</span><span class="w"> </span><span class="c1">// OK : これまで通り</span>
+<span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ar2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span><span class="w">   </span><span class="c1">// OK : 波カッコが一組でよくなった</span>
 </code></pre></div>
 </p>
 <p>この変更は、多次元配列を初期化する際に通常以下のように書くものを：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">}};</span>
 </code></pre></div>
 </p>
 <p>以下のように内側の波カッコを省略して書けるのと同じ規則を、集成体初期化とリスト初期化の組み合わせに対しても当てはめるものである：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>参照</h2>
@@ -260,7 +260,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

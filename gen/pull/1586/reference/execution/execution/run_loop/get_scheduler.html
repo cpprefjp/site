@@ -237,7 +237,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class run_loop">run_loop::</span><span class="token">get_scheduler</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="run-loop-scheduler.html">run-loop-scheduler</a></span> <span class="nf">get_scheduler</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="run-loop-scheduler.html">run-loop-scheduler</a></span><span class="w"> </span><span class="nf">get_scheduler</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -245,29 +245,29 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>run_loop</code>インスタンス上で作業を<a href="../schedule.html">スケジュール</a>する<code><a href="run-loop-scheduler.html">run-loop-scheduler</a></code>インスタンスを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="ece548376dcaaaefd81f6e91597a81b199149486"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="ece548376dcaaaefd81f6e91597a81b199149486"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../../concepts.html">&lt;concepts&gt;</a></span>
+<span class="cp">#include <a href="../../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../run_loop.html">ex::run_loop</a></span> <span class="n">loop</span><span class="p">;</span>
-  <span class="n"><a href="../scheduler.html">ex::scheduler</a></span> <span class="k">auto</span> <span class="n">sch</span> <span class="o">=</span> <span class="n">loop</span><span class="p">.</span><span class="n"><span style="color:#ff0000">get_scheduler()</span></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../run_loop.html">ex::run_loop</a></span><span class="w"> </span><span class="n">loop</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../scheduler.html">ex::scheduler</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loop</span><span class="p">.</span><span class="n"><span style="color:#ff0000">get_scheduler()</span></span><span class="p">;</span>
 
-  <span class="c1">// スケジュールSenderを作成</span>
-  <span class="n"><a href="../sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="../schedule.html">ex::schedule</a></span><span class="p">(</span><span class="n">sch</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// スケジュールSenderを作成</span>
+<span class="w">  </span><span class="n"><a href="../sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../schedule.html">ex::schedule</a></span><span class="p">(</span><span class="n">sch</span><span class="p">);</span>
 
-  <span class="c1">// スケジュールSenderの完了シグネチャ集合を確認</span>
-  <span class="k">using</span> <span class="n">Sigs</span> <span class="o">=</span> <span class="n"><a href="../completion_signatures_of_t.html">ex::completion_signatures_of_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Sigs</span><span class="p">,</span>
-    <span class="n"><a href="../completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="../set_value.html">ex::set_value_t</a></span><span class="p">(),</span>
-                              <span class="n"><a href="../set_error.html">ex::set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../../exception/exception_ptr.html">std::exception_ptr</a></span><span class="p">),</span>
-                              <span class="n"><a href="../set_stopped.html">ex::set_stopped_t</a></span><span class="p">()</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// スケジュールSenderの完了シグネチャ集合を確認</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Sigs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../completion_signatures_of_t.html">ex::completion_signatures_of_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Sigs</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="../set_value.html">ex::set_value_t</a></span><span class="p">(),</span>
+<span class="w">                              </span><span class="n"><a href="../set_error.html">ex::set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../../exception/exception_ptr.html">std::exception_ptr</a></span><span class="p">),</span>
+<span class="w">                              </span><span class="n"><a href="../set_stopped.html">ex::set_stopped_t</a></span><span class="p">()</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// スケジュールSender属性の値完了Schedulerを確認</span>
-  <span class="k">auto</span> <span class="n">compl_sch</span> <span class="o">=</span> <span class="n"><a href="../get_completion_scheduler.html">ex::get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n"><a href="../set_value.html">ex::set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../get_env.html">ex::get_env</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">));</span>
-  <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">compl_sch</span> <span class="o">==</span> <span class="n">sch</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// スケジュールSender属性の値完了Schedulerを確認</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">compl_sch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../get_completion_scheduler.html">ex::get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n"><a href="../set_value.html">ex::set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../get_env.html">ex::get_env</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">compl_sch</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sch</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -312,7 +312,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

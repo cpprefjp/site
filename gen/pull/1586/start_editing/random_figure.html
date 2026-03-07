@@ -206,26 +206,26 @@
 <p>一様整数分布を行う<code><a href="../reference/random/uniform_int_distribution.html">std::uniform_int_distribution</a></code>クラスを例にします。</p>
 <h2>分布クラスのサンプルコード</h2>
 <p>分布クラスのサンプルコードは、生成された乱数の値を、TSV(タブ区切り)テキストとして出力する形にします。<code>std::uniform_int_distribution</code>のサンプルコードは、例として以下のようになっています。</p>
-<p><div class="yata" id="59a862538de02df00925b0b3a222419a90ef11c8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../reference/random.html">&lt;random&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../reference/fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="59a862538de02df00925b0b3a222419a90ef11c8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../reference/random.html">&lt;random&gt;</a></span>
+<span class="cp">#include <a href="../reference/fstream.html">&lt;fstream&gt;</a></span>
+<span class="cp">#include <a href="../reference/cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span>
 <span class="p">{</span>
-  <span class="n"><a href="../reference/random/random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
-  <span class="n"><a href="../reference/cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
-  <span class="n"><a href="../reference/random/default_random_engine.html">std::default_random_engine</a></span> <span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../reference/random/random_device.html">std::random_device</a></span><span class="w"> </span><span class="n">seed_gen</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seed_gen</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../reference/random/default_random_engine.html">std::default_random_engine</a></span><span class="w"> </span><span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
 
-  <span class="c1">// 0以上9以下の値を等確率で発生させる</span>
-  <span class="n"><a href="../reference/random/uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 0以上9以下の値を等確率で発生させる</span>
+<span class="w">  </span><span class="n"><a href="../reference/random/uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">result_file</span><span class="p">(</span><span class="s">"uniform_int_distribution.tsv"</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 一様整数分布で乱数を生成する</span>
-    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="w"> </span><span class="n">result_file</span><span class="p">(</span><span class="s">"uniform_int_distribution.tsv"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 一様整数分布で乱数を生成する</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
 
-    <span class="n">result_file</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n">result_file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\t\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -304,7 +304,7 @@ plot(value)
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

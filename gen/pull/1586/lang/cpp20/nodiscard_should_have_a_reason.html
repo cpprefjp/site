@@ -235,44 +235,44 @@
 <li><code>nodiscard</code>属性の引数である文字列リテラルは、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を無視してはならない理由、意図を示すことや、適切な使用方法の可能性を提案するためなどに、警告メッセージとして使用されることを目的とする</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="eb2cec3713a16f5d8eac11daad4d524b5d19bbc3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="eb2cec3713a16f5d8eac11daad4d524b5d19bbc3"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">data_holder</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">indices</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">data_holder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">indices</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// この関数のユーザーに所有権を委譲する。</span>
-  <span class="c1">// ユーザーはこの戻り値のメモリを適切に解放しなければならず、</span>
-  <span class="c1">// 戻り値を無視するとメモリリークが発生してしまう</span>
-  <span class="p">[[</span><span class="n">nodiscard</span><span class="p">(</span><span class="s">"Possible memory leak."</span><span class="p">)]]</span> 
-  <span class="kt">char</span><span class="o">*</span> <span class="n">release</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/vector/vector/clear.html">indices.clear()</a></span><span class="p">;</span>
-    <span class="k">return</span> <span class="n"><a href="../../reference/memory/unique_ptr/release.html">ptr.release()</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// この関数のユーザーに所有権を委譲する。</span>
+<span class="w">  </span><span class="c1">// ユーザーはこの戻り値のメモリを適切に解放しなければならず、</span>
+<span class="w">  </span><span class="c1">// 戻り値を無視するとメモリリークが発生してしまう</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">(</span><span class="s">"Possible memory leak."</span><span class="p">)]]</span><span class="w"> </span>
+<span class="w">  </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">release</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/vector/vector/clear.html">indices.clear()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/memory/unique_ptr/release.html">ptr.release()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="n">clear</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/vector/vector/clear.html">indices.clear()</a></span><span class="p">;</span>
-    <span class="n"><a href="../../reference/memory/unique_ptr/reset.html">ptr.reset</a></span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">clear</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/vector/vector/clear.html">indices.clear()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/memory/unique_ptr/reset.html">ptr.reset</a></span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// clear()関数のつもりでempty()関数を呼び出してしまった可能性がある。</span>
-  <span class="c1">// empty()は空かどうかを判定するだけで、空にするわけではない</span>
-  <span class="p">[[</span><span class="n">nodiscard</span><span class="p">(</span><span class="s">"Did you mean 'clear'?"</span><span class="p">)]]</span> 
-  <span class="kt">bool</span> <span class="n">empty</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">ptr</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n"><a href="../../reference/vector/vector/empty.html">indices.empty()</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// clear()関数のつもりでempty()関数を呼び出してしまった可能性がある。</span>
+<span class="w">  </span><span class="c1">// empty()は空かどうかを判定するだけで、空にするわけではない</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">(</span><span class="s">"Did you mean 'clear'?"</span><span class="p">)]]</span><span class="w"> </span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n"><a href="../../reference/vector/vector/empty.html">indices.empty()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">data_holder</span> <span class="n">dh</span><span class="p">;</span> <span class="c1">// 本来はなんらかの初期化処理を行う</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">data_holder</span><span class="w"> </span><span class="n">dh</span><span class="p">;</span><span class="w"> </span><span class="c1">// 本来はなんらかの初期化処理を行う</span>
 
-  <span class="c1">// 重大な間違いを、警告で説明する</span>
-  <span class="n">dh</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 重大な間違いを、警告で説明する</span>
+<span class="w">  </span><span class="n">dh</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
 
-  <span class="c1">// 軽微な間違いを、警告で説明する</span>
-  <span class="n">dh</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 軽微な間違いを、警告で説明する</span>
+<span class="w">  </span><span class="n">dh</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -317,7 +317,7 @@ prog.cc:26:8: note: declared here
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

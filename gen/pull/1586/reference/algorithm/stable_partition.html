@@ -213,24 +213,24 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">stable_partition</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">BidirectionalIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Predicate</span><span class="o">&gt;</span>
-  <span class="n">BidirectionalIterator</span>
-    <span class="n">stable_partition</span><span class="p">(</span><span class="n">BidirectionalIterator</span> <span class="n">first</span><span class="p">,</span>
-                     <span class="n">BidirectionalIterator</span> <span class="n">last</span><span class="p">,</span>
-                     <span class="n">Predicate</span> <span class="n">pred</span><span class="p">);</span>             <span class="c1">// (1) C++03</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">BidirectionalIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Predicate</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">BidirectionalIterator</span>
-    <span class="n">stable_partition</span><span class="p">(</span><span class="n">BidirectionalIterator</span> <span class="n">first</span><span class="p">,</span>
-                     <span class="n">BidirectionalIterator</span> <span class="n">last</span><span class="p">,</span>
-                     <span class="n">Predicate</span> <span class="n">pred</span><span class="p">);</span>             <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">BidirectionalIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Predicate</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">BidirectionalIterator</span>
+<span class="w">    </span><span class="n">stable_partition</span><span class="p">(</span><span class="n">BidirectionalIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">BidirectionalIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">Predicate</span><span class="w"> </span><span class="n">pred</span><span class="p">);</span><span class="w">             </span><span class="c1">// (1) C++03</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">BidirectionalIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Predicate</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">BidirectionalIterator</span>
+<span class="w">    </span><span class="n">stable_partition</span><span class="p">(</span><span class="n">BidirectionalIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">BidirectionalIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">Predicate</span><span class="w"> </span><span class="n">pred</span><span class="p">);</span><span class="w">             </span><span class="c1">// (1) C++26</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">BidirectionalIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Predicate</span><span class="o">&gt;</span>
-  <span class="n">BidirectionalIterator</span>
-    <span class="n">stable_partition</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-                     <span class="n">BidirectionalIterator</span> <span class="n">first</span><span class="p">,</span>
-                     <span class="n">BidirectionalIterator</span> <span class="n">last</span><span class="p">,</span>
-                     <span class="n">Predicate</span> <span class="n">pred</span><span class="p">);</span>             <span class="c1">// (2) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BidirectionalIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Predicate</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">BidirectionalIterator</span>
+<span class="w">    </span><span class="n">stable_partition</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">BidirectionalIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">BidirectionalIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">Predicate</span><span class="w"> </span><span class="n">pred</span><span class="p">);</span><span class="w">             </span><span class="c1">// (2) C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -254,20 +254,20 @@
 <li>(2) : O(N log N) 回の swap に加え、<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>が O(N) 回適用される</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="e68ae4c04483a0ffff7b73ad04c06c516a4d3a5a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e68ae4c04483a0ffff7b73ad04c06c516a4d3a5a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-  <span class="c1">// 偶数グループと奇数グループに分ける</span>
-  <span class="n"><span style="color:#ff0000">std::stable_partition</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="p">});</span>
+<span class="w">  </span><span class="c1">// 偶数グループと奇数グループに分ける</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::stable_partition</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
 
-  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -304,7 +304,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

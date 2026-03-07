@@ -225,34 +225,34 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;list&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class list">list::</span><span class="token">コンストラクタ</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">list</span><span class="p">();</span>                                          <span class="c1">// (1) C++14 から</span>
-<span class="n">list</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                        <span class="c1">// (2) C++14 から</span>
-<span class="k">explicit</span> <span class="nf">list</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (1), (2) C++11 まで。C++14 で削除</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">list</span><span class="p">();</span><span class="w">                                          </span><span class="c1">// (1) C++14 から</span>
+<span class="n">list</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">                        </span><span class="c1">// (2) C++14 から</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">());</span><span class="w"> </span><span class="c1">// (1), (2) C++11 まで。C++14 で削除</span>
 
-<span class="k">explicit</span> <span class="nf">list</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span> <span class="o">=</span> <span class="n">T</span><span class="p">(),</span>
-     <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (3) C++03 まで。C++11 で削除</span>
-<span class="n">list</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
-     <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (3) C++11 から</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">(),</span>
+<span class="w">     </span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">());</span><span class="w">          </span><span class="c1">// (3) C++03 まで。C++11 で削除</span>
+<span class="n">list</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span>
+<span class="w">     </span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">());</span><span class="w">          </span><span class="c1">// (3) C++11 から</span>
 
-<span class="k">explicit</span> <span class="nf">list</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">);</span>                      <span class="c1">// (4) C++11。C++14 で削除</span>
-<span class="k">explicit</span> <span class="nf">list</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (4) C++14 から</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">                      </span><span class="c1">// (4) C++11。C++14 で削除</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">              </span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">());</span><span class="w"> </span><span class="c1">// (4) C++14 から</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="n">list</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-     <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (5)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">list</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">     </span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">());</span><span class="w">          </span><span class="c1">// (5)</span>
 
-<span class="n">list</span><span class="p">(</span><span class="k">const</span> <span class="n">list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>                             <span class="c1">// (6)</span>
-<span class="n">list</span><span class="p">(</span><span class="n">list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span>                                  <span class="c1">// (7) C++11 から</span>
-<span class="n">list</span><span class="p">(</span><span class="k">const</span> <span class="n">list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>         <span class="c1">// (8) C++11 から</span>
-<span class="n">list</span><span class="p">(</span><span class="n">list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>              <span class="c1">// (9) C++11 から</span>
+<span class="n">list</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">list</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                             </span><span class="c1">// (6)</span>
+<span class="n">list</span><span class="p">(</span><span class="n">list</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                                  </span><span class="c1">// (7) C++11 から</span>
+<span class="n">list</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">list</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">         </span><span class="c1">// (8) C++11 から</span>
+<span class="n">list</span><span class="p">(</span><span class="n">list</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">              </span><span class="c1">// (9) C++11 から</span>
 
-<span class="n">list</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
-     <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (10) C++11 から</span>
+<span class="n">list</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">il</span><span class="p">,</span>
+<span class="w">     </span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">());</span><span class="w">          </span><span class="c1">// (10) C++11 から</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
-<span class="n">list</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
-     <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (11) C++23 から</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="n">list</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rg</span><span class="p">,</span>
+<span class="w">     </span><span class="k">const</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">());</span><span class="w">          </span><span class="c1">// (11) C++23 から</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -292,7 +292,7 @@
 <li>
 <p>C++14 では、(1) の形式と (2) の形式がデフォルト引数を使用しない 2 つの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に分割された。<br />
     これは、デフォルトコンストラクタに <code>explicit</code> が付いていると、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
 </code></pre></div>
 </p>
 <p>のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。</p>
@@ -301,65 +301,65 @@
 <p>C++14 では、(4) の形式に引数が追加された。<br />
     これは、変更されないと <code>n</code> のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
     具体的には、C++11 では以下のようなコードがエラーになってしまう。</p>
-<p><div class="yata" id="762cac1f22c0c5e14ab2a71c1f1528898d2d4f65"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../list.html">&lt;list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../scoped_allocator.html">&lt;scoped_allocator&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="762cac1f22c0c5e14ab2a71c1f1528898d2d4f65"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../list.html">&lt;list&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../scoped_allocator.html">&lt;scoped_allocator&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="n">li</span> <span class="o">=</span> <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">li</span><span class="p">,</span> <span class="n"><a href="../../scoped_allocator/scoped_allocator_adaptor.html">std::scoped_allocator_adaptor</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="p">;</span>
-  <span class="n"><a href="../../vector/vector/emplace_back.html">v.emplace_back</a></span><span class="p">(</span><span class="mi">10u</span><span class="p">);</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">li</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">li</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../scoped_allocator/scoped_allocator_adaptor.html">std::scoped_allocator_adaptor</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector/emplace_back.html">v.emplace_back</a></span><span class="p">(</span><span class="mi">10u</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="1096b9c17b5cb640c4196cc39d48ea23ab1e5525"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../list.html">&lt;list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1096b9c17b5cb640c4196cc39d48ea23ab1e5525"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../list.html">&lt;list&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">ls</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">ls</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">ls</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" : "</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ls</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span> <span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// デフォルト構築</span>
-  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls1</span><span class="p">;</span>
-  <span class="n">print</span><span class="p">(</span><span class="s">"ls1"</span><span class="p">,</span> <span class="n">ls1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// デフォルト構築</span>
+<span class="w">  </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s">"ls1"</span><span class="p">,</span><span class="w"> </span><span class="n">ls1</span><span class="p">);</span>
 
-  <span class="c1">// n 個の要素を持つリストを作成</span>
-  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls2</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="s">"ls2"</span><span class="p">,</span> <span class="n">ls2</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// n 個の要素を持つリストを作成</span>
+<span class="w">  </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls2</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s">"ls2"</span><span class="p">,</span><span class="w"> </span><span class="n">ls2</span><span class="p">);</span>
 
-  <span class="c1">// n 個の指定された値を要素に持つリストを作成</span>
-  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="s">"ls3"</span><span class="p">,</span> <span class="n">ls3</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// n 個の指定された値を要素に持つリストを作成</span>
+<span class="w">  </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s">"ls3"</span><span class="p">,</span><span class="w"> </span><span class="n">ls3</span><span class="p">);</span>
 
-  <span class="c1">// 範囲から構築</span>
-  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls4</span><span class="p">(</span><span class="n"><a href="begin.html">ls3.begin()</a></span><span class="p">,</span> <span class="n"><a href="end.html">ls3.end()</a></span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="s">"ls4"</span><span class="p">,</span> <span class="n">ls4</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 範囲から構築</span>
+<span class="w">  </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls4</span><span class="p">(</span><span class="n"><a href="begin.html">ls3.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="end.html">ls3.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s">"ls4"</span><span class="p">,</span><span class="w"> </span><span class="n">ls4</span><span class="p">);</span>
 
-  <span class="c1">// コピー構築</span>
-  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls5</span> <span class="o">=</span> <span class="n">ls4</span><span class="p">;</span>
-  <span class="n">print</span><span class="p">(</span><span class="s">"ls5"</span><span class="p">,</span> <span class="n">ls5</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// コピー構築</span>
+<span class="w">  </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ls4</span><span class="p">;</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s">"ls5"</span><span class="p">,</span><span class="w"> </span><span class="n">ls5</span><span class="p">);</span>
 
-  <span class="c1">// ムーブ構築</span>
-  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls6</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">ls5</span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="s">"ls6"</span><span class="p">,</span> <span class="n">ls6</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ムーブ構築</span>
+<span class="w">  </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">ls5</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s">"ls6"</span><span class="p">,</span><span class="w"> </span><span class="n">ls6</span><span class="p">);</span>
 
-  <span class="c1">// 初期化子リストで構築</span>
-  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls7</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>
-  <span class="n">print</span><span class="p">(</span><span class="s">"ls7"</span><span class="p">,</span> <span class="n">ls7</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 初期化子リストで構築</span>
+<span class="w">  </span><span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s">"ls7"</span><span class="p">,</span><span class="w"> </span><span class="n">ls7</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -401,7 +401,7 @@ ls7 : 1 2 3
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

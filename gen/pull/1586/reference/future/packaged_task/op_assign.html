@@ -225,10 +225,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;future&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class packaged_task">packaged_task::</span><span class="token">operator=</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">packaged_task</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">packaged_task</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>       <span class="c1">// (1) C++11</span>
-<span class="n">packaged_task</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">packaged_task</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span> <span class="c1">// (1) C++14</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">packaged_task</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">packaged_task</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">       </span><span class="c1">// (1) C++11</span>
+<span class="n">packaged_task</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">packaged_task</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++14</span>
 
-<span class="n">packaged_task</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">packaged_task</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (2)</span>
+<span class="n">packaged_task</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">packaged_task</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// (2)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -258,21 +258,21 @@
 <p>「(共有状態を)放棄する(abandon)」とは効果の項(2)の1と2が行われることをいい、「(共有状態を)解放する(release)」とは効果の項(2)の2のみが行われることである。通常、<code><a href="../promise.html">promise</a></code>および<code>packaged_task</code>は処理結果を提供する側であるため共有状態を所有しなくなるときには前者を行い、<code><a href="../future.html">future</a></code>および<code><a href="../shared_future.html">shared_future</a></code>は処理結果を受け取る側であるため共有状態を所有しなくなるときには後者を行う。</p>
 <p>なお、<code>operator=</code>の実際の実装では、ClangおよびGCCでは「放棄する(abandon)」の動作になっているが、Visual C++では「解放する(release)」の動作になっている。また、<code><a href="reset.html">reset</a></code>では、Clang,GCC,Visual C++のいずれも「放棄する(abandon)」の動作になっている。</p>
 <h2>例</h2>
-<p><div class="yata" id="9a2af5174b9cc552d827054102049acd1c907676"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../future.html">&lt;future&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9a2af5174b9cc552d827054102049acd1c907676"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../future.html">&lt;future&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">3</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// ムーブ代入</span>
-  <span class="c1">// 共有状態の所有権とタスクを移動する</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">task1</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">task2</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ムーブ代入</span>
+<span class="w">  </span><span class="c1">// 共有状態の所有権とタスクを移動する</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task1</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task2</span><span class="p">;</span>
 
-  <span class="n">task2</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">task1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">task2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">task1</span><span class="p">);</span>
 
-  <span class="c1">// task1は共有状態を持たない</span>
+<span class="w">  </span><span class="c1">// task1は共有状態を持たない</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -311,7 +311,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

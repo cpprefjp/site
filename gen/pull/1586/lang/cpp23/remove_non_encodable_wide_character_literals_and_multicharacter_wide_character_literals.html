@@ -223,9 +223,9 @@
 <li>マルチキャラクタリテラル</li>
 <li>エンコード可能ではない、または複数文字を含む文字</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">wchar_t</span> <span class="n">a</span> <span class="o">=</span> <span class="sa">L</span><span class="sc">'🤦'</span><span class="p">;</span> <span class="c1">// C++20:OK, C++23:OK \U0001f926</span>
-<span class="kt">wchar_t</span> <span class="n">b</span> <span class="o">=</span> <span class="n">L</span><span class="err">'</span><span class="n">ab</span><span class="err">'</span><span class="p">;</span> <span class="c1">// C++20:OK, C++23:NG マルチキャラクタリテラル</span>
-<span class="kt">wchar_t</span> <span class="n">c</span> <span class="o">=</span> <span class="n">L</span><span class="err">'</span><span class="n">e</span><span class="err">́'</span><span class="p">;</span>  <span class="c1">// C++20:OK, C++23:NG \u0065\u0301</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">wchar_t</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">L</span><span class="sc">'🤦'</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++20:OK, C++23:OK \U0001f926</span>
+<span class="kt">wchar_t</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="err">'</span><span class="n">ab</span><span class="err">'</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++20:OK, C++23:NG マルチキャラクタリテラル</span>
+<span class="kt">wchar_t</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="err">'</span><span class="n">e</span><span class="err">́'</span><span class="p">;</span><span class="w">  </span><span class="c1">// C++20:OK, C++23:NG \u0065\u0301</span>
 </code></pre></div>
 </p>
 <p><code>wchar_t</code>はプラットフォームによって16ビットか32ビットのどちらかとなる。
@@ -258,7 +258,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

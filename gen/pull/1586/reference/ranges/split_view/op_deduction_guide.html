@@ -225,14 +225,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class split_view">split_view::</span><span class="token">推論補助</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P</span><span class="o">&gt;</span>
-  <span class="n">split_view</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">P</span><span class="o">&amp;&amp;</span><span class="p">)</span>
-    <span class="o">-&gt;</span> <span class="n">split_view</span><span class="o">&lt;</span><span class="n">views</span><span class="o">::</span><span class="n"><a href="../all.html">all_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">views</span><span class="o">::</span><span class="n"><a href="../all.html">all_t</a></span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;&gt;</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">P</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">split_view</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&amp;&amp;</span><span class="p">)</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">split_view</span><span class="o">&lt;</span><span class="n">views</span><span class="o">::</span><span class="n"><a href="../all.html">all_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">views</span><span class="o">::</span><span class="n"><a href="../all.html">all_t</a></span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../forward_range.html">forward_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-  <span class="n">split_view</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n"><a href="../range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="o">-&gt;</span> <span class="n">split_view</span><span class="o">&lt;</span><span class="n">views</span><span class="o">::</span><span class="n"><a href="../all.html">all_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../single_view.html">single_view</a></span><span class="o">&lt;</span><span class="n"><a href="../range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span> <span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../forward_range.html">forward_range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">split_view</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">split_view</span><span class="o">&lt;</span><span class="n">views</span><span class="o">::</span><span class="n"><a href="../all.html">all_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../single_view.html">single_view</a></span><span class="o">&lt;</span><span class="n"><a href="../range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -243,34 +243,34 @@
 <li>(2) : 元のRangeが<a href="../all.html">all view</a>、区切り要素が<code><a href="../single_view.html">single_view</a></code>でラップされる</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="1d7b6618458303bf37cd1854f9093bccfb81c4ff"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1d7b6618458303bf37cd1854f9093bccfb81c4ff"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../concepts.html">&lt;concepts&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">text</span> <span class="o">=</span> <span class="s">"hello,world,split"</span><span class="p">;</span>
-  <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s">","</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello,world,split"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">delimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">","</span><span class="p">;</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">split_view</span> <span class="n">r1</span><span class="p">{</span><span class="n">text</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">};</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">r1</span><span class="p">),</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">split_view</span><span class="o">&lt;</span>
-      <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="p">,</span>
-      <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span>
-    <span class="o">&gt;</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">split_view</span><span class="w"> </span><span class="n">r1</span><span class="p">{</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="p">};</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="n">r1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">split_view</span><span class="o">&lt;</span>
+<span class="w">      </span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="p">,</span>
+<span class="w">      </span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span>
+<span class="w">    </span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">split_view</span> <span class="n">r2</span><span class="p">{</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"hello,world,split"</span><span class="p">},</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">","</span><span class="p">}</span>
-  <span class="p">};</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">r2</span><span class="p">),</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">split_view</span><span class="o">&lt;</span>
-      <span class="n"><a href="../owning_view.html">std::ranges::owning_view</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="n"><a href="../owning_view.html">std::ranges::owning_view</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span>
-    <span class="o">&gt;</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">split_view</span><span class="w"> </span><span class="n">r2</span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"hello,world,split"</span><span class="p">},</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">","</span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="n">r2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">split_view</span><span class="o">&lt;</span>
+<span class="w">      </span><span class="n"><a href="../owning_view.html">std::ranges::owning_view</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">      </span><span class="n"><a href="../owning_view.html">std::ranges::owning_view</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -305,7 +305,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

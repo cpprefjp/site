@@ -219,104 +219,104 @@
 <p></p>
 <h2>概要</h2>
 <p>従来のクラススコープでの<code>operator delete</code><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>において、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された<code>operator delete</code>が呼び出されるのはそのクラスのオブジェクトが破棄された後であり、その<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>内からはそのクラスのオブジェクト（及びメンバ）にアクセスすることはできなかった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">str</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
 
-  <span class="c1">// #1 Sのための operator delete オーバーロード</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Sのオブジェクトは破棄済みのため、未定義動作を引き起こす</span>
-    <span class="k">const</span> <span class="n">S</span><span class="o">*</span> <span class="n">self</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">S</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>  <span class="c1">// UB</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">;</span>   <span class="c1">// UB</span>
+<span class="w">  </span><span class="c1">// #1 Sのための operator delete オーバーロード</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Sのオブジェクトは破棄済みのため、未定義動作を引き起こす</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">S</span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">S</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w">  </span><span class="c1">// UB</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">self</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">;</span><span class="w">   </span><span class="c1">// UB</span>
 
-    <span class="c1">// メモリ領域の解放</span>
-    <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// メモリ領域の解放</span>
+<span class="w">    </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">S</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">S</span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">S</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S</span><span class="p">{};</span>
 
-  <span class="c1">// Sのデストラクタ呼び出しの後#1が呼び出される</span>
-  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Sのデストラクタ呼び出しの後#1が呼び出される</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>delete</code>式は指定されたポインタの指しているオブジェクトを破棄した後にそのオブジェクトが占めていたメモリ領域を解放するが、<code>operator delete</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>はオブジェクト破棄後のメモリ領域解放のみを担うため、<code>operator delete</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が呼ばれた時点でその対象の領域上のオブジェクトは生存期間を終えている。</p>
 <p>C++20から、第ニ引数に<code><a href="../../reference/new/destroying_delete_t.html">std::destroying_delete_t</a></code>を取るように<code>operator delete</code>を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>することで、<code>delete</code>式の行う全ての振る舞いをハンドリングできるようになり、<code>operator delete</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>内から<code>delete</code>対象のオブジェクトに安全にアクセスすることができる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/new.html">&lt;new&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/new.html">&lt;new&gt;</a></span>
+<span class="cp">#include <a href="../../reference/memory.html">&lt;memory&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">str</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
 
-  <span class="c1">// #1 Sのための operator delete オーバーロード</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::destroying_delete_t</span></span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// pの指すオブジェクトはデストラクタ呼び出し前のため、安全に参照できる</span>
-    <span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">self</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>     <span class="c1">// ok</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">self</span><span class="p">.</span><span class="n">str</span><span class="p">;</span>  <span class="c1">// ok</span>
+<span class="w">  </span><span class="c1">// #1 Sのための operator delete オーバーロード</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::destroying_delete_t</span></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// pの指すオブジェクトはデストラクタ呼び出し前のため、安全に参照できる</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">S</span><span class="o">&amp;</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span><span class="w">     </span><span class="c1">// ok</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">str</span><span class="p">;</span><span class="w">  </span><span class="c1">// ok</span>
 
-    <span class="c1">// デストラクタ呼び出しをしなければならない</span>
-    <span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-    <span class="c1">// メモリ解放</span>
-    <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// デストラクタ呼び出しをしなければならない</span>
+<span class="w">    </span><span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// メモリ解放</span>
+<span class="w">    </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">S</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">S</span><span class="p">{</span><span class="s">"test"</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">S</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S</span><span class="p">{</span><span class="s">"test"</span><span class="p">};</span>
 
-  <span class="c1">// Sのデストラクタは呼ばれずに#1が呼び出される</span>
-  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Sのデストラクタは呼ばれずに#1が呼び出される</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>このように、<code>std::destroying_delete_t</code>を取る<code>operator delete</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>のことを<em>destroying operator delete</em>と呼ぶ。<em>destroying operator delete</em>においては、<code>delete</code>式が行う全てのことをユーザーが行う必要がある。</p>
 <h2>仕様</h2>
 <p>クラススコープで定義された<code>operator delete()</code>で、第二引数が<code>std::destroying_delete_t</code>であるものを<em>destroying operator delete</em>と呼ぶ。クラス<code>C</code>に対する<em>destroying operator delete</em>の第一引数は<code>C*</code>でなければならず、それらの点以外は通常の<code>operator delete</code><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の制約に従う。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="c1">// これらの宣言はいずれも、destroying operator deleteではない（コンパイルエラーとなる）</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span>      <span class="c1">// 第一引数はS*</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">,</span> <span class="k">auto</span><span class="p">);</span>                             <span class="c1">// 第二引数は std::destroying_delete_t</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span>         <span class="c1">// 戻り値はvoid</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span> <span class="c1">// 仮想関数にできない</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// これらの宣言はいずれも、destroying operator deleteではない（コンパイルエラーとなる）</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span><span class="w">      </span><span class="c1">// 第一引数はS*</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="p">);</span><span class="w">                             </span><span class="c1">// 第二引数は std::destroying_delete_t</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span><span class="w">         </span><span class="c1">// 戻り値はvoid</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span><span class="w"> </span><span class="c1">// 仮想関数にできない</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>単一オブジェクトに対する<code>delete</code>式の実行に伴う<code>operator delete</code>の探索の結果、その候補の中に<em>destroying operator delete</em>が含まれている場合、<em>destroying operator delete</em>ではない<code>operator delete</code>は候補から外れる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="c1">// destroying operator delete</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// destroying operator delete</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span>
 
-  <span class="c1">// destroying operator deleteが定義されている限り、こちらが呼び出されることはない</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// destroying operator deleteが定義されている限り、こちらが呼び出されることはない</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>ただし、配列に対する<code>delete</code>式の場合は、<em>destroying operator delete</em>は考慮されない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="c1">// #1 destroying operator delete</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"S::operator delete()</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// #1 destroying operator delete</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"S::operator delete()</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
 
-    <span class="n">std</span><span class="o">::</span><span class="n">destroy_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-    <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">destroy_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">    </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">S</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">]{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">S</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">]{};</span>
 
-  <span class="c1">// #1は呼び出されず、要素ごとに破棄された後で配列の領域が解放される</span>
-  <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// #1は呼び出されず、要素ごとに破棄された後で配列の領域が解放される</span>
+<span class="w">  </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>また、配列板の<code>operator delete[]</code>を<em>destroying operator delete</em>として<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>することもできない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">[](</span><span class="n">S</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span> <span class="c1">// ng</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">[](</span><span class="n">S</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">);</span><span class="w"> </span><span class="c1">// ng</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -324,37 +324,37 @@
 <p><em>destroying operator delete</em>が<code>operator delete</code>として使用される<code>delete</code>式の実行において、<code>delete</code>式は<code>delete</code>対象オブジェクトのデストラクタを呼び出さないで<code>operator delete</code>を呼び出す。また、その際の<em>destroying operator delete</em>の第二引数（<code>std::destroying_delete_t</code>に対応する引数）に渡される値は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
 <p><em>destroying operator delete</em>に限らず全ての<code>operator delete</code><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>において、<code>delete</code>式に指定されているポインタの指すオブジェクトがクラス型であり、そのデストラクタが仮想デストラクタである場合、その<code>delete</code>式の実行に伴う<code>operator delete</code>の探索はそのオブジェクトの動的型（実行時の実際のクラス型）のスコープで行われる。この探索は、クラスの仮想関数を基底クラスから呼び出す時と同じものである。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 基底クラス</span>
-<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="o">~</span><span class="n">B</span><span class="p">();</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">B</span><span class="p">();</span>
 
-  <span class="c1">// 普通のdelete演算子オーバーロード</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 普通のdelete演算子オーバーロード</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="c1">// 派生クラス1</span>
-<span class="k">struct</span> <span class="nl">D</span> <span class="p">:</span> <span class="n">B</span> <span class="p">{</span>
-  <span class="c1">// 普通のdelete演算子オーバーロード</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">);</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 普通のdelete演算子オーバーロード</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="c1">// 派生クラス2</span>
-<span class="k">struct</span> <span class="nl">E</span> <span class="p">:</span> <span class="n">B</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">log_deletion</span><span class="p">();</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">E</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">log_deletion</span><span class="p">();</span>
 
-  <span class="c1">// destroying operator delete</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="n">E</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">p</span><span class="o">-&gt;</span><span class="n">log_deletion</span><span class="p">();</span>
-    <span class="n">p</span><span class="o">-&gt;~</span><span class="n">E</span><span class="p">();</span>
-    <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// destroying operator delete</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">log_deletion</span><span class="p">();</span>
+<span class="w">    </span><span class="n">p</span><span class="o">-&gt;~</span><span class="n">E</span><span class="p">();</span>
+<span class="w">    </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">B</span><span class="o">*</span> <span class="n">bp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">D</span><span class="p">;</span>
-  <span class="k">delete</span> <span class="n">bp</span><span class="p">;</span> <span class="c1">// #1 D::operator delete(void*)が呼び出される</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">B</span><span class="o">*</span><span class="w"> </span><span class="n">bp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">D</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">bp</span><span class="p">;</span><span class="w"> </span><span class="c1">// #1 D::operator delete(void*)が呼び出される</span>
 
-  <span class="n">bp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">E</span><span class="p">;</span>
-  <span class="k">delete</span> <span class="n">bp</span><span class="p">;</span> <span class="c1">// #2 E::operator delete(E*, std::destroying_delete_t)が呼び出される</span>
+<span class="w">  </span><span class="n">bp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">E</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">bp</span><span class="p">;</span><span class="w"> </span><span class="c1">// #2 E::operator delete(E*, std::destroying_delete_t)が呼び出される</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -362,79 +362,79 @@
 <code>#2</code>において、<code>E</code>のオブジェクトの破棄とそのメモリ領域の解放は<code>E::operator delete</code>（<em>destroying operator delete</em>）によって行われる。</p>
 <h2>例</h2>
 <h3>可変サイズクラスの<code>delete</code></h3>
-<p><div class="yata" id="f4096cfab9fe5483a7e93c46af6c3801abb36160"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/new.html">&lt;new&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstring.html">&lt;cstring&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f4096cfab9fe5483a7e93c46af6c3801abb36160"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string_view.html">&lt;string_view&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/new.html">&lt;new&gt;</a></span>
+<span class="cp">#include <a href="../../reference/memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cstring.html">&lt;cstring&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">inlined_fixed_string</span> <span class="p">{</span>
-  <span class="kt">size_t</span> <span class="n">length</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">inlined_fixed_string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">;</span>
 
-  <span class="n">inlined_fixed_string</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">length</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="c1">// 自身の後ろにある領域に文字列をコピーする</span>
-    <span class="c1">// P0593R6の効果によって、charオブジェクトの生存期間が自動開始される（C++20以降）</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="k">this</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">inlined_fixed_string</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 自身の後ろにある領域に文字列をコピーする</span>
+<span class="w">    </span><span class="c1">// P0593R6の効果によって、charオブジェクトの生存期間が自動開始される（C++20以降）</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">inlined_fixed_string</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">inlined_fixed_string</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 
-  <span class="k">auto</span> <span class="nf">size</span><span class="p">()</span> <span class="k">const</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">auto</span> <span class="nf"><a href="../../reference/ranges/view.html">view</a></span><span class="p">()</span> <span class="k">const</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span> <span class="p">{</span>
-    <span class="c1">// thisの後ろにはlength個のcharオブジェクトが生存期間内にあるため、このreinterpret_castは問題ない</span>
-    <span class="k">return</span> <span class="p">{</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">()</span> <span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n"><a href="../../reference/ranges/view.html">view</a></span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// thisの後ろにはlength個のcharオブジェクトが生存期間内にあるため、このreinterpret_castは問題ない</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// <a href="../../reference/string/basic_string.html">std::string</a>から構築するファクトリ関数</span>
-  <span class="k">static</span> <span class="k">auto</span> <span class="nf">Make</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">inlined_fixed_string</span><span class="o">*</span> <span class="p">{</span>
-    <span class="c1">// 自身の末尾に固定長（実行時可変長）の文字列用領域を確保する</span>
-    <span class="k">const</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">full_size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="p">)</span> <span class="o">+</span> <span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// <a href="../../reference/string/basic_string.html">std::string</a>から構築するファクトリ関数</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Make</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">inlined_fixed_string</span><span class="o">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 自身の末尾に固定長（実行時可変長）の文字列用領域を確保する</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">full_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-    <span class="c1">// パディングしたサイズでメモリの確保</span>
-    <span class="c1">// new式ではなくグローバルnew演算子の呼出</span>
-    <span class="k">auto</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">::</span><span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n">full_size</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// パディングしたサイズでメモリの確保</span>
+<span class="w">    </span><span class="c1">// new式ではなくグローバルnew演算子の呼出</span>
+<span class="w">    </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">full_size</span><span class="p">);</span>
 
-    <span class="c1">// ログ出力</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"inlined_fixed_string::Make() : "</span> <span class="o">&lt;&lt;</span> <span class="n">full_size</span> <span class="o">&lt;&lt;</span><span class="s">" byte allocate.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// ログ出力</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"inlined_fixed_string::Make() : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">full_size</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="s">" byte allocate.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
 
-    <span class="c1">// 確保したメモリ領域にplacement newして構築</span>
-    <span class="c1">// コンストラクタ内で文字列をコピー</span>
-    <span class="k">return</span> <span class="o">::</span><span class="k">new</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="n">inlined_fixed_string</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 確保したメモリ領域にplacement newして構築</span>
+<span class="w">    </span><span class="c1">// コンストラクタ内で文字列をコピー</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="k">new</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="n">inlined_fixed_string</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 確保した領域を含めてdelete</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">destroying_delete_t</span></span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 末尾領域の長さを取得</span>
-    <span class="k">const</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">full_size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="p">)</span> <span class="o">+</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 確保した領域を含めてdelete</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">destroying_delete_t</span></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 末尾領域の長さを取得</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">full_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">;</span>
 
-    <span class="c1">// char（トリビアルに破棄可能な）型はデストラクタ呼び出しを省略可能</span>
-    <span class="n"><a href="../../reference/memory/ranges_destroy.html">std::ranges::destroy</a></span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// char（トリビアルに破棄可能な）型はデストラクタ呼び出しを省略可能</span>
+<span class="w">    </span><span class="n"><a href="../../reference/memory/ranges_destroy.html">std::ranges::destroy</a></span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">);</span>
 
-    <span class="c1">// デストラクタ呼び出し</span>
-    <span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// デストラクタ呼び出し</span>
+<span class="w">    </span><span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 
-    <span class="c1">// メモリ解放</span>
-    <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">full_size</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// メモリ解放</span>
+<span class="w">    </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">full_size</span><span class="p">);</span>
 
-    <span class="c1">// ログ出力</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"inlined_fixed_string::operator delete() : "</span> <span class="o">&lt;&lt;</span> <span class="n">full_size</span> <span class="o">&lt;&lt;</span><span class="s">" byte deallocate.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// ログ出力</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"inlined_fixed_string::operator delete() : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">full_size</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="s">" byte deallocate.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">str</span> <span class="o">=</span> <span class="s">"C++20 destroying operator delete test."</span><span class="p">;</span>
-  <span class="k">auto</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">inlined_fixed_string</span><span class="o">::</span><span class="n">Make</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"C++20 destroying operator delete test."</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inlined_fixed_string</span><span class="o">::</span><span class="n">Make</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n"><a href="../../reference/ranges/view.html">view</a></span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n"><a href="../../reference/ranges/view.html">view</a></span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
 
-  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -444,63 +444,63 @@ C++20 destroying operator delete test.
 inlined_fixed_string::operator delete() : 47 byte deallocate.
 </code></pre></p>
 <h3>正しいデストラクタへのディスパッチ</h3>
-<p><div class="yata" id="b1b899f1ce84cd2f71d578dc5c7fc96db4946932"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/new.html">&lt;new&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b1b899f1ce84cd2f71d578dc5c7fc96db4946932"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/new.html">&lt;new&gt;</a></span>
 
 <span class="c1">// 仮想デストラクタを定義しない基底クラス</span>
-<span class="k">struct</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">kind</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">kind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-  <span class="c1">// destroying operator delete宣言 #1</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="n">base</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">destroying_delete_t</span></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// destroying operator delete宣言 #1</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">base</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">destroying_delete_t</span></span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">derived1</span> <span class="p">:</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="n">derived1</span><span class="p">()</span> <span class="o">:</span> <span class="n">base</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">derived1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">derived1</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">base</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">derived2</span> <span class="p">:</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="n">derived2</span><span class="p">()</span> <span class="o">:</span> <span class="n">base</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">derived2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">derived2</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">base</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
 <span class="c1">// #1に対応する定義</span>
-<span class="kt">void</span> <span class="n">base</span><span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">base</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">destroying_delete_t</span></span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">base</span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">base</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">destroying_delete_t</span></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="k">switch</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">kind</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-    <span class="p">{</span>
-      <span class="k">auto</span><span class="o">*</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">derived1</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-      <span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
-      <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destruct derived1</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-    <span class="p">{</span>
-      <span class="k">auto</span><span class="o">*</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">derived2</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-      <span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
-      <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destruct derived2</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">default</span><span class="o">:</span>
-      <span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-      <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destruct base</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">switch</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">kind</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">derived1</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
+<span class="w">      </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"destruct derived1</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">derived2</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
+<span class="w">      </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"destruct derived2</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">      </span><span class="n"><a href="../../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">      </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"destruct base</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">{</span>
-    <span class="n">base</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">derived1</span><span class="p">{};</span>
-    <span class="c1">// #1によってderived1のデストラクタが呼ばれ、メモリが解放される</span>
-    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="n">base</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">derived2</span><span class="p">{};</span>
-    <span class="c1">// #1によってderived2のデストラクタが呼ばれ、メモリが解放される</span>
-    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">base</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">derived1</span><span class="p">{};</span>
+<span class="w">    </span><span class="c1">// #1によってderived1のデストラクタが呼ばれ、メモリが解放される</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">base</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">derived2</span><span class="p">{};</span>
+<span class="w">    </span><span class="c1">// #1によってderived2のデストラクタが呼ばれ、メモリが解放される</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -512,27 +512,27 @@ destruct derived2
 <p>1つ目の例に挙げた<code>inlined_fixed_string</code>のような可変サイズクラスの定義は、ポインタの間接参照を回避しながら可変長配列を定義することができ、よく書かれるパターンだった（実際には<em>flexible array member</em>を使用することが多い）。</p>
 <p>しかし、このようなクラスは<a href="../cpp14/sized_deallocation.html">サイズ付きデアロケーション</a>を活用して効率的に削除することができなかった。</p>
 <p><code>inlined_fixed_string</code>のオブジェクトを指すポインタを<code>s</code>とすると、<code>delete s;</code>という式の実行において、C++14（<a href="https://cplusplus.github.io/CWG/issues/2248" target="_blank">CWG Issue 2248</a>解決前）のコンパイラは次のようなコードを呼び出す必要があった</p>
-<p><div class="codehilite"><pre><span></span><code><span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">full_size</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">full_size</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>しかし、この場合に自動で<code>full_size</code>を取得することはできない。</p>
 <p>C++17では代わりに次のようなコードを出力する</p>
-<p><div class="codehilite"><pre><span></span><code><span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="p">));</span>
 </code></pre></div>
 </p>
 <p>が、これは正しく確保したメモリ領域を解放していない。</p>
 <p>正しくは、クラスで<code>operator delete</code>を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>する必要がある</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span> <span class="c1">// アロケータが知っているptrのサイズ情報に頼る（アロケータでそのサイズを求めるためのオーバーヘッドが発生しうる）</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span><span class="w"> </span><span class="c1">// アロケータが知っているptrのサイズ情報に頼る（アロケータでそのサイズを求めるためのオーバーヘッドが発生しうる）</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>すなわち、サイズ付きデアロケーションを全く利用しない。これは安全に解放できるようになる一方で、サイズ付きデアロケーションのパフォーマンス上の利点を全て捨てることになる。</p>
 <p>理想的には、クラスが保存している実際に確保したメモリのサイズを取得できることが望ましい</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">inlined_fixed_string</span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">inlined_fixed_string</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span> <span class="c1">// UB</span>
-  <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">full_size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>       <span class="c1">// UB</span>
-  <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">full_size</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">inlined_fixed_string</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">inlined_fixed_string</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span><span class="w"> </span><span class="c1">// UB</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">full_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">inlined_fixed_string</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span><span class="w">       </span><span class="c1">// UB</span>
+<span class="w">  </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">full_size</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -557,15 +557,15 @@ destruct derived2
 <p>これらの欠点（特に、<code>delete</code>式が使用できないこと）によって、この方法は好まれなかった。</p>
 <h3>destroying operator deleteの別の構文</h3>
 <p><em>destroying operator delete</em>を宣言する構文として、いくつかの構文が検討された。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="c1">// 1. void*の代わりにS*をとる</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 1. void*の代わりにS*をとる</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">);</span>
 
-  <span class="c1">// 2. 1+~を先頭につける</span>
-  <span class="kt">void</span> <span class="k">operator</span> <span class="o">~</span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 2. 1+~を先頭につける</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">~</span><span class="k">delete</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="p">);</span>
 
-  <span class="c1">// 3. デストラクタ風宣言</span>
-  <span class="o">~</span><span class="n">S</span> <span class="k">delete</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 3. デストラクタ風宣言</span>
+<span class="w">  </span><span class="o">~</span><span class="n">S</span><span class="w"> </span><span class="k">delete</span><span class="p">();</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -610,7 +610,7 @@ destruct derived2
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

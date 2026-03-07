@@ -220,11 +220,11 @@
 <h2>概要</h2>
 <p>C++23までは、未初期化変数 (<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a>された変数) の読み取りは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>として扱われていた。C++26では、この<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>による安全上のリスクを低減するため、「<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a> (erroneous behavior; 通称 EB、別表記として<a class="cpprefjp-defined-word" data-desc="未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性の動作</a>)」を新設してその多くに割り当てることとした。</p>
 <p><div class="yata" id="8ecc4d0f14af1d43fe031fb8813b2b45acc4a217"><div class="codehilite"><pre><span></span><code><span class="c1">// C++23</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// デフォルト初期化。xは不定値 (indeterminate value) をもつ</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>  <span class="c1">// 左辺値から右辺値への変換が未定義動作を引き起こす</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// デフォルト初期化。xは不定値 (indeterminate value) をもつ</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">  </span><span class="c1">// 左辺値から右辺値への変換が未定義動作を引き起こす</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -232,14 +232,14 @@
 <p><a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>（一切の保証が失われる）とはちがって、動作を定めたうえで診断も可能とするものである。</p>
 <p>C++26では、不定値で初期化されることを明確に指示する<code>[[indeterminate]]</code>属性も導入され、以下のような動作となる：</p>
 <p><div class="yata" id="4a0c4737e6a08d3c9e45aa4958b4810624dce709"><div class="codehilite"><pre><span></span><code><span class="c1">// C++26</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>                   <span class="c1">// xはエラー性の値をもつ</span>
-  <span class="kt">int</span> <span class="n">y</span> <span class="p">[[</span><span class="n">indeterminate</span><span class="p">]];</span> <span class="c1">// 意図して不定値に初期化されることを指示</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">                   </span><span class="c1">// xはエラー性の値をもつ</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">[[</span><span class="n">indeterminate</span><span class="p">]];</span><span class="w"> </span><span class="c1">// 意図して不定値に初期化されることを指示</span>
 
-  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// エラー性動作 (エラー性の値の読み取り)</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">);</span> <span class="c1">// 未定義動作 (不定値の読み取り)</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// エラー性動作 (エラー性の値の読み取り)</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 未定義動作 (不定値の読み取り)</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -257,38 +257,38 @@
 </li>
 <li><a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>を引き起こしたうえで生成された値は、後続の処理ではエラー性の値とはみなされない</li>
 </ul>
-<p><div class="yata" id="fe6d4c0bce9ea21b6d3925c0017226cdc04db58c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstring.html">&lt;cstring&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="fe6d4c0bce9ea21b6d3925c0017226cdc04db58c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cstring.html">&lt;cstring&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="kt">bool</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
-  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">d</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span> <span class="c1">// エラー性動作ではない。dはエラー性の値をもつ</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// エラー性動作ではない。dはエラー性の値をもつ</span>
 
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="n">d</span><span class="p">);</span>      <span class="c1">// 常に真、エラー性動作 (整数昇格)</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">      </span><span class="c1">// 常に真、エラー性動作 (整数昇格)</span>
 
-  <span class="kt">int</span> <span class="n">e</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>           <span class="c1">// エラー性動作 (型変換)</span>
-  <span class="k">return</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">d</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// bがtrueの場合にエラー性動作</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w">           </span><span class="c1">// エラー性動作 (型変換)</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">    </span><span class="c1">// bがtrueの場合にエラー性動作</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="n">d2</span><span class="p">;</span>
 
-  <span class="kt">int</span> <span class="n">e1</span> <span class="o">=</span> <span class="n">d1</span><span class="p">;</span>      <span class="c1">// エラー性動作</span>
-  <span class="kt">int</span> <span class="n">e2</span> <span class="o">=</span> <span class="n">d1</span><span class="p">;</span>      <span class="c1">// エラー性動作</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d1</span><span class="p">;</span><span class="w">      </span><span class="c1">// エラー性動作</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d1</span><span class="p">;</span><span class="w">      </span><span class="c1">// エラー性動作</span>
 
-  <span class="c1">// 処理が続行した場合…</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span> <span class="o">==</span> <span class="n">e2</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作ではない。</span>
-                    <span class="c1">// エラー性動作の結果で生成された値 (e1とe2) は、</span>
-                    <span class="c1">// エラー性の値とはみなされない</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span> <span class="o">==</span> <span class="n">d1</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e2</span> <span class="o">==</span> <span class="n">d1</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作</span>
+<span class="w">  </span><span class="c1">// 処理が続行した場合…</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">e2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 常に真、エラー性動作ではない。</span>
+<span class="w">                    </span><span class="c1">// エラー性動作の結果で生成された値 (e1とe2) は、</span>
+<span class="w">                    </span><span class="c1">// エラー性の値とはみなされない</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 常に真、エラー性動作</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 常に真、エラー性動作</span>
 
-  <span class="c1">// エラー性動作ではないが</span>
-  <span class="c1">// d2はエラー性の値をもつ</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// エラー性動作ではないが</span>
+<span class="w">  </span><span class="c1">// d2はエラー性の値をもつ</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span> <span class="o">==</span> <span class="n">d2</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e2</span> <span class="o">==</span> <span class="n">d2</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 常に真、エラー性動作</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 常に真、エラー性動作</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -296,18 +296,18 @@
 <p><code>[[indeterminate]]</code>属性は、自動変数が初期状態として意図して不定値をもつことを指示するものであり、自動変数の定義、もしくは関数のパラメータ宣言に適用できる。</p>
 <p>関数のパラメータが<code>[[indeterminate]]</code>属性で宣言される場合、その関数の最初の宣言でそのように宣言されなければならない (注：関数宣言は複数行うことができるが、その最初の宣言で<code>[[indeterminate]]</code>属性をつけなければならない)。</p>
 <p><code>[[indeterminate]]</code>がつけられた変数から読み取りをした場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす可能性がある。</p>
-<p><div class="yata" id="7f024e2ac7c9eafd4b7e6b43f81576d40dbc8802"><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">T</span> <span class="p">{</span>
-  <span class="n">T</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<p><div class="yata" id="7f024e2ac7c9eafd4b7e6b43f81576d40dbc8802"><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">h</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span> <span class="p">[[</span><span class="n">indeterminate</span><span class="p">]])</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>   <span class="c1">// 後述の関数呼び出しはここで未定義動作を引き起こす</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">[[</span><span class="n">indeterminate</span><span class="p">]])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">);</span><span class="w">   </span><span class="c1">// 後述の関数呼び出しはここで未定義動作を引き起こす</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">_</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">T</span><span class="p">());</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="n">T</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -315,14 +315,14 @@
 <ul>
 <li>以下のようなケースでは、<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>ではなく<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす可能性がある：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="n">T</span><span class="o">*</span> <span class="n">p</span><span class="p">;</span>    <span class="c1">// 未初期化のポインタ。エラー性の値 (例としてヌルポインタ) をもつ</span>
-<span class="kt">bool</span> <span class="n">b</span><span class="p">;</span>  <span class="c1">// 未初期化の真理値。</span>
-         <span class="c1">// bool値として妥当な値表現をもたない可能性がある</span>
-         <span class="c1">// (例: 値表現が8bitで{0x00(false), 0x01(true)}の</span>
-         <span class="c1">// 2通りのみとする処理系で0xCCをもつなど)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w">    </span><span class="c1">// 未初期化のポインタ。エラー性の値 (例としてヌルポインタ) をもつ</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">  </span><span class="c1">// 未初期化の真理値。</span>
+<span class="w">         </span><span class="c1">// bool値として妥当な値表現をもたない可能性がある</span>
+<span class="w">         </span><span class="c1">// (例: 値表現が8bitで{0x00(false), 0x01(true)}の</span>
+<span class="w">         </span><span class="c1">// 2通りのみとする処理系で0xCCをもつなど)</span>
 
-<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">);</span>   <span class="c1">// 間接参照は未定義動作を引き起こす</span>
-<span class="n">g</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>    <span class="c1">// bが妥当な値表現をもつ場合にエラー性動作、そうでなければ未定義動作</span>
+<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">);</span><span class="w">   </span><span class="c1">// 間接参照は未定義動作を引き起こす</span>
+<span class="n">g</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w">    </span><span class="c1">// bが妥当な値表現をもつ場合にエラー性動作、そうでなければ未定義動作</span>
 </code></pre></div>
 </li>
 </ul>
@@ -391,7 +391,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

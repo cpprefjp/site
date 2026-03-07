@@ -213,16 +213,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;generator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">generator</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Ref</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span> <span class="o">=</span> <span class="kt">void</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="kt">void</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">generator</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="../ranges/view_interface.html">ranges::view_interface</a></span><span class="o">&lt;</span><span class="n">generator</span><span class="o">&lt;</span><span class="n">Ref</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
-    <span class="p">...</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Ref</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">generator</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../ranges/view_interface.html">ranges::view_interface</a></span><span class="o">&lt;</span><span class="n">generator</span><span class="o">&lt;</span><span class="n">Ref</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span> <span class="o">=</span> <span class="kt">void</span><span class="o">&gt;</span>
-    <span class="k">using</span> <span class="n">generator</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">generator</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;&gt;&gt;</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">pmr</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">generator</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;&gt;&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -444,33 +444,33 @@
 </tr>
 </tbody>
 </table>
-<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">yielded</span> <span class="o">=</span>
-  <span class="n"><a href="../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/is_reference.html">is_reference_v</a></span><span class="o">&lt;</span><span class="n">reference</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="k">const</span> <span class="n">reference</span><span class="o">&amp;&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">yielded</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="n"><a href="../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/is_reference.html">is_reference_v</a></span><span class="o">&lt;</span><span class="n">reference</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">reference</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">reference</span><span class="o">&amp;&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
 <h3>例1: 単一値の生成</h3>
-<p><div class="yata" id="ecab885884bd18f44953a55fe6ebab39ddd0fd15"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ecab885884bd18f44953a55fe6ebab39ddd0fd15"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../generator.html">&lt;generator&gt;</a></span>
+<span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
 <span class="c1">// 偶数値列を無限生成するコルーチン</span>
-<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">evens</span><span class="p">()</span>
+<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">evens</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">n</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// ジェネレータにより生成されるRangeのうち</span>
-  <span class="c1">// 先頭から5個までの要素値を列挙する</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">evens</span><span class="p">()</span> <span class="o">|</span> <span class="n"><a href="../ranges/take_view.html">std::views::take</a></span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// ジェネレータにより生成されるRangeのうち</span>
+<span class="w">  </span><span class="c1">// 先頭から5個までの要素値を列挙する</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">evens</span><span class="p">()</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="../ranges/take_view.html">std::views::take</a></span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -482,28 +482,28 @@
 8
 </code></pre></p>
 <h3>例2: Range要素値の逐次生成</h3>
-<p><div class="yata" id="03a2910e503e17fc0c29ff40ea6be1973073a859"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="03a2910e503e17fc0c29ff40ea6be1973073a859"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../generator.html">&lt;generator&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../list.html">&lt;list&gt;</a></span>
+<span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
 <span class="c1">// Rangeの要素値を逐次生成するコルーチン</span>
-<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ints</span><span class="p">()</span>
+<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ints</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-  <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
-  <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">vec</span><span class="p">);</span>
-  <span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lst</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
-  <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">lst</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">vec</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">lst</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">ints</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ints</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">' '</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -511,51 +511,51 @@
 <p><pre><code>1 2 3 4 5 6 7 8 9 
 </code></pre></p>
 <h3>例3: ジェネレータのネスト</h3>
-<p><div class="yata" id="0244c20c28c805764a6df1ab70fa57b55253dca7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0244c20c28c805764a6df1ab70fa57b55253dca7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../generator.html">&lt;generator&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
 
 <span class="c1">// 二分木ノード</span>
-<span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
-  <span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span> <span class="n">left</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-  <span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span> <span class="n">right</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// 二分木を走査: 左(left)→自ノード→右(right)</span>
-<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">traverse</span><span class="p">(</span><span class="k">const</span> <span class="n">node</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">traverse</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">node</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">traverse</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">.</span><span class="n">left</span><span class="p">));</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n">e</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">traverse</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">.</span><span class="n">right</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">traverse</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">.</span><span class="n">left</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">traverse</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">.</span><span class="n">right</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// tree:</span>
-  <span class="c1">//    2</span>
-  <span class="c1">//   / ¥</span>
-  <span class="c1">//  1   4</span>
-  <span class="c1">//     / ¥</span>
-  <span class="c1">//    3   5</span>
-  <span class="n">node</span> <span class="n">tree</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">2</span><span class="p">,</span>
-    <span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
-    <span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span>
-      <span class="mi">4</span><span class="p">,</span>
-      <span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-      <span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="p">),</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// tree:</span>
+<span class="w">  </span><span class="c1">//    2</span>
+<span class="w">  </span><span class="c1">//   / ¥</span>
+<span class="w">  </span><span class="c1">//  1   4</span>
+<span class="w">  </span><span class="c1">//     / ¥</span>
+<span class="w">  </span><span class="c1">//    3   5</span>
+<span class="w">  </span><span class="n">node</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">      </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">      </span><span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+<span class="w">      </span><span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">n</span><span class="p">:</span> <span class="n">traverse</span><span class="p">(</span><span class="n">tree</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="o">:</span><span class="w"> </span><span class="n">traverse</span><span class="p">(</span><span class="n">tree</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -567,45 +567,45 @@
 5
 </code></pre></p>
 <h3>例4: 第2テンプレートパラメータVの利用</h3>
-<p><div class="yata" id="756f5011931d68b80b0a20f185be0e7c2f91328b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="756f5011931d68b80b0a20f185be0e7c2f91328b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../generator.html">&lt;generator&gt;</a></span>
+<span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../string_view.html">&lt;string_view&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
 <span class="c1">// Ref=<a href="../string_view/basic_string_view.html">string_view</a>, V=string のジェネレータコルーチン</span>
-<span class="k">auto</span> <span class="nf">fizzbuzz</span><span class="p">()</span> <span class="o">-&gt;</span>
-  <span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">fizzbuzz</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span>
 <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="s">"FizzBuzz"</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="s">"Fizz"</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="s">"Buzz"</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span><span class="w"> </span><span class="nf"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// <a href="../ranges/to.html">std::ranges::to</a>&lt;C&gt;() は変換元Rangeの <a href="../ranges/range_value_t.html">range_value_t</a> を利用して戻り値型を決定する。</span>
-  <span class="c1">// ここでは <a href="../vector/vector.html">std::vector</a>&lt;<a href="../string/basic_string.html">std::string</a>&gt; 型を導出するために、ジェネレータコルーチンの</span>
-  <span class="c1">// 第2テンプレートパラメータ V = <a href="../string/basic_string.html">std::string</a> として明示指定する必要がある。</span>
-  <span class="k">auto</span> <span class="n">vec</span> <span class="o">=</span> <span class="n">fizzbuzz</span><span class="p">()</span> <span class="o">|</span> <span class="n"><a href="../ranges/take_view.html">std::views::take</a></span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">|</span> <span class="n"><a href="../ranges/to.html">std::ranges::to</a></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// <a href="../ranges/to.html">std::ranges::to</a>&lt;C&gt;() は変換元Rangeの <a href="../ranges/range_value_t.html">range_value_t</a> を利用して戻り値型を決定する。</span>
+<span class="w">  </span><span class="c1">// ここでは <a href="../vector/vector.html">std::vector</a>&lt;<a href="../string/basic_string.html">std::string</a>&gt; 型を導出するために、ジェネレータコルーチンの</span>
+<span class="w">  </span><span class="c1">// 第2テンプレートパラメータ V = <a href="../string/basic_string.html">std::string</a> として明示指定する必要がある。</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fizzbuzz</span><span class="p">()</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="../ranges/take_view.html">std::views::take</a></span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="../ranges/to.html">std::ranges::to</a></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&gt;</span><span class="p">();</span>
 
-  <span class="c1">// もし fizzbuzz() 戻り値型が <span style="color:#ff0000">std::generator</span>&lt;<a href="../string_view/basic_string_view.html">std::string_view</a>&gt; であった場合、</span>
-  <span class="c1">// 変数 vec は <a href="../vector/vector.html">std::vector</a>&lt;<a href="../string_view/basic_string_view.html">std::string_view</a>&gt; 型となる。このときコルーチン内部実装の</span>
-  <span class="c1">// <a href="../string/to_string.html">std::to_string</a>() の戻り値 <a href="../string/basic_string.html">std::string</a> オブジェクトは<a href="../../lang/cpp20/coroutines.html">co_yield</a>式末尾で寿命が切れるため、</span>
-  <span class="c1">// 各要素 vec[i] に格納される <a href="../string_view/basic_string_view.html">std::string_view</a> はダングリング(dangling)状態になってしまう。</span>
+<span class="w">  </span><span class="c1">// もし fizzbuzz() 戻り値型が <span style="color:#ff0000">std::generator</span>&lt;<a href="../string_view/basic_string_view.html">std::string_view</a>&gt; であった場合、</span>
+<span class="w">  </span><span class="c1">// 変数 vec は <a href="../vector/vector.html">std::vector</a>&lt;<a href="../string_view/basic_string_view.html">std::string_view</a>&gt; 型となる。このときコルーチン内部実装の</span>
+<span class="w">  </span><span class="c1">// <a href="../string/to_string.html">std::to_string</a>() の戻り値 <a href="../string/basic_string.html">std::string</a> オブジェクトは<a href="../../lang/cpp20/coroutines.html">co_yield</a>式末尾で寿命が切れるため、</span>
+<span class="w">  </span><span class="c1">// 各要素 vec[i] に格納される <a href="../string_view/basic_string_view.html">std::string_view</a> はダングリング(dangling)状態になってしまう。</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">vec</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">vec</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -668,7 +668,7 @@ FizzBuzz
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

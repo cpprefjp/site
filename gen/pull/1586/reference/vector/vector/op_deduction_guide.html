@@ -225,16 +225,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="header">&lt;vector&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class vector">vector::</span><span class="token">推論補助</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;&gt;</span>
-  <span class="n">vector</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span> <span class="n">InputIterator</span><span class="p">,</span> <span class="n">Allocator</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">())</span>
-    <span class="o">-&gt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="n">vector</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">())</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)</span>
 <span class="p">}</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range_value_t.html">ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;&gt;</span>
-  <span class="n">vector</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">Allocator</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">())</span>
-    <span class="o">-&gt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range_value_t.html">ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>                            <span class="c1">// (2) C++23から</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range_value_t.html">ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;&gt;</span>
+<span class="w">  </span><span class="n">vector</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocator</span><span class="p">())</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range_value_t.html">ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span><span class="w">                            </span><span class="c1">// (2) C++23から</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -244,31 +244,31 @@
 <li>(2) : Rangeから推論する。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="1c083647adb27bd1796ce9447d15616f0e0bf983"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1c083647adb27bd1796ce9447d15616f0e0bf983"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 初期化子リストから推論</span>
-  <span class="n"><a href="../vector.html">std::vector</a></span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v1</span><span class="p">),</span> <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 初期化子リストから推論</span>
+<span class="w">  </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v1</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// パラメータ設定済みのvectorからの推論</span>
-  <span class="n"><a href="../vector.html">std::vector</a></span> <span class="n">v2</span> <span class="o">=</span> <span class="n">v1</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v2</span><span class="p">),</span> <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// パラメータ設定済みのvectorからの推論</span>
+<span class="w">  </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v2</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// 値1を3回繰り返すコンストラクタからの推論。</span>
-  <span class="c1">// v3{3, 1} とすると初期化子リストと見なされてしまうので注意</span>
-  <span class="n"><a href="../vector.html">std::vector</a></span> <span class="n">v3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v3</span><span class="p">),</span> <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">v3.size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 値1を3回繰り返すコンストラクタからの推論。</span>
+<span class="w">  </span><span class="c1">// v3{3, 1} とすると初期化子リストと見なされてしまうので注意</span>
+<span class="w">  </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="w"> </span><span class="n">v3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v3</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">v3.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
-  <span class="c1">// イテレータ範囲からの推論。</span>
-  <span class="c1">// v4{<a href="begin.html">v1.begin()</a>, <a href="end.html">v1.end()</a>} とすると、イテレータの初期化子リストと見なされてしまうので注意</span>
-  <span class="n"><a href="../vector.html">std::vector</a></span> <span class="n">v4</span><span class="p">(</span><span class="n"><a href="begin.html">v1.begin()</a></span><span class="p">,</span> <span class="n"><a href="end.html">v1.end()</a></span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v4</span><span class="p">),</span> <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">v4.size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// イテレータ範囲からの推論。</span>
+<span class="w">  </span><span class="c1">// v4{<a href="begin.html">v1.begin()</a>, <a href="end.html">v1.end()</a>} とすると、イテレータの初期化子リストと見なされてしまうので注意</span>
+<span class="w">  </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="w"> </span><span class="n">v4</span><span class="p">(</span><span class="n"><a href="begin.html">v1.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="end.html">v1.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v4</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">v4.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -310,7 +310,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

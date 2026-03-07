@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="token">copy</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">copy</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">from</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">to</span><span class="p">);</span>                       <span class="c1">// (1)</span>
-  <span class="kt">void</span> <span class="nf">copy</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">from</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">to</span><span class="p">,</span> <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span><span class="p">);</span>  <span class="c1">// (2)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">to</span><span class="p">);</span><span class="w">                       </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span><span class="w">  </span><span class="c1">// (2)</span>
 
-  <span class="kt">void</span> <span class="nf">copy</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">from</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">to</span><span class="p">,</span> <span class="n"><a href="copy_options.html">copy_options</a></span> <span class="n">options</span><span class="p">);</span> <span class="c1">// (3)</span>
-  <span class="kt">void</span> <span class="nf">copy</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">from</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">to</span><span class="p">,</span> <span class="n"><a href="copy_options.html">copy_options</a></span> <span class="n">options</span><span class="p">,</span>
-            <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span><span class="p">);</span>                                    <span class="c1">// (4)</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="w"> </span><span class="n">options</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="w"> </span><span class="n">options</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span><span class="w">                                    </span><span class="c1">// (4)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -239,20 +239,20 @@
 <li>
 <p>まず、コピー元のファイル状態<code>f</code>とコピー先のファイル状態<code>t</code>を、以下のように取得する：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="n"><a href="file_status.html">file_status</a></span> <span class="n">f</span><span class="p">;</span>
-<span class="n"><a href="file_status.html">file_status</a></span> <span class="n">t</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">((</span><span class="n">options</span> <span class="o">&amp;</span> <span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">create_symlinks</span><span class="p">)</span> <span class="o">!=</span> <span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">none</span> <span class="o">||</span>
-    <span class="p">(</span><span class="n">options</span> <span class="o">&amp;</span> <span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">skip_symlinks</span><span class="p">)</span> <span class="o">!=</span> <span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">none</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">f</span> <span class="o">=</span> <span class="n"><a href="symlink_status.html">symlink_status</a></span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
-  <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="symlink_status.html">symlink_status</a></span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="file_status.html">file_status</a></span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+<span class="n"><a href="file_status.html">file_status</a></span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">options</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">create_symlinks</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">none</span><span class="w"> </span><span class="o">||</span>
+<span class="w">    </span><span class="p">(</span><span class="n">options</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">skip_symlinks</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">none</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="symlink_status.html">symlink_status</a></span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+<span class="w">  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="symlink_status.html">symlink_status</a></span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">options</span> <span class="o">&amp;</span> <span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">copy_symlinks</span><span class="p">)</span> <span class="o">!=</span> <span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">none</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">f</span> <span class="o">=</span> <span class="n"><a href="symlink_status.html">symlink_status</a></span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
-  <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">options</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">copy_symlinks</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n">none</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="symlink_status.html">symlink_status</a></span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+<span class="w">  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="n">f</span> <span class="o">=</span> <span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
-  <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+<span class="w">  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -289,8 +289,8 @@
 <li>コピー先にディレクトリが存在しない場合は、<code><a href="create_directory.html">create_directory</a>(to, from)</code>を実行する</li>
 <li>その後、コピー元ディレクトリの全ての要素を、以下のようにコピーする (<code>in-recursive-copy</code>は、<code><a href="copy_options.html">copy_options</a></code>には含まれないビットマスク要素)：</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n"><a href="directory_entry.html">directory_entry</a></span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n"><a href="directory_iterator.html">directory_iterator</a></span><span class="p">(</span><span class="n">from</span><span class="p">))</span>
-    <span class="n">copy</span><span class="p">(</span><span class="n"><a href="directory_entry/path.html">x.path()</a></span><span class="p">,</span> <span class="n">to</span><span class="o">/</span><span class="n"><a href="directory_entry/path.html">x.path()</a></span><span class="p">.</span><span class="n"><a href="path/filename.html">filename()</a></span><span class="p">,</span> <span class="n">options</span> <span class="o">|</span> <span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n"><i>in-recursive-copy</i></span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="directory_entry.html">directory_entry</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="directory_iterator.html">directory_iterator</a></span><span class="p">(</span><span class="n">from</span><span class="p">))</span>
+<span class="w">    </span><span class="n">copy</span><span class="p">(</span><span class="n"><a href="directory_entry/path.html">x.path()</a></span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="o">/</span><span class="n"><a href="directory_entry/path.html">x.path()</a></span><span class="p">.</span><span class="n"><a href="path/filename.html">filename()</a></span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="copy_options.html">copy_options</a></span><span class="o">::</span><span class="n"><i>in-recursive-copy</i></span><span class="p">)</span>
 </code></pre></div>
 </p>
 </li>
@@ -310,76 +310,76 @@
 <li>(2), (4) : OSがファイルコピーの直接のAPIを定義していない場合、この関数の実装として動的なバッファを確保する可能性がある。その際、メモリ確保で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生する可能性がある</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="a734007709283255c98e0043eb4302d0bdb03957"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a734007709283255c98e0043eb4302d0bdb03957"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../filesystem.html">&lt;filesystem&gt;</a></span>
+<span class="cp">#include <a href="../fstream.html">&lt;fstream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 単純なファイルのコピー。</span>
-  <span class="c1">// コピー先にはファイルが存在していない</span>
-  <span class="c1">// (コピー先にファイルが存在していたらエラー)</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular1.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// 単純なファイルのコピー。</span>
+<span class="w">  </span><span class="c1">// コピー先にはファイルが存在していない</span>
+<span class="w">  </span><span class="c1">// (コピー先にファイルが存在していたらエラー)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular1.txt"</span><span class="p">};</span>
 
-    <span class="c1">// ファイル"regular1.txt"を、"copy1.txt"にコピーする</span>
-    <span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"regular1.txt"</span><span class="p">,</span> <span class="s">"copy1.txt"</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// ファイル"regular1.txt"を、"copy1.txt"にコピーする</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"regular1.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"copy1.txt"</span><span class="p">);</span>
 
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"regular1.txt"</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy1.txt"</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"regular1.txt"</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy1.txt"</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// ファイルのコピー。</span>
-  <span class="c1">// コピー先にすでにファイルがある場合は、上書きする</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular2.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// ファイルのコピー。</span>
+<span class="w">  </span><span class="c1">// コピー先にすでにファイルがある場合は、上書きする</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular2.txt"</span><span class="p">};</span>
 
-    <span class="c1">// ファイル"regular2.txt"を、"copy2.txt"にコピーする</span>
-    <span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"regular2.txt"</span><span class="p">,</span> <span class="s">"copy2.txt"</span><span class="p">,</span> <span class="n"><a href="copy_options.html">fs::copy_options</a></span><span class="o">::</span><span class="n">overwrite_existing</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// ファイル"regular2.txt"を、"copy2.txt"にコピーする</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"regular2.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"copy2.txt"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="copy_options.html">fs::copy_options</a></span><span class="o">::</span><span class="n">overwrite_existing</span><span class="p">);</span>
 
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"regular2.txt"</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy2.txt"</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"regular2.txt"</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy2.txt"</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// ファイルのコピーを、シンボリックリンクの作成として行う</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular3.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// ファイルのコピーを、シンボリックリンクの作成として行う</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular3.txt"</span><span class="p">};</span>
 
-    <span class="c1">// ファイル"regular3.txt"へのシンボリックリンクとして、"copy3.txt"を作成する</span>
-    <span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"regular3.txt"</span><span class="p">,</span> <span class="s">"copy3.txt"</span><span class="p">,</span> <span class="n"><a href="copy_options.html">fs::copy_options</a></span><span class="o">::</span><span class="n">create_symlinks</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// ファイル"regular3.txt"へのシンボリックリンクとして、"copy3.txt"を作成する</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"regular3.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"copy3.txt"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="copy_options.html">fs::copy_options</a></span><span class="o">::</span><span class="n">create_symlinks</span><span class="p">);</span>
 
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"regular3.txt"</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy3.txt"</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="is_symlink.html">fs::is_symlink</a></span><span class="p">(</span><span class="s">"copy3.txt"</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"regular3.txt"</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy3.txt"</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="is_symlink.html">fs::is_symlink</a></span><span class="p">(</span><span class="s">"copy3.txt"</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// シンボリックリンクファイルのコピー</span>
-  <span class="p">{</span>
-    <span class="n"><a href="create_symlink.html">fs::create_symlink</a></span><span class="p">(</span><span class="s">"regular3.txt"</span><span class="p">,</span> <span class="s">"regular4.symlink"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// シンボリックリンクファイルのコピー</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="create_symlink.html">fs::create_symlink</a></span><span class="p">(</span><span class="s">"regular3.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"regular4.symlink"</span><span class="p">);</span>
 
-    <span class="c1">// シンボリックリンクファイル"regular4.symlink"を、"copy4.symlink"にコピーする</span>
-    <span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"regular4.symlink"</span><span class="p">,</span> <span class="s">"copy4.symlink"</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// シンボリックリンクファイル"regular4.symlink"を、"copy4.symlink"にコピーする</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"regular4.symlink"</span><span class="p">,</span><span class="w"> </span><span class="s">"copy4.symlink"</span><span class="p">);</span>
 
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"regular4.symlink"</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy4.symlink"</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"regular4.symlink"</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy4.symlink"</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// ディレクトリのコピー</span>
-  <span class="p">{</span>
-    <span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
-    <span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir/sub_dir"</span><span class="p">);</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"dir/a.txt"</span><span class="p">};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"dir/sub_dir/b.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// ディレクトリのコピー</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir/sub_dir"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"dir/a.txt"</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"dir/sub_dir/b.txt"</span><span class="p">};</span>
 
-    <span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"dir"</span><span class="p">,</span> <span class="s">"copy_dir"</span><span class="p">,</span> <span class="n"><a href="copy_options.html">fs::copy_options</a></span><span class="o">::</span><span class="n">recursive</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">fs::copy</span></span><span class="p">(</span><span class="s">"dir"</span><span class="p">,</span><span class="w"> </span><span class="s">"copy_dir"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="copy_options.html">fs::copy_options</a></span><span class="o">::</span><span class="n">recursive</span><span class="p">);</span>
 
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy_dir"</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy_dir/sub_dir"</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy_dir/a.txt"</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy_dir/sub_dir/b.txt"</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy_dir"</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy_dir/sub_dir"</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy_dir/a.txt"</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="exists.html">fs::exists</a></span><span class="p">(</span><span class="s">"copy_dir/sub_dir/b.txt"</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -423,7 +423,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

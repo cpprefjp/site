@@ -220,27 +220,27 @@
 <h2>概要</h2>
 <p><code>R</code>プレフィックスを付けた文字列リテラル内の丸カッコ<code>( )</code>で囲まれた部分は、エスケープシーケンスが無視される。この機能を「生文字列リテラル (Raw string literals)」という。</p>
 <p>たとえばJSON形式でデータを記述する場合、通常の文字列リテラルでは以下のように書くことになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">json</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\"</span><span class="s">user_id</span><span class="se">\"</span><span class="s">: 123, </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Alice</span><span class="se">\"</span><span class="s">}"</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"{</span><span class="se">\"</span><span class="s">user_id</span><span class="se">\"</span><span class="s">: 123, </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Alice</span><span class="se">\"</span><span class="s">}"</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>文字列リテラル内にダブルクォーテーションを入力するために、多くのエスケープ文字<code>\</code>が必要となっている。このような状況で生文字列リテラルを使用することで、エスケープ文字をなくし、以下のように書ける：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">json</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">{"user_id": 123, "name": "Alice"}</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">{"user_id": 123, "name": "Alice"}</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>この機能は、正規表現を書く場合、ファイルパスをコード中に記述するような場合にも役立つ。</p>
 <p>そのほか、改行を含む文章を文字列リテラルで記述する場合にも、生文字列リテラルは使用できる：</p>
-<p><div class="yata" id="3a435721f9ded72f437a1d089c0dddd48fddcd86"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3a435721f9ded72f437a1d089c0dddd48fddcd86"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">text</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">begin</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">begin</span>
 <span class="s">a,</span>
 <span class="s">b,</span>
 <span class="s">c</span>
 <span class="s">end</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">text</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -259,13 +259,13 @@ end
 <p>encoding-prefixとは、<code>u8</code>、<code>u</code>、<code>U</code>、<code>L</code>といった、文字列リテラルの文字エンコードを指定するプレフィックス。たとえば、UTF-8の生文字列リテラルは、<code>u8R"(hello)"</code>のように書く。</p>
 <p>文字列中の丸カッコのなか<code>r-char-sequence</code>には、エスケープシーケンスを無視する文字列リテラルを書く。丸カッコのなかは省略可能。</p>
 <p>丸カッコの前後<code>d-char-sequence</code>には、生文字列の範囲を明確にするための文字列を指定する。これは前後で同じ文字列を指定する必要がある。これは、文字列リテラルのなかにダブルクォーテーションや閉じ丸カッコが指定されるような状況で必要となる：</p>
-<p><div class="yata" id="edffcc028ea58a4e77af4346b1e70df660a86743"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="edffcc028ea58a4e77af4346b1e70df660a86743"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">***(</span><span class="s">文字列中に生文字列リテラルの閉じカッコと閉じダブルクォーテーションを書く)"</span><span class="dl">)***</span><span class="s">"</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">"</span><span class="dl">***(</span><span class="s">文字列中に生文字列リテラルの閉じカッコと閉じダブルクォーテーションを書く)"</span><span class="dl">)***</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -278,37 +278,37 @@ end
 <p>生文字列リテラルの内容である<code>r-char-sequence</code>の要素として改行が入力された場合、それは改行の制御文字<code>'\n'</code>に変換される。</p>
 <h2>例</h2>
 <h3>JSON文字列を構築する</h3>
-<p><div class="yata" id="f36021e2beadc802556874cb6a8d380d425a9ac9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f36021e2beadc802556874cb6a8d380d425a9ac9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/sstream.html">&lt;sstream&gt;</a></span>
 
 <span class="c1">// 文字列のフォーマット関数</span>
 <span class="c1">// not thread-safe, スレッドセーフな実装ではないので注意</span>
 <span class="c1">// <a href="http://www.boost.org/libs/format" target="_blank">Boost.Format</a>, <a href="https://github.com/fmtlib/fmt" target="_blank">fmtlib</a>や<a href="../../reference/format/format.html">std::format</a>(C++20)の使用を推奨</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">format</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/streambuf/basic_streambuf.html">std::streambuf</a></span><span class="o">*</span> <span class="n">backup</span> <span class="o">=</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">();</span>
-  <span class="n"><a href="../../reference/sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">sout</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/streambuf/basic_streambuf.html">std::streambuf</a></span><span class="o">*</span> <span class="n">soutbuf</span> <span class="o">=</span> <span class="n">sout</span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">();</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">(</span><span class="n">soutbuf</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/streambuf/basic_streambuf.html">std::streambuf</a></span><span class="o">*</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../reference/sstream/basic_stringstream.html">std::stringstream</a></span><span class="w"> </span><span class="n">sout</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/streambuf/basic_streambuf.html">std::streambuf</a></span><span class="o">*</span><span class="w"> </span><span class="n">soutbuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sout</span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">(</span><span class="n">soutbuf</span><span class="p">);</span>
 
-  <span class="n"><a href="../../reference/cstdio/fprintf.html">std::fprintf</a></span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">args</span><span class="p">...);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cstdio/fprintf.html">std::fprintf</a></span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">...);</span>
 
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">result</span> <span class="o">=</span> <span class="n">sout</span><span class="p">.</span><span class="n"><a href="../../reference/sstream/basic_stringstream/str.html">str()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sout</span><span class="p">.</span><span class="n"><a href="../../reference/sstream/basic_stringstream/str.html">str()</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">(</span><span class="n">backup</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">(</span><span class="n">backup</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">user_id</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Alice"</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">json</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">{"user_id": %d, "name": "%s"}</span><span class="dl">)</span><span class="s">"</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">name</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/c_str.html">c_str()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format</span><span class="p">(</span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">{"user_id": %d, "name": "%s"}</span><span class="dl">)</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/c_str.html">c_str()</a></span><span class="p">);</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">json</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -316,14 +316,14 @@ end
 <p><pre><code>{"user_id": 123, "name": "Alice"}
 </code></pre></p>
 <h3>ファイルパスを入力する</h3>
-<p><div class="yata" id="f9560d2e774362be076ec804a675befd53b465fa"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f9560d2e774362be076ec804a675befd53b465fa"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// バックスラッシュ区切りになっているWindowsのファイルパスを入力</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">path</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">C:\language\cpp\main.cpp</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">path</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// バックスラッシュ区切りになっているWindowsのファイルパスを入力</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">C:\language\cpp\main.cpp</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -331,24 +331,24 @@ end
 <p><pre><code>C:\language\cpp\main.cpp
 </code></pre></p>
 <h3>バックスラッシュを含む正規表現を入力する</h3>
-<p><div class="yata" id="a025ab6a5db2e461fbd0bffbeea271c122d67616"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a025ab6a5db2e461fbd0bffbeea271c122d67616"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/regex.html">&lt;regex&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 「英数字、バックスラッシュ、英数字」の順に</span>
-  <span class="c1">// なっていることを要求する正規表現。</span>
-  <span class="c1">// 生文字列リテラルを使わない場合は"\\w\\\\\\w"となる。</span>
-  <span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span> <span class="n">rex</span><span class="p">(</span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">\w\\\w</span><span class="dl">)</span><span class="s">"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 「英数字、バックスラッシュ、英数字」の順に</span>
+<span class="w">  </span><span class="c1">// なっていることを要求する正規表現。</span>
+<span class="w">  </span><span class="c1">// 生文字列リテラルを使わない場合は"\\w\\\\\\w"となる。</span>
+<span class="w">  </span><span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span><span class="w"> </span><span class="n">rex</span><span class="p">(</span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">\w\\\w</span><span class="dl">)</span><span class="s">"</span><span class="p">);</span>
 
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">input</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">a\b</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/regex/regex_match.html">std::regex_match</a></span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">rex</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"matched"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not matched"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">a\b</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/regex/regex_match.html">std::regex_match</a></span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">rex</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"matched"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"not matched"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -356,34 +356,34 @@ end
 <p><pre><code>matched
 </code></pre></p>
 <h3>雛形のHTMLを処理する</h3>
-<p><div class="yata" id="4fad9c5752682babe47185a1764cbf7c981697e7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4fad9c5752682babe47185a1764cbf7c981697e7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/fstream.html">&lt;fstream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/regex.html">&lt;regex&gt;</a></span>
 
 <span class="c1">// 雛形のHTMLを用意して、その一部の要素を文字列置換によってプログラムから入力する。</span>
 <span class="c1">//</span>
 <span class="c1">// 雛形のHTMLを事前にファイルとして作成し、それをあとからプログラムに文字列リテラルとして</span>
 <span class="c1">// 貼り付ける。その際、生文字列リテラルを使用することで、改行文字やバックスラッシュを</span>
 <span class="c1">// 加工することなくそのまま扱える。</span>
-<span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">html_template</span> <span class="o">=</span> <span class="n">u8R</span><span class="s">"(&lt;html&gt;</span>
-<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">meta</span> <span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s">"Content-Type"</span> <span class="n">content</span><span class="o">=</span><span class="s">"text/html; charset=utf-8"</span><span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="err">$</span><span class="n">title</span><span class="err">$</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">$</span><span class="n">body</span><span class="err">$</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span><span class="p">)</span><span class="s">";</span>
+<span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">html_template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8R</span><span class="s">"</span><span class="dl">(</span><span class="s">&lt;html&gt;</span>
+<span class="s">&lt;head&gt;</span>
+<span class="s">  &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;</span>
+<span class="s">  &lt;title&gt;$title$&lt;/title&gt;</span>
+<span class="s">&lt;/head&gt;</span>
+<span class="s">&lt;body&gt;</span>
+<span class="s">  &lt;p&gt;$body$&lt;/p&gt;</span>
+<span class="s">&lt;/body&gt;</span>
+<span class="s">&lt;/html&gt;</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">html</span> <span class="o">=</span> <span class="n">html_template</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">html_template</span><span class="p">;</span>
 
-  <span class="n">html</span> <span class="o">=</span> <span class="n"><a href="../../reference/regex/regex_replace.html">std::regex_replace</a></span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span><span class="p">(</span><span class="n">u8R</span><span class="s">"(\$title\$)"</span><span class="p">),</span> <span class="sa">u8</span><span class="s">"タイトル"</span><span class="p">);</span>
-  <span class="n">html</span> <span class="o">=</span> <span class="n"><a href="../../reference/regex/regex_replace.html">std::regex_replace</a></span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span><span class="p">(</span><span class="n">u8R</span><span class="s">"(\$body\$)"</span><span class="p">),</span> <span class="sa">u8</span><span class="s">"ボディ"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/regex/regex_replace.html">std::regex_replace</a></span><span class="p">(</span><span class="n">html</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span><span class="p">(</span><span class="sa">u8R</span><span class="s">"</span><span class="dl">(</span><span class="s">\$title\$</span><span class="dl">)</span><span class="s">"</span><span class="p">),</span><span class="w"> </span><span class="sa">u8</span><span class="s">"タイトル"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/regex/regex_replace.html">std::regex_replace</a></span><span class="p">(</span><span class="n">html</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span><span class="p">(</span><span class="sa">u8R</span><span class="s">"</span><span class="dl">(</span><span class="s">\$body\$</span><span class="dl">)</span><span class="s">"</span><span class="p">),</span><span class="w"> </span><span class="sa">u8</span><span class="s">"ボディ"</span><span class="p">);</span>
 
-  <span class="n"><a href="../../reference/fstream/basic_ofstream.html">std::ofstream</a></span> <span class="n">file</span><span class="p">(</span><span class="s">"index.html"</span><span class="p">);</span>
-  <span class="n"><a href="../../reference/ostream/basic_ostream/write.html">file.write</a></span><span class="p">(</span><span class="n"><a href="../../reference/string/basic_string/data.html">html.data()</a></span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string/size.html">html.size()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/fstream/basic_ofstream.html">std::ofstream</a></span><span class="w"> </span><span class="n">file</span><span class="p">(</span><span class="s">"index.html"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/ostream/basic_ostream/write.html">file.write</a></span><span class="p">(</span><span class="n"><a href="../../reference/string/basic_string/data.html">html.data()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string/size.html">html.size()</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -431,7 +431,7 @@ end
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

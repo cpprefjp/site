@@ -219,10 +219,10 @@
 <p></p>
 <h2>概要</h2>
 <p>これまで、非型テンプレートパラメータ (non-type template parameter) としては、整数型、ポインタ、参照、<code><a href="../../reference/cstddef/nullptr_t.html">std::nullptr_t</a></code>、<a href="../cpp17/declaring_non-type_template_arguments_with_auto.html">プレースホルダ型</a>の値しか受け取ることが許可されていなかった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">X</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="p">;</span>
 
-<span class="n">X</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">X</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>C++11以降での<a href="../cpp11/constexpr.html">汎用的な定数式<code>constexpr</code></a>の導入により、多くのクラスオブジェクトを定数として扱えるようになったことを受けて、C++20ではそのように定数として扱える型を広く非型テンプレートパラメータとして受け取ることが許可される。</p>
@@ -252,88 +252,88 @@
 </ul>
 <h2>例</h2>
 <h3>floatやクラス型を非型テンプレートパラメータにする例</h3>
-<p><div class="yata" id="e5a53f49e09225208d942a08e86161f07d9ea1d5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e5a53f49e09225208d942a08e86161f07d9ea1d5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">X1</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 
-  <span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">X1</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">X1</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">X1</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">X1</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">X2</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 
-  <span class="k">constexpr</span> <span class="nf">X2</span><span class="p">(</span><span class="kt">int</span> <span class="n">i_</span><span class="p">,</span> <span class="kt">float</span> <span class="n">f_</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">i</span><span class="p">(</span><span class="n">i_</span><span class="p">),</span> <span class="n">f</span><span class="p">(</span><span class="n">f_</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">X2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i_</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">f_</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">i</span><span class="p">(</span><span class="n">i_</span><span class="p">),</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">f_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">X2</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">X2</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">X2</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">X2</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">C1</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="kt">float</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">C2</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">value</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">float</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">X1</span> <span class="n">x1</span><span class="p">,</span> <span class="n">X2</span> <span class="n">x2</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">C3</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">X1</span> <span class="n">value1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">;</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">X2</span> <span class="n">value2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">X1</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">X2</span><span class="w"> </span><span class="n">x2</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">X1</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">X2</span><span class="w"> </span><span class="n">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x2</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span> <span class="n">V</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">C4</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="k">decltype</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="n">value</span> <span class="o">=</span> <span class="n">V</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C4</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">V</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">C1</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">C2</span><span class="o">&lt;</span><span class="mf">3.14f</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="mf">3.14f</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">C1</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">C2</span><span class="o">&lt;</span><span class="mf">3.14f</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">3.14f</span><span class="p">);</span>
 
-  <span class="k">constexpr</span> <span class="n">X1</span> <span class="n">x1</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14f</span><span class="p">};</span>
-  <span class="k">constexpr</span> <span class="n">X2</span> <span class="n">x2</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">5.27f</span><span class="p">};</span>
-  <span class="k">using</span> <span class="n">c3</span> <span class="o">=</span> <span class="n">C3</span><span class="o">&lt;</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">c3</span><span class="o">::</span><span class="n">value1</span> <span class="o">==</span> <span class="n">x1</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">c3</span><span class="o">::</span><span class="n">value2</span> <span class="o">==</span> <span class="n">x2</span><span class="p">);</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">X1</span><span class="w"> </span><span class="n">x1</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14f</span><span class="p">};</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">X2</span><span class="w"> </span><span class="n">x2</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mf">5.27f</span><span class="p">};</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">C3</span><span class="o">&lt;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">c3</span><span class="o">::</span><span class="n">value1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x1</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">c3</span><span class="o">::</span><span class="n">value2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x2</span><span class="p">);</span>
 
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="mf">3.14f</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="mf">3.14f</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="n">x1</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="n">x1</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="n">x2</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="n">x2</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="mf">3.14f</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">3.14f</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="n">x1</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x1</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="n">x2</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x2</span><span class="p">);</span>
 
-  <span class="k">constexpr</span> <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span> <span class="n">p</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">};</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="w"> </span><span class="n">p</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">};</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">C4</span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>プレースホルダーを含む型を非型テンプレートパラメータにする例</h3>
-<p><div class="yata" id="1d9031c3bf641936357833df4f876fefb95c95ed"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1d9031c3bf641936357833df4f876fefb95c95ed"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="n">X</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="n">T</span> <span class="n">value</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">X</span> <span class="n">x</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">print</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Xクラステンプレートのテンプレートパラメータが</span>
-  <span class="c1">// コンストラクタ引数`3`から推論される</span>
-  <span class="n">Y</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">{}.</span><span class="n">print</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Xクラステンプレートのテンプレートパラメータが</span>
+<span class="w">  </span><span class="c1">// コンストラクタ引数`3`から推論される</span>
+<span class="w">  </span><span class="n">Y</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">{}.</span><span class="n">print</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -341,35 +341,35 @@
 <p><pre><code>3
 </code></pre></p>
 <h3>文字列クラスオブジェクトを非型テンプレートパラメータにしてリテラル演算子を定義する例</h3>
-<p><div class="yata" id="eeddf8b1a50c884ff36cb899b11f663da9829bdc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="eeddf8b1a50c884ff36cb899b11f663da9829bdc"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">CharT</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">basic_fixed_string</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="n">basic_fixed_string</span><span class="p">(</span><span class="k">const</span> <span class="n">CharT</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">str</span><span class="p">)[</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-  <span class="p">{</span> <span class="n"><a href="../../reference/algorithm/copy_n.html">std::copy_n</a></span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="p">}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">basic_fixed_string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">basic_fixed_string</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CharT</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">str</span><span class="p">)[</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/algorithm/copy_n.html">std::copy_n</a></span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_fixed_string</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">basic_fixed_string</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">CharT</span> <span class="n">data</span><span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">basic_fixed_string</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">basic_fixed_string</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">CharT</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">CharT</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="n">basic_fixed_string</span><span class="p">(</span><span class="k">const</span> <span class="n">CharT</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">str</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">basic_fixed_string</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="n">basic_fixed_string</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CharT</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">str</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">basic_fixed_string</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="mi">-1</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">fixed_string</span> <span class="o">=</span> <span class="n">basic_fixed_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">fixed_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">basic_fixed_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">namespace</span> <span class="n">my_literals</span> <span class="p">{</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">basic_fixed_string</span> <span class="n">str</span><span class="o">&gt;</span>
-<span class="k">auto</span> <span class="k">operator</span><span class="s">""</span><span class="n">_udl</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">str</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">my_literals</span><span class="w"> </span><span class="p">{</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">basic_fixed_string</span><span class="w"> </span><span class="n">str</span><span class="o">&gt;</span>
+<span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="n">_udl</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">my_literals</span><span class="p">;</span>
-  <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"hello"</span><span class="n">_udl</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">my_literals</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="n">_udl</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -409,7 +409,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -220,9 +220,9 @@
 <h2>概要</h2>
 <p>多次元配列クラスを設計する場合などで、単一の引数しかとれない添字演算子に<code>ar[x, y]</code>のようにカンマ演算子を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>して複数のインデックスを指定できるようにすることがあった。</p>
 <p>しかしこのようなハックは、将来的に添字演算子に複数引数をとれるようにする際に障害となってしまうため、添字演算子内でのカンマ演算子の使用を非推奨化する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">ar</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>      <span class="c1">// C++17:OK, C++20:OK</span>
-<span class="n">ar</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span> <span class="c1">// C++17:OK, C++20:OK</span>
-<span class="n">ar</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>   <span class="c1">// C++17:OK, C++20:非推奨</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">ar</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w">      </span><span class="c1">// C++17:OK, C++20:OK</span>
+<span class="n">ar</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)]</span><span class="w"> </span><span class="c1">// C++17:OK, C++20:OK</span>
+<span class="n">ar</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">]</span><span class="w">   </span><span class="c1">// C++17:OK, C++20:非推奨</span>
 </code></pre></div>
 </p>
 <p>既存のカンマ演算子を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>したコードを使用する場合は、丸カッコで囲むこと。</p>
@@ -251,7 +251,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

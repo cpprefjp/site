@@ -237,7 +237,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class run_loop">run_loop::</span><span class="token">run</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">run</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -245,7 +245,7 @@
 <p><code>run_loop</code>動作説明のため、説明専用のメンバ関数<code>pop-front</code>, <code>push-back</code>を導入する。
 <code><a href="finish.html">finish</a></code>および<code>pop-front</code>, <code>push-back</code>は不可分(atomically)に実行される。</p>
 <h3>説明専用メンバ関数 <code>pop-front</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="run-loop-opstate.html">run-loop-opstate-base</a></span><span class="o">*</span> <span class="n">pop</span><span class="o">-</span><span class="n">front</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="run-loop-opstate.html">run-loop-opstate-base</a></span><span class="o">*</span><span class="w"> </span><span class="n">pop</span><span class="o">-</span><span class="n">front</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <p>効果 : 下記条件のいずれか一つが<code>true</code>になるまでブロックする。</p>
@@ -254,7 +254,7 @@
 <li><code>count &gt; 0</code>のとき、<code>count</code>を<code>1</code>減算してFIFOキューから先頭要素を削除し、同要素（ポインタ値）を返す。</li>
 </ul>
 <h3>説明専用メンバ関数 <code>push-back</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="n">push</span><span class="o">-</span><span class="n">back</span><span class="p">(</span><span class="n"><a href="run-loop-opstate.html">run-loop-opstate-base</a></span><span class="o">*</span> <span class="n">item</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="o">-</span><span class="n">back</span><span class="p">(</span><span class="n"><a href="run-loop-opstate.html">run-loop-opstate-base</a></span><span class="o">*</span><span class="w"> </span><span class="n">item</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>効果 : FIFOキューの末尾に<code>item</code>を追加して<code>count</code>を<code>1</code>加算する。</p>
@@ -265,34 +265,34 @@
 <p>説明専用メンバ<code>state</code>が<a href="op_constructor.html">開始(starting)</a>の場合、実行中(running)に変更する。
 そうでなければ、<code>state</code>を変更しない。</p>
 <p>続いて、以下と等価 :</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="k">auto</span><span class="o">*</span> <span class="n">op</span> <span class="o">=</span> <span class="n">pop</span><span class="o">-</span><span class="n">front</span><span class="p">())</span> <span class="p">{</span>
-  <span class="n">op</span><span class="o">-&gt;</span><span class="n"><a href="run-loop-opstate.html">execute()</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pop</span><span class="o">-</span><span class="n">front</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">op</span><span class="o">-&gt;</span><span class="n"><a href="run-loop-opstate.html">execute()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a></h2>
 <p><code>run</code>と<a href="op_destructor.html">デストラクタ</a>以外のメンバ関数同時呼び出しは、データ競合を引き起こさない。</p>
 <h2>例</h2>
-<p><div class="yata" id="a280100dce1ff8ca1727592d7633207eeaa27679"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="a280100dce1ff8ca1727592d7633207eeaa27679"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../run_loop.html">ex::run_loop</a></span> <span class="n">loop</span><span class="p">;</span>
-  <span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"starting"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../run_loop.html">ex::run_loop</a></span><span class="w"> </span><span class="n">loop</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"starting"</span><span class="p">);</span>
 
-  <span class="n"><a href="../../../thread/jthread.html">std::jthread</a></span> <span class="n">jt</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]{</span>
-    <span class="c1">// 2) 別スレッドからfinishを呼び出し</span>
-    <span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"finishing"</span><span class="p">);</span>
-    <span class="n">loop</span><span class="p">.</span><span class="n"><a href="finish.html">finish()</a></span><span class="p">;</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../../thread/jthread.html">std::jthread</a></span><span class="w"> </span><span class="n">jt</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]{</span>
+<span class="w">    </span><span class="c1">// 2) 別スレッドからfinishを呼び出し</span>
+<span class="w">    </span><span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"finishing"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">loop</span><span class="p">.</span><span class="n"><a href="finish.html">finish()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
 
-  <span class="c1">// 1) メインスレッド上でrunを呼び出すとブロッキングする</span>
-  <span class="n">loop</span><span class="p">.</span><span class="n"><span style="color:#ff0000">run()</span></span><span class="p">;</span>
-  <span class="c1">// 3) ブロッキング解除されてメインスレッドを再開</span>
-  <span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"finished"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 1) メインスレッド上でrunを呼び出すとブロッキングする</span>
+<span class="w">  </span><span class="n">loop</span><span class="p">.</span><span class="n"><span style="color:#ff0000">run()</span></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 3) ブロッキング解除されてメインスレッドを再開</span>
+<span class="w">  </span><span class="n"><a href="../../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"finished"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -339,7 +339,7 @@ finished
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

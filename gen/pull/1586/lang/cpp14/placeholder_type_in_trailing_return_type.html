@@ -219,34 +219,34 @@
 <p></p>
 <h2>概要</h2>
 <p><a href="../cpp11/trailing_return_types.html">戻り値の型を後置する関数宣言構文</a>と<a href="../cpp11/lambda_expressions.html">ラムダ式</a>の、後置<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型(trailing return type)を<code>auto</code>プレースホルダーとし、そのプレースホルダーを修飾することで、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の推論を補助できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">static_value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">static_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
 <span class="c1">// 関数宣言構文の場合：</span>
 <span class="c1">// 戻り値の型はint&amp;。</span>
 <span class="c1">// return文をdecltypeで推論した結果はintとなり、</span>
 <span class="c1">// その型を参照(&amp;)で修飾している。</span>
-<span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">static_value</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">static_value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">// ラムダ式の場合：</span>
 <span class="c1">// 関数オブジェクトgの戻り値型もまたint&amp;</span>
-<span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[]()</span> <span class="o">-&gt;</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">static_value</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">static_value</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">static_value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">static_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
 <span class="c1">// 戻り値の型はint&amp;。</span>
 <span class="c1">// return文をdecltypeで推論した結果はintとなり、</span>
 <span class="c1">// その型を参照(&amp;)で修飾している。</span>
-<span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">static_value</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">static_value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 関数オブジェクトgの戻り値型もまたint&amp;</span>
-  <span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[]()</span> <span class="o">-&gt;</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">static_value</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">  </span><span class="c1">// 関数オブジェクトgの戻り値型もまたint&amp;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">static_value</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="kt">int</span><span class="o">&amp;</span> <span class="n">result_f</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
-  <span class="kt">int</span><span class="o">&amp;</span> <span class="n">result_g</span> <span class="o">=</span> <span class="n">g</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">result_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">result_g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -275,7 +275,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

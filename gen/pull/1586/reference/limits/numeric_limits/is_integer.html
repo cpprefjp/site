@@ -226,27 +226,27 @@
         
   <div class="identifier-type">variable</div><div class="header">&lt;limits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class numeric_limits">numeric_limits::</span><span class="token">is_integer</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="c1">// C++03</span>
-<span class="k">static</span> <span class="k">const</span> <span class="kt">bool</span> <span class="n">is_integer</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_integer</span><span class="p">;</span>
 
 <span class="c1">// C++11</span>
-<span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_integer</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_integer</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>型<code>T</code>が整数型であるなら<code>is_integer</code>は<code>true</code>となり、そうでなければ<code>false</code>となる。<br />
 <code>is_specialized == false</code>の場合、<code>false</code>となる。</p>
 <h2>例</h2>
-<p><div class="yata" id="66457efe240aad848f83d0b15a83ca151f6ff89c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="66457efe240aad848f83d0b15a83ca151f6ff89c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../limits.html">&lt;limits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">a</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">is_integer</span></span><span class="p">;</span>
-  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">is_integer</span></span><span class="p">;</span>
-  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">c</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">is_integer</span></span><span class="p">;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">is_integer</span></span><span class="p">;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">is_integer</span></span><span class="p">;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">is_integer</span></span><span class="p">;</span>
 
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">"int must be integer"</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s">"unsigned int must be integer"</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">c</span><span class="p">,</span> <span class="s">"double must be not integer"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="s">"int must be integer"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="s">"unsigned int must be integer"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="s">"double must be not integer"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -269,7 +269,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,15 +225,15 @@
       <div class="col-sm-12 content-body">
         
   <div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class function_ref">function_ref::</span><span class="token">推論補助</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
-  <span class="n">function_ref</span><span class="p">(</span><span class="n">F</span><span class="o">*</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">function_ref</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">function_ref</span><span class="p">(</span><span class="n">F</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">function_ref</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">auto</span> <span class="n">f</span><span class="o">&gt;</span>
-  <span class="n">function_ref</span><span class="p">(</span><span class="n"><a href="../../utility/constant_arg_t.html">constant_arg_t</a></span><span class="o">&lt;</span><span class="n">f</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">function_ref</span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (2)</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">function_ref</span><span class="p">(</span><span class="n"><a href="../../utility/constant_arg_t.html">constant_arg_t</a></span><span class="o">&lt;</span><span class="n">f</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">function_ref</span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2)</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">auto</span> <span class="n">f</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">function_ref</span><span class="p">(</span><span class="n"><a href="../../utility/constant_arg_t.html">constant_arg_t</a></span><span class="o">&lt;</span><span class="n">f</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">function_ref</span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (3)</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">function_ref</span><span class="p">(</span><span class="n"><a href="../../utility/constant_arg_t.html">constant_arg_t</a></span><span class="o">&lt;</span><span class="n">f</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">function_ref</span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -260,32 +260,32 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="8455fb185adfc6e274918fd2414a60760539b5ca"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8455fb185adfc6e274918fd2414a60760539b5ca"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../functional.html">&lt;functional&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">ident</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">ident</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="nf">mf</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">mf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">fun</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">obj</span><span class="p">.</span><span class="n">data</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1) 関数ポインタ</span>
-  <span class="n"><span style="color:#ff0000">std::function_ref</span></span> <span class="n">f1</span><span class="p">{</span><span class="o">&amp;</span><span class="n">ident</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (1) 関数ポインタ</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::function_ref</span></span><span class="w"> </span><span class="n">f1</span><span class="p">{</span><span class="o">&amp;</span><span class="n">ident</span><span class="p">};</span>
 
-  <span class="c1">// (2) 関数ポインタ/NTTP</span>
-  <span class="n"><span style="color:#ff0000">std::function_ref</span></span> <span class="n">f2</span><span class="p">{</span><span class="n"><a href="../../utility/constant_arg_t.html">std::constant_arg</a></span><span class="o">&lt;&amp;</span><span class="n">ident</span><span class="o">&gt;</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (2) 関数ポインタ/NTTP</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::function_ref</span></span><span class="w"> </span><span class="n">f2</span><span class="p">{</span><span class="n"><a href="../../utility/constant_arg_t.html">std::constant_arg</a></span><span class="o">&lt;&amp;</span><span class="n">ident</span><span class="o">&gt;</span><span class="p">};</span>
 
-  <span class="c1">// (3a) メンバ関数＋オブジェクト束縛</span>
-  <span class="n">X</span> <span class="n">obj</span><span class="p">{</span><span class="mi">42</span><span class="p">};</span>
-  <span class="n"><span style="color:#ff0000">std::function_ref</span></span> <span class="n">f3a</span><span class="p">{</span><span class="n"><a href="../../utility/constant_arg_t.html">std::constant_arg</a></span><span class="o">&lt;&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">mf</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">obj</span><span class="p">};</span>
-  <span class="c1">// (3b) メンバ変数＋オブジェクト束縛</span>
-  <span class="n"><span style="color:#ff0000">std::function_ref</span></span> <span class="n">f3b</span><span class="p">{</span><span class="n"><a href="../../utility/constant_arg_t.html">std::constant_arg</a></span><span class="o">&lt;&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">data</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">obj</span><span class="p">};</span>
-  <span class="c1">// (3c) 関数ポインタ＋第1引数束縛</span>
-  <span class="n"><span style="color:#ff0000">std::function_ref</span></span> <span class="n">f3c</span><span class="p">{</span><span class="n"><a href="../../utility/constant_arg_t.html">std::constant_arg</a></span><span class="o">&lt;&amp;</span><span class="n">fun</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">obj</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (3a) メンバ関数＋オブジェクト束縛</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">obj</span><span class="p">{</span><span class="mi">42</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::function_ref</span></span><span class="w"> </span><span class="n">f3a</span><span class="p">{</span><span class="n"><a href="../../utility/constant_arg_t.html">std::constant_arg</a></span><span class="o">&lt;&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">mf</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">obj</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (3b) メンバ変数＋オブジェクト束縛</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::function_ref</span></span><span class="w"> </span><span class="n">f3b</span><span class="p">{</span><span class="n"><a href="../../utility/constant_arg_t.html">std::constant_arg</a></span><span class="o">&lt;&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">data</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">obj</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (3c) 関数ポインタ＋第1引数束縛</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::function_ref</span></span><span class="w"> </span><span class="n">f3c</span><span class="p">{</span><span class="n"><a href="../../utility/constant_arg_t.html">std::constant_arg</a></span><span class="o">&lt;&amp;</span><span class="n">fun</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">obj</span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -325,7 +325,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

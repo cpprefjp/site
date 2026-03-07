@@ -213,12 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">negation</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Trait</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">negation</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Trait</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">negation</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Trait</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">negation_v</span> <span class="o">=</span> <span class="n">negation</span><span class="o">&lt;</span><span class="n">Trait</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Trait</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">negation_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">negation</span><span class="o">&lt;</span><span class="n">Trait</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -231,25 +231,25 @@
 <p>すなわち、<code>Trait::value == true</code>ならば<code><a href="false_type.html">false_type</a></code>から派生し、<code>Trait::value == false</code>ならば<code><a href="true_type.html">true_type</a></code>から派生する。</p>
 <p>主に<code><a href="conjunction.html">conjunction</a></code>、<code><a href="disjunction.html">disjunction</a></code>のような、結果となる<code>::value</code>ではなくメタ関数そのものを受け取る高階メタ関数の引数において結果の真理値を反転させたいときに利用する。</p>
 <h2>例</h2>
-<p><div class="yata" id="13db89a9ec602602e7fe44c551f1f330f2f68ec7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="13db89a9ec602602e7fe44c551f1f330f2f68ec7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="s">"T::value = "</span> <span class="o">&lt;&lt;</span> <span class="n">T</span><span class="o">::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"T::value = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">//型Tがムーブ構築のみが可能かどうかを調べる（is_move_constructible == true &amp;&amp; is_copy_constructible == false）</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">is_only_move</span> <span class="o">=</span> <span class="n"><a href="conjunction.html">std::conjunction</a></span><span class="o">&lt;</span><span class="n"><a href="is_move_constructible.html">std::is_move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::negation</span></span><span class="o">&lt;</span><span class="n"><a href="is_copy_constructible.html">std::is_copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">is_only_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="conjunction.html">std::conjunction</a></span><span class="o">&lt;</span><span class="n"><a href="is_move_constructible.html">std::is_move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::negation</span></span><span class="o">&lt;</span><span class="n"><a href="is_copy_constructible.html">std::is_copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="true_type.html">std::true_type</a></span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::negation</span></span><span class="o">&lt;</span><span class="n"><a href="true_type.html">std::true_type</a></span><span class="o">&gt;&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="true_type.html">std::true_type</a></span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::negation</span></span><span class="o">&lt;</span><span class="n"><a href="true_type.html">std::true_type</a></span><span class="o">&gt;&gt;</span><span class="p">();</span>
 
-  <span class="n">f</span><span class="o">&lt;</span><span class="n">is_only_move</span><span class="o">&lt;</span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n">is_only_move</span><span class="o">&lt;</span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -259,8 +259,8 @@ T::value = false
 T::value = true
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Trait</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">negation</span> <span class="p">:</span> <span class="n">bool_constant</span><span class="o">&lt;!</span><span class="n">Trait</span><span class="o">::</span><span class="n">value</span><span class="o">&gt;</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Trait</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">negation</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">bool_constant</span><span class="o">&lt;!</span><span class="n">Trait</span><span class="o">::</span><span class="n">value</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
 </code></pre></div>
 </p>
 <h2>バージョン</h2>
@@ -298,7 +298,7 @@ T::value = true
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

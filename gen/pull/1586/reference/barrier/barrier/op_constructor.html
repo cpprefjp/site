@@ -225,11 +225,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;barrier&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class barrier">barrier::</span><span class="token">コンストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="k">explicit</span>
-<span class="nf">barrier</span><span class="p">(</span><span class="n"><a href="../../cstddef/ptrdiff_t.html">ptrdiff_t</a></span> <span class="n">expected</span><span class="p">,</span>
-        <span class="n">CompletionFunction</span> <span class="n">f</span> <span class="o">=</span> <span class="n">CompletionFunction</span><span class="p">());</span> <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span>
+<span class="n">barrier</span><span class="p">(</span><span class="n"><a href="../../cstddef/ptrdiff_t.html">ptrdiff_t</a></span><span class="w"> </span><span class="n">expected</span><span class="p">,</span>
+<span class="w">        </span><span class="n">CompletionFunction</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CompletionFunction</span><span class="p">());</span><span class="w"> </span><span class="c1">// (1)</span>
 
-<span class="n">barrier</span><span class="p">(</span><span class="k">const</span> <span class="n">barrier</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>                     <span class="c1">// (2)</span>
+<span class="n">barrier</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">barrier</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">                     </span><span class="c1">// (2)</span>
 </code></pre></div>
 </p>
 <h2>barrierオブジェクトの構築</h2>
@@ -249,43 +249,43 @@
 <h2>備考</h2>
 <p><code>expected</code>を<code>0</code>として初期化したバリアオブジェクトでは、破棄以外の操作を行えない。</p>
 <h2>例</h2>
-<p><div class="yata" id="3be89ca167fbd8aa78a7da9fd0c69a6e0135154b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../barrier.html">&lt;barrier&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3be89ca167fbd8aa78a7da9fd0c69a6e0135154b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../barrier.html">&lt;barrier&gt;</a></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../mutex.html">&lt;mutex&gt;</a></span>
 
 <span class="c1">// 行単位cout出力用ロックを返す（対応コンパイラ登場までの暫定措置）</span>
 <span class="c1">// C++20で追加された<a href="../../syncstream/basic_osyncstream.html">std::osyncstream</a>の方が好ましい。</span>
 <span class="c1">//   <a href="../../syncstream/basic_osyncstream.html">std::osyncstream</a>(<a href="../../iostream/cout.html">std::cout</a>) &lt;&lt; ...;</span>
-<span class="k">auto</span> <span class="nf">lk</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="n"><a href="../../mutex/mutex.html">std::mutex</a></span> <span class="n">cout_mtx</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n"><a href="../../mutex/unique_lock.html">std::unique_lock</a></span><span class="p">{</span><span class="n">cout_mtx</span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">lk</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n"><a href="../../mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">cout_mtx</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../mutex/unique_lock.html">std::unique_lock</a></span><span class="p">{</span><span class="n">cout_mtx</span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// （完了関数なし）バリアを定義</span>
-  <span class="n"><span style="color:#ff0000">std::barrier</span></span><span class="o">&lt;&gt;</span> <span class="n">sync1</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// （完了関数なし）バリアを定義</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::barrier</span></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">sync1</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
 
-  <span class="c1">// 完了関数付きのバリアを定義</span>
-  <span class="n"><span style="color:#ff0000">std::barrier</span></span> <span class="n">sync2</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="p">[]{</span>
-    <span class="c1">// 完了関数はバリアに関与するいずれか一つのスレッド上でのみ実行されること保証される</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"finished @"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}};</span>
+<span class="w">  </span><span class="c1">// 完了関数付きのバリアを定義</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::barrier</span></span><span class="w"> </span><span class="n">sync2</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">[]{</span>
+<span class="w">    </span><span class="c1">// 完了関数はバリアに関与するいずれか一つのスレッド上でのみ実行されること保証される</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"finished @"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}};</span>
 
-  <span class="c1">// 並行実行されるタスクを定義</span>
-  <span class="k">auto</span> <span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span>
-    <span class="n">lk</span><span class="p">(),</span> <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"phase-1  @"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="n">sync2</span><span class="p">.</span><span class="n"><a href="arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
-    <span class="n">lk</span><span class="p">(),</span> <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"phase-2  @"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="n">sync2</span><span class="p">.</span><span class="n"><a href="arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
-    <span class="n">lk</span><span class="p">(),</span> <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"phase-3  @"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="n">sync1</span><span class="p">.</span><span class="n"><a href="arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// 並行実行されるタスクを定義</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span>
+<span class="w">    </span><span class="n">lk</span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"phase-1  @"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n">sync2</span><span class="p">.</span><span class="n"><a href="arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n">lk</span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"phase-2  @"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n">sync2</span><span class="p">.</span><span class="n"><a href="arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n">lk</span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"phase-3  @"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n">sync1</span><span class="p">.</span><span class="n"><a href="arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// タスクを2並行実行</span>
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t</span><span class="p">{</span><span class="n">task</span><span class="p">};</span>
-  <span class="n">task</span><span class="p">();</span>
-  <span class="n"><a href="../../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// タスクを2並行実行</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t</span><span class="p">{</span><span class="n">task</span><span class="p">};</span>
+<span class="w">  </span><span class="n">task</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -328,7 +328,7 @@ phase-3  @140171067340544
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -249,16 +249,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class counting_scope::token">counting_scope::token::</span><span class="token">wrap</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../sender.html">sender</a></span> <span class="n">Sender</span><span class="o">&gt;</span>
-<span class="n"><a href="../../sender.html">sender</a></span> <span class="k">auto</span> <span class="n">wrap</span><span class="p">(</span><span class="n">Sender</span><span class="o">&amp;&amp;</span> <span class="n">snd</span><span class="p">)</span> <span class="k">const</span>
-  <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sender</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Sender</span><span class="o">&gt;</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../sender.html">sender</a></span><span class="w"> </span><span class="n">Sender</span><span class="o">&gt;</span>
+<span class="n"><a href="../../sender.html">sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">wrap</span><span class="p">(</span><span class="n">Sender</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">snd</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sender</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Sender</span><span class="o">&gt;</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>入力<a href="../../sender.html">Sender</a>を非同期スコープに関連付けたSenderを返す。</p>
 <h2>効果</h2>
 <p>下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf"><a href="../../stop-when.html">stop-when</a></span><span class="p">(</span><span class="n"><a href="../../../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sender</span><span class="o">&gt;</span><span class="p">(</span><span class="n">snd</span><span class="p">),</span> <span class="n">scope</span><span class="o">-&gt;</span><span class="n">s_source</span><span class="p">.</span><span class="n"><a href="../../../../stop_token/stop_source/get_token.html">get_token()</a></span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../stop-when.html">stop-when</a></span><span class="p">(</span><span class="n"><a href="../../../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sender</span><span class="o">&gt;</span><span class="p">(</span><span class="n">snd</span><span class="p">),</span><span class="w"> </span><span class="n">scope</span><span class="o">-&gt;</span><span class="n">s_source</span><span class="p">.</span><span class="n"><a href="../../../../stop_token/stop_source/get_token.html">get_token()</a></span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>バージョン</h2>
@@ -300,7 +300,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,29 +225,29 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;thread&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class jthread">jthread::</span><span class="token">joinable</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">joinable</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
-<span class="kt">bool</span> <span class="nf">joinable</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>               <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">joinable</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">joinable</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">               </span><span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code>jthread</code>オブジェクトがスレッドと関連付けられているか否か取得する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n"><a href="get_id.html">get_id()</a></span> <span class="o">!=</span> <span class="n"><a href="../thread/id.html">id</a></span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="get_id.html">get_id()</a></span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="../thread/id.html">id</a></span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>送出しない。</p>
 <h2>例</h2>
-<p><div class="yata" id="c85375cabec8e8d61106ca7ca424bd5a35172266"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c85375cabec8e8d61106ca7ca424bd5a35172266"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">jt</span><span class="p">([]{</span> <span class="cm">/*...*/</span> <span class="p">});</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">jt</span><span class="p">.</span><span class="n"><span style="color:#ff0000">joinable()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../jthread.html">std::jthread</a></span><span class="w"> </span><span class="n">jt</span><span class="p">([]{</span><span class="w"> </span><span class="cm">/*...*/</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">jt</span><span class="p">.</span><span class="n"><span style="color:#ff0000">joinable()</span></span><span class="p">);</span>
 
-  <span class="n">jt</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">jt</span><span class="p">.</span><span class="n"><span style="color:#ff0000">joinable()</span></span><span class="p">);</span>
+<span class="w">  </span><span class="n">jt</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">jt</span><span class="p">.</span><span class="n"><span style="color:#ff0000">joinable()</span></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -288,7 +288,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

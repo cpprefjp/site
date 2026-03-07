@@ -225,12 +225,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">get_completion_scheduler</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CPO</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">get_completion_scheduler_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CPO</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">get_completion_scheduler_t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="w"> </span><span class="p">};</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CPO</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">get_completion_scheduler_t</span><span class="o">&lt;</span><span class="n">CPO</span><span class="o">&gt;</span> <span class="n">get_completion_scheduler</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CPO</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">get_completion_scheduler_t</span><span class="o">&lt;</span><span class="n">CPO</span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_completion_scheduler</span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -258,25 +258,25 @@
 <p>const修飾<a href="../queryable.html">クエリ可能オブジェクト</a><code>cq</code>に対して式<code>cq.query(get_completion_scheduler&lt;completion-tag&gt;)</code>が呼び出される。
 このとき、<code>noexcept(cq.query(get_completion_scheduler&lt;completion-tag&gt;)) == true</code>であること。</p>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="run_loop.html">ex::run_loop</a></span> <span class="n">loop</span><span class="p">;</span>
-  <span class="n"><a href="scheduler.html">ex::scheduler</a></span> <span class="k">auto</span> <span class="n">loop_sch</span> <span class="o">=</span> <span class="n">loop</span><span class="p">.</span><span class="n">get_scheduler</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="run_loop.html">ex::run_loop</a></span><span class="w"> </span><span class="n">loop</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="scheduler.html">ex::scheduler</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">loop_sch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loop</span><span class="p">.</span><span class="n">get_scheduler</span><span class="p">();</span>
 
-  <span class="c1">// schedule(loop_sch)の完了Schedulerはloop_schに等しい</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd0</span> <span class="o">=</span> <span class="n"><a href="schedule.html">ex::schedule</a></span><span class="p">(</span><span class="n">loop_sch</span><span class="p">);</span>
-  <span class="k">auto</span> <span class="n">sch0</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::get_completion_scheduler</span></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="get_env.html">ex::get_env</a></span><span class="p">(</span><span class="n">snd0</span><span class="p">));</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sch0</span> <span class="o">==</span> <span class="n">loop_sch</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// schedule(loop_sch)の完了Schedulerはloop_schに等しい</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">snd0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="schedule.html">ex::schedule</a></span><span class="p">(</span><span class="n">loop_sch</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">sch0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::get_completion_scheduler</span></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="get_env.html">ex::get_env</a></span><span class="p">(</span><span class="n">snd0</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sch0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">loop_sch</span><span class="p">);</span>
 
-  <span class="c1">// 完了Schedulerは接続されたSenderへと引き継がれる</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd1</span> <span class="o">=</span> <span class="n">snd0</span> <span class="o">|</span> <span class="n"><a href="then.html">ex::then</a></span><span class="p">([]{</span> <span class="k">return</span> <span class="mi">42</span><span class="p">;</span> <span class="p">});</span>
-  <span class="k">auto</span> <span class="n">sch1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::get_completion_scheduler</span></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="get_env.html">ex::get_env</a></span><span class="p">(</span><span class="n">snd1</span><span class="p">));</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sch1</span> <span class="o">==</span> <span class="n">loop_sch</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 完了Schedulerは接続されたSenderへと引き継がれる</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">snd1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snd0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="then.html">ex::then</a></span><span class="p">([]{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">sch1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::get_completion_scheduler</span></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="get_env.html">ex::get_env</a></span><span class="p">(</span><span class="n">snd1</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sch1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">loop_sch</span><span class="p">);</span>
 
-<span class="cp">#if 0</span><span class="c"></span>
+<span class="cp">#if 0</span>
 <span class="c">  // just Senderは完了Schedulerを持たない</span>
 <span class="c">  <a href="sender.html">ex::sender</a> auto snd2 = ex::just(42);</span>
 <span class="c">  auto sch2 = <span style="color:#ff0000">ex::get_completion_scheduler</span>&lt;<a href="set_value.html">ex::set_value_t</a>&gt;(<a href="get_env.html">ex::get_env</a>(snd2));</span>
@@ -327,7 +327,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

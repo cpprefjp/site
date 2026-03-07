@@ -226,32 +226,32 @@
 式<code>expr</code>が<code>false</code>になる場合は、<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義の動作</a>を引き起こす。</p>
 <p>式<code>expr</code>には、構文要素 <em>conditional-expression</em> を指定する。
 トップレベルのコンマ演算子<code>,</code>や代入演算子<code>=</code>は指定できない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">assume</span><span class="p">(</span><span class="n">expr1</span><span class="p">,</span> <span class="n">expr2</span><span class="p">)]];</span>  <span class="c1">// Error</span>
-<span class="p">[[</span><span class="n">assume</span><span class="p">((</span><span class="n">expr</span><span class="p">,</span> <span class="n">expr2</span><span class="p">))]];</span> <span class="c1">// OK（expr2==trueのみ考慮される）</span>
-<span class="p">[[</span><span class="n">assume</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)]];</span>   <span class="c1">// Error</span>
-<span class="p">[[</span><span class="n">assume</span><span class="p">((</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))]];</span> <span class="c1">// OK（効果を持たない）</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">assume</span><span class="p">(</span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">)]];</span><span class="w">  </span><span class="c1">// Error</span>
+<span class="p">[[</span><span class="n">assume</span><span class="p">((</span><span class="n">expr</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">))]];</span><span class="w"> </span><span class="c1">// OK（expr2==trueのみ考慮される）</span>
+<span class="p">[[</span><span class="n">assume</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)]];</span><span class="w">   </span><span class="c1">// Error</span>
+<span class="p">[[</span><span class="n">assume</span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">))]];</span><span class="w"> </span><span class="c1">// OK（効果を持たない）</span>
 </code></pre></div>
 </p>
 <p>式<code>expr</code>が<code>true</code>に評価される場合、<code>[[assume(expr)]]</code>属性を指定した空文をコア定数式とみなせる。</p>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">divide_by_32</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">divide_by_32</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="p">[[</span><span class="n"><span style="color:#ff0000">assume</span></span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)]];</span>
-  <span class="c1">// 引数 x は必ず正の値を取ると仮定できるため</span>
-  <span class="c1">// C++コンパイラによるアセンブリコード生成時に、</span>
-  <span class="c1">// 非正値を考慮しない最適コードを生成できる可能性がある。</span>
-  <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">32</span><span class="p">;</span>
+<span class="w">  </span><span class="p">[[</span><span class="n"><span style="color:#ff0000">assume</span></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)]];</span>
+<span class="w">  </span><span class="c1">// 引数 x は必ず正の値を取ると仮定できるため</span>
+<span class="w">  </span><span class="c1">// C++コンパイラによるアセンブリコード生成時に、</span>
+<span class="w">  </span><span class="c1">// 非正値を考慮しない最適コードを生成できる可能性がある。</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="c1">// <span style="color:#ff0000">assume</span>属性による仮定がfalseとなる関数呼び出し、</span>
 <span class="c1">// 例えば divide_by_32(-100) は未定義動作を引き起こす。</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// 効果を持たないため変数 y の値は変化しない。</span>
-  <span class="p">[[</span><span class="n"><span style="color:#ff0000">assume</span></span><span class="p">(</span><span class="o">++</span><span class="n">y</span> <span class="o">==</span> <span class="mi">43</span><span class="p">)]];</span>
-  <span class="c1">// 最適化により return 42; へと置換される可能性がある。</span>
-  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 効果を持たないため変数 y の値は変化しない。</span>
+<span class="w">  </span><span class="p">[[</span><span class="n"><span style="color:#ff0000">assume</span></span><span class="p">(</span><span class="o">++</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">43</span><span class="p">)]];</span>
+<span class="w">  </span><span class="c1">// 最適化により return 42; へと置換される可能性がある。</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -285,7 +285,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

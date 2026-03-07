@@ -226,9 +226,9 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class weak_ptr">weak_ptr::</span><span class="token">reset</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span>
-  <span class="nf">reset</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++11</span>
-<span class="k">constexpr</span> <span class="kt">void</span>
-  <span class="nf">reset</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="nf">reset</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span>
+<span class="w">  </span><span class="nf">reset</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -238,19 +238,19 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>なし</p>
 <h2>例</h2>
-<p><div class="yata" id="38fc5e4ce15c1275bf07540aa7c8bf180ce639f3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="38fc5e4ce15c1275bf07540aa7c8bf180ce639f3"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../memory.html">&lt;memory&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// wpはspを監視する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wp</span> <span class="o">=</span> <span class="n">sp</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// wpはspを監視する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">;</span>
 
-  <span class="c1">// spの監視をやめる</span>
-  <span class="n">wp</span><span class="p">.</span><span class="n"><span style="color:#ff0000">reset()</span></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// spの監視をやめる</span>
+<span class="w">  </span><span class="n">wp</span><span class="p">.</span><span class="n"><span style="color:#ff0000">reset()</span></span><span class="p">;</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="use_count.html">wp.use_count()</a></span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="use_count.html">wp.use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -289,7 +289,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

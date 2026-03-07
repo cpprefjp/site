@@ -227,45 +227,45 @@
 <li>ラムダ式の関数オブジェクトが呼び出されたときに、<code>this</code>ポインタの寿命が尽きる場合があることが正しい状況では、依然として<code><a href="../../reference/memory/weak_ptr.html">std::weak_ptr</a></code>のような機能を使用して、生死監視をする必要がある。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="7f827e7ff513a751a4b2e8113bb7831d4388fa67"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7f827e7ff513a751a4b2e8113bb7831d4388fa67"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../reference/atomic.html">&lt;atomic&gt;</a></span>
 
-<span class="n"><a href="../../reference/atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">is_finish</span><span class="p">;</span>
+<span class="n"><a href="../../reference/atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">is_finish</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">F</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">start</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">proc</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="k">this</span><span class="p">]()</span> <span class="k">mutable</span> <span class="p">{</span>
-      <span class="c1">// てきとうな時間のかかる処理として、[1, 10]の合計値を計算</span>
-      <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
-      <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">F</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">proc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="k">this</span><span class="p">]()</span><span class="w"> </span><span class="k">mutable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// てきとうな時間のかかる処理として、[1, 10]の合計値を計算</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
 
-      <span class="c1">// 処理が終了したらクラス内のメンバ関数を呼び出す。</span>
-      <span class="c1">// この段階で*thisが有効でなければならない</span>
-      <span class="n">onFinish</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
-    <span class="p">};</span>
+<span class="w">      </span><span class="c1">// 処理が終了したらクラス内のメンバ関数を呼び出す。</span>
+<span class="w">      </span><span class="c1">// この段階で*thisが有効でなければならない</span>
+<span class="w">      </span><span class="n">onFinish</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
 
-    <span class="c1">// バックグラウンドスレッドでproc関数オブジェクトを実行する</span>
-    <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">t</span><span class="p">(</span><span class="n">proc</span><span class="p">);</span>
-    <span class="n"><a href="../../reference/thread/thread/detach.html">t.detach()</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// バックグラウンドスレッドでproc関数オブジェクトを実行する</span>
+<span class="w">    </span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">proc</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../reference/thread/thread/detach.html">t.detach()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="n">onFinish</span><span class="p">(</span><span class="kt">int</span> <span class="n">sum</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"finished: "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="n"><a href="../../reference/atomic/atomic/store.html">is_finish.store</a></span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">onFinish</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"finished: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/atomic/atomic/store.html">is_finish.store</a></span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">F</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+<span class="w">  </span><span class="n">F</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
 
-  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../reference/atomic/atomic/load.html">is_finish.load()</a></span><span class="p">)</span> <span class="p">{}</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"exit"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../reference/atomic/atomic/load.html">is_finish.load()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"exit"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -301,7 +301,7 @@ exit
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -226,8 +226,8 @@
 <p><code>T</code>型の<code>prvalue</code>は、<code>T</code>型の<code>xvalue</code>に変換できる。この変換では、一時オブジェクトを結果オブジェクトとして<code>prvalue</code>を評価することによって、<code>prvalue</code>から<code>T</code>型の一時オブジェクトを初期化し、その一時オブジェクトを表す<code>xvalue</code>を生成する。<code>T</code>は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>でなければならない。
 [注：<code>T</code>がクラス型（またはその配列）の場合、アクセス可能な削除されていないデストラクタが必要である。]
 例:</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span> <span class="p">};</span>
-<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">X</span><span class="p">().</span><span class="n">n</span><span class="p">;</span> <span class="c1">// ok, X() prvalue は xvalue に変換される</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">().</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok, X() prvalue は xvalue に変換される</span>
 </code></pre></div>
 </p>
 <p>つまり、<code>prvalue</code>は一時オブジェクトではない（C++17以降）。次のときにはじめて結果オブジェクトとして一時オブジェクトを使用して評価される。</p>
@@ -243,34 +243,34 @@
 </ul>
 <p>これより、上の例は「クラス<code>prvalue</code>でメンバアクセスを実行するとき」にあたり、<code>xvalue</code>として一時オブジェクトを生成している。</p>
 <p>また、<code>prvalue</code>から<code>prvalue</code>への変換は、上記の「一時オブジェクトの実体化は一般に可能な限り遅らせられる」ことより、一時オブジェクトを実体化しない。よって、次の例における<code>prvalue</code>の<code>T</code>型の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は、呼び出し元の<code>t</code>を直接初期化する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">T</span> <span class="nf">Func</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">T</span><span class="p">();}</span> 
-<span class="n">T</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Func</span><span class="p">();</span> <span class="c1">// 直接初期化</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">T</span><span class="w"> </span><span class="nf">Func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">();}</span><span class="w"> </span>
+<span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Func</span><span class="p">();</span><span class="w"> </span><span class="c1">// 直接初期化</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
 <p><a href="https://ja.cppreference.com/w/cpp/language/copy_elision" target="_blank">コピー省略 - cppreference.com</a>より引用した。</p>
-<p><div class="yata" id="d36c46f1b8ff7f093fcc24245ff73fc515c6e78d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d36c46f1b8ff7f093fcc24245ff73fc515c6e78d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Noisy</span> <span class="p">{</span>
-  <span class="n">Noisy</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
-  <span class="n">Noisy</span><span class="p">(</span><span class="k">const</span> <span class="n">Noisy</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"copy-constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
-  <span class="n">Noisy</span><span class="p">(</span><span class="n">Noisy</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"move-constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
-  <span class="o">~</span><span class="n">Noisy</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Noisy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Noisy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="n">Noisy</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Noisy</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"copy-constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="n">Noisy</span><span class="p">(</span><span class="n">Noisy</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"move-constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">Noisy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"destructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// v 初期化時、コピーは省略される</span>
-  <span class="k">return</span> <span class="n">v</span><span class="p">;</span> <span class="c1">// NRVO は、C++17でも保証されない</span>
-<span class="p">}</span>             <span class="c1">// 最適化されない場合、ムーブコンストラクタがよばれる</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// v 初期化時、コピーは省略される</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="c1">// NRVO は、C++17でも保証されない</span>
+<span class="p">}</span><span class="w">             </span><span class="c1">// 最適化されない場合、ムーブコンストラクタがよばれる</span>
 
-<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"arg.size() = "</span> <span class="o">&lt;&lt;</span> <span class="n">arg</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"arg.size() = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span> <span class="c1">// v 初期化時、コピーは省略される</span>
-  <span class="n">g</span><span class="p">(</span><span class="n">f</span><span class="p">());</span>                     <span class="c1">// g()の引数初期化時、コピーは省略される</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// v 初期化時、コピーは省略される</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n">f</span><span class="p">());</span><span class="w">                     </span><span class="c1">// g()の引数初期化時、コピーは省略される</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -293,62 +293,62 @@ destructed
 <h2>この機能が必要になった背景・経緯</h2>
 <p>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>のコピーを発生させない手法として、RVO (Return Value Optimization) やNRVO (Named Return Value Optimization) といった最適化があった（注：RVOは、NRVOと区別せずに使われることがある）。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// RVOの最適化が動作した場合</span>
-<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="n">Foo</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="n">Foo</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">Foo</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">Foo</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="n">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// Foo型のコピーコンストラクタが動作することなくxが初期化される</span>
+<span class="n">Foo</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// Foo型のコピーコンストラクタが動作することなくxが初期化される</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// NRVOの最適化が動作した場合</span>
-<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="n">Foo</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="n">Foo</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Foo</span> <span class="n">y</span><span class="p">;</span>
-  <span class="n">y</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Foo</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="n">y</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// Foo型のコピーコンストラクタが動作することなくxが初期化される</span>
+<span class="n">Foo</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// Foo型のコピーコンストラクタが動作することなくxが初期化される</span>
 </code></pre></div>
 </p>
 <p>しかし、これらの最適化はコンパイラに対して許可された動作であって、そのように最適化されることが保証されるものではない。そのため、実際には(N)RVOによってコピーは起こらないけどコピーコンストラクタは用意しなければならない、といったことになった。</p>
 <p>C++17では、このようなコピー省略を保証する仕組みが導入される。そのため、オブジェクトの初期化のために使用するprvalueは、コピーもムーブもできない型であっても、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として返せるようになる。つまり、NRVOと区別してRVOの場合は、コピーコンストラクタを用意しなくてもよくなった。NRVOは依然として保証がないことに注意。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++17</span>
-<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span>
-  <span class="c1">// Fooはコピーもムーブもできない</span>
-  <span class="n">Foo</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">Foo</span><span class="p">(</span><span class="k">const</span> <span class="n">Foo</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-  <span class="n">Foo</span><span class="p">(</span><span class="n">Foo</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Fooはコピーもムーブもできない</span>
+<span class="w">  </span><span class="n">Foo</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Foo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Foo</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Foo</span><span class="p">(</span><span class="n">Foo</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">Foo</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="n">Foo</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">Foo</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">Foo</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="n">Foo</span> <span class="n">y</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// OK</span>
+<span class="n">Foo</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++17</span>
-<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span>
-  <span class="c1">// Fooはコピーもムーブもできない</span>
-  <span class="n">Foo</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">Foo</span><span class="p">(</span><span class="k">const</span> <span class="n">Foo</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-  <span class="n">Foo</span><span class="p">(</span><span class="n">Foo</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Fooはコピーもムーブもできない</span>
+<span class="w">  </span><span class="n">Foo</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Foo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Foo</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Foo</span><span class="p">(</span><span class="n">Foo</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">Foo</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="n">Foo</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Foo</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Foo</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// error Foo型のコピーコンストラクタが必要</span>
+<span class="n">Foo</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// error Foo型のコピーコンストラクタが必要</span>
 </code></pre></div>
 </p>
 <h2>参照</h2>
@@ -383,7 +383,7 @@ destructed
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

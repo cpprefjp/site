@@ -213,10 +213,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">ref_view</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="range.html">range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../type_traits/is_object.html">is_object_v</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc"><a href="">ref_view</a></span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n"><a href="">ref_view</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="err">……</span> <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="range.html">range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../type_traits/is_object.html">is_object_v</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="">ref_view</a></span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n"><a href="">ref_view</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">……</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -364,16 +364,16 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="6af100f6f144aec7363f3590da4afb58cbd5a966"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6af100f6f144aec7363f3590da4afb58cbd5a966"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">a</span> <span class="o">|</span> <span class="n"><a href="all.html">views::all</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="all.html">views::all</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -381,48 +381,48 @@
 <p><pre><code>12345
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">__different_from</span> <span class="o">=</span> <span class="o">!</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">__different_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 
-  <span class="kt">void</span> <span class="nf">__FUN</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;</span><span class="p">);</span>
-  <span class="kt">void</span> <span class="nf">__FUN</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">__FUN</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">__FUN</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="range.html">range</a></span> <span class="n">R</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../type_traits/is_object.html">is_object_v</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc"><a href="">ref_view</a></span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n"><a href="">ref_view</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
-  <span class="k">private</span><span class="o">:</span>
-    <span class="n">R</span><span class="o">*</span> <span class="n">r_</span><span class="p">;</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="n">__different_from</span><span class="o">&lt;</span><span class="n"><a href="">ref_view</a></span><span class="o">&gt;</span> <span class="n">T</span><span class="o">&gt;</span>
-      <span class="n">requires</span> <span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&gt;</span> <span class="o">&amp;&amp;</span> <span class="n">requires</span> <span class="p">{</span> <span class="n">__FUN</span><span class="p">(</span><span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">());</span> <span class="p">}</span>
-    <span class="k">constexpr</span> <span class="n"><a href="">ref_view</a></span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="o">:</span> <span class="n">r_</span><span class="p">(</span><span class="n"><a href="../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">))))</span> <span class="p">{}</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="range.html">range</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../type_traits/is_object.html">is_object_v</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="">ref_view</a></span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n"><a href="">ref_view</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">R</span><span class="o">*</span><span class="w"> </span><span class="n">r_</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="n">__different_from</span><span class="o">&lt;</span><span class="n"><a href="">ref_view</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__FUN</span><span class="p">(</span><span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="">ref_view</a></span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r_</span><span class="p">(</span><span class="n"><a href="../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">))))</span><span class="w"> </span><span class="p">{}</span>
 
-    <span class="k">constexpr</span> <span class="n">R</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="n">r_</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">base</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">r_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-    <span class="k">constexpr</span> <span class="n"><a href="iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">begin</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n"><a href="begin.html">ranges::begin</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="begin.html">ranges::begin</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">constexpr</span> <span class="n"><a href="sentinel_t.html">sentinel_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">end</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n"><a href="end.html">ranges::end</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="sentinel_t.html">sentinel_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="end.html">ranges::end</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">empty</span><span class="p">()</span> <span class="k">const</span> <span class="n">requires</span> <span class="n">requires</span> <span class="p">{</span> <span class="n"><a href="empty.html">ranges::empty</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span> <span class="p">}</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n"><a href="empty.html">ranges::empty</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="empty.html">ranges::empty</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="empty.html">ranges::empty</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">size</span><span class="p">()</span> <span class="k">const</span> <span class="n">requires</span> <span class="n"><a href="sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n"><a href="size.html">ranges::size</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="size.html">ranges::size</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">data</span><span class="p">()</span> <span class="k">const</span> <span class="n">requires</span> <span class="n"><a href="contiguous_range.html">contiguous_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n"><a href="data.html">ranges::data</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="contiguous_range.html">contiguous_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="data.html">ranges::data</a></span><span class="p">(</span><span class="o">*</span><span class="n">r_</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
-  <span class="n"><a href="">ref_view</a></span><span class="p">(</span><span class="n">R</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="">ref_view</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="">ref_view</a></span><span class="p">(</span><span class="n">R</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="">ref_view</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -460,7 +460,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

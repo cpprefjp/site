@@ -222,9 +222,9 @@
 <p></p>
 <p></p>
 <p></p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">C</span><span class="p">;</span> <span class="c1">// コンセプトの宣言を記述します。</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">C</span><span class="p">;</span><span class="w"> </span><span class="c1">// コンセプトの宣言を記述します。</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -235,13 +235,13 @@
 <h2>要件</h2>
 <p>(ここには、コンセプトの定義を記述します。説明用コンセプトを記述する場合は、規格書と同様に小文字ハイフン区切りで記述してください)</p>
 <p>まず、説明専用コンセプト<code>xxx-yyy</code>を以下のように定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">xxx</span><span class="o">-</span><span class="n">yyy</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">xxx</span><span class="o">-</span><span class="n">yyy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>C</code>コンセプトは、以下のように定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>モデル</h2>
@@ -252,28 +252,28 @@
 <p><div class="yata" id="723b57380a7c749c94d41c26c49eeb40e445a94c"><div class="codehilite"><pre><span></span><code><span class="c1">// (ここには、コンセプトを解説するための、サンプルコードを記述します。)</span>
 <span class="c1">// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。そのようなコードブロックにはexampleタグを付けます。)</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../reference/cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../reference/limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../reference/cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../reference/cmath.html">&lt;cmath&gt;</a></span>
+<span class="cp">#include <a href="../reference/limits.html">&lt;limits&gt;</a></span>
+<span class="cp">#include <a href="../reference/concepts.html">&lt;concepts&gt;</a></span>
 
 <span class="c1">// 数値の等値比較を行う関数を、整数型か浮動小数点数型かでオーバーロードする。</span>
 <span class="c1">// 整数型の場合は、単純な==演算子による比較</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">integral</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">integral</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">equal</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// 浮動小数点数型の場合は、計算誤差を許容する等値比較</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::floating_point</span></span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n"><a href="../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">epsilon</span><span class="p">();</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::floating_point</span></span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">equal</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n"><a href="../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">epsilon</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
-  <span class="n"><a href="../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -318,7 +318,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

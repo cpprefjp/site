@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;optional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">nullopt_t</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">nullopt_t</span> <span class="p">{</span><span class="err">以下参照</span><span class="p">};</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">nullopt_t</span> <span class="n">nullopt</span> <span class="p">{</span><span class="n"><i>unspecified</i></span><span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">nullopt_t</span><span class="w"> </span><span class="p">{</span><span class="n">以下参照</span><span class="p">};</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">nullopt_t</span><span class="w"> </span><span class="n">nullopt</span><span class="w"> </span><span class="p">{</span><span class="n"><i>unspecified</i></span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -224,19 +224,19 @@
 <p>この型の値を持つ<code>nullopt</code>定数を<code><a href="optional.html">std::optional</a></code>クラスのオブジェクトに代入することで、有効な値を保持していない状態にできる。</p>
 <p><code>nullopt_t</code>クラスは、デフォルトコンストラクタおよび初期化子リストコンストラクタを持たない。これは、<code>nullopt</code>変数を<code>nullopt_t</code>型の唯一の値とするためである。また、<code>nullopt_t</code>は<a href="../type_traits/is_aggregate.html">集成体</a>ではない。これは<code>optional&lt;T&gt; opt = {};</code>を曖昧にしないためである。</p>
 <h2>例</h2>
-<p><div class="yata" id="ec2deb69ad5ee1d8c60c5ce1162c94231c9effb6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ec2deb69ad5ee1d8c60c5ce1162c94231c9effb6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../optional.html">&lt;optional&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">);</span> <span class="c1">// デフォルトでは有効な値を持たない (nullopt状態)</span>
+<span class="w">  </span><span class="n"><a href="optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// デフォルトでは有効な値を持たない (nullopt状態)</span>
 
-  <span class="n">p</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// 有効値を代入</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="c1">// 有効な値を持つ</span>
+<span class="w">  </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// 有効値を代入</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// 有効な値を持つ</span>
 
-  <span class="n">p</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::nullopt</span></span><span class="p">;</span> <span class="c1">// 無効値を代入</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">);</span> <span class="c1">// 有効な値を持たない</span>
+<span class="w">  </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::nullopt</span></span><span class="p">;</span><span class="w"> </span><span class="c1">// 無効値を代入</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// 有効な値を持たない</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -279,7 +279,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

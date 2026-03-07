@@ -225,38 +225,38 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;optional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class optional">optional::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">optional</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                                  <span class="c1">// (1) C++17</span>
-<span class="k">constexpr</span> <span class="nf">optional</span><span class="p">(</span><span class="n"><a href="../nullopt_t.html">nullopt_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                         <span class="c1">// (2) C++17</span>
-<span class="k">constexpr</span> <span class="nf">optional</span><span class="p">(</span><span class="k">const</span> <span class="n">optional</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>                        <span class="c1">// (3) C++17</span>
-<span class="k">constexpr</span> <span class="nf">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>         <span class="c1">// (4) C++17</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                                  </span><span class="c1">// (1) C++17</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="n"><a href="../nullopt_t.html">nullopt_t</a></span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                         </span><span class="c1">// (2) C++17</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">optional</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">                        </span><span class="c1">// (3) C++17</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span><span class="w">         </span><span class="c1">// (4) C++17</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span> <span class="n">optional</span><span class="p">(</span><span class="n"><a href="../../utility/in_place_t.html">in_place_t</a></span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>        <span class="c1">// (5) C++17</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="n"><a href="../../utility/in_place_t.html">in_place_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">        </span><span class="c1">// (5) C++17</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span> <span class="n">optional</span><span class="p">(</span>
-                     <span class="n"><a href="../../utility/in_place_t.html">in_place_t</a></span><span class="p">,</span>
-                     <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
-                     <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                           <span class="c1">// (6) C++17</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span>
+<span class="w">                     </span><span class="n"><a href="../../utility/in_place_t.html">in_place_t</a></span><span class="p">,</span>
+<span class="w">                     </span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">il</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">                           </span><span class="c1">// (6) C++17</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span> <span class="o">=</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n"><i>EXPLICIT</i></span> <span class="k">constexpr</span> <span class="n">optional</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                           <span class="c1">// (7) C++17</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span> <span class="o">=</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="k">constexpr</span> <span class="n">optional</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                <span class="c1">// (7) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="n"><i>EXPLICIT</i></span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">                           </span><span class="c1">// (7) C++17</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">                </span><span class="c1">// (7) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="n"><i>EXPLICIT</i></span> <span class="n">optional</span><span class="p">(</span><span class="k">const</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                      <span class="c1">// (8) C++17</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="n">optional</span><span class="p">(</span><span class="k">const</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">);</span>           <span class="c1">// (8) C++20</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="k">constexpr</span> <span class="n">optional</span><span class="p">(</span><span class="k">const</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">);</span> <span class="c1">// (8) C++23</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="n"><i>EXPLICIT</i></span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">                      </span><span class="c1">// (8) C++17</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">           </span><span class="c1">// (8) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w"> </span><span class="c1">// (8) C++23</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="n"><i>EXPLICIT</i></span> <span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                           <span class="c1">// (9) C++17</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                <span class="c1">// (9) C++20</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="k">constexpr</span> <span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>      <span class="c1">// (9) C++23</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="n"><i>EXPLICIT</i></span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">                           </span><span class="c1">// (9) C++17</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">                </span><span class="c1">// (9) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">      </span><span class="c1">// (9) C++23</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -334,86 +334,86 @@
 <li>(5) : <code><a href="../../utility/in_place_t.html">std::in_place_t</a></code>は<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に機能名を付けるためにあり、その型による動的な処理内容への影響はない。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を選択したい場合は、事前定義されている定数<code><a href="../../utility/in_place_t.html">std::in_place</a></code>を第1引数として指定すること</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="ec406fbc50d8bc42b36b22a6d0f0595a9bb90ff0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ec406fbc50d8bc42b36b22a6d0f0595a9bb90ff0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../optional.html">&lt;optional&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../memory.html">&lt;memory&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Base</span> <span class="p">{};</span>
-<span class="k">struct</span> <span class="nl">Derived</span> <span class="p">:</span> <span class="n">Base</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">nullopt</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">nullopt</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (4)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (4)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (5)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">p</span> <span class="p">{</span><span class="n"><a href="../../utility/in_place_t.html">std::in_place</a></span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="sc">'A'</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="s">"AAA"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (5)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="../../utility/in_place_t.html">std::in_place</a></span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"AAA"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (6)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">;</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">p</span> <span class="p">{</span><span class="n"><a href="../../utility/in_place_t.html">std::in_place</a></span><span class="p">,</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="n">alloc</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (6)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="../../utility/in_place_t.html">std::in_place</a></span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span><span class="w"> </span><span class="n">alloc</span><span class="p">};</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (7)</span>
-  <span class="p">{</span>
-    <span class="c1">// const char*から<a href="../../string/basic_string.html">std::string</a>に暗黙的に型変換</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">p1</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (7)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// const char*から<a href="../../string/basic_string.html">std::string</a>に暗黙的に型変換</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span>
 
-    <span class="c1">// 整数値から<a href="../../vector/vector.html">std::vector</a>に明示的に型変換</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">p2</span> <span class="p">{</span><span class="mi">3</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 整数値から<a href="../../vector/vector.html">std::vector</a>に明示的に型変換</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (8)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (8)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (9)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n"><a href="../../memory/make_shared.html">std::make_shared</a></span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">Base</span><span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (9)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../memory/make_shared.html">std::make_shared</a></span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">Base</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -469,7 +469,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,16 +213,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">aligned_union</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp23deprecated text-warning" title="C++23で非推奨">(C++23で非推奨)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">Len</span><span class="p">,</span>
-            <span class="n">class</span><span class="p">...</span> <span class="n">Types</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">aligned_union</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">alignment_value</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
-  <span class="p">};</span>                                                                  <span class="c1">// (1) C++11</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">Len</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Types</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">aligned_union</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">alignment_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span><span class="w">                                                                  </span><span class="c1">// (1) C++11</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">Len</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Types</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">aligned_union_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">aligned_union</span><span class="o">&lt;</span><span class="n">Len</span><span class="p">,</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span> <span class="c1">// (2) C++14</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">Len</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Types</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">aligned_union_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">aligned_union</span><span class="o">&lt;</span><span class="n">Len</span><span class="p">,</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++14</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -268,37 +268,37 @@
 <p>この機能を以下のように置き換えることを推奨する：</p>
 <p><div class="codehilite"><pre><span></span><code>template &lt;typename... Ts&gt;
 class MyContainer {
-  // [...]
+<span class="w"> </span> // [...]
 private:
 <span class="gd">- std::aligned_union_t&lt;0, Ts...&gt; t_buff;</span>
 <span class="gi">+ alignas(Ts...) <a href="../cstddef/byte.html">std::byte</a> t_buff[<a href="../algorithm/max.html">std::max</a>({sizeof(Ts)...})];</span>
-  // [...]
+<span class="w"> </span> // [...]
 };
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="b88d7e8405aa8f12b1a8963574e7194845575347"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b88d7e8405aa8f12b1a8963574e7194845575347"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">union</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
+<span class="k">union</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 
-  <span class="n">X</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">s</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="n">aligned_X</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::aligned_union</span></span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">aligned_X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::aligned_union</span></span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">X</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">;</span>
 
-  <span class="n">aligned_X</span><span class="o">::</span><span class="n">type</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">aligned_X</span><span class="o">::</span><span class="n">type</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="k">new</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="n">X</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">aligned_X</span><span class="o">::</span><span class="n">alignment_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">aligned_X</span><span class="o">::</span><span class="n">alignment_value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -361,7 +361,7 @@ private:
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

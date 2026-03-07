@@ -225,22 +225,22 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono_literals">std::chrono_literals::</span><span class="token">minリテラル</span><span class="cpp cpp14" title="C++14で追加">(C++14)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
 
-<span class="kr">inline</span> <span class="k">namespace</span> <span class="n">literals</span> <span class="p">{</span>
-<span class="kr">inline</span> <span class="k">namespace</span> <span class="n">chrono_literals</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../duration_aliases.html">chrono::minutes</a></span>
-    <span class="k">operator</span> <span class="s">""</span> <span class="n">min</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span><span class="p">);</span>             <span class="c1">// (1)</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">literals</span><span class="w"> </span><span class="p">{</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">chrono_literals</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../duration_aliases.html">chrono::minutes</a></span>
+<span class="w">    </span><span class="k">operator</span><span class="w"> </span><span class="s">""</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">             </span><span class="c1">// (1)</span>
 
-  <span class="k">constexpr</span> <span class="n"><a href="../duration.html">chrono::duration</a></span><span class="o">&lt;</span><span class="n"><i>unspecified</i></span><span class="p">,</span> <span class="n"><a href="../../ratio/ratio.html">ratio</a></span><span class="o">&lt;</span><span class="mi">60</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;&gt;</span>
-    <span class="k">operator</span> <span class="s">""</span> <span class="n">min</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">);</span>                    <span class="c1">// (2)</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../duration.html">chrono::duration</a></span><span class="o">&lt;</span><span class="n"><i>unspecified</i></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ratio/ratio.html">ratio</a></span><span class="o">&lt;</span><span class="mi">60</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;&gt;</span>
+<span class="w">    </span><span class="k">operator</span><span class="w"> </span><span class="s">""</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                    </span><span class="c1">// (2)</span>
 <span class="p">}}</span>
 
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="p">{</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">literals</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
-<span class="p">}</span> <span class="c1">// namespace chrono</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="p">{</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">literals</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// namespace chrono</span>
 
-<span class="p">}</span>  <span class="c1">// namespace std</span>
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace std</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -255,18 +255,18 @@
 <li>(2) : <code>chrono::duration&lt;unspecified, ratio&lt;60,1&gt;&gt;(x)</code></li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="e42cff1cbc85ec53ba399fe631fe54307f57fcca"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e42cff1cbc85ec53ba399fe631fe54307f57fcca"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">literals</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">literals</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span>
 
-  <span class="k">auto</span> <span class="n">minutes_i</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">3min</span></span><span class="p">;</span>   <span class="c1">// 整数型の3分</span>
-  <span class="k">auto</span> <span class="n">minutes_f</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">3.1min</span></span><span class="p">;</span> <span class="c1">// 浮動小数点型の3.1分</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">minutes_i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">3min</span></span><span class="p">;</span><span class="w">   </span><span class="c1">// 整数型の3分</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">minutes_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">3.1min</span></span><span class="p">;</span><span class="w"> </span><span class="c1">// 浮動小数点型の3.1分</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">minutes_i</span><span class="p">.</span><span class="n"><a href="count.html">count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">minutes_f</span><span class="p">.</span><span class="n"><a href="count.html">count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">minutes_i</span><span class="p">.</span><span class="n"><a href="count.html">count()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">minutes_f</span><span class="p">.</span><span class="n"><a href="count.html">count()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -308,7 +308,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

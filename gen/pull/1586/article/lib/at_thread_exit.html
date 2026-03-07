@@ -212,23 +212,23 @@
         
   <h1 itemprop="name"><span class="token">_at_thread_exit系の関数が存在している理由</span></h1>
 <div itemprop="articleBody"><p><code><a href="../../reference/future.html">&lt;future&gt;</a></code> や <code><a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></code> には、<code>*_at_thread_exit</code> という名前の関数が定義されている。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="n"><a href="../../reference/condition_variable/condition_variable/notify_all_at_thread_exit.html">notify_all_at_thread_exit</a></span><span class="p">(</span><span class="n"><a href="../../reference/condition_variable/condition_variable.html">condition_variable</a></span><span class="o">&amp;</span> <span class="n">cond</span><span class="p">,</span> <span class="n"><a href="../../reference/mutex/unique_lock.html">unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf"><a href="../../reference/condition_variable/condition_variable/notify_all_at_thread_exit.html">notify_all_at_thread_exit</a></span><span class="p">(</span><span class="n"><a href="../../reference/condition_variable/condition_variable.html">condition_variable</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/mutex/unique_lock.html">unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">);</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc"><a href="../../reference/future/promise.html">promise</a></span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="p">...</span>
-    <span class="kt">void</span> <span class="n"><a href="../../reference/future/promise/set_value_at_thread_exit.html">set_value_at_thread_exit</a></span><span class="p">(</span><span class="k">const</span> <span class="n">R</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span>
-    <span class="kt">void</span> <span class="nf"><a href="../../reference/future/promise/set_exception_at_thread_exit.html">set_exception_at_thread_exit</a></span><span class="p">(</span><span class="n"><a href="../../reference/exception/exception_ptr.html">exception_ptr</a></span> <span class="n">p</span><span class="p">);</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../../reference/future/promise.html">promise</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n"><a href="../../reference/future/promise/set_value_at_thread_exit.html">set_value_at_thread_exit</a></span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf"><a href="../../reference/future/promise/set_exception_at_thread_exit.html">set_exception_at_thread_exit</a></span><span class="p">(</span><span class="n"><a href="../../reference/exception/exception_ptr.html">exception_ptr</a></span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgTypes</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc"><a href="../../reference/future/packaged_task.html">packaged_task</a></span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="p">...</span>
-    <span class="kt">void</span> <span class="n"><a href="../../reference/future/packaged_task/make_ready_at_thread_exit.html">make_ready_at_thread_exit</a></span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">ArgTypes</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../../reference/future/packaged_task.html">packaged_task</a></span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n"><a href="../../reference/future/packaged_task/make_ready_at_thread_exit.html">make_ready_at_thread_exit</a></span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -238,34 +238,34 @@
 <p>デタッチされたスレッドにおいて、スレッドローカル記憶域にあるオブジェクトがいつ破棄されるかという規定は無い。
 そのため、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を含まずにこれらのオブジェクトを破棄するのは難しい。 </p>
 <p>例えば、以下のようなケースで問題になる。</p>
-<p><div class="yata" id="171e623d248d83490f9f10888099cc4ccbfdcc88"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/future.html">&lt;future&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="171e623d248d83490f9f10888099cc4ccbfdcc88"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/future.html">&lt;future&gt;</a></span>
+<span class="cp">#include <a href="../../reference/thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span> <span class="n">spawn_task</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">result_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">result_type</span> <span class="p">()</span><span class="o">&gt;</span> <span class="n">task</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;</span> <span class="n">future</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">get_future</span><span class="p">());</span>
-  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">th</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">task</span><span class="p">));</span>
-  <span class="n">th</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
-  <span class="k">return</span> <span class="n">future</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spawn_task</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">result_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">result_type</span><span class="w"> </span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">get_future</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="nf">th</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">task</span><span class="p">));</span>
+<span class="w">  </span><span class="n">th</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">future</span><span class="p">;</span>
 <span class="p">}</span>
 
 
-<span class="k">struct</span> <span class="n">Hoge</span> <span class="p">{</span>
-  <span class="o">~</span><span class="n">Hoge</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Hoge destructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Hoge</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="o">~</span><span class="n">Hoge</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Hoge destructor"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span> <span class="n">Hoge</span> <span class="n">h</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span><span class="w"> </span><span class="n">Hoge</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">(</span><span class="n">spawn_task</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">res</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">(</span><span class="n">spawn_task</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -276,43 +276,43 @@
 <p><code>spawn_task</code> は、渡された任意の処理を別スレッドで行なう一般的な関数である。関数内部でスレッドを作り、デタッチを行なっている。 </p>
 <p>出力は、<code>main()</code> 関数での出力と、<code>Hoge</code> デストラクタでの出力が混在している。これはスレッドローカル記憶域と <code>future</code> オブジェクトが正しく同期されていないからである。そのため、これ以外の出力も起こり得る。</p>
 <p>これは <code>*_at_thread_exit</code> 系の関数を利用することで修正できる。</p>
-<p><div class="yata" id="af87758ee2bf0e113465ddcd28c0cff86e7107c1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/future.html">&lt;future&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="af87758ee2bf0e113465ddcd28c0cff86e7107c1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/future.html">&lt;future&gt;</a></span>
+<span class="cp">#include <a href="../../reference/thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">task_executor</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">task_executor</span>
 <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span> <span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">task</span> <span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">task</span><span class="p">.</span><span class="n"><span style="color:#ff0000">make_ready_at_thread_exit</span></span><span class="p">();</span> <span class="c1">// operator() を呼び出す代わりに <span style="color:#ff0000">make_ready_at_thread_exit</span>() を呼び出す。</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">task</span><span class="p">.</span><span class="n"><span style="color:#ff0000">make_ready_at_thread_exit</span></span><span class="p">();</span><span class="w"> </span><span class="c1">// operator() を呼び出す代わりに <span style="color:#ff0000">make_ready_at_thread_exit</span>() を呼び出す。</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span> <span class="n">spawn_task</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">result_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">result_type</span> <span class="p">()</span><span class="o">&gt;</span> <span class="n">task</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;</span> <span class="n">future</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">get_future</span><span class="p">());</span>
-  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">th</span><span class="p">(</span><span class="n">task_executor</span><span class="p">{},</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">task</span><span class="p">));</span>
-  <span class="n">th</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
-  <span class="k">return</span> <span class="n">future</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spawn_task</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">result_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">result_type</span><span class="w"> </span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">get_future</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="w"> </span><span class="nf">th</span><span class="p">(</span><span class="n">task_executor</span><span class="p">{},</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">task</span><span class="p">));</span>
+<span class="w">  </span><span class="n">th</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">future</span><span class="p">;</span>
 <span class="p">}</span>
 
 
-<span class="k">struct</span> <span class="n">Hoge</span> <span class="p">{</span>
-  <span class="o">~</span><span class="n">Hoge</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Hoge destructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Hoge</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="o">~</span><span class="n">Hoge</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Hoge destructor"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span> <span class="n">Hoge</span> <span class="n">h</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span><span class="w"> </span><span class="n">Hoge</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">(</span><span class="n">spawn_task</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">res</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">(</span><span class="n">spawn_task</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -343,7 +343,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

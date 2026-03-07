@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class recursive_mutex">recursive_mutex::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">recursive_mutex</span><span class="p">();</span>                                <span class="c1">// (1)</span>
-<span class="n">recursive_mutex</span><span class="p">(</span><span class="k">const</span> <span class="n">recursive_mutex</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span> <span class="c1">// (2)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">recursive_mutex</span><span class="p">();</span><span class="w">                                </span><span class="c1">// (1)</span>
+<span class="n">recursive_mutex</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">recursive_mutex</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2)</span>
 </code></pre></div>
 </p>
 <h2>recursive_mutexオブジェクトの構築</h2>
@@ -245,12 +245,12 @@
 <h2>備考</h2>
 <p>非トリビアルなコンストラクタが定義されるため、ムーブコンストラクタは定義されない。</p>
 <h2>例</h2>
-<p><div class="yata" id="efa640d62b527ee0707bab1a4f35a708b2ca312a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="efa640d62b527ee0707bab1a4f35a708b2ca312a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../mutex.html">&lt;mutex&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// デフォルト構築：ミューテックスの初期化</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">recursive_mutex</span> <span class="n">mtx</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// デフォルト構築：ミューテックスの初期化</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">recursive_mutex</span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -289,7 +289,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

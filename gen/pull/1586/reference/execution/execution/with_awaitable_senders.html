@@ -225,32 +225,32 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">with_awaitable_senders</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../class-type.html">class-type</a></span> <span class="n">Promise</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">with_awaitable_senders</span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherPromise</span><span class="o">&gt;</span>
-      <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="p">,</span> <span class="kt">void</span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="kt">void</span> <span class="n">set_continuation</span><span class="p">(</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="o">&gt;</span> <span class="n">h</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../class-type.html">class-type</a></span><span class="w"> </span><span class="n">Promise</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">with_awaitable_senders</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OtherPromise</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set_continuation</span><span class="p">(</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="o">&gt;</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-    <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="n">continuation</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">continuation</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">continuation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">continuation</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-    <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="n">unhandled_stopped</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">stopped</span><span class="o">-</span><span class="n">handler</span><span class="p">(</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/address.html">address()</a></span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">unhandled_stopped</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">stopped</span><span class="o">-</span><span class="n">handler</span><span class="p">(</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/address.html">address()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Value</span><span class="o">&gt;</span>
-    <span class="n"><i>see below</i></span> <span class="n">await_transform</span><span class="p">(</span><span class="n">Value</span><span class="o">&amp;&amp;</span> <span class="n">value</span><span class="p">);</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Value</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n"><i>see below</i></span><span class="w"> </span><span class="n">await_transform</span><span class="p">(</span><span class="n">Value</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
 
-  <span class="k">private</span><span class="o">:</span>
-    <span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span> <span class="k">static</span> <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span>
-      <span class="k">default</span><span class="o">-</span><span class="n">unhandled</span><span class="o">-</span><span class="n">stopped</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
-      <span class="n"><a href="../../exception/terminate.html">terminate()</a></span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span>
+<span class="w">      </span><span class="k">default</span><span class="o">-</span><span class="n">unhandled</span><span class="o">-</span><span class="n">stopped</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n"><a href="../../exception/terminate.html">terminate()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="n">continuation</span><span class="p">{};</span>                       <span class="c1">// exposition only</span>
-    <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="p">(</span><span class="o">*</span><span class="n">stopped</span><span class="o">-</span><span class="n">handler</span><span class="p">)(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span>  <span class="c1">// exposition only</span>
-      <span class="o">&amp;</span><span class="k">default</span><span class="o">-</span><span class="n">unhandled</span><span class="o">-</span><span class="n">stopped</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">continuation</span><span class="p">{};</span><span class="w">                       </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">stopped</span><span class="o">-</span><span class="n">handler</span><span class="p">)(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="o">&amp;</span><span class="k">default</span><span class="o">-</span><span class="n">unhandled</span><span class="o">-</span><span class="n">stopped</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -317,78 +317,78 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="331f227953ed3bb4d3419a8ee39cacdd150883e1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../coroutine.html">&lt;coroutine&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="331f227953ed3bb4d3419a8ee39cacdd150883e1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../coroutine.html">&lt;coroutine&gt;</a></span>
+<span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Lazy</span> <span class="p">{</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Lazy</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">struct</span> <span class="n">promise_type</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">handle_type</span> <span class="o">=</span> <span class="n"><a href="../../coroutine/coroutine_handle.html">std::coroutine_handle</a></span><span class="o">&lt;</span><span class="n">promise_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">promise_type</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">handle_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../coroutine/coroutine_handle.html">std::coroutine_handle</a></span><span class="o">&lt;</span><span class="n">promise_type</span><span class="o">&gt;</span><span class="p">;</span>
 
-  <span class="k">struct</span> <span class="nl">promise_type</span> <span class="p">:</span> <span class="n"><span style="color:#ff0000">ex::with_awaitable_senders</span></span><span class="o">&lt;</span><span class="n">promise_type</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="n">value_type</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="k">auto</span> <span class="nf">get_return_object</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Lazy</span><span class="p">{</span><span class="n">handle_type</span><span class="o">::</span><span class="n"><a href="../../coroutine/coroutine_handle/from_promise.html">from_promise</a></span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)};</span> <span class="p">}</span>
-    <span class="k">auto</span> <span class="nf">initial_suspend</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../../coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span> <span class="p">}</span>
-    <span class="k">auto</span> <span class="nf">final_suspend</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../../coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span> <span class="p">}</span>
-    <span class="kt">void</span> <span class="nf">unhandled_exception</span><span class="p">()</span> <span class="p">{</span> <span class="k">throw</span><span class="p">;</span> <span class="p">}</span>
-    <span class="kt">void</span> <span class="nf">return_value</span><span class="p">(</span><span class="n">value_type</span> <span class="n">v</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n">value_</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span> <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">promise_type</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::with_awaitable_senders</span></span><span class="o">&lt;</span><span class="n">promise_type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">value_type</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">get_return_object</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Lazy</span><span class="p">{</span><span class="n">handle_type</span><span class="o">::</span><span class="n"><a href="../../coroutine/coroutine_handle/from_promise.html">from_promise</a></span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)};</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">initial_suspend</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">final_suspend</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">unhandled_exception</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">throw</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">return_value</span><span class="p">(</span><span class="n">value_type</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
 <span class="k">private</span><span class="o">:</span>
-  <span class="n">Lazy</span><span class="p">(</span><span class="n">handle_type</span> <span class="n">h</span><span class="p">)</span> <span class="o">:</span> <span class="n">coro_</span><span class="p">{</span><span class="n">h</span><span class="p">}</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">Lazy</span><span class="p">(</span><span class="n">handle_type</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">coro_</span><span class="p">{</span><span class="n">h</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">Lazy</span><span class="p">(</span><span class="n">Lazy</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">coro_</span><span class="p">{</span><span class="n"><a href="../../utility/exchange.html">std::exchange</a></span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">coro_</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">)}</span> <span class="p">{}</span>
-  <span class="n">Lazy</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Lazy</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">coro_</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../utility/exchange.html">std::exchange</a></span><span class="p">(</span><span class="n">coro_</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">).</span><span class="n"><a href="../../coroutine/coroutine_handle/destroy.html">destroy()</a></span><span class="p">;</span> <span class="p">}</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">coro_</span><span class="p">,</span> <span class="n">coro_</span><span class="p">);</span>
-    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="o">~</span><span class="n">Lazy</span><span class="p">()</span>
-    <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="n">coro_</span><span class="p">)</span> <span class="p">{</span> <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/destroy.html">destroy()</a></span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+<span class="w">  </span><span class="n">Lazy</span><span class="p">(</span><span class="n">Lazy</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">coro_</span><span class="p">{</span><span class="n"><a href="../../utility/exchange.html">std::exchange</a></span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">coro_</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)}</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="n">Lazy</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Lazy</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">coro_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../utility/exchange.html">std::exchange</a></span><span class="p">(</span><span class="n">coro_</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">).</span><span class="n"><a href="../../coroutine/coroutine_handle/destroy.html">destroy()</a></span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">coro_</span><span class="p">,</span><span class="w"> </span><span class="n">coro_</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">Lazy</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">coro_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/destroy.html">destroy()</a></span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="n">value_type</span> <span class="n">get</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">coro_</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/done.html">done()</a></span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">.</span><span class="n">value_</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">value_type</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">coro_</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/done.html">done()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">.</span><span class="n">value_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="k">private</span><span class="o">:</span>
-  <span class="n">handle_type</span> <span class="n">coro_</span><span class="p">;</span>
+<span class="w">  </span><span class="n">handle_type</span><span class="w"> </span><span class="n">coro_</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// SenderをAwait可能なコルーチン</span>
-<span class="n">Lazy</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">coro</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">Lazy</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">coro</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"coro start"</span><span class="p">);</span>
-  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span>
-    <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="o">|</span> <span class="n"><a href="then.html">ex::then</a></span><span class="p">([](</span><span class="kt">int</span> <span class="n">m</span><span class="p">){</span> <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span> <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"coro start"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="then.html">ex::then</a></span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
 
-  <span class="c1">// Senderを開始して値取得を待機</span>
-  <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">co_await</span> <span class="n">sndr</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Senderを開始して値取得を待機</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">co_await</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
 
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"coro end"</span><span class="p">);</span>
-  <span class="n">co_return</span> <span class="n">val</span> <span class="o">*</span> <span class="mi">7</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"coro end"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">co_return</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">task</span> <span class="o">=</span> <span class="n">coro</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"get"</span><span class="p">);</span>
-    <span class="k">auto</span> <span class="n">value</span> <span class="o">=</span> <span class="n">task</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
-    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"value={}"</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
-    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"<a href="../../exception.html">&lt;exception&gt;</a>"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coro</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"get"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"value={}"</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"<a href="../../exception.html">&lt;exception&gt;</a>"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -436,7 +436,7 @@ value=42
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

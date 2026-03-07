@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;stop_token&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">stoppable_token</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Token</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">stoppable_token</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Token</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">stoppable_token</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -223,22 +223,22 @@
 <p><code>stoppable_token</code>は、型<code>Token</code>が停止トークンとしての基本的なインタフェースを提供することを表すコンセプトである。</p>
 <h2>要件</h2>
 <p>まず、説明専用クラステンプレート<code>check-type-alias-exists</code>を以下のように定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="n">class</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">check</span><span class="o">-</span><span class="n">type</span><span class="o">-</span><span class="n">alias</span><span class="o">-</span><span class="n">exists</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">check</span><span class="o">-</span><span class="n">type</span><span class="o">-</span><span class="n">alias</span><span class="o">-</span><span class="n">exists</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>stoppable_token</code>コンセプトは、以下のように定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Token</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">stoppable_token</span> <span class="o">=</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="k">const</span> <span class="n">Token</span> <span class="n">tok</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">typename</span> <span class="n">check</span><span class="o">-</span><span class="n">type</span><span class="o">-</span><span class="n">alias</span><span class="o">-</span><span class="n">exists</span><span class="o">&lt;</span><span class="n">Token</span><span class="o">::</span><span class="k">template</span> <span class="n">callback_type</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="p">{</span> <span class="n">tok</span><span class="p">.</span><span class="n">stop_requested</span><span class="p">()</span> <span class="p">}</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="p">{</span> <span class="n">tok</span><span class="p">.</span><span class="n">stop_possible</span><span class="p">()</span> <span class="p">}</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="p">{</span> <span class="n">Token</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span> <span class="p">}</span> <span class="k">noexcept</span><span class="p">;</span>
-  <span class="p">}</span> <span class="o">&amp;&amp;</span>
-  <span class="n"><a href="../concepts/copyable.html">copyable</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-  <span class="n"><a href="../concepts/equality_comparable.html">equality_comparable</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-  <span class="n"><a href="../concepts/swappable.html">swappable</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Token</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">stoppable_token</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="n">tok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">typename</span><span class="w"> </span><span class="nc">check</span><span class="o">-</span><span class="n">type</span><span class="o">-</span><span class="n">alias</span><span class="o">-</span><span class="n">exists</span><span class="o">&lt;</span><span class="n">Token</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">callback_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">tok</span><span class="p">.</span><span class="n">stop_requested</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">tok</span><span class="p">.</span><span class="n">stop_possible</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">Token</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="n"><a href="../concepts/copyable.html">copyable</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="n"><a href="../concepts/equality_comparable.html">equality_comparable</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="n"><a href="../concepts/swappable.html">swappable</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>モデル</h2>
@@ -253,12 +253,12 @@
 <li><code>request_stop</code>, <code>stop_requested</code>, <code>stop_possible</code>メンバ関数の呼び出しはデータ競合を引き起こさない。</li>
 </ul>
 <p>ここで、説明専用コンセプト<code>stoppable-callback-for</code>を以下のように定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CallbackFn</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Token</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Initializer</span> <span class="o">=</span> <span class="n">CallbackFn</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">stoppable</span><span class="o">-</span><span class="n">callback</span><span class="o">-</span><span class="k">for</span> <span class="o">=</span>
-  <span class="n"><a href="../concepts/invocable.html">invocable</a></span><span class="o">&lt;</span><span class="n">CallbackFn</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-  <span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n">CallbackFn</span><span class="p">,</span> <span class="n">Initializer</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-  <span class="n">requires</span> <span class="p">{</span> <span class="k">typename</span> <span class="n"><a href="stop_callback_for_t.html">stop_callback_for_t</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="p">,</span> <span class="n">CallbackFn</span><span class="o">&gt;</span><span class="p">;</span> <span class="p">}</span> <span class="o">&amp;&amp;</span>
-  <span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="stop_callback_for_t.html">stop_callback_for_t</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="p">,</span> <span class="n">CallbackFn</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">const</span> <span class="n">Token</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Initializer</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CallbackFn</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Token</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Initializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CallbackFn</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">stoppable</span><span class="o">-</span><span class="n">callback</span><span class="o">-</span><span class="k">for</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="n"><a href="../concepts/invocable.html">invocable</a></span><span class="o">&lt;</span><span class="n">CallbackFn</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n">CallbackFn</span><span class="p">,</span><span class="w"> </span><span class="n">Initializer</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="stop_callback_for_t.html">stop_callback_for_t</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="p">,</span><span class="w"> </span><span class="n">CallbackFn</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span><span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="stop_callback_for_t.html">stop_callback_for_t</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="p">,</span><span class="w"> </span><span class="n">CallbackFn</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Token</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">Initializer</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>説明用の<code>init</code>を<code><a href="../concepts/same_as.html">same_as</a>&lt;decltype(init), Initializer&gt;</code>を満たす式、型<code>SCB</code>を<code><a href="stop_callback_for_t.html">stop_callback_for_t</a>&lt;Token, CallbackFn&gt;</code>とする。</p>
@@ -334,7 +334,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

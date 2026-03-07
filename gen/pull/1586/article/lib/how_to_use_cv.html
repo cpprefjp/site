@@ -222,30 +222,30 @@
 （対象処理系や特殊ユースケースでは、ポーリング方式の方が望ましい状況も否定しない。）</p>
 <h2>利用パターン</h2>
 <p>下記コードでは典型的な利用パターンを示す。なお、通知処理と待機処理は異なるスレッド上で並行実行されるものとする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/mutex.html">&lt;mutex&gt;</a></span>
+<span class="cp">#include <a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></span>
 
 <span class="c1">// "ステート"変数＋ミューテックスmtx＋条件変数cv</span>
-<span class="kt">int</span> <span class="n">state</span><span class="p">;</span>  <span class="c1">// 注: 変数型やその個数は目的による</span>
-<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
-<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">cv</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w">  </span><span class="c1">// 注: 変数型やその個数は目的による</span>
+<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
+<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span><span class="w"> </span><span class="n">cv</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 共有"ステート"変数の更新と通知</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
-  <span class="c1">// "ステート"変数の更新処理</span>
-  <span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// "ステート"変数の更新処理</span>
+<span class="w">  </span><span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 指定条件を満たすまで待機</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
-  <span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span>
-    <span class="k">return</span> <span class="cm">/* "ステート"変数を参照し、指定条件を満たす場合はtrueを返す */</span><span class="p">;</span>
-  <span class="p">});</span>
-  <span class="c1">// "ステート"変数を参照した処理</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="w">  </span><span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="cm">/* "ステート"変数を参照し、指定条件を満たす場合はtrueを返す */</span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="c1">// "ステート"変数を参照した処理</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -265,23 +265,23 @@
 待機関数<code>wait()</code>でブロック中のスレッドは、自スレッドを実行可能キュー内でみつけたら、実行状態へ遷移したのち待機関数の呼出元に制御を戻す。</p>
 <p>下記コードでは条件変数を誤用した例を示す。なお、通知処理と待機処理は異なるスレッド上で並行実行されるものとする。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 条件変数を誤用した同期処理</span>
-<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
-<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">cv</span><span class="p">;</span>
+<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
+<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span><span class="w"> </span><span class="n">cv</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 誤った通知処理</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
-  <span class="c1">// 共有データの更新</span>
-  <span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 共有データの更新</span>
+<span class="w">  </span><span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 誤った待機処理</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
-  <span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">);</span>
-  <span class="c1">// 共有データの参照利用</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="w">  </span><span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 共有データの参照利用</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -293,25 +293,25 @@
 </ul>
 <p>この不具合を修正するには、過去に通知が行われた事実を永続化する変数（"ステート"変数）を導入すれば良い。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 条件変数による正しい同期処理</span>
-<span class="kt">bool</span> <span class="n">notify</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
-<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">cv</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">notify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
+<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span><span class="w"> </span><span class="n">cv</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 修正した通知処理</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
-  <span class="c1">// 共有データの更新</span>
-  <span class="n">notify</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-  <span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 共有データの更新</span>
+<span class="w">  </span><span class="n">notify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 修正した待機処理</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
-  <span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span> <span class="k">return</span> <span class="n">notify</span><span class="p">;</span> <span class="p">});</span>
-  <span class="c1">// 共有データの参照利用</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="w">  </span><span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">notify</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="c1">// 共有データの参照利用</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -319,38 +319,38 @@
 <p>1つのミューテックスで保護される共有"ステート"変数に対して、複数個の条件変数オブジェクトを関連付ける事ができる。
 逆に1つの条件変数オブジェクトに対して、複数個のミューテックス（と共有"ステート"のグループ）を関連付ける事は出来ない。</p>
 <p>下記に、一般的なProducer-Consumerパターンで利用される境界付きキュー(bounded queue)の簡易実装例を示す。1つのミューテックス<code>guard_</code>にて<code>*this</code>オブジェクト自身を保護し、2つの条件変数オブジェクト<code>not_empty_</code>, <code>not_full_</code>を関連付ける。この<code>bounded_queue</code>クラスは、スレッド間同期を実現するモニタ(monitor)として機能する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/queue.html">&lt;queue&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../reference/queue.html">&lt;queue&gt;</a></span>
+<span class="cp">#include <a href="../../reference/mutex.html">&lt;mutex&gt;</a></span>
+<span class="cp">#include <a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">bounded_queue</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">queue_</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">guard_</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">not_empty_</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">not_full_</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">bounded_queue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue_</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">guard_</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span><span class="w"> </span><span class="n">not_empty_</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span><span class="w"> </span><span class="n">not_full_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// 値の挿入</span>
-  <span class="kt">void</span> <span class="n">push</span><span class="p">(</span><span class="n">T</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">guard_</span><span class="p">);</span>
-    <span class="n">not_full_</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span> <span class="p">[</span><span class="k">this</span><span class="p">]{</span>
-      <span class="k">return</span> <span class="n">queue_</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span>
-    <span class="p">});</span>
-    <span class="n">queue_</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
-    <span class="n">not_empty_</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="c1">// 値の取り出し</span>
-  <span class="n">T</span> <span class="n">pop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">guard_</span><span class="p">);</span>
-    <span class="n">not_empty_</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span> <span class="p">[</span><span class="k">this</span><span class="p">]{</span>
-      <span class="k">return</span> <span class="o">!</span><span class="n">queue_</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
-    <span class="p">});</span>
-    <span class="n">T</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">queue_</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
-    <span class="n">queue_</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-    <span class="n">not_full_</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
-    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 値の挿入</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">guard_</span><span class="p">);</span>
+<span class="w">    </span><span class="n">not_full_</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">]{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">queue_</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="n">queue_</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
+<span class="w">    </span><span class="n">not_empty_</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// 値の取り出し</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">lk</span><span class="p">(</span><span class="n">guard_</span><span class="p">);</span>
+<span class="w">    </span><span class="n">not_empty_</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">]{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">queue_</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">queue_</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
+<span class="w">    </span><span class="n">queue_</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">not_full_</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
 </p></div>
@@ -371,7 +371,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

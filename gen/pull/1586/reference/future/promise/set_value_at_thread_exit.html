@@ -226,14 +226,14 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;future&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class promise">promise::</span><span class="token">set_value_at_thread_exit</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="c1">// テンプレートパラメータRが下記特殊ケースでない場合</span>
-<span class="kt">void</span> <span class="n">promise</span><span class="o">::</span><span class="n">set_value_at_thread_exit</span><span class="p">(</span><span class="k">const</span> <span class="n">R</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span>
-<span class="kt">void</span> <span class="n">promise</span><span class="o">::</span><span class="n">set_value_at_thread_exit</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">promise::set_value_at_thread_exit</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">promise::set_value_at_thread_exit</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
 
 <span class="c1">// テンプレートパラメータRが参照の場合</span>
-<span class="kt">void</span> <span class="n">promise</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&amp;&gt;::</span><span class="n">set_value_at_thread_exit</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">promise</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&amp;&gt;::</span><span class="n">set_value_at_thread_exit</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
 
 <span class="c1">// テンプレートパラメータRがvoidの場合</span>
-<span class="kt">void</span> <span class="n">promise</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;::</span><span class="n">set_value_at_thread_exit</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;::</span><span class="n">set_value_at_thread_exit</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -260,37 +260,37 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="2dbf0d7e428d0d795806d2155f3a824e8f66c727"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../future.html">&lt;future&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="2dbf0d7e428d0d795806d2155f3a824e8f66c727"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../future.html">&lt;future&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../functional.html">&lt;functional&gt;</a></span>
 
 <span class="c1">// promiseを左辺値参照にしているのはVisual C++ 2012のバグのため</span>
 <span class="c1">// <a href="https://connect.microsoft.com/VisualStudio/feedback/details/737812" target="_blank">https://connect.microsoft.com/VisualStudio/feedback/details/737812</a></span>
-<span class="kt">void</span> <span class="nf">calc</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">p</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">calc</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 結果値を書き込み、スレッド終了時に準備完了状態にする</span>
-  <span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">set_value_at_thread_exit</span></span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 結果値を書き込み、スレッド終了時に準備完了状態にする</span>
+<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">set_value_at_thread_exit</span></span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
-  <span class="n"><a href="../future.html">std::future</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n"><a href="get_future.html">p.get_future()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../future.html">std::future</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="get_future.html">p.get_future()</a></span><span class="p">;</span>
 
-  <span class="c1">// 別スレッドで計算を行う</span>
-  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t</span><span class="p">(</span><span class="n">calc</span><span class="p">,</span> <span class="n"><a href="../../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// 別スレッドで計算を行う</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">calc</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
 
-  <span class="c1">// calc()によって書き込まれた結果を取得</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../future/get.html">f.get()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// calc()によって書き込まれた結果を取得</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../future/get.html">f.get()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -298,58 +298,58 @@
 <p><pre><code>55
 </code></pre></p>
 <h2>例：<code>promise&lt;R&amp;&gt;</code></h2>
-<p><div class="yata" id="475825cdd1d9d195465a168b11c45858c59b3c00"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../future.html">&lt;future&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="475825cdd1d9d195465a168b11c45858c59b3c00"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../future.html">&lt;future&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../functional.html">&lt;functional&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">Calculator</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">sum_</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span> <span class="n">async_calc_</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span> <span class="n">p_</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sum_</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="n">async_calc_</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="n">p_</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">Calculator</span><span class="p">()</span> <span class="o">:</span> <span class="n">sum_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">Calculator</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sum_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="kt">void</span> <span class="n">start</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="n">async_calc_</span> <span class="o">=</span> <span class="n">p_</span><span class="p">.</span><span class="n">get_future</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">start</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">async_calc_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_</span><span class="p">.</span><span class="n">get_future</span><span class="p">();</span>
 
-    <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="nf">t</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Calculator</span><span class="o">::</span><span class="n">calc</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ref</span><span class="p">(</span><span class="n">p_</span><span class="p">));</span>
-    <span class="n">t</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Calculator</span><span class="o">::</span><span class="n">calc</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ref</span><span class="p">(</span><span class="n">p_</span><span class="p">));</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">int</span> <span class="n">get</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">async_calc_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">async_calc_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="n">calc</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;&amp;</span> <span class="n">p</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">calc</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="c1">// メンバ変数への参照を結果値として書き込み、</span>
-    <span class="c1">// スレッド終了時に準備完了状態にする</span>
-    <span class="n">sum_</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
-    <span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">set_value_at_thread_exit</span></span><span class="p">(</span><span class="n">sum_</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// メンバ変数への参照を結果値として書き込み、</span>
+<span class="w">    </span><span class="c1">// スレッド終了時に準備完了状態にする</span>
+<span class="w">    </span><span class="n">sum_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">set_value_at_thread_exit</span></span><span class="p">(</span><span class="n">sum_</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Calculator</span> <span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Calculator</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 
-  <span class="c1">// 非同期に計算を開始する</span>
-  <span class="n">c</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 非同期に計算を開始する</span>
+<span class="w">  </span><span class="n">c</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
 
-  <span class="c1">// 計算結果を取得する</span>
-  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 計算結果を取得する</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -357,59 +357,59 @@
 <p><pre><code>55
 </code></pre></p>
 <h2>例：<code>promise&lt;void&gt;</code></h2>
-<p><div class="yata" id="8b4da31a52672fb2cc872084ee64d81b92034a5e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../future.html">&lt;future&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8b4da31a52672fb2cc872084ee64d81b92034a5e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../future.html">&lt;future&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../functional.html">&lt;functional&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">Calculator</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">sum_</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">p_</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">async_calc_</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sum_</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p_</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">async_calc_</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">Calculator</span><span class="p">()</span> <span class="o">:</span> <span class="n">sum_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">Calculator</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sum_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="kt">void</span> <span class="n">start</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="n">async_calc_</span> <span class="o">=</span> <span class="n">p_</span><span class="p">.</span><span class="n">get_future</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">start</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">async_calc_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_</span><span class="p">.</span><span class="n">get_future</span><span class="p">();</span>
 
-    <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="nf">t</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Calculator</span><span class="o">::</span><span class="n">calc</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ref</span><span class="p">(</span><span class="n">p_</span><span class="p">));</span>
-    <span class="n">t</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Calculator</span><span class="o">::</span><span class="n">calc</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ref</span><span class="p">(</span><span class="n">p_</span><span class="p">));</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">int</span> <span class="n">get</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="n">async_calc_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
-    <span class="k">return</span> <span class="n">sum_</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">async_calc_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="n">calc</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;&amp;</span> <span class="n">p</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">calc</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">promise</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="c1">// メンバ変数として結果を保持し、promiseでは計算終了の通知のみ行う</span>
-    <span class="c1">// 通知はスレッド終了時に行われる</span>
-    <span class="n">sum_</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
-    <span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">set_value_at_thread_exit</span></span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// メンバ変数として結果を保持し、promiseでは計算終了の通知のみ行う</span>
+<span class="w">    </span><span class="c1">// 通知はスレッド終了時に行われる</span>
+<span class="w">    </span><span class="n">sum_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n"><span style="color:#ff0000">set_value_at_thread_exit</span></span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Calculator</span> <span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Calculator</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 
-  <span class="c1">// 非同期に計算を開始する</span>
-  <span class="n">c</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 非同期に計算を開始する</span>
+<span class="w">  </span><span class="n">c</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
 
-  <span class="c1">// 計算結果を取得する</span>
-  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 計算結果を取得する</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -450,7 +450,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

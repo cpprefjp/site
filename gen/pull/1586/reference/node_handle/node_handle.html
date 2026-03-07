@@ -214,7 +214,7 @@
         
   <div class="identifier-type">class template</div><h1 itemprop="name"><span class="token">node_handle</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">unspecified</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">node_handle</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">node_handle</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -410,35 +410,35 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="06bca4a1a7a41e8c01ea8700933a54290cd6e69f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../map.html">&lt;map&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="06bca4a1a7a41e8c01ea8700933a54290cd6e69f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../map.html">&lt;map&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// char をキー、int を値として扱う連想配列</span>
-  <span class="n"><a href="../map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// char をキー、int を値として扱う連想配列</span>
+<span class="w">  </span><span class="n"><a href="../map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">;</span>
 
-  <span class="c1">// m1 へ挿入</span>
-  <span class="n">m1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="sc">'a'</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
-  <span class="n">m1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="sc">'b'</span><span class="p">,</span> <span class="mi">20</span><span class="p">));</span>
-  <span class="n">m1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="sc">'c'</span><span class="p">,</span> <span class="mi">30</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// m1 へ挿入</span>
+<span class="w">  </span><span class="n">m1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">));</span>
+<span class="w">  </span><span class="n">m1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="sc">'b'</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">));</span>
+<span class="w">  </span><span class="n">m1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">));</span>
 
-  <span class="c1">// ノードを取得(要素は、コピーもムーブもされない)</span>
-  <span class="c1">// なお、<span style="color:#ff0000">node_type</span> は node_handle の特殊化である</span>
-  <span class="n"><a href="../map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">node_type</span></span> <span class="n">node</span> <span class="o">=</span> <span class="n">m1</span><span class="p">.</span><span class="n">extract</span><span class="p">(</span><span class="sc">'c'</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ノードを取得(要素は、コピーもムーブもされない)</span>
+<span class="w">  </span><span class="c1">// なお、<span style="color:#ff0000">node_type</span> は node_handle の特殊化である</span>
+<span class="w">  </span><span class="n"><a href="../map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">node_type</span></span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m1</span><span class="p">.</span><span class="n">extract</span><span class="p">(</span><span class="sc">'c'</span><span class="p">);</span>
 
-  <span class="c1">// m2 へ挿入(要素は、コピーもムーブもされない)</span>
-  <span class="n">m2</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// m2 へ挿入(要素は、コピーもムーブもされない)</span>
+<span class="w">  </span><span class="n">m2</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"m1 :"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"m1 :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="o">:</span> <span class="n">m1</span><span class="p">)</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"["</span> <span class="o">&lt;&lt;</span> <span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">"]"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m1</span><span class="p">)</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"["</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"]"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="s">"m2 :"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"m2 :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="o">:</span> <span class="n">m2</span><span class="p">)</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"["</span> <span class="o">&lt;&lt;</span> <span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">"]"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m2</span><span class="p">)</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"["</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"]"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -494,7 +494,7 @@ m2 :
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -219,25 +219,25 @@
 <p></p>
 <h2>概要</h2>
 <p>変数に対する<code>constinit</code>指定は、静的初期化（<em>static initialization</em>）が可能な変数に対して、その初期化がコンパイル時に完了することを保証する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/mutex.html">&lt;mutex&gt;</a></span>
+<span class="cp">#include <a href="../../reference/memory.html">&lt;memory&gt;</a></span>
 
 <span class="c1">// OK</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">m</span><span class="p">{};</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">m</span><span class="p">{};</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 
 <span class="c1">// NG</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">double</span> <span class="n">pi2</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">;</span> 
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">;</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">pi2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w"> </span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// OK</span>
-  <span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">static</span> <span class="kt">int</span> <span class="n">m1</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
 
-  <span class="c1">// NG</span>
-  <span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">int</span> <span class="n">m2</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// NG</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -245,45 +245,45 @@
 <p>動的初期化が必要となる変数に対してはコンパイルエラーとなるため、静的/スレッドローカル変数のうち静的初期化が期待できるものに付加しておくことで、いつ初期化がされているのかが明確になる。</p>
 <h2>仕様</h2>
 <p><code>constinit</code>は変数にのみ使用可能であり、構文的には変数に対する<code>constexpr</code>と同様に使用可能である。ただし、<code>constinit</code>と<code>constexpr</code>を併用することはできない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">constinit</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">();</span>    <span class="c1">// NG</span>
-<span class="n">constinit</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// OK</span>
-<span class="n">constinit</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// NG</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constinit</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span><span class="w">    </span><span class="c1">// NG</span>
+<span class="k">constinit</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="k">constinit</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// NG</span>
 </code></pre></div>
 </p>
 <p>このように<code>constinit</code>指定された変数が静的初期化可能ではない場合、コンパイルエラーとなる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">g</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"dynamic initialization"</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">constexpr</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">f</span><span class="p">(</span><span class="kt">bool</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">p</span> <span class="o">?</span> <span class="s">"constant initializer"</span> <span class="o">:</span> <span class="n">g</span><span class="p">();</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"dynamic initialization"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">f</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"constant initializer"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">g</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 
-<span class="n">constinit</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>  <span class="c1">// OK</span>
-<span class="n">constinit</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span> <span class="c1">// NG</span>
+<span class="k">constinit</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="k">constinit</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// NG</span>
 </code></pre></div>
 </p>
 <p><code>constexpr</code>変数とは異なり、<code>constinit</code>変数は初期化がコンパイル時に完了している事だけを保証するため、実行時に暗黙に<code>const</code>とならない。実行時に<code>const</code>にしたい場合は明示的に指定する必要がある。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">constinit</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n">constinit</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constinit</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">constinit</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="n">N</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c1">// OK</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>ローカル変数や非静的メンバ変数は必ず実行時に初期化されるため、<code>constinit</code>が適用可能なのは静的記憶域期間およびスレッドローカル記憶域期間にある変数、すなわち名前空間スコープのグローバル変数、静的メンバ変数、スレッドローカル変数、および関数ローカルスコープの<code>static</code>変数である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="n">constinit</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>  <span class="c1">// NG</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constinit</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w">  </span><span class="c1">// NG</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">constinit</span> <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// NG</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constinit</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// NG</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>constinit</code>は変数の初期化がコンパイル時に完了することを保証する。したがって<code>constinit</code>の効果は初期化を伴う変数宣言に対してのみ適用される。しかし、（別の場所で<code>constinit</code>指定されている）変数の最初の初期化の時点で<code>constinit</code>指定されている宣言に到達可能とならない場合、診断されない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">constinit</span> <span class="k">extern</span> <span class="kt">int</span> <span class="n">N</span><span class="p">;</span> <span class="c1">// NG、未定義動作、何も言われない</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constinit</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="c1">// NG、未定義動作、何も言われない</span>
 
-<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="n">constinit</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">M</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constinit</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="kt">int</span> <span class="n">S</span><span class="o">::</span><span class="n">M</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>  <span class="c1">// NG、constinitはこちらに必要、おそらく警告が発せられる</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">S</span><span class="o">::</span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w">  </span><span class="c1">// NG、constinitはこちらに必要、おそらく警告が発せられる</span>
 </code></pre></div>
 </p>
 <h3>静的・スレッドローカル変数の初期化</h3>
@@ -294,57 +294,57 @@
 <p>定数初期化は非リテラル型のクラス型であっても、対応するコンストラクタが<code>constexpr</code>コンストラクタであり、そのコンストラクタを通して全てのメンバが定数式で初期化される場合に、クラス型のオブジェクトに対しても実行可能となる（下の例ではこのコンストラクタのことを定数初期化コンストラクタと呼んでいる）。</p>
 <p><code>constinit</code>は、動的初期化の必要がない変数について静的初期化によって初期化が完了している事を保証し、<code>constinit</code>変数が動的初期化される場合にコンパイルエラーとするものである。そして、特に定数初期化されている事を明確に保証するために使用する。</p>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/mutex.html">&lt;mutex&gt;</a></span>
+<span class="cp">#include <a href="../../reference/memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../../reference/random.html">&lt;random&gt;</a></span>
 
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>      <span class="c1">// OK</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span>   <span class="c1">// OK、constな整数型は定数式で利用可能</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// NG、<span style="color:#ff0000">constinit</span>とconstexprを同時に指定できない</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">      </span><span class="c1">// OK</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w">   </span><span class="c1">// OK、constな整数型は定数式で利用可能</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// NG、<span style="color:#ff0000">constinit</span>とconstexprを同時に指定できない</span>
 
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n"><a href="../cpp11/thread_local_storage.html">thread_local</a></span> <span class="k">static</span> <span class="kt">int</span> <span class="n">Counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// OK</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n"><a href="../cpp11/thread_local_storage.html">thread_local</a></span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
 
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">const</span> <span class="kt">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.1415</span><span class="p">;</span> <span class="c1">// OK</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">double</span> <span class="n">PI2</span> <span class="o">=</span> <span class="n">PI</span> <span class="o">+</span> <span class="n">PI</span><span class="p">;</span>     <span class="c1">// NG、変数PIは定数式で利用不可</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1415</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">PI</span><span class="p">;</span><span class="w">     </span><span class="c1">// NG、変数PIは定数式で利用不可</span>
 
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">static</span> <span class="kt">int</span> <span class="n">N2</span><span class="p">;</span>  <span class="c1">// OK、ゼロ初期化される</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">int</span> <span class="n">Array</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>   <span class="c1">// OK、ゼロ初期化される</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N2</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK、ゼロ初期化される</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Array</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w">   </span><span class="c1">// OK、ゼロ初期化される</span>
 
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">m</span><span class="p">{};</span>           <span class="c1">// OK、定数初期化コンストラクタ呼び出し</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p1</span><span class="p">;</span>  <span class="c1">// OK、定数初期化コンストラクタ呼び出し</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">m</span><span class="p">{};</span><span class="w">           </span><span class="c1">// OK、定数初期化コンストラクタ呼び出し</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK、定数初期化コンストラクタ呼び出し</span>
 
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">extern</span> <span class="kt">int</span> <span class="n">def</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// OK</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">extern</span> <span class="kt">int</span> <span class="n">ext</span><span class="p">;</span>       <span class="c1">// NG、未初期化、おそらくエラーにはならないが未定義動作</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span><span class="w">       </span><span class="c1">// NG、未初期化、おそらくエラーにはならないが未定義動作</span>
 
-<span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="n">C</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">C</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="n">C</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">:</span> <span class="n">m</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">C</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="kt">int</span> <span class="n">m</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n">C</span> <span class="n">c1</span><span class="p">{};</span>    <span class="c1">// OK、定数初期化コンストラクタ呼び出し</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n">C</span> <span class="n">c2</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>  <span class="c1">// NG、普通のコンストラクタ呼び出し</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">c1</span><span class="p">{};</span><span class="w">    </span><span class="c1">// OK、定数初期化コンストラクタ呼び出し</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">c2</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span><span class="w">  </span><span class="c1">// NG、普通のコンストラクタ呼び出し</span>
 
-<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">56</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">56</span><span class="p">;</span>
 
-  <span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">int</span> <span class="n">m</span><span class="p">;</span>  <span class="c1">// NG、非静的メンバ変数</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w">  </span><span class="c1">// NG、非静的メンバ変数</span>
 <span class="p">};</span>
 
-<span class="k">const</span> <span class="kt">int</span> <span class="n">S</span><span class="o">::</span><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>            <span class="c1">// NG、<span style="color:#ff0000">constinit</span>が必要、おそらくエラーにはならないが未定義動作</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">const</span> <span class="kt">int</span> <span class="n">S</span><span class="o">::</span><span class="n">y</span> <span class="o">=</span> <span class="mi">34</span><span class="p">;</span>  <span class="c1">// OK、<span style="color:#ff0000">constinit</span>変数なので定数初期化される</span>
-<span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">S</span><span class="o">::</span><span class="n">z</span><span class="p">;</span>   <span class="c1">// NG、インライン変数に対する多重定義</span>
-                                <span class="c1">// constexpr静的メンバ変数に対するクラス外定義はC++17以降非推奨</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">S</span><span class="o">::</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w">            </span><span class="c1">// NG、<span style="color:#ff0000">constinit</span>が必要、おそらくエラーにはならないが未定義動作</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">S</span><span class="o">::</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK、<span style="color:#ff0000">constinit</span>変数なので定数初期化される</span>
+<span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">S</span><span class="o">::</span><span class="n">z</span><span class="p">;</span><span class="w">   </span><span class="c1">// NG、インライン変数に対する多重定義</span>
+<span class="w">                                </span><span class="c1">// constexpr静的メンバ変数に対するクラス外定義はC++17以降非推奨</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><span style="color:#ff0000">constinit</span></span> <span class="k">static</span> <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ptr</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>                <span class="c1">// OK、静的ローカル変数</span>
-  <span class="n"><span style="color:#ff0000">constinit</span></span> <span class="n"><a href="../cpp11/thread_local_storage.html">thread_local</a></span> <span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n"><a href="../../reference/random/random_device.html">std::random_device</a></span><span class="p">{}());</span> <span class="c1">// NG、定数式で初期化できない</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">                </span><span class="c1">// OK、静的ローカル変数</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="n"><a href="../cpp11/thread_local_storage.html">thread_local</a></span><span class="w"> </span><span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span><span class="w"> </span><span class="n">engine</span><span class="p">(</span><span class="n"><a href="../../reference/random/random_device.html">std::random_device</a></span><span class="p">{}());</span><span class="w"> </span><span class="c1">// NG、定数式で初期化できない</span>
 
-  <span class="n"><span style="color:#ff0000">constinit</span></span> <span class="kt">int</span> <span class="n">local</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// NG、ローカル変数</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">constinit</span></span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// NG、ローカル変数</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -358,10 +358,10 @@
 <p><code>constinit</code>変数は動的初期化時のどのタイミングであっても未初期化でない事が確実なので、少なくとも未初期化変数への読み書きによる<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を防止する事ができる。</p>
 <h2>検討されたほかの選択肢</h2>
 <p>当初の提案では<code>constinit</code>は新しいキーワードを追加した指定子（<em>specifier</em>）ではなく、<code>[[constinit]]</code>属性として提案されていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">constinit</span><span class="p">]]</span>
-<span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="k">constinit</span><span class="p">]]</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </p>
 <p>ただ、<a href="../cpp17/non_standard_attributes.html">コンパイラは不明な（未実装の）属性を無視</a>してコンパイルするため、属性にしてしまうとコンパイルエラーが起きていない時に<code>constinit</code>が効果を発揮しているのか、あるいは<code>[[constinit]]</code>属性が実装されていないだけなのかが不透明となり、<code>constinit</code>の本来の役割を果たせなくなってしまう事になりうる。</p>
@@ -398,7 +398,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

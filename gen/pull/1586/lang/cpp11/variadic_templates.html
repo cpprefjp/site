@@ -221,57 +221,57 @@
 <p>「可変引数テンプレート (variadic templates)」は、任意の型とそのオブジェクトを任意の数だけ受け取る機能である。これによって、「最大でN個のパラメータを受け取る関数テンプレートやクラステンプレート」を実装する際に、N個の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>をユーザーが用意する必要なく、ひとつの実装だけで済むようになる。</p>
 <p>可変引数テンプレートとしてテンプレートパラメータを受け取る場合、テンプレートパラメータを宣言する<code>class</code>または<code>typename</code>とテンプレートパラメータの間に、省略記号 <code>...</code> を入力する：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 0個以上のテンプレートパラメータを受け取る</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="p">;</span>
 
 <span class="c1">// 0個以上の任意の型のパラメータを受け取る</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>可変引数テンプレートで宣言したパラメータ(ここでは<code>Args</code>と<code>args</code>)は「パラメータパック (parameter pack)」と呼ばれ、複数の型またはオブジェクトがまとめられた状態となっている。</p>
 <p>パラメータパックになっているパラメータは、「展開 (expansion)」して使用する必要がある。これは他の関数やクラステンプレートにパラメータパックを転送するような状況で必要となる。パラメータパックの展開には、パラメータパックの後ろに省略記号 <code>...</code> を入力する：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="c1">// パラメータパックを ... で展開して、</span>
-  <span class="c1">// <a href="../../reference/tuple/tuple.html">std::tuple</a>クラステンプレートの引数として渡す</span>
-  <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">values</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// パラメータパックを ... で展開して、</span>
+<span class="w">  </span><span class="c1">// <a href="../../reference/tuple/tuple.html">std::tuple</a>クラステンプレートの引数として渡す</span>
+<span class="w">  </span><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// パラメータパックを ... で展開して、</span>
-  <span class="c1">// 関数g()の引数として渡す</span>
-  <span class="n">g</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
+<span class="w">  </span><span class="c1">// パラメータパックを ... で展開して、</span>
+<span class="w">  </span><span class="c1">// 関数g()の引数として渡す</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
 <span class="p">}</span>
 
-<span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>パラメータパックを最初の要素から順番に処理していきたい場合には、「任意の型のパラメータをひとつと、任意の個数の任意の型のパラメータを受け取る」というような形式のパラメータリストとし、再帰によって処理をする：</p>
-<p><div class="yata" id="01d40ce08881c1b4eb2a64b7d67bdcc5e22bb415"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="01d40ce08881c1b4eb2a64b7d67bdcc5e22bb415"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
 
 <span class="c1">// パラメータパックが空になったら終了</span>
-<span class="kt">void</span> <span class="nf">print</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="c1">// ひとつ以上のパラメータを受け取るようにし、</span>
 <span class="c1">// 可変引数を先頭とそれ以外に分割する</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Head</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Tail</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="n">Head</span><span class="o">&amp;&amp;</span> <span class="n">head</span><span class="p">,</span> <span class="n">Tail</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">tail</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Head</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Tail</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="n">Head</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">Tail</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">tail</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">head</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// パラメータパックtailをさらにheadとtailに分割する</span>
-  <span class="n">print</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Tail</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tail</span><span class="p">)...);</span>
+<span class="w">  </span><span class="c1">// パラメータパックtailをさらにheadとtailに分割する</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Tail</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tail</span><span class="p">)...);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -288,11 +288,11 @@ hello
 </li>
 <li>
 <p>パラメータパックは複数のパラメータがまとめられた状態となっているため、そのままでは個々のパラメータを取り出せない。それらを取り出すには、パラメータパックを「展開 (expansion)」する必要がある。パラメータパックの展開には、パラメータパック名に続いて「<code>...</code>」を記述する。例：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">g</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span> <span class="c1">// パラメータパックargsを...で展開して、</span>
-              <span class="c1">// 関数g()にそれらのパラメータを転送する</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span><span class="w"> </span><span class="c1">// パラメータパックargsを...で展開して、</span>
+<span class="w">              </span><span class="c1">// 関数g()にそれらのパラメータを転送する</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -302,31 +302,31 @@ hello
 </li>
 <li>
 <p>パラメータパックには、ゼロ個以上のパラメータが含まれる</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// OK</span>
-  <span class="n">X</span><span class="o">&lt;&gt;</span> <span class="n">b</span><span class="p">;</span>                  <span class="c1">// OK</span>
+<span class="w">  </span><span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="n">X</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">                  </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="c1">// パラメータパックが0要素だった場合の特殊化</span>
-<span class="k">template</span> <span class="o">&lt;&gt;</span>
-<span class="k">struct</span> <span class="n">X</span><span class="o">&lt;&gt;</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="p">{};</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14f</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span> <span class="c1">// OK</span>
-  <span class="n">f</span><span class="p">();</span>                  <span class="c1">// OK</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14f</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="n">f</span><span class="p">();</span><span class="w">                  </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -334,12 +334,12 @@ hello
 <li>
 <p>パラメータパックの宣言をする際、パラメータパックはパラメータリストの最後になければならない</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// OK</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Head</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Tail</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Head</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Tail</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="c1">// コンパイルエラー！パラメータパックは最後に置かなければならない</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Init</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Last</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Init</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Last</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{};</span>
 </code></pre></div>
 </p>
 </li>
@@ -347,28 +347,28 @@ hello
 <p>関数パラメータパックは、型推論の補助として、パラメータパックの全ての型に対して共通の修飾を付加できる：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// パラメータパックArgsに含まれる全ての型のパラメータを、</span>
 <span class="c1">// const左辺値参照として受け取る</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p><code>sizeof...(identifier)</code>演算子にパラメータパックを指定することで、パラメータパックに含まれるパラメータの要素数を取得できる：</p>
-<p><div class="yata" id="4966236b749ccd035c5aa737235f4225e6b60600"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstddef.html">&lt;cstddef&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4966236b749ccd035c5aa737235f4225e6b60600"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cstddef.html">&lt;cstddef&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="constexpr.html">constexpr</a></span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">template_parameter_pack_size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">...(</span><span class="n">Args</span><span class="p">);</span>
-  <span class="n"><a href="constexpr.html">constexpr</a></span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">function_parameter_pack_size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">...(</span><span class="n">args</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="constexpr.html">constexpr</a></span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">template_parameter_pack_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Args</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="constexpr.html">constexpr</a></span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">function_parameter_pack_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">...(</span><span class="n">args</span><span class="p">);</span>
 
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">template_parameter_pack_size</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">function_parameter_pack_size</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">template_parameter_pack_size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">function_parameter_pack_size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -379,55 +379,55 @@ hello
 <ul>
 <li>
 <p>関数のパラメータ</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span> <span class="c1">// ここ</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w"> </span><span class="c1">// ここ</span>
 
-<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
 </code></pre></div>
 </p>
-<p><div class="yata" id="1906df53e083ccf3814466240e828424c642ca24"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1906df53e083ccf3814466240e828424c642ca24"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/tuple.html">&lt;tuple&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">ResultTypes</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">ResultTypes</span><span class="p">(</span><span class="o">*</span><span class="p">...</span><span class="n">funcs</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">))</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">ResultTypes</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">ResultTypes</span><span class="p">(</span><span class="o">*</span><span class="p">...</span><span class="n">funcs</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">))</span>
 <span class="p">{</span>
-  <span class="c1">// t is <a href="../../reference/tuple/tuple.html">std::tuple</a>&lt;int, float&gt;{1, 1.23f}</span>
-  <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../../reference/tuple/make_tuple.html">std::make_tuple</a></span><span class="p">(</span><span class="n">funcs</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">)...);</span>
+<span class="w">  </span><span class="c1">// t is <a href="../../reference/tuple/tuple.html">std::tuple</a>&lt;int, float&gt;{1, 1.23f}</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/make_tuple.html">std::make_tuple</a></span><span class="p">(</span><span class="n">funcs</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">)...);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">a</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">float</span> <span class="n">b</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">1.23f</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mf">1.23f</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 </li>
 <li>
 <p>テンプレートパラメータ</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="n">Y</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">;</span>
+<span class="n">Y</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>テンプレートテンプレートパラメータ</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Container</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">ContainerHolder</span> <span class="p">{</span>
-  <span class="n">Container</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">cont</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Container</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ContainerHolder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Container</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cont</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">ContainerHolder</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
-<span class="n">ContainerHolder</span><span class="o">&lt;</span><span class="n"><a href="../../reference/list/list.html">std::list</a></span><span class="o">&gt;</span> <span class="n">ls</span><span class="p">;</span>
+<span class="n">ContainerHolder</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="n">ContainerHolder</span><span class="o">&lt;</span><span class="n"><a href="../../reference/list/list.html">std::list</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span><span class="p">;</span>
 </code></pre></div>
 </p>
 </li>
@@ -443,44 +443,44 @@ hello
 </li>
 <li>
 <p>テンプレートの引数</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">t</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>初期化子</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">args</span><span class="p">...</span> <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">ar</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">args</span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="p">{</span> <span class="n">args</span><span class="p">...</span> <span class="p">};</span>
+<span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">args</span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>継承時の基底クラスリストの指定</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Bases</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Derived</span> <span class="o">:</span> <span class="n">Bases</span><span class="p">...;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Bases</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bases</span><span class="p">...;</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>コンストラクタのメンバ初期化子</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Bases</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Derived</span> <span class="o">:</span> <span class="n">Bases</span><span class="p">...</span> <span class="p">{</span>
-  <span class="n">Derived</span><span class="p">(</span><span class="n">Bases</span><span class="p">...</span> <span class="n">bases</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">Bases</span><span class="p">(</span><span class="n">bases</span><span class="p">)...</span> <span class="p">{}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Bases</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bases</span><span class="p">...</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Derived</span><span class="p">(</span><span class="n">Bases</span><span class="p">...</span><span class="w"> </span><span class="n">bases</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">Bases</span><span class="p">(</span><span class="n">bases</span><span class="p">)...</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>動的<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">ExceptionList</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="k">throw</span><span class="p">(</span><span class="n">ExceptionList</span><span class="p">...);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">ExceptionList</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="k">throw</span><span class="p">(</span><span class="n">ExceptionList</span><span class="p">...);</span>
 </code></pre></div>
 </p>
 </li>
@@ -492,68 +492,68 @@ hello
 <ul>
 <li>この例の場合、<code>args</code>パラメータパックの各要素に関数<code>g()</code>を適用してパラメータパックの要素に対して値と型の変換を行った結果のパラメータパックを生成し、その結果となるパラメータパックを関数<code>f()</code>に渡している</li>
 </ul>
-<p><div class="yata" id="ab5b8214ccd7d0c7e098c725031b4939311b934d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ab5b8214ccd7d0c7e098c725031b4939311b934d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/sstream.html">&lt;sstream&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">to_std_string</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">to_std_string</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">ss</span><span class="p">;</span>
-  <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/sstream/basic_stringstream.html">std::stringstream</a></span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">result</span><span class="p">;</span>
-  <span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ss</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">a</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">b</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">c</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// パラメータパックの各要素を文字列に変換してから</span>
-  <span class="c1">// print()関数に渡す</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">to_std_string</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="c1">// パラメータパックの各要素を文字列に変換してから</span>
+<span class="w">  </span><span class="c1">// print()関数に渡す</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">to_std_string</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 </li>
 <li>
 <p>複数のパラメータパックに対して拡張を行う場合、それらのパラメータパックは同じ要素数でなければならない。そうでない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</p>
-<p><div class="yata" id="aa7086cad231ccaf2ebf31fe35aefa5230251996"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="aa7086cad231ccaf2ebf31fe35aefa5230251996"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../reference/tuple.html">&lt;tuple&gt;</a></span>
+<span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
 <span class="c1">// 2つの型リストを綴じ合わせる</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args1</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">zip</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args2</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">with</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">Args1</span><span class="p">,</span> <span class="n">Args2</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args1</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">zip</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">with</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">Args1</span><span class="p">,</span><span class="w"> </span><span class="n">Args2</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span>
-    <span class="n">zip</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">long</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;::</span><span class="n">with</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-    <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span>
-      <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">long</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;</span>
-    <span class="o">&gt;</span>
-  <span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span> <span class="c1">// OK</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n">zip</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;::</span><span class="n">with</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span>
+<span class="w">      </span><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">      </span><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">      </span><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -561,17 +561,17 @@ hello
 </ul>
 <h2>この機能が必要になった背景・経緯</h2>
 <p>可変引数テンプレートがなかったころ、任意の数のパラメータを受け取ってほかの処理に転送するといった処理をするために、パラメータの数だけ<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を用意する必要があり、それによってコピー＆ペーストのコードができあがっていた。とくに関数テンプレートの場合、<code>const</code>左辺値参照と非<code>const</code>左辺値参照の全ての組み合わせを<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義する必要があったため、このコードは非常に膨大になり、コンパイル時間が増えるひとつの原因ともなっていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T3</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T1</span><span class="o">&amp;</span> <span class="n">t1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&amp;</span> <span class="n">t2</span><span class="p">,</span> <span class="n">T3</span><span class="o">&amp;</span> <span class="n">t3</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T3</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T1</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">T3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t3</span><span class="p">);</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T3</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="n">T1</span><span class="o">&amp;</span> <span class="n">t1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&amp;</span> <span class="n">t2</span><span class="p">,</span> <span class="n">T3</span><span class="o">&amp;</span> <span class="n">t3</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T3</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T1</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">T3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t3</span><span class="p">);</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T3</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="n">T1</span><span class="o">&amp;</span> <span class="n">t1</span><span class="p">,</span> <span class="k">const</span> <span class="n">T2</span><span class="o">&amp;</span> <span class="n">t2</span><span class="p">,</span> <span class="n">T3</span><span class="o">&amp;</span> <span class="n">t3</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T3</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T1</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T2</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">T3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t3</span><span class="p">);</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T3</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="n">T1</span><span class="o">&amp;</span> <span class="n">t1</span><span class="p">,</span> <span class="k">const</span> <span class="n">T2</span><span class="o">&amp;</span> <span class="n">t2</span><span class="p">,</span> <span class="k">const</span> <span class="n">T3</span><span class="o">&amp;</span> <span class="n">t3</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T3</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T1</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T2</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t3</span><span class="p">);</span>
 
 <span class="err">…</span>
 </code></pre></div>
@@ -613,7 +613,7 @@ hello
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

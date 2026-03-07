@@ -229,51 +229,51 @@
 </ul>
 <p>C++では、暗黙定義される特殊関数を制御するために、<code>= default</code>と<code>= delete</code>という関数定義構文が追加された。</p>
 <p><code>= default</code>は、「暗黙定義されるデフォルトの挙動を使用し、<code>inline</code>や<code>virtual</code>といった修飾のみを明示的に指定する」という目的に使用する機能である：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// 暗黙定義される挙動をする、</span>
-  <span class="c1">// 仮想関数のデストラクタを定義する</span>
-  <span class="k">virtual</span> <span class="o">~</span><span class="n">X</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 暗黙定義される挙動をする、</span>
+<span class="w">  </span><span class="c1">// 仮想関数のデストラクタを定義する</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="c1">// 暗黙定義されるデフォルトの挙動をする、</span>
-  <span class="c1">// インライン関数のコピーコンストラクタを定義する</span>
-  <span class="kr">inline</span> <span class="nf">X</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 暗黙定義されるデフォルトの挙動をする、</span>
+<span class="w">  </span><span class="c1">// インライン関数のコピーコンストラクタを定義する</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p><code>= delete</code>は、特殊関数の暗黙定義を明示的に禁止するための機能である。これは、コピーを禁止するクラスを定義するような場合に使用する：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// コピーは禁止するが、ムーブは許可する</span>
-  <span class="n">X</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-  <span class="n">X</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// コピーは禁止するが、ムーブは許可する</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 
-  <span class="c1">// 特殊メンバ関数を明示的に定義もしくはdeleteした場合、</span>
-  <span class="c1">// それ以外の特殊メンバ関数は明示的に定義もしくはdefault宣言しなければ</span>
-  <span class="c1">// 暗黙定義されない</span>
-  <span class="n">X</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">X</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">X</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 特殊メンバ関数を明示的に定義もしくはdeleteした場合、</span>
+<span class="w">  </span><span class="c1">// それ以外の特殊メンバ関数は明示的に定義もしくはdefault宣言しなければ</span>
+<span class="w">  </span><span class="c1">// 暗黙定義されない</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x1</span><span class="p">;</span>
 <span class="c1">//X x2 = x1;  // コンパイルエラー！Xのコピーコンストラクタはdelete宣言されている</span>
-  <span class="n">X</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">X</span><span class="p">();</span> <span class="c1">// OK : ムーブコンストラクトはできる</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK : ムーブコンストラクトはできる</span>
 
-  <span class="n">X</span> <span class="n">x4</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x4</span><span class="p">;</span>
 <span class="c1">//x4 = x1;    // コンパイルエラー！Xのコピー代入演算子はdelete宣言されている</span>
 
-  <span class="n">X</span> <span class="n">x5</span><span class="p">;</span>
-  <span class="n">x5</span> <span class="o">=</span> <span class="n">X</span><span class="p">();</span>   <span class="c1">// OK : ムーブ代入はできる</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x5</span><span class="p">;</span>
+<span class="w">  </span><span class="n">x5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">();</span><span class="w">   </span><span class="c1">// OK : ムーブ代入はできる</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>= delete</code>は特殊メンバ関数以外に対しても使用できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span> <span class="c1">// OK</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="c1">//f(); // コンパイルエラー！関数f()はdelete宣言されている</span>
 <span class="p">}</span>
@@ -284,33 +284,33 @@
 <ul>
 <li>
 <p><code>= default</code>は「明示的なデフォルト定義 (explicitly-defaulted definition)」と呼ばれる機能である。この機能は、暗黙定義される非インライン、かつ非仮想の特殊メンバ関数の挙動をそのままにして、実装に対してより効率的な定義の使用を求めることを許可するものである：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">sometype</span> <span class="p">{</span>
-  <span class="n">sometype</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">sometype</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">sometype</span><span class="p">();</span>
 
-  <span class="c1">// デフォルト動作のコピーコンストラクタを使用する</span>
-  <span class="n">sometype</span><span class="p">(</span><span class="k">const</span> <span class="n">sometype</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// デフォルト動作のコピーコンストラクタを使用する</span>
+<span class="w">  </span><span class="n">sometype</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">sometype</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="c1">// デフォルト動作のデストラクタを使用する。</span>
-  <span class="c1">// ただし、このデストラクタは仮想関数とする。</span>
-  <span class="k">virtual</span> <span class="o">~</span><span class="n">sometype</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// デフォルト動作のデストラクタを使用する。</span>
+<span class="w">  </span><span class="c1">// ただし、このデストラクタは仮想関数とする。</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">sometype</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// デフォルト動作のデフォルトコンストラクタを使用する</span>
-<span class="n">sometype</span><span class="o">::</span><span class="n">sometype</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="n">sometype</span><span class="o">::</span><span class="n">sometype</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
 <span class="c1">// デストラクタをインライン関数にする</span>
-<span class="kr">inline</span> <span class="n">sometype</span><span class="o">::~</span><span class="n">sometype</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">sometype</span><span class="o">::~</span><span class="n">sometype</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p><code>= delete</code>は「削除定義 (deleted definition)」と呼ばれる機能である。暗黙定義される特殊メンバ関数を含む任意の関数の最初の宣言に対して<code>= delete</code>が指定された場合、その関数は呼び出せなくなる。最初の宣言以外に対して<code>= delete</code>が指定された場合、そのプログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">sometype</span> <span class="p">{</span>
-    <span class="n">sometype</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">sometype</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sometype</span><span class="p">();</span>
 <span class="p">};</span>
 
 <span class="c1">// コンパイルエラー！= deleteはここではなく、最初の宣言に対して指定しなければならない</span>
-<span class="n">sometype</span><span class="o">::</span><span class="n">sometype</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="n">sometype</span><span class="o">::</span><span class="n">sometype</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <ul>
@@ -357,7 +357,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class weekday_last">weekday_last::</span><span class="token">weekday</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n"><a href="../weekday.html">chrono::weekday</a></span> <span class="nf">weekday</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../weekday.html">chrono::weekday</a></span><span class="w"> </span><span class="nf">weekday</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -233,17 +233,17 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>コンストラクタで設定されて保持している<code><a href="../weekday.html">weekday</a></code>型オブジェクトを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="d59dd7908c1c08a5e73dac45e0afad560d9c601f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d59dd7908c1c08a5e73dac45e0afad560d9c601f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">chrono</span><span class="o">::</span><span class="n">weekday_last</span> <span class="n">wl</span> <span class="o">=</span> <span class="n"><a href="../weekday_constants.html">chrono::Sunday</a></span><span class="p">[</span><span class="n"><a href="../last_spec.html">chrono::last</a></span><span class="p">];</span>
-  <span class="n"><a href="../weekday.html">chrono::weekday</a></span> <span class="n">w</span> <span class="o">=</span> <span class="n">wl</span><span class="p">.</span><span class="n"><span style="color:#ff0000">weekday()</span></span><span class="p">;</span>
+<span class="w">  </span><span class="n">chrono</span><span class="o">::</span><span class="n">weekday_last</span><span class="w"> </span><span class="n">wl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../weekday_constants.html">chrono::Sunday</a></span><span class="p">[</span><span class="n"><a href="../last_spec.html">chrono::last</a></span><span class="p">];</span>
+<span class="w">  </span><span class="n"><a href="../weekday.html">chrono::weekday</a></span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wl</span><span class="p">.</span><span class="n"><span style="color:#ff0000">weekday()</span></span><span class="p">;</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">w</span> <span class="o">==</span> <span class="n"><a href="../weekday_constants.html">chrono::Sunday</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../weekday_constants.html">chrono::Sunday</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -277,7 +277,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

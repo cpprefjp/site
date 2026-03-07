@@ -213,21 +213,21 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">fpos</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">stateT</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">fpos</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">stateT</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">fpos</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>fpos</code>は、ファイル上の位置を表現するクラスである。
 概念的には、stateTによる変換状態と整数によるオフセットでファイル上の位置を表現するクラスである。</p>
 <p>多くの場合、stateTとしては<code>std::mbstate_t</code>が使用される。とくに、<code>&lt;iosfwd&gt;</code>ヘッダでは、以下の別名型が定義されている。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">state</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">fpos</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">streampos</span>  <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">wstreampos</span> <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">u8streampos</span> <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="n">char8_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">u16streampos</span> <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">u32streampos</span> <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">state</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">fpos</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">streampos</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">wstreampos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">u8streampos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char8_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">u16streampos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">u32streampos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>char</code>、<code>wchar_t</code>、<code>char8_t</code>、<code>char16_t</code>、<code>char32_t</code>型について<code>char_traits&lt;charT&gt;::state_type</code>は<code>std::mbstate_t</code>の別名である。</p>
@@ -362,7 +362,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

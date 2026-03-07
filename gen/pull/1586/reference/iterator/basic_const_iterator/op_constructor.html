@@ -225,16 +225,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;iterator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_const_iterator">basic_const_iterator::</span><span class="token">コンストラクタ</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">basic_const_iterator</span><span class="p">()</span> <span class="n">requires</span> <span class="n"><a href="../../concepts/default_initializable.html">default_initializable</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n">basic_const_iterator</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../concepts/default_initializable.html">default_initializable</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1)</span>
 
-<span class="k">constexpr</span> <span class="nf">basic_const_iterator</span><span class="p">(</span><span class="n">Iterator</span> <span class="n">current</span><span class="p">);</span>                                     <span class="c1">// (2)</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">basic_const_iterator</span><span class="p">(</span><span class="n">Iterator</span><span class="w"> </span><span class="n">current</span><span class="p">);</span><span class="w">                                     </span><span class="c1">// (2)</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;</span> <span class="n">U</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">basic_const_iterator</span><span class="p">(</span><span class="n">basic_const_iterator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">current</span><span class="p">);</span>                      <span class="c1">// (3)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">basic_const_iterator</span><span class="p">(</span><span class="n">basic_const_iterator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">current</span><span class="p">);</span><span class="w">                      </span><span class="c1">// (3)</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../ranges/different-from.html">different-from</a></span><span class="o">&lt;</span><span class="n">basic_const_iterator</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">&gt;</span>
-  <span class="n">requires</span> <span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Iterator</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">basic_const_iterator</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">current</span><span class="p">);</span>                                          <span class="c1">// (4)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../ranges/different-from.html">different-from</a></span><span class="o">&lt;</span><span class="n">basic_const_iterator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Iterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">basic_const_iterator</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">current</span><span class="p">);</span><span class="w">                                          </span><span class="c1">// (4)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -248,36 +248,36 @@
 <li>(4) : <code>current_</code>を<code>std::forward&lt;T&gt;(current)</code>で初期化する</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="4658ec899b0daa7d73061c72f273bab47eb3dc1f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4658ec899b0daa7d73061c72f273bab47eb3dc1f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
 
 <span class="c1">// 例示のための単純なイテレータラッパ、ラップするイテレータへの暗黙変換を提供する</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">I</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">wrap_iter</span> <span class="p">{</span>
-  <span class="n">I</span> <span class="n">it</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">I</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">wrap_iter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">I</span><span class="w"> </span><span class="n">it</span><span class="p">;</span>
 
-  <span class="k">operator</span> <span class="nf">I</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">it</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">operator</span><span class="w"> </span><span class="n">I</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">it</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">I</span> <span class="o">=</span> <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="p">;</span>
 
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-  <span class="c1">// (1) デフォルトコンストラクタ</span>
-  <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basic_const_iterator</span></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">ci1</span><span class="p">{};</span>
+<span class="w">  </span><span class="c1">// (1) デフォルトコンストラクタ</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basic_const_iterator</span></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ci1</span><span class="p">{};</span>
 
-  <span class="c1">// (2) イテレータから構築</span>
-  <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basic_const_iterator</span></span> <span class="n">ci2</span><span class="p">{</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">()};</span>
+<span class="w">  </span><span class="c1">// (2) イテレータから構築</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basic_const_iterator</span></span><span class="w"> </span><span class="n">ci2</span><span class="p">{</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">()};</span>
 
-  <span class="c1">// (3) 別の<span style="color:#ff0000">basic_const_iterator</span>から変換して構築（コピーコンストラクタ）</span>
-  <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basic_const_iterator</span></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">ci3</span><span class="p">{</span><span class="n">ci2</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (3) 別の<span style="color:#ff0000">basic_const_iterator</span>から変換して構築（コピーコンストラクタ）</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basic_const_iterator</span></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ci3</span><span class="p">{</span><span class="n">ci2</span><span class="p">};</span>
 
-  <span class="n">wrap_iter</span> <span class="n">wrap</span><span class="p">{</span><span class="n">ci2</span><span class="p">};</span>
-  <span class="c1">// (4) Iteratorに変換可能な型から構築</span>
-  <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basic_const_iterator</span></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">ci4</span><span class="p">{</span><span class="n">wrap</span><span class="p">};</span>
+<span class="w">  </span><span class="n">wrap_iter</span><span class="w"> </span><span class="n">wrap</span><span class="p">{</span><span class="n">ci2</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (4) Iteratorに変換可能な型から構築</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basic_const_iterator</span></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ci4</span><span class="p">{</span><span class="n">wrap</span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -315,7 +315,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

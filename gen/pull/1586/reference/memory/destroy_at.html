@@ -213,12 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">destroy_at</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">destroy_at</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">location</span><span class="p">);</span>           <span class="c1">// (1) C++17</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">destroy_at</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">location</span><span class="p">);</span><span class="w">           </span><span class="c1">// (1) C++17</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="kt">void</span> <span class="n">destroy_at</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">location</span><span class="p">);</span> <span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">destroy_at</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">location</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -230,7 +230,7 @@
 <li>
 <p>型<code>T</code>が配列型である場合、以下と等価：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="n"><a href="destroy.html">destroy</a></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">begin</a></span><span class="p">(</span><span class="o">*</span><span class="n">location</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">end</a></span><span class="p">(</span><span class="o">*</span><span class="n">location</span><span class="p">));</span>
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="destroy.html">destroy</a></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">begin</a></span><span class="p">(</span><span class="o">*</span><span class="n">location</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../iterator/end.html">end</a></span><span class="p">(</span><span class="o">*</span><span class="n">location</span><span class="p">));</span>
 </code></pre></div>
 </p>
 </li>
@@ -250,20 +250,20 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="b07c7ad2b4cdc639b1ab8cd3b262b261c2fa05f0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b07c7ad2b4cdc639b1ab8cd3b262b261c2fa05f0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 配置newでオブジェクトを構築</span>
-  <span class="kt">char</span> <span class="n">storage</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">n</span> <span class="o">=</span> <span class="k">new</span><span class="p">(</span><span class="n">storage</span><span class="p">)</span> <span class="kt">int</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 配置newでオブジェクトを構築</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">storage</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">storage</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 
-  <span class="o">*</span><span class="n">n</span> <span class="o">=</span> <span class="mi">314</span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">314</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// デストラクタを呼び出して破棄</span>
-  <span class="n"><span style="color:#ff0000">std::destroy_at</span></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// デストラクタを呼び出して破棄</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::destroy_at</span></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -308,7 +308,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

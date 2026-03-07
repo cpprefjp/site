@@ -219,37 +219,37 @@
 <p></p>
 <h2>概要</h2>
 <p>共用体のメンバ変数として、クラスオブジェクトを保持できるようになった：</p>
-<p><div class="yata" id="e6f456c3969c8208b10f748fa60fc3e991e05b9b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/complex.html">&lt;complex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e6f456c3969c8208b10f748fa60fc3e991e05b9b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/complex.html">&lt;complex&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="k">union</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">m1</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">m2</span><span class="p">;</span> <span class="c1">// クラスオブジェクトを</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">m3</span><span class="p">;</span>          <span class="c1">// 保持できる</span>
+<span class="k">union</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m2</span><span class="p">;</span><span class="w"> </span><span class="c1">// クラスオブジェクトを</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">m3</span><span class="p">;</span><span class="w">          </span><span class="c1">// 保持できる</span>
 
-  <span class="n">X</span><span class="p">()</span> <span class="o">:</span> <span class="n">m1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="o">~</span><span class="n">X</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-   <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">   </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-   <span class="c1">// int型の値を代入する</span>
-   <span class="n">x</span><span class="p">.</span><span class="n">m1</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-   <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">m1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">   </span><span class="c1">// int型の値を代入する</span>
+<span class="w">   </span><span class="n">x</span><span class="p">.</span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">   </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">m1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-   <span class="c1">// <a href="../../reference/complex/complex.html">std::complex</a>&lt;double&gt;型のオブジェクトを代入する</span>
-   <span class="n">x</span><span class="p">.</span><span class="n">m2</span> <span class="o">=</span> <span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>
-   <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">m2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">   </span><span class="c1">// <a href="../../reference/complex/complex.html">std::complex</a>&lt;double&gt;型のオブジェクトを代入する</span>
+<span class="w">   </span><span class="n">x</span><span class="p">.</span><span class="n">m2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
+<span class="w">   </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">m2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-   <span class="c1">// デストラクタを呼び出す必要がある型に対しては、</span>
-   <span class="c1">// 配置new構文でコンストラクタを使用してオブジェクト代入し、</span>
-   <span class="c1">// 明示的にデストラクタを呼び出すこと</span>
-   <span class="k">new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">.</span><span class="n">m3</span><span class="p">)</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
-   <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">m3</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-   <span class="n">x</span><span class="p">.</span><span class="n">m3</span><span class="p">.</span><span class="o">~</span><span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">   </span><span class="c1">// デストラクタを呼び出す必要がある型に対しては、</span>
+<span class="w">   </span><span class="c1">// 配置new構文でコンストラクタを使用してオブジェクト代入し、</span>
+<span class="w">   </span><span class="c1">// 明示的にデストラクタを呼び出すこと</span>
+<span class="w">   </span><span class="k">new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">.</span><span class="n">m3</span><span class="p">)</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+<span class="w">   </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">m3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">   </span><span class="n">x</span><span class="p">.</span><span class="n">m3</span><span class="p">.</span><span class="o">~</span><span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -295,7 +295,7 @@ hello
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

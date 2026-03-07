@@ -220,29 +220,29 @@
 <h2>概要</h2>
 <p>以前の仕様では、<code>new</code>式による動的メモリ確保はコードに書かれた通りに実行されなければならず、ひとまとめにしたり省略したりすることはできなかった。</p>
 <p>メモリ確保の最適化のためにこの制限は緩和され、実装は<code>new/delete</code>の呼び出しをまとめたり省略したりすることができるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">lump</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 個別のnew/deleteの呼び出しを</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">lump</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 個別のnew/deleteの呼び出しを</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span>
 
-  <span class="k">delete</span> <span class="n">p1</span><span class="p">;</span>
-  <span class="k">delete</span> <span class="n">p2</span><span class="p">;</span>
-  <span class="k">delete</span> <span class="n">p3</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p3</span><span class="p">;</span>
 
-  <span class="c1">// このようにまとめることが許可される</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">3</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// このようにまとめることが許可される</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">3</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 
-  <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">emit</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 確保サイズが分かっているようなnewの呼び出しを</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>
-  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">emit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 確保サイズが分かっているようなnewの呼び出しを</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 
-  <span class="c1">// 通常の変数宣言のように置き換えても良い</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 通常の変数宣言のように置き換えても良い</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -259,78 +259,78 @@
 <li><code>e1</code>と<code>e2</code>によって返されるポインタ値は、評価される<code>delete</code>式のオペランドである</li>
 <li><code>e2</code>の評価は、<code>e1</code>によって生成されたポインタ値をオペランドにとる<code>delete</code>式の評価の前に順序づけられる</li>
 </ol>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">ok</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">ok</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
 
-    <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
-    <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">catch</span><span class="p">(...){}</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">e1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(...){}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">ng1</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// NG、e2 -&gt; e1の順で確保されている</span>
-  <span class="c1">// この場合、e2を拡張してe1を省略することはできる</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ng1</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// NG、e2 -&gt; e1の順で確保されている</span>
+<span class="w">  </span><span class="c1">// この場合、e2を拡張してe1を省略することはできる</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
 
-  <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
-  <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">e1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">e2</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">ng2</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">cond</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ng2</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">cond</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
 
-  <span class="c1">// NG、e2は必ずしも評価されない</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">cond</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// NG、e2は必ずしも評価されない</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cond</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
 
-    <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">e2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">e1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">ng3</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// NG、同じ::operator newを呼び出さない</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="mi">2</span><span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ng3</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// NG、同じ::operator newを呼び出さない</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[]{</span><span class="mi">2</span><span class="p">};</span>
 
-  <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
-  <span class="k">delete</span><span class="p">[]</span> <span class="n">e2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">e1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">e2</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">ng4</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ng4</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
 
-    <span class="c1">// NG、最初にキャッチされるハンドラが異なる</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
-      <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{}</span>
+<span class="w">    </span><span class="c1">// NG、最初にキャッチされるハンドラが異なる</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="w">      </span><span class="k">delete</span><span class="w"> </span><span class="n">e2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{}</span>
 
-    <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">catch</span><span class="p">(...){}</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">e1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(...){}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">ng5</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// NG、片方または両方がdeleteされていない</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ng5</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// NG、片方または両方がdeleteされていない</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
 
-  <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
-  <span class="c1">//delete e1;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">e2</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//delete e1;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">ng6</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
-  <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ng6</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">e1</span><span class="p">;</span>
 
-  <span class="c1">// NG、e2の前にe1が解放されている</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
-  <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// NG、e2の前にe1が解放されている</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">e2</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -371,7 +371,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

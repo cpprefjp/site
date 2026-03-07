@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;execution&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is-awaitable</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Promise</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">is</span><span class="o">-</span><span class="n">awaitable</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Promise</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">is</span><span class="o">-</span><span class="n">awaitable</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -227,16 +227,16 @@
 </ul>
 <p><code>await_transform</code>メンバ関数を持たず<code><a href="../coroutine/coroutine_handle.html">coroutine_handle</a>&lt;none-such&gt;</code>が<code>coroutine_handle&lt;void&gt;</code>と同様に振る舞う<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の空のクラス<code>none-such</code>の左辺値<code>p</code>を用いて、説明用の式<code>GET-AWAITER(c)</code>は<code>GET-AWAITER(c, p)</code>と等価とする。</p>
 <p>また、説明用のコンセプト<code>await-suspend-result</code>, <code>is-awaiter</code>を以下のように定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">await</span><span class="o">-</span><span class="n">suspend</span><span class="o">-</span><span class="n">result</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">await</span><span class="o">-</span><span class="n">suspend</span><span class="o">-</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Promise</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">is</span><span class="o">-</span><span class="n">awaiter</span> <span class="o">=</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="n">A</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n"><a href="../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">a</span><span class="p">.</span><span class="n">await_ready</span><span class="p">()</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">{</span> <span class="n">a</span><span class="p">.</span><span class="n">await_suspend</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n">await</span><span class="o">-</span><span class="n">suspend</span><span class="o">-</span><span class="n">result</span><span class="p">;</span>
-    <span class="n">a</span><span class="p">.</span><span class="n">await_resume</span><span class="p">();</span>
-  <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Promise</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">is</span><span class="o">-</span><span class="n">awaiter</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">await_ready</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">await_suspend</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">await</span><span class="o">-</span><span class="n">suspend</span><span class="o">-</span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">await_resume</span><span class="p">();</span>
+<span class="w">  </span><span class="p">};</span>
 </code></pre></div>
 </p>
 <p>下記いずれかのうち1つが<code>true</code>のとき、<code>await-suspend-result&lt;T&gt;</code>は<code>true</code>となる。</p>
@@ -246,11 +246,11 @@
 <li><code>T</code>が<code><a href="../coroutine/coroutine_handle.html">coroutine_handle</a></code>の特殊化</li>
 </ul>
 <p><code>is-awaitable</code>コンセプトは、以下のように定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Promise</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">is</span><span class="o">-</span><span class="n">awaitable</span> <span class="o">=</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="n">C</span> <span class="p">(</span><span class="o">*</span><span class="n">fc</span><span class="p">)()</span> <span class="k">noexcept</span><span class="p">,</span> <span class="n">Promise</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">{</span> <span class="n"><i>GET-AWAITER</i></span><span class="p">(</span><span class="n">fc</span><span class="p">(),</span> <span class="n">p</span><span class="p">...)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n">is</span><span class="o">-</span><span class="n">awaiter</span><span class="o">&lt;</span><span class="n">Promise</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Promise</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">is</span><span class="o">-</span><span class="n">awaitable</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fc</span><span class="p">)()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">,</span><span class="w"> </span><span class="n">Promise</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n"><i>GET-AWAITER</i></span><span class="p">(</span><span class="n">fc</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">...)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">is</span><span class="o">-</span><span class="n">awaiter</span><span class="o">&lt;</span><span class="n">Promise</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>バージョン</h2>
@@ -284,7 +284,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

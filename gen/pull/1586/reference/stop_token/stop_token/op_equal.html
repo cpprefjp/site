@@ -225,15 +225,15 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;stop_token&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">operator==</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
-  <span class="k">friend</span> <span class="kt">bool</span>
-    <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">stop_token</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span>
-               <span class="k">const</span> <span class="n">stop_token</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20 非メンバ関数</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span>
+<span class="w">    </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">stop_token</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span>
+<span class="w">               </span><span class="k">const</span><span class="w"> </span><span class="n">stop_token</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20 非メンバ関数</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">stop_token</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span> <span class="c1">// (1) C++26 メンバ関数</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">stop_token</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++26 メンバ関数</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -245,24 +245,24 @@
 <h2>備考</h2>
 <p>C++26で<code>[[nodiscard]]</code>指定が削除され、非メンバ関数からメンバ関数に定義変更される。動作仕様に変更はない。</p>
 <h2>例</h2>
-<p><div class="yata" id="34bdf2ccc85b737eb4ea676fb7e78e8c693bdc74"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../stop_token.html">&lt;stop_token&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="34bdf2ccc85b737eb4ea676fb7e78e8c693bdc74"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../stop_token.html">&lt;stop_token&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../stop_source.html">std::stop_source</a></span> <span class="n">ss1</span><span class="p">;</span>
-  <span class="n"><a href="../stop_source.html">std::stop_source</a></span> <span class="n">ss2</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_source.html">std::stop_source</a></span><span class="w"> </span><span class="n">ss1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_source.html">std::stop_source</a></span><span class="w"> </span><span class="n">ss2</span><span class="p">;</span>
 
-  <span class="n"><a href="../stop_token.html">std::stop_token</a></span> <span class="n">st1</span> <span class="o">=</span> <span class="n">ss1</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
-  <span class="n"><a href="../stop_token.html">std::stop_token</a></span> <span class="n">st2</span> <span class="o">=</span> <span class="n">st1</span><span class="p">;</span>
-  <span class="n"><a href="../stop_token.html">std::stop_token</a></span> <span class="n">st3</span> <span class="o">=</span> <span class="n">ss2</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
-  <span class="n"><a href="../stop_token.html">std::stop_token</a></span> <span class="n">st4</span><span class="p">;</span>
-  <span class="n"><a href="../stop_token.html">std::stop_token</a></span> <span class="n">st5</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">st1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ss1</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">st2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">st3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ss2</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">st4</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">st5</span><span class="p">;</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span> <span class="o">==</span> <span class="n">st2</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span> <span class="o">!=</span> <span class="n">st3</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span> <span class="o">!=</span> <span class="n">st4</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st4</span> <span class="o">==</span> <span class="n">st5</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">st2</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">st3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">st4</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">st4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">st5</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -309,7 +309,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

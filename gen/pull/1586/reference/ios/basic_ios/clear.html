@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_ios">basic_ios::</span><span class="token">clear</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">clear</span><span class="p">(</span><span class="n"><a href="../ios_base/type-iostate.html">iostate</a></span> <span class="n">state</span> <span class="o">=</span> <span class="n"><a href="../ios_base/type-iostate.html">goodbit</a></span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="n"><a href="../ios_base/type-iostate.html">iostate</a></span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../ios_base/type-iostate.html">goodbit</a></span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -237,16 +237,16 @@
 <p>変更後の状態値のビットと<code><a href="exceptions.html">exceptions</a>()</code>で設定した値でビットごとのANDを行って非0になれば、<code><a href="../ios_base.html">ios_base</a>::<a href="../ios_base/failure.html">failure</a></code>型の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。<br />
 その際、<code><a href="../ios_base.html">ios_base</a>::<a href="../ios_base/failure.html">failure</a></code>の<a href="../ios_base/failure/op_constructor.html">コンストラクタ</a>に渡される引数は、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。</p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">clear</span><span class="p">(</span><span class="n"><a href="../ios_base/type-iostate.html">iostate</a></span> <span class="n">state</span> <span class="o">=</span> <span class="n"><a href="../ios_base/type-iostate.html">goodbit</a></span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../ios_base/type-iostate.html">iostate</a></span> <span class="n">newstate</span> <span class="o">=</span> <span class="n"><a href="rdbuf.html">rdbuf</a></span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span>
-    <span class="o">?</span> <span class="nl">state</span>
-    <span class="p">:</span> <span class="n">state</span> <span class="o">|</span> <span class="n"><a href="../ios_base/type-iostate.html">badbit</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="n"><a href="../ios_base/type-iostate.html">iostate</a></span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../ios_base/type-iostate.html">goodbit</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../ios_base/type-iostate.html">iostate</a></span><span class="w"> </span><span class="n">newstate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="rdbuf.html">rdbuf</a></span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span>
+<span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="n">state</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="../ios_base/type-iostate.html">badbit</a></span><span class="p">;</span>
 
-  <span class="c1">// 後で<a href="rdstate.html">rdstate</a>()から読み取れるよう、ここで<a href="../basic_ios.html">basic_ios</a>のメンバ変数にnewstateを書き込む。</span>
+<span class="w">  </span><span class="c1">// 後で<a href="rdstate.html">rdstate</a>()から読み取れるよう、ここで<a href="../basic_ios.html">basic_ios</a>のメンバ変数にnewstateを書き込む。</span>
 
-  <span class="k">if</span> <span class="p">((</span><span class="n">newstate</span> <span class="o">&amp;</span> <span class="n"><a href="exceptions.html">exceptions</a></span><span class="p">())</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="n"><a href="../ios_base/failure.html">failure</a></span><span class="p">(</span><span class="s">"<a href="../basic_ios.html">basic_ios</a>::clear"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">newstate</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="exceptions.html">exceptions</a></span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../ios_base/failure.html">failure</a></span><span class="p">(</span><span class="s">"<a href="../basic_ios.html">basic_ios</a>::clear"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -297,7 +297,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

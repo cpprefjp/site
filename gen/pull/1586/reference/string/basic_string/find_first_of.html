@@ -226,45 +226,45 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;string&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_string">basic_string::</span><span class="token">find_first_of</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>          <span class="c1">// (1) C++03</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">basic_string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">          </span><span class="c1">// (1) C++03</span>
 <span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++11</span>
-<span class="k">constexpr</span> <span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">basic_string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">size_type</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">basic_string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 
 <span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span>
-               <span class="n">size_type</span> <span class="n">pos</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">n</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (2) C++03</span>
-<span class="k">constexpr</span> <span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span>
-               <span class="n">size_type</span> <span class="n">pos</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">n</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
+<span class="w">               </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++03</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">size_type</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
+<span class="w">               </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++20</span>
 
 <span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (3) C++03</span>
-<span class="k">constexpr</span> <span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (3) C++20</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3) C++03</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">size_type</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3) C++20</span>
 
 <span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="n">charT</span> <span class="n">c</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (4) C++03</span>
-<span class="k">constexpr</span> <span class="n">size_type</span>
-  <span class="nf">find_first_of</span><span class="p">(</span><span class="n">charT</span> <span class="n">c</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (4) C++20</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="n">charT</span><span class="w"> </span><span class="n">c</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4) C++03</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">size_type</span>
+<span class="w">  </span><span class="nf">find_first_of</span><span class="p">(</span><span class="n">charT</span><span class="w"> </span><span class="n">c</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4) C++20</span>
 
 <span class="c1">// <a href="../../string_view/basic_string_view.html">string_view</a>を引数に取るオーバーロード</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 <span class="n">size_type</span>
-  <span class="n">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">(</span><span class="err">下記参照</span><span class="p">);</span> <span class="c1">// (5) C++17</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">size_type</span>
-  <span class="n">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">(</span><span class="err">下記参照</span><span class="p">);</span> <span class="c1">// (5) C++20</span>
+<span class="w">  </span><span class="n">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n">下記参照</span><span class="p">);</span><span class="w"> </span><span class="c1">// (5) C++17</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">size_type</span>
+<span class="w">  </span><span class="n">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n">下記参照</span><span class="p">);</span><span class="w"> </span><span class="c1">// (5) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -296,7 +296,7 @@
 <li>(1) : 投げない</li>
 <li>(5) : <code>noexcept</code>内の式は、以下と等価である
       <br />
-<div class="codehilite"><pre><span></span><code><span class="n"><a href="../../type_traits/is_nothrow_convertible.html">is_nothrow_convertible_v</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="../../type_traits/is_nothrow_convertible.html">is_nothrow_convertible_v</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="o">&gt;&gt;</span>
 </code></pre></div>
 </li>
 </ul>
@@ -311,22 +311,22 @@
 <li>(3) の形式の場合、<code>s</code> の文字列長は <code>traits_type::length(s)</code> で求められる。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="7f6d6acf5c7ff2fb5b7783d4a8eeb66ac8f7d117"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7f6d6acf5c7ff2fb5b7783d4a8eeb66ac8f7d117"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">const</span> <span class="n"><a href="../basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">(</span><span class="s">"Hello, world. Welcome to C++ world."</span><span class="p">);</span>
-  <span class="k">const</span> <span class="n"><a href="../basic_string.html">std::string</a></span> <span class="n">str</span><span class="p">(</span><span class="s">"world"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="s">"Hello, world. Welcome to C++ world."</span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../basic_string.html">std::string</a></span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="s">"world"</span><span class="p">);</span>
 
-  <span class="c1">// "Welcome" 以降で "world" を検索すると、"Welcome" の 3 文字目の "l" が見つかる</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n"><span style="color:#ff0000">find_first_of</span></span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// "Welcome" 以降で "world" を検索すると、"Welcome" の 3 文字目の "l" が見つかる</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n"><span style="color:#ff0000">find_first_of</span></span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// "Welcome" 以降で ",.+" を検索すると、"C++" の 1 文字目の "+" が見つかる</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n"><span style="color:#ff0000">find_first_of</span></span><span class="p">(</span><span class="s">",.+"</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// "Welcome" 以降で ",.+" を検索すると、"C++" の 1 文字目の "+" が見つかる</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n"><span style="color:#ff0000">find_first_of</span></span><span class="p">(</span><span class="s">",.+"</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// basic_string は NULL 終端されていないので、'\0' を検索しても見つからない</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n"><span style="color:#ff0000">find_first_of</span></span><span class="p">(</span><span class="sc">'\0'</span><span class="p">)</span> <span class="o">==</span> <span class="n"><a href="../basic_string.html">std::string</a></span><span class="o">::</span><span class="n">npos</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// basic_string は NULL 終端されていないので、'\0' を検索しても見つからない</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n"><span style="color:#ff0000">find_first_of</span></span><span class="p">(</span><span class="sc">'\0'</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../basic_string.html">std::string</a></span><span class="o">::</span><span class="n">npos</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -338,24 +338,24 @@ true
 <h2>実装例</h2>
 <p>(1) 以外の形式は、(1) の形式を使用して実装することができる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// (2)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">size_type</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;::</span><span class="n">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">pos</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">n</span><span class="p">)</span> <span class="k">const</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">traits</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="n">size_type</span><span class="w"> </span><span class="n">basic_string</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;::</span><span class="n">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">find_first_of</span><span class="p">(</span><span class="n"><a href="../basic_string.html">std::basic_string</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">pos</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">find_first_of</span><span class="p">(</span><span class="n"><a href="../basic_string.html">std::basic_string</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">pos</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// (3)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">size_type</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;::</span><span class="n">find_first_of</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">traits</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="n">size_type</span><span class="w"> </span><span class="n">basic_string</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;::</span><span class="n">find_first_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">find_first_of</span><span class="p">(</span><span class="n"><a href="../basic_string.html">std::basic_string</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">pos</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">find_first_of</span><span class="p">(</span><span class="n"><a href="../basic_string.html">std::basic_string</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">pos</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// (4)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-<span class="n">size_type</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;::</span><span class="n">find_first_of</span><span class="p">(</span><span class="n">charT</span> <span class="n">c</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">traits</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="o">&gt;</span>
+<span class="n">size_type</span><span class="w"> </span><span class="n">basic_string</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;::</span><span class="n">find_first_of</span><span class="p">(</span><span class="n">charT</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">find_first_of</span><span class="p">(</span><span class="n"><a href="../basic_string.html">std::basic_string</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">pos</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">find_first_of</span><span class="p">(</span><span class="n"><a href="../basic_string.html">std::basic_string</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">),</span><span class="w"> </span><span class="n">pos</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -401,7 +401,7 @@ true
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

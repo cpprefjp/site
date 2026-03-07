@@ -229,30 +229,30 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">log2</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">log2</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">);</span>             <span class="c1">// (1) C++11からC++20まで</span>
-  <span class="kt">double</span> <span class="nf">log2</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (2) C++11からC++20まで</span>
-  <span class="kt">long</span> <span class="kt">double</span> <span class="nf">log2</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (3) C++11からC++20まで</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="nf">log2</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">             </span><span class="c1">// (1) C++11からC++20まで</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="nf">log2</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">           </span><span class="c1">// (2) C++11からC++20まで</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">log2</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3) C++11からC++20まで</span>
 
-  <span class="n"><i>floating-point-type</i></span>
-    <span class="nf">log2</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span> <span class="n">x</span><span class="p">);</span>   <span class="c1">// (4) C++23</span>
-  <span class="k">constexpr</span> <span class="n"><i>floating-point-type</i></span>
-    <span class="nf">log2</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span> <span class="n">x</span><span class="p">);</span>   <span class="c1">// (4) C++26</span>
+<span class="w">  </span><span class="n"><i>floating-point-type</i></span>
+<span class="w">    </span><span class="nf">log2</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">   </span><span class="c1">// (4) C++23</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><i>floating-point-type</i></span>
+<span class="w">    </span><span class="nf">log2</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">   </span><span class="c1">// (4) C++26</span>
 
-  <span class="kt">double</span>
-    <span class="nf">log2</span><span class="p">(</span><span class="n"><i>Integral</i></span> <span class="n">x</span><span class="p">);</span>              <span class="c1">// (5) C++11</span>
-  <span class="k">constexpr</span> <span class="kt">double</span>
-    <span class="nf">log2</span><span class="p">(</span><span class="n"><i>Integral</i></span> <span class="n">x</span><span class="p">);</span>              <span class="c1">// (5) C++26</span>
+<span class="w">  </span><span class="kt">double</span>
+<span class="w">    </span><span class="nf">log2</span><span class="p">(</span><span class="n"><i>Integral</i></span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">              </span><span class="c1">// (5) C++11</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span>
+<span class="w">    </span><span class="nf">log2</span><span class="p">(</span><span class="n"><i>Integral</i></span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">              </span><span class="c1">// (5) C++26</span>
 
-  <span class="kt">float</span>
-    <span class="nf">log2f</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">);</span>                <span class="c1">// (6) C++17</span>
-  <span class="k">constexpr</span> <span class="kt">float</span>
-    <span class="nf">log2f</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">);</span>                <span class="c1">// (6) C++26</span>
+<span class="w">  </span><span class="kt">float</span>
+<span class="w">    </span><span class="nf">log2f</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                </span><span class="c1">// (6) C++17</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">float</span>
+<span class="w">    </span><span class="nf">log2f</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                </span><span class="c1">// (6) C++26</span>
 
-  <span class="kt">long</span> <span class="kt">double</span>
-    <span class="nf">log2l</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">);</span>          <span class="c1">// (7) C++17</span>
-  <span class="k">constexpr</span> <span class="kt">long</span> <span class="kt">double</span>
-    <span class="nf">log2l</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">);</span>          <span class="c1">// (7) C++26</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span>
+<span class="w">    </span><span class="nf">log2l</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">          </span><span class="c1">// (7) C++17</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span>
+<span class="w">    </span><span class="nf">log2l</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">          </span><span class="c1">// (7) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -285,16 +285,16 @@
 </ul>
 <h2>例</h2>
 <h2>基本的な使い方</h2>
-<p><div class="yata" id="178eefa0c7265dd2bfd9812d062126077543fbf6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="178eefa0c7265dd2bfd9812d062126077543fbf6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cmath.html">&lt;cmath&gt;</a></span>
+<span class="cp">#include <a href="../limits.html">&lt;limits&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/fixed.html">std::fixed</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"log2(0.0)  = "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"log2(2)    = "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"log2(+∞)  = "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/infinity.html">infinity</a></span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"log2(-1.0) = "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ios/fixed.html">std::fixed</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"log2(0.0)  = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"log2(2)    = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"log2(+∞)  = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/infinity.html">infinity</a></span><span class="p">())</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"log2(-1.0) = "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="mf">-1.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -305,24 +305,24 @@ log2(+∞)  = inf
 log2(-1.0) = nan
 </code></pre></p>
 <h3>Nが2の何乗か調べる</h3>
-<p><div class="yata" id="5dbf514fa12911f9e930ff2c344e226790ec9088"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5dbf514fa12911f9e930ff2c344e226790ec9088"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../cmath.html">&lt;cmath&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::log2</span></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 
-    <span class="c1">// 小数部が0だったら、iは2の乗数</span>
-    <span class="kt">double</span> <span class="n">integral_part</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
-    <span class="kt">double</span> <span class="n">fractional_part</span> <span class="o">=</span> <span class="n"><a href="modf.html">std::modf</a></span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">integral_part</span><span class="p">);</span>
-    <span class="kt">bool</span> <span class="n">is_pow_of_2</span> <span class="o">=</span> <span class="n">fractional_part</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 小数部が0だったら、iは2の乗数</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">integral_part</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">fractional_part</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="modf.html">std::modf</a></span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">integral_part</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_pow_of_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fractional_part</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
 
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"log2("</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">") : "</span>
-              <span class="o">&lt;&lt;</span> <span class="n">result</span>
-              <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">is_pow_of_2</span> <span class="o">?</span> <span class="s">", power of 2"</span> <span class="o">:</span> <span class="s">""</span><span class="p">)</span>
-              <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"log2("</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">") : "</span>
+<span class="w">              </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span>
+<span class="w">              </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">is_pow_of_2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">", power of 2"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">""</span><span class="p">)</span>
+<span class="w">              </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -406,7 +406,7 @@ log2(32) : 5, power of 2
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

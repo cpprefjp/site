@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_pointer_interconvertible_base_of</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Base</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Derived</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">is_pointer_interconvertible_base_of</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_pointer_interconvertible_base_of</span><span class="p">;</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Base</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Derived</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_pointer_interconvertible_base_of_v</span>
-    <span class="o">=</span> <span class="n">is_pointer_interconvertible_base_of</span><span class="o">&lt;</span><span class="n">Base</span><span class="p">,</span> <span class="n">Derived</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_pointer_interconvertible_base_of_v</span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">is_pointer_interconvertible_base_of</span><span class="o">&lt;</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">Derived</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -238,19 +238,19 @@
 </ul>
 <p>2つのオブジェクトがポインタ相互交換可能(pointer-interconvertible)であれば、両者は同一のアドレス値を持ち、<code>reinterpret_cast</code>によって一方から他方のポインタへ変換可能である。（配列オブジェクトとその先頭要素は、同一のアドレスを持つにもかかわらずポインタ相互交換可能(pointer-interconvertible)ではない。）</p>
 <h2>例</h2>
-<p><div class="yata" id="d14ece5b58d3941be5e9b215b15fff4e83c28856"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d14ece5b58d3941be5e9b215b15fff4e83c28856"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">m</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="nl">D</span> <span class="p">:</span> <span class="n">B</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// スタンダードレイアウト派生クラスDは非静的メンバ変数をもたず、</span>
-  <span class="c1">// スタンダードレイアウト基底クラスBから曖昧さなく派生しているため、</span>
-  <span class="c1">// 基底クラスBと派生クラスDはポインタ相互交換可能である。</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_base_of_v</span></span><span class="o">&lt;</span><span class="n">B</span><span class="p">,</span> <span class="n">D</span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="c1">// 同一クラス同士は(自明に)ポインタ相互交換可能である。</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_base_of_v</span></span><span class="o">&lt;</span><span class="n">D</span><span class="p">,</span> <span class="n">D</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// スタンダードレイアウト派生クラスDは非静的メンバ変数をもたず、</span>
+<span class="w">  </span><span class="c1">// スタンダードレイアウト基底クラスBから曖昧さなく派生しているため、</span>
+<span class="w">  </span><span class="c1">// 基底クラスBと派生クラスDはポインタ相互交換可能である。</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_base_of_v</span></span><span class="o">&lt;</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 同一クラス同士は(自明に)ポインタ相互交換可能である。</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_pointer_interconvertible_base_of_v</span></span><span class="o">&lt;</span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -292,7 +292,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

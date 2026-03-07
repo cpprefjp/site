@@ -226,110 +226,110 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class shared_ptr">shared_ptr::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span>
-<span class="nf">shared_ptr</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                       <span class="c1">// (1) C++11</span>
+<span class="n">shared_ptr</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                       </span><span class="c1">// (1) C++11</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="k">explicit</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span> <span class="n">p</span><span class="p">);</span>                            <span class="c1">// (2) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span> <span class="n">p</span><span class="p">);</span>                            <span class="c1">// (2) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                            </span><span class="c1">// (2) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                            </span><span class="c1">// (2) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Deleter</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span>
-           <span class="n">Deleter</span> <span class="n">d</span><span class="p">);</span>                       <span class="c1">// (3) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Deleter</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Deleter</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">                       </span><span class="c1">// (3) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span>
-           <span class="n">Deleter</span> <span class="n">d</span><span class="p">);</span>                       <span class="c1">// (3) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Deleter</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">                       </span><span class="c1">// (3) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Deleter</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span>
-           <span class="n">Deleter</span> <span class="n">d</span><span class="p">,</span>
-           <span class="n">Alloc</span> <span class="n">a</span><span class="p">);</span>                         <span class="c1">// (4) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Deleter</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span>
-           <span class="n">Deleter</span> <span class="n">d</span><span class="p">,</span>
-           <span class="n">Alloc</span> <span class="n">a</span><span class="p">);</span>                         <span class="c1">// (4) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Deleter</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Alloc</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">                         </span><span class="c1">// (4) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Deleter</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Alloc</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">                         </span><span class="c1">// (4) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Deleter</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span> <span class="n">p</span><span class="p">,</span>
-           <span class="n">Deleter</span> <span class="n">d</span><span class="p">);</span>                       <span class="c1">// (5) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Deleter</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Deleter</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">                       </span><span class="c1">// (5) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span> <span class="n">p</span><span class="p">,</span>
-           <span class="n">Deleter</span> <span class="n">d</span><span class="p">);</span>                       <span class="c1">// (5) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Deleter</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">                       </span><span class="c1">// (5) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Deleter</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span> <span class="n">p</span><span class="p">,</span>
-           <span class="n">Deleter</span> <span class="n">d</span><span class="p">,</span>
-           <span class="n">Alloc</span> <span class="n">a</span><span class="p">);</span>                         <span class="c1">// (6) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Deleter</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Deleter</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Alloc</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">                         </span><span class="c1">// (6) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span> <span class="n">p</span><span class="p">,</span>
-           <span class="n">Deleter</span> <span class="n">d</span><span class="p">,</span>
-           <span class="n">Alloc</span> <span class="n">a</span><span class="p">);</span>                         <span class="c1">// (6) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Deleter</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Alloc</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">                         </span><span class="c1">// (6) C++26</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">,</span>
-           <span class="n">T</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                   <span class="c1">// (7) C++11</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">,</span>
-           <span class="n">element_type</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>        <span class="c1">// (7) C++17</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">           </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                   </span><span class="c1">// (7) C++11</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">           </span><span class="n">element_type</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">        </span><span class="c1">// (7) C++17</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">,</span>
-           <span class="n">element_type</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>        <span class="c1">// (7) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">           </span><span class="n">element_type</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">        </span><span class="c1">// (7) C++26</span>
 
-<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>    <span class="c1">// (8) C++11</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">    </span><span class="c1">// (8) C++11</span>
 <span class="k">constexpr</span>
-<span class="nf">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>    <span class="c1">// (8) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">    </span><span class="c1">// (8) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (9) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (9) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (9) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (9) C++26</span>
 
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>         <span class="c1">// (10) C++11</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">         </span><span class="c1">// (10) C++11</span>
 <span class="k">constexpr</span>
-<span class="nf">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>         <span class="c1">// (10) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">         </span><span class="c1">// (10) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>      <span class="c1">// (11) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">      </span><span class="c1">// (11) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>      <span class="c1">// (11) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">      </span><span class="c1">// (11) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="k">explicit</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../weak_ptr.html">weak_ptr</a></span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">);</span>            <span class="c1">// (12) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="k">explicit</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../weak_ptr.html">weak_ptr</a></span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span> <span class="n">r</span><span class="p">);</span>            <span class="c1">// (12) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../weak_ptr.html">weak_ptr</a></span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">            </span><span class="c1">// (12) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../weak_ptr.html">weak_ptr</a></span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">            </span><span class="c1">// (12) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">auto_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">);</span>                 <span class="c1">// (13)</span>
-                                             <span class="c1">// C++11から非推奨</span>
-                                             <span class="c1">// C++17で削除</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">auto_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">                 </span><span class="c1">// (13)</span>
+<span class="w">                                             </span><span class="c1">// C++11から非推奨</span>
+<span class="w">                                             </span><span class="c1">// C++17で削除</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Deleter</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../unique_ptr.html">unique_ptr</a></span><span class="o">&lt;</span><span class="n">Y</span><span class="p">,</span> <span class="n">Deleter</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">);</span>      <span class="c1">// (14) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Deleter</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../unique_ptr.html">unique_ptr</a></span><span class="o">&lt;</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">Deleter</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">      </span><span class="c1">// (14) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Deleter</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../unique_ptr.html">unique_ptr</a></span><span class="o">&lt;</span><span class="n">Y</span><span class="p">,</span> <span class="n">Deleter</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">);</span>      <span class="c1">// (14) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../unique_ptr.html">unique_ptr</a></span><span class="o">&lt;</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">Deleter</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">      </span><span class="c1">// (14) C++26</span>
 
-<span class="k">constexpr</span> <span class="nf">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">);</span>             <span class="c1">// (15)  C++14</span>
-<span class="k">constexpr</span> <span class="nf">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>    <span class="c1">// (15)  C++17</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">);</span><span class="w">             </span><span class="c1">// (15)  C++14</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">shared_ptr</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">    </span><span class="c1">// (15)  C++17</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">,</span>
-           <span class="n">element_type</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>        <span class="c1">// (16) C++20</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Y</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">           </span><span class="n">element_type</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">        </span><span class="c1">// (16) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="o">&gt;</span>
 <span class="k">constexpr</span>
-<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span> <span class="n">r</span><span class="p">,</span>
-           <span class="n">element_type</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>        <span class="c1">// (16) C++26</span>
+<span class="n">shared_ptr</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">           </span><span class="n">element_type</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">        </span><span class="c1">// (16) C++26</span>
 </code></pre></div>
 </p>
 <h2><code>shared_ptr</code>オブジェクトの構築</h2>
@@ -421,110 +421,110 @@
 <h2>備考</h2>
 <p>アロケータは、参照カウンタのメモリ確保に使用される。</p>
 <h2>例</h2>
-<p><div class="yata" id="91178eb602cf7855ed4a23914626716db9dcb8cc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="91178eb602cf7855ed4a23914626716db9dcb8cc"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../memory.html">&lt;memory&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">i</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">i</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="c1">// デフォルト構築。</span>
-  <span class="c1">// 空のshared_ptrオブジェクトを構築する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p1</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="c1">// デフォルト構築。</span>
+<span class="w">  </span><span class="c1">// 空のshared_ptrオブジェクトを構築する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// ポインタの所有権を受け取る。</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p2</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p2</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// ポインタの所有権を受け取る。</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p2</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p2</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-  <span class="c1">// (3)</span>
-  <span class="c1">// ポインタの所有権と、デリータを受け取る。</span>
-  <span class="c1">// リソース解放時に、delete pの代わりにデリータが呼ばれる。</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p3</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n"><a href="../default_delete.html">std::default_delete</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p3</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p3</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="c1">// ポインタの所有権と、デリータを受け取る。</span>
+<span class="w">  </span><span class="c1">// リソース解放時に、delete pの代わりにデリータが呼ばれる。</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p3</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../default_delete.html">std::default_delete</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p3</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p3</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-  <span class="c1">// (4)</span>
-  <span class="c1">// ポインタの所有権、デリータ、アロケータを受け取る。</span>
-  <span class="c1">// アロケータは内部的にrebindされるので、要素型はなんでもいい。</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p4</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-                          <span class="n"><a href="../default_delete.html">std::default_delete</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span>
-                          <span class="n"><a href="../allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">());</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p4</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p4</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (4)</span>
+<span class="w">  </span><span class="c1">// ポインタの所有権、デリータ、アロケータを受け取る。</span>
+<span class="w">  </span><span class="c1">// アロケータは内部的にrebindされるので、要素型はなんでもいい。</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p4</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+<span class="w">                          </span><span class="n"><a href="../default_delete.html">std::default_delete</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">                          </span><span class="n"><a href="../allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p4</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p4</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-  <span class="c1">// (5)</span>
-  <span class="c1">// デリータを受け取り、</span>
-  <span class="c1">// ヌルポインタを所有するshared_ptrオブジェクトを構築する。</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p5</span><span class="p">(</span><span class="k">nullptr</span><span class="p">,</span> <span class="n"><a href="../default_delete.html">std::default_delete</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p5</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p5</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (5)</span>
+<span class="w">  </span><span class="c1">// デリータを受け取り、</span>
+<span class="w">  </span><span class="c1">// ヌルポインタを所有するshared_ptrオブジェクトを構築する。</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p5</span><span class="p">(</span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../default_delete.html">std::default_delete</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p5</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p5</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-  <span class="c1">// (6)</span>
-  <span class="c1">// デリータとアロケータを受け取り、</span>
-  <span class="c1">// ヌルポインタを所有するshared_ptrオブジェクトを構築する。</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p6</span><span class="p">(</span><span class="k">nullptr</span><span class="p">,</span>
-                          <span class="n"><a href="../default_delete.html">std::default_delete</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span>
-                          <span class="n"><a href="../allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">());</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p6</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p6</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (6)</span>
+<span class="w">  </span><span class="c1">// デリータとアロケータを受け取り、</span>
+<span class="w">  </span><span class="c1">// ヌルポインタを所有するshared_ptrオブジェクトを構築する。</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p6</span><span class="p">(</span><span class="k">nullptr</span><span class="p">,</span>
+<span class="w">                          </span><span class="n"><a href="../default_delete.html">std::default_delete</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">                          </span><span class="n"><a href="../allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p6</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p6</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-  <span class="c1">// (7)</span>
-  <span class="c1">// 要素型のメンバへのポインタを共有する。</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span> <span class="n">p7_org</span><span class="p">(</span><span class="k">new</span> <span class="n">X</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p7</span><span class="p">(</span><span class="n">p7_org</span><span class="p">,</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">p7_org</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">));</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p7</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// p7はiへのポインタを所有する</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p7</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="n">p7_org</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="p">);</span> <span class="c1">// 所有権はコピー元のshared_ptrと共有する</span>
+<span class="w">  </span><span class="c1">// (7)</span>
+<span class="w">  </span><span class="c1">// 要素型のメンバへのポインタを共有する。</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p7_org</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p7</span><span class="p">(</span><span class="n">p7_org</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">p7_org</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p7</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// p7はiへのポインタを所有する</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p7</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p7_org</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="p">);</span><span class="w"> </span><span class="c1">// 所有権はコピー元のshared_ptrと共有する</span>
 
-  <span class="c1">// (8)</span>
-  <span class="c1">// 他のshared_ptrとリソースを共有する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p8_org</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p8</span> <span class="o">=</span> <span class="n">p8_org</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p8</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="n">p8_org</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="p">);</span> <span class="c1">// p8_orgとo8はリソースを共有する</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p8</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 所有者は2人</span>
+<span class="w">  </span><span class="c1">// (8)</span>
+<span class="w">  </span><span class="c1">// 他のshared_ptrとリソースを共有する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p8_org</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p8_org</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p8</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p8_org</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="p">);</span><span class="w"> </span><span class="c1">// p8_orgとo8はリソースを共有する</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p8</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 所有者は2人</span>
 
-  <span class="c1">// (10)</span>
-  <span class="c1">// 他のshared_ptrからリソースを移動する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p10_org</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p10</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p10_org</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p10</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p10</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p10_org</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (10)</span>
+<span class="w">  </span><span class="c1">// 他のshared_ptrからリソースを移動する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p10_org</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p10_org</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p10</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p10</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p10_org</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 
-  <span class="c1">// (12)</span>
-  <span class="c1">// weak_ptrから構築</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p12_org</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n"><a href="../weak_ptr.html">std::weak_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">w12</span><span class="p">(</span><span class="n">p12_org</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p12</span> <span class="o">=</span> <span class="n">w12</span><span class="p">.</span><span class="n"><a href="../weak_ptr/lock.html">lock()</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p12</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p12</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (12)</span>
+<span class="w">  </span><span class="c1">// weak_ptrから構築</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p12_org</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../weak_ptr.html">std::weak_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">w12</span><span class="p">(</span><span class="n">p12_org</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w12</span><span class="p">.</span><span class="n"><a href="../weak_ptr/lock.html">lock()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p12</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p12</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (14)</span>
-  <span class="c1">// unique_ptrからリソースを移動する</span>
-  <span class="n"><a href="../unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p14_org</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p14</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p14_org</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p14</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p14</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p14_org</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (14)</span>
+<span class="w">  </span><span class="c1">// unique_ptrからリソースを移動する</span>
+<span class="w">  </span><span class="n"><a href="../unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p14_org</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p14</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p14_org</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p14</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p14</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p14_org</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
 
-  <span class="c1">// (15)</span>
-  <span class="c1">// 空のshared_ptrを構築する</span>
-  <span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p15</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p15</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p15</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (15)</span>
+<span class="w">  </span><span class="c1">// 空のshared_ptrを構築する</span>
+<span class="w">  </span><span class="n"><a href="../shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p15</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p15</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p15</span><span class="p">.</span><span class="n"><a href="use_count.html">use_count()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -582,7 +582,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

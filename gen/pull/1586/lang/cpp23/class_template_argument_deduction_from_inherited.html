@@ -220,45 +220,45 @@
 <h2>概要</h2>
 <p>C++23では、派生クラスで定義した継承コンストラクタからでも、クラステンプレート引数を推論できるようになる。</p>
 <p>基本的な例：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span>
-  <span class="n">B</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">B</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">C</span> <span class="p">:</span> <span class="k">public</span> <span class="n">B</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">B</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">B</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">B</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">B</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">B</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">D</span> <span class="p">:</span> <span class="k">public</span> <span class="n">B</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">B</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="n">C</span> <span class="nf">c</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span> <span class="c1">// C++23:OK, C&lt;int&gt;に推論される</span>
-<span class="n">D</span> <span class="nf">d</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span> <span class="c1">// エラー！推論失敗。推論補助が継承されていない</span>
+<span class="n">C</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w"> </span><span class="c1">// C++23:OK, C&lt;int&gt;に推論される</span>
+<span class="n">D</span><span class="w"> </span><span class="nf">d</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w"> </span><span class="c1">// エラー！推論失敗。推論補助が継承されていない</span>
 
-<span class="n">B</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">B</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// 推論補助を追加定義</span>
-<span class="n">C</span> <span class="nf">c2</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span> <span class="c1">// OK。C&lt;char&gt;に推論される</span>
+<span class="n">B</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">B</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 推論補助を追加定義</span>
+<span class="n">C</span><span class="w"> </span><span class="nf">c2</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK。C&lt;char&gt;に推論される</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">E</span> <span class="p">:</span> <span class="k">public</span> <span class="n">B</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">B</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">B</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">E</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">B</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">B</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">B</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">E</span> <span class="nf">e</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span> <span class="c1">// エラー！推論失敗。Eのテンプレート引数を推論補助から推論できない</span>
+<span class="n">E</span><span class="w"> </span><span class="nf">e</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w"> </span><span class="c1">// エラー！推論失敗。Eのテンプレート引数を推論補助から推論できない</span>
 </code></pre></div>
 </p>
 <p>派生クラスもテンプレート引数をもつ場合：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="p">,</span> <span class="k">typename</span> <span class="n">V</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">F</span> <span class="p">{</span>
-  <span class="n">F</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">V</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">F</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">F</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">G</span> <span class="p">:</span> <span class="n">F</span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">G</span><span class="o">::</span><span class="n">F</span><span class="o">::</span><span class="n">F</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">G</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">F</span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">G</span><span class="o">::</span><span class="n">F</span><span class="o">::</span><span class="n">F</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">G</span> <span class="nf">g</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// OK。G&lt;char, bool&gt;に推論される</span>
+<span class="n">G</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK。G&lt;char, bool&gt;に推論される</span>
 </code></pre></div>
 </p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
@@ -287,7 +287,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

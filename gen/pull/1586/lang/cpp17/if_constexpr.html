@@ -219,10 +219,10 @@
 <p></p>
 <h2>概要</h2>
 <p>constexpr if文とは、文を条件付きコンパイルすることを目的とした制御構文である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span> <span class="n">condition</span> <span class="p">)</span>
-  <span class="n">statement</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="n">statement</span>
 <span class="k">else</span>
-  <span class="n">statement</span>
+<span class="w">  </span><span class="n">statement</span>
 </code></pre></div>
 </p>
 <p><code>condition</code>はコンパイル時に<code>bool</code>に評価できる式である。
@@ -245,29 +245,29 @@
 constexpr if文の中にある <code>s += a1</code> や <code>s += a1.capacity()</code> 等のようなコードは、<code>A1</code>が特定の型の時にしか<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>にならない。
 通常のif文を使うとこれをコンパイルする事はできないが、
 constexpr if文を用いれば特定の条件を満たした時にだけコードが実体化させることにより、以下のような記述を可能にする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Out</span><span class="p">,</span> <span class="k">typename</span> <span class="n">A1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">A2</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Out</span><span class="o">&amp;</span> <span class="n">o</span><span class="p">,</span> <span class="n">A1</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">a1</span><span class="p">,</span> <span class="n">A2</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">a2</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Out</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">A1</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">A2</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">Out</span><span class="o">&amp;</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">A2</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a2</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A1</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">+=</span> <span class="n">a1</span><span class="p">;</span>
-  <span class="k">else</span> <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A1</span><span class="p">,</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">+=</span> <span class="n">a1</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A1</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a1</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span>
 
-  <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A2</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">+=</span> <span class="n">a2</span><span class="p">;</span>
-  <span class="k">else</span> <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A2</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">+=</span> <span class="n">a2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 
-  <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">Out</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="n">o</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
-  <span class="k">else</span> <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">Out</span><span class="p">,</span> <span class="n"><a href="../../reference/ostream/basic_ostream.html">std::ostream</a></span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="n">o</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">Out</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">Out</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/basic_ostream.html">std::ostream</a></span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">o</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -278,108 +278,108 @@ constexpr if文を用いれば特定の条件を満たした時にだけコー�
 constexpr if文の導入によりそのような複雑な手法を用いずに素直に条件付きのコンパイルを実現できるようになった。</p>
 <h3>2段階名前探索における注意点</h3>
 <p><code>constexpr if</code>文で、実行されない方の<code>statement</code>は廃棄文(discarded statement)となり、文の実体化を防ぐ。言い換えると、2段階名前探索における依存名(dependent name)は、廃棄文の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。</p>
-<p><div class="yata" id="e71dc51e3c807c2d099833ca105af0209dae3458"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e71dc51e3c807c2d099833ca105af0209dae3458"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="c1">// Tがintのときのみ評価されてほしい</span>
-    <span class="c1">// 実際は常に評価される</span>
-    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Tがintのときのみ評価されてほしい</span>
+<span class="w">    </span><span class="c1">// 実際は常に評価される</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p>なぜならば廃棄文はテンプレートの実体化を防ぐ (依存名の検証をしない) だけで、非依存名は検証されるからである。この例の<code><a href="../cpp11/static_assert.html">static_assert</a></code>に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば<code>static_assert</code>に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。</p>
-<p><div class="yata" id="583ebd19262fed28c91d69f132fcbcae803ddce6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="583ebd19262fed28c91d69f132fcbcae803ddce6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">false_v</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">false_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="c1">// Tがintのときのみ評価される</span>
-    <span class="k">static_assert</span><span class="p">(</span><span class="n">false_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Tがintのときのみ評価される</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">false_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p>上の例では<code>false_v</code>を作ったが、ラムダ式でも同様のことができる。ラムダ式はそれが記述された位置から見て最小のスコープ (ブロックスコープ／クラススコープ／名前空間スコープ) で宣言されるクラスとして扱われる。例えば、下の例では<code>f()</code>という関数テンプレート内で宣言される。関数テンプレート内のクラスは依存名になるため、テンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。</p>
-<p><div class="yata" id="bbd30e2c982d81f86d8e0b8fc3b99ee38278503f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="bbd30e2c982d81f86d8e0b8fc3b99ee38278503f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="c1">// Tがintのときのみ評価される</span>
-    <span class="k">static_assert</span><span class="p">([]{</span><span class="k">return</span> <span class="nb">false</span><span class="p">;}());</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Tがintのときのみ評価される</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">([]{</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;}());</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p><code>constexpr if</code>文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。</p>
-<p><div class="yata" id="babd8abb29ae2e8d87d8740451c8ba13f4573333"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="babd8abb29ae2e8d87d8740451c8ba13f4573333"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Hoge</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Hoge</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">type</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">||</span> <span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"is int"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"is int"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n">Hoge</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">//error: Hoge::value_typeは存在しないのでif constexpr文の条件式がコンパイルエラーになる</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n">Hoge</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">//error: Hoge::value_typeは存在しないのでif constexpr文の条件式がコンパイルエラーになる</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>(CWG 2518が適用された環境) <code>static_assert</code>文に関する<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h3>
 <p>上に述べたように、<code>constexpr if</code>文の中の文は廃棄文においても、非依存名の検証を行う。このため特に<code>static_assert</code>文を使う時に直感的ではない挙動を示していた。</p>
 <p>C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や<code>constexpr if</code>文の中の文)が実際にインスタンス化されるまで、<code>static_assert</code>文の宣言は遅延される。</p>
-<p><div class="yata" id="1db62823aed0162ca08415e26147d292cbce36d2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span><span class="p">))</span> <span class="p">{</span>
-    <span class="n">use</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="s">"must be 32bit"</span><span class="p">);</span>
-  <span class="p">}</span>
+<p><div class="yata" id="1db62823aed0162ca08415e26147d292cbce36d2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">use</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="s">"must be 32bit"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// OK: nは<a href="../../reference/cstdint/int32_t.html">std::int32_t</a>型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">);</span> <span class="c1">// error: cは<a href="../../reference/cstdint/int8_t.html">std::int8_t</a>型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK: nは<a href="../../reference/cstdint/int32_t.html">std::int32_t</a>型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// error: cは<a href="../../reference/cstdint/int8_t.html">std::int8_t</a>型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -391,61 +391,61 @@ constexpr if文の導入によりそのような複雑な手法を用いずに�
 <li>実行時<code>if</code>: <code>if</code></li>
 </ul>
 <p>プリプロセス時の<code>#if</code>指令と異なり、<code>constexpr if</code>文は宣言を条件付きでコンパイルをすることはできない。例えば次の例は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n">cond</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
-    <span class="k">using</span> <span class="n">int32</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">g</span><span class="p">();</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n">cond</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p><code>constexpr if</code>文はスコープを作るので、例えばVisual C++の独自拡張機能である<code><a href="https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement" target="_blank">__if_exists</a></code>は以下のような書き方が可能であるが、<code>constexpr if</code>文でこれを再現することはできない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="kt">float</span> <span class="n">get</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">1.2f</span><span class="p">;</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mf">1.2f</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="n">__if_exists</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="n">__if_not_exists</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">)</span> <span class="p">{</span>
-    <span class="s">"not found"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__if_exists</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">__if_not_exists</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">"not found"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>同様にD言語の<code>static if</code>とは違いスコープを作るので、D言語で可能な次のようなことは<code>constexpr if</code>文で再現できない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="k">class</span> <span class="n">C</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 
-  <span class="k">static</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">==</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// D言語ではok</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-  <span class="k">else</span>
-    <span class="kt">long</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// D言語ではok</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>なお型情報のifが欲しいならば、<code><a href="../../reference/type_traits/conditional.html">std::conditional</a></code> がある。</p>
-<p><div class="yata" id="474b034dc49c625edd965c985714c99002564ffc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/random.html">&lt;random&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="474b034dc49c625edd965c985714c99002564ffc"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/random.html">&lt;random&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
 <span class="c1">// C++11</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Integer</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">mt</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../../reference/type_traits/conditional.html">std::conditional</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span><span class="p">,</span> <span class="n"><a href="../../reference/random/mt19937_64.html">std::mt19937_64</a></span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Integer</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">mt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../reference/type_traits/conditional.html">std::conditional</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/random/mt19937_64.html">std::mt19937_64</a></span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 
 <span class="c1">// C++14以降</span>
 <span class="c1">// template&lt;typename Integer&gt;</span>
 <span class="c1">// using mt = <a href="../../reference/type_traits/conditional.html">std::conditional_t</a>&lt;<a href="../../reference/type_traits/is_same.html">std::is_same</a>&lt;Integer, <a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a>&gt;::value, <a href="../../reference/random/mt19937.html">std::mt19937</a>, <a href="../../reference/random/mt19937_64.html">std::mt19937_64</a>&gt;;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">mt</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span> <span class="n">m1</span> <span class="p">{</span><span class="mi">37</span><span class="p">};</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">m1</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">mt</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="p">{</span><span class="mi">37</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">m1</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -507,35 +507,35 @@ P0292R0 で現行の <code>if constexpr</code> / <code>else</code> が提案さ�
 <code>else</code> に関しては、通常の入れ子の<code>if</code>文と同様に一番近くの<code>if</code>/<code>if constexpr</code>文に属するとすれば曖昧さはないこと、
 また <code>if constexpr</code> を繋げた時の煩雑さから単に<code>else</code>とすることになった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// N3322</span>
-<span class="n">static_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-  <span class="n">statement</span>
-<span class="k">else</span> <span class="n">static_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-  <span class="n">statement</span>
+<span class="n">static_if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="w">  </span><span class="n">statement</span>
+<span class="k">else</span><span class="w"> </span><span class="n">static_if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="w">  </span><span class="n">statement</span>
 <span class="k">else</span>
-  <span class="n">statement</span>
+<span class="w">  </span><span class="n">statement</span>
 
 <span class="c1">// N3329</span>
-<span class="k">static</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">statement</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">static</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">statement</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="n">statement</span>
+<span class="k">static</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">statement</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">statement</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">statement</span>
 <span class="p">}</span>
 
 <span class="c1">// P0128R0</span>
-<span class="n">constexpr_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-  <span class="n">statement</span>
+<span class="n">constexpr_if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="w">  </span><span class="n">statement</span>
 <span class="n">constexpr_else</span>
-  <span class="n">statement</span>
+<span class="w">  </span><span class="n">statement</span>
 
 <span class="c1">// P0128R1</span>
-<span class="k">constexpr</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-  <span class="n">statement</span>
-<span class="n">constexpr_else</span> <span class="k">constexpr</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-  <span class="n">statement</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="w">  </span><span class="n">statement</span>
+<span class="n">constexpr_else</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="w">  </span><span class="n">statement</span>
 <span class="n">constexpr_else</span>
-  <span class="n">statement</span>
+<span class="w">  </span><span class="n">statement</span>
 </code></pre></div>
 </p>
 <p>静的な条件分岐の各分岐を囲む波カッコ <code>{ ... }</code> に関しては、
@@ -545,18 +545,18 @@ P0292R0 で現行の <code>if constexpr</code> / <code>else</code> が提案さ�
 廃棄された分岐でも構文解析は実施され、非依存名に関しては1段階目で検証されることとなった。
 これにより通常の<code>if</code>文と同様に <code>{ ... }</code> は任意となった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// N3329</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="k">if</span> <span class="p">(</span><span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span> <span class="c1">// 引っかからない (構文解析すら実施されない)</span>
-  <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// 引っかからない (構文解析すら実施されない)</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// P0292R0</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="nb">false</span><span class="p">)</span>
-    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span> <span class="c1">// 廃棄された分岐内でも引っかかる (ill-formed NDR)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// 廃棄された分岐内でも引っかかる (ill-formed NDR)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -565,23 +565,23 @@ P0292R0 で現行の <code>if constexpr</code> / <code>else</code> が提案さ�
 Concepts Lite の仕様が確定していない段階で、
 どのように棲み分けるのかや両方用いた時の振る舞いについての考察が問題になった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// N3322</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
-  <span class="n">static_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">statement</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="n">static_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">statement</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="n">statement</span>
-  <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
+<span class="w">  </span><span class="n">static_if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">statement</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">static_if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">statement</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">statement</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="c1">// N3329 (cf D言語の Template Constraints)</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">);</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">statement</span>
-  <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">statement</span>
+<span class="w">  </span><span class="p">}</span>
 </code></pre></div>
 </p>
 <p>ブロックスコープでの静的な条件分岐について、
@@ -589,10 +589,10 @@ Concepts Lite の仕様が確定していない段階で、
 つまり、ジェネリックラムダの実体化は実際に関数の呼び出しがある時に行われるので、
 実体化を遅延することができるのである。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// P0128R0</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">arg</span><span class="p">,</span> <span class="k">typename</span> <span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span> <span class="kt">int</span> <span class="n">do_something</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">static_if</span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">get</span><span class="p">(</span>
-    <span class="p">[](</span><span class="k">auto</span> <span class="n">x</span><span class="p">,</span> <span class="k">auto</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="p">},</span>
-    <span class="p">[](</span><span class="k">auto</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span> <span class="p">})(</span><span class="n">args</span><span class="p">...);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">do_something</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">static_if</span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">get</span><span class="p">(</span>
+<span class="w">    </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">})(</span><span class="n">args</span><span class="p">...);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -653,7 +653,7 @@ Concepts Lite の仕様が確定していない段階で、
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

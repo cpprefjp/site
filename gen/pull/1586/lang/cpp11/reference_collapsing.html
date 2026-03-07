@@ -222,34 +222,34 @@
 <p>C++11では、型の別名定義、テンプレートパラメータ、および<code>decltype</code>の文脈において、<code>T&amp;</code>型に左辺値参照を足しても<code>T&amp;</code>型となることが規定された。これを「reference collapsing (参照を折りたたむ)」という。</p>
 <h2>例</h2>
 <h3>基本例</h3>
-<p><div class="yata" id="9958e9fc01d198bc1d926b882002f690e12ab603"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<p><div class="yata" id="9958e9fc01d198bc1d926b882002f690e12ab603"><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">typedef</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">ir</span><span class="p">;</span>
+<span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ir</span><span class="p">;</span>
 
-  <span class="c1">// C++03ではint&amp; &amp;となりコンパイルエラー</span>
-  <span class="c1">// C++11ではint&amp;となりOK</span>
-  <span class="k">typedef</span> <span class="n">ir</span><span class="o">&amp;</span> <span class="n">irr</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// C++03ではint&amp; &amp;となりコンパイルエラー</span>
+<span class="w">  </span><span class="c1">// C++11ではint&amp;となりOK</span>
+<span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n">ir</span><span class="o">&amp;</span><span class="w"> </span><span class="n">irr</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>回避策が不要になった例</h3>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 型Tを参照型にするメタ関数</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">add_lvalue_reference</span> <span class="p">{</span>
-  <span class="k">typedef</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">add_lvalue_reference</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// C++03では、参照への参照にならないように、この部分特殊化が必要</span>
 <span class="c1">// C++11ではこの部分特殊化は必要ない (あっても問題はない)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">add_lvalue_reference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&gt;</span> <span class="p">{</span>
-  <span class="k">typedef</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">add_lvalue_reference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">typedef</span> <span class="n">add_lvalue_reference</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span> <span class="n">ir</span><span class="p">;</span>
-  <span class="k">typedef</span> <span class="n">add_lvalue_reference</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">type</span> <span class="n">irr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n">add_lvalue_reference</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="w"> </span><span class="n">ir</span><span class="p">;</span>
+<span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n">add_lvalue_reference</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">type</span><span class="w"> </span><span class="n">irr</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -274,7 +274,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

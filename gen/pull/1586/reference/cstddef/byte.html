@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">enum</div><div class="header">&lt;cstddef&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">byte</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">enum</span> <span class="k">class</span> <span class="nc">byte</span> <span class="o">:</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">byte</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -312,27 +312,27 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="b409b73440b055df4fad7b1f682f9febee28f00e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstddef.html">&lt;cstddef&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b409b73440b055df4fad7b1f682f9febee28f00e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../cstddef.html">&lt;cstddef&gt;</a></span>
+<span class="cp">#include <a href="../cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 整数値を代入する際は、波カッコ {} で囲むか、</span>
-  <span class="c1">// static_cast&lt;<span style="color:#ff0000">std::byte</span>&gt;(0b1010)のようにする</span>
-  <span class="n"><span style="color:#ff0000">std::byte</span></span> <span class="n">a</span><span class="p">{</span><span class="mi">0</span><span class="n">b1010</span><span class="err">'</span><span class="mi">1010</span><span class="p">};</span>
-  <span class="n"><span style="color:#ff0000">std::byte</span></span> <span class="n">b</span><span class="p">{</span><span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mi">1111</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// 整数値を代入する際は、波カッコ {} で囲むか、</span>
+<span class="w">  </span><span class="c1">// static_cast&lt;<span style="color:#ff0000">std::byte</span>&gt;(0b1010)のようにする</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::byte</span></span><span class="w"> </span><span class="n">a</span><span class="p">{</span><span class="mb">0b1010'1010</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::byte</span></span><span class="w"> </span><span class="n">b</span><span class="p">{</span><span class="mb">0b0000'1111</span><span class="p">};</span>
 
-  <span class="c1">// ビット論理積</span>
-  <span class="n"><span style="color:#ff0000">std::byte</span></span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="byte/op_and.html">a &amp; b</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ビット論理積</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::byte</span></span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="byte/op_and.html">a &amp; b</a></span><span class="p">;</span>
 
-  <span class="c1">// 基底型に変換</span>
-  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">result_uc</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result_uc</span> <span class="o">==</span> <span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mi">1010</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 基底型に変換</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">result_uc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result_uc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b0000'1010</span><span class="p">);</span>
 
-  <span class="c1">// 任意の整数型に変換</span>
-  <span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span> <span class="n">result_u8</span> <span class="o">=</span> <span class="n"><a href="byte/to_integer.html">std::to_integer</a></span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result_u8</span> <span class="o">==</span> <span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mi">1010</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 任意の整数型に変換</span>
+<span class="w">  </span><span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span><span class="w"> </span><span class="n">result_u8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="byte/to_integer.html">std::to_integer</a></span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result_u8</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b0000'1010</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -376,7 +376,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

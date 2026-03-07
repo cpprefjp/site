@@ -213,16 +213,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">variable</div><div class="header">&lt;tuple&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">ignore</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">ignore</span><span class="o">-</span><span class="n">type</span> <span class="p">{</span> <span class="c1">// 説明用の定義 (C++26)</span>
-    <span class="k">constexpr</span> <span class="k">const</span> <span class="n">ignore</span><span class="o">-</span><span class="n">type</span><span class="o">&amp;</span>
-    <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span>
-      <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">ignore</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 説明用の定義 (C++26)</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ignore</span><span class="o">-</span><span class="n">type</span><span class="o">&amp;</span>
+<span class="w">    </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">const</span> <span class="n"><i>unspecified</i></span> <span class="n">ignore</span><span class="p">;</span>            <span class="c1">// (1) C++11</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n"><i>unspecified</i></span> <span class="n">ignore</span><span class="p">;</span> <span class="c1">// (1) C++17</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">ignore</span><span class="o">-</span><span class="n">type</span> <span class="n">ignore</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="w"> </span><span class="n">ignore</span><span class="p">;</span><span class="w">            </span><span class="c1">// (1) C++11</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="w"> </span><span class="n">ignore</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++17</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">ignore</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">ignore</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -232,23 +232,23 @@
 <p>C++26以降は、<code><a href="../utility.html">&lt;utility&gt;</a></code>をインクルードして使用することもできる。</p>
 <h2>例</h2>
 <h3>タプルの要素を取り出す際に一部の要素を無視する</h3>
-<p><div class="yata" id="0d19b14f32f7aa43a1ea53f53e3ef6bab98dcdac"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0d19b14f32f7aa43a1ea53f53e3ef6bab98dcdac"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../tuple.html">&lt;tuple&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
 
-<span class="n"><a href="tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">f</span><span class="p">()</span>
+<span class="n"><a href="tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// char要素は無視する</span>
-  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">c</span><span class="p">;</span>
-  <span class="n"><a href="tie.html">std::tie</a></span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::ignore</span></span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// char要素は無視する</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="tie.html">std::tie</a></span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::ignore</span></span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -257,21 +257,21 @@
 hello
 </code></pre></p>
 <h3>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を無視する (C++17)</h3>
-<p><div class="yata" id="7b0f93d4a4cded3ce4d081cfc5ca30be5b062d65"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7b0f93d4a4cded3ce4d081cfc5ca30be5b062d65"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../tuple.html">&lt;tuple&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
 
 <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
-<span class="kt">int</span> <span class="n">print_string</span><span class="p">(</span><span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">print_string</span><span class="p">(</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 自分の用途ではこの関数は必ず成功するため、</span>
-  <span class="c1">// 戻り値を無視する</span>
-  <span class="n"><span style="color:#ff0000">std::ignore</span></span> <span class="o">=</span> <span class="n">print_string</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 自分の用途ではこの関数は必ず成功するため、</span>
+<span class="w">  </span><span class="c1">// 戻り値を無視する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ignore</span></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">print_string</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -316,7 +316,7 @@ hello
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

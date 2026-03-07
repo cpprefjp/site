@@ -221,23 +221,23 @@
 <p>C++26では、宣言だけして使用しない変数として、変数名<code>_</code>を特別扱いする。</p>
 <p>宣言だけして使用しない変数が必要な状況としては、以下のようなミューテックスのロック取得や、構造化束縛などがある：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++23まで</span>
-<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mux</span><span class="p">;</span>
-<span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">();</span>
+<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">mux</span><span class="p">;</span>
+<span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">guard</span><span class="p">{</span><span class="n">mux</span><span class="p">};</span> <span class="c1">// デストラクタでの自動解放だけしたいのでguard変数はとくに使わない</span>
-  <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">no_use</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// 構造化束縛した一部の変数は使わない</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="w"> </span><span class="n">guard</span><span class="p">{</span><span class="n">mux</span><span class="p">};</span><span class="w"> </span><span class="c1">// デストラクタでの自動解放だけしたいのでguard変数はとくに使わない</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">no_use</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// 構造化束縛した一部の変数は使わない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>C++26では、変数名として<code>_</code>は<a href="../cpp17/maybe_unused.html"><code>[[maybe_unused]]</code>属性</a>が付加される、と規定される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++26</span>
-<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mux</span><span class="p">;</span>
-<span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">();</span>
+<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">mux</span><span class="p">;</span>
+<span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">_</span><span class="p">{</span><span class="n">mux</span><span class="p">};</span> <span class="c1">// OK</span>
-  <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>   <span class="c1">// OK</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="w"> </span><span class="n">_</span><span class="p">{</span><span class="n">mux</span><span class="p">};</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">   </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -246,7 +246,7 @@
 <li>
 <p>変数名<code>_</code>は、「名前非依存 (name independent) の宣言」という名称で扱われ、実装への推奨としては <code>[[maybe_unused]]</code>属性が自動的に付加され、使用されなくても警告は出力されない：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">_</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// [[maybe_unused]] auto _ = f(); と等価</span>
+<div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// [[maybe_unused]] auto _ = f(); と等価</span>
 </code></pre></div>
 </p>
 </li>
@@ -261,32 +261,32 @@
 </li>
 <li>再宣言された変数<code>_</code>を使用した場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">a</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">_</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span> <span class="c1">// OK: "_"変数の宣言</span>
-  <span class="k">auto</span> <span class="n">_</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span> <span class="c1">// エラー！ "_"はこの名前空間ですでに定義されている</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">a</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK: "_"変数の宣言</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// エラー！ "_"はこの名前空間ですでに定義されている</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">_</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// OK: "_"変数の宣言</span>
-  <span class="k">auto</span> <span class="n">_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// OK: "_"変数の再宣言</span>
-  <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">_</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>     <span class="c1">// OK: シャドウイング</span>
-    <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// OK</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span> <span class="n">_</span> <span class="o">==</span> <span class="mi">42</span> <span class="p">);</span> <span class="c1">// 不適格: 再宣言されたプレースホルダー変数の使用</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK: "_"変数の宣言</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK: "_"変数の再宣言</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">     </span><span class="c1">// OK: シャドウイング</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// 不適格: 再宣言されたプレースホルダー変数の使用</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="1bdad0861a25f90015e99357980a767a94a69b53"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// gccやclangの場合、-Wallオプションをつけると、</span>
-  <span class="c1">// 変数が未使用だった場合、警告が出力される。</span>
-  <span class="c1">// [[maybe_unused]]属性によって、これを抑制することができた。</span>
-  <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">int</span> <span class="n">hardNamingVariable</span><span class="p">;</span>
+<p><div class="yata" id="1bdad0861a25f90015e99357980a767a94a69b53"><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// gccやclangの場合、-Wallオプションをつけると、</span>
+<span class="w">  </span><span class="c1">// 変数が未使用だった場合、警告が出力される。</span>
+<span class="w">  </span><span class="c1">// [[maybe_unused]]属性によって、これを抑制することができた。</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hardNamingVariable</span><span class="p">;</span>
 
-  <span class="c1">// しかし、今後は、変数名が_であれば、自動的にその属性が適用されるようになる。</span>
-  <span class="c1">// 以下のコードを-Wallでコンパイルしても、警告は表示されない。</span>
-  <span class="kt">int</span> <span class="n">_</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// しかし、今後は、変数名が_であれば、自動的にその属性が適用されるようになる。</span>
+<span class="w">  </span><span class="c1">// 以下のコードを-Wallでコンパイルしても、警告は表示されない。</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">_</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -316,7 +316,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

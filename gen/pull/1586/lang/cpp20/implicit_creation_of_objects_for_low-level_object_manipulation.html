@@ -219,34 +219,34 @@
 <p></p>
 <h2>概要</h2>
 <p><code>new</code>式ではなく<code>malloc()</code>等他の方法で確保されたメモリ領域には、明示的にオブジェクトの構築を行うまで想定する型のオブジェクトは生存期間内になく、そのアクセス（読み書き）は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">X</span> <span class="o">*</span><span class="nf">make_x</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// malloc()はメモリの確保だけを行う</span>
-  <span class="n">X</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">X</span><span class="p">));</span>
+<span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="nf">make_x</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// malloc()はメモリの確保だけを行う</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="p">));</span>
 
-  <span class="c1">// pの領域にはXのオブジェクトが構築されていない</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 💀 UB</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 💀 UB</span>
+<span class="w">  </span><span class="c1">// pの領域にはXのオブジェクトが構築されていない</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 💀 UB</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 💀 UB</span>
 
-  <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>この様なコードは純粋なC++では<code>new</code>式を用いることになり、その場合は問題ない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// new式を使用する場合</span>
-<span class="n">X</span> <span class="o">*</span><span class="nf">make_x</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// new式はメモリの確保とオブジェクト構築を行う</span>
-  <span class="n">X</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X</span><span class="p">;</span>
+<span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="nf">make_x</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// new式はメモリの確保とオブジェクト構築を行う</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
 
-  <span class="c1">// pの領域にはXのオブジェクトが構築済</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// ✅ ok</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// ✅ ok</span>
+<span class="w">  </span><span class="c1">// pの領域にはXのオブジェクトが構築済</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// ✅ ok</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// ✅ ok</span>
 
-  <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -256,91 +256,91 @@
 <h3><code>operator new</code></h3>
 <p><code>new</code>式ではなく<code>operator new()</code>を直接使用する場合は同様の問題がある。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// new演算子を使用する場合</span>
-<span class="n">X</span> <span class="o">*</span><span class="nf">make_x</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// operator new()はメモリの確保だけを行う</span>
-  <span class="n">X</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">)</span><span class="o">::</span><span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">X</span><span class="p">));</span>
+<span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="nf">make_x</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// operator new()はメモリの確保だけを行う</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">)</span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="p">));</span>
 
-  <span class="c1">// pの領域にはXのオブジェクトが構築されていない</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 💀 UB</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 💀 UB</span>
+<span class="w">  </span><span class="c1">// pの領域にはXのオブジェクトが構築されていない</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 💀 UB</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 💀 UB</span>
 
-  <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>共用体のコピー</h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">union</span> <span class="n">U</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">union</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">float</span> <span class="nf">pun</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// U::nの生存期間が開始</span>
-  <span class="n">U</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">};</span>
+<span class="kt">float</span><span class="w"> </span><span class="nf">pun</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// U::nの生存期間が開始</span>
+<span class="w">  </span><span class="n">U</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">};</span>
 
-  <span class="c1">// このコピーではuのオブジェクト表現がコピーされるものの、メンバの生存期間は開始されない</span>
-  <span class="c1">// そのため、アクティブメンバが無い状態となる</span>
-  <span class="n">U</span> <span class="n">u2</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// このコピーではuのオブジェクト表現がコピーされるものの、メンバの生存期間は開始されない</span>
+<span class="w">  </span><span class="c1">// そのため、アクティブメンバが無い状態となる</span>
+<span class="w">  </span><span class="n">U</span><span class="w"> </span><span class="n">u2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">;</span>
 
-  <span class="c1">// u2.fは非アクティブ</span>
-  <span class="k">return</span> <span class="n">u2</span><span class="p">.</span><span class="n">f</span><span class="p">;</span> <span class="c1">// 💀 UB</span>
+<span class="w">  </span><span class="c1">// u2.fは非アクティブ</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">u2</span><span class="p">.</span><span class="n">f</span><span class="p">;</span><span class="w"> </span><span class="c1">// 💀 UB</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>バイト配列の読み込み</h3>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 何かバイト列ストリームを受け取って処理する関数とする</span>
-<span class="kt">void</span> <span class="nf">process</span><span class="p">(</span><span class="n">Stream</span> <span class="o">*</span><span class="n">stream</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// バイト配列の読み出し</span>
-  <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">stream</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Stream</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// バイト配列の読み出し</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stream</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">();</span>
 
-  <span class="c1">// 先頭バイトの状態によって分岐</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">FOO</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">process_foo</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span> <span class="c1">// #1</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="n">process_bar</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Bar</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span> <span class="c1">// #2</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 先頭バイトの状態によって分岐</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FOO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">process_foo</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span><span class="w"> </span><span class="c1">// #1</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">process_bar</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Bar</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span><span class="w"> </span><span class="c1">// #2</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>1つの領域に複数の型のオブジェクトが同時に生存期間内にあることはないため、<code>stream-&gt;read()</code>が内部で<code>Foo, Bar</code>どちらかのオブジェクトを構築していたとしても、<code>#1</code>と<code>#2</code>のどちらかのパスは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。そして、この様なコードでは多くの場合、明示的にオブジェクトが構築されることはない。</p>
 <h3>動的配列の実装</h3>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="../../reference/vector/vector.html">std::vector</a>の様な動的配列型を実装したい</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Vec</span> <span class="p">{</span>
-  <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-  <span class="kt">char</span> <span class="o">*</span><span class="n">buf_end_size</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-  <span class="kt">char</span> <span class="o">*</span><span class="n">buf_end_capacity</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Vec</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf_end_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf_end_capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 
-  <span class="kt">void</span> <span class="nf">reserve</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">newbuf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">::</span><span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">align_val_t</span><span class="p">(</span><span class="k">alignof</span><span class="p">(</span><span class="n">T</span><span class="p">)));</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">uninitialized_copy</span><span class="p">(</span><span class="n">begin</span><span class="p">(),</span> <span class="n">end</span><span class="p">(),</span> <span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="n">newbuf</span><span class="p">);</span> <span class="c1">// #a 💀 UB</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">reserve</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">newbuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">align_val_t</span><span class="p">(</span><span class="k">alignof</span><span class="p">(</span><span class="n">T</span><span class="p">)));</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">uninitialized_copy</span><span class="p">(</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="n">newbuf</span><span class="p">);</span><span class="w"> </span><span class="c1">// #a 💀 UB</span>
 
-    <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">align_val_t</span><span class="p">(</span><span class="k">alignof</span><span class="p">(</span><span class="n">T</span><span class="p">)));</span>
-    <span class="n">buf</span> <span class="o">=</span> <span class="n">newbuf</span><span class="p">;</span>
-    <span class="n">buf_end_size</span> <span class="o">=</span> <span class="n">newbuf</span> <span class="o">+</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span><span class="p">();</span> <span class="c1">// #b 💀 UB</span>
-    <span class="n">buf_end_capacity</span> <span class="o">=</span> <span class="n">newbuf</span> <span class="o">+</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span>  <span class="c1">// #c 💀 UB</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">align_val_t</span><span class="p">(</span><span class="k">alignof</span><span class="p">(</span><span class="n">T</span><span class="p">)));</span>
+<span class="w">    </span><span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newbuf</span><span class="p">;</span>
+<span class="w">    </span><span class="n">buf_end_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newbuf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// #b 💀 UB</span>
+<span class="w">    </span><span class="n">buf_end_capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newbuf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w">  </span><span class="c1">// #c 💀 UB</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="nf">push_back</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">buf_end_size</span> <span class="o">==</span> <span class="n">buf_end_capacity</span><span class="p">)</span>
-      <span class="n">reserve</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
-    <span class="k">new</span> <span class="p">(</span><span class="n">buf_end_size</span><span class="p">)</span> <span class="n">T</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-    <span class="n">buf_end_size</span> <span class="o">+=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">);</span> <span class="c1">// #d 💀 UB</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">push_back</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buf_end_size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">buf_end_capacity</span><span class="p">)</span>
+<span class="w">      </span><span class="n">reserve</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="n">buf_end_size</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="w">    </span><span class="n">buf_end_size</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">);</span><span class="w"> </span><span class="c1">// #d 💀 UB</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n">T</span> <span class="o">*</span><span class="nf">begin</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="n">buf</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="nf">begin</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="n">buf</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="n">T</span> <span class="o">*</span><span class="nf">end</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="n">buf_end_size</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="nf">end</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="n">buf_end_size</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="nf">size</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">end</span><span class="p">()</span> <span class="o">-</span> <span class="n">begin</span><span class="p">();</span> <span class="p">}</span> <span class="c1">// #e 💀 UB</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// #e 💀 UB</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">Vec</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
-  <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-  <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">}</span> <span class="c1">// #f 💀 UB</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Vec</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/*...*/</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// #f 💀 UB</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -443,19 +443,19 @@
 <h3>擬似デストラクタ呼び出しによる生存期間の終了</h3>
 <p>一部の文脈では、スカラ型のオブジェクトに対してデストラクタ呼び出しを行うことができ、その場合のデストラクタ呼び出しのことを擬似デストラクタ呼び出し（<em>pseudo-destructor call</em>）と呼ぶ。</p>
 <p>C++17まで、擬似デストラクタ呼び出しには何の効果もなかった（テンプレートの文脈でクラス型との構文上の互換性を取るためのものでしかなかった）が、C++20からは擬似デストラクタ呼び出しはそのスカラ型オブジェクトの生存期間を終了させることが規定される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">T</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 
-  <span class="c1">// 擬似デストラクタ呼び出し</span>
-  <span class="c1">// C++20からはaの生存期間を終了させる</span>
-  <span class="c1">// C++17までは何も効果がない</span>
-  <span class="n">a</span><span class="p">.</span><span class="o">~</span><span class="n">T</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 擬似デストラクタ呼び出し</span>
+<span class="w">  </span><span class="c1">// C++20からはaの生存期間を終了させる</span>
+<span class="w">  </span><span class="c1">// C++17までは何も効果がない</span>
+<span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="o">~</span><span class="n">T</span><span class="p">();</span>
 
-  <span class="k">return</span> <span class="n">a</span><span class="p">;</span>  <span class="c1">// C++20からはUB、C++17までは123を返す</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// C++20からはUB、C++17までは123を返す</span>
 <span class="p">}</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="n">f</span><span class="p">()</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>  <span class="c1">// C++20からはUBが起こるため不適格、C++17以前は適格</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">123</span><span class="p">);</span><span class="w">  </span><span class="c1">// C++20からはUBが起こるため不適格、C++17以前は適格</span>
 </code></pre></div>
 </p>
 <p>これに伴い、<code><a href="../../reference/memory/destroy_at.html">destroy_at()</a></code>などの擬似デストラクタ呼び出しと等価のことを行うライブラリ機能においても、スカラ型のオブジェクトの生存期間を終了させるようになる。</p>
@@ -465,91 +465,91 @@
 <h2>以前の問題の修正例</h2>
 <h3><code>malloc()</code>/ <code>operator new</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// Xはimplicit-lifetime class types</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">X</span> <span class="o">*</span><span class="nf">make_x</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 後続のXのメンバアクセスを定義された振る舞いとするために</span>
-  <span class="c1">// malloc()はメモリの確保とともにXのオブジェクト（とメンバオブジェクト）を暗黙的に構築する</span>
-  <span class="c1">// そして、構築されたXのオブジェクトへの適切なポインタを返す</span>
-  <span class="n">X</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">X</span><span class="p">));</span>
+<span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="nf">make_x</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 後続のXのメンバアクセスを定義された振る舞いとするために</span>
+<span class="w">  </span><span class="c1">// malloc()はメモリの確保とともにXのオブジェクト（とメンバオブジェクト）を暗黙的に構築する</span>
+<span class="w">  </span><span class="c1">// そして、構築されたXのオブジェクトへの適切なポインタを返す</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="p">));</span>
 
-  <span class="c1">// pの領域にはXのオブジェクトが暗黙的に構築されている</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// ✅ ok</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// ✅ ok</span>
+<span class="w">  </span><span class="c1">// pの領域にはXのオブジェクトが暗黙的に構築されている</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// ✅ ok</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// ✅ ok</span>
 
-  <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// new演算子を使用する場合</span>
-<span class="n">X</span> <span class="o">*</span><span class="nf">make_x</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 後続のXのメンバアクセスを定義された振る舞いとするために</span>
-  <span class="c1">// operator new()はメモリの確保とともにXのオブジェクト（とメンバオブジェクト）を暗黙的に構築する</span>
-  <span class="c1">// そして、構築されたXのオブジェクトへの適切なポインタを返す</span>
-  <span class="n">X</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">)</span><span class="o">::</span><span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">X</span><span class="p">));</span>
+<span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="nf">make_x</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 後続のXのメンバアクセスを定義された振る舞いとするために</span>
+<span class="w">  </span><span class="c1">// operator new()はメモリの確保とともにXのオブジェクト（とメンバオブジェクト）を暗黙的に構築する</span>
+<span class="w">  </span><span class="c1">// そして、構築されたXのオブジェクトへの適切なポインタを返す</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">)</span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="p">));</span>
 
-  <span class="c1">// pの領域にはXのオブジェクトが暗黙的に構築されている</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// ✅ ok</span>
-  <span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// ✅ ok</span>
+<span class="w">  </span><span class="c1">// pの領域にはXのオブジェクトが暗黙的に構築されている</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// ✅ ok</span>
+<span class="w">  </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// ✅ ok</span>
 
-  <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>共用体のコピー</h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">union</span> <span class="n">U</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">union</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">float</span> <span class="nf">pun</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// U::nの生存期間が開始</span>
-  <span class="n">U</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">};</span>
+<span class="kt">float</span><span class="w"> </span><span class="nf">pun</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// U::nの生存期間が開始</span>
+<span class="w">  </span><span class="n">U</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">};</span>
 
-  <span class="c1">// このコピーではuのオブジェクト表現がコピーされるとともに</span>
-  <span class="c1">// uのアクティブメンバに対応するメンバがコピー先でアクティブとなる</span>
-  <span class="n">U</span> <span class="n">u2</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// このコピーではuのオブジェクト表現がコピーされるとともに</span>
+<span class="w">  </span><span class="c1">// uのアクティブメンバに対応するメンバがコピー先でアクティブとなる</span>
+<span class="w">  </span><span class="n">U</span><span class="w"> </span><span class="n">u2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">;</span>
 
-  <span class="c1">// u2.fは非アクティブ</span>
-  <span class="k">return</span> <span class="n">u2</span><span class="p">.</span><span class="n">f</span><span class="p">;</span> <span class="c1">// 💀 UB</span>
+<span class="w">  </span><span class="c1">// u2.fは非アクティブ</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">u2</span><span class="p">.</span><span class="n">f</span><span class="p">;</span><span class="w"> </span><span class="c1">// 💀 UB</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>共用体のコピーにおいてはあくまでコピー元で生存期間内にあったオブジェクトに対応するオブジェクトがコピー先でも生存期間内にあることが保証されるだけで、<em>type-punning</em>のようなことを可能にするわけではない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">U</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">U</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">};</span>
 
-  <span class="n">U</span> <span class="n">u2</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+<span class="w">  </span><span class="n">U</span><span class="w"> </span><span class="n">u2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">;</span>
 
-  <span class="c1">// これならok</span>
-  <span class="k">return</span> <span class="n">u2</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="c1">// ✅ ok</span>
+<span class="w">  </span><span class="c1">// これならok</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">u2</span><span class="p">.</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="c1">// ✅ ok</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>バイト配列の読み込み</h3>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 何かバイト列ストリームを受け取って処理する関数とする</span>
-<span class="kt">void</span> <span class="nf">process</span><span class="p">(</span><span class="n">Stream</span> <span class="o">*</span><span class="n">stream</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// バイト配列の読み出し</span>
-  <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">stream</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Stream</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// バイト配列の読み出し</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stream</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">();</span>
 
-  <span class="c1">// 先頭バイトの状態によって分岐</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">FOO</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">process_foo</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span> <span class="c1">// #1</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="n">process_bar</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Bar</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span> <span class="c1">// #2</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 先頭バイトの状態によって分岐</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FOO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">process_foo</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span><span class="w"> </span><span class="c1">// #1</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">process_bar</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Bar</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span><span class="w"> </span><span class="c1">// #2</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>Foo</code>も<code>Bar</code>も<em>implicit-lifetime types</em>だとして、このコードに対して<code>Stream::read()</code>が次のように実装されている場合</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">Stream</span><span class="o">::</span><span class="n">read</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// ... determine data size ...</span>
-  <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">buffer</span><span class="p">(</span><span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">N</span><span class="p">]);</span>
-  <span class="c1">// ... copy data into buffer ...</span>
-  <span class="k">return</span> <span class="n">buffer</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Stream</span><span class="o">::</span><span class="n">read</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ... determine data size ...</span>
+<span class="w">  </span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="p">[</span><span class="n">N</span><span class="p">]);</span>
+<span class="w">  </span><span class="c1">// ... copy data into buffer ...</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -604,7 +604,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

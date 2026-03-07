@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;regex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">regex_error</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">regex_error</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="../stdexcept.html">std::runtime_error</a></span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">regex_error</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../stdexcept.html">std::runtime_error</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -269,41 +269,41 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="cbcb53f5cedee1296465b990e6af46fac1506d4a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="cbcb53f5cedee1296465b990e6af46fac1506d4a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../regex.html">&lt;regex&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
 
-<span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="nf">code_to_string</span><span class="p">(</span><span class="n"><a href="regex_constants/error_type.html">std::regex_constants::error_type</a></span> <span class="n">e</span><span class="p">)</span>
+<span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">code_to_string</span><span class="p">(</span><span class="n"><a href="regex_constants/error_type.html">std::regex_constants::error_type</a></span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">regex_constants</span><span class="p">;</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="nl">error_collate</span><span class="p">:</span>    <span class="k">return</span> <span class="s">"error collapse"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_ctype</span><span class="p">:</span>      <span class="k">return</span> <span class="s">"error ctype"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_escape</span><span class="p">:</span>     <span class="k">return</span> <span class="s">"error escape"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_backref</span><span class="p">:</span>    <span class="k">return</span> <span class="s">"error back reference"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_brack</span><span class="p">:</span>      <span class="k">return</span> <span class="s">"error bracket"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_paren</span><span class="p">:</span>      <span class="k">return</span> <span class="s">"error paren"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_brace</span><span class="p">:</span>      <span class="k">return</span> <span class="s">"error brace"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_badbrace</span><span class="p">:</span>   <span class="k">return</span> <span class="s">"error bad brace"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_range</span><span class="p">:</span>      <span class="k">return</span> <span class="s">"error <a href="../ranges/range.html">range</a>"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_space</span><span class="p">:</span>      <span class="k">return</span> <span class="s">"error space"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_badrepeat</span><span class="p">:</span>  <span class="k">return</span> <span class="s">"error bad repeat"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_complexity</span><span class="p">:</span> <span class="k">return</span> <span class="s">"error complexity"</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">error_stack</span><span class="p">:</span>      <span class="k">return</span> <span class="s">"error stack"</span><span class="p">;</span>
-    <span class="k">default</span><span class="o">:</span>
-      <span class="k">throw</span> <span class="n"><a href="../stdexcept.html">std::invalid_argument</a></span><span class="p">(</span><span class="s">"invalid error code"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">regex_constants</span><span class="p">;</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_collate</span><span class="p">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"error collapse"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_ctype</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"error ctype"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_escape</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"error escape"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_backref</span><span class="p">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"error back reference"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_brack</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"error bracket"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_paren</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"error paren"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_brace</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"error brace"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_badbrace</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"error bad brace"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_range</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"error <a href="../ranges/range.html">range</a>"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_space</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"error space"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_badrepeat</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"error bad repeat"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_complexity</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"error complexity"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">error_stack</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"error stack"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../stdexcept.html">std::invalid_argument</a></span><span class="p">(</span><span class="s">"invalid error code"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"("</span><span class="p">);</span> <span class="c1">// 開きカッコに対応する閉じカッコがない正規表現を指定</span>
-  <span class="p">}</span>
-  <span class="k">catch</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">std::regex_error</span></span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">code_to_string</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n"><a href="regex_error/code.html">code()</a></span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="basic_regex.html">std::regex</a></span><span class="w"> </span><span class="n">re</span><span class="p">(</span><span class="s">"("</span><span class="p">);</span><span class="w"> </span><span class="c1">// 開きカッコに対応する閉じカッコがない正規表現を指定</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::regex_error</span></span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">code_to_string</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n"><a href="regex_error/code.html">code()</a></span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -340,7 +340,7 @@ The expression contained mismatched ( and ).
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

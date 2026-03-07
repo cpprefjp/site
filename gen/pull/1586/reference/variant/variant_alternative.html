@@ -213,27 +213,27 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;variant&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">variant_alternative</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">variant_alternative</span><span class="p">;</span>                       <span class="c1">// (1) C++17 先行宣言</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">variant_alternative</span><span class="p">;</span><span class="w">                       </span><span class="c1">// (1) C++17 先行宣言</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>           <span class="c1">// (2) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w">           </span><span class="c1">// (2) C++17</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="k">volatile</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>        <span class="c1">// (3) C++17</span>
-                                                    <span class="c1">// C++20で非推奨</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w">        </span><span class="c1">// (3) C++17</span>
+<span class="w">                                                    </span><span class="c1">// C++20で非推奨</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="k">const</span> <span class="k">volatile</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>  <span class="c1">// (4) C++17</span>
-                                                    <span class="c1">// C++20で非推奨</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w">  </span><span class="c1">// (4) C++17</span>
+<span class="w">                                                    </span><span class="c1">// C++20で非推奨</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">variant_alternative_t</span> <span class="o">=</span>
-    <span class="k">typename</span> <span class="n">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>       <span class="c1">// (5) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">variant_alternative_t</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="k">typename</span><span class="w"> </span><span class="nc">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w">       </span><span class="c1">// (5) C++17</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Types</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n"><a href="variant.html">variant</a></span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span> <span class="c1">// (6) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Types</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">variant_alternative</span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="variant.html">variant</a></span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (6) C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -263,56 +263,56 @@
 <li>(3), (4) : これらの部分特殊化は、型の<code>volatile</code>修飾を部分的に非推奨にすることにともなって、非推奨化される</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="6a6bc24ecbb8f08fd3026afa30feec019d32d4a7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6a6bc24ecbb8f08fd3026afa30feec019d32d4a7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../variant.html">&lt;variant&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (6) CV修飾なし<a href="variant.html">std::variant</a>型の、1番目の候補型を取得する</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="n"><span style="color:#ff0000">std::variant_alternative</span></span><span class="o">&lt;</span>
-      <span class="mi">1</span><span class="p">,</span>
-      <span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span>
-    <span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-    <span class="n"><a href="../string/basic_string.html">std::string</a></span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (6) CV修飾なし<a href="variant.html">std::variant</a>型の、1番目の候補型を取得する</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::variant_alternative</span></span><span class="o">&lt;</span>
+<span class="w">      </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../string/basic_string.html">std::string</a></span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// (2) const修飾付き<a href="variant.html">std::variant</a>型の、2番目の候補型を取得する</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="n"><span style="color:#ff0000">std::variant_alternative</span></span><span class="o">&lt;</span>
-      <span class="mi">2</span><span class="p">,</span>
-      <span class="k">const</span> <span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span>
-    <span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">double</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (2) const修飾付き<a href="variant.html">std::variant</a>型の、2番目の候補型を取得する</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::variant_alternative</span></span><span class="o">&lt;</span>
+<span class="w">      </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// (3) volatile修飾付き<a href="variant.html">std::variant</a>型の、0番目の候補型を取得する</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="n"><span style="color:#ff0000">std::variant_alternative</span></span><span class="o">&lt;</span>
-      <span class="mi">0</span><span class="p">,</span>
-      <span class="k">volatile</span> <span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span>
-    <span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-    <span class="k">volatile</span> <span class="kt">int</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (3) volatile修飾付き<a href="variant.html">std::variant</a>型の、0番目の候補型を取得する</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::variant_alternative</span></span><span class="o">&lt;</span>
+<span class="w">      </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="k">volatile</span><span class="w"> </span><span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// (4) const volatile修飾付き<a href="variant.html">std::variant</a>型の、1番目の候補型を取得する</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="n"><span style="color:#ff0000">std::variant_alternative</span></span><span class="o">&lt;</span>
-      <span class="mi">1</span><span class="p">,</span>
-      <span class="k">const</span> <span class="k">volatile</span> <span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span>
-    <span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
-    <span class="k">const</span> <span class="k">volatile</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (4) const volatile修飾付き<a href="variant.html">std::variant</a>型の、1番目の候補型を取得する</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::variant_alternative</span></span><span class="o">&lt;</span>
+<span class="w">      </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// (5) エイリアステンプレート版</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
-    <span class="n"><span style="color:#ff0000">std::variant_alternative_t</span></span><span class="o">&lt;</span>
-      <span class="mi">2</span><span class="p">,</span>
-      <span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span>
-    <span class="o">&gt;</span><span class="p">,</span>
-    <span class="kt">double</span>
-  <span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (5) エイリアステンプレート版</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><span style="color:#ff0000">std::variant_alternative_t</span></span><span class="o">&lt;</span>
+<span class="w">      </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="n"><a href="variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">double</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -354,7 +354,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

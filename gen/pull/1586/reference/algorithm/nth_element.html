@@ -213,41 +213,41 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">nth_element</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">nth_element</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">nth</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span>           <span class="c1">// (1) C++03</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">nth_element</span><span class="p">(</span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">nth</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">           </span><span class="c1">// (1) C++03</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="kt">void</span> <span class="n">nth_element</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
-                             <span class="n">RandomAccessIterator</span> <span class="n">nth</span><span class="p">,</span>
-                             <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">nth_element</span><span class="p">(</span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">nth</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">nth_element</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">nth</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
-                   <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>                        <span class="c1">// (2) C++03</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">RandomAccessIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">nth_element</span><span class="p">(</span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">nth</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">Compare</span><span class="w"> </span><span class="n">comp</span><span class="p">);</span><span class="w">                        </span><span class="c1">// (2) C++03</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="kt">void</span> <span class="n">nth_element</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
-                             <span class="n">RandomAccessIterator</span> <span class="n">nth</span><span class="p">,</span>
-                             <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
-                             <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>              <span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">RandomAccessIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">nth_element</span><span class="p">(</span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">nth</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">Compare</span><span class="w"> </span><span class="n">comp</span><span class="p">);</span><span class="w">              </span><span class="c1">// (2) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">nth_element</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">nth</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span>           <span class="c1">// (3) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">nth_element</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">nth</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">           </span><span class="c1">// (3) C++17</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">nth_element</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">nth</span><span class="p">,</span>
-                   <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
-                   <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>                        <span class="c1">// (4) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RandomAccessIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">nth_element</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">nth</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">RandomAccessIterator</span><span class="w"> </span><span class="n">last</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">Compare</span><span class="w"> </span><span class="n">comp</span><span class="p">);</span><span class="w">                        </span><span class="c1">// (4) C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -269,20 +269,20 @@
 <li>(3), (4) : <code>N = last - first</code>であるとして、O(N)回だけ比較または<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の適用と、O(NlogN)回だけswap操作を行う</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="37a5b546d4b4c8768ce10ac7e1bd11a24a9e317a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="37a5b546d4b4c8768ce10ac7e1bd11a24a9e317a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
 
-  <span class="c1">// 4番目に小さい値より小さい値を前に集める</span>
-  <span class="n"><span style="color:#ff0000">std::nth_element</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 4番目に小さい値より小さい値を前に集める</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::nth_element</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
 
-  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -324,7 +324,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -217,15 +217,15 @@
 <p>LayoutMappingPolicyは、多次元配列ビュー<code><a href="mdspan.html">mdspan</a></code>において多次元インデクスから参照先メモリブロック位置へと変換する<a href="LayoutMapping.html">レイアウトマッピング</a>を定めるクラスが満たすべき要件である。</p>
 <p>LayoutMappingPolicyを満たすユーザ定義<code>layout_custom</code>ポリシークラスは、下記の構造で定義される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// レイアウトマッピングポリシー</span>
-<span class="k">struct</span> <span class="n">layout_custom</span> <span class="p">{</span>
-  <span class="c1">// レイアウトマッピング</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="extents.html">Extents</a></span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">mapping</span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">using</span> <span class="n">layout_type</span> <span class="o">=</span> <span class="n">layout_custom</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">extent_type</span> <span class="o">=</span> <span class="n"><a href="extents.html">Extents</a></span><span class="p">;</span>
-    <span class="c1">// ...</span>
-  <span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">layout_custom</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// レイアウトマッピング</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="extents.html">Extents</a></span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">mapping</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">layout_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layout_custom</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">extent_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="extents.html">Extents</a></span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -284,7 +284,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

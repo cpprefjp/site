@@ -225,17 +225,17 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">completion_signatures</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">completion</span><span class="o">-</span><span class="n">signature</span><span class="p">...</span> <span class="n">Fns</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">completion_signatures</span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Tag</span><span class="o">&gt;</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">count</span><span class="o">-</span><span class="n">of</span><span class="p">(</span><span class="n">Tag</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><i>see below</i></span><span class="p">;</span> <span class="p">}</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n">completion</span><span class="o">-</span><span class="n">signature</span><span class="p">...</span><span class="w"> </span><span class="n">Fns</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">completion_signatures</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Tag</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="o">-</span><span class="n">of</span><span class="p">(</span><span class="n">Tag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Fn</span><span class="o">&gt;</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">void</span> <span class="k">for</span><span class="o">-</span><span class="n">each</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span> <span class="n">fn</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
-      <span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Fns</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)),</span> <span class="p">...);</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="k">for</span><span class="o">-</span><span class="n">each</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Fns</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)),</span><span class="w"> </span><span class="p">...);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -243,15 +243,15 @@
 <p><code>completion_signatures</code>クラステンプレートは、完了シグネチャの集合をテンプレートパラメータとして表現する。</p>
 <p>式<code>tag</code>の<a href="../../type_traits/decay.html">decayed</a>型を<code>Tag</code>としたとき、説明専用のメンバ関数<code>count-of</code>は<code>Fns</code>中の<code>Tag(Ts...)</code>形式で表される関数型の個数を返す。</p>
 <h3>説明専用のコンセプト <code>valid-completion-signatures</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sigs</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">valid</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">signatures</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sigs</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">valid</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">signatures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>Sigs</code>が<code>completion_signatures</code>クラステンプレートの特殊化であるとき、<code>Sigs</code>は説明専用コンセプト<code>valid-completion-signatures</code>のモデルである。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <p><code>Fns</code>の各要素<code>Fn</code>が、下記の説明専用コンセプト<code>completion-signature</code>を満たすこと。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Fn</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">completion</span><span class="o">-</span><span class="n">signature</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">completion</span><span class="o">-</span><span class="n">signature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>型<code>Fn</code>が下記いずれかを満たす関数型であるとき、<code>Fn</code>はコンセプト<code>completion-signature</code>を満たす。</p>
@@ -261,21 +261,21 @@
 <li><code><a href="set_stopped.html">set_stopped_t</a>()</code></li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="01c9aa78c97ba022e14dccc49fcea3c2edc17cd7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="01c9aa78c97ba022e14dccc49fcea3c2edc17cd7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 下記の完了操作をサポートする完了シグネチャ集合型</span>
-  <span class="c1">//   値完了     set_value(int), set_value(int, int)</span>
-  <span class="c1">//   エラー完了 set_error(<a href="../../exception/exception_ptr.html">std::exception_ptr</a>)</span>
-  <span class="c1">//   停止完了   set_stopped()</span>
-  <span class="k">using</span> <span class="n">Sigs</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::completion_signatures</span></span><span class="o">&lt;</span>
-    <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
-    <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">),</span>
-    <span class="n"><a href="set_error.html">ex::set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../exception/exception_ptr.html">std::exception_ptr</a></span><span class="p">),</span>
-    <span class="n"><a href="set_stopped.html">ex::set_stopped_t</a></span><span class="p">()</span>
-  <span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 下記の完了操作をサポートする完了シグネチャ集合型</span>
+<span class="w">  </span><span class="c1">//   値完了     set_value(int), set_value(int, int)</span>
+<span class="w">  </span><span class="c1">//   エラー完了 set_error(<a href="../../exception/exception_ptr.html">std::exception_ptr</a>)</span>
+<span class="w">  </span><span class="c1">//   停止完了   set_stopped()</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Sigs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::completion_signatures</span></span><span class="o">&lt;</span>
+<span class="w">    </span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="set_error.html">ex::set_error_t</a></span><span class="p">(</span><span class="n"><a href="../../exception/exception_ptr.html">std::exception_ptr</a></span><span class="p">),</span>
+<span class="w">    </span><span class="n"><a href="set_stopped.html">ex::set_stopped_t</a></span><span class="p">()</span>
+<span class="w">  </span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -323,7 +323,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

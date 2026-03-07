@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;bit&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">countl_zero</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">countl_zero</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">countl_zero</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -236,19 +236,19 @@
 <li>GCCの組み込み関数として<code>__builtin_clz()</code>、<code>__builtin_clzl()</code>、<code>__builtin_clzll()</code>が定義されていた</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="0c7fbe8a009b63c303b4e0fb2ed52fc232440bf5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../bit.html">&lt;bit&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0c7fbe8a009b63c303b4e0fb2ed52fc232440bf5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../bit.html">&lt;bit&gt;</a></span>
+<span class="cp">#include <a href="../cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b0001</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000u</span><span class="p">);</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::countl_zero</span></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b0001'0000'0000'0000'0000'0000'0000'0000u</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::countl_zero</span></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::countl_zero</span></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b1000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000u</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::countl_zero</span></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="n">b0100</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000</span><span class="err">'</span><span class="mo">0000u</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::countl_zero</span></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0u</span><span class="p">))</span> <span class="o">==</span> <span class="mi">32</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::countl_zero</span></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b1000'0000'0000'0000'0000'0000'0000'0000u</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::countl_zero</span></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mb">0b0100'0000'0000'0000'0000'0000'0000'0000u</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::countl_zero</span></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0u</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -286,7 +286,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;cstdint&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">intptr_t</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="kt">intptr_t</span> <span class="o">=</span> <span class="n"><i>signed-integer-type</i></span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="kt">intptr_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>signed-integer-type</i></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -237,37 +237,37 @@
 <li>コールバック関数に渡す引数として、任意のオブジェクトを設定する</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="abc6ceb52c37fd25f1916f144376e764424a1dc2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="abc6ceb52c37fd25f1916f144376e764424a1dc2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdint.html">&lt;cstdint&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
 <span class="c1">// 整数型ひとつをコールバック関数の引数として渡せるAPI</span>
-<span class="kt">void</span> <span class="nf">callback_api</span><span class="p">(</span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)(</span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="p">),</span> <span class="n"><span style="color:#ff0000">std::intptr_t</span></span> <span class="n">arg</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">callback_api</span><span class="p">(</span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)(</span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="p">),</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="w"> </span><span class="n">arg</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">callback</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="w">  </span><span class="n">callback</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="kt">void</span> <span class="nf">on_call</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span> <span class="n">arg</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">on_call</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="w"> </span><span class="n">arg</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// パラメータで渡される整数値を、元のX*に逆変換する</span>
-  <span class="n">X</span><span class="o">*</span> <span class="n">x</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">X</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
-  <span class="k">delete</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// パラメータで渡される整数値を、元のX*に逆変換する</span>
+<span class="w">  </span><span class="n">X</span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">X</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"on_call"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"on_call"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 
-  <span class="c1">// value変数へのポインタを、整数値として保持する</span>
-  <span class="n"><span style="color:#ff0000">std::intptr_t</span></span> <span class="n">pointer_value</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">hex</span> <span class="o">&lt;&lt;</span> <span class="s">"0x"</span> <span class="o">&lt;&lt;</span> <span class="n">pointer_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// value変数へのポインタを、整数値として保持する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="w"> </span><span class="n">pointer_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"0x"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">pointer_value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// コールバック関数の引数として、オブジェクトへのポインタを整数値に変換して渡す</span>
-  <span class="n">X</span><span class="o">*</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X</span><span class="p">();</span>
-  <span class="n">callback_api</span><span class="p">(</span><span class="n">on_call</span><span class="p">,</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// コールバック関数の引数として、オブジェクトへのポインタを整数値に変換して渡す</span>
+<span class="w">  </span><span class="n">X</span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">X</span><span class="p">();</span>
+<span class="w">  </span><span class="n">callback_api</span><span class="p">(</span><span class="n">on_call</span><span class="p">,</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::intptr_t</span></span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -303,7 +303,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

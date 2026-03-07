@@ -220,18 +220,18 @@
 <h2>概要</h2>
 <p>関数宣言の構文において、先頭の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を<code>auto</code>もしくは<code><a href="decltype_auto.html">decltype(auto)</a></code>とすることで、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が関数の<code>return</code>文から推論される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 関数f()の戻り値型はint</span>
-<span class="k">auto</span> <span class="nf">f</span><span class="p">()</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code><a href="decltype_auto.html">decltype(auto)</a></code>は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として変数への参照を返したい場合に使用する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// autoの場合はintが戻り値型となるが、</span>
 <span class="c1">// <a href="decltype_auto.html">decltype(auto)</a>とすることでint&amp;が戻り値型となる。</span>
-<span class="n"><a href="decltype_auto.html">decltype(auto)</a></span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span>
+<span class="n"><a href="decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -240,104 +240,104 @@
 <h2>仕様</h2>
 <h3>先行宣言と再宣言</h3>
 <p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論する関数宣言構文は、先行宣言と再宣言を許可する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">();</span> <span class="c1">// 先行宣言</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// 先行宣言</span>
 
-<span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="c1">// 定義</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="c1">// 定義</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">auto</span> <span class="nf">f</span><span class="p">();</span> <span class="c1">// 再宣言</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// 再宣言</span>
 </code></pre></div>
 </p>
 <p>これは、関数テンプレートの場合も同様である。</p>
 <p>ただし、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論する関数宣言構文で先行宣言した場合に、通常の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を指定する関数宣言構文では再宣言できない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">();</span> <span class="c1">// 先行宣言</span>
-<span class="kt">int</span> <span class="nf">f</span><span class="p">();</span> <span class="c1">// コンパイルエラー : 再宣言に別な関数宣言構文を使用できない</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// 先行宣言</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// コンパイルエラー : 再宣言に別な関数宣言構文を使用できない</span>
 </code></pre></div>
 </p>
 <p>関数テンプレートの明示的な特殊化とインスタンス化の場合も、同じ関数宣言構文を使用する必要がある。</p>
 <p>この構文は、型変換演算子にも適用される：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="k">operator</span> <span class="k">auto</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">operator</span><span class="w"> </span><span class="k">auto</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">{};</span>
 </code></pre></div>
 </p>
 <h3>複数個のreturn文</h3>
 <p>複数の<code>return</code>文がある場合には<a href="../../reference/type_traits/common_type.html">それらの式に共通する型</a>が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型となる。</p>
 <p>複数の<code>return</code>文があり、それらに共通する型がない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 戻り値の型は、intとconst int&amp;の共通の型であるint</span>
-<span class="k">auto</span> <span class="nf">f</span><span class="p">()</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">cx</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-  <span class="k">else</span>
-    <span class="k">return</span> <span class="n">cx</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cx</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>再帰</h3>
 <p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論する関数宣言構文は、再帰を許可する：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>            <span class="c1">// 戻り値の型がintに推論される</span>
-  <span class="k">else</span>
-    <span class="k">return</span> <span class="n">sum</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// OK : まだ戻り値の型が確定はしていない</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">            </span><span class="c1">// 戻り値の型がintに推論される</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">i</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK : まだ戻り値の型が確定はしていない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>ただし、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が確定しない再帰は許可しない：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">h</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">h</span><span class="p">();</span> <span class="p">}</span> <span class="c1">// コンパイルエラー</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">h</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">h</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// コンパイルエラー</span>
 </code></pre></div>
 </p>
 <p>相互再帰は許可しない：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// パラメータnが偶数か奇数かを判定する関数</span>
 <span class="c1">// お互いの関数が、お互いの実装を使用する</span>
-<span class="k">auto</span> <span class="nf">is_even</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
-<span class="k">auto</span> <span class="nf">is_odd</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">is_even</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">is_odd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 
-<span class="k">auto</span> <span class="nf">is_even</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">is_even</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="nb">true</span> <span class="o">:</span> <span class="n">is_odd</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// コンパイルエラー : 戻り値の型を推論できない</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">is_odd</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// コンパイルエラー : 戻り値の型を推論できない</span>
 <span class="p">}</span>
 
-<span class="k">auto</span> <span class="nf">is_odd</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">is_odd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="nb">false</span> <span class="o">:</span> <span class="n">is_even</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// コンパイルエラー : 戻り値の型を推論できない</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">is_even</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// コンパイルエラー : 戻り値の型を推論できない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>テンプレートによる<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の置き換え失敗は、SFINAEではなくコンパイルエラー</h3>
 <p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論する関数宣言構文において、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型がテンプレートのインスタンス化で推論される場合、そのインスタンス化の失敗は、テンプレートの置き換え失敗ではなくエラーとする。<code>decltype</code>にはラムダ式を渡せないために、<code>decltype</code>によって<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を推論する関数宣言構文ではラムダ式を返せないように思えるが、この仕様によって、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論する関数宣言構文で、ラムダ式を<code>return</code>文で返すことを許可する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// ラムダ式によって定義される、一意な名前の関数オブジェクト型を返す</span>
-<span class="k">auto</span> <span class="nf">f</span><span class="p">()</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="p">[]{};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[]{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論の補助</h3>
 <p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論する関数宣言構文において、プレースホルダー型である<code>auto</code>に対して、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>、参照修飾、ポインタ修飾などを付加して<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の推論を補助できる。</p>
 <p>たとえば、以下のように静的変数を返した場合、関数<code>f()</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は<code>int</code>であると推論される：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">static_value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="k">auto</span> <span class="nf">f</span><span class="p">()</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">static_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">static_value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">static_value</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>この関数が必ず<code>int&amp;</code>を返したい、という場合には、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型のプレースホルダーを<code>auto&amp;</code>のように参照修飾することで、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を参照として返せる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">static_value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="k">auto</span><span class="o">&amp;</span> <span class="n">f</span><span class="p">()</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">static_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">static_value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">static_value</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -352,20 +352,20 @@
 <p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論する関数宣言構文は、仮想関数には使用できない。</p>
 <p>これは、オーバーライドのチェックと仮想関数テーブルのレイアウトが複雑になるためである。</p>
 <h2>例</h2>
-<p><div class="yata" id="1cf874eb1669e1b61eb696740b44d213d75ec0a7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1cf874eb1669e1b61eb696740b44d213d75ec0a7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
 <span class="c1">// 関数オブジェクトfを呼び出した結果の型を、関数g()の戻り値型とする</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
-<span class="k">auto</span> <span class="n">g</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> 
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 変数resultの型はint</span>
-  <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">g</span><span class="p">([]{</span> <span class="k">return</span> <span class="mi">3</span><span class="p">;</span> <span class="p">});</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 変数resultの型はint</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">([]{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -376,13 +376,13 @@
 <p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論する関数宣言構文は、C++11で導入された<code>auto</code>キーワードによる変数の型推論、<a href="../cpp11/lambda_expressions.html">ラムダ式</a>での<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論に合わせて導入された。</p>
 <p>C++11で、<a href="../cpp11/trailing_return_types.html">戻り値の型を後置する関数宣言構文</a>が導入され、それによって<code>decltype</code>を使用して<code>return</code>文に指定した式の結果となる型を容易に返せるようになった：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 関数オブジェクトfを呼び出した結果の型を、関数g()の戻り値型とする</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
-<span class="k">auto</span> <span class="n">g</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">f</span><span class="p">())</span> <span class="p">{</span> <span class="k">return</span> <span class="n">f</span><span class="p">();</span> <span class="p">}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">f</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 </p>
 <p>しかしこの表記は、同じ式を2回書くことになるため冗長だった。<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論できるようになったことで、これがより短く簡潔に書けるようになった：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
-<span class="k">auto</span> <span class="n">g</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">f</span><span class="p">();</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>検討されたほかの選択肢</h2>
@@ -419,7 +419,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

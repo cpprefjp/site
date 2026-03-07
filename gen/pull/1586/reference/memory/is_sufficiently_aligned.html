@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_sufficiently_aligned</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">Alignment</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-    <span class="kt">bool</span> <span class="n">is_sufficiently_aligned</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">ptr</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">Alignment</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_sufficiently_aligned</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -231,15 +231,15 @@
 <p>この関数テンプレートは<code><a href="../mdspan.html">&lt;mdspan&gt;</a></code>ヘッダへの<code><a href="../mdspan/aligned_accessor.html">aligned_accessor</a></code>導入に伴って必要とされた機能である。
 一方で、ポインタ値のアライメント要件を検査するユースケースは一般的と考えられたため、汎用ユーティリティとして<code>&lt;memory&gt;</code>ヘッダに対して機能追加された。</p>
 <h2>例</h2>
-<p><div class="yata" id="32b5c97e8e886511eef19f6c8147f72fa6b78025"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../new.html">&lt;new&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="32b5c97e8e886511eef19f6c8147f72fa6b78025"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../new.html">&lt;new&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="k">new</span><span class="p">(</span><span class="n"><a href="../new/align_val_t.html">std::align_val_t</a></span><span class="p">{</span><span class="mi">32</span><span class="p">})</span> <span class="kt">int</span><span class="p">;</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span> <span class="n"><span style="color:#ff0000">std::is_sufficiently_aligned</span></span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span> <span class="p">);</span>
-  <span class="k">delete</span> <span class="n">ptr</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n"><a href="../new/align_val_t.html">std::align_val_t</a></span><span class="p">{</span><span class="mi">32</span><span class="p">})</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_sufficiently_aligned</span></span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">ptr</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -247,10 +247,10 @@
 <p><pre><code></code></pre></p>
 <h2>実装例</h2>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 提案文書P2897R7より引用</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">ByteAlignment</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ElementType</span><span class="o">&gt;</span>
-<span class="kt">bool</span> <span class="n">is_sufficiently_aligned</span><span class="p">(</span><span class="n">ElementType</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ByteAlignment</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ElementType</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">is_sufficiently_aligned</span><span class="p">(</span><span class="n">ElementType</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../bit/bit_cast.html">bit_cast</a></span><span class="o">&lt;</span><span class="kt">uintptr_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">ByteAlignment</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../bit/bit_cast.html">bit_cast</a></span><span class="o">&lt;</span><span class="kt">uintptr_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">ByteAlignment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -291,7 +291,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

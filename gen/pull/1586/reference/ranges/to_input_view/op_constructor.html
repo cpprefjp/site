@@ -226,10 +226,10 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class to_input_view">to_input_view::</span><span class="token">コンストラクタ</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">to_input_view</span><span class="p">()</span>
-  <span class="n">requires</span> <span class="n"><a href="../../concepts/default_initializable.html">default_initializable</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../concepts/default_initializable.html">default_initializable</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1) C++26</span>
 
-<span class="k">constexpr</span> <span class="k">explicit</span>
-<span class="nf">to_input_view</span><span class="p">(</span><span class="n">V</span> <span class="n">base</span><span class="p">);</span>                          <span class="c1">// (2) C++26</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span>
+<span class="n">to_input_view</span><span class="p">(</span><span class="n">V</span><span class="w"> </span><span class="n">base</span><span class="p">);</span><span class="w">                          </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -244,17 +244,17 @@
 <li>(2): ベースとなるRangeを<code>std::move(base)</code>で初期化する</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="f8fd949d267815af34b8af698e3319bd89df37d1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f8fd949d267815af34b8af698e3319bd89df37d1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 
-  <span class="c1">// (1) デフォルトコンストラクタ</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">to_input_view</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n"><a href="../all.html">all_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n"><a href="../view.html">view</a>1</span><span class="p">{};</span>
+<span class="w">  </span><span class="c1">// (1) デフォルトコンストラクタ</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">to_input_view</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n"><a href="../all.html">all_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n"><a href="../view.html">view</a>1</span><span class="p">{};</span>
 
-  <span class="c1">// (2) ベースRangeを受け取るコンストラクタ</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">to_input_view</span> <span class="n"><a href="../view.html">view</a>2</span><span class="p">{</span><span class="n">v</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (2) ベースRangeを受け取るコンストラクタ</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">to_input_view</span><span class="w"> </span><span class="n"><a href="../view.html">view</a>2</span><span class="p">{</span><span class="n">v</span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -288,7 +288,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

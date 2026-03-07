@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class mutex">mutex::</span><span class="token">native_handle</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">native_handle_type</span> <span class="nf">native_handle</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">native_handle_type</span><span class="w"> </span><span class="nf">native_handle</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -241,19 +241,19 @@
 <p>実装依存のミューテックスハンドル</p>
 <h2>例</h2>
 <p><div class="yata" id="ad220d1f59c1af503071798c4f6fe93992dffe2d"><div class="codehilite"><pre><span></span><code><span class="c1">// libstdc++(pthread)環境での、ミューテックスの優先順位上限取得</span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;pthread.h&gt;</span><span class="cp"></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../mutex.html">&lt;mutex&gt;</a></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pthread.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../mutex.html">std::mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
 
-  <span class="c1">// ミューテックスの優先順位上限を取得する</span>
-  <span class="kt">int</span> <span class="n">prioceiling</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">pthread_mutex_getprioceiling</span><span class="p">(</span><span class="n">mtx</span><span class="p">.</span><span class="n"><span style="color:#ff0000">native_handle()</span></span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prioceiling</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ミューテックスの優先順位上限を取得する</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">prioceiling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">pthread_mutex_getprioceiling</span><span class="p">(</span><span class="n">mtx</span><span class="p">.</span><span class="n"><span style="color:#ff0000">native_handle()</span></span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">prioceiling</span><span class="p">);</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">prioceiling</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">prioceiling</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -290,7 +290,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

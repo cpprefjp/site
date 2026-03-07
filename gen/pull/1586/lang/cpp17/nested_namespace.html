@@ -222,32 +222,32 @@
 <h2>仕様</h2>
 <p>入れ子状にしたい名前空間指定子を <code>::</code> で結合して定義する。</p>
 <h2>例</h2>
-<p><div class="yata" id="7288de40f0bab59edbb04650b9dcbb3890340405"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7288de40f0bab59edbb04650b9dcbb3890340405"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
 <span class="c1">// 新機能: C++17 で可能となる入れ子名前空間の定義</span>
-<span class="k">namespace</span> <span class="n">aaa</span><span class="o">::</span><span class="n">bbb</span><span class="o">::</span><span class="n">ccc</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">aaa</span><span class="o">::</span><span class="nn">bbb</span><span class="o">::</span><span class="nn">ccc</span>
 <span class="p">{</span>
-  <span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
-  <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a new nested namespace definition is worked!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"a new nested namespace definition is worked!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// 比較用: C++14 までは入れ子状の名前空間を1つ1つ定義しなければならなかった。</span>
-<span class="k">namespace</span> <span class="n">aaa</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">aaa</span>
 <span class="p">{</span>
-  <span class="k">namespace</span> <span class="n">bbb</span>
-  <span class="p">{</span>
-    <span class="k">namespace</span> <span class="n">ccc</span>
-    <span class="p">{</span>
-      <span class="kt">void</span> <span class="n">g</span><span class="p">()</span>
-      <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a legacy nested namespace definition is workded.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">bbb</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ccc</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"a legacy nested namespace definition is workded.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">aaa</span><span class="o">::</span><span class="n">bbb</span><span class="o">::</span><span class="n">ccc</span><span class="o">::</span><span class="n">f</span><span class="p">();</span>
-  <span class="n">aaa</span><span class="o">::</span><span class="n">bbb</span><span class="o">::</span><span class="n">ccc</span><span class="o">::</span><span class="n">g</span><span class="p">();</span>
+<span class="w">  </span><span class="n">aaa</span><span class="o">::</span><span class="n">bbb</span><span class="o">::</span><span class="n">ccc</span><span class="o">::</span><span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="n">aaa</span><span class="o">::</span><span class="n">bbb</span><span class="o">::</span><span class="n">ccc</span><span class="o">::</span><span class="n">g</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -290,7 +290,7 @@ a legacy nested namespace definition is workded.
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

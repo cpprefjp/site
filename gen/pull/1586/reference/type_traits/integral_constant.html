@@ -213,19 +213,19 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">integral_constant</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">integral_constant</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="n">T</span> <span class="n">value</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">v</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">integral_constant</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
 
-    <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">type</span>       <span class="o">=</span> <span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">v</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">v</span><span class="o">&gt;</span><span class="p">;</span>
 
-    <span class="k">constexpr</span> <span class="k">operator</span> <span class="nf">value_type</span><span class="p">()</span>          <span class="p">{</span> <span class="k">return</span> <span class="n">value</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// C++11</span>
-    <span class="k">constexpr</span> <span class="k">operator</span> <span class="nf">value_type</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">value</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// C++14</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">value_type</span><span class="p">()</span><span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// C++11</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">value_type</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// C++14</span>
 
-    <span class="k">constexpr</span> <span class="n">value_type</span> <span class="nf">operator</span><span class="p">()()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">value</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// C++14</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="k">operator</span><span class="p">()()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// C++14</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -233,16 +233,16 @@
 <p><code>integral_constant</code> は基本となる整数型と定数を合わせ，型として整数定数を表す。</p>
 <p>多くの場合、<code>&lt;type_traits&gt;</code> 内のクラスやその他クラスから基底クラスとして派生されることによって用いられる。</p>
 <h2>例</h2>
-<p><div class="yata" id="a2d7890145da4df4d31051e35a4be3b55b5f1a05"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a2d7890145da4df4d31051e35a4be3b55b5f1a05"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">using</span> <span class="n">int_zero</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::integral_constant</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">int_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::integral_constant</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="n">int_zero</span><span class="o">::</span><span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"value == 0"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">int_zero</span><span class="o">::</span><span class="n">value_type</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"value_type == int"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">int_zero</span><span class="o">::</span><span class="n">type</span><span class="p">,</span> <span class="n">int_zero</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"type == int_zero"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n">int_zero</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"int_zero() == 0"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">int_zero</span><span class="o">::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"value == 0"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">int_zero</span><span class="o">::</span><span class="n">value_type</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"value_type == int"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">int_zero</span><span class="o">::</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">int_zero</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"type == int_zero"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">int_zero</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"int_zero() == 0"</span><span class="p">);</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
@@ -296,7 +296,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

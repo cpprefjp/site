@@ -245,10 +245,10 @@
 <h3>複合代入演算子、インクリメント演算子</h3>
 <p>複合代入演算子とは<code>*= /= %=  += -= &gt;&gt;= &lt;&lt;= &amp;= ^= |=</code>の10個の演算子のことで、ある操作とその結果の代入をまとめて行うような演算子のことである。</p>
 <p>複合代入演算子およびインクリメント演算子<code>++</code>とデクリメント演算子<code>--</code>は、「読み出し - 更新（処理） - 書き込み」という3つの操作を1文で行う。（簡素化のため、以降は<code>++</code>/<code>--</code>をまとめてインクリメント演算子と表記する。）</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
-<span class="n">a</span> <span class="o">+=</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="c1">// これは以下と等価</span>
 <span class="c1">// int tmp = a; </span>
 <span class="c1">// a = tmp + b;</span>
@@ -269,9 +269,9 @@
 <p>ただし、複合代入演算子についてはC++23で非推奨化が解除された。</p>
 <h3>連鎖した代入演算子</h3>
 <p>代入演算子の一部の用法には、複合代入演算子・インクリメント演算子と同様の問題がある。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="c1">// このような順序でアクセスが発生する</span>
 <span class="c1">// c = 10;</span>
 <span class="c1">// b = c;</span>
@@ -282,18 +282,18 @@
 <p><code>volatile</code>変数においてはそのアクセス（読み書き）が重要であり、コード上での1回のアクセスは実行時にも1回だけアクセスされ、かつその順番が前後してはならない。しかし、代入演算子を連鎖させた場合、そのアクセス回数および順序は非常に認識しづらくなる。</p>
 <p>従って、非クラス型の<code>volatile</code>変数に対するこのような代入演算子の使用はバグの元であるので、非推奨とされる。</p>
 <p>ただし、非推奨となるのは代入演算子の両端のオペランド以外に<code>volatile</code>変数が表れるケースである。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="n">v3</span><span class="p">;</span>
 
-<span class="n">v1</span> <span class="o">=</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">v3</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// NG（非推奨）</span>
+<span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// NG（非推奨）</span>
 
-<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-<span class="n">v1</span> <span class="o">=</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>      <span class="c1">// OK</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">      </span><span class="c1">// OK</span>
 
-<span class="n">v1</span> <span class="o">=</span> <span class="n">n</span> <span class="o">=</span> <span class="n">v3</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// NG（非推奨）</span>
+<span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// NG（非推奨）</span>
 
-<span class="n">v3</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>          <span class="c1">// OK</span>
-<span class="n">v1</span> <span class="o">=</span> <span class="n">v3</span><span class="p">;</span>          <span class="c1">// OK</span>
-<span class="n">v1</span> <span class="o">=</span> <span class="n">n</span> <span class="o">=</span> <span class="n">v3</span><span class="p">;</span>      <span class="c1">// OK</span>
+<span class="n">v3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">          </span><span class="c1">// OK</span>
+<span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v3</span><span class="p">;</span><span class="w">          </span><span class="c1">// OK</span>
+<span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v3</span><span class="p">;</span><span class="w">      </span><span class="c1">// OK</span>
 </code></pre></div>
 </p>
 <h3>関数引数と<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型</h3>
@@ -301,12 +301,12 @@
 <p>一方呼び出し側から見ると、参照・ポインタではない<code>volatile</code>引数の意味は不明瞭である。参照・ポインタではない関数引数が<code>volatile</code>修飾されている場合、その関数はシグナルハンドラや<code>setjmp/longjmp</code>と共に使用されるはずであり、呼び出し側にもそのような実装詳細の一部が漏洩してしまう。</p>
 <p>また、呼出規約によっては一部の引数を配置するレジスタが<code>volatile</code>となる事があるが、呼出規約はC++コード上で意味を持たず、そのような呼び出し規約がマークされている関数は非<code>volatile</code>関数宣言と同様に扱われる。しかし、一部のレジスタが<code>volatile</code>である事はABIによって処理されている。</p>
 <p>このように、関数引数の<code>volatile</code>修飾は有用ではないため非推奨とされる。関数の引数を<code>volatile</code>としたい場合、関数内で<code>volatile</code>ローカル変数に引数をコピーする事が推奨される。一部の実装では、そのようなコピーは省略され、オーバーヘッドとはならない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>   <span class="c1">// NG（非推奨）</span>
-<span class="kt">void</span> <span class="nf">f2</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p</span><span class="p">);</span>  <span class="c1">// OK</span>
-<span class="kt">void</span> <span class="nf">f3</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span>  <span class="c1">// OK</span>
-<span class="kt">void</span> <span class="nf">f4</span><span class="p">(</span><span class="kt">int</span> <span class="k">volatile</span> <span class="o">*</span> <span class="n">p</span><span class="p">);</span> <span class="c1">// OK</span>
-<span class="kt">void</span> <span class="nf">f5</span><span class="p">(</span><span class="kt">int</span> <span class="k">volatile</span> <span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span> <span class="c1">// OK</span>
-<span class="kt">void</span> <span class="nf">f6</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span> <span class="k">volatile</span> <span class="n">p</span><span class="p">);</span> <span class="c1">// NG（非推奨）</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">   </span><span class="c1">// NG（非推奨）</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f3</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f4</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f5</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f6</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// NG（非推奨）</span>
 </code></pre></div>
 </p>
 <p>また、参照・ポインタではない関数<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の<code>volatile</code>修飾は完全に意味を持たない。</p>
@@ -314,12 +314,12 @@
 <p>ローカルの非<code>volatile</code>変数を<code>volatile</code>として返すことには意味がない。<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を<code>volatile</code>領域に配置したい場合、関数の呼び出し側で<code>volatile</code>変数に受ければよい。</p>
 <p>そして、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の<code>volatile</code>修飾は容易に無視する事ができる。</p>
 <p>このように、<code>volatile</code><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は無意味であるため、非推奨とされる。<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を<code>volatile</code>として扱いたい場合は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を<code>volatile</code>変数に受ければよい。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span>  <span class="nf">f1</span><span class="p">();</span>   <span class="c1">// NG（非推奨）</span>
-<span class="k">volatile</span> <span class="kt">int</span><span class="o">*</span> <span class="nf">f2</span><span class="p">();</span>   <span class="c1">// OK</span>
-<span class="k">volatile</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">f3</span><span class="p">();</span>   <span class="c1">// OK</span>
-<span class="kt">int</span> <span class="k">volatile</span><span class="o">*</span> <span class="nf">f4</span><span class="p">();</span>   <span class="c1">// OK</span>
-<span class="kt">int</span> <span class="k">volatile</span><span class="o">&amp;</span> <span class="n">f5</span><span class="p">();</span>   <span class="c1">// OK</span>
-<span class="kt">int</span><span class="o">*</span> <span class="k">volatile</span> <span class="nf">f6</span><span class="p">();</span>   <span class="c1">// NG（非推奨）</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="nf">f1</span><span class="p">();</span><span class="w">   </span><span class="c1">// NG（非推奨）</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">f2</span><span class="p">();</span><span class="w">   </span><span class="c1">// OK</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">f3</span><span class="p">();</span><span class="w">   </span><span class="c1">// OK</span>
+<span class="kt">int</span><span class="w"> </span><span class="k">volatile</span><span class="o">*</span><span class="w"> </span><span class="n">f4</span><span class="p">();</span><span class="w">   </span><span class="c1">// OK</span>
+<span class="kt">int</span><span class="w"> </span><span class="k">volatile</span><span class="o">&amp;</span><span class="w"> </span><span class="n">f5</span><span class="p">();</span><span class="w">   </span><span class="c1">// OK</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">f6</span><span class="p">();</span><span class="w">   </span><span class="c1">// NG（非推奨）</span>
 </code></pre></div>
 </p>
 <p>ただし、関数引数・<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型いずれにしても、ポインタ・参照への<code>volatile</code>修飾は明確な意味を持ち有用である（値ではなく、領域に<code>volatile</code>とマークしているため）。従って、非推奨とされるのは関数引数・<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型へのトップレベル<code>volatile</code>修飾のみであって、<code>volatile</code>ポインタ・参照型は依然として許可される。</p>
@@ -327,21 +327,21 @@
 <p>構造化束縛宣言にも<code>volatile</code>修飾を行う事ができるが、ここでの<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>は右辺にある式の結果である暗黙のオブジェクトに対して作用している。</p>
 <p>右辺の式の結果が<code>std::tuple/std::pair</code>等の<code>tuple-like</code>な型のオブジェクトである場合、構造化束縛はまずその結果オブジェクトを<code>volatile</code>修飾して受けておき、その結果オブジェクトに対して<code>std::get</code>で要素の取得を行う。しかし、<code>std::get</code>には<code>volatile</code><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が欠けており、コンパイルエラーを起こす。</p>
 <p>一方、構造化束縛の残りのケース（配列・構造体）の場合は<code>std::get</code>を用いないためこのような問題は起こらない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">volatile</span> <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// NG</span>
+<span class="k">volatile</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// NG</span>
 <span class="c1">// ここでは以下の様な事が行われている</span>
 <span class="c1">// volatile auto tmp = f();</span>
 <span class="c1">// std::tuple_element_t&lt;0, decltype(tmp)&gt; a = std::get&lt;0&gt;(tmp);</span>
 
-<span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">]{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">]{};</span>
 
-<span class="k">volatile</span> <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span> <span class="c1">// OK</span>
+<span class="k">volatile</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="c1">// ここでは以下の様な事が行われている</span>
 <span class="c1">// volatile int tmp[] = {array[0], array[1], array[2]};</span>
 <span class="c1">// volatile int a = tmp[0];</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_volatile_v</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span> <span class="c1">// OK</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_volatile_v</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
 </code></pre></div>
 </p>
 <p>このような挙動の非一貫性を受け入れたとしても、構造化束縛の裏で行われている事が<code>volatile</code>には適していない。</p>
@@ -349,21 +349,21 @@
 <p><code>volatile</code>においてはその領域へのアクセスが重要であり、1度のアクセスは正確に1度だけ行われる必要があり、その順序は前後してはならない。構造化束縛宣言はその裏側で多くの事が行われており、それはCV・参照修飾と右辺の式の結果型によって様々に変化するが、そこでどのオブジェクトが<code>volatile</code>となりどのような順番でアクセスが発生するのかは非常に不明瞭である。</p>
 <p>従って、構造化束縛宣言の<code>volatile</code>修飾を正しく扱う事は非常に困難であるため、非推奨とされる。</p>
 <p>構造化束縛した名前が<code>volatile</code>である必要がある場合は、分解対象の右辺の結果オブジェクトの各要素型をあらかじめ<code>volatile</code>修飾しておく事が推奨される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">]{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">]{};</span>
 
-<span class="k">volatile</span> <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>   <span class="c1">// NG（非推奨）</span>
-<span class="k">volatile</span> <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span> <span class="c1">// NG（非推奨）</span>
+<span class="k">volatile</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">   </span><span class="c1">// NG（非推奨）</span>
+<span class="k">volatile</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">;</span><span class="w"> </span><span class="c1">// NG（非推奨）</span>
 
-<span class="k">auto</span> <span class="nf">g</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="k">volatile</span> <span class="kt">int</span><span class="o">*</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">int</span><span class="o">*</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">double</span><span class="o">&amp;&gt;</span><span class="p">;</span>
-<span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="p">();</span>  <span class="c1">// OK</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">double</span><span class="o">&amp;&gt;</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">();</span><span class="w">  </span><span class="c1">// OK</span>
 </code></pre></div>
 </p>
 <p>この場合でも、各要素型のトップレベル<code>volatile</code>修飾は意味をなさない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="k">volatile</span> <span class="kt">int</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">int</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// OK、要素ごとコピーされている、volatile修飾は無意味</span>
-<span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// OK、一時オブジェクト内各要素へのバインド、volatile修飾は無意味</span>
+<span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// OK、要素ごとコピーされている、volatile修飾は無意味</span>
+<span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// OK、一時オブジェクト内各要素へのバインド、volatile修飾は無意味</span>
 </code></pre></div>
 </p>
 <h2>ライブラリにおける非推奨化</h2>
@@ -406,91 +406,91 @@
 <p>非推奨化で触れられてはいないが、<code>volatile</code>変数を並行処理の共有変数として使用することは常に間違っている。</p>
 <h2>不適切な使用の例</h2>
 <p>提案文書より不適切と思われる<code>volatile</code>の用例をいくつか引用する。中には今回の非推奨化の対象となっていないものもある。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="nl">a</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="nl">b</span> <span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="k">volatile</span> <span class="n">foo</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">volatile</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 
 <span class="c1">// どんな命令が生成され、fの領域の各バイトに何回アクセスするか不透明</span>
-<span class="n">f</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">f</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span>
-  <span class="k">volatile</span> <span class="kt">int</span> <span class="nl">a</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="nl">b</span> <span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="n">foo</span> <span class="n">f</span><span class="p">;</span>
+<span class="n">foo</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 
 <span class="c1">// f.aの領域へのアクセスが発生するか不透明</span>
-<span class="n">f</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">f</span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">union</span> <span class="n">foo</span> <span class="p">{</span>
-  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">union</span><span class="w"> </span><span class="nc">foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="k">volatile</span> <span class="n">foo</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">volatile</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 
 <span class="c1">// sizeof(int) [byte]の領域へアクセスするか、sizeof(char) [byte]の領域へアクセスするのか、不透明</span>
-<span class="n">f</span><span class="p">.</span><span class="n">c</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="n">f</span><span class="p">.</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 
 <span class="c1">// iの領域へ何回のアクセスが発生するか不透明</span>
 <span class="c1">// これはどちらも非推奨化</span>
-<span class="n">i</span> <span class="o">+=</span> <span class="mi">42</span><span class="p">;</span>  <span class="c1">// C++23で非推奨化解除</span>
+<span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">  </span><span class="c1">// C++23で非推奨化解除</span>
 <span class="o">++</span><span class="n">i</span><span class="p">;</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 
 <span class="c1">// iへの代入時にjの値を読み取るか不透明（非推奨化）</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">big</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span> <span class="p">};</span>
-<span class="k">volatile</span> <span class="n">_Atomic</span> <span class="k">struct</span> <span class="n">big</span> <span class="n">ba</span><span class="p">;</span>
-<span class="k">struct</span> <span class="n">big</span> <span class="n">b2</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">big</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span><span class="w"> </span><span class="p">};</span>
+<span class="k">volatile</span><span class="w"> </span><span class="n">_Atomic</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">big</span><span class="w"> </span><span class="n">ba</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">big</span><span class="w"> </span><span class="n">b2</span><span class="p">;</span>
 
 <span class="c1">// 誰から見てもatomicになるとは限らない</span>
 <span class="c1">// ほとんどの環境で非推奨化</span>
-<span class="n">ba</span> <span class="o">=</span> <span class="n">b2</span><span class="p">;</span>
+<span class="n">ba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b2</span><span class="p">;</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">what</span><span class="p">(</span><span class="k">volatile</span> <span class="n"><a href="../../reference/atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">atom</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">what</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="n"><a href="../../reference/atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="n">atom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 
-  <span class="c1">// この操作でatomの指す領域に何回アクセスが発生するのか不透明（場合によって変化する）</span>
-  <span class="n">atom</span><span class="o">-&gt;</span><span class="n">compare_exchange_strong</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="mh">0xdead</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// この操作でatomの指す領域に何回アクセスが発生するのか不透明（場合によって変化する）</span>
+<span class="w">  </span><span class="n">atom</span><span class="o">-&gt;</span><span class="n">compare_exchange_strong</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdead</span><span class="p">);</span>
 
-  <span class="k">return</span> <span class="n">expected</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">expected</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// この関数を呼び出すとき、呼び出し側は何を気にすべきか不透明</span>
-<span class="kt">void</span> <span class="nf">what_does_the_caller_care</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">int</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">what_does_the_caller_care</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 無意味（非推奨化）</span>
-<span class="k">volatile</span> <span class="kt">int</span> <span class="nf">nonsense</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">nonsense</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">retme</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span> <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">retme</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
 <span class="c1">// 無意味（非推奨化）</span>
-<span class="k">volatile</span> <span class="k">struct</span> <span class="n">retme</span> <span class="nf">silly</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">volatile</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">retme</span><span class="w"> </span><span class="n">silly</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 </code></pre></div>
 </p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">device</span> <span class="p">{</span>
-  <span class="kt">unsigned</span> <span class="n">reg</span><span class="p">;</span>
-  <span class="n">device</span><span class="p">()</span> <span class="o">:</span> <span class="n">reg</span><span class="p">(</span><span class="mh">0xc0ffee</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="o">~</span><span class="n">device</span><span class="p">()</span> <span class="p">{</span> <span class="n">reg</span> <span class="o">=</span> <span class="mh">0xdeadbeef</span><span class="p">;</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">device</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">reg</span><span class="p">;</span>
+<span class="w">  </span><span class="n">device</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">reg</span><span class="p">(</span><span class="mh">0xc0ffee</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">device</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xdeadbeef</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">// 初期化（コンストラクタ内）、破棄（デストラクタ内）はともにvolatileではない</span>
-<span class="k">volatile</span> <span class="n">device</span> <span class="n">dev</span><span class="p">;</span>
+<span class="k">volatile</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">dev</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>参照</h2>
@@ -521,7 +521,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

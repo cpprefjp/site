@@ -210,20 +210,20 @@
 <h2>名前空間構造</h2>
 <p><code>&lt;ranges&gt;</code>で定義されるものは全て<code>std::ranges</code>名前空間の下にある。また、各種<code>view</code>型を生成するRangeアダプタ/ファクトリオブジェクトは<code>std::ranges::views</code>名前空間の下で定義され、<code>std::views</code>からもアクセスする事ができる。</p>
 <p>名前空間だけを見てみると次のようになっている。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="c1">// 通常のstd名前空間</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 通常のstd名前空間</span>
 
-  <span class="k">namespace</span> <span class="n">ranges</span> <span class="p">{</span>
-    <span class="c1">// <a href="">&lt;ranges&gt;</a>のものはここに定義される</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// <a href="">&lt;ranges&gt;</a>のものはここに定義される</span>
 
-    <span class="k">namespace</span> <span class="n">views</span> <span class="p">{</span>
-      <span class="c1">// Rangeアダプタ/ファクトリオブジェクトが定義される</span>
+<span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="nn">views</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Rangeアダプタ/ファクトリオブジェクトが定義される</span>
 
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// この名前空間エイリアスによって、std::viewsとしてstd::ranges::viewsにアクセスできる</span>
-  <span class="k">namespace</span> <span class="n">views</span> <span class="o">=</span> <span class="n">ranges</span><span class="o">::</span><span class="n">views</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// この名前空間エイリアスによって、std::viewsとしてstd::ranges::viewsにアクセスできる</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">views</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">ranges</span><span class="o">::</span><span class="nn">views</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -693,18 +693,18 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 <p>Rangeアダプタは、既存のRangeに作用して新たなRangeを生成するものである。</p>
 <p>RangeアダプタをRangeに作用させる方法には、一部の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を除き、関数記法とパイプライン記法の2つがある。</p>
 <p><code>R</code>をRangeアダプタ、<code>r</code>を元になるRangeとする。このとき、以下の2つの式は同じ<code><a href="ranges/view.html">view</a></code>を生成する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>   <span class="c1">// 関数記法</span>
-<span class="n">r</span> <span class="o">|</span> <span class="n">R</span>  <span class="c1">// パイプライン記法</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">R</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w">   </span><span class="c1">// 関数記法</span>
+<span class="n">r</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">R</span><span class="w">  </span><span class="c1">// パイプライン記法</span>
 </code></pre></div>
 </p>
 <p>Rangeアダプタを適用した結果は<code><a href="ranges/view.html">view</a></code>、すなわちRangeであることから、Rangeアダプタを次々と繋いでいくことができる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">R3</span><span class="p">(</span><span class="n">R2</span><span class="p">(</span><span class="n">R1</span><span class="p">(</span><span class="n">r</span><span class="p">)))</span>     <span class="c1">// 関数記法</span>
-<span class="n">r</span> <span class="o">|</span> <span class="n">R1</span> <span class="o">|</span> <span class="n">R2</span> <span class="o">|</span> <span class="n">R3</span>  <span class="c1">// パイプライン記法</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">R3</span><span class="p">(</span><span class="n">R2</span><span class="p">(</span><span class="n">R1</span><span class="p">(</span><span class="n">r</span><span class="p">)))</span><span class="w">     </span><span class="c1">// 関数記法</span>
+<span class="n">r</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">R3</span><span class="w">  </span><span class="c1">// パイプライン記法</span>
 </code></pre></div>
 </p>
 <p>Rangeアダプタの処理は遅延評価され、要素は必要になるまで生成されない。このような仕組みは実際の仕事の多くをイテレータが担うことで実現している。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">item</span> <span class="p">:</span> <span class="n">r</span> <span class="o">|</span> <span class="n">R</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ループ一回ごとに、(r | R)の要素を1つ生成する。このとき、rの要素を必要なだけ取得する。</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ループ一回ごとに、(r | R)の要素を1つ生成する。このとき、rの要素を必要なだけ取得する。</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -718,9 +718,9 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 <li>(C++23) Rangeを受け取る単項関数オブジェクト</li>
 </ul>
 <p>Rangeアダプタオブジェクト<code>adaptor</code>が2つ以上の引数をとる場合、以下の3つの式は等しい。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">adaptor</span><span class="p">(</span><span class="n"><a href="ranges/range.html">range</a></span><span class="p">,</span> <span class="n">args</span><span class="p">...)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">adaptor</span><span class="p">(</span><span class="n"><a href="ranges/range.html">range</a></span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">...)</span>
 <span class="n">adaptor</span><span class="p">(</span><span class="n">args</span><span class="p">...)(</span><span class="n"><a href="ranges/range.html">range</a></span><span class="p">)</span>
-<span class="n"><a href="ranges/range.html">range</a></span> <span class="o">|</span> <span class="n">adaptor</span><span class="p">(</span><span class="n">args</span><span class="p">...)</span>
+<span class="n"><a href="ranges/range.html">range</a></span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">adaptor</span><span class="p">(</span><span class="n">args</span><span class="p">...)</span>
 </code></pre></div>
 </p>
 <p>このとき、式<code>adaptor(args...)</code>の値がRangeアダプタクロージャオブジェクトになっている。</p>
@@ -1484,7 +1484,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

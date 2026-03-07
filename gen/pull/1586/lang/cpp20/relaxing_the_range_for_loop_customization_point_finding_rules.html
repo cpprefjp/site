@@ -223,35 +223,35 @@
 <p>これは、<code>begin</code>もしくは<code>end</code>という何らかのメンバ (関数、変数、型) が特殊な意味を持ち、そのメンバが範囲for文で使用することを意図していないような状況に対応するための改訂である。</p>
 <p>なお、この修正はC++11へ遡って適用された。そのため、この修正を実装した処理系では、以下のコンパイルエラーを試すことはできない。</p>
 <h2>例</h2>
-<p><div class="yata" id="1679b94ebbc059c652e36c10b2a5281cc47a3c57"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1679b94ebbc059c652e36c10b2a5281cc47a3c57"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/sstream.html">&lt;sstream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iterator.html">&lt;iterator&gt;</a></span>
 
-<span class="k">struct</span> <span class="nl">X</span> <span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">begin</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">begin</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">end</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span><span class="p">)</span>
+<span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">end</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/iterator/istream_iterator.html">std::istream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
 
-  <span class="c1">// P0962R1非対応の場合はコンパイルエラー</span>
-  <span class="c1">// (std::stringstream::endメンバだけが見つかり、対応するbeginがないというエラーになる)。</span>
-  <span class="c1">// P0962R1に対応していればOK</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// P0962R1非対応の場合はコンパイルエラー</span>
+<span class="w">  </span><span class="c1">// (std::stringstream::endメンバだけが見つかり、対応するbeginがないというエラーになる)。</span>
+<span class="w">  </span><span class="c1">// P0962R1に対応していればOK</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -288,7 +288,7 @@ o
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -221,22 +221,22 @@
 <p>クラスのアライメント要求がデフォルトで満たされるものより大きい場合でも、動的に確保されたメモリ領域が指定したアライメントを満たしていることが保証される。</p>
 <p>特殊な命令を使う、メモリアクセスを最適化するなどの理由により、変数のアライメントが必要になることがある。そのような目的のため、C++11において<code><a href="../cpp11/alignas.html">alignas</a></code>を用いてクラスのアライメントを指定できるようになった。しかし、デフォルトで満たされるアライメントよりも大きな値を設定した場合には、動的確保したメモリ領域がその指定に沿ってアライメントされる保証はなかった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 16バイト境界にアライメントされるべきクラス</span>
-<span class="k">class</span> <span class="nf">alignas</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="n">float4</span> <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">f</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">alignas</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="n">float4</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 <span class="p">};</span>
 
-<span class="n">float4</span>  <span class="n">v</span><span class="p">;</span> <span class="c1">// C++11でも適切にアライメントされる</span>
-<span class="n">float4</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">float4</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span> <span class="c1">// C++17以降では適切にアライメントされる</span>
-<span class="kt">float</span><span class="o">*</span>  <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="n"><a href="../../reference/new/align_val_t.html">std::align_val_t</a></span><span class="p">{</span><span class="mi">16</span><span class="p">})</span> <span class="kt">float</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">// new演算子に直接アライメント指定することもできる</span>
+<span class="n">float4</span><span class="w">  </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++11でも適切にアライメントされる</span>
+<span class="n">float4</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">float4</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span><span class="w"> </span><span class="c1">// C++17以降では適切にアライメントされる</span>
+<span class="kt">float</span><span class="o">*</span><span class="w">  </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/new/align_val_t.html">std::align_val_t</a></span><span class="p">{</span><span class="mi">16</span><span class="p">})</span><span class="w"> </span><span class="kt">float</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="c1">// new演算子に直接アライメント指定することもできる</span>
 </code></pre></div>
 </p>
 <p>C++17以前で適切にアライメントされたメモリ領域を動的に確保するためには、C++11で追加された<code><a href="../../reference/memory/align.html">std::align</a></code>を用いて大きく確保した領域から指定を満たす部分を取り出すか、<code>posix_memalign</code>や<code>_aligned_malloc</code>などの処理系固有の関数を使用する必要があった。</p>
 <h2>仕様</h2>
 <p><code><a href="../../reference/new/op_new.html">operator new</a></code>に、<code><a href="../../reference/new/align_val_t.html">align_val_t</a></code>を取る<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が追加された。<code><a href="../../reference/new/align_val_t.html">align_val_t</a></code>は意図しない型変換を防止するための<code>enum class</code>であり、列挙値は定義されない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">enum</span> <span class="k">class</span> <span class="nc">align_val_t</span> <span class="o">:</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">align_val_t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="p">{};</span>
 <span class="p">}</span>
-<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span> <span class="n"><a href="../../reference/new/align_val_t.html">std::align_val_t</a></span> <span class="n">alignment</span><span class="p">);</span>
+<span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/new/align_val_t.html">std::align_val_t</a></span><span class="w"> </span><span class="n">alignment</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>動的確保時になされるアライメントのデフォルト値は<code><a href="predefined_macros.html">__STDCPP_DEFAULT_NEW_ALIGNMENT__</a></code>で定義されている。これを超えるアライメント要求を持つクラスに対する<code><a href="../../reference/new/op_new.html">new</a></code>呼び出しは、<code><a href="../../reference/new/align_val_t.html">align_val_t</a></code>が渡された場合のもので解決される。また、対応する<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a><code><a href="../../reference/new/op_new.html">new</a></code>が存在する場合、互換性のため呼び出しはそちらで解決される。もし<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a><code>new</code>に<code>align_val_t</code>を取るものと取らないものがある場合、取るものが優先される。<code>delete</code>も同様である。</p>
@@ -270,7 +270,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

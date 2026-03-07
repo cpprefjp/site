@@ -237,9 +237,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class with_awaitable_senders">with_awaitable_senders::</span><span class="token">set_continuation</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherPromise</span><span class="o">&gt;</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="p">,</span> <span class="kt">void</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="kt">void</span> <span class="n">set_continuation</span><span class="p">(</span><span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="o">&gt;</span> <span class="n">h</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OtherPromise</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">set_continuation</span><span class="p">(</span><span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="o">&gt;</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -248,14 +248,14 @@
 <p><code>!<a href="../../../concepts/same_as.html">same_as</a>&lt;OtherPromise, void&gt;</code></p>
 <h2>効果</h2>
 <p>下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">continuation</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
-<span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span> <span class="n">requires</span><span class="p">(</span><span class="n">OtherPromise</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span> <span class="n">other</span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">();</span> <span class="p">}</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="n">stopped</span><span class="o">-</span><span class="n">handler</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="o">&gt;::</span><span class="n"><a href="../../../coroutine/coroutine_handle/from_address.html">from_address</a></span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-      <span class="p">.</span><span class="n"><a href="../../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">();</span>
-  <span class="p">};</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="n">stopped</span><span class="o">-</span><span class="n">handler</span> <span class="o">=</span> <span class="o">&amp;</span><span class="k">default</span><span class="o">-</span><span class="n">unhandled</span><span class="o">-</span><span class="n">stopped</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">continuation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">OtherPromise</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">stopped</span><span class="o">-</span><span class="n">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="o">&gt;::</span><span class="n"><a href="../../../coroutine/coroutine_handle/from_address.html">from_address</a></span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n"><a href="../../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">();</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">stopped</span><span class="o">-</span><span class="n">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="k">default</span><span class="o">-</span><span class="n">unhandled</span><span class="o">-</span><span class="n">stopped</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -294,7 +294,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

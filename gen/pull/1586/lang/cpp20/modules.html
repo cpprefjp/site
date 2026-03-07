@@ -221,30 +221,30 @@
 <h2>概要</h2>
 <p>C++20では、ヘッダーファイル・ソースファイルに代わる新たなファイル分割の仕組みとしてモジュールが導入された。</p>
 <p>モジュールは翻訳単位の先頭でモジュール宣言を行うことにより宣言する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">mylib</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">mylib</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>モジュールの中では、関数や型などの宣言に <code>export</code> キーワードを付けて宣言をエクスポートできる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">mylib</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">mylib</span><span class="p">;</span>
 
-<span class="k">namespace</span> <span class="n">mylib</span> <span class="p">{</span>
-  <span class="k">export</span> <span class="k">struct</span> <span class="n">myfunc_result_t</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-  <span class="p">};</span>
-  <span class="k">export</span> <span class="n">myfunc_result_t</span> <span class="nf">myfunc</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">};</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">myfunc_result_t</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="n">myfunc_result_t</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/*...*/</span><span class="w"> </span><span class="p">};</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>モジュールを利用するには、インポート宣言を行う。これにより、インポートしたモジュールがエクスポートしている宣言が見えるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">import</span> <span class="n">mylib</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="n">mylib</span><span class="p">;</span>
 <span class="c1">// iostreamなど、一部のヘッダーはインポート(≠インクルード)可能</span>
-<span class="n">import</span> <span class="n"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="k">import</span><span class="w"> </span><span class="n"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// これらの型や関数の宣言はこの翻訳単位には無いが、</span>
-  <span class="c1">// mylibでエクスポートしているので、使用することができる。</span>
-  <span class="n">mylib</span><span class="o">::</span><span class="n">myfunc_result_t</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">mylib</span><span class="o">::</span><span class="n">myfunc</span><span class="p">();</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ret</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// これらの型や関数の宣言はこの翻訳単位には無いが、</span>
+<span class="w">  </span><span class="c1">// mylibでエクスポートしているので、使用することができる。</span>
+<span class="w">  </span><span class="n">mylib</span><span class="o">::</span><span class="n">myfunc_result_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mylib</span><span class="o">::</span><span class="n">myfunc</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ret</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -295,35 +295,35 @@
 </ul>
 <p>どのモジュールも、必ずただ1つのプライマリーモジュールインターフェースユニットを持たなければならない。
 それ以外のモジュールユニットの個数は任意である。ただし、パーティション名はモジュール内で重複してはならない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">foo</span><span class="p">;</span>                <span class="c1">// fooのモジュールインターフェースユニット</span>
-<span class="n">module</span> <span class="n">foo</span><span class="p">;</span>                       <span class="c1">// fooのモジュール実装ユニット</span>
-<span class="n">module</span> <span class="n">foo</span><span class="p">.</span><span class="n">bar</span><span class="p">;</span>                   <span class="c1">// foo.barのモジュール実装ユニット</span>
-<span class="k">export</span> <span class="n">module</span> <span class="n">bar</span> <span class="p">[[</span><span class="n">deprecated</span><span class="p">]];</span> <span class="c1">// 属性</span>
-<span class="k">export</span> <span class="n">module</span> <span class="nl">lib</span><span class="p">:</span><span class="n">part</span><span class="p">;</span> <span class="c1">// libモジュールのモジュールインターフェースパーティションpart</span>
-<span class="n">module</span> <span class="nl">lib</span><span class="p">:</span><span class="n">internal</span><span class="p">;</span> <span class="c1">// libモジュールのモジュール実装パーティションinternal</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w">                </span><span class="c1">// fooのモジュールインターフェースユニット</span>
+<span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w">                       </span><span class="c1">// fooのモジュール実装ユニット</span>
+<span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">bar</span><span class="p">;</span><span class="w">                   </span><span class="c1">// foo.barのモジュール実装ユニット</span>
+<span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="p">[[</span><span class="n">deprecated</span><span class="p">]];</span><span class="w"> </span><span class="c1">// 属性</span>
+<span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">lib</span><span class="o">:</span><span class="n">part</span><span class="p">;</span><span class="w"> </span><span class="c1">// libモジュールのモジュールインターフェースパーティションpart</span>
+<span class="k">module</span><span class="w"> </span><span class="n">lib</span><span class="o">:</span><span class="n">internal</span><span class="p">;</span><span class="w"> </span><span class="c1">// libモジュールのモジュール実装パーティションinternal</span>
 </code></pre></div>
 </p>
 <p>次のモジュールAは4つの翻訳単位からなる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf" target="_blank">P1103R3</a>より引用</span>
 <span class="c1">// 翻訳単位1 プライマリーモジュールインターフェースユニット</span>
-<span class="k">export</span> <span class="n">module</span> <span class="n">A</span><span class="p">;</span>
-<span class="k">export</span> <span class="nl">import</span> <span class="p">:</span><span class="n">Foo</span><span class="p">;</span>
-<span class="k">export</span> <span class="kt">int</span> <span class="nf">baz</span><span class="p">();</span>
+<span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">A</span><span class="p">;</span>
+<span class="k">export</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="o">:</span><span class="n">Foo</span><span class="p">;</span>
+<span class="k">export</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">baz</span><span class="p">();</span>
 
 <span class="c1">// 翻訳単位2 モジュールインターフェースパーティション</span>
-<span class="k">export</span> <span class="n">module</span> <span class="nl">A</span><span class="p">:</span><span class="n">Foo</span><span class="p">;</span>
-<span class="nl">import</span> <span class="p">:</span><span class="n">Internals</span><span class="p">;</span>
-<span class="k">export</span> <span class="kt">int</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">bar</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
+<span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">A</span><span class="o">:</span><span class="n">Foo</span><span class="p">;</span>
+<span class="nl">import</span><span class="w"> </span><span class="p">:</span><span class="n">Internals</span><span class="p">;</span>
+<span class="k">export</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">bar</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">// 翻訳単位3 モジュール実装パーティション</span>
-<span class="n">module</span> <span class="nl">A</span><span class="p">:</span><span class="n">Internals</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">bar</span><span class="p">();</span>
+<span class="k">module</span><span class="w"> </span><span class="n">A</span><span class="o">:</span><span class="n">Internals</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">();</span>
 
 <span class="c1">// 翻訳単位4 モジュール実装ユニット</span>
-<span class="n">module</span> <span class="n">A</span><span class="p">;</span>
-<span class="nl">import</span> <span class="p">:</span><span class="n">Internals</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">baz</span><span class="p">()</span> <span class="o">-</span> <span class="mi">10</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">int</span> <span class="nf">baz</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">30</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">module</span><span class="w"> </span><span class="n">A</span><span class="p">;</span>
+<span class="nl">import</span><span class="w"> </span><span class="p">:</span><span class="n">Internals</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">baz</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">baz</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 </p>
 <p>モジュール宣言は1行で書く必要があり、プリプロセッサで生成してはならない。これは、<code>#if</code>などによる切り替え、<code>#include</code>、<code>#define</code>による置換などによるものを含む。後述のグローバルモジュールフラグメントを記述する場合を除き、モジュール宣言の前にトークンがあってはならない。</p>
@@ -336,20 +336,20 @@
 </ul>
 <p>モジュール名にはドットを使いたいが、一方で識別子にはドットが使えない。このような矛盾があるため、モジュール名にドットを使うとトークンが分割される。
 そのため、識別子の規則は分割されたそれぞれのトークンに適用される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">module</span> <span class="n">foo</span> <span class="p">.</span> <span class="n">bar</span><span class="p">;</span>              <span class="c1">// OK. 'foo.bar'と等しい</span>
-<span class="n">module</span> <span class="n">foo</span> <span class="p">.</span> <span class="cm">/*comment*/</span> <span class="n">bar</span><span class="p">;</span>  <span class="c1">// OK. 'foo.bar'と等しい</span>
-<span class="n">module</span> <span class="n">foo</span> <span class="p">.</span> <span class="p">.</span> <span class="n">bar</span><span class="p">;</span>            <span class="c1">// NG. ドットの間に識別子がない</span>
-<span class="n">module</span> <span class="n">_Foo</span><span class="p">.</span><span class="n">bar</span>                <span class="c1">// NG. 識別子'_Foo'は予約されている</span>
-<span class="n">module</span> <span class="n">foo__bar</span>                <span class="c1">// NG. 識別子'foo__bar'は予約されている</span>
-<span class="n">module</span> <span class="n">foo</span><span class="p">.</span><span class="n">__bar</span><span class="p">.</span><span class="n">baz</span>           <span class="c1">// NG. 識別子'__bar'は予約されている</span>
-<span class="n">module</span> <span class="n">foo</span><span class="p">.</span><span class="n">version</span><span class="mf">.0</span>           <span class="c1">// NG. 識別子の1文字目は数字にできない</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w">              </span><span class="c1">// OK. 'foo.bar'と等しい</span>
+<span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="cm">/*comment*/</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK. 'foo.bar'と等しい</span>
+<span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w">            </span><span class="c1">// NG. ドットの間に識別子がない</span>
+<span class="k">module</span><span class="w"> </span><span class="n">_Foo</span><span class="p">.</span><span class="n">bar</span><span class="w">                </span><span class="c1">// NG. 識別子'_Foo'は予約されている</span>
+<span class="k">module</span><span class="w"> </span><span class="n">foo__bar</span><span class="w">                </span><span class="c1">// NG. 識別子'foo__bar'は予約されている</span>
+<span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">__bar</span><span class="p">.</span><span class="n">baz</span><span class="w">           </span><span class="c1">// NG. 識別子'__bar'は予約されている</span>
+<span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">version</span><span class="mf">.0</span><span class="w">           </span><span class="c1">// NG. 識別子の1文字目は数字にできない</span>
 </code></pre></div>
 </p>
 <h4>プライベートモジュールフラグメント</h4>
 <p>プライベートモジュールフラグメントは、1ファイルでモジュールを定義しつつインターフェースと実装を分離するための機能である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">foo</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 <span class="c1">// モジュールのインターフェース</span>
-<span class="nl">module</span> <span class="p">:</span><span class="k">private</span><span class="p">;</span>
+<span class="nl">module</span><span class="w"> </span><span class="p">:</span><span class="k">private</span><span class="p">;</span>
 <span class="c1">// プライベートモジュールフラグメント</span>
 </code></pre></div>
 </p>
@@ -365,11 +365,11 @@
 <p>グローバルモジュールとは、要するに従来通りの、モジュールではないコードのことである。C++20では、<code>main</code>関数はグローバルモジュールに属していなければならない。</p>
 <h4>グローバルモジュールフラグメント</h4>
 <p>モジュール宣言の前にグローバルモジュールの実装を書ける。これをグローバルモジュールフラグメントという。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">module</span><span class="p">;</span>             <span class="c1">// グローバルモジュールフラグメントの宣言</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">module</span><span class="p">;</span><span class="w">             </span><span class="c1">// グローバルモジュールフラグメントの宣言</span>
 
-<span class="cp">#include</span> <span class="cpf">"lib.h"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"lib.h"</span>
 
-<span class="k">export</span> <span class="n">module</span> <span class="n">foo</span><span class="p">;</span>  <span class="c1">// モジュールの宣言(この上の行までがグローバルモジュールフラグメント)</span>
+<span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w">  </span><span class="c1">// モジュールの宣言(この上の行までがグローバルモジュールフラグメント)</span>
 </code></pre></div>
 </p>
 <ul>
@@ -386,40 +386,40 @@
 <li>プライベートモジュールフラグメントの中</li>
 <li>無名名前空間の中</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>                      <span class="c1">// 変数のエクスポート</span>
-<span class="k">export</span> <span class="k">class</span> <span class="nc">x</span><span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">};</span>         <span class="c1">// クラスのエクスポート</span>
-<span class="k">export</span> <span class="k">namespace</span> <span class="n">x</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">}</span>     <span class="c1">// 名前空間のエクスポート</span>
-<span class="k">export</span> <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">foobar</span><span class="p">();</span> <span class="c1">// 関数テンプレートのエクスポート</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">                      </span><span class="c1">// 変数のエクスポート</span>
+<span class="k">export</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">x</span><span class="p">{</span><span class="w"> </span><span class="cm">/*...*/</span><span class="w"> </span><span class="p">};</span><span class="w">         </span><span class="c1">// クラスのエクスポート</span>
+<span class="k">export</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/*...*/</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// 名前空間のエクスポート</span>
+<span class="k">export</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">foobar</span><span class="p">();</span><span class="w"> </span><span class="c1">// 関数テンプレートのエクスポート</span>
 </code></pre></div>
 </p>
 <p>エクスポートできるのは新たな名前を導入する宣言のみである。ただし、その名前は内部リンケージを持ってはいけない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf" target="_blank">P1103R3</a>より引用</span>
-<span class="k">export</span> <span class="n">module</span> <span class="n">M</span><span class="p">;</span>
-<span class="k">export</span> <span class="k">namespace</span> <span class="p">{}</span>       <span class="c1">// エラー: 新たな名前を宣言していない</span>
-<span class="k">export</span> <span class="k">namespace</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a1</span><span class="p">;</span>                 <span class="c1">// エラー: 内部リンケージを持つ名前はエクスポートできない</span>
+<span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">M</span><span class="p">;</span>
+<span class="k">export</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="p">{}</span><span class="w">       </span><span class="c1">// エラー: 新たな名前を宣言していない</span>
+<span class="k">export</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a1</span><span class="p">;</span><span class="w">                 </span><span class="c1">// エラー: 内部リンケージを持つ名前はエクスポートできない</span>
 <span class="p">}</span>
-<span class="k">namespace</span> <span class="p">{</span>
-  <span class="k">export</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">;</span>          <span class="c1">// エラー: 内部リンケージを持つ名前はエクスポートできない</span>
+<span class="k">namespace</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a2</span><span class="p">;</span><span class="w">          </span><span class="c1">// エラー: 内部リンケージを持つ名前はエクスポートできない</span>
 <span class="p">}</span>
-<span class="k">export</span> <span class="k">namespace</span> <span class="n">N</span> <span class="p">{</span>      <span class="c1">// OK</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>                  <span class="c1">// OK: エクスポートされる</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// エラー: 新たな名前を宣言していない</span>
+<span class="k">export</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">N</span><span class="w"> </span><span class="p">{</span><span class="w">      </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">                  </span><span class="c1">// OK: エクスポートされる</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: 新たな名前を宣言していない</span>
 <span class="p">}</span>
-<span class="k">export</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>      <span class="c1">// エラー: 明示的にstaticで宣言されている名前はエクスポートできない</span>
-<span class="k">export</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">();</span>           <span class="c1">// OK</span>
-<span class="k">export</span> <span class="k">namespace</span> <span class="n">N</span> <span class="p">{</span> <span class="p">}</span>    <span class="c1">// OK</span>
-<span class="k">export</span> <span class="k">using</span> <span class="k">namespace</span> <span class="n">N</span><span class="p">;</span> <span class="c1">// エラー: 新たな名前を宣言していない</span>
+<span class="k">export</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">      </span><span class="c1">// エラー: 明示的にstaticで宣言されている名前はエクスポートできない</span>
+<span class="k">export</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span><span class="w">           </span><span class="c1">// OK</span>
+<span class="k">export</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">N</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">    </span><span class="c1">// OK</span>
+<span class="k">export</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">N</span><span class="p">;</span><span class="w"> </span><span class="c1">// エラー: 新たな名前を宣言していない</span>
 </code></pre></div>
 </p>
 <p>また、波カッコに<code>export</code>をつけることで、その中の宣言をまとめてエクスポートできる。</p>
 <ul>
 <li>この波カッコはスコープを作らない</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">};</span>                           <span class="c1">// エクスポートされる</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copyable_v</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="p">);</span> <span class="c1">// エラー: 新たな名前を宣言していない</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>                              <span class="c1">// エラー: 新たな名前を宣言していない</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/*...*/</span><span class="w"> </span><span class="p">};</span><span class="w">                           </span><span class="c1">// エクスポートされる</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copyable_v</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="p">);</span><span class="w"> </span><span class="c1">// エラー: 新たな名前を宣言していない</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w">                              </span><span class="c1">// エラー: 新たな名前を宣言していない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -445,7 +445,7 @@
 </ul>
 <h3>インポート</h3>
 <p>インポート宣言は次のようになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span> <span class="n">import</span> <span class="n">lib</span><span class="p">;</span> <span class="c1">// libのインポート</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">lib</span><span class="p">;</span><span class="w"> </span><span class="c1">// libのインポート</span>
 </code></pre></div>
 </p>
 <p>インポート宣言は、モジュールのインターフェースユニットをインポートする。</p>
@@ -464,9 +464,9 @@
 <h4>パーティションのインポート</h4>
 <p>パーティションは内部的には別のモジュールのように振る舞うので、パーティション内の宣言などを利用するにはインポートが必要である。</p>
 <p>パーティションは主となるモジュールが異なる場合はインポートできないので、間違いのないように、インポート宣言にはモジュールパーティション名だけを書く。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">datetime</span><span class="p">;</span>
-<span class="k">export</span> <span class="nl">import</span> <span class="p">:</span><span class="n">date</span><span class="p">;</span> <span class="c1">// インターフェースパーティション date をインポート</span>
-<span class="k">export</span> <span class="nl">import</span> <span class="p">:</span><span class="n">time</span><span class="p">;</span> <span class="c1">// インターフェースパーティション time をインポート</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">datetime</span><span class="p">;</span>
+<span class="k">export</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="o">:</span><span class="n">date</span><span class="p">;</span><span class="w"> </span><span class="c1">// インターフェースパーティション date をインポート</span>
+<span class="k">export</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="o">:</span><span class="n">time</span><span class="p">;</span><span class="w"> </span><span class="c1">// インターフェースパーティション time をインポート</span>
 </code></pre></div>
 </p>
 <p>モジュールインターフェースパーティションはモジュールインターフェースを分割するものなので、内部の宣言を外へ公開しなければ意味がない。そのため、モジュールインターフェースパーティションのインポート宣言は必ず再エクスポートしなければならない。</p>
@@ -508,18 +508,18 @@
 モジュールを定義する場合はヘッダーファイルは使わないから、実質的な影響はない。</p>
 <p>複数のモジュールが<code>#include</code>で同じ宣言を取り込んだ場合はODR違反となってしまうので、基本的に名前のあるモジュールの本体で<code>#include</code>を使用してはならない。</p>
 <p>モジュールユニットの中で<code>#include</code>を使用したい場合、グローバルモジュールフラグメント内で行えば従来通りにODRの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">module</span><span class="p">;</span>             <span class="c1">// グローバルモジュールフラグメントの宣言</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">module</span><span class="p">;</span><span class="w">             </span><span class="c1">// グローバルモジュールフラグメントの宣言</span>
 
-<span class="cp">#include</span> <span class="cpf">"lib.h"    // "lib.h"中の宣言はグローバルモジュールに属する(ODRの例外が有効)。</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"lib.h"</span><span class="c1">    // "lib.h"中の宣言はグローバルモジュールに属する(ODRの例外が有効)。</span>
 
-<span class="k">export</span> <span class="n">module</span> <span class="n">foo</span><span class="p">;</span>  <span class="c1">// モジュールの宣言(この上の行までがグローバルモジュールフラグメント)</span>
+<span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w">  </span><span class="c1">// モジュールの宣言(この上の行までがグローバルモジュールフラグメント)</span>
 
-<span class="cp">#include</span> <span class="cpf">"lib.h"    // "lib.h"中の宣言がモジュールfooに含まれてしまう(ODRの例外なし = ODR違反の可能性大)。</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"lib.h"</span><span class="c1">    // "lib.h"中の宣言がモジュールfooに含まれてしまう(ODRの例外なし = ODR違反の可能性大)。</span>
 </code></pre></div>
 </p>
 <h3>ヘッダーユニット</h3>
 <p>一部のヘッダーファイルは、モジュールとしてインポートすることができる。この機能およびヘッダーファイルから生成される翻訳単位をヘッダーユニットという。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">import</span> <span class="o">&lt;</span><span class="n">foo</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// foo.hをヘッダーユニットとしてインポート</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">&lt;</span><span class="n">foo</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// foo.hをヘッダーユニットとしてインポート</span>
 </code></pre></div>
 </p>
 <p>ただし、インポートできるヘッダーファイル(インポータブルヘッダー)は以下のものに限られる。</p>
@@ -539,7 +539,7 @@
 <span class="cp">#undef  X      </span><span class="c1">// a.hではここで#1が無効になる</span>
 
 <span class="c1">// b.h</span>
-<span class="n">import</span> <span class="s">"a.h"</span><span class="p">;</span> <span class="c1">// b.hではここで#1, #2, #3が定義され、#1が無効になる</span>
+<span class="k">import</span><span class="w"> </span><span class="s">"a.h"</span><span class="p">;</span><span class="w"> </span><span class="c1">// b.hではここで#1, #2, #3が定義され、#1が無効になる</span>
 <span class="cp">#define X 456 </span><span class="c1">// OK: #1で定義したXはすでに無効</span>
 <span class="cp">#define Y 6   </span><span class="c1">// エラー: #2で定義したYが有効</span>
 
@@ -548,28 +548,28 @@
 <span class="cp">#define Z c   </span><span class="c1">// #5</span>
 
 <span class="c1">// d.h</span>
-<span class="n">import</span> <span class="s">"a.h"</span><span class="p">;</span> <span class="c1">// d.hではここで#1, #2, #3が定義され、#1が無効になる</span>
-<span class="n">import</span> <span class="s">"c.h"</span><span class="p">;</span> <span class="c1">// d.hではここで#4, #5が定義される</span>
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Y</span><span class="p">;</span>    <span class="c1">// OK: #4は#2と同じ</span>
-<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Z</span><span class="p">;</span>    <span class="c1">// エラー: #5は#3を異なる値で再定義している</span>
+<span class="k">import</span><span class="w"> </span><span class="s">"a.h"</span><span class="p">;</span><span class="w"> </span><span class="c1">// d.hではここで#1, #2, #3が定義され、#1が無効になる</span>
+<span class="k">import</span><span class="w"> </span><span class="s">"c.h"</span><span class="p">;</span><span class="w"> </span><span class="c1">// d.hではここで#4, #5が定義される</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">;</span><span class="w">    </span><span class="c1">// OK: #4は#2と同じ</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">;</span><span class="w">    </span><span class="c1">// エラー: #5は#3を異なる値で再定義している</span>
 </code></pre></div>
 </p>
 <p>ヘッダーユニットは再エクスポートできるが、ヘッダーユニットを間接的にインポートした場合はマクロはインポートされない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// lib.h</span>
-<span class="kr">inline</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">(){</span> <span class="k">return</span> <span class="n">NUM</span><span class="p">;</span> <span class="p">}</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">NUM</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="cp">#define NUM 1000</span>
 
 <span class="c1">// lib_mod.cpp</span>
 <span class="c1">// lib.h中の宣言をすべてエクスポートするモジュールlib</span>
-<span class="k">export</span> <span class="n">module</span> <span class="n">lib</span><span class="p">;</span>
-<span class="k">export</span> <span class="n">import</span> <span class="s">"lib.h"</span><span class="p">;</span>
+<span class="k">export</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">lib</span><span class="p">;</span>
+<span class="k">export</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="s">"lib.h"</span><span class="p">;</span>
 
 <span class="c1">// main.cpp</span>
-<span class="n">import</span> <span class="n">lib</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="n">lib</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="mi">1</span> <span class="o">+</span> <span class="n">f</span><span class="p">();</span> <span class="c1">// OK</span>
-  <span class="mi">1</span> <span class="o">+</span> <span class="n">NUM</span><span class="p">;</span> <span class="c1">// エラー: マクロは再エクスポートしても引き継がれない</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NUM</span><span class="p">;</span><span class="w"> </span><span class="c1">// エラー: マクロは再エクスポートしても引き継がれない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -651,7 +651,7 @@ Relaxing redefinition restrictions for re-exportation robustness</a><br />
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

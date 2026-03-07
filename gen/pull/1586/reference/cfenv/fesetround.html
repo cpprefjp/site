@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cfenv&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">fesetround</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">fesetround</span><span class="p">(</span><span class="kt">int</span> <span class="n">round</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">fesetround</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">round</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -226,45 +226,45 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>丸め方式を正しく設定できた場合、この関数は<code>0</code>を返す。そうでなければ、<code>0</code>以外の値を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="d6ea8dc1c0f06c45ffbb901e317a123685058a6d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cfenv.html">&lt;cfenv&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d6ea8dc1c0f06c45ffbb901e317a123685058a6d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../cfenv.html">&lt;cfenv&gt;</a></span>
+<span class="cp">#include <a href="../cmath.html">&lt;cmath&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">round_values</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mode</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">round_values</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">mode</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="mf">2.0</span><span class="p">,</span>  <span class="mf">2.1</span><span class="p">,</span>  <span class="mf">2.5</span><span class="p">,</span>  <span class="mf">2.9</span><span class="p">,</span>
-     <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.9</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">ar</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="mf">2.0</span><span class="p">,</span><span class="w">  </span><span class="mf">2.1</span><span class="p">,</span><span class="w">  </span><span class="mf">2.5</span><span class="p">,</span><span class="w">  </span><span class="mf">2.9</span><span class="p">,</span>
+<span class="w">     </span><span class="mf">-2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.1</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.5</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.9</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">mode</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">float</span> <span class="nl">f</span> <span class="p">:</span> <span class="n">ar</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../cmath/nearbyint.html">std::nearbyint</a></span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'['</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="s">" -&gt; "</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">"] "</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  "</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../cmath/nearbyint.html">std::nearbyint</a></span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'['</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" -&gt; "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"] "</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// デフォルトの丸めモード (<a href="fe_tonearest.html">FE_TONEAREST</a>)</span>
-  <span class="n">round_values</span><span class="p">(</span><span class="s">"default"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// デフォルトの丸めモード (<a href="fe_tonearest.html">FE_TONEAREST</a>)</span>
+<span class="w">  </span><span class="n">round_values</span><span class="p">(</span><span class="s">"default"</span><span class="p">);</span>
 
-  <span class="c1">// 切り下げ</span>
-  <span class="n"><span style="color:#ff0000">std::fesetround</span></span><span class="p">(</span><span class="n"><a href="fe_downward.html">FE_DOWNWARD</a></span><span class="p">);</span>
-  <span class="n">round_values</span><span class="p">(</span><span class="s">"downward"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 切り下げ</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::fesetround</span></span><span class="p">(</span><span class="n"><a href="fe_downward.html">FE_DOWNWARD</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">round_values</span><span class="p">(</span><span class="s">"downward"</span><span class="p">);</span>
 
-  <span class="c1">// 最も近い値への丸め</span>
-  <span class="n"><span style="color:#ff0000">std::fesetround</span></span><span class="p">(</span><span class="n"><a href="fe_tonearest.html">FE_TONEAREST</a></span><span class="p">);</span>
-  <span class="n">round_values</span><span class="p">(</span><span class="s">"to nearest"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 最も近い値への丸め</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::fesetround</span></span><span class="p">(</span><span class="n"><a href="fe_tonearest.html">FE_TONEAREST</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">round_values</span><span class="p">(</span><span class="s">"to nearest"</span><span class="p">);</span>
 
-  <span class="c1">// ゼロ方向への丸め</span>
-  <span class="n"><span style="color:#ff0000">std::fesetround</span></span><span class="p">(</span><span class="n"><a href="fe_towardzero.html">FE_TOWARDZERO</a></span><span class="p">);</span>
-  <span class="n">round_values</span><span class="p">(</span><span class="s">"toward zero"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ゼロ方向への丸め</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::fesetround</span></span><span class="p">(</span><span class="n"><a href="fe_towardzero.html">FE_TOWARDZERO</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">round_values</span><span class="p">(</span><span class="s">"toward zero"</span><span class="p">);</span>
 
-  <span class="c1">// 切り上げ</span>
-  <span class="n"><span style="color:#ff0000">std::fesetround</span></span><span class="p">(</span><span class="n"><a href="fe_upward.html">FE_UPWARD</a></span><span class="p">);</span>
-  <span class="n">round_values</span><span class="p">(</span><span class="s">"upward"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 切り上げ</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::fesetround</span></span><span class="p">(</span><span class="n"><a href="fe_upward.html">FE_UPWARD</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">round_values</span><span class="p">(</span><span class="s">"upward"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -317,7 +317,7 @@ upward
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -231,28 +231,28 @@
 <p>標準属性は、構文的に無視してはならず、意味論的に無視するとしても、実装は構文を診断しなければならない。パラメータのあり・なし、およびその形式といった構文が規定されたものであること。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++26: noreturn属性はパラメータを持たないため構文エラー</span>
 <span class="p">[[</span><span class="n">noreturn</span><span class="p">(</span><span class="s">"cannot have a reason"</span><span class="p">)]]</span>
-<span class="kt">int</span> <span class="n">f</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
 
 <span class="c1">// C++26: deprecated属性のパラメータは文字列でなければならないため構文エラー</span>
-<span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="n">not_a_string</span><span class="p">)]]</span> <span class="kt">int</span> <span class="n">g</span><span class="p">();</span>
+<span class="p">[[</span><span class="n">deprecated</span><span class="p">(</span><span class="n">not_a_string</span><span class="p">)]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">();</span>
 
 <span class="c1">// C++26: nodiscard属性のパラメータは文字列でなければならないため構文エラー</span>
-<span class="p">[[</span><span class="n">nodiscard</span><span class="p">(</span><span class="k">this</span><span class="o">?</span><span class="n">is</span><span class="o">!</span><span class="nl">a</span><span class="p">:</span><span class="n">balanced</span><span class="o">%</span><span class="p">{</span><span class="n">token</span><span class="p">[</span><span class="n">sequence</span><span class="p">]})]]</span>
-<span class="kt">int</span> <span class="n">h</span><span class="p">();</span>
+<span class="p">[[</span><span class="n">nodiscard</span><span class="p">(</span><span class="k">this</span><span class="o">?</span><span class="n">is</span><span class="o">!</span><span class="n">a</span><span class="o">:</span><span class="n">balanced</span><span class="o">%</span><span class="p">{</span><span class="n">token</span><span class="p">[</span><span class="n">sequence</span><span class="p">]})]]</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h3>2. 意味論的な無視性</h3>
 <p><a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>なプログラムが与えられた際、特定の標準属性のインスタンスをすべて削除し、プログラムの観測可能な振る舞いを変化させることが実装に許可される。ただし、削除後の動作が削除前のプログラムにとって適合動作 (conforming behaviour) である場合に限られる。</p>
 <p>例として、空のオブジェクトのサイズを削減する<code><a href="../cpp20/language_support_for_empty_objects.html">[[no_unique_address]]</a></code>において、<code>sizeof(Y)</code>は<code><a href="../cpp20/language_support_for_empty_objects.html">[[no_unique_address]]</a></code>属性が無視されなければ<code>sizeof(int)</code>と同値となり、無視されれば<code>sizeof(X) + sizeof(int)</code>以上の値となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{</span>
-  <span class="p">[[</span><span class="n">no_unique_address</span><span class="p">]]</span> <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">[[</span><span class="n">no_unique_address</span><span class="p">]]</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -262,7 +262,7 @@
 <p>標準属性の機能テストマクロは、実装がその属性の (省略可能な) 意味論を実装している場合にのみ正の値を返す。構文チェックのみを行い、意味論を実装しない場合には、正の値を返してはならない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// no_unique_addressの構文チェックと意味論まで実装されている場合に、trueとなる</span>
 <span class="cp">#if __has_cpp_attribute(no_unique_address)</span>
-  <span class="err">…</span>
+<span class="w">  </span><span class="err">…</span>
 <span class="cp">#endif</span>
 </code></pre></div>
 </p>
@@ -292,7 +292,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -223,43 +223,43 @@
 <p>これにより、今までは実行時に読み込んでいたファイルなどがコンパイル時点で読み込まれ、実行ファイル内に埋め込むことができるようになる。</p>
 <h2>仕様</h2>
 <p><code>#embed</code>ディレクティブによって読み込まれたバイナリは、<code>constexpr unsigned char</code>配列として扱われる。</p>
-<p><div class="yata" id="921cbd6682920a0d707f240b899e7c5e322c6115"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="921cbd6682920a0d707f240b899e7c5e322c6115"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">image_binary</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="cp">#embed "image.bin"</span>
-  <span class="p">};</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">hex</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">image_binary</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">image_binary</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#embed "image.bin"</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">image_binary</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">' '</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 このプログラムは、<code>image.bin</code>をバイナリデータとして扱い、バイト列を出力している。</p>
 <p>つまり、下のプログラムのように<code>#embed</code>を使用するとテキストファイルの中身をそのままchar配列に格納していることと同じになる。</p>
-<p><div class="yata" id="55a07c77eb3321842dfd33d25172b088933159c2"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">char</span> <span class="n">text</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> 
-    <span class="err">#</span><span class="n">embed</span> <span class="s">"test.txt"</span>
-  <span class="p">};</span>
+<p><div class="yata" id="55a07c77eb3321842dfd33d25172b088933159c2"><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">text</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="cp">#embed "test.txt"</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 <code>#embed</code>ディレクティブは、他にもパラメータを受け付ける。</p>
-<p><div class="yata" id="3128457b1122abc2d77aeda2358ef1a04465d5a5"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">limited_data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="cp">#embed "data.bin" limit(1024)</span>
-  <span class="p">};</span>
-  <span class="k">constexpr</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">prefixed_data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="cp">#embed "data.bin" prefix(0x01, 0x02, 0x03)</span>
-  <span class="p">};</span>
-  <span class="k">constexpr</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">suffixed_data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="cp">#embed "data.bin" suffix(0xFE, 0xFF)</span>
-  <span class="p">};</span>
-  <span class="k">constexpr</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">safe_data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="cp">#embed "data.bin" if_empty(0x00)</span>
-  <span class="p">};</span>
+<p><div class="yata" id="3128457b1122abc2d77aeda2358ef1a04465d5a5"><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">limited_data</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#embed "data.bin" limit(1024)</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">prefixed_data</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#embed "data.bin" prefix(0x01, 0x02, 0x03)</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">suffixed_data</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#embed "data.bin" suffix(0xFE, 0xFF)</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">safe_data</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#embed "data.bin" if_empty(0x00)</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -271,10 +271,10 @@
 <li><code>if_empty(0x00)</code>では、<code>data.bin</code>が空であった場合、<code>0x00</code>のバイト列を格納している。</li>
 </ul>
 <p>また、<code>#embed</code>ディレクティブは、複数のパラメータを<strong>順不同</strong>で組み合わせて指定することもできる。</p>
-<p><div class="yata" id="ecc783028c04f5912ccf9febaf1895f5233e7f88"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">combined_data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="cp">#embed "data.bin" limit(1024) prefix(0x01, 0x02) suffix(0xFF) if_empty(0x00)</span>
-  <span class="p">};</span>
+<p><div class="yata" id="ecc783028c04f5912ccf9febaf1895f5233e7f88"><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">combined_data</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#embed "data.bin" limit(1024) prefix(0x01, 0x02) suffix(0xFF) if_empty(0x00)</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -301,7 +301,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

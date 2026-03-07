@@ -219,60 +219,60 @@
 <p></p>
 <h2>概要</h2>
 <p>C++11で導入された<code><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>は、自作クラスで組み込み配列のような配列初期化をする構文であるが、そのメモリとしてはスタック上に配置されていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 
 <span class="c1">// 以下と等価：</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">__a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="n">__a</span><span class="p">,</span> <span class="n">__a</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="n">__a</span><span class="p">,</span><span class="w"> </span><span class="n">__a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>C++26では、プリプロセス時にファイル読み込む<code><a href="embed.html">#embed</a></code>機能が導入されることもあり、スタックオーバーフローのリスクがあった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="cp">#embed "2mb-image.png"</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cp">#embed "2mb-image.png"</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>このため、C++26では、定数値のみ、かつ<code>mutable</code>に保持しない<code><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>は、静的記憶域に配置されるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">il</span><span class="p">);</span>
 
-<span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">});</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">});</span>
 
-  <span class="c1">// 変数を含むため、静的記憶域には保持されない。</span>
-  <span class="c1">// 以下と等価：</span>
-  <span class="c1">// const double __a[3] = {double{1}, double{x}, double{3}};</span>
-  <span class="c1">// f(<a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;double&gt;(__a, __a+3));</span>
+<span class="w">  </span><span class="c1">// 変数を含むため、静的記憶域には保持されない。</span>
+<span class="w">  </span><span class="c1">// 以下と等価：</span>
+<span class="w">  </span><span class="c1">// const double __a[3] = {double{1}, double{x}, double{3}};</span>
+<span class="w">  </span><span class="c1">// f(<a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;double&gt;(__a, __a+3));</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">h</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">});</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">h</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">});</span>
 
-  <span class="c1">// 定数のみであるため、静的記憶域に保持される。</span>
-  <span class="c1">// 以下と等価：</span>
-  <span class="c1">// static constexpr double __b[3] = {double{1}, double{2}, double{3}};</span>
-  <span class="c1">// f(<a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;double&gt;(__b, __b+3));</span>
+<span class="w">  </span><span class="c1">// 定数のみであるため、静的記憶域に保持される。</span>
+<span class="w">  </span><span class="c1">// 以下と等価：</span>
+<span class="w">  </span><span class="c1">// static constexpr double __b[3] = {double{1}, double{2}, double{3}};</span>
+<span class="w">  </span><span class="c1">// f(<a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;double&gt;(__b, __b+3));</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="k">mutable</span> <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">q</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">q</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">);</span>
 
-<span class="kt">void</span> <span class="nf">r</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">q</span><span class="p">({</span><span class="n">A</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="n">A</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="n">A</span><span class="p">{</span><span class="mi">3</span><span class="p">}});</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">r</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">q</span><span class="p">({</span><span class="n">A</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="n">A</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="n">A</span><span class="p">{</span><span class="mi">3</span><span class="p">}});</span>
 
-  <span class="c1">// mutableにするため、静的記憶域に保持される。</span>
-  <span class="c1">// 以下と等価：</span>
-  <span class="c1">// const A __c[3] = {A{1}, A{2}, A{3}};</span>
-  <span class="c1">// q(<a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;A&gt;(__c, __c+3));</span>
+<span class="w">  </span><span class="c1">// mutableにするため、静的記憶域に保持される。</span>
+<span class="w">  </span><span class="c1">// 以下と等価：</span>
+<span class="w">  </span><span class="c1">// const A __c[3] = {A{1}, A{2}, A{3}};</span>
+<span class="w">  </span><span class="c1">// q(<a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;A&gt;(__c, __c+3));</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>将来的に、静的記憶域に配置される配列は、共有される可能性がある。この動作のために、共有で予期しない問題が起きる<code>mutable</code>は共有から除外される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">i1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
-<span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">i2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">};</span>
-<span class="n">PERMIT</span><span class="p">(</span><span class="n">i1</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">==</span> <span class="n">i2</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// 将来的な動作</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+<span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">};</span>
+<span class="n">PERMIT</span><span class="p">(</span><span class="n">i1</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">i2</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 将来的な動作</span>
 </code></pre></div>
 </p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
@@ -301,7 +301,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

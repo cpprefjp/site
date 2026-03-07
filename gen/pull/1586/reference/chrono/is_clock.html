@@ -213,12 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">is_clock</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">is_clock</span><span class="p">;</span>                                       <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_clock</span><span class="p">;</span><span class="w">                                       </span><span class="c1">// (1) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_clock_v</span> <span class="o">=</span> <span class="n">is_clock</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span> <span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_clock_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">is_clock</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -280,19 +280,19 @@
 </ul>
 <p><code>is_clock</code>の特殊化を追加した場合のプログラムの<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である。</p>
 <h2>例</h2>
-<p><div class="yata" id="ae6b7c1888f74ff1f190dcfa211186a987d5e3df"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ae6b7c1888f74ff1f190dcfa211186a987d5e3df"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="steady_clock.html">steady_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="high_resolution_clock.html">high_resolution_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="tai_clock.html">tai_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="gps_clock.html">gps_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="file_clock.html">file_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="steady_clock.html">steady_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="high_resolution_clock.html">high_resolution_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="tai_clock.html">tai_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="gps_clock.html">gps_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">is_clock_v</span></span><span class="o">&lt;</span><span class="n"><a href="file_clock.html">file_clock</a></span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -326,7 +326,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

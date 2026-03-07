@@ -262,25 +262,25 @@ C++17 で規則が変更され、前者は <code>T</code>，後者は<a class="c
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="cb8dd20539324bcd7855446d9187228d0fce694c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/initializer_list.html">&lt;initializer_list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/typeindex.html">&lt;typeindex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="cb8dd20539324bcd7855446d9187228d0fce694c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/initializer_list.html">&lt;initializer_list&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/typeindex.html">&lt;typeindex&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// リストによるコピー初期化の型推論はこれまで通り</span>
-  <span class="k">auto</span> <span class="n">assign_brace_single</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>      <span class="c1">// <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;</span>
-  <span class="k">auto</span> <span class="n">assign_brace_multi</span>  <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>   <span class="c1">// <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;</span>
-  <span class="c1">// auto assign_brace_bad = {0, 1.0}; // 不適格: int と double からは推論できない</span>
+<span class="w">  </span><span class="c1">// リストによるコピー初期化の型推論はこれまで通り</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">assign_brace_single</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w">      </span><span class="c1">// <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">assign_brace_multi</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">};</span><span class="w">   </span><span class="c1">// <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;</span>
+<span class="w">  </span><span class="c1">// auto assign_brace_bad = {0, 1.0}; // 不適格: int と double からは推論できない</span>
 
-  <span class="c1">// リストによる直接初期化の型推論の規則が変更された</span>
-  <span class="k">auto</span> <span class="n">brace_init_single</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>           <span class="c1">// C++17 までは <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;, C++17 からは int</span>
-  <span class="c1">// auto brace_init_multi{0, 1};      // C++17 までは <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;, C++17 からは 不適格</span>
+<span class="w">  </span><span class="c1">// リストによる直接初期化の型推論の規則が変更された</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">brace_init_single</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w">           </span><span class="c1">// C++17 までは <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;, C++17 からは int</span>
+<span class="w">  </span><span class="c1">// auto brace_init_multi{0, 1};      // C++17 までは <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;, C++17 からは 不適格</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">typeid</span><span class="p">(</span><span class="n">assign_brace_single</span><span class="p">).</span><span class="n">name</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">typeid</span><span class="p">(</span><span class="n">assign_brace_multi</span><span class="p">).</span><span class="n">name</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">typeid</span><span class="p">(</span><span class="n">brace_init_single</span><span class="p">).</span><span class="n">name</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
-  <span class="c1">// <a href="../../reference/iostream/cout.html">std::cout</a> &lt;&lt; typeid(brace_init_multi).name() &lt;&lt; '\n';</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">assign_brace_single</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">assign_brace_multi</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">brace_init_single</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// <a href="../../reference/iostream/cout.html">std::cout</a> &lt;&lt; typeid(brace_init_multi).name() &lt;&lt; '\n';</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -292,8 +292,8 @@ i
 <h2>この機能が必要になった背景・経緯</h2>
 <p><a href="../cpp14/initialize_capture.html">ラムダ式の初期化キャプチャ</a> で変数をリストによって直接初期化した場合、
 <code>std::initializer_list</code> に型が推論された:</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[</span><span class="n">n</span><span class="p">{</span><span class="mi">0</span><span class="p">}]()</span> <span class="p">{};</span>    <span class="c1">// 直接初期化; n は <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;</span>
-<span class="p">[</span><span class="n">n</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">}]()</span> <span class="p">{};</span> <span class="c1">// コピー初期化; n は <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[</span><span class="n">n</span><span class="p">{</span><span class="mi">0</span><span class="p">}]()</span><span class="w"> </span><span class="p">{};</span><span class="w">    </span><span class="c1">// 直接初期化; n は <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;</span>
+<span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}]()</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// コピー初期化; n は <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt;</span>
 </code></pre></div>
 </p>
 <p>これは不便だと考えられたため、直接初期化での型推論の規則が変更された。</p>
@@ -329,7 +329,7 @@ i
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

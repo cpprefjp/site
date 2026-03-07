@@ -1,12 +1,15 @@
 # PR [\#1586](https://github.com/cpprefjp/site/pull/1586) プレビュー
-- &#x231a; 更新時刻: 2026-03-02 19:13:08 JST
+- &#x231a; 更新時刻: 2026-03-07 16:50:58 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1586)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Afeat%2Fcsignal)
-- **&#x2AEF;** ソースの変更: [`0f8a83b..264c8db`](https://github.com/cpprefjp/site/compare/0f8a83b77cfa4921d386f19f6ac07da65f415857..264c8dbbdc42db841782c93ef59e7234b86cdbaa)
+- **&#x2AEF;** ソースの変更: [`f3a41a5..264c8db`](https://github.com/cpprefjp/site/compare/f3a41a5cc843870eefb09204b853b21c8a2f86b6..264c8dbbdc42db841782c93ef59e7234b86cdbaa)
 
-## 変更記事一覧 (791件)
+## 変更記事一覧 (793件)
 
 - &#x1f4dd; [`implementation`](https://cpprefjp.github.io/site/gen/pull/1586/implementation.html)
+- &#x1f4dd; [`index`](https://cpprefjp.github.io/site/gen/pull/1586/index.html)
+- &#x1f4dd; [`lang/cpp20/feature_test_macros`](https://cpprefjp.github.io/site/gen/pull/1586/lang/cpp20/feature_test_macros.html)
+- &#x1f4dd; [`lang/cpp20/va_opt`](https://cpprefjp.github.io/site/gen/pull/1586/lang/cpp20/va_opt.html)
 - &#x1f4dd; [`lang/cpp23`](https://cpprefjp.github.io/site/gen/pull/1586/lang/cpp23.html)
 - &#x1f4dd; [`lang/cpp26`](https://cpprefjp.github.io/site/gen/pull/1586/lang/cpp26.html)
 - &#x1f4dd; [`lang/cpp26/erroneous_behavior_for_uninitialized_reads`](https://cpprefjp.github.io/site/gen/pull/1586/lang/cpp26/erroneous_behavior_for_uninitialized_reads.html)
@@ -21,10 +24,6 @@
 - &#x1f4dd; [`reference/concepts`](https://cpprefjp.github.io/site/gen/pull/1586/reference/concepts.html)
 - &#x1f4dd; [`reference/concepts/equality_comparable`](https://cpprefjp.github.io/site/gen/pull/1586/reference/concepts/equality_comparable.html)
 - &#x1f4dd; [`reference/concepts/totally_ordered`](https://cpprefjp.github.io/site/gen/pull/1586/reference/concepts/totally_ordered.html)
-- &#x1f4dd; [`reference/csignal`](https://cpprefjp.github.io/site/gen/pull/1586/reference/csignal.html)
-- &#x1f4dd; [`reference/csignal/sig_dfl`](https://cpprefjp.github.io/site/gen/pull/1586/reference/csignal/sig_dfl.html) &#x2728;
-- &#x1f4dd; [`reference/csignal/sig_err`](https://cpprefjp.github.io/site/gen/pull/1586/reference/csignal/sig_err.html) &#x2728;
-- &#x1f4dd; [`reference/csignal/sig_ign`](https://cpprefjp.github.io/site/gen/pull/1586/reference/csignal/sig_ign.html) &#x2728;
 - &#x1f4dd; [`reference/deque/deque/append_range`](https://cpprefjp.github.io/site/gen/pull/1586/reference/deque/deque/append_range.html)
 - &#x1f4dd; [`reference/deque/deque/assign`](https://cpprefjp.github.io/site/gen/pull/1586/reference/deque/deque/assign.html)
 - &#x1f4dd; [`reference/deque/deque/assign_range`](https://cpprefjp.github.io/site/gen/pull/1586/reference/deque/deque/assign_range.html)
@@ -609,6 +608,9 @@
 - &#x1f4dd; [`reference/stack/stack/top`](https://cpprefjp.github.io/site/gen/pull/1586/reference/stack/stack/top.html)
 - &#x1f4dd; [`reference/stacktrace/basic_stacktrace/current`](https://cpprefjp.github.io/site/gen/pull/1586/reference/stacktrace/basic_stacktrace/current.html)
 - &#x1f4dd; [`reference/stacktrace/basic_stacktrace/op_at`](https://cpprefjp.github.io/site/gen/pull/1586/reference/stacktrace/basic_stacktrace/op_at.html)
+- &#x1f4dd; [`reference/stop_token/stop_source/op_assign`](https://cpprefjp.github.io/site/gen/pull/1586/reference/stop_token/stop_source/op_assign.html)
+- &#x1f4dd; [`reference/stop_token/stop_source/op_constructor`](https://cpprefjp.github.io/site/gen/pull/1586/reference/stop_token/stop_source/op_constructor.html)
+- &#x1f4dd; [`reference/stop_token/stop_token/op_assign`](https://cpprefjp.github.io/site/gen/pull/1586/reference/stop_token/stop_token/op_assign.html)
 - &#x1f4dd; [`reference/string/basic_string/back`](https://cpprefjp.github.io/site/gen/pull/1586/reference/string/basic_string/back.html)
 - &#x1f4dd; [`reference/string/basic_string/front`](https://cpprefjp.github.io/site/gen/pull/1586/reference/string/basic_string/front.html)
 - &#x1f4dd; [`reference/string/basic_string/getline`](https://cpprefjp.github.io/site/gen/pull/1586/reference/string/basic_string/getline.html)

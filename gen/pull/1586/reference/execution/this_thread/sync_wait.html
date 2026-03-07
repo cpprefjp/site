@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::this_thread">std::this_thread::</span><span class="token">sync_wait</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">sync_wait_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">sync_wait_t</span> <span class="n">sync_wait</span><span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">this_thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sync_wait_t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">sync_wait_t</span><span class="w"> </span><span class="n">sync_wait</span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -239,7 +239,7 @@
 <h2>効果</h2>
 <p>説明用の<code>sndr</code>を<code>decltype((sndr))</code>が<code>Sndr</code>型となる式とする。</p>
 <p>呼び出し式<code>this_thread::sync_wait(sndr)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../execution/apply_sender.html">apply_sender</a></span><span class="p">(</span><span class="n"><a href="../execution/get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n">sync_wait</span><span class="p">,</span> <span class="n">sndr</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../execution/apply_sender.html">apply_sender</a></span><span class="p">(</span><span class="n"><a href="../execution/get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span><span class="w"> </span><span class="n">sync_wait</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">)</span>
 </code></pre></div>
 </p>
 <ul>
@@ -249,11 +249,11 @@
 </ul>
 <h3>結果型</h3>
 <p><code>sync_wait</code>の結果型となる、説明専用のエイリアステンプレート<code>sync-wait-result-type</code>を下記の通り定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../execution/sender_in.html">execution::sender_in</a></span><span class="o">&lt;</span><span class="n"><a href="sync-wait-env.html">sync-wait-env</a></span><span class="o">&gt;</span> <span class="n">Sndr</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">result</span><span class="o">-</span><span class="n">type</span> <span class="o">=</span>
-    <span class="n"><a href="../../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n"><a href="../execution/value_types_of_t.html">execution::value_types_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="sync-wait-env.html">sync-wait-env</a></span><span class="p">,</span>
-             <span class="n"><a href="../execution/decayed-tuple.html">decayed-tuple</a></span><span class="p">,</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">this_thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../execution/sender_in.html">execution::sender_in</a></span><span class="o">&lt;</span><span class="n"><a href="sync-wait-env.html">sync-wait-env</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">Sndr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n"><a href="../../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n"><a href="../execution/value_types_of_t.html">execution::value_types_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="sync-wait-env.html">sync-wait-env</a></span><span class="p">,</span>
+<span class="w">             </span><span class="n"><a href="../execution/decayed-tuple.html">decayed-tuple</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -261,15 +261,15 @@
 <p>説明用の<code>sndr</code>を<code>decltype((sndr))</code>が<code>Sndr</code>型となる式とする。</p>
 <p><code><a href="../execution/sender_to.html">sender_to</a>&lt;Sndr, <a href="sync-wait-receiver.html">sync-wait-receiver</a>&lt;Sndr&gt;&gt; == false</code>のとき、式<code>sync_wait.apply_sender(sndr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <p>そうでなければ、式<code>sync_wait.apply_sender(sndr)</code>は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="sync-wait-receiver.html">sync-wait-state</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span> <span class="n">state</span><span class="p">;</span>
-<span class="k">auto</span> <span class="n">op</span> <span class="o">=</span> <span class="n"><a href="../execution/connect.html">connect</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">,</span> <span class="n"><a href="sync-wait-receiver.html">sync-wait-receiver</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">{</span><span class="o">&amp;</span><span class="n">state</span><span class="p">});</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="sync-wait-receiver.html">sync-wait-state</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../execution/connect.html">connect</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="sync-wait-receiver.html">sync-wait-receiver</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">{</span><span class="o">&amp;</span><span class="n">state</span><span class="p">});</span>
 <span class="n"><a href="../execution/start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
 
 <span class="n">state</span><span class="p">.</span><span class="n"><a href="../execution/run_loop/run.html">loop.run()</a></span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../../exception/rethrow_exception.html">rethrow_exception</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">error</span><span class="p">));</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../exception/rethrow_exception.html">rethrow_exception</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">error</span><span class="p">));</span>
 <span class="p">}</span>
-<span class="k">return</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">result</span><span class="p">);</span>
+<span class="k">return</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">result</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>カスタマイゼーションポイント</h2>
@@ -287,19 +287,19 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 値(100, 'X')を送信するSender</span>
-  <span class="n"><a href="../execution/sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="../execution/just.html">ex::just</a></span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="sc">'X'</span><span class="p">);</span>
-  <span class="c1">// メインスレッド上で完了待機</span>
-  <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::this_thread::sync_wait</span></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
-  <span class="c1">// 結果型optional&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int,char&gt;&gt;から値を取り出す</span>
-  <span class="k">auto</span> <span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"result=({}, {})"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 値(100, 'X')を送信するSender</span>
+<span class="w">  </span><span class="n"><a href="../execution/sender.html">ex::sender</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../execution/just.html">ex::just</a></span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="sc">'X'</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// メインスレッド上で完了待機</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::this_thread::sync_wait</span></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 結果型optional&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int,char&gt;&gt;から値を取り出す</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"result=({}, {})"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -345,7 +345,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

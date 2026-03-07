@@ -221,28 +221,28 @@
 <p>新たなプリプロセスマクロ<code>__VA_OPT__</code>を追加する。このマクロは、マクロのパラメータとして受け取った可変引数が空でない場合に置換するトークンを指定する機能を持つ。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="cp">#define F(X, ...) f(10, X __VA_OPT__(,) __VA_ARGS__)</span>
 
-<span class="n">F</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>               <span class="c1">// f(10, 3); に置換される</span>
-<span class="n">F</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">,</span> <span class="sc">'A'</span><span class="p">);</span> <span class="c1">// f(10, 3, "Hello", 'A'); に置換される</span>
+<span class="n">F</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">               </span><span class="c1">// f(10, 3); に置換される</span>
+<span class="n">F</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">);</span><span class="w"> </span><span class="c1">// f(10, 3, "Hello", 'A'); に置換される</span>
 </code></pre></div>
 </p>
 <p>可変引数のために単に<code>__VA_ARGS__</code>を使用すると、可変引数が空だった場合に、カンマが余ってしまい、「<code>f(10, 3, );</code>」のように展開されて構文エラーとなる。<code>__VA_OPT__</code>マクロはその問題を回避するために使用できる。</p>
 <p><code>__VA_OPT__</code>マクロは引数として、可変引数が空でなかった場合に置換するトークンをとる。関数呼び出しのためのカンマを例として挙げたが、この引数には任意のトークンを指定できる。たとえば、リスト初期化の構文や、<code>__VA_ARGS__</code>をトークンに含めることもできる：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="cp">#define SDEF(sname, ...) S sname __VA_OPT__(= { __VA_ARGS__ })</span>
 
-<span class="n">SDEF</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span>          <span class="c1">// S foo; に展開される</span>
-<span class="n">SDEF</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// S bar = {1, 2, 3}; に展開される</span>
+<span class="n">SDEF</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span><span class="w">          </span><span class="c1">// S foo; に展開される</span>
+<span class="n">SDEF</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// S bar = {1, 2, 3}; に展開される</span>
 </code></pre></div>
 </p>
 <p>このマクロは、同じ仕様でC言語にも提案されている。「<a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2034.htm" target="_blank">WG14 N2034 Comma omission and comma deletion</a>」を参照。</p>
 <h2>例</h2>
-<p><div class="yata" id="0a0c8a88cf01ee8ce6bdd34fed140054cf7838fe"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0a0c8a88cf01ee8ce6bdd34fed140054cf7838fe"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span>
 
 <span class="cp">#define DEBUG_LOG(msg, ...) std::printf("[debug] " msg "\n" __VA_OPT__(,) __VA_ARGS__)</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">DEBUG_LOG</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>       <span class="c1">// printf("[debug] hello\n"); に展開される</span>
-  <span class="n">DEBUG_LOG</span><span class="p">(</span><span class="s">"value:%d"</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// printf("[debug] value:%d\n", 3); に展開される</span>
+<span class="w">  </span><span class="n">DEBUG_LOG</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span><span class="w">       </span><span class="c1">// printf("[debug] hello\n"); に展開される</span>
+<span class="w">  </span><span class="n">DEBUG_LOG</span><span class="p">(</span><span class="s">"value:%d"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// printf("[debug] value:%d\n", 3); に展開される</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -275,7 +275,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_trivially_constructible</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">is_trivially_constructible</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_trivially_constructible</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_trivially_constructible_v</span>
-    <span class="o">=</span> <span class="n">is_trivially_constructible</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span> <span class="c1">// C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_trivially_constructible_v</span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">is_trivially_constructible</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -231,46 +231,46 @@
 <p><code>is_trivially_constructible</code>は、<code>T( Args... )</code>の形式のコンストラクタ呼出しがトリビアルに可能であるならば<code><a href="true_type.html">true_type</a></code>から派生し、そうでなければ<code><a href="false_type.html">false_type</a></code>から派生する。</p>
 <p>「トリビアルに構築可能」とは、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>されないコンストラクタを持っていることを意味する。</p>
 <h2>例</h2>
-<p><div class="yata" id="5e0870177bc32a2eb5f09f0240f77a5897aef823"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5e0870177bc32a2eb5f09f0240f77a5897aef823"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="c1">// トリビアルなコンストラクタを持っている</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// トリビアルなコンストラクタを持っている</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{</span>
-  <span class="c1">// 非トリビアルなコピーコンストラクタを持っている</span>
-  <span class="n">Y</span><span class="p">(</span><span class="k">const</span> <span class="n">Y</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 非トリビアルなコピーコンストラクタを持っている</span>
+<span class="w">  </span><span class="n">Y</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Y</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">Z</span> <span class="p">{</span>
-  <span class="c1">// 非トリビアルなコピーコンストラクタを持つ型を包含している</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Z</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 非トリビアルなコピーコンストラクタを持つ型を包含している</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 
-  <span class="c1">// Z型は非トリビアルなコピーコンストラクタを持つ</span>
+<span class="w">  </span><span class="c1">// Z型は非トリビアルなコピーコンストラクタを持つ</span>
 <span class="p">};</span>
 
 <span class="c1">// 組み込み型は全てトリビアルに構築可能</span>
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_trivially_constructible</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span>
-  <span class="s">"int is trivially constructible"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_trivially_constructible</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"int is trivially constructible"</span><span class="p">);</span>
 
 <span class="c1">// トリビアルなコンストラクタを持っている型</span>
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_trivially_constructible</span></span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="k">const</span> <span class="n">X</span><span class="o">&amp;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span>
-  <span class="s">"X is trivially constructible"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_trivially_constructible</span></span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"X is trivially constructible"</span><span class="p">);</span>
 
 <span class="c1">// 非トリビアルなコンストラクタを持っている型</span>
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_trivially_constructible</span></span><span class="o">&lt;</span><span class="n">Y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Y</span><span class="o">&amp;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span>
-  <span class="s">"Y isn't trivially constructible"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_trivially_constructible</span></span><span class="o">&lt;</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Y</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"Y isn't trivially constructible"</span><span class="p">);</span>
 
 <span class="c1">// 非トリビアルなコンストラクタを持つ型を包含する型</span>
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_trivially_constructible</span></span><span class="o">&lt;</span><span class="n">Z</span><span class="p">,</span> <span class="k">const</span> <span class="n">Z</span><span class="o">&amp;&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span>
-  <span class="s">"Z isn't trivially constructible"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_trivially_constructible</span></span><span class="o">&lt;</span><span class="n">Z</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Z</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"Z isn't trivially constructible"</span><span class="p">);</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
@@ -310,7 +310,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;fstream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_filebuf">basic_filebuf::</span><span class="token">native_handle</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">native_handle_type</span> <span class="nf">native_handle</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">native_handle_type</span><span class="w"> </span><span class="nf">native_handle</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -242,30 +242,30 @@
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="68789ef96aab4ea1c0f0baf199fbf7146af26860"><div class="codehilite"><pre><span></span><code><span class="c1">// POSIX環境</span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../../fstream.html">&lt;fstream&gt;</a></span>
+<span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../basic_fstream.html">std::fstream</a></span> <span class="n">fs</span><span class="p">(</span><span class="s">"example.txt"</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">filebuf</span><span class="o">*</span> <span class="n">buf</span> <span class="o">=</span> <span class="n"><a href="../basic_fstream/rdbuf.html">fs.rdbuf()</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../basic_fstream.html">std::fstream</a></span><span class="w"> </span><span class="n">fs</span><span class="p">(</span><span class="s">"example.txt"</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">filebuf</span><span class="o">*</span><span class="w"> </span><span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../basic_fstream/rdbuf.html">fs.rdbuf()</a></span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="is_open.html">buf-&gt;is_open()</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"ファイルを開けなかった"</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="is_open.html">buf-&gt;is_open()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"ファイルを開けなかった"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// ネイティブハンドルから、POSIXのAPIでファイルの最終更新日時を取得する</span>
-  <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">buf</span><span class="o">-&gt;</span><span class="n"><span style="color:#ff0000">native_handle</span></span><span class="p">();</span>
-  <span class="k">struct</span> <span class="o">::</span><span class="n">stat</span> <span class="n">s</span><span class="p">{};</span>
-  <span class="o">::</span><span class="n">fstat</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ネイティブハンドルから、POSIXのAPIでファイルの最終更新日時を取得する</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="o">-&gt;</span><span class="n"><span style="color:#ff0000">native_handle</span></span><span class="p">();</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="o">::</span><span class="n">stat</span><span class="w"> </span><span class="n">s</span><span class="p">{};</span>
+<span class="w">  </span><span class="o">::</span><span class="n">fstat</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
 
-  <span class="n"><a href="../../chrono/sys_time.html">std::chrono::sys_seconds</a></span> <span class="n">last_modified</span> <span class="p">{</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">st_mtim</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">)};</span>
-  <span class="n"><a href="../../chrono/zoned_time.html">std::chrono::zoned_time</a></span> <span class="n">zoned</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">last_modified</span><span class="p">};</span>
-  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Last modified: {}"</span><span class="p">,</span> <span class="n">zoned</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../chrono/sys_time.html">std::chrono::sys_seconds</a></span><span class="w"> </span><span class="n">last_modified</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::seconds</a></span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">st_mtim</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">)};</span>
+<span class="w">  </span><span class="n"><a href="../../chrono/zoned_time.html">std::chrono::zoned_time</a></span><span class="w"> </span><span class="n">zoned</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span><span class="w"> </span><span class="n">last_modified</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Last modified: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">zoned</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -304,7 +304,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

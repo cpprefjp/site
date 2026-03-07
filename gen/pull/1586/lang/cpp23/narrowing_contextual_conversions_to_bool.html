@@ -227,18 +227,18 @@
 <p>ただし<code>explicit(bool)</code>および<code>noexcept(bool)</code>のパラメータについては縮小変換が許可されないため、整数値として値<code>1</code>か<code>0</code>のどちらかしか指定できず、<code>noexcept(sizeof(char[2]))</code>のようなコードはコンパイルエラーとなる。</p>
 <h3><code>static_assert</code>の例</h3>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 整数値が0でなければtrue、そうでなければfalse</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="kt">bool</span><span class="p">(</span><span class="n">N</span><span class="p">));</span> <span class="c1">// これまでの書き方</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>       <span class="c1">// C++23以降</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="kt">bool</span><span class="p">(</span><span class="n">N</span><span class="p">));</span><span class="w"> </span><span class="c1">// これまでの書き方</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">N</span><span class="p">);</span><span class="w">       </span><span class="c1">// C++23以降</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span> <span class="c1">// C++23:OK 縮小変換</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span><span class="w"> </span><span class="c1">// C++23:OK 縮小変換</span>
 </code></pre></div>
 </p>
 <h3><code>if constexpr</code>の例</h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="nf">constexpr</span><span class="p">(</span><span class="kt">bool</span><span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">Flags</span><span class="o">::</span><span class="n">Exec</span><span class="p">))</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span>  <span class="c1">// これまでの書き方</span>
-<span class="k">if</span> <span class="nf">constexpr</span><span class="p">((</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">Flags</span><span class="o">::</span><span class="n">Exec</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span> <span class="c1">// これまでの書き方</span>
-<span class="k">if</span> <span class="nf">constexpr</span><span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">Flags</span><span class="o">::</span><span class="n">Exec</span><span class="p">)</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span>        <span class="c1">// C++23以降</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="kt">bool</span><span class="p">(</span><span class="n">flags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Flags</span><span class="o">::</span><span class="n">Exec</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// これまでの書き方</span>
+<span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">((</span><span class="n">flags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Flags</span><span class="o">::</span><span class="n">Exec</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// これまでの書き方</span>
+<span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">flags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Flags</span><span class="o">::</span><span class="n">Exec</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span><span class="w">        </span><span class="c1">// C++23以降</span>
 
-<span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span> <span class="c1">// C++23:OK 縮小変換</span>
+<span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// C++23:OK 縮小変換</span>
 </code></pre></div>
 </p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
@@ -267,7 +267,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

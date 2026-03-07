@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="token">file_time_type</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">file_time_type</span> <span class="o">=</span> <span class="n"><a href="../chrono/time_point.html">chrono::time_point</a></span><span class="o">&lt;</span><span class="err">実装定義のクロック型</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (1) C++17</span>
-  <span class="k">using</span> <span class="n">file_time_type</span> <span class="o">=</span> <span class="n"><a href="../chrono/time_point.html">chrono::time_point</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/file_clock.html">chrono::file_clock</a></span><span class="o">&gt;</span><span class="p">;</span>   <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">file_time_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../chrono/time_point.html">chrono::time_point</a></span><span class="o">&lt;</span><span class="n">実装定義のクロック型</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++17</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">file_time_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../chrono/time_point.html">chrono::time_point</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/file_clock.html">chrono::file_clock</a></span><span class="o">&gt;</span><span class="p">;</span><span class="w">   </span><span class="c1">// (1) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -228,38 +228,38 @@
 </ul>
 <h2>例</h2>
 <h3>C++17での使用例</h3>
-<p><div class="yata" id="2dab28a4077c41f1c5392cb15ff04cb758237970"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="2dab28a4077c41f1c5392cb15ff04cb758237970"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../fstream.html">&lt;fstream&gt;</a></span>
+<span class="cp">#include <a href="../filesystem.html">&lt;filesystem&gt;</a></span>
+<span class="cp">#include <a href="../ctime.html">&lt;ctime&gt;</a></span>
+<span class="cp">#include <a href="../iomanip.html">&lt;iomanip&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">print_datetime</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">tp</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_datetime</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="w"> </span><span class="n">tp</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
-  <span class="k">auto</span> <span class="n">sec</span> <span class="o">=</span> <span class="n"><a href="../chrono/duration_cast.html">chrono::duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../chrono/time_point/time_since_epoch.html">tp.time_since_epoch()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../chrono/duration_cast.html">chrono::duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../chrono/time_point/time_since_epoch.html">tp.time_since_epoch()</a></span><span class="p">);</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="kt">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../chrono/duration/count.html">sec.count()</a></span><span class="p">;</span>
-  <span class="k">const</span> <span class="n">tm</span><span class="o">*</span> <span class="n">lt</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="s">"%c"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="kt">time_t</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../chrono/duration/count.html">sec.count()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">tm</span><span class="o">*</span><span class="w"> </span><span class="n">lt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span><span class="w"> </span><span class="s">"%c"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular.txt"</span><span class="p">};</span>
-  <span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
 
-  <span class="c1">// ファイル・ディレクトリの最終更新日時を取得</span>
-  <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">file_time</span> <span class="o">=</span> <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">);</span>
-  <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">dir_time</span> <span class="o">=</span> <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ファイル・ディレクトリの最終更新日時を取得</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="w"> </span><span class="n">file_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="w"> </span><span class="n">dir_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
 
-  <span class="n">print_datetime</span><span class="p">(</span><span class="s">"file time"</span><span class="p">,</span> <span class="n">file_time</span><span class="p">);</span>
-  <span class="n">print_datetime</span><span class="p">(</span><span class="s">"dir time"</span><span class="p">,</span> <span class="n">dir_time</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print_datetime</span><span class="p">(</span><span class="s">"file time"</span><span class="p">,</span><span class="w"> </span><span class="n">file_time</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print_datetime</span><span class="p">(</span><span class="s">"dir time"</span><span class="p">,</span><span class="w"> </span><span class="n">dir_time</span><span class="p">);</span>
 
-  <span class="c1">// ファイルの最終更新日時として、現在日時を設定</span>
-  <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="o">::</span><span class="n">clock</span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
+<span class="w">  </span><span class="c1">// ファイルの最終更新日時として、現在日時を設定</span>
+<span class="w">  </span><span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="o">::</span><span class="n">clock</span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -268,38 +268,38 @@
 dir time : Fri Jun 15 14:19:03 2018
 </code></pre></p>
 <h3>C++20での使用例</h3>
-<p><div class="yata" id="bb8a401012fb6323877ac7ac3cce1bb10223a18b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="bb8a401012fb6323877ac7ac3cce1bb10223a18b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../fstream.html">&lt;fstream&gt;</a></span>
+<span class="cp">#include <a href="../filesystem.html">&lt;filesystem&gt;</a></span>
+<span class="cp">#include <a href="../ctime.html">&lt;ctime&gt;</a></span>
+<span class="cp">#include <a href="../iomanip.html">&lt;iomanip&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">print_datetime</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">tp</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_datetime</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="w"> </span><span class="n">tp</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
-  <span class="n"><a href="../chrono/sys_time.html">chrono::sys_time</a></span> <span class="n">st</span> <span class="o">=</span> <span class="n"><a href="../chrono/file_clock.html">chrono::file_clock</a></span><span class="o">::</span><span class="n">to_sys</span><span class="p">(</span><span class="n">tp</span><span class="p">);</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../chrono/sys_time.html">chrono::sys_time</a></span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../chrono/file_clock.html">chrono::file_clock</a></span><span class="o">::</span><span class="n">to_sys</span><span class="p">(</span><span class="n">tp</span><span class="p">);</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="kt">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../chrono/system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../chrono/system_clock/to_time_t.html">to_time_t</a></span><span class="p">(</span><span class="n">st</span><span class="p">);</span>
-  <span class="k">const</span> <span class="n">tm</span><span class="o">*</span> <span class="n">lt</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="s">"%c"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="kt">time_t</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../chrono/system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../chrono/system_clock/to_time_t.html">to_time_t</a></span><span class="p">(</span><span class="n">st</span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">tm</span><span class="o">*</span><span class="w"> </span><span class="n">lt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span><span class="w"> </span><span class="s">"%c"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular.txt"</span><span class="p">};</span>
-  <span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
 
-  <span class="c1">// ファイル・ディレクトリの最終更新日時を取得</span>
-  <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">file_time</span> <span class="o">=</span> <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">);</span>
-  <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">dir_time</span> <span class="o">=</span> <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ファイル・ディレクトリの最終更新日時を取得</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="w"> </span><span class="n">file_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="w"> </span><span class="n">dir_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
 
-  <span class="n">print_datetime</span><span class="p">(</span><span class="s">"file time"</span><span class="p">,</span> <span class="n">file_time</span><span class="p">);</span>
-  <span class="n">print_datetime</span><span class="p">(</span><span class="s">"dir time"</span><span class="p">,</span> <span class="n">dir_time</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print_datetime</span><span class="p">(</span><span class="s">"file time"</span><span class="p">,</span><span class="w"> </span><span class="n">file_time</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print_datetime</span><span class="p">(</span><span class="s">"dir time"</span><span class="p">,</span><span class="w"> </span><span class="n">dir_time</span><span class="p">);</span>
 
-  <span class="c1">// ファイルの最終更新日時として、現在日時を設定</span>
-  <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="o">::</span><span class="n">clock</span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
+<span class="w">  </span><span class="c1">// ファイルの最終更新日時として、現在日時を設定</span>
+<span class="w">  </span><span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="o">::</span><span class="n">clock</span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -341,7 +341,7 @@ dir time : Wed Jul 15 23:08:06 2020
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

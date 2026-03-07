@@ -219,24 +219,24 @@
 <p></p>
 <h2>概要</h2>
 <p>型変換演算子の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>をする際、<code>operator</code>キーワードの前に<code>explicit</code>を付加することで、その型変換演算子は明示的な型変換が行われる文脈でのみ呼び出されるようになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">SmartPointer</span> <span class="p">{</span>
-  <span class="n">T</span><span class="o">*</span> <span class="n">p_</span> <span class="o">=</span> <span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SmartPointer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">p_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// boolへの明示的な型変換演算子</span>
-  <span class="n"><span style="color:#ff0000">explicit operator bool</span></span><span class="p">()</span> <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">p_</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// boolへの明示的な型変換演算子</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">explicit operator bool</span></span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">SmartPointer</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n">SmartPointer</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 
-  <span class="c1">// OK : if文による条件式のboolへの型変換</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="k">else</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// OK : if文による条件式のboolへの型変換</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="c1">//p + 1; // コンパイルエラー : 暗黙の型変換演算子ではコンパイルが通っていた</span>
 <span class="p">}</span>
@@ -244,34 +244,34 @@
 </p>
 <p>明示的な型変換演算子を使用することにより、従来の危険な型変換を抑制できる。上記サンプルコードでの、<code>bool</code>への型変換演算子を持つ<code>p</code>に対して、<code>p + 1</code>のような式が許可されていたものが、明示的な型変換演算子ではコンパイルエラーとなる。</p>
 <h2>仕様</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n"><a href="constexpr.html">constexpr</a></span> <span class="k">explicit</span> <span class="k">operator</span> <span class="kt">bool</span><span class="p">()</span> <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="constexpr.html">constexpr</a></span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="kt">bool</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="constexpr.html">constexpr</a></span> <span class="n">X</span> <span class="n">x</span> <span class="p">{};</span>
+<span class="w">  </span><span class="n"><a href="constexpr.html">constexpr</a></span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="c1">//bool b1 = x;                    // コンパイルエラー : boolへの暗黙変換</span>
-                                  <span class="c1">// bool型パラメータを持つ関数への引数渡し、</span>
-                                  <span class="c1">// bool型戻り値を持つ関数からの戻り値も同様</span>
+<span class="w">                                  </span><span class="c1">// bool型パラメータを持つ関数への引数渡し、</span>
+<span class="w">                                  </span><span class="c1">// bool型戻り値を持つ関数からの戻り値も同様</span>
 
-  <span class="kt">bool</span> <span class="n">b2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="n">x</span><span class="p">;</span>              <span class="c1">// OK : キャストによる明示的な型変換</span>
-  <span class="kt">bool</span> <span class="n">b3</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// OK : キャストによる明示的な型変換</span>
-  <span class="kt">bool</span> <span class="n">b4</span> <span class="o">=</span> <span class="kt">bool</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>              <span class="c1">// OK : 関数スタイルのキャスト</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="n">x</span><span class="p">;</span><span class="w">              </span><span class="c1">// OK : キャストによる明示的な型変換</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">b3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK : キャストによる明示的な型変換</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">b4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">              </span><span class="c1">// OK : 関数スタイルのキャスト</span>
 <span class="c1">//bool b5 = x == true;            // コンパイルエラー : bool値との比較は暗黙の型変換</span>
-  <span class="kt">bool</span> <span class="n">b6</span> <span class="o">=</span> <span class="o">!</span><span class="n">x</span><span class="p">;</span>                   <span class="c1">// OK : 否定演算子によるboolへの変換後の反転</span>
-  <span class="kt">bool</span> <span class="n">b7</span> <span class="o">=</span> <span class="o">!!</span><span class="n">x</span><span class="p">;</span>                  <span class="c1">// OK : 否定演算子を2回適用することでboolに型変換</span>
-  <span class="kt">bool</span> <span class="n">b8</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="nb">true</span><span class="p">;</span>            <span class="c1">// OK : 論理積演算子によるboolへの型変換</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">b6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">x</span><span class="p">;</span><span class="w">                   </span><span class="c1">// OK : 否定演算子によるboolへの変換後の反転</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">b7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="n">x</span><span class="p">;</span><span class="w">                  </span><span class="c1">// OK : 否定演算子を2回適用することでboolに型変換</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">b8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">            </span><span class="c1">// OK : 論理積演算子によるboolへの型変換</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// OK : if文による条件式のboolへの変換</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// OK : if文による条件式のboolへの変換</span>
 
-  <span class="kt">bool</span> <span class="n">b9</span> <span class="o">=</span> <span class="n">x</span> <span class="o">?</span> <span class="nb">true</span> <span class="o">:</span> <span class="nb">false</span><span class="p">;</span>     <span class="c1">// OK : 条件演算子によるboolへの型変換</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">b9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">     </span><span class="c1">// OK : 条件演算子によるboolへの型変換</span>
 
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">"x must be bool"</span><span class="p">);</span>  <span class="c1">// OK : 条件式のboolへの型変換</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="s">"x must be bool"</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK : 条件式のboolへの型変換</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -299,7 +299,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

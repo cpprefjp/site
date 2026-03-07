@@ -220,21 +220,21 @@
 <h2>概要</h2>
 <p>C++11で導入された<code>noexcept</code>キーワードには、以下の2つの意味がある：</p>
 <p>ひとつは、<code>throw</code>キーワードによる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様の代替。関数がどの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかを列挙するのではなく、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかないかのみを指定する。<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある関数には<code>noexcept(false)</code>を指定し、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がない関数には<code>noexcept(true)</code>もしくは<code>noexcept</code>を指定する：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">value_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Integer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// getValue()メンバ関数は、例外を送出しない</span>
-  <span class="kt">int</span> <span class="n">getValue</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// getValue()メンバ関数は、例外を送出しない</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p><code>noexcept</code>キーワードのもうひとつの意味は、式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかどうかを判定する演算子である。<code>noexcept(f(arg))</code>のように<code>noexcept</code>演算子に式を指定することで、その式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかどうかを、コンパイル時定数の<code>bool</code>値として取得できる。つまり、関数に対して指定された<code>noexcept</code>の情報を取得する：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">Integer</span> <span class="n">x</span><span class="p">;</span>
-<span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">getValue</span><span class="p">()),</span> <span class="s">"getValue() function never throw exception"</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">getValue</span><span class="p">()),</span><span class="w"> </span><span class="s">"getValue() function never throw exception"</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p><code>noexcept</code>は、代表的には以下の2つの用途で使用できる：</p>
@@ -260,20 +260,20 @@
 </ul>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="o">~</span><span class="n">X</span><span class="p">();</span> <span class="c1">// デストラクタはデフォルトで<span style="color:#ff0000">noexcept</span>(true)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="o">~</span><span class="n">X</span><span class="p">();</span><span class="w"> </span><span class="c1">// デストラクタはデフォルトで<span style="color:#ff0000">noexcept</span>(true)</span>
 
-  <span class="c1">// 例外を送出する可能性がある</span>
-  <span class="c1">// ※ <a href="../../reference/vector/vector.html">std::vector</a>のコピーコンストラクタは例外を送出する</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">getVector</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 例外を送出する可能性がある</span>
+<span class="w">  </span><span class="c1">// ※ <a href="../../reference/vector/vector.html">std::vector</a>のコピーコンストラクタは例外を送出する</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getVector</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 <span class="c1">//<a href="../../reference/vector/vector.html">std::vector</a>&lt;T&gt; getVector() const <span style="color:#ff0000">noexcept</span>(false);</span>
 
-  <span class="c1">// 例外を送出しない</span>
-  <span class="kt">int</span> <span class="nf">getValue</span><span class="p">()</span> <span class="k">const</span> <span class="n"><span style="color:#ff0000">noexcept</span></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 例外を送出しない</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">getValue</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><span style="color:#ff0000">noexcept</span></span><span class="p">;</span>
 <span class="c1">//int getValue() const <span style="color:#ff0000">noexcept</span>(true);</span>
 
-  <span class="c1">// <span style="color:#ff0000">noexcept</span>は参照修飾と後置戻り値型の間</span>
-  <span class="k">auto</span> <span class="nf">getString</span><span class="p">()</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n"><span style="color:#ff0000">noexcept</span></span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// <span style="color:#ff0000">noexcept</span>は参照修飾と後置戻り値型の間</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">getString</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">noexcept</span></span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -286,19 +286,19 @@
 <ul>
 <li>演算子としての<code>noexcept</code>は、引数として指定した定数式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかどうかをコンパイル時に判定し、<code>bool</code>型の定数値を返す</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// noexcept例外仕様</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// noexcept例外仕様</span>
 
-  <span class="c1">// 外側はnoexcept例外仕様、内側はnoexcept演算子。</span>
-  <span class="c1">// メンバ関数f()が例外を送出しない場合、関数g()もまた例外を送出しない</span>
-  <span class="kt">int</span> <span class="nf">g</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">f</span><span class="p">()))</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="n">f</span><span class="p">();</span> <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 外側はnoexcept例外仕様、内側はnoexcept演算子。</span>
+<span class="w">  </span><span class="c1">// メンバ関数f()が例外を送出しない場合、関数g()もまた例外を送出しない</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">f</span><span class="p">()))</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="c1">// X::f()メンバ関数が例外を送出しない場合、</span>
 <span class="c1">// isNoexprFはtrue、そうでなければfalseとなる</span>
-<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">isNoexprF</span> <span class="o">=</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">f</span><span class="p">());</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isNoexprF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">f</span><span class="p">());</span>
 </code></pre></div>
 </p>
 <ul>
@@ -314,47 +314,47 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="7fed940e950389aaa35deac1b7d5ad8bbca98487"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/stack.html">&lt;stack&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/deque/deque.html">&lt;deque&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7fed940e950389aaa35deac1b7d5ad8bbca98487"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/stack.html">&lt;stack&gt;</a></span>
+<span class="cp">#include <a href="../../reference/deque/deque.html">&lt;deque&gt;</a></span>
+<span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Container</span> <span class="o">=</span> <span class="n"><a href="../../reference/deque/deque.html">std::deque</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
-<span class="k">class</span> <span class="nc">movable_stack</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="../../reference/stack.html">std::stack</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Container</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">base</span> <span class="o">=</span> <span class="n"><a href="../../reference/stack.html">std::stack</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Container</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/deque/deque.html">std::deque</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">movable_stack</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../../reference/stack.html">std::stack</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Container</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/stack.html">std::stack</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Container</span><span class="o">&gt;</span><span class="p">;</span>
 
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_nothrow_default_constructible.html">std::is_nothrow_default_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span>
-                <span class="s">"T must be nothrow default constructible"</span><span class="p">);</span>
-  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_nothrow_move_constructible.html">std::is_nothrow_move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span>
-                <span class="s">"T must be nothrow move constructible"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_nothrow_default_constructible.html">std::is_nothrow_default_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span>
+<span class="w">                </span><span class="s">"T must be nothrow default constructible"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_nothrow_move_constructible.html">std::is_nothrow_move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span>
+<span class="w">                </span><span class="s">"T must be nothrow move constructible"</span><span class="p">);</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// クラスのテンプレートパラメータTに対して、</span>
-  <span class="c1">// ムーブコンストラクタが例外を送出しないことを要求しているので、</span>
-  <span class="c1">// pop操作は例外を送出することなくreturnで要素を返せる。</span>
-  <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">move_pop</span><span class="p">()</span> <span class="k">noexcept</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/stack/stack/empty.html">base::empty()</a></span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n"><a href="../../reference/utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n">T</span><span class="p">(),</span> <span class="nb">false</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="c1">// クラスのテンプレートパラメータTに対して、</span>
+<span class="w">  </span><span class="c1">// ムーブコンストラクタが例外を送出しないことを要求しているので、</span>
+<span class="w">  </span><span class="c1">// pop操作は例外を送出することなくreturnで要素を返せる。</span>
+<span class="w">  </span><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">move_pop</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/stack/stack/empty.html">base::empty()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n">T</span><span class="p">(),</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n">T</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="../../reference/stack/stack/top.html">base::top()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../reference/stack/stack/pop.html">base::pop()</a></span><span class="p">;</span>
-    <span class="k">return</span> <span class="nf"><a href="../../reference/utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="../../reference/stack/stack/top.html">base::top()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../reference/stack/stack/pop.html">base::pop()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">movable_stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-  <span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">movable_stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../reference/stack/stack/empty.html">s.empty()</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">next_value</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">move_pop</span><span class="p">().</span><span class="n">first</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">next_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../reference/stack/stack/empty.html">s.empty()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">next_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">move_pop</span><span class="p">().</span><span class="n">first</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">next_value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -410,7 +410,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

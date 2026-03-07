@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class out_ptr_t">out_ptr_t::</span><span class="token">デストラクタ</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">out_ptr_t</span><span class="p">();</span>           <span class="c1">// (1) C++23</span>
-<span class="k">constexpr</span> <span class="o">~</span><span class="n">out_ptr_t</span><span class="p">();</span> <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">out_ptr_t</span><span class="p">();</span><span class="w">           </span><span class="c1">// (1) C++23</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="o">~</span><span class="n">out_ptr_t</span><span class="p">();</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -250,18 +250,18 @@
 <ul>
 <li>
 <p>式 <code>s.reset(static_cast&lt;SP&gt;(p), <a href="../../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code> が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../../tuple/apply.html">apply</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">s</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">SP</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span> <span class="p">},</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../tuple/apply.html">apply</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">SP</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;Smart, SP, Args...&gt;</code>が<code>true</code>ならば、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../../tuple/apply.html">apply</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">Smart</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">SP</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span> <span class="p">},</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../tuple/apply.html">apply</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Smart</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">SP</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -311,7 +311,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

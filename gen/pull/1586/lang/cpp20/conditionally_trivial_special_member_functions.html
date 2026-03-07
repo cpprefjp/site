@@ -217,17 +217,17 @@
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
 <h2>概要</h2>
 <p>クラスの特殊メンバ関数（コンストラクタ・代入演算子・デストラクタ）の<code>default</code>宣言をコンセプトによって制約することで、テンプレートパラメータの性質に応じて優先的に選択させることができる様になる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">wrap</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">t</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">wrap</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 
-  <span class="c1">// 1. 制約されたdefaultなコピーコンストラクタ</span>
-  <span class="n">wrap</span><span class="p">(</span><span class="k">const</span> <span class="n">wrap</span><span class="o">&amp;</span><span class="p">)</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 1. 制約されたdefaultなコピーコンストラクタ</span>
+<span class="w">  </span><span class="n">wrap</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">wrap</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="c1">// 2. ユーザー定義コピーコンストラクタ</span>
-  <span class="n">wrap</span><span class="p">(</span><span class="k">const</span> <span class="n">wrap</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 2. ユーザー定義コピーコンストラクタ</span>
+<span class="w">  </span><span class="n">wrap</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">wrap</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -265,201 +265,201 @@
 <h2>例</h2>
 <p><code>std::optional&lt;T&gt;</code>の簡易実装を考える。デストラクタについて、要素型<code>T</code>が<code><a href="../../reference/type_traits/is_trivially_destructible.html">trivially_destructible</a></code>であるかどうかに応じて<code>optional&lt;T&gt;</code>のデストラクタのトリビアル性も切り替えたい場合、次のような実装になる</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// デストラクタがトリビアルでない場合のストレージ型</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="kt">bool</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
-<span class="k">struct</span> <span class="n">optional_storage</span> <span class="p">{</span>
-  <span class="k">union</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">dummy</span><span class="p">;</span>
-    <span class="n">T</span> <span class="n">data</span><span class="p">;</span>
-  <span class="p">};</span>
-  <span class="kt">bool</span> <span class="n">has_value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">optional_storage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">dummy</span><span class="p">;</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
-  <span class="c1">// デストラクタは常に非トリビアルでdeleteされているので定義する</span>
-  <span class="o">~</span><span class="n">optional_storage</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">has_value</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="o">~</span><span class="n">T</span><span class="p">();</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// デストラクタは常に非トリビアルでdeleteされているので定義する</span>
+<span class="w">  </span><span class="o">~</span><span class="n">optional_storage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">has_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="o">~</span><span class="n">T</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">// デストラクタがトリビアルである場合のストレージ型</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">optional_storage</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="nb">true</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">union</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">dummy</span><span class="p">;</span>
-    <span class="n">T</span> <span class="n">data</span><span class="p">;</span>
-  <span class="p">};</span>
-  <span class="kt">bool</span> <span class="n">has_value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">optional_storage</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">dummy</span><span class="p">;</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
-  <span class="c1">// デストラクタはトリビアルであり常にdeleteされないので、宣言も不要</span>
+<span class="w">  </span><span class="c1">// デストラクタはトリビアルであり常にdeleteされないので、宣言も不要</span>
 <span class="p">};</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">my_optional</span> <span class="o">:</span> <span class="k">private</span> <span class="n">optional_storage</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">my_optional</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">optional_storage</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 
-  <span class="c1">// 略</span>
-  <span class="p">...</span>
+<span class="w">  </span><span class="c1">// 略</span>
+<span class="w">  </span><span class="p">...</span>
 
-  <span class="c1">// デストラクタ、この宣言も実はいらない</span>
-  <span class="o">~</span><span class="n">my_optional</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// デストラクタ、この宣言も実はいらない</span>
+<span class="w">  </span><span class="o">~</span><span class="n">my_optional</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>無効値と有効値でストレージを共有し、なおかつ遅延初期化等を行いながら動的確保や追加のストレージ消費を抑えるためには共用体を使用する。共用体の特殊メンバ関数はそのメンバ型のもつ特殊メンバ関数が1つでも非トリビアルであるならば対応する特殊メンバ関数が<code>delete</code>されるため、その場合はユーザーが定義しなければならない。しかしそれを一つの型の中で行うことができなかったため、このようにデストラクタの実装を行うレイヤにおいて型を分割する必要があった。</p>
 <p>これをこの機能を用いて書き直すと、次のような実装になる</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">my_optional</span> <span class="p">{</span>
-  <span class="kt">bool</span> <span class="n">has_value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="k">union</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">dummy</span><span class="p">;</span>
-    <span class="n">T</span> <span class="n">data</span><span class="p">;</span>
-  <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">my_optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">dummy</span><span class="p">;</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
 <span class="k">public</span><span class="o">:</span>
 
-  <span class="c1">// 略</span>
-  <span class="p">...</span>
+<span class="w">  </span><span class="c1">// 略</span>
+<span class="w">  </span><span class="p">...</span>
 
-  <span class="c1">// Tのデストラクタがトリビアルならばこちらが有効化</span>
-  <span class="o">~</span><span class="n">my_optional</span><span class="p">()</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Tのデストラクタがトリビアルならばこちらが有効化</span>
+<span class="w">  </span><span class="o">~</span><span class="n">my_optional</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="c1">// そうでないならばこちらが有効化</span>
-  <span class="o">~</span><span class="n">my_optional</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// そうでないならばこちらが有効化</span>
+<span class="w">  </span><span class="o">~</span><span class="n">my_optional</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// reset()の定義も同様の記法で分岐できる</span>
+<span class="w">  </span><span class="c1">// reset()の定義も同様の記法で分岐できる</span>
 
-  <span class="kt">void</span> <span class="n">reset</span><span class="p">()</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="n">reset</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="o">~</span><span class="n">T</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="o">~</span><span class="n">T</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>コンセプトによって<code>T</code>の（デストラクタの）トリビアル性に応じてデストラクタを選択できるようになるため、先ほどのような定義を分けるためのレイヤが不要になり、コード量を大きく削減することができる。</p>
 <p>元の（この機能を使わない）実装に戻って、さらにコピーコンストラクタとムーブコンストラクタ、そしてコピー/ムーブ代入演算子についても同様に<code>T</code>のトリビアル性に応じて<code>default</code>とするかを切り替えることを考える。実装としてはデストラクタの時と同様に基底クラスにその判定と分岐を行うレイヤを追加して、そこで<code>T</code>の性質に応じた宣言（<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>/<code>default</code>定義）を記述していくことになるが、その総数はデストラクタのためのレイヤも含めて全5層に達し、実装はかなり複雑になる（このためここでは省略するが、この実装に興味がある場合、MSVC STLの<code><a href="https://github.com/microsoft/STL/blob/main/stl/inc/xsmf_control.h" target="_blank">xsmf_control.h</a></code>およびこれを利用した<code>std::optional</code>/<code>std::variant</code>の実装が参考になると思われる）。</p>
 <p>しかし、この機能を使用すると先ほどのデストラクタの場合と同様にそのような不要なレイヤを必要とすることなくシンプルに記述できる</p>
-<p><div class="yata" id="756e1971e8bb22da4c01e8fddb4868f4a6f9cf4e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="756e1971e8bb22da4c01e8fddb4868f4a6f9cf4e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">my_optional</span> <span class="p">{</span>
-  <span class="kt">bool</span> <span class="n">has_value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="k">union</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">dummy</span><span class="p">;</span>
-    <span class="n">T</span> <span class="n">data</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">my_optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">dummy</span><span class="p">;</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
 <span class="k">public</span><span class="o">:</span>
 
-  <span class="c1">// デフォルトコンストラクタ</span>
-  <span class="k">constexpr</span> <span class="n">my_optional</span><span class="p">()</span> 
-    <span class="o">:</span> <span class="n">has_value</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
-    <span class="p">,</span> <span class="n">dummy</span><span class="p">{}</span>
-  <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// デフォルトコンストラクタ</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">my_optional</span><span class="p">()</span><span class="w"> </span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">has_value</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">dummy</span><span class="p">{}</span>
+<span class="w">  </span><span class="p">{}</span>
 
-  <span class="c1">// 値を受け取るコンストラクタ</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">=</span><span class="n">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">my_optional</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">has_value</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-    <span class="p">,</span> <span class="n">data</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
-  <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// 値を受け取るコンストラクタ</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">=</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">my_optional</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">has_value</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<span class="w">  </span><span class="p">{}</span>
 
-  <span class="c1">// トリビアルに定義できるならそうする</span>
-  <span class="n">my_optional</span><span class="p">(</span><span class="k">const</span> <span class="n">my_optional</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">my_optional</span><span class="p">(</span><span class="n">my_optional</span><span class="o">&amp;&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">my_optional</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">my_optional</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_assignable_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">my_optional</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">my_optional</span><span class="o">&amp;&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_assignable_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="o">~</span><span class="n">my_optional</span><span class="p">()</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// トリビアルに定義できるならそうする</span>
+<span class="w">  </span><span class="n">my_optional</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">my_optional</span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">my_optional</span><span class="p">(</span><span class="n">my_optional</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">my_optional</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">my_optional</span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_assignable_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">my_optional</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">my_optional</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_assignable_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="o">~</span><span class="n">my_optional</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
 
-  <span class="c1">// そうでない場合はユーザー定義する</span>
+<span class="w">  </span><span class="c1">// そうでない場合はユーザー定義する</span>
 
-  <span class="n">my_optional</span><span class="p">(</span><span class="k">const</span> <span class="n">my_optional</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">has_value</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span>
-    <span class="p">,</span> <span class="n">dummy</span><span class="p">{}</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">new</span> <span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span> <span class="n">T</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">my_optional</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">my_optional</span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">has_value</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">dummy</span><span class="p">{}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n">my_optional</span><span class="p">(</span><span class="n">my_optional</span><span class="o">&amp;&amp;</span> <span class="n">that</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">has_value</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span>
-    <span class="p">,</span> <span class="n">dummy</span><span class="p">{}</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">new</span> <span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span> <span class="n">T</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">data</span><span class="p">));</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">my_optional</span><span class="p">(</span><span class="n">my_optional</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">has_value</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">dummy</span><span class="p">{}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">data</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n">my_optional</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">my_optional</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">that</span><span class="p">;</span>
-    <span class="o">*</span><span class="k">this</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">copy</span><span class="p">);</span>
+<span class="w">  </span><span class="n">my_optional</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">my_optional</span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">that</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">copy</span><span class="p">);</span>
 
-    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n">my_optional</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">my_optional</span><span class="o">&amp;&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">new</span> <span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span> <span class="n">T</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">data</span><span class="p">));</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">();</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="n">my_optional</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">my_optional</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">has_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">data</span><span class="p">));</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="o">~</span><span class="n">my_optional</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">my_optional</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// reset()の定義も同様の記法で分岐できる</span>
+<span class="w">  </span><span class="c1">// reset()の定義も同様の記法で分岐できる</span>
 
-  <span class="kt">void</span> <span class="n">reset</span><span class="p">()</span> <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="n">reset</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="o">~</span><span class="n">T</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="o">~</span><span class="n">T</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">has_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// int（全てのメンバ関数はトリビアル）の場合、my_optional&lt;int&gt;も同様になる</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// int（全てのメンバ関数はトリビアル）の場合、my_optional&lt;int&gt;も同様になる</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// <a href="../../reference/string/basic_string.html">std::string</a>（全てのメンバ関数は非トリビアル）の場合、my_optional&lt;<a href="../../reference/string/basic_string.html">std::string</a>&gt;も同様になる</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// <a href="../../reference/string/basic_string.html">std::string</a>（全てのメンバ関数は非トリビアル）の場合、my_optional&lt;<a href="../../reference/string/basic_string.html">std::string</a>&gt;も同様になる</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_destructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copy_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_move_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 
-  <span class="c1">// しかし、全ての特殊メンバ関数は利用可能（トリビアルでないだけ）</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_destructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_copy_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_move_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_copy_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_move_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// しかし、全ての特殊メンバ関数は利用可能（トリビアルでないだけ）</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_destructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_copy_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_move_constructible_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_copy_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_move_assignable_v</span><span class="o">&lt;</span><span class="n">my_optional</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -497,7 +497,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,11 +213,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">local_time_format</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-  <span class="n"><a href="local-time-format-t.html">local-time-format-t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span>
-    <span class="n">local_time_format</span><span class="p">(</span><span class="n"><a href="local_time.html">local_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span> <span class="n">time</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">string</a></span><span class="o">*</span> <span class="n">abbrev</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span>
-                      <span class="k">const</span> <span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">*</span> <span class="n">offset_sec</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="local-time-format-t.html">local-time-format-t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">local_time_format</span><span class="p">(</span><span class="n"><a href="local_time.html">local_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="w"> </span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">string</a></span><span class="o">*</span><span class="w"> </span><span class="n">abbrev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span>
+<span class="w">                      </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">*</span><span class="w"> </span><span class="n">offset_sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -225,33 +225,33 @@
 <p>ローカル時間の文字列フォーマット用オブジェクトを生成する。</p>
 <p>この関数は、ローカル時間をタイムゾーン付きでフォーマット出力したい場合に使用する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="p">{</span><span class="n">time</span><span class="p">,</span> <span class="n">abbrev</span><span class="p">,</span> <span class="n">offset_sec</span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">abbrev</span><span class="p">,</span><span class="w"> </span><span class="n">offset_sec</span><span class="p">};</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="b6f905adf9dd3067bb4ae2f3473940b8de45c3de"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b6f905adf9dd3067bb4ae2f3473940b8de45c3de"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../chrono.html">&lt;chrono&gt;</a></span>
+<span class="cp">#include <a href="../format.html">&lt;format&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">now</span> <span class="o">=</span> <span class="n"><a href="system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/now.html">now()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/now.html">now()</a></span><span class="p">;</span>
 
-  <span class="n"><a href="zoned_time.html">chrono::zoned_time</a></span> <span class="n">zt</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">now</span><span class="p">};</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:%Y/%m/%d %H:%M:%S %Z}"</span><span class="p">,</span> <span class="n">zt</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="zoned_time.html">chrono::zoned_time</a></span><span class="w"> </span><span class="n">zt</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:%Y/%m/%d %H:%M:%S %Z}"</span><span class="p">,</span><span class="w"> </span><span class="n">zt</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">auto</span> <span class="n">lt</span> <span class="o">=</span> <span class="n"><a href="zoned_time/get_local_time.html">zt.get_local_time()</a></span><span class="p">;</span>
-  <span class="n"><a href="sys_info.html">chrono::sys_info</a></span> <span class="n">si</span> <span class="o">=</span> <span class="n"><a href="zoned_time/get_info.html">zt.get_info()</a></span><span class="p">;</span>
-  <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">ltf</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">chrono::local_time_format</span></span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">si</span><span class="p">.</span><span class="n">abbrev</span><span class="p">);</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:%Y/%m/%d %H:%M:%S %Z}"</span><span class="p">,</span> <span class="n">ltf</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">ltf</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">chrono::local_time_format</span></span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">si</span><span class="p">.</span><span class="n">abbrev</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">si</span><span class="p">.</span><span class="n">offset</span><span class="p">);</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:%Y/%m/%d %H:%M:%S %Z%z}"</span><span class="p">,</span> <span class="n">ltf</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">lt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="zoned_time/get_local_time.html">zt.get_local_time()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="sys_info.html">chrono::sys_info</a></span><span class="w"> </span><span class="n">si</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="zoned_time/get_info.html">zt.get_info()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ltf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">chrono::local_time_format</span></span><span class="p">(</span><span class="n">lt</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">si</span><span class="p">.</span><span class="n">abbrev</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:%Y/%m/%d %H:%M:%S %Z}"</span><span class="p">,</span><span class="w"> </span><span class="n">ltf</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ltf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">chrono::local_time_format</span></span><span class="p">(</span><span class="n">lt</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">si</span><span class="p">.</span><span class="n">abbrev</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">si</span><span class="p">.</span><span class="n">offset</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:%Y/%m/%d %H:%M:%S %Z%z}"</span><span class="p">,</span><span class="w"> </span><span class="n">ltf</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -288,7 +288,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

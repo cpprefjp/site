@@ -213,33 +213,33 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_format_arg</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Context</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">basic_format_arg</span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">class</span> <span class="nc">handle</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Context</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">basic_format_arg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">handle</span><span class="p">;</span>
 
-  <span class="k">private</span><span class="o">:</span>
-    <span class="k">using</span> <span class="n">char_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">Context</span><span class="o">::</span><span class="n">char_type</span><span class="p">;</span>                              <span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">char_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Context</span><span class="o">::</span><span class="n">char_type</span><span class="p">;</span><span class="w">                              </span><span class="c1">// exposition only</span>
 
-    <span class="n"><a href="../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n">monostate</span><span class="p">,</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">char_type</span><span class="p">,</span>
-            <span class="kt">int</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span><span class="p">,</span>
-            <span class="kt">float</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span><span class="p">,</span>
-            <span class="k">const</span> <span class="n">char_type</span><span class="o">*</span><span class="p">,</span> <span class="n"><a href="../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">char_type</span><span class="o">&gt;</span><span class="p">,</span>
-            <span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="n">handle</span><span class="o">&gt;</span> <span class="n">value</span><span class="p">;</span>                                         <span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n">monostate</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="n">char_type</span><span class="p">,</span>
+<span class="w">            </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span>
+<span class="w">            </span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">char_type</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">char_type</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">handle</span><span class="o">&gt;</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">                                         </span><span class="c1">// exposition only</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">explicit</span> <span class="n">basic_format_arg</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                 <span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">basic_format_arg</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                 </span><span class="c1">// exposition only</span>
 
-  <span class="k">public</span><span class="o">:</span>
-    <span class="n">basic_format_arg</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">basic_format_arg</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-    <span class="k">explicit</span> <span class="k">operator</span> <span class="nf">bool</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="kt">bool</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Visitor</span><span class="o">&gt;</span>
-      <span class="n"><a href="../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">visit</span><span class="p">(</span><span class="k">this</span> <span class="n">basic_format_arg</span> <span class="n">arg</span><span class="p">,</span> <span class="n">Visitor</span><span class="o">&amp;&amp;</span> <span class="n">vis</span><span class="p">);</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Visitor</span><span class="o">&gt;</span>
-      <span class="n">R</span> <span class="n">visit</span><span class="p">(</span><span class="k">this</span> <span class="n">basic_format_arg</span> <span class="n">arg</span><span class="p">,</span> <span class="n">Visitor</span><span class="o">&amp;&amp;</span> <span class="n">vis</span><span class="p">);</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Visitor</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="n"><a href="../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">visit</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">basic_format_arg</span><span class="w"> </span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="n">Visitor</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">vis</span><span class="p">);</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Visitor</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="n">R</span><span class="w"> </span><span class="n">visit</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">basic_format_arg</span><span class="w"> </span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="n">Visitor</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">vis</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -373,7 +373,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -241,38 +241,38 @@
 </li>
 </ul>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0634r3.html" target="_blank">P0634R3</a>より引用</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">::</span><span class="n">R</span> <span class="n">f</span><span class="p">();</span>     <span class="c1">// OK, グローバルスコープにおける関数の戻り値</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">R</span><span class="p">);</span> <span class="c1">// Ill-formed, void型の変数テンプレートの宣言</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">R</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">     </span><span class="c1">// OK, グローバルスコープにおける関数の戻り値</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">R</span><span class="p">);</span><span class="w"> </span><span class="c1">// Ill-formed, void型の変数テンプレートの宣言</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="c1">// クラススコープ</span>
-  <span class="k">using</span> <span class="n">Ptr</span> <span class="o">=</span> <span class="n">PtrTraits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Ptr</span><span class="p">;</span> <span class="c1">// OK, エイリアス宣言</span>
-  <span class="n">T</span><span class="o">::</span><span class="n">R</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">P</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>               <span class="c1">// OK, メンバ宣言、およびメンバ宣言における仮引数宣言</span>
-    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="c1">// OK, static_castの型名</span>
-  <span class="p">}</span>
-  <span class="k">auto</span> <span class="n">g</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;::</span><span class="n">Ptr</span><span class="p">;</span>        <span class="c1">// OK, 後置戻り値型</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// クラススコープ</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PtrTraits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Ptr</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK, エイリアス宣言</span>
+<span class="w">  </span><span class="n">T</span><span class="o">::</span><span class="n">R</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">P</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">               </span><span class="c1">// OK, メンバ宣言、およびメンバ宣言における仮引数宣言</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK, static_castの型名</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;::</span><span class="n">Ptr</span><span class="p">;</span><span class="w">        </span><span class="c1">// OK, 後置戻り値型</span>
 <span class="p">};</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// ブロックスコープ</span>
-  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)(</span><span class="n">T</span><span class="o">::</span><span class="n">X</span><span class="p">);</span> <span class="c1">// T::Xで初期化されるvoid*型の変数pf</span>
-  <span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">X</span><span class="p">);</span>     <span class="c1">// エラー: void型の変数宣言</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ブロックスコープ</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)(</span><span class="n">T</span><span class="o">::</span><span class="n">X</span><span class="p">);</span><span class="w"> </span><span class="c1">// T::Xで初期化されるvoid*型の変数pf</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">X</span><span class="p">);</span><span class="w">     </span><span class="c1">// エラー: void型の変数宣言</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="886eb523609aaff9a495049c9899119d408d7074"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="886eb523609aaff9a495049c9899119d408d7074"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">auto</span> <span class="n">Begin</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">::</span><span class="n">const_iterator</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">t</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">Begin</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">const_iterator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">Begin</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">Begin</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -281,8 +281,8 @@
 </code></pre></p>
 <h2>この機能が必要になった背景・経緯</h2>
 <p>以前から基底クラスの指定では<code>typename</code>を省略することができた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">Derived</span><span class="p">:</span> <span class="n">T</span><span class="o">::</span><span class="n">Base</span> <span class="c1">// typename不要</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Derived</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">Base</span><span class="w"> </span><span class="c1">// typename不要</span>
 <span class="p">{};</span>
 </code></pre></div>
 </p>
@@ -308,7 +308,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

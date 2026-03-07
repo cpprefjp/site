@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;valarray&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class indirect_array">indirect_array::</span><span class="token">operator&lt;&lt;=</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="k">operator</span><span class="o">&lt;&lt;=</span><span class="p">(</span><span class="k">const</span> <span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">xs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -241,28 +241,28 @@
 <li><code><a href="../valarray.html">valarray</a></code> から抽出した要素数と <code>xs</code> の要素数が異なる場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="e3452395324147a9d1b048ceb042b8a08f17494a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../valarray.html">&lt;valarray&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../bitset.html">&lt;bitset&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e3452395324147a9d1b048ceb042b8a08f17494a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../valarray.html">&lt;valarray&gt;</a></span>
+<span class="cp">#include <a href="../../bitset.html">&lt;bitset&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">0</span><span class="n">b10000101</span><span class="p">,</span>
-    <span class="mi">0</span><span class="n">b00001010</span><span class="p">,</span>
-    <span class="mi">0</span><span class="n">b00010101</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">va</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mb">0b10000101</span><span class="p">,</span>
+<span class="w">    </span><span class="mb">0b00001010</span><span class="p">,</span>
+<span class="w">    </span><span class="mb">0b00010101</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">indirect_array</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n">mask</span><span class="p">];</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">indirect_array</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">va</span><span class="p">[</span><span class="n">mask</span><span class="p">];</span>
 
-  <span class="c1">// 抽出した要素を4ビット左シフトする</span>
-  <span class="n">result</span> <span class="o">&lt;&lt;=</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n"><a href="../valarray/size.html">mask.size()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 抽出した要素を4ビット左シフトする</span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;=</span><span class="w"> </span><span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../valarray/size.html">mask.size()</a></span><span class="p">);</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">va</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../bitset/bitset.html">std::bitset</a></span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n"><a href="../../bitset/bitset/to_string.html">to_string()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">va</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../bitset/bitset.html">std::bitset</a></span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n"><a href="../../bitset/bitset/to_string.html">to_string()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -288,7 +288,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

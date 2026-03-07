@@ -225,13 +225,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;iterator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">iter_move</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Iterator</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc"><a href="../move_iterator.html">move_iterator</a></span> <span class="p">{</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../move_iterator.html">move_iterator</a></span><span class="w"> </span><span class="p">{</span>
 
-    <span class="k">friend</span> <span class="k">constexpr</span> <span class="n"><a href="../iter_rvalue_reference_t.html">iter_rvalue_reference_t</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;</span>
-      <span class="n">iter_move</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../move_iterator.html">move_iterator</a></span><span class="o">&amp;</span> <span class="n">i</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../iter_move.html">ranges::iter_move</a></span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">current</span><span class="p">)));</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../iter_rvalue_reference_t.html">iter_rvalue_reference_t</a></span><span class="o">&lt;</span><span class="n">Iterator</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="n">iter_move</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../move_iterator.html">move_iterator</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../iter_move.html">ranges::iter_move</a></span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">current</span><span class="p">)));</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -239,31 +239,31 @@
 <p><code>move_iterator</code>である<code>i</code>の指す要素をムーブする。</p>
 <h2>効果</h2>
 <p>以下と等価</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf"><a href="../iter_move.html">ranges::iter_move</a></span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">current</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="../iter_move.html">ranges::iter_move</a></span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">current</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>備考</h2>
 <p>この関数は<code>move_iterator</code>のクラス定義内で<code>friend</code>関数として定義される。そのため、メンバ関数としても非メンバ関数としても明示的に呼び出すことはできず、<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>によってのみ呼び出すことができる。<br />
 基本的には<code><a href="../iter_move.html">ranges::iter_move</a></code><a class="cpprefjp-defined-word" data-desc="プログラム定義型に対するオーバーロードが許されている標準関数名について、中でいい感じにオーバーロード解決して呼び出してくれる関数オブジェクト">カスタマイゼーションポイントオブジェクト</a>を通して利用する。</p>
 <h2>例</h2>
-<p><div class="yata" id="da49006d3fcd590a01ee80273dd4cdd26799a946"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="da49006d3fcd590a01ee80273dd4cdd26799a946"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-  <span class="n"><a href="../move_iterator.html">std::move_iterator</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span><span class="o">&gt;</span> <span class="n">it</span><span class="p">(</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../move_iterator.html">std::move_iterator</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="p">(</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">);</span>
 
-  <span class="c1">// ADLによる呼び出し</span>
-  <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">iter_move</span></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ADLによる呼び出し</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">iter_move</span></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="o">++</span><span class="n">it</span><span class="p">;</span>
+<span class="w">  </span><span class="o">++</span><span class="n">it</span><span class="p">;</span>
 
-  <span class="c1">// <a href="../iter_move.html">ranges::iter_move</a> CPOによる呼び出し</span>
-  <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../iter_move.html">ranges::iter_move</a></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// <a href="../iter_move.html">ranges::iter_move</a> CPOによる呼び出し</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../iter_move.html">ranges::iter_move</a></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -307,7 +307,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

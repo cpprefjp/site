@@ -221,16 +221,16 @@
 <p>C++17で、入れ子の名前空間を<code>namespace ns1::ns2::ns3 {}</code>のように簡易的に定義できるようになったが、インライン名前空間の指定はできなかった。</p>
 <p>C++20では、<code>namespace ns1::inline ns2::ns3 {}</code>のように、入れ子名前空間を一度に定義する場合でも一部の名前空間をインラインの指定をできるようにする。</p>
 <p>以下の定義は、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">ns1</span><span class="o">::</span><span class="kr">inline</span> <span class="n">ns2</span><span class="o">::</span><span class="n">ns3</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">X</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">ns1</span><span class="o">::</span><span class="kr">inline</span><span class="w"> </span><span class="nn">ns2</span><span class="o">::</span><span class="nn">ns3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>以下と等価である：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">ns1</span> <span class="p">{</span>
-<span class="kr">inline</span> <span class="k">namespace</span> <span class="n">ns2</span> <span class="p">{</span>
-<span class="k">namespace</span> <span class="n">ns3</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">X</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">ns1</span><span class="w"> </span><span class="p">{</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ns2</span><span class="w"> </span><span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ns3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="p">;</span>
 <span class="p">}}}</span>
 </code></pre></div>
 </p>
@@ -260,7 +260,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

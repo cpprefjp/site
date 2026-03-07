@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">random_device</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">random_device</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">random_device</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -343,19 +343,19 @@
 </table>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="2763881a66ef7bfd08a467ce4182cb4ea14d2641"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="2763881a66ef7bfd08a467ce4182cb4ea14d2641"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../random.html">&lt;random&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><span style="color:#ff0000">std::random_device</span></span> <span class="n">rng</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::random_device</span></span><span class="w"> </span><span class="n">rng</span><span class="p">;</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 予測不能な乱数を生成する</span>
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="random_device/op_call.html">rng()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 予測不能な乱数を生成する</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="random_device/op_call.html">rng()</a></span><span class="p">;</span>
 
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -372,42 +372,42 @@
 1445600541
 </code></pre></p>
 <h3>パスワードを生成する</h3>
-<p><div class="yata" id="c6bfd3d0a228488918587f5900effb53f4314e3f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c6bfd3d0a228488918587f5900effb53f4314e3f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../random.html">&lt;random&gt;</a></span>
 
 <span class="c1">// candidate_chars : パスワードに含める文字の集合</span>
 <span class="c1">// length : パスワードの長さ</span>
-<span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="nf">create_password</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">candidate_chars</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span><span class="p">)</span>
+<span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">create_password</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">candidate_chars</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">candidate_chars</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">candidate_chars</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
 
-  <span class="c1">// 非決定論的な乱数生成器を使用する</span>
-  <span class="n"><a href="">std::random_device</a></span> <span class="n">engine</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 非決定論的な乱数生成器を使用する</span>
+<span class="w">  </span><span class="n"><a href="">std::random_device</a></span><span class="w"> </span><span class="n">engine</span><span class="p">;</span>
 
-  <span class="c1">// パスワード候補となる文字集合の範囲を一様分布させる</span>
-  <span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n"><a href="../string/basic_string/size.html">candidate_chars.size()</a></span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// パスワード候補となる文字集合の範囲を一様分布させる</span>
+<span class="w">  </span><span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../string/basic_string/size.html">candidate_chars.size()</a></span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">password</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// パスワード候補の文字集合から、ランダムな一文字を選択する</span>
-    <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">random_index</span> <span class="o">=</span> <span class="n"><a href="uniform_int_distribution/op_call.html">dist(engine)</a></span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">random_char</span> <span class="o">=</span> <span class="n">candidate_chars</span><span class="p">[</span><span class="n">random_index</span><span class="p">];</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">password</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// パスワード候補の文字集合から、ランダムな一文字を選択する</span>
+<span class="w">    </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">random_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="uniform_int_distribution/op_call.html">dist(engine)</a></span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">random_char</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate_chars</span><span class="p">[</span><span class="n">random_index</span><span class="p">];</span>
 
-    <span class="c1">// 選択した文字を、パスワード文字列に追加する</span>
-    <span class="n"><a href="../string/basic_string/op_plus_assign.html">password += random_char</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">password</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 選択した文字を、パスワード文字列に追加する</span>
+<span class="w">    </span><span class="n"><a href="../string/basic_string/op_plus_assign.html">password += random_char</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">password</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">candidate_chars</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">;</span>
-  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">candidate_chars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
 
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">password</span> <span class="o">=</span> <span class="n">create_password</span><span class="p">(</span><span class="n">candidate_chars</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">password</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_password</span><span class="p">(</span><span class="n">candidate_chars</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -448,110 +448,110 @@
 <p><div class="codehilite"><pre><span></span><code><span class="c1">//! @file random_device.hpp</span>
 <span class="cp">#pragma once</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../random.html">&lt;random&gt;</a></span>
 
 <span class="cp">#if defined(__MINGW32__) &amp;&amp; defined(__GNUC__) &amp;&amp; !defined(__clang__) &amp;&amp; (__GNUC__ &lt; 9 || (__GNUC__ == 9 &amp;&amp; __GNUC_MINOR__ &lt;2))</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="https://docs.microsoft.com/en-us/previous-versions/ms867086(v=msdn.10)" target="_blank">&lt;wincrypt.h&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../system_error.html">&lt;system_error&gt;</a></span>
+<span class="cp">#include <a href="../limits.html">&lt;limits&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Windows.h&gt;</span>
+<span class="cp">#include <a href="https://docs.microsoft.com/en-us/previous-versions/ms867086(v=msdn.10)" target="_blank">&lt;wincrypt.h&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">workaround_mingw_gcc</span> <span class="p">{</span>
-<span class="k">class</span> <span class="nc">random_device</span> <span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">workaround_mingw_gcc</span><span class="w"> </span><span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">random_device</span><span class="w"> </span><span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
-  <span class="k">class</span> <span class="nc">crypt_context</span> <span class="p">{</span>
-  <span class="k">private</span><span class="o">:</span>
-    <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a></span> <span class="n">prov_</span><span class="p">;</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="n">crypt_context</span><span class="p">(</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#DWORD" target="_blank">DWORD</a></span> <span class="n">prov_type</span><span class="p">,</span> <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#LPCTSTR" target="_blank">LPCTSTR</a></span> <span class="n">container</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#LPCTSTR" target="_blank">LPCTSTR</a></span> <span class="n">provider</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#DWORD" target="_blank">DWORD</a></span> <span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">const</span> <span class="k">auto</span> <span class="n">success</span> <span class="o">=</span> <span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptacquirecontexta" target="_blank">CryptAcquireContext</a></span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">provider</span><span class="p">,</span> <span class="n">prov_type</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">throw</span> <span class="n"><a href="../system_error/system_error.html">std::system_error</a></span><span class="p">(</span>
-          <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="p">(</span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror" target="_blank">GetLastError</a></span><span class="p">(),</span> <span class="n"><a href="../system_error/system_category.html">std::system_category</a></span><span class="p">()),</span>
-          <span class="s">"<a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptacquirecontexta" target="_blank">CryptAcquireContext</a>:("</span> <span class="o">+</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">success</span><span class="p">)</span> <span class="o">+</span> <span class="sc">')'</span>
-        <span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">crypt_context</span><span class="p">(</span><span class="k">const</span> <span class="n">crypt_context</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-    <span class="kt">void</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">crypt_context</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-    <span class="o">~</span><span class="n">crypt_context</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
-      <span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptreleasecontext" target="_blank">CryptReleaseContext</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="c1">//<a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a>&amp; get() noexcept { return this-&gt;prov_; }</span>
-    <span class="k">const</span> <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a></span><span class="o">&amp;</span> <span class="n">get</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">;</span> <span class="p">}</span>
-  <span class="p">};</span>
-  <span class="n">crypt_context</span> <span class="n">prov_</span><span class="p">;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">crypt_context</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a></span><span class="w"> </span><span class="n">prov_</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">crypt_context</span><span class="p">(</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#DWORD" target="_blank">DWORD</a></span><span class="w"> </span><span class="n">prov_type</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#LPCTSTR" target="_blank">LPCTSTR</a></span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#LPCTSTR" target="_blank">LPCTSTR</a></span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#DWORD" target="_blank">DWORD</a></span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptacquirecontexta" target="_blank">CryptAcquireContext</a></span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">,</span><span class="w"> </span><span class="n">container</span><span class="p">,</span><span class="w"> </span><span class="n">provider</span><span class="p">,</span><span class="w"> </span><span class="n">prov_type</span><span class="p">,</span><span class="w"> </span><span class="n">flags</span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../system_error/system_error.html">std::system_error</a></span><span class="p">(</span>
+<span class="w">          </span><span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="p">(</span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror" target="_blank">GetLastError</a></span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../system_error/system_category.html">std::system_category</a></span><span class="p">()),</span>
+<span class="w">          </span><span class="s">"<a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptacquirecontexta" target="_blank">CryptAcquireContext</a>:("</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">')'</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">crypt_context</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">crypt_context</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">crypt_context</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">    </span><span class="o">~</span><span class="n">crypt_context</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptreleasecontext" target="_blank">CryptReleaseContext</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//<a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a>&amp; get() noexcept { return this-&gt;prov_; }</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="n">crypt_context</span><span class="w"> </span><span class="n">prov_</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">using</span> <span class="n">result_type</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">;</span>
-  <span class="k">explicit</span> <span class="nf">random_device</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="cm">/*token*/</span> <span class="o">=</span> <span class="s">"workaround_mingw_gcc "</span><span class="p">)</span>
-  <span class="o">:</span> <span class="n">prov_</span><span class="p">(</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/prov-rsa-full" target="_blank">PROV_RSA_FULL</a></span><span class="p">)</span>
-  <span class="p">{}</span>
-  <span class="n">random_device</span><span class="p">(</span><span class="k">const</span> <span class="n">random_device</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">random_device</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-  <span class="c1">//~random_device() = default;</span>
-  <span class="kt">double</span> <span class="nf">entropy</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span> <span class="p">}</span>
-  <span class="n">result_type</span> <span class="nf">operator</span><span class="p">()()</span> <span class="p">{</span>
-    <span class="n">result_type</span> <span class="n">re</span><span class="p">;</span>
-    <span class="k">const</span> <span class="k">auto</span> <span class="n">success</span> <span class="o">=</span> <span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">re</span><span class="p">),</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#BYTE" target="_blank">BYTE</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">re</span><span class="p">));</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">throw</span> <span class="n"><a href="../system_error/system_error.html">std::system_error</a></span><span class="p">(</span>
-        <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="p">(</span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror" target="_blank">GetLastError</a></span><span class="p">(),</span> <span class="n"><a href="../system_error/system_category.html">std::system_category</a></span><span class="p">()),</span>
-        <span class="s">"<a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom</a>:("</span> <span class="o">+</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">success</span><span class="p">)</span> <span class="o">+</span> <span class="sc">')'</span>
-      <span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">re</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">result_type</span> <span class="nf">min</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;::</span><span class="n">min</span><span class="p">();</span> <span class="p">}</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">result_type</span> <span class="nf">max</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span> <span class="p">}</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">result_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">random_device</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="cm">/*token*/</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"workaround_mingw_gcc "</span><span class="p">)</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prov_</span><span class="p">(</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/prov-rsa-full" target="_blank">PROV_RSA_FULL</a></span><span class="p">)</span>
+<span class="w">  </span><span class="p">{}</span>
+<span class="w">  </span><span class="n">random_device</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">random_device</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">random_device</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//~random_device() = default;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="nf">entropy</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="n">result_type</span><span class="w"> </span><span class="nf">operator</span><span class="p">()()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">result_type</span><span class="w"> </span><span class="n">re</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">re</span><span class="p">),</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#BYTE" target="_blank">BYTE</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">re</span><span class="p">));</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n"><a href="../system_error/system_error.html">std::system_error</a></span><span class="p">(</span>
+<span class="w">        </span><span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="p">(</span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror" target="_blank">GetLastError</a></span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../system_error/system_category.html">std::system_category</a></span><span class="p">()),</span>
+<span class="w">        </span><span class="s">"<a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom</a>:("</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">')'</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">re</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">result_type</span><span class="w"> </span><span class="nf">min</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;::</span><span class="n">min</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">result_type</span><span class="w"> </span><span class="nf">max</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
-<span class="p">}</span> <span class="c1">// namespace workaround_mingw_gcc</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// namespace workaround_mingw_gcc</span>
 
-<span class="k">namespace</span> <span class="n">cpprefjp</span> <span class="p">{</span>
-<span class="k">using</span> <span class="n">workaround_mingw_gcc</span><span class="o">::</span><span class="n">random_device</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">cpprefjp</span><span class="w"> </span><span class="p">{</span>
+<span class="k">using</span><span class="w"> </span><span class="n">workaround_mingw_gcc</span><span class="o">::</span><span class="n">random_device</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="cp">#else </span><span class="c1">//defined(__MINGW32__) &amp;&amp; defined(__GNUC__) &amp;&amp; !defined(__clang__)</span>
 
-<span class="k">namespace</span> <span class="n">cpprefjp</span> <span class="p">{</span>
-<span class="k">using</span> <span class="n"><a href="">std::random_device</a></span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">cpprefjp</span><span class="w"> </span><span class="p">{</span>
+<span class="k">using</span><span class="w"> </span><span class="n"><a href="">std::random_device</a></span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="cp">#endif </span><span class="c1">//defined(__MINGW32__) &amp;&amp; defined(__GNUC__) &amp;&amp; !defined(__clang__)</span>
 </code></pre></div>
 </p>
 <p>使用例は次の通り。上記コードを<code>random_device.hpp</code>というファイル名で保存していると仮定する。<code>cpprefjp::random_device</code>が<code>std::random_device</code>のworkaroundで、C++11標準規格の要求を満たしたクラス。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">"random_device.hpp"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
-<span class="k">using</span> <span class="n">seed_v_t</span> <span class="o">=</span> <span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span><span class="o">::</span><span class="n">result_type</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span><span class="o">::</span><span class="n">result_type</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="n">seed_v_t</span> <span class="nf">create_seed_v</span><span class="p">()</span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"random_device.hpp"</span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../array.html">&lt;array&gt;</a></span>
+<span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="k">using</span><span class="w"> </span><span class="n">seed_v_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span><span class="o">::</span><span class="n">result_type</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span><span class="o">::</span><span class="n">result_type</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">seed_v_t</span><span class="w"> </span><span class="nf">create_seed_v</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span> <span class="n">rnd</span><span class="p">;</span>
-  <span class="n">seed_v_t</span> <span class="n">sed_v</span><span class="p">;</span>
-  <span class="n"><a href="../algorithm/generate.html">std::generate</a></span><span class="p">(</span><span class="n"><a href="../array/array/begin.html">sed_v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../array/array/end.html">sed_v.end()</a></span><span class="p">,</span> <span class="n"><a href="../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">rnd</span><span class="p">));</span>
-  <span class="k">return</span> <span class="n">sed_v</span><span class="p">;</span>
+<span class="w">  </span><span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">rnd</span><span class="p">;</span>
+<span class="w">  </span><span class="n">seed_v_t</span><span class="w"> </span><span class="n">sed_v</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../algorithm/generate.html">std::generate</a></span><span class="p">(</span><span class="n"><a href="../array/array/begin.html">sed_v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../array/array/end.html">sed_v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">rnd</span><span class="p">));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sed_v</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="n"><a href="mt19937.html">std::mt19937</a></span> <span class="nf">create_random_engine</span><span class="p">()</span>
+<span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="w"> </span><span class="nf">create_random_engine</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">const</span> <span class="k">auto</span> <span class="n">sed_v</span> <span class="o">=</span> <span class="n">create_seed_v</span><span class="p">();</span>
-  <span class="n"><a href="seed_seq.html">std::seed_seq</a></span> <span class="n">seq</span><span class="p">(</span><span class="n"><a href="../array/array/begin.html">sed_v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../array/array/end.html">sed_v.end()</a></span><span class="p">);</span>
-  <span class="k">return</span> <span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="p">(</span><span class="n">seq</span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sed_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_seed_v</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="seed_seq.html">std::seed_seq</a></span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="n"><a href="../array/array/begin.html">sed_v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../array/array/end.html">sed_v.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="p">(</span><span class="n">seq</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="o">&amp;</span> <span class="n">random_engine</span><span class="p">()</span>
+<span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="o">&amp;</span><span class="w"> </span><span class="nf">random_engine</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">static</span> <span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span> <span class="n"><a href="mt19937.html">std::mt19937</a></span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_random_engine</span><span class="p">();</span>
-  <span class="k">return</span> <span class="n">engine</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span><span class="w"> </span><span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="w"> </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_random_engine</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">engine</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="o">&amp;</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">random_engine</span><span class="p">();</span>
-  <span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">);</span>
-  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="uniform_int_distribution/op_call.html">dist(engine)</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random_engine</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="uniform_int_distribution/op_call.html">dist(engine)</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -585,7 +585,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

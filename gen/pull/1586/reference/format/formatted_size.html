@@ -213,36 +213,36 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">formatted_size</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="kt">size_t</span>
-    <span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
-                   <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>            <span class="c1">// (1) C++20</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="kt">size_t</span>
-    <span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
-                   <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>            <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">size_t</span>
+<span class="w">    </span><span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">            </span><span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span>
+<span class="w">    </span><span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">            </span><span class="c1">// (1) C++26</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="kt">size_t</span>
-    <span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
-                   <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>            <span class="c1">// (2) C++20</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="kt">size_t</span>
-    <span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
-                   <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>            <span class="c1">// (2) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">size_t</span>
+<span class="w">    </span><span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">            </span><span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span>
+<span class="w">    </span><span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">            </span><span class="c1">// (2) C++26</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="kt">size_t</span>
-    <span class="n">formatted_size</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span>
-                   <span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
-                   <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>            <span class="c1">// (3) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">size_t</span>
+<span class="w">    </span><span class="n">formatted_size</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span>
+<span class="w">                   </span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">            </span><span class="c1">// (3) C++20</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="kt">size_t</span>
-    <span class="n">formatted_size</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span>
-                   <span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
-                   <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>            <span class="c1">// (4) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">size_t</span>
+<span class="w">    </span><span class="n">formatted_size</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span>
+<span class="w">                   </span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">            </span><span class="c1">// (4) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -254,7 +254,7 @@
 <li>(3): マルチバイト文字列版 (ロケール指定あり)</li>
 <li>(4): ワイド文字列版 (ロケール指定あり)</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="n">formatted_size</span><span class="p">(</span><span class="s">"The answer is {}."</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span> <span class="c1">// =&gt; 17</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">formatted_size</span><span class="p">(</span><span class="s">"The answer is {}."</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span><span class="w"> </span><span class="c1">// =&gt; 17</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
@@ -278,12 +278,12 @@
 <h2>備考</h2>
 <p>マルチバイト文字列、ワイド文字列の区別は、可変長引数部分で受け取れる文字列の型にも適用される。</p>
 <h2>例</h2>
-<p><div class="yata" id="42c11f239d0d7bd17ab29e4ea07469f5f5092873"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="42c11f239d0d7bd17ab29e4ea07469f5f5092873"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../format.html">&lt;format&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">formatted_size</span><span class="p">(</span><span class="s">"The answer is {}."</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">formatted_size</span><span class="p">(</span><span class="s">"The answer is {}."</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -291,47 +291,47 @@
 <p><pre><code>17
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Counter</span> <span class="p">{</span>
-  <span class="kt">size_t</span> <span class="n">count_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CharT</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">CharT</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CharT</span><span class="p">;</span>
 
-  <span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">push_back</span><span class="p">(</span><span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">count_</span><span class="o">++</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push_back</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">count_</span><span class="o">++</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="nf">size</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">count_</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">count_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Out</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">size_t</span> <span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Counter</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">counter</span><span class="p">;</span>
-  <span class="n"><a href="format_to.html">format_to</a></span><span class="p">(</span><span class="n"><a href="../iterator/back_inserter.html">back_inserter</a></span><span class="p">(</span><span class="n">counter</span><span class="p">),</span> <span class="n">fmt</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-  <span class="k">return</span> <span class="n">counter</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Out</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Counter</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="format_to.html">format_to</a></span><span class="p">(</span><span class="n"><a href="../iterator/back_inserter.html">back_inserter</a></span><span class="p">(</span><span class="n">counter</span><span class="p">),</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">counter</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Out</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">size_t</span> <span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Counter</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span> <span class="n">counter</span><span class="p">;</span>
-  <span class="n"><a href="format_to.html">format_to</a></span><span class="p">(</span><span class="n"><a href="../iterator/back_inserter.html">back_inserter</a></span><span class="p">(</span><span class="n">counter</span><span class="p">),</span> <span class="n">fmt</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-  <span class="k">return</span> <span class="n">counter</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Out</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">formatted_size</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Counter</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="format_to.html">format_to</a></span><span class="p">(</span><span class="n"><a href="../iterator/back_inserter.html">back_inserter</a></span><span class="p">(</span><span class="n">counter</span><span class="p">),</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">counter</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Out</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">size_t</span> <span class="n">formatted_size</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span> <span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Counter</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">counter</span><span class="p">;</span>
-  <span class="n"><a href="format_to.html">format_to</a></span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n"><a href="../iterator/back_inserter.html">back_inserter</a></span><span class="p">(</span><span class="n">counter</span><span class="p">),</span> <span class="n">fmt</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-  <span class="k">return</span> <span class="n">counter</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Out</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">formatted_size</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Counter</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="format_to.html">format_to</a></span><span class="p">(</span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../iterator/back_inserter.html">back_inserter</a></span><span class="p">(</span><span class="n">counter</span><span class="p">),</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">counter</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Out</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">size_t</span> <span class="n">formatted_size</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span> <span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Counter</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span> <span class="n">counter</span><span class="p">;</span>
-  <span class="n"><a href="format_to.html">format_to</a></span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n"><a href="../iterator/back_inserter.html">back_inserter</a></span><span class="p">(</span><span class="n">counter</span><span class="p">),</span> <span class="n">fmt</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-  <span class="k">return</span> <span class="n">counter</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Out</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">formatted_size</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Counter</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="format_to.html">format_to</a></span><span class="p">(</span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../iterator/back_inserter.html">back_inserter</a></span><span class="p">(</span><span class="n">counter</span><span class="p">),</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">counter</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -376,7 +376,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

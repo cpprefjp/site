@@ -219,65 +219,65 @@
 <p></p>
 <h2>概要</h2>
 <p><code>asm</code>宣言によるインラインアセンブリは<code>constexpr</code>関数内に現れる事が禁止されていたため、<code>constexpr</code>関数内に書く事は出来なかった。C++20からはコンパイル時に評価されない限り、<code>asm</code>宣言を<code>constexpr</code>関数内に書く事ができるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">constexpr</span> <span class="kt">double</span> <span class="nf">fma</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">,</span> <span class="kt">double</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_constant_evaluated</span><span class="p">())</span> <span class="p">{</span>
-    <span class="c1">// コンパイル時のコード</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// 実行時のコード</span>
-    <span class="k">asm</span> <span class="k">volatile</span> <span class="p">(</span><span class="s">"vfmadd213sd %0,%1,%2"</span> <span class="o">:</span> <span class="s">"+x"</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">:</span> <span class="s">"x"</span><span class="p">(</span><span class="n">b</span><span class="p">),</span><span class="s">"x"</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
-    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">fma</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_constant_evaluated</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// コンパイル時のコード</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 実行時のコード</span>
+<span class="w">    </span><span class="k">asm</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="p">(</span><span class="s">"vfmadd213sd %0,%1,%2"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"+x"</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"x"</span><span class="p">(</span><span class="n">b</span><span class="p">),</span><span class="s">"x"</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>このように、<code><a href="../../reference/type_traits/is_constant_evaluated.html">is_constant_evaluated</a></code>と組み合わせて同じ関数で実行時とコンパイル時それぞれで最適な実装を選択する事ができるようになる。</p>
 <p>ただし、コンパイル時に実行できるようになったわけではないため、<code>asm</code>宣言を評価するコードパスは実行時にのみ通過するようにしなければならない。</p>
 <h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/numbers.html">&lt;numbers&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iomanip.html">&lt;iomanip&gt;</a></span>
+<span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../../reference/numbers.html">&lt;numbers&gt;</a></span>
 
-<span class="k">constexpr</span> <span class="kt">double</span> <span class="nf">inner_product_2d</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">v1</span><span class="p">)[</span><span class="mi">2</span><span class="p">],</span> <span class="k">const</span> <span class="kt">double</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">v2</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
-  <span class="kt">double</span> <span class="n">dp</span><span class="p">{};</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">inner_product_2d</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">v1</span><span class="p">)[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">v2</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">dp</span><span class="p">{};</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/type_traits/is_constant_evaluated.html">is_constant_evaluated</a></span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">dp</span> <span class="o">=</span> <span class="n">v1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">v1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v2</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">asm</span> <span class="k">volatile</span> <span class="p">(</span>
-      <span class="s">"movlpd %1, %%xmm0</span><span class="se">\n</span><span class="s">"</span>
-      <span class="s">"movhpd %2, %%xmm0</span><span class="se">\n</span><span class="s">"</span>
-      <span class="s">"movlpd %3, %%xmm1</span><span class="se">\n</span><span class="s">"</span>
-      <span class="s">"movhpd %4, %%xmm1</span><span class="se">\n</span><span class="s">"</span>
-      <span class="s">"dppd $0b110001, %%xmm1, %%xmm0</span><span class="se">\n</span><span class="s">"</span>
-      <span class="s">"movlpd %%xmm0, %0</span><span class="se">\n</span><span class="s">"</span>
-      <span class="o">:</span> <span class="s">"=m"</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>
-      <span class="o">:</span> <span class="s">"m"</span><span class="p">(</span><span class="n">v1</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s">"m"</span><span class="p">(</span><span class="n">v1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s">"m"</span><span class="p">(</span><span class="n">v2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s">"m"</span><span class="p">(</span><span class="n">v2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/type_traits/is_constant_evaluated.html">is_constant_evaluated</a></span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v2</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">asm</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="s">"movlpd %1, %%xmm0</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">      </span><span class="s">"movhpd %2, %%xmm0</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">      </span><span class="s">"movlpd %3, %%xmm1</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">      </span><span class="s">"movhpd %4, %%xmm1</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">      </span><span class="s">"dppd $0b110001, %%xmm1, %%xmm0</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">      </span><span class="s">"movlpd %%xmm0, %0</span><span class="se">\n</span><span class="s">"</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="s">"=m"</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="s">"m"</span><span class="p">(</span><span class="n">v1</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="s">"m"</span><span class="p">(</span><span class="n">v1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="s">"m"</span><span class="p">(</span><span class="n">v2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="s">"m"</span><span class="p">(</span><span class="n">v2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">return</span> <span class="n">dp</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
-  <span class="k">constexpr</span> <span class="kt">double</span> <span class="n">v1_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="p">};</span> 
-  <span class="k">constexpr</span> <span class="kt">double</span> <span class="n">v1_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span> <span class="p">};</span>
-  <span class="k">constexpr</span> <span class="kt">double</span> <span class="n">v2_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">};</span> 
-  <span class="k">constexpr</span> <span class="kt">double</span> <span class="n">v2_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n"><a href="../../reference/numbers/sqrt2.html">sqrt2</a></span> <span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">v1_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="p">};</span><span class="w"> </span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">v1_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.0</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">v2_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">};</span><span class="w"> </span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">v2_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n"><a href="../../reference/numbers/sqrt2.html">sqrt2</a></span><span class="w"> </span><span class="p">};</span>
 
-  <span class="k">constexpr</span> <span class="kt">double</span> <span class="n">dp1c</span> <span class="o">=</span> <span class="n">inner_product_2d</span><span class="p">(</span><span class="n">v1_1</span><span class="p">,</span> <span class="n">v1_2</span><span class="p">);</span> <span class="c1">// コンパイル時</span>
-  <span class="kt">double</span>  <span class="n">dp1r</span> <span class="o">=</span> <span class="n">inner_product_2d</span><span class="p">(</span><span class="n">v1_1</span><span class="p">,</span> <span class="n">v1_2</span><span class="p">);</span>          <span class="c1">// 実行時</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dp1c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inner_product_2d</span><span class="p">(</span><span class="n">v1_1</span><span class="p">,</span><span class="w"> </span><span class="n">v1_2</span><span class="p">);</span><span class="w"> </span><span class="c1">// コンパイル時</span>
+<span class="w">  </span><span class="kt">double</span><span class="w">  </span><span class="n">dp1r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inner_product_2d</span><span class="p">(</span><span class="n">v1_1</span><span class="p">,</span><span class="w"> </span><span class="n">v1_2</span><span class="p">);</span><span class="w">          </span><span class="c1">// 実行時</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">dp1c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">dp1r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dp1c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dp1r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">constexpr</span> <span class="kt">double</span> <span class="n">dp2c</span> <span class="o">=</span> <span class="n">inner_product_2d</span><span class="p">(</span><span class="n">v2_1</span><span class="p">,</span> <span class="n">v2_2</span><span class="p">);</span> <span class="c1">// コンパイル時</span>
-  <span class="kt">double</span>  <span class="n">dp2r</span> <span class="o">=</span> <span class="n">inner_product_2d</span><span class="p">(</span><span class="n">v2_1</span><span class="p">,</span> <span class="n">v2_2</span><span class="p">);</span>          <span class="c1">// 実行時</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dp2c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inner_product_2d</span><span class="p">(</span><span class="n">v2_1</span><span class="p">,</span><span class="w"> </span><span class="n">v2_2</span><span class="p">);</span><span class="w"> </span><span class="c1">// コンパイル時</span>
+<span class="w">  </span><span class="kt">double</span><span class="w">  </span><span class="n">dp2r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inner_product_2d</span><span class="p">(</span><span class="n">v2_1</span><span class="p">,</span><span class="w"> </span><span class="n">v2_2</span><span class="p">);</span><span class="w">          </span><span class="c1">// 実行時</span>
 
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">dp2c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">dp2r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dp2c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dp2r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -317,7 +317,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

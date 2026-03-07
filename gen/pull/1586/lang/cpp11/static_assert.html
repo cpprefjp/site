@@ -221,17 +221,17 @@
 <h2>概要</h2>
 <p><code>static_assert</code>宣言は、指定した定数式が真であることを表明するための機能である。</p>
 <p>これは、コンパイル時に満たされるべき要件を検証するために使用できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"number of array elements must greater than 0"</span><span class="p">);</span>
-  <span class="n">T</span> <span class="n">array</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"number of array elements must greater than 0"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>指定した定数式が偽である場合はコンパイルエラーとなり、<code>static_assert</code>の第2引数で指定した文字列リテラルが<a class="cpprefjp-defined-word" data-desc="診断情報。コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="../../implementation-compliance.html#dfn-diagnostic-message">診断メッセージ</a>として出力される。</p>
 <h2>仕様</h2>
 <p><code>static_assert</code>宣言は、以下の形式を持つ：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">static_assert</span><span class="p">(</span><span class="err">定数式</span><span class="p">,</span> <span class="err">文字列リテラル</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static_assert</span><span class="p">(</span><span class="n">定数式</span><span class="p">,</span><span class="w"> </span><span class="n">文字列リテラル</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <ul>
@@ -245,18 +245,18 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="51bef4336d48e5e1d98e2092bc804ed411c3328a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="51bef4336d48e5e1d98e2092bc804ed411c3328a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"template parameter T must be integral type"</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"template parameter T must be integral type"</span><span class="p">);</span>
 
-  <span class="c1">// …</span>
+<span class="w">  </span><span class="c1">// …</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// OK</span>
+<span class="w">  </span><span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="c1">//X&lt;double&gt;(); // コンパイルエラー : template parameter T must be integral type</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -314,7 +314,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

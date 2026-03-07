@@ -225,10 +225,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;optional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class optional">optional::</span><span class="token">transform</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">transform</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">;</span>       <span class="c1">// (1)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">transform</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="o">&amp;&amp;</span><span class="p">;</span>      <span class="c1">// (2)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">transform</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">;</span>  <span class="c1">// (3)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">transform</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="k">const</span><span class="o">&amp;&amp;</span><span class="p">;</span> <span class="c1">// (4)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="p">;</span><span class="w">       </span><span class="c1">// (1)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">;</span><span class="w">      </span><span class="c1">// (2)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="p">;</span><span class="w">  </span><span class="c1">// (3)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;&amp;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -236,10 +236,10 @@
 有効値を保持していなければ、<code><a href="../nullopt_t.html">std::nullopt</a></code>を返す。</p>
 <p>実際には複数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が提供されるが、大まかには下記シグニチャのようにみなせる。
 <code>transform</code>へは、引数リストに1個の<code>T</code>型をとり<code>Return</code>型を返す関数や関数オブジェクトを与える。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">optional</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Return</span><span class="o">&gt;</span>
-  <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="o">&gt;</span> <span class="n">transform</span><span class="p">(</span><span class="n"><a href="../../functional/function.html">function</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">func</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Return</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="o">&gt;</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="n"><a href="../../functional/function.html">function</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">func</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -270,21 +270,21 @@
 <p><code>transform</code>は、メソッドチェーンをサポートするモナド風(monadic)操作として導入された。
 関数型プログラミングの文脈における Functor Map 操作に対応する。</p>
 <h2>例</h2>
-<p><div class="yata" id="58450d6fa0f7e3f0dc409013ba559780982a3f0b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="58450d6fa0f7e3f0dc409013ba559780982a3f0b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../optional.html">&lt;optional&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">twice</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">twice</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">o1</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">o1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">transform</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">o1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">o1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">transform</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
 
-  <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">o2</span> <span class="o">=</span> <span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">not</span> <span class="n">o2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">transform</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">o2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n">o2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">transform</span></span><span class="p">(</span><span class="n">twice</span><span class="p">).</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -328,7 +328,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

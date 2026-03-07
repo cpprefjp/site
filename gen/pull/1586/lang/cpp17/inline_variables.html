@@ -224,61 +224,61 @@
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++17以降 -----</span>
 
 <span class="c1">// ヘッダ</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="c1">// ソースで変数fooを定義する必要がない</span>
-  <span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ソースで変数fooを定義する必要がない</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 <span class="p">};</span>
 
 
 <span class="c1">// C++14以前 -----</span>
 
 <span class="c1">// ヘッダ</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="c1">// ヘッダでは変数の宣言のみを行い</span>
-  <span class="k">static</span> <span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ヘッダでは変数の宣言のみを行い</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// ソース</span>
 <span class="c1">// 変数fooを定義する</span>
-<span class="kt">int</span> <span class="n">X</span><span class="o">::</span><span class="n">foo</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="o">::</span><span class="n">foo</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>仕様</h2>
 <p><code>inline</code>は関数または変数の宣言、定義に対して指定できる。外部リンケージを持つ関数、変数がどこか一つの翻訳単位で<code>inline</code>指定された場合、同名の変数が宣言されている全ての翻訳単位で<code>inline</code>指定を行う必要がある。<code>inline</code>指定された関数、変数は全ての翻訳単位で同じアドレスに配置される。</p>
 <p>変数定義のあとに後付けで初めての<code>inline</code>指定を行うのは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 
 <span class="c1">// 不適格につきコンパイルエラー</span>
-<span class="k">extern</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">extern</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>inline</code>指定した同名の変数は全て同じ定義にすべきである。翻訳単位によって異なる型、初期値で変数を定義すると、プログラムは正常に動作しない可能性がある (<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>(<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>付き<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="../../implementation-compliance.html#dfn-no-diagnostic-required">診断不要</a>))。</p>
 <p>異なる型を指定した場合の例：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// b.cpp</span>
 <span class="c1">// 無名クラスのオブジェクトはそれぞれ異なる型となる</span>
-<span class="kr">inline</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span> <span class="n">y</span><span class="p">;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 
 <span class="c1">// a.cpp</span>
 <span class="c1">// 不適格 (診断不要)</span>
 <span class="c1">// コンパイルエラーにならないかもしれないが、正常に動作しない可能性がある</span>
 <span class="c1">// (実装によっては、それぞれ異なる実体のオブジェクトとなる場合がある)</span>
-<span class="kr">inline</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span> <span class="n">y</span><span class="p">;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </p>
 <p>異なる初期値を指定した場合の例：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// b.cpp</span>
-<span class="kr">inline</span> <span class="kt">int</span> <span class="n">hoge</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hoge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
 <span class="c1">// a.cpp</span>
-<span class="kr">inline</span> <span class="kt">int</span> <span class="n">hoge</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hoge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 不適格(診断不要)</span>
-  <span class="c1">// コンパイルエラーにならないかもしれないが、正常に動作しない可能性がある</span>
-  <span class="k">return</span> <span class="n">hoge</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 不適格(診断不要)</span>
+<span class="w">  </span><span class="c1">// コンパイルエラーにならないかもしれないが、正常に動作しない可能性がある</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">hoge</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -312,120 +312,120 @@ function-specifier:
 </code></pre></p>
 <h2>例</h2>
 <p><div class="yata" id="7f29793c27039d139bc6c2e85f5d11f821fdb69e"><div class="codehilite"><pre><span></span><code><span class="c1">//inline_variable.hpp</span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">N</span> <span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">N</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="c1">// 外部リンケージ &amp; 非インライン</span>
-  <span class="c1">// →ODR違反により不適格</span>
-  <span class="cm">/*</span>
+<span class="w">  </span><span class="c1">// 外部リンケージ &amp; 非インライン</span>
+<span class="w">  </span><span class="c1">// →ODR違反により不適格</span>
+<span class="w">  </span><span class="cm">/*</span>
 <span class="cm">  int var = 0;</span>
 <span class="cm">  int func() {</span>
 <span class="cm">    return 0;</span>
 <span class="cm">  }</span>
 <span class="cm">  */</span>
 
-  <span class="c1">// 外部リンケージ &amp; インライン(inline指定)</span>
-  <span class="c1">// →全翻訳単位でアドレスは同一</span>
-  <span class="kr">inline</span> <span class="kt">int</span> <span class="n">inline_var</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">inline_func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 外部リンケージ &amp; インライン(inline指定)</span>
+<span class="w">  </span><span class="c1">// →全翻訳単位でアドレスは同一</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">inline_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">inline_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 内部リンケージ(static指定) &amp; 非インライン</span>
-  <span class="c1">// →翻訳単位毎に異なるアドレス</span>
-  <span class="k">static</span> <span class="kt">int</span> <span class="n">static_var</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-  <span class="k">static</span> <span class="kt">int</span> <span class="nf">static_func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">40</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 内部リンケージ(static指定) &amp; 非インライン</span>
+<span class="w">  </span><span class="c1">// →翻訳単位毎に異なるアドレス</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">static_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">static_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 内部リンケージ(static指定) &amp; インライン(inline指定)</span>
-  <span class="c1">// →外部リンケージではないのでインライン指定はアドレスに影響しない。</span>
-  <span class="c1">//   static のみ指定したときと同様に、翻訳単位毎に異なるアドレスになる。</span>
-  <span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="n">static_inline_var</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">static_inline_func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">60</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 内部リンケージ(static指定) &amp; インライン(inline指定)</span>
+<span class="w">  </span><span class="c1">// →外部リンケージではないのでインライン指定はアドレスに影響しない。</span>
+<span class="w">  </span><span class="c1">//   static のみ指定したときと同様に、翻訳単位毎に異なるアドレスになる。</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">static_inline_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">static_inline_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 外部リンケージ &amp; 非インライン(constexpr変数は暗黙にinlineにはならない)</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">constexpr_var</span> <span class="o">=</span> <span class="mi">70</span><span class="p">;</span>
-  <span class="c1">// 外部リンケージ &amp; インライン(constexpr関数は暗黙にinlineとなる)</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">constexpr_func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">80</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 外部リンケージ &amp; 非インライン(constexpr変数は暗黙にinlineにはならない)</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">constexpr_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">70</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 外部リンケージ &amp; インライン(constexpr関数は暗黙にinlineとなる)</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">constexpr_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="c1">// inline指定(全翻訳単位でアドレスは同一)</span>
-  <span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="n">inline_var</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-  <span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">inline_func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">200</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// inline指定(全翻訳単位でアドレスは同一)</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">inline_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">inline_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// staticメンバ変数かつconstexprなので</span>
-  <span class="c1">// 暗黙のうちにinlineが指定される</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">constexpr_var</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-  <span class="c1">// 関数かつconstexprなので</span>
-  <span class="c1">// 暗黙のうちにinlineが指定される</span>
-  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">constexpr_func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">400</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// staticメンバ変数かつconstexprなので</span>
+<span class="w">  </span><span class="c1">// 暗黙のうちにinlineが指定される</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">constexpr_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 関数かつconstexprなので</span>
+<span class="w">  </span><span class="c1">// 暗黙のうちにinlineが指定される</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">constexpr_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">func</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">();</span>
 
 
 <span class="c1">//inline_variable1.cpp</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"inline_variable.hpp"</span><span class="cp"></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"inline_variable.hpp"</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">__func__</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::inline_var        :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">inline_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::inline_func       :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">inline_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::static_var        :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">static_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::static_func       :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">static_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::static_inline_var :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">static_inline_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::static_inline_func:"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">static_inline_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::constexpr_var     :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">constexpr_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::constexpr_func    :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">constexpr_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  A::inline_var        :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">inline_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  A::inline_func       :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">inline_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  A::constexpr_var     :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">constexpr_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  A::constexpr_func    :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">constexpr_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">__func__</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::inline_var        :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">inline_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::inline_func       :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">inline_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::static_var        :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">static_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::static_func       :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">static_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::static_inline_var :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">static_inline_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::static_inline_func:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">static_inline_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::constexpr_var     :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">constexpr_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::constexpr_func    :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">constexpr_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  A::inline_var        :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">inline_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  A::inline_func       :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">inline_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  A::constexpr_var     :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">constexpr_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  A::constexpr_func    :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">constexpr_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n">func</span><span class="p">();</span>
+<span class="w">  </span><span class="n">func</span><span class="p">();</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 
 <span class="c1">//inline_variable2.cpp</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"inline_variable.hpp"</span><span class="cp"></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"inline_variable.hpp"</span>
 
-<span class="kt">void</span> <span class="nf">func</span><span class="p">()</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">__func__</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::inline_var        :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">inline_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::inline_func       :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">inline_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::static_var        :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">static_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::static_func       :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">static_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::static_inline_var :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">static_inline_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::static_inline_func:"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">static_inline_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::constexpr_var     :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">constexpr_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  N::constexpr_func    :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">constexpr_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  A::inline_var        :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">inline_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  A::inline_func       :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">inline_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  A::constexpr_var     :"</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">constexpr_var</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="s">"  A::constexpr_func    :"</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">constexpr_func</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
-    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">__func__</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::inline_var        :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">inline_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::inline_func       :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">inline_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::static_var        :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">static_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::static_func       :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">static_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::static_inline_var :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">static_inline_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::static_inline_func:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">static_inline_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::constexpr_var     :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="o">::</span><span class="n">constexpr_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  N::constexpr_func    :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="n">constexpr_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  A::inline_var        :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">inline_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  A::inline_func       :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">inline_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  A::constexpr_var     :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="o">::</span><span class="n">constexpr_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  A::constexpr_func    :"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">constexpr_func</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -494,7 +494,7 @@ func
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

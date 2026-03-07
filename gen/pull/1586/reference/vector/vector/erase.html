@@ -225,15 +225,15 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;vector&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class vector">vector::</span><span class="token">erase</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span><span class="n">iterator</span> <span class="n">position</span><span class="p">);</span>                 <span class="c1">// (1) C++03</span>
-<span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">);</span>           <span class="c1">// (1) C++11</span>
-<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">);</span> <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">iterator</span><span class="w"> </span><span class="nf">erase</span><span class="p">(</span><span class="n">iterator</span><span class="w"> </span><span class="n">position</span><span class="p">);</span><span class="w">                 </span><span class="c1">// (1) C++03</span>
+<span class="n">iterator</span><span class="w"> </span><span class="nf">erase</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">);</span><span class="w">           </span><span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="nf">erase</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 
-<span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span><span class="n">iterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">iterator</span> <span class="n">last</span><span class="p">);</span>  <span class="c1">// (2) C++03</span>
-<span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">first</span><span class="p">,</span>
-               <span class="n">const_iterator</span> <span class="n">last</span><span class="p">);</span>            <span class="c1">// (2) C++11</span>
-<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">first</span><span class="p">,</span>
-                         <span class="n">const_iterator</span> <span class="n">last</span><span class="p">);</span>  <span class="c1">// (2) C++20</span>
+<span class="n">iterator</span><span class="w"> </span><span class="nf">erase</span><span class="p">(</span><span class="n">iterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">  </span><span class="c1">// (2) C++03</span>
+<span class="n">iterator</span><span class="w"> </span><span class="nf">erase</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">               </span><span class="n">const_iterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">            </span><span class="c1">// (2) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="nf">erase</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">const_iterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">  </span><span class="c1">// (2) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -256,46 +256,46 @@
 <p>コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入演算子が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる場合を除いて、この関数は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げない。</p>
 <h2>例</h2>
 <h3>基本的な使い方 (C++11)</h3>
-<p><div class="yata" id="3255f7a14d4af1f073db6f5df7d085ac3b8a6102"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3255f7a14d4af1f073db6f5df7d085ac3b8a6102"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : {"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" : {"</span><span class="p">;</span>
 
-  <span class="kt">bool</span> <span class="n">first</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">first</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"}"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-    <span class="c1">// 2番目の単一要素(値3)を削除</span>
-    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">erase</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"(1)"</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 2番目の単一要素(値3)を削除</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">erase</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">"(1)"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-    <span class="c1">// 範囲[<a href="begin.html">v.begin()</a>, <a href="begin.html">v.begin()</a> + 2)の要素を削除</span>
-    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">erase</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"(2)"</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 範囲[<a href="begin.html">v.begin()</a>, <a href="begin.html">v.begin()</a> + 2)の要素を削除</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">erase</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">"(2)"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -304,30 +304,30 @@
 (2) : {3, 4, 5}
 </code></pre></p>
 <h3>イテレート中に要素を削除する (C++11)</h3>
-<p><div class="yata" id="aff76e14765904aab5185423dcf344dfa6ca239b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="aff76e14765904aab5185423dcf344dfa6ca239b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
 
-  <span class="c1">// イテレート中に要素削除をするような場合には、</span>
-  <span class="c1">// 範囲for文は使用できない</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><a href="begin.html">v.begin()</a></span><span class="p">;</span> <span class="n">it</span> <span class="o">!=</span> <span class="n"><a href="end.html">v.end()</a></span><span class="p">;)</span> <span class="p">{</span>
-    <span class="c1">// 条件一致した要素を削除する</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// 削除された要素の次を指すイテレータが返される。</span>
-      <span class="n">it</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="c1">// 要素削除をしない場合に、イテレータを進める</span>
-    <span class="k">else</span> <span class="p">{</span>
-      <span class="o">++</span><span class="n">it</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// イテレート中に要素削除をするような場合には、</span>
+<span class="w">  </span><span class="c1">// 範囲for文は使用できない</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="begin.html">v.begin()</a></span><span class="p">;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="end.html">v.end()</a></span><span class="p">;)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 条件一致した要素を削除する</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// 削除された要素の次を指すイテレータが返される。</span>
+<span class="w">      </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 要素削除をしない場合に、イテレータを進める</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="o">++</span><span class="n">it</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -362,7 +362,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

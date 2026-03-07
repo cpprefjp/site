@@ -221,87 +221,87 @@
 <p>ユーザー宣言されたコンストラクタをもつクラスを、集成体初期化によってコンストラクタを回避してオブジェクト構築できてしまっていた技法を禁止する。</p>
 <p>C++17まで、集成体初期化ができる型として、「<code>delete</code>／<code>default</code>宣言されたコンストラクタを持つ型」が許可されてしまっていたが、これを禁止する。これによって一部、以前のバージョンからの互換性がなくなる。</p>
 <h3>delete宣言されているコンストラクタを回避した構築</h3>
-<p><div class="yata" id="692cc0fc1df56ea67cb7597a15171163c298c2e4"><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<p><div class="yata" id="692cc0fc1df56ea67cb7597a15171163c298c2e4"><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// デフォルト構築。</span>
-  <span class="c1">// デフォルトコンストラクタがdelete宣言されているのでコンパイルエラー</span>
-  <span class="n">X</span> <span class="n">x1</span><span class="p">;</span>   <span class="c1">// C++17:NG C++20:NG</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// デフォルト構築。</span>
+<span class="w">  </span><span class="c1">// デフォルトコンストラクタがdelete宣言されているのでコンパイルエラー</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x1</span><span class="p">;</span><span class="w">   </span><span class="c1">// C++17:NG C++20:NG</span>
 
-  <span class="c1">// 集成体初期化。</span>
-  <span class="c1">// delete宣言されているコンストラクタを回避して構築できてしまっていた</span>
-  <span class="n">X</span> <span class="n">x2</span><span class="p">{};</span> <span class="c1">// C++17:OK C++20:NG</span>
+<span class="w">  </span><span class="c1">// 集成体初期化。</span>
+<span class="w">  </span><span class="c1">// delete宣言されているコンストラクタを回避して構築できてしまっていた</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x2</span><span class="p">{};</span><span class="w"> </span><span class="c1">// C++17:OK C++20:NG</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>privateなdefault宣言コンストラクタを回避した構築</h3>
-<p><div class="yata" id="7e08c046e631d93c879561d8bbc3a11375a6d24d"><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+<p><div class="yata" id="7e08c046e631d93c879561d8bbc3a11375a6d24d"><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
-  <span class="n">X</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// デフォルト構築。</span>
-  <span class="c1">// デフォルトコンストラクタがprivateなのでコンパイルエラー</span>
-  <span class="n">X</span> <span class="n">x1</span><span class="p">;</span>   <span class="c1">// C++17:NG C++20:NG</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// デフォルト構築。</span>
+<span class="w">  </span><span class="c1">// デフォルトコンストラクタがprivateなのでコンパイルエラー</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x1</span><span class="p">;</span><span class="w">   </span><span class="c1">// C++17:NG C++20:NG</span>
 
-  <span class="c1">// 集成体初期化。</span>
-  <span class="c1">// privateなデフォルトコンストラクタを回避して構築できてしまっていた</span>
-  <span class="n">X</span> <span class="n">x2</span><span class="p">{};</span> <span class="c1">// C++17:OK C++20:NG</span>
+<span class="w">  </span><span class="c1">// 集成体初期化。</span>
+<span class="w">  </span><span class="c1">// privateなデフォルトコンストラクタを回避して構築できてしまっていた</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x2</span><span class="p">{};</span><span class="w"> </span><span class="c1">// C++17:OK C++20:NG</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>default宣言コンストラクタをもっているのに集成体初期化によるメンバ変数初期化</h3>
-<p><div class="yata" id="7b9eac7022a858d7968f06044a53045275f54f93"><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
-  <span class="n">X</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<p><div class="yata" id="7b9eac7022a858d7968f06044a53045275f54f93"><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// コンストラクタ呼び出し。</span>
-  <span class="c1">// 一致するコンストラクタがないためコンパイルエラー</span>
-  <span class="n">X</span> <span class="n">x1</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// C++17:NG C++20:NG</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// コンストラクタ呼び出し。</span>
+<span class="w">  </span><span class="c1">// 一致するコンストラクタがないためコンパイルエラー</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x1</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// C++17:NG C++20:NG</span>
 
-  <span class="c1">// 集成体初期化。</span>
-  <span class="c1">// デフォルトコンストラクタがあるのに集成体初期化できてしまっていた</span>
-  <span class="n">X</span> <span class="n">x2</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span> <span class="c1">// C++17:OK C++20:NG</span>
+<span class="w">  </span><span class="c1">// 集成体初期化。</span>
+<span class="w">  </span><span class="c1">// デフォルトコンストラクタがあるのに集成体初期化できてしまっていた</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x2</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span><span class="w"> </span><span class="c1">// C++17:OK C++20:NG</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>コンストラクタがexplicitかどうかでの集成体初期化の挙動の違い</h3>
-<p><div class="yata" id="f209257189f83e27aa66ae4439bb74ef008d451d"><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="n">X</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<p><div class="yata" id="f209257189f83e27aa66ae4439bb74ef008d451d"><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{</span>
-  <span class="k">explicit</span> <span class="n">Y</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">Y</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// explicitなコンストラクタだけは集成体初期化で回避できなかった</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">{};</span> <span class="c1">// C++17:OK C++20:NG</span>
-  <span class="n">Y</span> <span class="n">y</span><span class="p">{};</span> <span class="c1">// C++17:NG C++20:NG</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// explicitなコンストラクタだけは集成体初期化で回避できなかった</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">{};</span><span class="w"> </span><span class="c1">// C++17:OK C++20:NG</span>
+<span class="w">  </span><span class="n">Y</span><span class="w"> </span><span class="n">y</span><span class="p">{};</span><span class="w"> </span><span class="c1">// C++17:NG C++20:NG</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>コンストラクタ宣言を分けた場合の挙動の違い</h3>
-<p><div class="yata" id="cd7bf9235d2c9455d3891f0077edacb9205a8774"><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-  <span class="n">X</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<p><div class="yata" id="cd7bf9235d2c9455d3891f0077edacb9205a8774"><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">Y</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-  <span class="n">Y</span><span class="p">();</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Y</span><span class="p">();</span>
 <span class="p">};</span>
-<span class="n">Y</span><span class="o">::</span><span class="n">Y</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="n">Y</span><span class="o">::</span><span class="n">Y</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// YはXとは違って集成体とは見なされずコンパイルエラーだった</span>
-  <span class="n">X</span> <span class="n">x</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span> <span class="c1">// C++17:OK C++20:NG</span>
-  <span class="n">Y</span> <span class="n">y</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span> <span class="c1">// C++17:NG C++20:NG</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// YはXとは違って集成体とは見なされずコンパイルエラーだった</span>
+<span class="w">  </span><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span><span class="w"> </span><span class="c1">// C++17:OK C++20:NG</span>
+<span class="w">  </span><span class="n">Y</span><span class="w"> </span><span class="n">y</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span><span class="w"> </span><span class="c1">// C++17:NG C++20:NG</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -334,7 +334,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

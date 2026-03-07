@@ -213,21 +213,21 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;any&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">any_cast</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span> <span class="n">any_cast</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="any.html">any</a></span><span class="o">&amp;</span> <span class="n">operand</span><span class="p">);</span>                 <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">any_cast</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="any.html">any</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">operand</span><span class="p">);</span><span class="w">                 </span><span class="c1">// (1)</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span> <span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">&amp;</span> <span class="n">operand</span><span class="p">);</span>                       <span class="c1">// (2)</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">operand</span><span class="p">);</span><span class="w">                       </span><span class="c1">// (2)</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span> <span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">&amp;&amp;</span> <span class="n">operand</span><span class="p">);</span>                      <span class="c1">// (3)</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">operand</span><span class="p">);</span><span class="w">                      </span><span class="c1">// (3)</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">const</span> <span class="n">T</span><span class="o">*</span> <span class="n">any_cast</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="any.html">any</a></span><span class="o">*</span> <span class="n">operand</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (4)</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">any_cast</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="any.html">any</a></span><span class="o">*</span><span class="w"> </span><span class="n">operand</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4)</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span><span class="o">*</span> <span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">*</span> <span class="n">operand</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>             <span class="c1">// (5)</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">*</span><span class="w"> </span><span class="n">operand</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">             </span><span class="c1">// (5)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -260,83 +260,83 @@
 <li>(1), (2), (3) : <code><a href="any/type.html">operand.type()</a> != typeid(U)</code>である場合、<code><a href="bad_any_cast.html">bad_any_cast</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="319aee344b94674eb5288bcc3ba2abe8c9f34c93"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../any.html">&lt;any&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="319aee344b94674eb5288bcc3ba2abe8c9f34c93"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../any.html">&lt;any&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="p">{</span>
-    <span class="k">const</span> <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="any.html">std::any</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-    <span class="c1">// コピーを取り出す</span>
-    <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r1</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// コピーを取り出す</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
-    <span class="c1">// 参照を取り出す</span>
-    <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">r2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r2</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 参照を取り出す</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
-    <span class="c1">// xオブジェクトが保持している値はint型で、long long型に変換可能だが、</span>
-    <span class="c1">// any_cast関数には直接の型intを指定しなければならない</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-      <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">catch</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">bad_any_cast</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// 型の指定を間違うと、bad_any_cast例外が送出される</span>
-      <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// xオブジェクトが保持している値はint型で、long long型に変換可能だが、</span>
+<span class="w">    </span><span class="c1">// any_cast関数には直接の型intを指定しなければならない</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">bad_any_cast</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// 型の指定を間違うと、bad_any_cast例外が送出される</span>
+<span class="w">      </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="any.html">std::any</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
 
-    <span class="c1">// コピーを取り出す</span>
-    <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r1</span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// コピーを取り出す</span>
+<span class="w">    </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span>
 
-    <span class="c1">// 参照を取り出す</span>
-    <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">r2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r2</span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 参照を取り出す</span>
+<span class="w">    </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="any.html">std::any</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
 
-    <span class="c1">// anyクラスの一時オブジェクトから値をムーブして取り出す</span>
-    <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">r</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// anyクラスの一時オブジェクトから値をムーブして取り出す</span>
+<span class="w">    </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (4)</span>
-  <span class="p">{</span>
-    <span class="k">const</span> <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (4)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="any.html">std::any</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-    <span class="c1">// 保持している値へのポインタを取り出す</span>
-    <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p1</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 保持している値へのポインタを取り出す</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
-    <span class="c1">// 型の指定を間違うとヌルポインタが返る</span>
-    <span class="k">const</span> <span class="kt">long</span> <span class="kt">long</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 型の指定を間違うとヌルポインタが返る</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">*</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (5)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (5)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="any.html">std::any</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-    <span class="c1">// 保持している値へのポインタを取り出す</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p1</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 保持している値へのポインタを取り出す</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
-    <span class="c1">// 型の指定を間違うとヌルポインタが返る</span>
-    <span class="kt">long</span> <span class="kt">long</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 型の指定を間違うとヌルポインタが返る</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">*</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -374,7 +374,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

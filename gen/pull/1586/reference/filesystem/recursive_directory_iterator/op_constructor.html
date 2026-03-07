@@ -225,17 +225,17 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="class" title="class recursive_directory_iterator">recursive_directory_iterator::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">recursive_directory_iterator</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                         <span class="c1">// (1)</span>
-<span class="k">explicit</span> <span class="nf">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>            <span class="c1">// (2)</span>
-<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span>
-                   <span class="n"><a href="../directory_options.html">directory_options</a></span> <span class="n">options</span><span class="p">);</span>                   <span class="c1">// (3)</span>
-<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span>
-                   <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span><span class="p">);</span>                         <span class="c1">// (4)</span>
-<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span>
-                   <span class="n"><a href="../directory_options.html">directory_options</a></span> <span class="n">options</span><span class="p">,</span>
-                   <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span><span class="p">);</span>                         <span class="c1">// (5)</span>
-<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n">directory_iterator</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>     <span class="c1">// (6)</span>
-<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="n">directory_iterator</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (7)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">recursive_directory_iterator</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                         </span><span class="c1">// (1)</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">            </span><span class="c1">// (2)</span>
+<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">                   </span><span class="n"><a href="../directory_options.html">directory_options</a></span><span class="w"> </span><span class="n">options</span><span class="p">);</span><span class="w">                   </span><span class="c1">// (3)</span>
+<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">                   </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span><span class="w">                         </span><span class="c1">// (4)</span>
+<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="w">                   </span><span class="n"><a href="../directory_options.html">directory_options</a></span><span class="w"> </span><span class="n">options</span><span class="p">,</span>
+<span class="w">                   </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span><span class="w">                         </span><span class="c1">// (5)</span>
+<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">directory_iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">     </span><span class="c1">// (6)</span>
+<span class="n">recursive_directory_iterator</span><span class="p">(</span><span class="n">directory_iterator</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (7)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -270,49 +270,49 @@
 <li>このイテレータは、デフォルトではディレクトリのシンボリックリンクには従わない。ディレクトリのシンボリックリンクも再帰的に走査する場合は、走査オプションに<code><a href="../directory_options.html">directory_options::follow_directory_symlink</a></code>を指定すること</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="54fd06c5d75ea9a0b69374fe1b616451ebf738f8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="54fd06c5d75ea9a0b69374fe1b616451ebf738f8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../filesystem.html">&lt;filesystem&gt;</a></span>
+<span class="cp">#include <a href="../../fstream.html">&lt;fstream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"dir/a.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"dir/a.txt"</span><span class="p">};</span>
 
-  <span class="c1">// (1) 終端イテレータを構築する</span>
-  <span class="p">{</span>
-    <span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span> <span class="n">it</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1) 終端イテレータを構築する</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span><span class="w"> </span><span class="n">it</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2) 指定したディレクトリの先頭要素を指すイテレータを構築する</span>
-  <span class="p">{</span>
-    <span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span> <span class="n">it</span><span class="p">{</span><span class="s">"dir"</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../directory_entry/path.html">it-&gt;path()</a></span> <span class="o">==</span> <span class="s">"dir/a.txt"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (2) 指定したディレクトリの先頭要素を指すイテレータを構築する</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span><span class="w"> </span><span class="n">it</span><span class="p">{</span><span class="s">"dir"</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../directory_entry/path.html">it-&gt;path()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"dir/a.txt"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3) 走査オプション付きで、指定したディレクトリの先頭要素を指すイテレータを構築する</span>
-  <span class="p">{</span>
-    <span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span> <span class="n">it</span><span class="p">{</span><span class="s">"dir"</span><span class="p">,</span> <span class="n"><a href="../directory_options.html">fs::directory_options::skip_permission_denied</a></span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../directory_entry/path.html">it-&gt;path()</a></span> <span class="o">==</span> <span class="s">"dir/a.txt"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (3) 走査オプション付きで、指定したディレクトリの先頭要素を指すイテレータを構築する</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span><span class="w"> </span><span class="n">it</span><span class="p">{</span><span class="s">"dir"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../directory_options.html">fs::directory_options::skip_permission_denied</a></span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../directory_entry/path.html">it-&gt;path()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"dir/a.txt"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (4) エラー時 (アクセス拒否された場合) に例外ではなくerror_codeオブジェクトに書き込む</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">;</span>
-    <span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span> <span class="n">it</span><span class="p">{</span><span class="s">"dir"</span><span class="p">,</span> <span class="n">ec</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">ec</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../directory_entry/path.html">it-&gt;path()</a></span> <span class="o">==</span> <span class="s">"dir/a.txt"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (4) エラー時 (アクセス拒否された場合) に例外ではなくerror_codeオブジェクトに書き込む</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="n">ec</span><span class="p">;</span>
+<span class="w">    </span><span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span><span class="w"> </span><span class="n">it</span><span class="p">{</span><span class="s">"dir"</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../directory_entry/path.html">it-&gt;path()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"dir/a.txt"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (5) 同上</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">;</span>
-    <span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span> <span class="n">it</span><span class="p">{</span><span class="s">"dir"</span><span class="p">,</span> <span class="n"><a href="../directory_options.html">fs::directory_options::skip_permission_denied</a></span><span class="p">,</span> <span class="n">ec</span><span class="p">};</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">ec</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../directory_entry/path.html">it-&gt;path()</a></span> <span class="o">==</span> <span class="s">"dir/a.txt"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (5) 同上</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="n">ec</span><span class="p">;</span>
+<span class="w">    </span><span class="n">fs</span><span class="o">::</span><span class="n">recursive_directory_iterator</span><span class="w"> </span><span class="n">it</span><span class="p">{</span><span class="s">"dir"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../directory_options.html">fs::directory_options::skip_permission_denied</a></span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../directory_entry/path.html">it-&gt;path()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"dir/a.txt"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -350,7 +350,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -219,12 +219,12 @@
 <p></p>
 <h2>概要</h2>
 <p>以下のようなアクセス制御の異なるメンバ変数のメモリレイアウトは、実装に対して自由に並び替えてよい、という規定になっていたが、これを宣言順に規定する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">cell</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">cell</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="k">private</span><span class="o">:</span>
-  <span class="kt">double</span> <span class="n">b</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -251,7 +251,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -221,17 +221,17 @@
 <p>C++11で<code><a href="../cpp11/noexcept.html">noexcept</a></code>機能が入ったことにより、従来の<code>throw</code>キーワードを使用した「<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様 (Exception Specification)」は「動的<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様 (Dynamic Exception Specification)」という名前に変更され、非推奨となっていた。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 動的例外仕様を使用したコード。</span>
 <span class="c1">// C++11から非推奨、C++17ではコンパイルエラーとなる。</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="k">throw</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">throw</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>C++17ではこの動的<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様が削除される。以降は、noexcept<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様を使用すること。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++11で導入されたnoexcept例外仕様を使用したコード。</span>
 <span class="c1">// noexceptおよびnoexcept(true)は、「この関数からは例外を送出しない」という宣言。</span>
 <span class="c1">// noexcept(false)およびnoexceptを付けないことは「この関数からは例外を送出する可能性がある」という宣言。</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <p>動的<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様では指定された<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>以外が送出された場合、<code><a href="../../reference/exception/unexpected.html">std::unexpected()</a></code>関数が呼び出されるが、noexcept<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様では即座に<code><a href="../../reference/exception/terminate.html">std::terminate()</a></code>関数が呼び出され、プログラムが異常終了する。</p>
@@ -287,7 +287,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

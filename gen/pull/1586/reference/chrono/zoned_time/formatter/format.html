@@ -237,26 +237,26 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class formatter">formatter::</span><span class="token">format</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">FormatContext</span><span class="o">&gt;</span>
-<span class="k">typename</span> <span class="n">FormatContext</span><span class="o">::</span><span class="n">iterator</span>
-<span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n">TimeZonePtr</span><span class="o">&gt;&amp;</span> <span class="n">tp</span><span class="p">,</span>
-       <span class="n">FormatContext</span><span class="o">&amp;</span> <span class="n">ctx</span><span class="p">);</span>                                 <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">FormatContext</span><span class="o">&gt;</span>
+<span class="k">typename</span><span class="w"> </span><span class="nc">FormatContext</span><span class="o">::</span><span class="n">iterator</span>
+<span class="n">format</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span><span class="w"> </span><span class="n">TimeZonePtr</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">tp</span><span class="p">,</span>
+<span class="w">       </span><span class="n">FormatContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span><span class="w">                                 </span><span class="c1">// (1) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code>zoned_time</code>クラスオブジェクトを文字列フォーマットする。</p>
 <h2>効果</h2>
 <p>以下と等価：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../sys_info.html">sys_info</a></span> <span class="n">info</span> <span class="o">=</span> <span class="n"><a href="../get_info.html">tp.get_info()</a></span><span class="p">;</span>
-<span class="n"><a href="../../local-time-format-t.html">chrono::local-time-format-t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span> <span class="n">x</span> <span class="p">{</span>
-  <span class="n"><a href="../get_local_time.html">tp.get_local_time()</a></span><span class="p">,</span>
-  <span class="o">&amp;</span><span class="n">info</span><span class="p">.</span><span class="n">abbrev</span><span class="p">,</span>
-  <span class="o">&amp;</span><span class="n">info</span><span class="p">.</span><span class="n">offset</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../sys_info.html">sys_info</a></span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../get_info.html">tp.get_info()</a></span><span class="p">;</span>
+<span class="n"><a href="../../local-time-format-t.html">chrono::local-time-format-t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../get_local_time.html">tp.get_local_time()</a></span><span class="p">,</span>
+<span class="w">  </span><span class="o">&amp;</span><span class="n">info</span><span class="p">.</span><span class="n">abbrev</span><span class="p">,</span>
+<span class="w">  </span><span class="o">&amp;</span><span class="n">info</span><span class="p">.</span><span class="n">offset</span>
 <span class="p">};</span>
 
-<span class="k">return</span> <span class="n">formatter</span><span class="o">&lt;</span><span class="n"><a href="../../local-time-format-t.html">chrono::local-time-format-t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;::</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">,</span>
-    <span class="n">ctx</span>
+<span class="k">return</span><span class="w"> </span><span class="n">formatter</span><span class="o">&lt;</span><span class="n"><a href="../../local-time-format-t.html">chrono::local-time-format-t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">    </span><span class="n">x</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ctx</span>
 <span class="p">);</span>
 </code></pre></div>
 </p>
@@ -288,7 +288,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

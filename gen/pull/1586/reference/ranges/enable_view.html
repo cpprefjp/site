@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">variable</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">enable_view</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">enable_view</span> <span class="o">=</span> <span class="n"><a href="../concepts/derived_from.html">derived_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><a href="view_base.html">view_base</a></span><span class="o">&gt;</span> <span class="o">||</span> <span class="n">is</span><span class="o">-</span><span class="n">derived</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n"><a href="view.html">view</a></span><span class="o">-</span><span class="n">interface</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">enable_view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../concepts/derived_from.html">derived_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="view_base.html">view_base</a></span><span class="o">&gt;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">is</span><span class="o">-</span><span class="n">derived</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n"><a href="view.html">view</a></span><span class="o">-</span><span class="n">interface</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -224,26 +224,26 @@
 <p><code><a href="view.html">view</a></code>コンセプトの要件は意味論要件がメインなため、<code><a href="view_base.html">view_base</a></code>を基底クラスにするか、<code>enable_view</code>を特殊化することで、明示的に<code>view</code>であることを示すようになっている。</p>
 <h2><em>is-derived-from-view-interface</em></h2>
 <p><code>is-derived-from-view-interface&lt;T&gt;</code>は説明専用の<code>bool</code>型の変数テンプレートである。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is</span><span class="o">-</span><span class="n">derived</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n"><a href="view.html">view</a></span><span class="o">-</span><span class="n">interface</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span> <span class="c1">// 説明専用</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is</span><span class="o">-</span><span class="n">derived</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n"><a href="view.html">view</a></span><span class="o">-</span><span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w"> </span><span class="c1">// 説明専用</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>is-derived-from-view-interface&lt;T&gt;</code>は、<code>T</code>がある型<code>U</code>についてただ一つだけ<code>view_interface&lt;U&gt;</code>を<code>public</code>な基底クラスに持ち、他の型<code>V</code>についての<code>view_interface&lt;V&gt;</code>を基底クラスに持たない場合に<code>true</code>となる。</p>
 <p>多くの場合<code>U = T</code>であり、その場合<code>T</code>は<code>view_interface&lt;T&gt;</code>を<code>public</code>で1つだけ継承していればこれを満たすことができる。継承関係が複雑な型などで、<code>view_interface</code>を複数継承階層の中に持っているとこれを満たすことができなくなる。</p>
 <h2>例</h2>
-<p><div class="yata" id="056e288cbc1126300aebc0b4142fd35d3c6302e1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="056e288cbc1126300aebc0b4142fd35d3c6302e1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="p">;</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">enable_view</span></span><span class="o">&lt;</span><span class="n"><a href="view_base.html">view_base</a></span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">enable_view</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">enable_view</span></span><span class="o">&lt;</span><span class="n"><a href="view_base.html">view_base</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">enable_view</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="k">struct</span> <span class="nl">t</span> <span class="p">:</span> <span class="n"><a href="view_base.html">view_base</a></span> <span class="p">{</span> <span class="p">};</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="view_base.html">view_base</a></span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">enable_view</span></span><span class="o">&lt;</span><span class="n">t</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">enable_view</span></span><span class="o">&lt;</span><span class="n">t</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -284,7 +284,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

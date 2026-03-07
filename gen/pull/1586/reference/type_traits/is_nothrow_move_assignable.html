@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_nothrow_move_assignable</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">is_nothrow_move_assignable</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_nothrow_move_assignable</span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_nothrow_move_assignable_v</span>
-    <span class="o">=</span> <span class="n">is_nothrow_move_assignable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>          <span class="c1">// C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_nothrow_move_assignable_v</span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">is_nothrow_move_assignable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w">          </span><span class="c1">// C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -243,50 +243,50 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="27e6eba5e700aa1a4a10fc2cb69f68f3ea20325c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="27e6eba5e700aa1a4a10fc2cb69f68f3ea20325c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
 <span class="c1">// nothrow move assignable</span>
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="c1">// nothrow move assignable</span>
-<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span>
-  <span class="n">B</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">B</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">B</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">B</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">// not move assignable</span>
-<span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
-  <span class="n">C</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">&amp;&amp;</span><span class="p">)</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">C</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">&amp;&amp;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">// not nothrow move assignable</span>
-<span class="k">struct</span> <span class="n">D</span> <span class="p">{</span>
-  <span class="n">D</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">D</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
-  <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">D</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">D</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span>
-  <span class="s">"int is nothrow move assignable"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"int is nothrow move assignable"</span><span class="p">);</span>
 
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span>
-  <span class="s">"A is nothrow move assignable"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"A is nothrow move assignable"</span><span class="p">);</span>
 
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span>
-  <span class="s">"B is nothrow move assignable"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"B is nothrow move assignable"</span><span class="p">);</span>
 
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span>
-  <span class="s">"C is not nothrow move assignable"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"C is not nothrow move assignable"</span><span class="p">);</span>
 
 <span class="k">static_assert</span><span class="p">(</span>
-  <span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span>
-  <span class="s">"D is not nothrow move assignable"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::is_nothrow_move_assignable</span></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"D is not nothrow move assignable"</span><span class="p">);</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
@@ -332,7 +332,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

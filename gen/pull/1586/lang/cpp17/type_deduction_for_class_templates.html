@@ -221,70 +221,70 @@
 <p>コンストラクタに渡される値によって、クラステンプレートのテンプレート引数を推論する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="../../reference/vector/vector.html">std::vector</a>クラステンプレートのテンプレート引数を省略。</span>
 <span class="c1">// 初期化時に代入される初期化子リストの要素型が、<a href="../../reference/vector/vector.html">std::vector</a>の要素型となる</span>
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span> <span class="c1">// 変数vの型は<a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt;</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w"> </span><span class="c1">// 変数vの型は<a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt;</span>
 </code></pre></div>
 </p>
 <p>単純なケースでは、コンストラクタで受け取る値の型がクラスのテンプレートパラメータである場合に、クラスのテンプレート引数が推論される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 
-  <span class="c1">// コンストラクタは、クラスのテンプレートパラメータT型のパラメータをとる</span>
-  <span class="n">Point</span><span class="p">(</span><span class="n">T</span> <span class="n">x_</span><span class="p">,</span> <span class="n">T</span> <span class="n">y_</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x_</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">y_</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// コンストラクタは、クラスのテンプレートパラメータT型のパラメータをとる</span>
+<span class="w">  </span><span class="n">Point</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x_</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">y_</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">x_</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Point</span> <span class="n">p</span> <span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">3.0f</span><span class="p">};</span> <span class="c1">// 変数pの型はPoint&lt;float&gt;に推論される</span>
-  <span class="n">Point</span> <span class="n">q</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">};</span>   <span class="c1">// 変数qの型はPoint&lt;double&gt;に推論される</span>
+<span class="w">  </span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0f</span><span class="p">};</span><span class="w"> </span><span class="c1">// 変数pの型はPoint&lt;float&gt;に推論される</span>
+<span class="w">  </span><span class="n">Point</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">{</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0</span><span class="p">};</span><span class="w">   </span><span class="c1">// 変数qの型はPoint&lt;double&gt;に推論される</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>より複雑な例として、コンストラクタがクラスのテンプレートパラメータ型の値を直接受け取らない場合は、「推論補助 (deduction guide)」をクラス外に記述する。</p>
-<p><div class="yata" id="c9e4045519200881f54e8fb5228d76c4cccbc262"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/list.html">&lt;list&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c9e4045519200881f54e8fb5228d76c4cccbc262"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/list.html">&lt;list&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iterator.html">&lt;iterator&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">mine</span> <span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">mine</span><span class="w"> </span><span class="p">{</span>
 
 <span class="c1">// <a href="../../reference/vector/vector.html">std::vector</a>をラップした可変長配列クラス</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">MyVector</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">data_</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyVector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data_</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// コンストラクタではクラステンプレートパラメータTを直接使用せず、</span>
-  <span class="c1">// イテレータ範囲で初期化する</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-  <span class="n">MyVector</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">data_</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// コンストラクタではクラステンプレートパラメータTを直接使用せず、</span>
+<span class="w">  </span><span class="c1">// イテレータ範囲で初期化する</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">MyVector</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">data_</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="kt">void</span> <span class="n">print</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">data_</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">// 推論補助宣言。クラスが所属する名前空間の、クラス外に記述する。</span>
 <span class="c1">// イテレータの要素型をMyVectorのテンプレート引数として使用する。</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="n">MyVector</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span> <span class="n">InputIterator</span><span class="p">)</span>
-  <span class="o">-&gt;</span> <span class="n">MyVector</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">MyVector</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator</span><span class="p">)</span>
+<span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">MyVector</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="p">}</span> <span class="c1">// namespace mine</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// namespace mine</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/list/list.html">std::list</a></span> <span class="n">ls</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../reference/list/list.html">std::list</a></span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 
-  <span class="c1">// 変数vの型はmine::MyVector&lt;int&gt;に推論される</span>
-  <span class="n">mine</span><span class="o">::</span><span class="n">MyVector</span> <span class="n">v</span> <span class="p">{</span><span class="n">ls</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">ls</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span>
+<span class="w">  </span><span class="c1">// 変数vの型はmine::MyVector&lt;int&gt;に推論される</span>
+<span class="w">  </span><span class="n">mine</span><span class="o">::</span><span class="n">MyVector</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">{</span><span class="n">ls</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">ls</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span>
 
-  <span class="n">v</span><span class="p">.</span><span class="n">print</span><span class="p">();</span> <span class="c1">// 1, 2, 3が順に出力される</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n">print</span><span class="p">();</span><span class="w"> </span><span class="c1">// 1, 2, 3が順に出力される</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -295,20 +295,20 @@
 <li>
 <p>クラスのテンプレート引数を推論できる場合、そのクラステンプレートを使用するユーザーコードは、テンプレート引数を省略できる：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">AnyValue</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">x</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">AnyValue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
-  <span class="c1">// コンストラクタがパラメータとして</span>
-  <span class="c1">// クラステンプレートのテンプレートパラメータ型の</span>
-  <span class="c1">// オブジェクトを受け取る。</span>
-  <span class="c1">// この状況では、コンストラクタの引数からクラスの</span>
-  <span class="c1">// テンプレート引数を推論できる</span>
-  <span class="n">AnyValue</span><span class="p">(</span><span class="n">T</span> <span class="n">x_</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x_</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// コンストラクタがパラメータとして</span>
+<span class="w">  </span><span class="c1">// クラステンプレートのテンプレートパラメータ型の</span>
+<span class="w">  </span><span class="c1">// オブジェクトを受け取る。</span>
+<span class="w">  </span><span class="c1">// この状況では、コンストラクタの引数からクラスの</span>
+<span class="w">  </span><span class="c1">// テンプレート引数を推論できる</span>
+<span class="w">  </span><span class="n">AnyValue</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x_</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">x_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="n">AnyValue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="p">{</span><span class="mi">3</span><span class="p">};</span> <span class="c1">// 型推論しない従来の書き方</span>
-<span class="n">AnyValue</span> <span class="n">w</span> <span class="p">{</span><span class="mi">3</span><span class="p">};</span>      <span class="c1">// 型推論してテンプレート引数を省略。wの型はAnyValue&lt;int&gt;</span>
+<span class="n">AnyValue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">};</span><span class="w"> </span><span class="c1">// 型推論しない従来の書き方</span>
+<span class="n">AnyValue</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">};</span><span class="w">      </span><span class="c1">// 型推論してテンプレート引数を省略。wの型はAnyValue&lt;int&gt;</span>
 </code></pre></div>
 </p>
 </li>
@@ -318,7 +318,7 @@
 <li>
 <p>コンストラクタのパラメータ型からクラステンプレート引数を直接推論できない場合、「推論補助 (deduction guide)」を宣言する。推論補助は、クラス外のクラスと同じスコープ、同じアクセス修飾内に宣言する。構文は、以下のようになる：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="err">クラステンプレート名</span><span class="p">(</span><span class="err">パラメータリスト</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="err">クラステンプレート名</span><span class="o">&lt;</span><span class="err">テンプレート引数</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="n">クラステンプレート名</span><span class="p">(</span><span class="n">パラメータリスト</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">クラステンプレート名</span><span class="o">&lt;</span><span class="n">テンプレート引数</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="c1">// -&gt; のうしろは、推論結果としての完全な型名</span>
 </code></pre></div>
@@ -332,74 +332,74 @@
 <li>コンストラクタの引数を、コンストラクタに渡される前の状態 (配列からポインタへの変換などが行われる前の状態) で推論補助に転送したとして推論が行われる。そのため、推論補助はクラスのコンストラクタと同一のシグニチャである必要はない</li>
 <li>この機能にともなって、デフォルトテンプレート引数のみを持つクラステンプレートは、インスタンス化時に山カッコを省略できる
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="o">=</span><span class="kt">int</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="o">=</span><span class="kt">int</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">{};</span> <span class="c1">// X&lt;&gt;{}; と書く必要がない</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">{};</span><span class="w"> </span><span class="c1">// X&lt;&gt;{}; と書く必要がない</span>
 </code></pre></div>
 </li>
 </ul>
 <h2>例</h2>
 <h3>標準ライブラリでの使用例</h3>
-<p><div class="yata" id="5573e9a460e758d1523027e55e4fc902f922dd53"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/array.html">&lt;array&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/set.html">&lt;set&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/complex.html">&lt;complex&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/future.html">&lt;future&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="5573e9a460e758d1523027e55e4fc902f922dd53"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/array.html">&lt;array&gt;</a></span>
+<span class="cp">#include <a href="../../reference/set.html">&lt;set&gt;</a></span>
+<span class="cp">#include <a href="../../reference/complex.html">&lt;complex&gt;</a></span>
+<span class="cp">#include <a href="../../reference/functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../../reference/memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../../reference/utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../../reference/future.html">&lt;future&gt;</a></span>
+<span class="cp">#include <a href="../../reference/mutex.html">&lt;mutex&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 初期化子リストからコンテナの要素型を推論</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span> <span class="c1">// <a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt;に推論される</span>
-    <span class="n"><a href="../../reference/array/array.html">std::array</a></span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span> <span class="c1">// <a href="../../reference/array/array.html">std::array</a>&lt;int, 3&gt;に推論される</span>
-    <span class="n"><a href="../../reference/set/set.html">std::set</a></span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>    <span class="c1">// <a href="../../reference/set/set.html">std::set</a>&lt;int&gt;に推論される</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 初期化子リストからコンテナの要素型を推論</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w"> </span><span class="c1">// <a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt;に推論される</span>
+<span class="w">    </span><span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span><span class="w"> </span><span class="c1">// <a href="../../reference/array/array.html">std::array</a>&lt;int, 3&gt;に推論される</span>
+<span class="w">    </span><span class="n"><a href="../../reference/set/set.html">std::set</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span><span class="w">    </span><span class="c1">// <a href="../../reference/set/set.html">std::set</a>&lt;int&gt;に推論される</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 複素数の要素型を推論</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span> <span class="n">c</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">};</span>    <span class="c1">// <a href="../../reference/complex/complex.html">std::complex</a>&lt;double&gt;に推論される</span>
-    <span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span> <span class="n">cf</span> <span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">};</span> <span class="c1">// <a href="../../reference/complex/complex.html">std::complex</a>&lt;float&gt;に推論される</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 複素数の要素型を推論</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">{</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">};</span><span class="w">    </span><span class="c1">// <a href="../../reference/complex/complex.html">std::complex</a>&lt;double&gt;に推論される</span>
+<span class="w">    </span><span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span><span class="w"> </span><span class="n">cf</span><span class="w"> </span><span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0f</span><span class="p">};</span><span class="w"> </span><span class="c1">// <a href="../../reference/complex/complex.html">std::complex</a>&lt;float&gt;に推論される</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 関数ポインタ・関数オブジェクトから<a href="../../reference/functional/function.html">std::function</a>のシグニチャを推論</span>
-  <span class="p">{</span>
-    <span class="c1">// <a href="../../reference/functional/function.html">std::function</a>&lt;int(int, double)&gt;に推論される</span>
-    <span class="n"><a href="../../reference/functional/function.html">std::function</a></span> <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 関数ポインタ・関数オブジェクトから<a href="../../reference/functional/function.html">std::function</a>のシグニチャを推論</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// <a href="../../reference/functional/function.html">std::function</a>&lt;int(int, double)&gt;に推論される</span>
+<span class="w">    </span><span class="n"><a href="../../reference/functional/function.html">std::function</a></span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// スマートポインタの型推論</span>
-  <span class="p">{</span>
-    <span class="c1">// <a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a>と<a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a>は生ポインタからの推論を許可しない。</span>
-    <span class="c1">// <a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a>から<a href="../../reference/memory/weak_ptr.html">std::weak_ptr</a>とその逆は推論できる</span>
-    <span class="n"><a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp</span> <span class="p">{</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)};</span>
-    <span class="n"><a href="../../reference/memory/weak_ptr.html">std::weak_ptr</a></span> <span class="n">wp</span> <span class="o">=</span> <span class="n">sp</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a></span> <span class="n">locked_sp</span> <span class="o">=</span> <span class="n"><a href="../../reference/memory/weak_ptr/lock.html">wp.lock()</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// スマートポインタの型推論</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// <a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a>と<a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a>は生ポインタからの推論を許可しない。</span>
+<span class="w">    </span><span class="c1">// <a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a>から<a href="../../reference/memory/weak_ptr.html">std::weak_ptr</a>とその逆は推論できる</span>
+<span class="w">    </span><span class="n"><a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)};</span>
+<span class="w">    </span><span class="n"><a href="../../reference/memory/weak_ptr.html">std::weak_ptr</a></span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a></span><span class="w"> </span><span class="n">locked_sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/memory/weak_ptr/lock.html">wp.lock()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// <a href="../../reference/utility/pair.html">std::pair</a>と<a href="../../reference/tuple/tuple.html">std::tuple</a>の型推論</span>
-  <span class="p">{</span>
-    <span class="c1">// <a href="../../reference/utility/make_pair.html">std::make_pair</a>()や<a href="../../reference/tuple/make_tuple.html">std::make_tuple</a>()のような単純な生成関数が不要となる例</span>
-    <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span> <span class="n">p</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">};</span>        <span class="c1">// <a href="../../reference/utility/pair.html">std::pair</a>&lt;int, const char*&gt;に推論される</span>
-    <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span> <span class="n">t</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">};</span> <span class="c1">// <a href="../../reference/tuple/tuple.html">std::tuple</a>&lt;int, double, const char*&gt;に推論される</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// <a href="../../reference/utility/pair.html">std::pair</a>と<a href="../../reference/tuple/tuple.html">std::tuple</a>の型推論</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// <a href="../../reference/utility/make_pair.html">std::make_pair</a>()や<a href="../../reference/tuple/make_tuple.html">std::make_tuple</a>()のような単純な生成関数が不要となる例</span>
+<span class="w">    </span><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">};</span><span class="w">        </span><span class="c1">// <a href="../../reference/utility/pair.html">std::pair</a>&lt;int, const char*&gt;に推論される</span>
+<span class="w">    </span><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">};</span><span class="w"> </span><span class="c1">// <a href="../../reference/tuple/tuple.html">std::tuple</a>&lt;int, double, const char*&gt;に推論される</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// <a href="../../reference/mutex/lock_guard.html">std::lock_guard</a>が管理するミューテックスの型を推論</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mut</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span> <span class="p">{</span><span class="n">mut</span><span class="p">};</span> <span class="c1">// <a href="../../reference/mutex/lock_guard.html">std::lock_guard</a>&lt;<a href="../../reference/mutex/mutex.html">std::mutex</a>&gt;に推論される</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// <a href="../../reference/mutex/lock_guard.html">std::lock_guard</a>が管理するミューテックスの型を推論</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="w"> </span><span class="n">mut</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="w"> </span><span class="n">lk</span><span class="w"> </span><span class="p">{</span><span class="n">mut</span><span class="p">};</span><span class="w"> </span><span class="c1">// <a href="../../reference/mutex/lock_guard.html">std::lock_guard</a>&lt;<a href="../../reference/mutex/mutex.html">std::mutex</a>&gt;に推論される</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// promiseから取得するfutureで、結果型を推論</span>
-  <span class="p">{</span>
-    <span class="c1">// <a href="../../reference/future/future.html">std::future</a>&lt;int&gt;に推論される</span>
-    <span class="n"><a href="../../reference/future/promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pro</span><span class="p">;</span>
-    <span class="n"><a href="../../reference/future/future.html">std::future</a></span> <span class="n">fut</span> <span class="o">=</span> <span class="n"><a href="../../reference/future/promise/get_future.html">pro.get_future()</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// promiseから取得するfutureで、結果型を推論</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// <a href="../../reference/future/future.html">std::future</a>&lt;int&gt;に推論される</span>
+<span class="w">    </span><span class="n"><a href="../../reference/future/promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pro</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../reference/future/future.html">std::future</a></span><span class="w"> </span><span class="n">fut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/future/promise/get_future.html">pro.get_future()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -407,46 +407,46 @@
 <p><pre><code></code></pre></p>
 <h3>クラステンプレートの型推論を回避する例</h3>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// C++20 で追加された std::type_identity と同じことをするクラス</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n"><a href="../../reference/functional/identity.html">identity</a></span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc"><a href="../../reference/functional/identity.html">identity</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">T_</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../../reference/functional/identity.html">identity</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">T_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../../reference/functional/identity.html">identity</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 
-  <span class="c1">// テンプレートパラメータを直接使用せず、<a href="../../reference/functional/identity.html">identity</a>を介して使用する。</span>
-  <span class="c1">// これによって、テンプレート引数を明示的に指定させられる</span>
-  <span class="n">X</span><span class="p">(</span><span class="n">T_</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// テンプレートパラメータを直接使用せず、<a href="../../reference/functional/identity.html">identity</a>を介して使用する。</span>
+<span class="w">  </span><span class="c1">// これによって、テンプレート引数を明示的に指定させられる</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="n">T_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="c1">//X x{1};      // コンパイルエラー！テンプレート引数を推論できない</span>
-  <span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span> <span class="c1">// OK</span>
+<span class="w">  </span><span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>デフォルトテンプレート引数のみを持つクラステンプレートの使用例</h3>
-<p><div class="yata" id="7676dbac7f06ea5aeb28cccb5cc7f00d42874572"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7676dbac7f06ea5aeb28cccb5cc7f00d42874572"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="cp">#include <a href="../../reference/functional.html">&lt;functional&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
 
-  <span class="c1">// デフォルトテンプレート引数が使用され、<a href="../../reference/functional/greater.html">std::greater</a>&lt;void&gt;{}となる。</span>
-  <span class="c1">// <a href="../../reference/functional/greater.html">std::greater</a>&lt;&gt;{}のように山カッコを書く必要がない</span>
-  <span class="n"><a href="../../reference/algorithm/sort.html">std::sort</a></span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../reference/vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../../reference/functional/greater.html">std::greater</a></span><span class="p">{});</span>
+<span class="w">  </span><span class="c1">// デフォルトテンプレート引数が使用され、<a href="../../reference/functional/greater.html">std::greater</a>&lt;void&gt;{}となる。</span>
+<span class="w">  </span><span class="c1">// <a href="../../reference/functional/greater.html">std::greater</a>&lt;&gt;{}のように山カッコを書く必要がない</span>
+<span class="w">  </span><span class="n"><a href="../../reference/algorithm/sort.html">std::sort</a></span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/functional/greater.html">std::greater</a></span><span class="p">{});</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -510,7 +510,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

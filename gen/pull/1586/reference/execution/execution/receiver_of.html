@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">receiver_of</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rcvr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Completions</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">receiver_of</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Completions</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">receiver_of</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -235,56 +235,56 @@
 <p><code>receiver_of</code>は、<a href="receiver.html">Receiver型</a><code>Rcvr</code>が<a href="completion_signatures.html">完了シグネチャ集合</a><code>Completions</code>に適合することを表すコンセプトである。</p>
 <h2>要件</h2>
 <p>説明専用コンセプト<code>valid-completion-for</code>, <code>has-completions</code>を以下のように定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Signature</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">valid</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="k">for</span> <span class="o">=</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="n">Signature</span><span class="o">*</span> <span class="n">sig</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Tag</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Tag</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">Args</span><span class="p">...))</span>
-      <span class="n">requires</span> <span class="n"><a href="../../functional/callable.html">callable</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span> <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
-    <span class="p">{}(</span><span class="n">sig</span><span class="p">);</span>
-  <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Signature</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">valid</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="k">for</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">Signature</span><span class="o">*</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Tag</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Tag</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">Args</span><span class="p">...))</span>
+<span class="w">      </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../functional/callable.html">callable</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">{}(</span><span class="n">sig</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rcvr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Completions</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">has</span><span class="o">-</span><span class="n">completions</span> <span class="o">=</span>
-  <span class="n">requires</span> <span class="p">(</span><span class="n">Completions</span><span class="o">*</span> <span class="n">completions</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">[]</span><span class="o">&lt;</span><span class="n">valid</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="k">for</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">...</span><span class="n">Sigs</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="completion_signatures.html">completion_signatures</a></span><span class="o">&lt;</span><span class="n">Sigs</span><span class="p">...</span><span class="o">&gt;*</span><span class="p">)</span>
-    <span class="p">{}(</span><span class="n">completions</span><span class="p">);</span>
-  <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Completions</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">has</span><span class="o">-</span><span class="n">completions</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">Completions</span><span class="o">*</span><span class="w"> </span><span class="n">completions</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="o">&lt;</span><span class="n">valid</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="k">for</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">...</span><span class="n">Sigs</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="completion_signatures.html">completion_signatures</a></span><span class="o">&lt;</span><span class="n">Sigs</span><span class="p">...</span><span class="o">&gt;*</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{}(</span><span class="n">completions</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
 </code></pre></div>
 </p>
 <p><code>receiver_of</code>コンセプトは、以下のように定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rcvr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Completions</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">receiver_of</span> <span class="o">=</span>
-  <span class="n"><a href="receiver.html">receiver&lt;Rcvr&gt;</a></span> <span class="o">&amp;&amp;</span> <span class="n">has</span><span class="o">-</span><span class="n">completions</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="p">,</span> <span class="n">Completions</span><span class="o">&gt;</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Completions</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">receiver_of</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="n"><a href="receiver.html">receiver&lt;Rcvr&gt;</a></span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">has</span><span class="o">-</span><span class="n">completions</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">Completions</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="098aba444b9bc9a12cb7bbaa8493c6cb5d4295a8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+<p><div class="yata" id="098aba444b9bc9a12cb7bbaa8493c6cb5d4295a8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">MyReceiver</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">receiver_concept</span> <span class="o">=</span> <span class="n"><a href="receiver.html">ex::receiver_t</a></span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">MyReceiver</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">ex::receiver_t</a></span><span class="p">;</span>
 
-  <span class="kt">void</span> <span class="nf">set_value</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
-  <span class="kt">void</span> <span class="nf">set_error</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_value</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_error</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 値完了操作set_value(int, int)に対応</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ex::receiver_of</span></span><span class="o">&lt;</span><span class="n">MyReceiver</span><span class="p">,</span>
-    <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 値完了操作set_value(int, int)に対応</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ex::receiver_of</span></span><span class="o">&lt;</span><span class="n">MyReceiver</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// 値完了操作set_value(int)には非対応</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n"><span style="color:#ff0000">ex::receiver_of</span></span><span class="o">&lt;</span><span class="n">MyReceiver</span><span class="p">,</span>
-    <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 値完了操作set_value(int)には非対応</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::receiver_of</span></span><span class="o">&lt;</span><span class="n">MyReceiver</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// エラー完了操作set_error(int)に対応</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ex::receiver_of</span></span><span class="o">&lt;</span><span class="n">MyReceiver</span><span class="p">,</span>
-    <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_error.html">ex::set_error_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// エラー完了操作set_error(int)に対応</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ex::receiver_of</span></span><span class="o">&lt;</span><span class="n">MyReceiver</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_error.html">ex::set_error_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 
-  <span class="c1">// 停止完了操作set_stopped()には非対応</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n"><span style="color:#ff0000">ex::receiver_of</span></span><span class="o">&lt;</span><span class="n">MyReceiver</span><span class="p">,</span>
-    <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_stopped.html">ex::set_stopped_t</a></span><span class="p">()</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 停止完了操作set_stopped()には非対応</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n"><span style="color:#ff0000">ex::receiver_of</span></span><span class="o">&lt;</span><span class="n">MyReceiver</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_stopped.html">ex::set_stopped_t</a></span><span class="p">()</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -330,7 +330,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

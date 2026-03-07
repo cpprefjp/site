@@ -225,10 +225,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;future&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class shared_future">shared_future::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">shared_future</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                    <span class="c1">// (1)</span>
-<span class="n">shared_future</span><span class="p">(</span><span class="k">const</span> <span class="n">shared_future</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>     <span class="c1">// (2)</span>
-<span class="n">shared_future</span><span class="p">(</span><span class="n"><a href="../future.html">future</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>         <span class="c1">// (3)</span>
-<span class="n">shared_future</span><span class="p">(</span><span class="n">shared_future</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (4)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">shared_future</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                    </span><span class="c1">// (1)</span>
+<span class="n">shared_future</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">shared_future</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w">     </span><span class="c1">// (2)</span>
+<span class="n">shared_future</span><span class="p">(</span><span class="n"><a href="../future.html">future</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">         </span><span class="c1">// (3)</span>
+<span class="n">shared_future</span><span class="p">(</span><span class="n">shared_future</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4)</span>
 </code></pre></div>
 </p>
 <h2>shared_futureオブジェクトの構築</h2>
@@ -248,49 +248,49 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="392061c129e3a28d093ca0b63c11995a6636788a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../future.html">&lt;future&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="392061c129e3a28d093ca0b63c11995a6636788a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../future.html">&lt;future&gt;</a></span>
+<span class="cp">#include <a href="../../utility.html">&lt;utility&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// デフォルト構築</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// デフォルト構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// コピー構築(同じ共有状態を参照する)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// コピー構築(同じ共有状態を参照する)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f1</span> <span class="o">=</span> <span class="n"><a href="../promise/get_future.html">p.get_future()</a></span><span class="p">.</span><span class="n"><a href="../future/share.html">share()</a></span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">f1</span><span class="p">;</span> <span class="c1">// コピー</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../promise/get_future.html">p.get_future()</a></span><span class="p">.</span><span class="n"><a href="../future/share.html">share()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f1</span><span class="p">;</span><span class="w"> </span><span class="c1">// コピー</span>
 
-    <span class="c1">// 1つのpromiseによって書き込まれた結果値を、</span>
-    <span class="c1">// 複数のshared_futureオブジェクトで読み取る</span>
-    <span class="n"><a href="../promise/set_value.html">p.set_value</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 1つのpromiseによって書き込まれた結果値を、</span>
+<span class="w">    </span><span class="c1">// 複数のshared_futureオブジェクトで読み取る</span>
+<span class="w">    </span><span class="n"><a href="../promise/set_value.html">p.set_value</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">f1</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">f2</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">f1</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">f2</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// ムーブ構築(共有状態の移動)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ムーブ構築(共有状態の移動)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 
-    <span class="c1">// futureからshared_futureに共有状態を移動。</span>
-    <span class="c1">// fは共有状態を持たなくなる</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n"><a href="../promise/get_future.html">p.get_future()</a></span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f1</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// futureからshared_futureに共有状態を移動。</span>
+<span class="w">    </span><span class="c1">// fは共有状態を持たなくなる</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../promise/get_future.html">p.get_future()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
 
-    <span class="c1">// shared_futureから共有状態を移動</span>
-    <span class="c1">// f1は共有状態を持たなくなる</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f2</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f1</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// shared_futureから共有状態を移動</span>
+<span class="w">    </span><span class="c1">// f1は共有状態を持たなくなる</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f1</span><span class="p">);</span>
 
-    <span class="n"><a href="../promise/set_value.html">p.set_value</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../promise/set_value.html">p.set_value</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">f2</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">f2</span><span class="p">.</span><span class="n"><a href="get.html">get()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -326,7 +326,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

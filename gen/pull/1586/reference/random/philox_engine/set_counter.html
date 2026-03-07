@@ -241,7 +241,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class philox_engine">philox_engine::</span><span class="token">set_counter</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">set_counter</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">result_type</span><span class="p">,</span> <span class="n">n</span><span class="o">&gt;&amp;</span> <span class="n">c</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">set_counter</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">result_type</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -253,16 +253,16 @@
 <p>この関数のパラメータは、標準ライブラリで定義される<code><a href="../philox4x32.html">philox4x32</a></code>および<code><a href="../philox4x64.html">philox4x64</a></code>を使っている限りは、要素数4の符号なし32 or 64ビット整数をもつ配列である。</p>
 <h3>この関数のユースケース</h3>
 <p>この関数のユースケースとして、多数のアトムの多数のステップでモンテカルロ・シミュレーションをする際の典型的なフローは以下のようになる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../cstdint/uint32_t.html">uint32_t</a></span> <span class="n">global_seed</span> <span class="o">=</span> <span class="mi">999</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">uint32_t</a></span> <span class="n">time_step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">time_step</span> <span class="o">&lt;</span> <span class="n">time_steps_num</span><span class="p">;</span> <span class="o">++</span><span class="n">time_step</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">uint32_t</a></span> <span class="n">atom_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">atom_id</span> <span class="o">&lt;</span> <span class="n">atoms_num</span><span class="p">;</span> <span class="o">++</span><span class="n">atom_id</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">philox4x32</span> <span class="n">eng</span><span class="p">(</span><span class="n">global_seed</span><span class="p">);</span>
-    <span class="n">eng</span><span class="p">.</span><span class="n">set_counter</span><span class="p">({</span><span class="n">atom_id</span><span class="p">,</span> <span class="n">time_step</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">});</span>
-    <span class="n"><a href="../normal_distribution.html">normal_distribution</a></span><span class="o">&lt;&gt;</span> <span class="n">nd</span><span class="p">;</span>
-    <span class="k">auto</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">nd</span><span class="p">(</span><span class="n">eng</span><span class="p">);</span>
-    <span class="k">auto</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">nd</span><span class="p">(</span><span class="n">eng</span><span class="p">);</span>
-    <span class="c1">// …</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../cstdint/uint32_t.html">uint32_t</a></span><span class="w"> </span><span class="n">global_seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">999</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">uint32_t</a></span><span class="w"> </span><span class="n">time_step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">time_step</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">time_steps_num</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">time_step</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">uint32_t</a></span><span class="w"> </span><span class="n">atom_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">atom_id</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">atoms_num</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">atom_id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">philox4x32</span><span class="w"> </span><span class="nf">eng</span><span class="p">(</span><span class="n">global_seed</span><span class="p">);</span>
+<span class="w">    </span><span class="n">eng</span><span class="p">.</span><span class="n">set_counter</span><span class="p">({</span><span class="n">atom_id</span><span class="p">,</span><span class="w"> </span><span class="n">time_step</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">});</span>
+<span class="w">    </span><span class="n"><a href="../normal_distribution.html">normal_distribution</a></span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">nd</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nd</span><span class="p">(</span><span class="n">eng</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nd</span><span class="p">(</span><span class="n">eng</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// …</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -285,36 +285,36 @@
 <li>カウンターは $n \cdot w$ ビットの符号なし整数値 $ \sum_{j=0}^{n-1}X_{j} \cdot 2^{wj} $ である</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="b6fe0da721ed219a29df8c19c85cfa11970e09ae"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b6fe0da721ed219a29df8c19c85cfa11970e09ae"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../random.html">&lt;random&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Vector</span> <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Vector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">philox4x32</span> <span class="n">engine</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">philox4x32</span><span class="w"> </span><span class="n">engine</span><span class="p">;</span>
 
-  <span class="c1">// 2x2x2個のランダムなベクトルを生成する</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">z</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n"><a href="seed.html">engine.seed</a></span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
-        <span class="n">engine</span><span class="p">.</span><span class="n"><span style="color:#ff0000">set_counter</span></span><span class="p">({</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">});</span>
+<span class="w">  </span><span class="c1">// 2x2x2個のランダムなベクトルを生成する</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n"><a href="seed.html">engine.seed</a></span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+<span class="w">        </span><span class="n">engine</span><span class="p">.</span><span class="n"><span style="color:#ff0000">set_counter</span></span><span class="p">({</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">});</span>
 
-        <span class="n">std</span><span class="o">::</span><span class="n"><a href="../uniform_real_distribution.html">uniform_real_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">};</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../uniform_real_distribution.html">uniform_real_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">};</span>
 
-        <span class="n">Vector</span> <span class="n">vec</span> <span class="p">{</span>
-          <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">),</span>
-          <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">),</span>
-          <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-        <span class="p">};</span>
-        <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{},{},{}"</span><span class="p">,</span> <span class="n">vec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">vec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vec</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">        </span><span class="n">Vector</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">),</span>
+<span class="w">          </span><span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">),</span>
+<span class="w">          </span><span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{},{},{}"</span><span class="p">,</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -357,7 +357,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

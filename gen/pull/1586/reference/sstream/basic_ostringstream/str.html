@@ -225,23 +225,23 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;sstream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_ostringstream">basic_ostringstream::</span><span class="token">str</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>                <span class="c1">// (1) C++03</span>
-<span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">()</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">;</span>              <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">                </span><span class="c1">// (1) C++03</span>
+<span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="p">;</span><span class="w">              </span><span class="c1">// (1) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">SAlloc</span><span class="o">&gt;</span>
-<span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">SAlloc</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">(</span><span class="k">const</span> <span class="n">SAlloc</span><span class="o">&amp;</span> <span class="n">sa</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>   <span class="c1">// (2) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">SAlloc</span><span class="o">&gt;</span>
+<span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="p">,</span><span class="w"> </span><span class="n">SAlloc</span><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SAlloc</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sa</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">   </span><span class="c1">// (2) C++20</span>
 
-<span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">()</span> <span class="o">&amp;&amp;</span><span class="p">;</span>                   <span class="c1">// (3) C++20</span>
+<span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">;</span><span class="w">                   </span><span class="c1">// (3) C++20</span>
 
-<span class="kt">void</span> <span class="nf">str</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">);</span>  <span class="c1">// (4) C++03</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w">  </span><span class="c1">// (4) C++03</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">SAlloc</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">str</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">SAlloc</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">);</span>     <span class="c1">// (5) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">SAlloc</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="p">,</span><span class="w"> </span><span class="n">SAlloc</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w">     </span><span class="c1">// (5) C++20</span>
 
-<span class="kt">void</span> <span class="nf">str</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span> <span class="n">s</span><span class="p">);</span> <span class="c1">// (6) C++20</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="c1">// (6) C++20</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">str</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">);</span>                                   <span class="c1">// (7) C++26</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">);</span><span class="w">                                   </span><span class="c1">// (7) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -272,33 +272,33 @@
 </ul>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="28618a1cc4288447508e3eb57d463dadf77644de"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="28618a1cc4288447508e3eb57d463dadf77644de"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 文字列の取得</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">oss</span><span class="p">;</span>
-  <span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello "</span> <span class="o">&lt;&lt;</span> <span class="mi">123</span> <span class="o">&lt;&lt;</span> <span class="s">" World"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Content: "</span> <span class="o">&lt;&lt;</span> <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 文字列の取得</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">oss</span><span class="p">;</span>
+<span class="w">  </span><span class="n">oss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Hello "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" World"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Content: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 追記モード</span>
-  <span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="s">" + more"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"After append: "</span> <span class="o">&lt;&lt;</span> <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 追記モード</span>
+<span class="w">  </span><span class="n">oss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" + more"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"After append: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 新しい文字列を設定（内容を置き換える）</span>
-  <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="s">"Reset content"</span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"After reset: "</span> <span class="o">&lt;&lt;</span> <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 新しい文字列を設定（内容を置き換える）</span>
+<span class="w">  </span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="s">"Reset content"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"After reset: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 書き込み位置は先頭にリセットされる</span>
-  <span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="s">"!!"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"After write: "</span> <span class="o">&lt;&lt;</span> <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 書き込み位置は先頭にリセットされる</span>
+<span class="w">  </span><span class="n">oss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"!!"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"After write: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 空文字列でクリア</span>
-  <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
-  <span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="s">"Fresh start"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Final: "</span> <span class="o">&lt;&lt;</span> <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 空文字列でクリア</span>
+<span class="w">  </span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="n">oss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Fresh start"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Final: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -310,22 +310,22 @@ After write: !!set content
 Final: Fresh start
 </code></pre></p>
 <h4>ムーブを使用する例 (C++20)</h4>
-<p><div class="yata" id="6af74908da373d3afb6b21726062e941f9f5e486"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6af74908da373d3afb6b21726062e941f9f5e486"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ss</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
 
-  <span class="c1">// ムーブして文字列を設定</span>
-  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"Move string"</span><span class="p">;</span>
-  <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
-  <span class="n">ss</span><span class="p">.</span><span class="n">seekp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">end</span><span class="p">);</span> <span class="c1">// 書き込み位置を末尾に移動</span>
-  <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">" more"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ムーブして文字列を設定</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Move string"</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+<span class="w">  </span><span class="n">ss</span><span class="p">.</span><span class="n">seekp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">end</span><span class="p">);</span><span class="w"> </span><span class="c1">// 書き込み位置を末尾に移動</span>
+<span class="w">  </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" more"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// ムーブで文字列を取得</span>
-  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">r</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">ss</span><span class="p">).</span><span class="n">str</span><span class="p">();</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ムーブで文字列を取得</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">ss</span><span class="p">).</span><span class="n">str</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -334,25 +334,25 @@ Final: Fresh start
 Move string more
 </code></pre></p>
 <h3>string_viewからの設定 (C++26)</h3>
-<p><div class="yata" id="a2d1fb2d0ae7c0c64f84f3e0732f6401ac352c41"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a2d1fb2d0ae7c0c64f84f3e0732f6401ac352c41"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
+<span class="cp">#include <a href="../../string_view.html">&lt;string_view&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ss</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
 
-  <span class="c1">// 文字列リテラルを設定</span>
-  <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="s">"set from string literal"</span><span class="p">);</span>
-  <span class="n">ss</span><span class="p">.</span><span class="n">seekp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">end</span><span class="p">);</span> <span class="c1">// 書き込み位置を末尾に移動</span>
-  <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">" test"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 文字列リテラルを設定</span>
+<span class="w">  </span><span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="s">"set from string literal"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ss</span><span class="p">.</span><span class="n">seekp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">end</span><span class="p">);</span><span class="w"> </span><span class="c1">// 書き込み位置を末尾に移動</span>
+<span class="w">  </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" test"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// <a href="../../string_view/basic_string_view.html">string_view</a>を設定</span>
-  <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">sv</span> <span class="o">=</span> <span class="s">"set from <a href="../../string_view/basic_string_view.html">string_view</a>"</span><span class="p">;</span>
-  <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="n">sv</span><span class="p">);</span>
-  <span class="n">ss</span><span class="p">.</span><span class="n">seekp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">end</span><span class="p">);</span> <span class="c1">// 書き込み位置を末尾に移動</span>
-  <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">" test"</span><span class="p">;</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// <a href="../../string_view/basic_string_view.html">string_view</a>を設定</span>
+<span class="w">  </span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"set from <a href="../../string_view/basic_string_view.html">string_view</a>"</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="n">sv</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ss</span><span class="p">.</span><span class="n">seekp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">end</span><span class="p">);</span><span class="w"> </span><span class="c1">// 書き込み位置を末尾に移動</span>
+<span class="w">  </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" test"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -389,7 +389,7 @@ set from <a href="../../string_view/basic_string_view.html">string_view</a> test
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

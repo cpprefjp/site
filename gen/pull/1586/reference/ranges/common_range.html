@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">common_range</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n"><a href="">common_range</a></span> <span class="o">=</span> <span class="n"><a href="range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="sentinel_t.html">sentinel_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc"><a href="">common_range</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="sentinel_t.html">sentinel_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -225,18 +225,18 @@
 <h2>モデル</h2>
 <p>型<code>T</code>が<code>common_range</code>のモデルとなるのは、<code>T</code>が<code><a href="range.html">range</a></code>のモデルであり、<code>T</code>から取得した番兵とイテレータの型が等しい場合である。</p>
 <h2>例</h2>
-<p><div class="yata" id="043d52eeaf4c60580864341e727f61e200859216"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="043d52eeaf4c60580864341e727f61e200859216"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">namespace</span> <span class="n">ranges</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="p">;</span>
-  <span class="k">namespace</span> <span class="n">views</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ranges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="p">;</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">views</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">views</span><span class="p">;</span>
 
-  <span class="c1">// 無限長のiotaは<a href="">common_range</a>ではない</span>
-  <span class="c1">// (イテレータと番兵の型が異なる)</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="">common_range</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">views</span><span class="o">::</span><span class="n">iota</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 無限長のiotaは<a href="">common_range</a>ではない</span>
+<span class="w">  </span><span class="c1">// (イテレータと番兵の型が異なる)</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="">common_range</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">views</span><span class="o">::</span><span class="n">iota</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">&gt;</span><span class="p">);</span>
 
-  <span class="c1">// commonを適用すると<a href="">common_range</a>になる</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="">common_range</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">views</span><span class="o">::</span><span class="n">iota</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="n">views</span><span class="o">::</span><span class="n">common</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// commonを適用すると<a href="">common_range</a>になる</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="">common_range</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">views</span><span class="o">::</span><span class="n">iota</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">views</span><span class="o">::</span><span class="n">common</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -283,7 +283,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

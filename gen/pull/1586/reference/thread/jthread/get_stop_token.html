@@ -226,37 +226,37 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;thread&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class jthread">jthread::</span><span class="token">get_stop_token</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
-<span class="n"><a href="../../stop_token/stop_token.html">stop_token</a></span> <span class="n">get_stop_token</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
-<span class="n"><a href="../../stop_token/stop_token.html">stop_token</a></span> <span class="nf">get_stop_token</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
+<span class="n"><a href="../../stop_token/stop_token.html">stop_token</a></span><span class="w"> </span><span class="n">get_stop_token</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++20</span>
+<span class="n"><a href="../../stop_token/stop_token.html">stop_token</a></span><span class="w"> </span><span class="nf">get_stop_token</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>停止状態を問い合わせるための<code><a href="../../stop_token/stop_token.html">stop_token</a></code>オブジェクトを取得する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>メンバ変数として保持している<code><a href="../../stop_token/stop_source.html">stop_source</a></code>型オブジェクト<code>ssource</code>があるとして、以下と等価：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">ssource</span><span class="p">.</span><span class="n"><a href="../../stop_token/stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">ssource</span><span class="p">.</span><span class="n"><a href="../../stop_token/stop_source/get_token.html">get_token()</a></span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>送出しない。</p>
 <h2>例</h2>
-<p><div class="yata" id="729cc7bb7645c40f374b7e2b52131c8502e399df"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="729cc7bb7645c40f374b7e2b52131c8502e399df"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../thread.html">&lt;thread&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">jt</span> <span class="p">{</span>
-    <span class="p">[](</span><span class="n"><a href="../../stop_token/stop_token.html">std::stop_token</a></span> <span class="n">stoken</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">stoken</span><span class="p">.</span><span class="n"><a href="../../stop_token/stop_token/stop_requested.html">stop_requested()</a></span><span class="p">)</span> <span class="p">{}</span>
-      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"exit thread"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../jthread.html">std::jthread</a></span><span class="w"> </span><span class="n">jt</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[](</span><span class="n"><a href="../../stop_token/stop_token.html">std::stop_token</a></span><span class="w"> </span><span class="n">stoken</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">stoken</span><span class="p">.</span><span class="n"><a href="../../stop_token/stop_token/stop_requested.html">stop_requested()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">      </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"exit thread"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="n">jt</span><span class="p">.</span><span class="n"><a href="request_stop.html">request_stop()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">jt</span><span class="p">.</span><span class="n"><a href="request_stop.html">request_stop()</a></span><span class="p">;</span>
 
-  <span class="c1">// 停止要求が正しく発行されたか調べる</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">jt</span><span class="p">.</span><span class="n"><span style="color:#ff0000">get_stop_token()</span></span><span class="p">.</span><span class="n"><a href="../../stop_token/stop_token/stop_requested.html">stop_requested()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 停止要求が正しく発行されたか調べる</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">jt</span><span class="p">.</span><span class="n"><span style="color:#ff0000">get_stop_token()</span></span><span class="p">.</span><span class="n"><a href="../../stop_token/stop_token/stop_requested.html">stop_requested()</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -298,7 +298,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

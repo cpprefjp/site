@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">allocator-aware-forward</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Context</span><span class="o">&gt;</span>
-<span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">allocator</span><span class="o">-</span><span class="n">aware</span><span class="o">-</span><span class="n">forward</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Context</span><span class="o">&amp;&amp;</span> <span class="n">context</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Context</span><span class="o">&gt;</span>
+<span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">allocator</span><span class="o">-</span><span class="n">aware</span><span class="o">-</span><span class="n">forward</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">,</span><span class="w"> </span><span class="n">Context</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">context</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -238,7 +238,7 @@
 <li><code>alloc</code>が定義されなければ、<code><a href="../../utility/forward.html">std::forward</a>&lt;T&gt;(obj)</code>を返す。</li>
 <li>
 <p>そうではなく、<code>P</code>が<code>product-type</code>の特殊化のときは、<code>obj</code>の要素を<code>e</code>としたとき各要素が次の通り初期化された<code>P</code>型のオブジェクトを返す。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../memory/make_obj_using_allocator.html">make_obj_using_allocator</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="n">alloc</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../memory/make_obj_using_allocator.html">make_obj_using_allocator</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="w"> </span><span class="n">alloc</span><span class="p">)</span>
 </code></pre></div>
 </p>
 </li>
@@ -277,7 +277,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

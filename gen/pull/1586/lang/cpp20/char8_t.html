@@ -253,31 +253,31 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="b1eb6d05bb635553b157673a909714eb8eb2f2dd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b1eb6d05bb635553b157673a909714eb8eb2f2dd"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">ct</span><span class="p">;</span>
-<span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">ct</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="kt">char</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">ct</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">ct</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">char</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 
-  <span class="k">const</span> <span class="k">auto</span> <span class="o">*</span><span class="n">u8s</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"text"</span><span class="p">;</span>   <span class="c1">// u8sの型はC++17まではconst char *だったが、C++20からはconst char8_t *になる</span>
-  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">ps</span> <span class="o">=</span> <span class="n">u8s</span><span class="p">;</span>         <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">*</span><span class="n">u8s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"text"</span><span class="p">;</span><span class="w">   </span><span class="c1">// u8sの型はC++17まではconst char *だったが、C++20からはconst char8_t *になる</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u8s</span><span class="p">;</span><span class="w">         </span><span class="c1">// C++17までは適格だったがC++20からは不適格</span>
 
-  <span class="k">const</span> <span class="k">auto</span> <span class="o">*</span><span class="n">u8rs</span> <span class="o">=</span> <span class="n">u8R</span><span class="s">"(text)"</span><span class="p">;</span>   <span class="c1">// u8rsの型はC++17まではconst char *だったが、C++20からはconst char8_t *になる</span>
-  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prs</span> <span class="o">=</span> <span class="n">u8rs</span><span class="p">;</span>           <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">*</span><span class="n">u8rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8R</span><span class="s">"</span><span class="dl">(</span><span class="s">text</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span><span class="w">   </span><span class="c1">// u8rsの型はC++17まではconst char *だったが、C++20からはconst char8_t *になる</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u8rs</span><span class="p">;</span><span class="w">           </span><span class="c1">// C++17までは適格だったがC++20からは不適格</span>
 
-  <span class="k">auto</span> <span class="n">u8c</span> <span class="o">=</span> <span class="n">u8</span><span class="sc">'c'</span><span class="p">;</span>             <span class="c1">// u8cの型はC++17まではcharだったが、C++20からはchar8_tになる</span>
-  <span class="kt">char</span> <span class="o">*</span><span class="n">pc</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">u8c</span><span class="p">;</span>              <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">u8c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="sc">'c'</span><span class="p">;</span><span class="w">             </span><span class="c1">// u8cの型はC++17まではcharだったが、C++20からはchar8_tになる</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">u8c</span><span class="p">;</span><span class="w">              </span><span class="c1">// C++17までは適格だったがC++20からは不適格</span>
 
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"text"</span><span class="p">;</span>     <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">"text"</span><span class="p">;</span><span class="w">     </span><span class="c1">// C++17までは適格だったがC++20からは不適格</span>
 
-  <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
-  <span class="n">f</span><span class="p">(</span><span class="sa">u8</span><span class="s">"text"</span><span class="p">);</span>                  <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="sa">u8</span><span class="s">"text"</span><span class="p">);</span><span class="w">                  </span><span class="c1">// C++17までは適格だったがC++20からは不適格</span>
 
-  <span class="n">ct</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">u8</span><span class="sc">'c'</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span> <span class="n">x</span><span class="p">;</span>  <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+<span class="w">  </span><span class="n">ct</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="sa">u8</span><span class="sc">'c'</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="c1">// C++17までは適格だったがC++20からは不適格</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -297,28 +297,28 @@
 </blockquote>
 <p>2017年11月にW3Techsによって行われた調査によれば90%を超えるWebサイトの文字エンコードにUTF-8が用いられるようになった。</p>
 <p>一方でC++でUTF-8を扱うには問題があった。UTF-8のcode unitの値域は128 (0x80)から255 (0xFF)の範囲 (8ビット目) にも及んでいる一方で、C++の<code>char</code>型は符号の有無が<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>である。そのため、次のコードは意図した挙動を示さない可能性がある。</p>
-<p><div class="yata" id="e2885f0f1cfa42565de9ad1599998d97dd479c7a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e2885f0f1cfa42565de9ad1599998d97dd479c7a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">bool</span> <span class="nf">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mh">0x80</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mh">0x80</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="sa">u8</span><span class="s">"あ"</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="c1">// =&gt; trueにならない可能性がある</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="sa">u8</span><span class="s">"あ"</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="c1">// =&gt; trueにならない可能性がある</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <p>この問題を回避するため、UTF-8の8ビット目の範囲を扱う必要がある場合は、<code>static_cast</code>で符号なし文字型に変換して扱わなければならなかった。</p>
-<p><div class="yata" id="e890d65fe7c49b4809ab106c1208483fd24b82c4"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e890d65fe7c49b4809ab106c1208483fd24b82c4"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">bool</span> <span class="nf">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mh">0x80</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mh">0x80</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="sa">u8</span><span class="s">"あ"</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="c1">// =&gt; true</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="sa">u8</span><span class="s">"あ"</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="c1">// =&gt; true</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -326,11 +326,11 @@
 <p>UTF-8の利用が広く利用されていく中で、C++でもUTF-8を扱う上で障害となる仕様を改める必要があった。そのために<code>char8_t</code>型が必要となった。</p>
 <h2>検討されたほかの選択肢</h2>
 <p>提案文書N3398では以下のように<code>char8_t</code>型を<code>unsigned char</code>型の別名にすることが提案されていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">char8_t</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="kt">char8_t</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>以下のように<code>enum class</code>を利用する選択肢もあったが、提案文書P0372R0は<code>char8_t</code>型を使うためにヘッダのインクルードが必要になることは望ましくないと述べている。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">char8_t</span> <span class="o">:</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">char8_t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">{};</span>
 </code></pre></div>
 </p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
@@ -381,7 +381,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

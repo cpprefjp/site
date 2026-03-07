@@ -213,36 +213,36 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;numeric&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">inner_product</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">T</span> <span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
-                  <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
-                  <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
-                  <span class="n">T</span> <span class="n">init</span><span class="p">);</span>                        <span class="c1">// (1) C++03</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">T</span>
-    <span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
-                  <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
-                  <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
-                  <span class="n">T</span> <span class="n">init</span><span class="p">);</span>                        <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">first1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">last1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">InputIterator2</span><span class="w"> </span><span class="n">first2</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">T</span><span class="w"> </span><span class="n">init</span><span class="p">);</span><span class="w">                        </span><span class="c1">// (1) C++03</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span>
+<span class="w">    </span><span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">first1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">last1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">InputIterator2</span><span class="w"> </span><span class="n">first2</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">T</span><span class="w"> </span><span class="n">init</span><span class="p">);</span><span class="w">                        </span><span class="c1">// (1) C++20</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">BinaryOperation1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryOperation2</span><span class="o">&gt;</span>
-  <span class="n">T</span> <span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
-                  <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
-                  <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
-                  <span class="n">T</span> <span class="n">init</span><span class="p">,</span>
-                  <span class="n">BinaryOperation1</span> <span class="n">binary_op1</span><span class="p">,</span>
-                  <span class="n">BinaryOperation2</span> <span class="n">binary_op2</span><span class="p">);</span>   <span class="c1">// (2) C++03</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">BinaryOperation1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryOperation2</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">T</span>
-    <span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
-                  <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
-                  <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
-                  <span class="n">T</span> <span class="n">init</span><span class="p">,</span>
-                  <span class="n">BinaryOperation1</span> <span class="n">binary_op1</span><span class="p">,</span>
-                  <span class="n">BinaryOperation2</span> <span class="n">binary_op2</span><span class="p">);</span>   <span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">first1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">last1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">InputIterator2</span><span class="w"> </span><span class="n">first2</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">T</span><span class="w"> </span><span class="n">init</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">BinaryOperation1</span><span class="w"> </span><span class="n">binary_op1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">BinaryOperation2</span><span class="w"> </span><span class="n">binary_op2</span><span class="p">);</span><span class="w">   </span><span class="c1">// (2) C++03</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span>
+<span class="w">    </span><span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">first1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">last1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">InputIterator2</span><span class="w"> </span><span class="n">first2</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">T</span><span class="w"> </span><span class="n">init</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">BinaryOperation1</span><span class="w"> </span><span class="n">binary_op1</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">BinaryOperation2</span><span class="w"> </span><span class="n">binary_op2</span><span class="p">);</span><span class="w">   </span><span class="c1">// (2) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -286,23 +286,23 @@
 <li>(2) : n 回の <code>binary_op1</code> 呼び出しと n 回の <code>binary_op2</code> 呼び出しを行う。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="233cca7dffa0c4626981e7478aff095f99efb179"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="233cca7dffa0c4626981e7478aff095f99efb179"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../numeric.html">&lt;numeric&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 任意次元のベクトルvとuの内積を求める。</span>
-  <span class="c1">// v[0]はXベクトル、v[1]はYベクトル。</span>
-  <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">};</span>
-  <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0f</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// 任意次元のベクトルvとuの内積を求める。</span>
+<span class="w">  </span><span class="c1">// v[0]はXベクトル、v[1]はYベクトル。</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">};</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.0f</span><span class="p">};</span>
 
-  <span class="kt">float</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::inner_product</span></span><span class="p">(</span>
-                   <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="c1">// ひとつ目のベクトル</span>
-                   <span class="n"><a href="../vector/vector/begin.html">u.begin()</a></span><span class="p">,</span>          <span class="c1">// ふたつ目のベクトル(v以上の次元数を持つこと)</span>
-                   <span class="mf">0.0f</span><span class="p">);</span>              <span class="c1">// 内積の初期値(この値に対して加算が行われる)</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::inner_product</span></span><span class="p">(</span>
+<span class="w">                   </span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="c1">// ひとつ目のベクトル</span>
+<span class="w">                   </span><span class="n"><a href="../vector/vector/begin.html">u.begin()</a></span><span class="p">,</span><span class="w">          </span><span class="c1">// ふたつ目のベクトル(v以上の次元数を持つこと)</span>
+<span class="w">                   </span><span class="mf">0.0f</span><span class="p">);</span><span class="w">              </span><span class="c1">// 内積の初期値(この値に対して加算が行われる)</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -311,24 +311,24 @@
 </code></pre></p>
 <h2>実装例</h2>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// (1)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
-                <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">T</span> <span class="n">init</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">first1</span> <span class="o">!=</span> <span class="n">last1</span><span class="p">)</span>
-    <span class="n">init</span> <span class="o">=</span> <span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">init</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">*</span><span class="n">first1</span><span class="o">++</span> <span class="o">*</span> <span class="o">*</span><span class="n">first2</span><span class="o">++</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">init</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="w"> </span><span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">first1</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">last1</span><span class="p">,</span>
+<span class="w">                </span><span class="n">InputIterator2</span><span class="w"> </span><span class="n">first2</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">init</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">first1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">last1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">init</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">first1</span><span class="o">++</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="n">first2</span><span class="o">++</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">init</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// (2)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
-          <span class="k">class</span> <span class="nc">BinaryOperation1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryOperation2</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
-                <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">T</span> <span class="n">init</span><span class="p">,</span>
-                <span class="n">BinaryOperation1</span> <span class="n">binary_op1</span><span class="p">,</span>
-                <span class="n">BinaryOperation2</span> <span class="n">binary_op2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">first1</span> <span class="o">!=</span> <span class="n">last1</span><span class="p">)</span>
-    <span class="n">init</span> <span class="o">=</span> <span class="n">binary_op1</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">init</span><span class="p">),</span> <span class="n">binary_op2</span><span class="p">(</span><span class="o">*</span><span class="n">first1</span><span class="o">++</span><span class="p">,</span> <span class="o">*</span><span class="n">first2</span><span class="o">++</span><span class="p">));</span>
-  <span class="k">return</span> <span class="n">init</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span>
+<span class="w">          </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BinaryOperation2</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="w"> </span><span class="n">inner_product</span><span class="p">(</span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">first1</span><span class="p">,</span><span class="w"> </span><span class="n">InputIterator1</span><span class="w"> </span><span class="n">last1</span><span class="p">,</span>
+<span class="w">                </span><span class="n">InputIterator2</span><span class="w"> </span><span class="n">first2</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">init</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BinaryOperation1</span><span class="w"> </span><span class="n">binary_op1</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BinaryOperation2</span><span class="w"> </span><span class="n">binary_op2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">first1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">last1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_op1</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">init</span><span class="p">),</span><span class="w"> </span><span class="n">binary_op2</span><span class="p">(</span><span class="o">*</span><span class="n">first1</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">first2</span><span class="o">++</span><span class="p">));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">init</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -357,7 +357,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

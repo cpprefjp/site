@@ -213,82 +213,82 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">clock_time_conversion</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
-  <span class="c1">// (1) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">DestClock</span><span class="p">,</span> <span class="k">class</span> <span class="nc">SourceClock</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span> <span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">DestClock</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SourceClock</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="w"> </span><span class="p">{};</span>
 
-  <span class="c1">// (2) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Clock</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span> <span class="n">Clock</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="n"><a href="time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span> <span class="n">Duration</span><span class="o">&gt;</span>
-      <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span> <span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (2) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Clock</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span><span class="w"> </span><span class="n">Clock</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n"><a href="time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">Clock</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (3) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span> <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span>
-      <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (3) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (4) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span> <span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span>
-      <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (4) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (5) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span> <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><a href="common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
-      <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (5) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><a href="common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
+<span class="w">      </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (6) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span> <span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n"><a href="common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
-      <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (6) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n"><a href="common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
+<span class="w">      </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (7) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">SourceClock</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span> <span class="n">SourceClock</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">SourceClock</span><span class="p">,</span> <span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span>
-      <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">SourceClock</span><span class="o">::</span><span class="n">to_sys</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (7) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">SourceClock</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n">SourceClock</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">SourceClock</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">      </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">SourceClock</span><span class="o">::</span><span class="n">to_sys</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (8) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">DestClock</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n">DestClock</span><span class="p">,</span> <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span>
-      <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">DestClock</span><span class="o">::</span><span class="n">from_sys</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (8) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">DestClock</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n">DestClock</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">      </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">DestClock</span><span class="o">::</span><span class="n">from_sys</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (9) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">SourceClock</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span> <span class="n">SourceClock</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">SourceClock</span><span class="p">,</span> <span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span>
-      <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">SourceClock</span><span class="o">::</span><span class="n">to_utc</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (9) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">SourceClock</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n">SourceClock</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="time_point.html">time_point</a></span><span class="o">&lt;</span><span class="n">SourceClock</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">      </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">SourceClock</span><span class="o">::</span><span class="n">to_utc</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (10) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">DestClock</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n">DestClock</span><span class="p">,</span> <span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span>
-      <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">DestClock</span><span class="o">::</span><span class="n">from_utc</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// (10) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">DestClock</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">clock_time_conversion</span><span class="o">&lt;</span><span class="n">DestClock</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">      </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">DestClock</span><span class="o">::</span><span class="n">from_utc</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -336,35 +336,35 @@
 <li>
 <p>(2), (3), (4) :
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">t</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(5) :
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">::</span><span class="n"><a href="utc_clock/from_sys.html">from_sys</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">::</span><span class="n"><a href="utc_clock/from_sys.html">from_sys</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(6) :
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">::</span><span class="n"><a href="utc_clock/to_sys.html">to_sys</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">::</span><span class="n"><a href="utc_clock/to_sys.html">to_sys</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(7) :
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">SourceClock</span><span class="o">::</span><span class="n">to_sys</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">SourceClock</span><span class="o">::</span><span class="n">to_sys</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(8) :
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">DestClock</span><span class="o">::</span><span class="n">from_sys</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">DestClock</span><span class="o">::</span><span class="n">from_sys</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
@@ -376,36 +376,36 @@
 <li><code><a href="tai_clock.html">tai_clock</a></code>、<code><a href="gps_clock.html">gps_clock</a></code>と<code><a href="system_clock.html">system_clock</a></code>の直接の変換は定義されないため、<code><a href="utc_clock.html">utc_clock</a></code>を介して変換することはできないが、<code><a href="clock_cast.html">clock_cast()</a></code>関数ではそのような変換がサポートされる</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="d40899e41a84c413c09bcadf57ccac2b339f2b53"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d40899e41a84c413c09bcadf57ccac2b339f2b53"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../chrono.html">&lt;chrono&gt;</a></span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// <a href="system_clock.html">system_clock</a>から<a href="utc_clock.html">utc_clock</a>への変換</span>
-  <span class="p">{</span>
-    <span class="n"><a href="utc_time.html">utc_time</a></span> <span class="n">ut</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">clock_time_conversion</span></span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span> <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span><span class="p">{}(</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ut</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// <a href="system_clock.html">system_clock</a>から<a href="utc_clock.html">utc_clock</a>への変換</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="w"> </span><span class="n">ut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">clock_time_conversion</span></span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span><span class="p">{}(</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ut</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// <a href="system_clock.html">system_clock</a>から<a href="utc_clock.html">utc_clock</a>への変換</span>
-  <span class="p">{</span>
-    <span class="n"><a href="sys_time.html">sys_time</a></span> <span class="n">st</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">clock_time_conversion</span></span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span> <span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="p">{}(</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">st</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// <a href="system_clock.html">system_clock</a>から<a href="utc_clock.html">utc_clock</a>への変換</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="sys_time.html">sys_time</a></span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">clock_time_conversion</span></span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="p">{}(</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// <a href="utc_clock.html">utc_clock</a>から<a href="tai_clock.html">tai_clock</a>への変換</span>
-  <span class="p">{</span>
-    <span class="n"><a href="tai_time.html">tai_time</a></span> <span class="n">tt</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">clock_time_conversion</span></span><span class="o">&lt;</span><span class="n"><a href="tai_clock.html">tai_clock</a></span><span class="p">,</span> <span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="p">{}(</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">tt</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// <a href="utc_clock.html">utc_clock</a>から<a href="tai_clock.html">tai_clock</a>への変換</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="tai_time.html">tai_time</a></span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">clock_time_conversion</span></span><span class="o">&lt;</span><span class="n"><a href="tai_clock.html">tai_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span><span class="p">{}(</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// <a href="tai_clock.html">tai_clock</a>から<a href="utc_clock.html">utc_clock</a>への変換</span>
-  <span class="p">{</span>
-    <span class="n"><a href="utc_time.html">utc_time</a></span> <span class="n">ut</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">clock_time_conversion</span></span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span> <span class="n"><a href="tai_clock.html">tai_clock</a></span><span class="o">&gt;</span><span class="p">{}(</span><span class="n"><a href="tai_clock.html">tai_clock</a></span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ut</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// <a href="tai_clock.html">tai_clock</a>から<a href="utc_clock.html">utc_clock</a>への変換</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="w"> </span><span class="n">ut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">clock_time_conversion</span></span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="tai_clock.html">tai_clock</a></span><span class="o">&gt;</span><span class="p">{}(</span><span class="n"><a href="tai_clock.html">tai_clock</a></span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ut</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -443,7 +443,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

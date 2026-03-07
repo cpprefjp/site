@@ -225,12 +225,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class random_device">random_device::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">explicit</span> <span class="nf">random_device</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">string</a></span><span class="o">&amp;</span> <span class="n">token</span> <span class="o">=</span> <span class="n"><i>implementation-defined</i></span><span class="p">);</span> <span class="c1">// (1)</span>
-<span class="n">random_device</span><span class="p">()</span> <span class="o">:</span> <span class="n">random_device</span><span class="p">(</span><span class="n"><i>implementation-defined</i></span><span class="p">)</span> <span class="p">{}</span>            <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">explicit</span><span class="w"> </span><span class="n">random_device</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>implementation-defined</i></span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)</span>
+<span class="n">random_device</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">random_device</span><span class="p">(</span><span class="n"><i>implementation-defined</i></span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">            </span><span class="c1">// (1) C++20</span>
 
-<span class="k">explicit</span> <span class="n">random_device</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">string</a></span><span class="o">&amp;</span> <span class="n">token</span><span class="p">);</span>                          <span class="c1">// (2) C++20</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">random_device</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">token</span><span class="p">);</span><span class="w">                          </span><span class="c1">// (2) C++20</span>
 
-<span class="n">random_device</span><span class="p">(</span><span class="k">const</span> <span class="n">random_device</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>                         <span class="c1">// (3)</span>
+<span class="n">random_device</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">random_device</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">                         </span><span class="c1">// (3)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -271,20 +271,20 @@
 <li>(1), (2) : 乱数生成器を初期化できなかった場合、<code><a href="../../exception/exception.html">exception</a></code>から派生した<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>オブジェクトを送出する</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="b14caf836afbd8bef7667d3d9a5182190b4d9eb1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b14caf836afbd8bef7667d3d9a5182190b4d9eb1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../random.html">&lt;random&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// (1) デフォルト構築</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../random_device.html">std::random_device</a></span> <span class="n">rd</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1) デフォルト構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../random_device.html">std::random_device</a></span><span class="w"> </span><span class="n">rd</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (1) トークン指定</span>
-  <span class="p">{</span>
-    <span class="c1">// UNIX系OS上固有で、ランダムソースを/dev/randomにする</span>
-    <span class="n"><a href="../random_device.html">std::random_device</a></span> <span class="n">rd</span><span class="p">(</span><span class="s">"/dev/random"</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1) トークン指定</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// UNIX系OS上固有で、ランダムソースを/dev/randomにする</span>
+<span class="w">    </span><span class="n"><a href="../random_device.html">std::random_device</a></span><span class="w"> </span><span class="n">rd</span><span class="p">(</span><span class="s">"/dev/random"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -323,7 +323,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

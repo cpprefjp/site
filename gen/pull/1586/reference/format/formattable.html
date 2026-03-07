@@ -213,21 +213,21 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">formattable</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n"><i>fmt-iter-for</i></span> <span class="o">=</span> <span class="n"><i>unspecified</i></span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n"><i>fmt-iter-for</i></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="p">;</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">formattable</span> <span class="o">=</span>
-    <span class="n"><a href="../concepts/semiregular.html">semiregular</a></span><span class="o">&lt;</span><span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n">requires</span><span class="p">(</span><span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">,</span>
-             <span class="k">const</span> <span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span> <span class="n">cf</span><span class="p">,</span>
-             <span class="n">T</span> <span class="n">t</span><span class="p">,</span>
-             <span class="n"><a href="basic_format_context.html">basic_format_context</a></span><span class="o">&lt;</span><span class="n"><i>fmt-iter-for</i></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span> <span class="n">fc</span><span class="p">,</span>
-             <span class="n"><a href="basic_format_parse_context.html">basic_format_parse_context</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="n">pc</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">{</span> <span class="n">f</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="basic_format_parse_context.html">basic_format_parse_context</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="o">&gt;</span><span class="p">;</span>
-      <span class="p">{</span> <span class="n">cf</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">fc</span><span class="p">)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><i>fmt-iter-for</i></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&gt;</span><span class="p">;</span>
-    <span class="p">};</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">formattable</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n"><a href="../concepts/semiregular.html">semiregular</a></span><span class="o">&lt;</span><span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="k">requires</span><span class="p">(</span><span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+<span class="w">             </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cf</span><span class="p">,</span>
+<span class="w">             </span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
+<span class="w">             </span><span class="n"><a href="basic_format_context.html">basic_format_context</a></span><span class="o">&lt;</span><span class="n"><i>fmt-iter-for</i></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fc</span><span class="p">,</span>
+<span class="w">             </span><span class="n"><a href="basic_format_parse_context.html">basic_format_parse_context</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="basic_format_parse_context.html">basic_format_parse_context</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">cf</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">fc</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><i>fmt-iter-for</i></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -236,18 +236,18 @@
 <p>このコンセプトを使用することで、<code><a href="formatter.html">formatter</a></code>クラステンプレートが使用したい型で特殊化されているかをチェックできる。</p>
 <p><code>formattable</code>コンセプトの定義において使用されている<code>fmt-iter-for&lt;charT&gt;</code>は、<code><a href="../iterator/output_iterator.html">output_iterator&lt;const charT&amp;&gt;</a></code>コンセプトのモデルとなる<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型である。</p>
 <h2>例</h2>
-<p><div class="yata" id="fdce9827b111352a96064e202a55c4a5a7ebbe7a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../any.html">&lt;any&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="fdce9827b111352a96064e202a55c4a5a7ebbe7a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../format.html">&lt;format&gt;</a></span>
+<span class="cp">#include <a href="../any.html">&lt;any&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">formattable</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">formattable</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>       <span class="c1">// OK</span>
-  <span class="n">f</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span> <span class="c1">// OK</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">       </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
 <span class="c1">//f(std::any{3}); // NG : std::anyはstd::formatterを特殊化していない</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -288,7 +288,7 @@ hello
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

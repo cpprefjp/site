@@ -222,7 +222,7 @@
 <p><code>__func__</code>には、現在いる関数名が文字列として格納されている。この識別子は、関数内でのみ使用できる。</p>
 <h2>仕様</h2>
 <p>識別子<code>__func__</code>は、事前定義された関数のローカル変数として定義され、以下のように暗黙に定義される：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">__func__</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"<i>function-name</i>"</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">__func__</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"<i>function-name</i>"</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p><code>"function-name"</code>には、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の文字列が格納される。そのため、マングリングされた関数名、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>、名前空間、所属するクラスなどの扱いは、実装ごとに異なる可能性がある。多くの場合、<code>__func__</code>には関数の名前のみが格納され、名前空間名、クラス名、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型やパラメータといった情報は含まれない。</p>
@@ -231,40 +231,40 @@
 <p>GCCは言語拡張として、<code>__FUNCTION__</code>識別子と<code>__PRETTY_FUNCTION__</code>識別子を持つ。<code>__FUNCTION__</code>は<code>__func__</code>の別名として定義される。<code>__PRETTY_FUNCTION__</code>は、名前空間名、クラス名、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>やパラメータといった情報も含む関数の文字列となる。</p>
 <p>Visual C++は言語拡張として、<code>__FUNCTION__</code>識別子、<code>__FUNCDNAME__</code>識別子、<code>__FUNCSIG__</code>識別子を持つ。<code>__FUNCTION__</code>はスコープやシグニチャの情報を持たない関数名、<code>__FUNCDNAME__</code>はマングリングされた関数名、<code>__FUNCSIG__</code>は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>やパラメータといったシグニチャの情報を持つ関数名となる。</p>
 <h2>例</h2>
-<p><div class="yata" id="f11ecf7b669f5da2ab65f162933ee189e63ce9bd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f11ecf7b669f5da2ab65f162933ee189e63ce9bd"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">class</span> <span class="nc">S</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">funcname_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">funcname_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// コンストラクタでは、初期化子リストの時点から__func__を使用できる</span>
-  <span class="n">S</span><span class="p">()</span>
-    <span class="o">:</span> <span class="n">funcname_</span><span class="p">(</span><span class="n">__func__</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// コンストラクタでは、初期化子リストの時点から__func__を使用できる</span>
+<span class="w">  </span><span class="n">S</span><span class="p">()</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">funcname_</span><span class="p">(</span><span class="n">__func__</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="kt">void</span> <span class="n">print</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"S::S() : "</span> <span class="o">&lt;&lt;</span> <span class="n">funcname_</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"S::S() : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">funcname_</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-    <span class="c1">// メンバ関数名</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"S::print() : "</span> <span class="o">&lt;&lt;</span> <span class="n">__func__</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// メンバ関数名</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"S::print() : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">__func__</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 関数名</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"f() : "</span> <span class="o">&lt;&lt;</span> <span class="n">__func__</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 関数名</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"f() : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">__func__</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// void g(const char* s = __func__) {}</span>
 <span class="c1">// コンパイルエラー : __func__は関数内でのみ使用できる</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// main関数の名前</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"main() : "</span> <span class="o">&lt;&lt;</span> <span class="n">__func__</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// main関数の名前</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"main() : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">__func__</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n">f</span><span class="p">();</span>
-  <span class="n">S</span><span class="p">().</span><span class="n">print</span><span class="p">();</span>
+<span class="w">  </span><span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="n">S</span><span class="p">().</span><span class="n">print</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -299,7 +299,7 @@ S::print() : print
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

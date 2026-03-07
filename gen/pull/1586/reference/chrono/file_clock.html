@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">file_clock</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">file_clock</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">file_clock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -225,24 +225,24 @@
 <h2>メンバ関数</h2>
 <p><code>file_clock</code>は、以下の2つ組の静的メンバ関数のいずれかを提供する：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="utc_clock.html">utc_clock</a>に相当するクラスの別名として定義される場合</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-<span class="k">static</span> <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span>
-  <span class="n">to_sys</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="file_time.html">file_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="k">static</span><span class="w"> </span><span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">to_sys</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="file_time.html">file_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">);</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-<span class="k">static</span> <span class="n"><a href="file_time.html">file_time</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span>
-  <span class="n">from_sys</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="k">static</span><span class="w"> </span><span class="n"><a href="file_time.html">file_time</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">from_sys</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>もしくは</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="tai_clock.html">tai_clock</a>, <a href="gps_clock.html">gps_clock</a>に相当するクラスの別名として定義される場合</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-<span class="k">static</span> <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span>
-  <span class="n">to_utc</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="file_time.html">file_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="k">static</span><span class="w"> </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">to_utc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="file_time.html">file_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">);</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-<span class="k">static</span> <span class="n"><a href="file_time.html">file_time</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span>
-  <span class="n">from_utc</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="k">static</span><span class="w"> </span><span class="n"><a href="file_time.html">file_time</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">from_utc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>これらの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>となる<code><a href="time_point.html">time_point</a></code>の<code>Duration</code>は、入力の<code><a href="time_point.html">time_point</a></code>から計算される。</p>
@@ -251,20 +251,20 @@
 <h3>うるう秒の扱い</h3>
 <p><a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a></p>
 <h2>例</h2>
-<p><div class="yata" id="0c7c0d96f6d90719d01f7aa7914d49ce0feb7da9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0c7c0d96f6d90719d01f7aa7914d49ce0feb7da9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../fstream.html">&lt;fstream&gt;</a></span>
+<span class="cp">#include <a href="../chrono.html">&lt;chrono&gt;</a></span>
+<span class="cp">#include <a href="../filesystem.html">&lt;filesystem&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chrono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular.txt"</span><span class="p">};</span>
 
-  <span class="c1">// ファイルの最終更新日時を変更する</span>
-  <span class="n"><a href="../filesystem/file_time_type.html">fs::file_time_type</a></span> <span class="n">tp</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">chrono::file_clock</span></span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
-  <span class="n"><a href="../filesystem/last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">,</span> <span class="n">tp</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ファイルの最終更新日時を変更する</span>
+<span class="w">  </span><span class="n"><a href="../filesystem/file_time_type.html">fs::file_time_type</a></span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">chrono::file_clock</span></span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../filesystem/last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -305,7 +305,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -219,24 +219,24 @@
 <p></p>
 <h2>概要</h2>
 <p>C++20より、定数式における動的メモリ確保と解放が許可される。それに伴い、<code>std::vector</code>と<code>std::string</code>の全メンバ関数が<code>constexpr</code>対応し、定数式で使用できるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">test_vector</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
-  <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">test_vector</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
 
-  <span class="kt">int</span> <span class="n">s</span><span class="p">{};</span>
-  <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">s</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">check_cpp_file</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">filename</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/ends_with.html">ends_with</a></span><span class="p">(</span><span class="s">".cpp"</span><span class="p">)</span> <span class="o">||</span> <span class="n">filename</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/ends_with.html">ends_with</a></span><span class="p">(</span><span class="s">".hpp"</span><span class="p">);</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">check_cpp_file</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">filename</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/ends_with.html">ends_with</a></span><span class="p">(</span><span class="s">".cpp"</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">filename</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/ends_with.html">ends_with</a></span><span class="p">(</span><span class="s">".hpp"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="n">test_vector</span><span class="p">()</span> <span class="o">==</span> <span class="mi">35</span><span class="p">);</span>         <span class="c1">// OK</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n">check_cpp_file</span><span class="p">(</span><span class="s">"main.cpp"</span><span class="p">));</span>  <span class="c1">// OK</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">test_vector</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">35</span><span class="p">);</span><span class="w">         </span><span class="c1">// OK</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">check_cpp_file</span><span class="p">(</span><span class="s">"main.cpp"</span><span class="p">));</span><span class="w">  </span><span class="c1">// OK</span>
 </code></pre></div>
 </p>
 <p>これは主に以下の変更によって達成されている。</p>
@@ -249,20 +249,20 @@
 <h3><code>constexpr</code>デストラクタ</h3>
 <p>デストラクタに<code>constexpr</code>を付加し、デストラクタを定数式で実行する事が可能となる。これは<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のデストラクタでも同様。</p>
 <p>そのような<code>constexpr</code>デストラクタの本体、およびそのクラスの基底クラスと非静的メンバ変数の全てのデストラクタは定数式で実行可能でなくてはならない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="nl">C</span> <span class="p">:</span> <span class="n">base</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="c1">// constexprデフォルトデストラクタ</span>
-  <span class="k">constexpr</span> <span class="o">~</span><span class="n">C</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// constexprデフォルトデストラクタ</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="o">~</span><span class="n">C</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
-  <span class="c1">// あるいは定義しても良い</span>
-  <span class="k">constexpr</span> <span class="o">~</span><span class="n">C</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// 何か定数式で可能な処理</span>
-    <span class="c1">// ...</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// あるいは定義しても良い</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="o">~</span><span class="n">C</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 何か定数式で可能な処理</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 全ての基底クラスおよび非静的メンバ変数もまた定数式でデストラクト可能でなければならない</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">str</span><span class="p">;</span> 
+<span class="w">  </span><span class="c1">// 全ての基底クラスおよび非静的メンバ変数もまた定数式でデストラクト可能でなければならない</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">str</span><span class="p">;</span><span class="w"> </span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -273,69 +273,69 @@
 <h3><code>new/delete</code>式</h3>
 <p>定数式では<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を可能な限り検出しコンパイルエラーとしなければならない。<code>operator new/operator delete</code>や<code>malloc/free</code>はその実行に伴ってポインタの再解釈（<code>void*</code>への/からのキャスト）が必要となるが、ポインタの再解釈は検出しづらい<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>に繋がりうるため定数式では禁止されている。</p>
 <p>そのため、そのようなポインタの再解釈が発生しない動的メモリ確保機能である<code>new/delete</code>式がコンパイル時の動的メモリ確保・解放の方法として許可される。<code>new/delete</code>式は<code>operator new/operator delete</code>とは異なり、メモリの確保・解放とその領域のオブジェクト構築・破棄を一挙に行う言語機能である。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 確保と構築</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 確保と構築</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 
-  <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
 
-  <span class="c1">// 破棄と解放</span>
-  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 破棄と解放</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>当然ながら、<code>new/delete</code>式によって動的メモリ確保しようとする型はリテラル型であり、呼び出されるコンストラクタとデストラクタは共に定数式で実行可能でなければならない。</p>
 <p>また、コンパイル時に実行される<code>new</code>式はグローバルの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>可能な<code><a href="../../reference/new/op_new.html">operator new</a></code>を呼び出すものでなくてはならない。そうではない<code>new</code>式の定数式における評価はコンパイルエラーとなる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
-  <span class="c1">// 仮に定数式で実行可能なように定義されていたとしても</span>
-  <span class="k">constexpr</span> <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span><span class="p">);</span>
-  <span class="k">constexpr</span> <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 仮に定数式で実行可能なように定義されていたとしても</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">S</span><span class="o">*</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">S</span><span class="p">{};</span> <span class="c1">// NG、ユーザー定義operator newの呼び出し</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">S</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S</span><span class="p">{};</span><span class="w"> </span><span class="c1">// NG、ユーザー定義operator newの呼び出し</span>
 
-  <span class="n">s</span><span class="o">-&gt;</span><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">;</span>
 
-  <span class="k">delete</span> <span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>そして、コンパイル時に<code>new</code>式で確保されたメモリ領域は、コンパイル時に<code>delete</code>式によって解放されなければならない。その対応が取れていない<code>new/delete</code>式の呼び出しは、どちらもコンパイルエラーとなる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 
-  <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
 
-  <span class="c1">// 忘れる</span>
-  <span class="c1">//delete p;</span>
+<span class="w">  </span><span class="c1">// 忘れる</span>
+<span class="w">  </span><span class="c1">//delete p;</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// NG、コンパイルエラー</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// NG、コンパイルエラー</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>したがって、C++20のコンパイル時動的メモリ確保の仕様では、コンパイル時に確保したメモリ領域を実行時へ持ち越すことはできない。</p>
 <p>実際には、これらの定数式中の<code>new</code>式において呼び出される<code>::operator new()</code>の評価は常に省略されている。この省略はC++14より許可されている最適化の一環として行われ、スタック領域などのストレージを別途あてがうことで動的メモリ確保を避けるものである。対応する<code>delete</code>式における<code>::operator delete()</code>の呼び出しも同様に省略され、定数式における<code>new/delete</code>式はメモリの確保と解放が一貫していることのマーカーとしての側面が強くなっている。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// このコードは定数式中で</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
-  <span class="k">delete</span> <span class="n">d</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// このコードは定数式中で</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
 
-  <span class="c1">// たとえば次のようなコードと等価になる</span>
-  <span class="kt">int</span> <span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// たとえば次のようなコードと等価になる</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -345,80 +345,80 @@
 <p><code>std::allocator/std::allocator_traits</code>では<code>new/delete</code>式とは異なり、メモリの確保・解放（<code><a href="../../reference/memory/allocator/allocate.html">allocate</a></code>/<code><a href="../../reference/memory/allocator/deallocate.html">deallocate</a></code>）とその領域へのオブジェクト構築・破棄（<code><a href="../../reference/memory/allocator_traits/construct.html">construct</a></code>/<code><a href="../../reference/memory/allocator_traits/destroy.html">destroy</a></code>）の操作が複合していない。オブジェクト構築・破棄においては<em>placement new</em>と<em>pseudo-destructor call</em>が必要となるが、<em>placement new</em>はポインタの再解釈が必要となることから許可されず、そのために不必要であるので<em>pseudo-destructor call</em>も許可されない。</p>
 <p>代わりに、<em>placement new</em>を行うライブラリ機能である<code><a href="../../reference/memory/construct_at.html">construct_at</a></code>を追加し、<em>pseudo-destructor call</em>を行う<code><a href="../../reference/memory/destroy_at.html">destroy_at</a></code>と共に<code>constexpr</code>を付加し定数式で使用可能とする。これらの関数は<code>void*</code>ではなく<code>T*</code>を取るため、これによってポインタ再解釈を回避しつつ<em>placement new</em>と<em>pseudo-destructor call</em>が定数式で使用可能となる。</p>
 <p>そして、<code>std::allocator_traits</code>の<code>construct</code>と<code>destroy</code>は<code>construct_at/destroy_at</code>を呼び出して処理を行うように変更される。なお、これによって実行時の振る舞いが変化することはない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{};</span>
 
-  <span class="c1">// 確保と構築</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n">p</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 確保と構築</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 
-  <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
 
-  <span class="c1">// 破棄と解放</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">destroy_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// 破棄と解放</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">destroy_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">();</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>当然ながら、<code>std::allocator</code>によって動的メモリ確保しようとする型はリテラル型であり、<code>construct_at/destroy_at</code>によって呼び出されるコンストラクタとデストラクタは共に定数式で実行可能でなければならない。</p>
 <p>また、<code>std::allocator&lt;T&gt;::allocate</code>が呼び出される場合は必ずその領域は<code>std::allocator&lt;T&gt;::deallocate</code>によって解放されていなければならず、<code>deallocate</code>と<code>construct_at</code>、<code>destroy_at</code>の引数の<code>T*</code>のポインタは<code>std::allocator&lt;T&gt;::allocate</code>によって確保された領域を指していなければならない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{};</span>
 
-  <span class="c1">// 確保と構築</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n">p</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 確保と構築</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 
-  <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
 
-  <span class="c1">// 忘れる</span>
-  <span class="c1">//std::destroy_at(p);</span>
-  <span class="c1">//alloc.deallocate();</span>
+<span class="w">  </span><span class="c1">// 忘れる</span>
+<span class="w">  </span><span class="c1">//std::destroy_at(p);</span>
+<span class="w">  </span><span class="c1">//alloc.deallocate();</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// NG、コンパイルエラー</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// NG、コンパイルエラー</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>すなわち、<code>new/delete</code>式と同様にコンパイル時に確保したメモリ領域を実行時へ持ち越すことはできない。</p>
 <p>この規則はまた、<code>std::allocator/std::allocator_traits</code>によって確保され<code>construct_at</code>によってオブジェクトが構築された領域を<code>delete</code>式で解放する事、またはその逆も許可されない事を示している。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{};</span>
 
-  <span class="c1">// 確保と構築</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n">p</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 確保と構築</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 
-  <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
 
-  <span class="c1">// 破棄と解放</span>
-  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// NG、コンパイルエラー</span>
+<span class="w">  </span><span class="c1">// 破棄と解放</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// NG、コンパイルエラー</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{};</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">{};</span>
 
-  <span class="c1">// 確保と構築</span>
-  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 確保と構築</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
 
-  <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
 
-  <span class="c1">// NG、コンパイルエラー</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">destroy_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// NG、コンパイルエラー</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">destroy_at</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">();</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -429,7 +429,7 @@
 <p><code>std::vector</code>をはじめとする可変サイズのコンテナは実行時に非常に有用であるため、同様に定数式においても有用である可能性があり、その必要性がC++コミュニティからも示されていた（<a href="https://youtu.be/HMB9oXFobJc" target="_blank">C++Now 2017: Ben Deane &amp; Jason Turner "constexpr ALL the things!"</a>、<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0810r0.pdf" target="_blank">P0810R0 constexpr in Practice</a>など）。</p>
 <p>また、静的リフレクション機能の導入にあたっては、コンパイル時に使用可能な可変サイズコンテナおよび可変サイズの文字列型が必要となっていた。例えば、ある型のテンプレート引数をクエリするコードは次のようなものになる</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 型Tのテンプレート引数の情報を取り出す</span>
-<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">metainfo</span><span class="o">&gt;</span> <span class="n">args</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">get_template_args</span><span class="p">(</span><span class="n">reflexpr</span><span class="p">(</span><span class="n">T</span><span class="p">));</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">metainfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">get_template_args</span><span class="p">(</span><span class="n">reflexpr</span><span class="p">(</span><span class="n">T</span><span class="p">));</span>
 </code></pre></div>
 </p>
 <p>※ これは最終的なリフレクション仕様とは異なる可能性がある</p>
@@ -439,49 +439,49 @@
 <p>しかし、当初のアプローチには2つの問題があった。</p>
 <p>実行時に持ち越されるメモリ領域を管理するクラスであってもそのデストラクタでその領域を解放している事が求められていたが、それはコンパイラによるテスト要件であり実行時に領域を持ち越そうとする時、実際にそのデストラクタがコンパイル時に呼ばれることはない。しかしその場合、静的ストレージに昇格される領域の内容はいつどの時点のものが保持されるのかが不透明となる。</p>
 <p>当初の仕様ではそれに対処するために、<code>std::mark_immutable_if_constexpr()</code>という関数を導入し、この関数に領域へのポインタを渡して呼び出すことでコンパイラへのマーカーとし、呼ばれた時点でのメモリ領域を実行時に持ち越すアプローチをとっていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">sample</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">m_alloc</span><span class="p">;</span>
-  <span class="n">T</span><span class="o">*</span> <span class="n">m_p</span><span class="p">;</span>
-  <span class="kt">size_t</span> <span class="n">m_size</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">sample</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_alloc</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">m_p</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">m_size</span><span class="p">;</span>
 
-  <span class="c1">// 非トリビアルconstexprコンストラクタでメモリ領域を確保</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">sample</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span>
-    <span class="o">:</span> <span class="n">m_alloc</span><span class="p">{}</span>
-    <span class="p">,</span> <span class="n">m_p</span><span class="p">{</span><span class="n">m_alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="n">N</span><span class="p">)}</span>
-    <span class="p">,</span> <span class="n">m_size</span><span class="p">{</span><span class="n">N</span><span class="p">}</span>
-  <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">m_p</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 非トリビアルconstexprコンストラクタでメモリ領域を確保</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">sample</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">m_alloc</span><span class="p">{}</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">m_p</span><span class="p">{</span><span class="n">m_alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="n">N</span><span class="p">)}</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">m_size</span><span class="p">{</span><span class="n">N</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">construct_at</span><span class="p">(</span><span class="n">m_p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="c1">// 実行時に持ち越す領域をコンパイラに伝える</span>
-    <span class="c1">// ここ以降は確保した領域は不変</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">mark_immutable_if_constexpr</span><span class="p">(</span><span class="n">m_p</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="c1">// 実行時に持ち越す領域をコンパイラに伝える</span>
+<span class="w">    </span><span class="c1">// ここ以降は確保した領域は不変</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">mark_immutable_if_constexpr</span><span class="p">(</span><span class="n">m_p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// constexprデストラクタでメモリ領域を解放</span>
-  <span class="k">constexpr</span> <span class="o">~</span><span class="n">sample</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">destroy_at</span><span class="p">(</span><span class="n">m_p</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">m_alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">(</span><span class="n">m_p</span><span class="p">,</span> <span class="n">m_size</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// constexprデストラクタでメモリ領域を解放</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="o">~</span><span class="n">sample</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">destroy_at</span><span class="p">(</span><span class="n">m_p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">m_alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">(</span><span class="n">m_p</span><span class="p">,</span><span class="w"> </span><span class="n">m_size</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">constexpr</span> <span class="n">sample</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">{</span><span class="s">"Hello."</span><span class="p">};</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">sample</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">{</span><span class="s">"Hello."</span><span class="p">};</span>
 <span class="c1">// 実行時、strは"Hello"を保持する静的配列を参照するようになる</span>
 </code></pre></div>
 </p>
 <p>2つ目の問題は、コンパイル時に確保された領域は実行時に<code>const</code>であり書き換えられてはならないが、クラス型の<code>const</code>伝播の問題から書き換えが可能となってしまっていたことである。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 当初の仕様ではOK（unique_ptrがconstexpr対応した場合）</span>
-<span class="k">constexpr</span> <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">uui</span> 
-  <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">uui</span><span class="w"> </span>
+<span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">ui</span> <span class="o">=</span> <span class="o">*</span><span class="n">uui</span><span class="p">;</span> <span class="c1">// これができてしまう</span>
-  <span class="n">ui</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span> <span class="c1">// 静的ストレージの領域をdeleteする？</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">uui</span><span class="p">;</span><span class="w"> </span><span class="c1">// これができてしまう</span>
+<span class="w">  </span><span class="n">ui</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"> </span><span class="c1">// 静的ストレージの領域をdeleteする？</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -527,7 +527,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

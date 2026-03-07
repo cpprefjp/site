@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;istream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_istream">basic_istream::</span><span class="token">unget</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">unget</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unget</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -246,32 +246,32 @@
 <h2>備考</h2>
 <p>この関数は1文字も入力を行わないため、この後の<code>gcount()</code>は<code>0</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="ad0235ab6e40b5c9b4363370a188a3d896d8cb2a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ad0235ab6e40b5c9b4363370a188a3d896d8cb2a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
 
 <span class="c1">// isからアルファベットだけを読み込んで返す関数。</span>
-<span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="nf">input_alphabet</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span><span class="o">&amp;</span> <span class="n">is</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
-  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">is</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="p">{</span>
-    <span class="c1">// getで得た文字がアルファベットではなかったら、ungetでストリームに戻す。</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/isalpha.md.nolink">std::isalpha</span></span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">is</span><span class="p">.</span><span class="n"><a href="../../ios/ios_base/getloc.html">getloc()</a></span><span class="p">))</span> <span class="p">{</span>
-      <span class="n">is</span><span class="p">.</span><span class="n"><span style="color:#ff0000">unget()</span></span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">s</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/push_back.html">push_back</a></span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">input_alphabet</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">is</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">is</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// getで得た文字がアルファベットではなかったら、ungetでストリームに戻す。</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/isalpha.md.nolink">std::isalpha</span></span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="p">.</span><span class="n"><a href="../../ios/ios_base/getloc.html">getloc()</a></span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">is</span><span class="p">.</span><span class="n"><span style="color:#ff0000">unget()</span></span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/push_back.html">push_back</a></span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../sstream/basic_istringstream.html">std::istringstream</a></span> <span class="n">iss</span><span class="p">(</span><span class="s">"abc123"</span><span class="p">);</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">input_alphabet</span><span class="p">(</span><span class="n">iss</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../sstream/basic_istringstream.html">std::istringstream</a></span><span class="w"> </span><span class="n">iss</span><span class="p">(</span><span class="s">"abc123"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">input_alphabet</span><span class="p">(</span><span class="n">iss</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">// 残りを出力</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">iss</span><span class="p">.</span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 残りを出力</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">iss</span><span class="p">.</span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -280,25 +280,25 @@
 123
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">unget</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../ios/basic_ios/clear.html">clear</a></span><span class="p">(</span><span class="n"><a href="../../ios/basic_ios/rdstate.html">rdstate()</a></span> <span class="o">&amp;</span> <span class="o">~</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">eofbit</a></span><span class="p">);</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="n"><a href="sentry.html">sentry</a></span> <span class="n">s</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">sb</span> <span class="o">=</span> <span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf()</a></span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">sb</span><span class="o">-&gt;</span><span class="n"><a href="../../streambuf/basic_streambuf/sungetc.html">sungetc()</a></span> <span class="o">!=</span> <span class="n">Traits</span><span class="o">::</span><span class="n">eof</span><span class="p">())</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-      <span class="n">setstate</span><span class="p">(</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
-    <span class="err">例外を投げずに</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a>を設定する</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n"><a href="../../ios/basic_ios/exceptions.html">exceptions()</a></span> <span class="o">&amp;</span> <span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">throw</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unget</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../ios/basic_ios/clear.html">clear</a></span><span class="p">(</span><span class="n"><a href="../../ios/basic_ios/rdstate.html">rdstate()</a></span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">eofbit</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="sentry.html">sentry</a></span><span class="w"> </span><span class="nf">s</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../ios/basic_ios/rdbuf.html">rdbuf()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="o">-&gt;</span><span class="n"><a href="../../streambuf/basic_streambuf/sungetc.html">sungetc()</a></span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Traits</span><span class="o">::</span><span class="n">eof</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">setstate</span><span class="p">(</span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">例外を投げずに<a href="../../ios/ios_base/type-iostate.html">badbit</a>を設定する</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n"><a href="../../ios/basic_ios/exceptions.html">exceptions()</a></span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base/type-iostate.html">badbit</a></span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">throw</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -329,7 +329,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

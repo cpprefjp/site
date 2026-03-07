@@ -213,9 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;stdfloat&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">float16_t</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
 <span class="cp">#if defined(__STDCPP_FLOAT16_T__)</span>
-  <span class="k">using</span> <span class="n">float16_t</span> <span class="o">=</span> <span class="n"><i>implementation-defined</i></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">float16_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>implementation-defined</i></span><span class="p">;</span>
 <span class="cp">#endif</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -244,8 +244,8 @@
 </table>
 <h3>リテラル</h3>
 <p>値にサフィックスとして<code>f16</code>もしくは<code>F16</code>を指定することで、<code>std::float16_t</code>のリテラルとすることができる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="">std::float16_t</a></span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="mi">16</span><span class="p">;</span>
-<span class="n"><a href="">std::float16_t</a></span> <span class="n">b</span> <span class="o">=</span> <span class="mf">2.0F</span><span class="mi">16</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="">std::float16_t</a></span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0f</span><span class="mi">16</span><span class="p">;</span>
+<span class="n"><a href="">std::float16_t</a></span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0F</span><span class="mi">16</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h3>事前定義マクロ</h3>
@@ -269,14 +269,14 @@
 <p>C言語の名残と後方互換性のために、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>での<code>float</code>から<code>double</code>への変換は昇格と見なされるが、ほかの浮動小数点数型では昇格はない。</p>
 <p>2つの浮動小数点型の少なくとも一方が拡張浮動小数点型である場合、変換先の型が変換元の型より大きいか等しい場合にのみ、2つの浮動小数点型間の変換が暗黙的に行われる。いかなる暗黙の変換も損失なく、値を正確に保持する。潜在的に損失のある変換はすべて明示的でなければならない。</p>
 <p>小さい精度への変換は、<code>()</code>と<code>{}</code>による直接初期化、もしくは明示的なキャストのみ許可される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="">std::float16_t</a></span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="">std::float16_t</a></span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
-  <span class="n"><a href="">std::float16_t</a></span> <span class="n">b</span><span class="p">(</span><span class="mf">2.0</span><span class="p">);</span>  <span class="c1">// OK : 直接初期化</span>
-  <span class="n"><a href="">std::float16_t</a></span> <span class="n">c</span><span class="p">{</span><span class="mf">3.0</span><span class="p">};</span>  <span class="c1">// OK : 直接初期化</span>
-  <span class="n">a</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">;</span>                <span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
-  <span class="n">f</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>                 <span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
-  <span class="n">f</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="">std::float16_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mf">5.0</span><span class="p">));</span> <span class="c1">// OK : 明示的なキャスト</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n"><a href="">std::float16_t</a></span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="">std::float16_t</a></span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
+<span class="w">  </span><span class="n"><a href="">std::float16_t</a></span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mf">2.0</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK : 直接初期化</span>
+<span class="w">  </span><span class="n"><a href="">std::float16_t</a></span><span class="w"> </span><span class="n">c</span><span class="p">{</span><span class="mf">3.0</span><span class="p">};</span><span class="w">  </span><span class="c1">// OK : 直接初期化</span>
+<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0</span><span class="p">;</span><span class="w">                </span><span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span><span class="w">                 </span><span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="">std::float16_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mf">5.0</span><span class="p">));</span><span class="w"> </span><span class="c1">// OK : 明示的なキャスト</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -301,20 +301,20 @@
 </ul>
 </li>
 </ul>
-<p><div class="yata" id="0e8b2d939eb09099dad570ea15617d7cac2c9c8c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../stdfloat.html">&lt;stdfloat&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="0e8b2d939eb09099dad570ea15617d7cac2c9c8c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../stdfloat.html">&lt;stdfloat&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">f32</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
-  <span class="n"><a href="">std::float16_t</a></span> <span class="n">f16</span><span class="p">{</span><span class="mf">2.0</span><span class="p">};</span>
-  <span class="n"><a href="bfloat16_t.html">std::bfloat16_t</a></span> <span class="n">b16</span><span class="p">{</span><span class="mf">3.0</span><span class="p">};</span>
-  <span class="n"><a href="float32_t.html">std::float32_t</a></span> <span class="n">f32b</span><span class="p">{</span><span class="mf">4.0</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">f32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="">std::float16_t</a></span><span class="w"> </span><span class="n">f16</span><span class="p">{</span><span class="mf">2.0</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="bfloat16_t.html">std::bfloat16_t</a></span><span class="w"> </span><span class="n">b16</span><span class="p">{</span><span class="mf">3.0</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="float32_t.html">std::float32_t</a></span><span class="w"> </span><span class="n">f32b</span><span class="p">{</span><span class="mf">4.0</span><span class="p">};</span>
 
-  <span class="k">auto</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">f32</span> <span class="o">+</span> <span class="n">f16</span><span class="p">;</span> <span class="c1">// OK : f16は`float`に変換され、結果の型は`float`となる</span>
-  <span class="k">auto</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">f32</span> <span class="o">+</span> <span class="n">b16</span><span class="p">;</span> <span class="c1">// OK : b16は`float`に変換され、結果の型は`float`となる</span>
-  <span class="c1">//auto r3 = f16 + b16; // エラー！どちらの型も算術変換でもう一方の型に変換できない</span>
-  <span class="k">auto</span> <span class="n">r4</span> <span class="o">=</span> <span class="n">f32</span> <span class="o">+</span> <span class="n">f32b</span><span class="p">;</span>  <span class="c1">// OK : f32はより大きいサブ順位をもつ`<a href="float32_t.html">std::float32_t</a>`に変換される</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">r4</span><span class="p">),</span> <span class="n"><a href="float32_t.html">std::float32_t</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f32</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f16</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK : f16は`float`に変換され、結果の型は`float`となる</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f32</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b16</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK : b16は`float`に変換され、結果の型は`float`となる</span>
+<span class="w">  </span><span class="c1">//auto r3 = f16 + b16; // エラー！どちらの型も算術変換でもう一方の型に変換できない</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">r4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f32</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f32b</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK : f32はより大きいサブ順位をもつ`<a href="float32_t.html">std::float32_t</a>`に変換される</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">r4</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="float32_t.html">std::float32_t</a></span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -328,18 +328,18 @@
 </ul>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../stdfloat.html">&lt;stdfloat&gt;</a></span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../stdfloat.html">&lt;stdfloat&gt;</a></span>
 
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="float32_t.html">std::float32_t</a></span><span class="p">)</span> <span class="p">{}</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="float64_t.html">std::float64_t</a></span><span class="p">)</span> <span class="p">{}</span>
-<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n"><a href="float32_t.html">std::float32_t</a></span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n"><a href="float64_t.html">std::float64_t</a></span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n"><a href="">std::float16_t</a></span> <span class="n">y</span><span class="p">;</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// f(<a href="float32_t.html">std::float32_t</a>)が呼び出される。</span>
-        <span class="c1">// floatと<a href="float32_t.html">std::float32_t</a>が同じ変換順位をもつ</span>
-  <span class="c1">//f(y); // エラー！曖昧。変換順位が等しいオーバーロードが見つからない</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="">std::float16_t</a></span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// f(<a href="float32_t.html">std::float32_t</a>)が呼び出される。</span>
+<span class="w">        </span><span class="c1">// floatと<a href="float32_t.html">std::float32_t</a>が同じ変換順位をもつ</span>
+<span class="w">  </span><span class="c1">//f(y); // エラー！曖昧。変換順位が等しいオーバーロードが見つからない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -352,25 +352,25 @@
 <li>この型が定義される環境はISO/IEC/IEEE 60559 (IEEE 754) 準拠であるため、同じ変換順位をもつ浮動小数点数型 (<code>float</code>と<code>std::float32_t</code>のような) は同じ内部表現をもつ</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="c054fb1b9475197ff4ecd872b5b45c1647463568"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../stdfloat.html">&lt;stdfloat&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c054fb1b9475197ff4ecd872b5b45c1647463568"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../stdfloat.html">&lt;stdfloat&gt;</a></span>
+<span class="cp">#include <a href="../cmath.html">&lt;cmath&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="">std::float16_t</a></span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="mi">16</span><span class="p">;</span>
-  <span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">2.0f</span><span class="mi">32</span><span class="p">;</span> <span class="c1">// bの型は<a href="float32_t.html">std::float32_t</a></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="">std::float16_t</a></span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0f</span><span class="mi">16</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0f</span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// bの型は<a href="float32_t.html">std::float32_t</a></span>
 
-  <span class="c1">// aはより大きい精度の型float32_tに変換される</span>
-  <span class="k">auto</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// cの型は<a href="float32_t.html">std::float32_t</a></span>
+<span class="w">  </span><span class="c1">// aはより大きい精度の型float32_tに変換される</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// cの型は<a href="float32_t.html">std::float32_t</a></span>
 
-  <span class="c1">// 精度を落とす縮小変換は明示的型変換で行う。</span>
-  <span class="c1">// 拡張浮動小数点数型は数学関数にも渡すことができ、</span>
-  <span class="c1">// 標準浮動小数点数型への暗黙変換もできる</span>
-  <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n"><a href="../cmath/log.html">std::log</a></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="">std::float16_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// 精度を落とす縮小変換は明示的型変換で行う。</span>
+<span class="w">  </span><span class="c1">// 拡張浮動小数点数型は数学関数にも渡すことができ、</span>
+<span class="w">  </span><span class="c1">// 標準浮動小数点数型への暗黙変換もできる</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../cmath/log.html">std::log</a></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="">std::float16_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
 
-  <span class="c1">// 同じ精度の浮動小数点数型との間で、精度を落とさず変換でき、</span>
-  <span class="c1">// coutでも拡張浮動小数点数のまま出力できる</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="float64_t.html">std::float64_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 同じ精度の浮動小数点数型との間で、精度を落とさず変換でき、</span>
+<span class="w">  </span><span class="c1">// coutでも拡張浮動小数点数のまま出力できる</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="float64_t.html">std::float64_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -419,7 +419,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

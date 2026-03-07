@@ -224,27 +224,27 @@
 <p><a href="../cpp11/scoped_enum.html">スコープを持つ列挙型</a>に基底型が指定されていて、初期化リストが単一の要素<code>v</code>を持ち、かつリストによる直接の初期化であれば、初期化できる。</p>
 <p>ただし基底型へ変換する際に、精度を失う変換が要求される場合はプログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <h2>例</h2>
-<p><div class="yata" id="d0f31b25dc0150652caa74c3fdbbe2a2e7f9d328"><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">byte</span> <span class="o">:</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="p">{</span> <span class="p">};</span>
+<p><div class="yata" id="d0f31b25dc0150652caa74c3fdbbe2a2e7f9d328"><div class="codehilite"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">byte</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// C++14</span>
-  <span class="n">byte</span> <span class="n">aa</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="mi">42</span> <span class="p">};</span>
-  <span class="n">byte</span> <span class="n">ab</span> <span class="o">=</span> <span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="mi">42</span><span class="p">;</span>
-  <span class="n">byte</span> <span class="n">ac</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">byte</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
-  <span class="c1">// C++17</span>
-  <span class="n">byte</span> <span class="n">ba</span> <span class="p">{</span> <span class="mi">42</span> <span class="p">};</span>         <span class="c1">// OK in C++17, error in C++14</span>
-  <span class="n">byte</span> <span class="n">bb</span> <span class="o">=</span> <span class="n">byte</span><span class="p">{</span> <span class="mi">42</span> <span class="p">};</span>   <span class="c1">// OK in C++17, error in C++14</span>
-  <span class="n">byte</span> <span class="n">bc</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">42</span> <span class="p">};</span>       <span class="c1">// error, { 42 } is int</span>
+<span class="w">  </span><span class="c1">// C++14</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">aa</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="mi">42</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">ab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="mi">42</span><span class="p">;</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">ac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">byte</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// C++17</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">ba</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">};</span><span class="w">         </span><span class="c1">// OK in C++17, error in C++14</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">bb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">byte</span><span class="p">{</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">};</span><span class="w">   </span><span class="c1">// OK in C++17, error in C++14</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">bc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">};</span><span class="w">       </span><span class="c1">// error, { 42 } is int</span>
 
-  <span class="c1">// C++14</span>
-  <span class="n">byte</span> <span class="n">ca</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="mi">42</span> <span class="p">};</span>
-  <span class="n">byte</span> <span class="n">cb</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="mi">1142</span> <span class="p">};</span> <span class="c1">// OK, but cannot detect narrowing</span>
-  <span class="c1">// C++17</span>
-  <span class="n">byte</span> <span class="n">da</span> <span class="p">{</span> <span class="mi">42</span> <span class="p">};</span>         <span class="c1">// OK in C++17, error in C++14</span>
-  <span class="n">byte</span> <span class="n">db</span> <span class="p">{</span> <span class="mi">1142</span> <span class="p">};</span>       <span class="c1">// error, narrowing</span>
+<span class="w">  </span><span class="c1">// C++14</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">ca</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="mi">42</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">cb</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="mi">1142</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// OK, but cannot detect narrowing</span>
+<span class="w">  </span><span class="c1">// C++17</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">};</span><span class="w">         </span><span class="c1">// OK in C++17, error in C++14</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1142</span><span class="w"> </span><span class="p">};</span><span class="w">       </span><span class="c1">// error, narrowing</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -287,7 +287,7 @@ construction_enum_class.cpp:22:12: error: constant expression evaluates to 1142
 </code></pre></p>
 <h2>この機能が必要になった背景・経緯</h2>
 <p>ユーザ定義の整数を定義する際のテクニックとして例で挙げたように、要素を一つも持たない<a href="../cpp11/scoped_enum.html">スコープを持つ列挙型</a>を定義する方法がある。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">byte</span> <span class="o">:</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="p">{</span> <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">byte</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 </code></pre></div>
 </p>
 <p><code>unsigned char</code>型を直接使用すると整数への暗黙の型変換が行われ、しばしばバグの原因となるが、<code>byte</code>型を使えば整数への暗黙の型変換を防ぐことができる。それでいて<code>unsigned char</code>型を直接使用した場合と同様の効率良いコードを書くことができる利点がある（例えば<code>struct</code>のコピーや値渡しにペナルティが生じるようなアーキテクチャでも、効率良く扱うことができる）。</p>
@@ -319,7 +319,7 @@ construction_enum_class.cpp:22:12: error: constant expression evaluates to 1142
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

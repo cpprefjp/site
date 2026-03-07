@@ -219,38 +219,38 @@
 <p></p>
 <h2>概要</h2>
 <p>C++23では、<code>consteval</code>呼び出しを含む<code>constexpr</code>関数を、条件付きで<code>consteval</code>関数と見なすようになる。そうすることで、定数式の文脈での<code>consteval</code>関数の使用がよりかんたんになる。</p>
-<p><div class="yata" id="1301f4669b79a3c65f90f2d532c94507624fe173"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1301f4669b79a3c65f90f2d532c94507624fe173"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span>
 
-<span class="n">consteval</span> <span class="kt">bool</span> <span class="nf">is_even</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_even</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ar</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-  <span class="c1">// consteval関数の非定数呼び出しにより (xは定数ではない)、</span>
-  <span class="c1">// ラムダ式が暗黙にconstevalとなる</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/algorithm/ranges_none_of.html">std::ranges::none_of</a></span><span class="p">(</span>
-    <span class="n">ar</span><span class="p">,</span>
-    <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// C++20:NG, C++23:OK</span>
-    <span class="p">}</span>
-  <span class="p">));</span>
+<span class="w">  </span><span class="c1">// consteval関数の非定数呼び出しにより (xは定数ではない)、</span>
+<span class="w">  </span><span class="c1">// ラムダ式が暗黙にconstevalとなる</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/algorithm/ranges_none_of.html">std::ranges::none_of</a></span><span class="p">(</span>
+<span class="w">    </span><span class="n">ar</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// C++20:NG, C++23:OK</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">));</span>
 
-  <span class="c1">// ラムダ式を明示的にconstevalにする</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/algorithm/ranges_none_of.html">std::ranges::none_of</a></span><span class="p">(</span>
-    <span class="n">ar</span><span class="p">,</span>
-    <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="n">consteval</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// C++20:NG, C++23:OK</span>
-    <span class="p">}</span>
-  <span class="p">));</span>
+<span class="w">  </span><span class="c1">// ラムダ式を明示的にconstevalにする</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/algorithm/ranges_none_of.html">std::ranges::none_of</a></span><span class="p">(</span>
+<span class="w">    </span><span class="n">ar</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">consteval</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// C++20:NG, C++23:OK</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">));</span>
 
-  <span class="c1">// is_evenは明らかに定数式評価される文脈</span>
-  <span class="c1">// であるため使用可能</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/algorithm/ranges_none_of.html">std::ranges::none_of</a></span><span class="p">(</span>
-    <span class="n">ar</span><span class="p">,</span>
-    <span class="n">is_even</span> <span class="c1">// C++20:NG, C++23:OK</span>
-  <span class="p">));</span>
+<span class="w">  </span><span class="c1">// is_evenは明らかに定数式評価される文脈</span>
+<span class="w">  </span><span class="c1">// であるため使用可能</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/algorithm/ranges_none_of.html">std::ranges::none_of</a></span><span class="p">(</span>
+<span class="w">    </span><span class="n">ar</span><span class="p">,</span>
+<span class="w">    </span><span class="n">is_even</span><span class="w"> </span><span class="c1">// C++20:NG, C++23:OK</span>
+<span class="w">  </span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -259,55 +259,55 @@
 <li><code>constexpr</code>関数が即時関数の文脈外の<code>consteval</code>関数呼び出しを含み、その呼び出しが定数式ではない場合に、その<code>constexpr</code>関数は暗黙的に<code>consteval</code>関数となる</li>
 <li>上記の文脈で、即時呼び出しではない<code>consteval</code>関数を呼び出す場合、その文脈は暗黙的に<code>consteval</code>関数となる</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="n">consteval</span> <span class="kt">int</span> <span class="nf">id</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">constexpr</span> <span class="kt">char</span> <span class="nf">id</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">c</span><span class="p">;</span> <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">consteval</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">t</span> <span class="o">+</span> <span class="n">id</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">f</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// OK, f&lt;char&gt;は即時関数ではない</span>
-<span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>  <span class="c1">// エラー！f&lt;int&gt;は即時関数</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK, f&lt;char&gt;は即時関数ではない</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span><span class="w">  </span><span class="c1">// エラー！f&lt;int&gt;は即時関数</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span> <span class="c1">// OK</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">g</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">// id(42)はすでに定数であるため</span>
-    <span class="k">return</span> <span class="n">t</span> <span class="o">+</span> <span class="n">id</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>    <span class="c1">// g&lt;int&gt;は即時関数ではない</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// id(42)はすでに定数であるため</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w">    </span><span class="c1">// g&lt;int&gt;は即時関数ではない</span>
 <span class="p">}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_not</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">,</span> <span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">not</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_not</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="n">consteval</span> <span class="kt">bool</span> <span class="n">is_even</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_even</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="n">is_not</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">is_even</span><span class="p">));</span> <span class="c1">// OK</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">is_not</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">is_even</span><span class="p">));</span><span class="w"> </span><span class="c1">// OK</span>
 
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">T</span> <span class="n">h</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span> <span class="o">=</span> <span class="n">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// h&lt;int&gt;は即時関数ではない</span>
-    <span class="k">return</span> <span class="n">t</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// h&lt;int&gt;は即時関数ではない</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">T</span> <span class="n">hh</span><span class="p">()</span> <span class="p">{</span>           <span class="c1">// hh&lt;int&gt;は即時関数</span>
-    <span class="k">return</span> <span class="n">h</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">hh</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">           </span><span class="c1">// hh&lt;int&gt;は即時関数</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">h</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">hh</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// 不適格。hh&lt;int&gt;()は即時関数への昇格式である</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hh</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// 不適格。hh&lt;int&gt;()は即時関数への昇格式である</span>
 
-<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">id</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">k</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// k&lt;int&gt;は即時関数ではない</span>
-  <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="n">y</span><span class="p">;</span>       <span class="c1">// A(42)は定数式であり、即時関数への昇格がない</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// k&lt;int&gt;は即時関数ではない</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="n">y</span><span class="p">;</span><span class="w">       </span><span class="c1">// A(42)は定数式であり、即時関数への昇格がない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -336,7 +336,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

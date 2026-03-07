@@ -220,37 +220,37 @@
 <h2>概要</h2>
 <p>テンプレートパラメータはほとんどの箇所で<code>class</code>キーワードと<code>typename</code>キーワードの両方を使用できたが、テンプレートテンプレートパラメータのクラステンプレート部分については<code>class</code>キーワードしか使用できなかった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// `class X`部分については、typenameを使用できなかった</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">X</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Y</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>C++17では、テンプレートテンプレートパラメータでも<code>typename</code>キーワードを使用できることとなった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// `typename X`と書けるようになった</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">X</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Y</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">X</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="a74cc160c19a6d58a8e75db2c8776355fc63161b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a74cc160c19a6d58a8e75db2c8776355fc63161b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">Container</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="c1">// コンテナのクラステンプレートをテンプレートパラメータで受け取って、</span>
-  <span class="c1">// 要素型はあとで指定する。</span>
-  <span class="n">Container</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c_</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Container</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// コンテナのクラステンプレートをテンプレートパラメータで受け取って、</span>
+<span class="w">  </span><span class="c1">// 要素型はあとで指定する。</span>
+<span class="w">  </span><span class="n">Container</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="kt">void</span> <span class="n">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">c_</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">c_</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">X</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n">x</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-  <span class="n">x</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n">x</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="n">X</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">x</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">x</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">x</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -275,7 +275,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

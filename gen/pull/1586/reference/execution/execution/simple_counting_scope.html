@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">simple_counting_scope</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">simple_counting_scope</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">simple_counting_scope</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -248,14 +248,14 @@
 <li><code>jsndr</code> : <code>scope.join()</code>が返す<a href="sender.html">Sender</a></li>
 <li><code>op</code> : <code>jsndr</code>を<a href="receiver.html">Receiver</a>と接続して得られる<a href="operation_state.html">Operation State</a></li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="n">scope</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">type</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
-  <span class="n">unused</span><span class="p">,</span>                <span class="c1">// exposition only</span>
-  <span class="n">open</span><span class="p">,</span>                  <span class="c1">// exposition only</span>
-  <span class="n">closed</span><span class="p">,</span>                <span class="c1">// exposition only</span>
-  <span class="n">open</span><span class="o">-</span><span class="n">and</span><span class="o">-</span><span class="n">joining</span><span class="p">,</span>      <span class="c1">// exposition only</span>
-  <span class="n">closed</span><span class="o">-</span><span class="n">and</span><span class="o">-</span><span class="n">joining</span><span class="p">,</span>    <span class="c1">// exposition only</span>
-  <span class="n">unused</span><span class="o">-</span><span class="n">and</span><span class="o">-</span><span class="n">closed</span><span class="p">,</span>     <span class="c1">// exposition only</span>
-  <span class="n">joined</span><span class="p">,</span>                <span class="c1">// exposition only</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">scope</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">unused</span><span class="p">,</span><span class="w">                </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">open</span><span class="p">,</span><span class="w">                  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">closed</span><span class="p">,</span><span class="w">                </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">open</span><span class="o">-</span><span class="k">and</span><span class="o">-</span><span class="n">joining</span><span class="p">,</span><span class="w">      </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">closed</span><span class="o">-</span><span class="k">and</span><span class="o">-</span><span class="n">joining</span><span class="p">,</span><span class="w">    </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">unused</span><span class="o">-</span><span class="k">and</span><span class="o">-</span><span class="n">closed</span><span class="p">,</span><span class="w">     </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">joined</span><span class="p">,</span><span class="w">                </span><span class="c1">// exposition only</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -271,75 +271,75 @@
 </ul>
 <h3>Senderアルゴリズムタグ <code>scope-join-t</code></h3>
 <p><code><a href="simple_counting_scope/join.html">join</a></code>メンバ関数が返す合流Sender動作仕様を記述するため、説明専用の<a href="tag_of_t.html">Senderアルゴリズムタグ型</a><code>scope-join-t</code>を定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">scope</span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">t</span> <span class="p">{};</span>  <span class="c1">// exposition only</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">scope</span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// exposition only</span>
 </code></pre></div>
 </p>
 <p>Senderアルゴリズム動作説明用のクラステンプレート<code><a href="impls-for.html">impls-for</a></code>に対して、下記の特殊化が定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">scope</span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Scope</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>
-    <span class="k">struct</span> <span class="n">state</span> <span class="p">{</span>                          <span class="c1">// exposition only</span>
-      <span class="k">struct</span> <span class="n">rcvr</span><span class="o">-</span><span class="n">t</span> <span class="p">{</span>                       <span class="c1">// exposition only</span>
-        <span class="k">using</span> <span class="n">receiver_concept</span> <span class="o">=</span> <span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">scope</span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="impls-for.html">default-impls</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Scope</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">state</span><span class="w"> </span><span class="p">{</span><span class="w">                          </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="nc">rcvr</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="p">{</span><span class="w">                       </span><span class="c1">// exposition only</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
 
-        <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">;</span>                         <span class="c1">// exposition only</span>
+<span class="w">        </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">;</span><span class="w">                         </span><span class="c1">// exposition only</span>
 
-        <span class="kt">void</span> <span class="nf">set_value</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span> <span class="p">{</span>
-          <span class="n"><a href="set_value.html">execution::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">));</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_value</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n"><a href="set_value.html">execution::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">E</span><span class="o">&gt;</span>
-        <span class="kt">void</span> <span class="n">set_error</span><span class="p">(</span><span class="n">E</span><span class="o">&amp;&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span> <span class="p">{</span>
-          <span class="n"><a href="set_error.html">execution::set_error</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">set_error</span><span class="p">(</span><span class="n">E</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n"><a href="set_error.html">execution::set_error</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="kt">void</span> <span class="n">set_stopped</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span> <span class="p">{</span>
-          <span class="n"><a href="set_stopped.html">execution::set_stopped</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">));</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">set_stopped</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n"><a href="set_stopped.html">execution::set_stopped</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">get_env</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="n"><a href="get_env.html">execution::get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">};</span>
+<span class="w">        </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">get_env</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="get_env.html">execution::get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">};</span>
 
-      <span class="k">using</span> <span class="n">sched</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span>                  <span class="c1">// exposition only</span>
-        <span class="k">decltype</span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">()))));</span>
-      <span class="k">using</span> <span class="n">op</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span>                          <span class="c1">// exposition only</span>
-        <span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span> <span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="w"> </span><span class="o">=</span><span class="w">                  </span><span class="c1">// exposition only</span>
+<span class="w">        </span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">()))));</span>
+<span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="n">op</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w">                          </span><span class="c1">// exposition only</span>
+<span class="w">        </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="p">;</span>
 
-      <span class="n">Scope</span><span class="o">*</span> <span class="n">scope</span><span class="p">;</span>                         <span class="c1">// exposition only</span>
-      <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">receiver</span><span class="p">;</span>                       <span class="c1">// exposition only</span>
-      <span class="n">op</span><span class="o">-</span><span class="n">t</span> <span class="n">op</span><span class="p">;</span>                              <span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n">Scope</span><span class="o">*</span><span class="w"> </span><span class="n">scope</span><span class="p">;</span><span class="w">                         </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">receiver</span><span class="p">;</span><span class="w">                       </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n">op</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">op</span><span class="p">;</span><span class="w">                              </span><span class="c1">// exposition only</span>
 
-      <span class="n">state</span><span class="p">(</span><span class="n">Scope</span><span class="o">*</span> <span class="n">scope</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span>       <span class="c1">// exposition only</span>
-        <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../functional/nothrow-callable.html">nothrow-callable</a></span><span class="o">&lt;</span><span class="n"><a href="connect.html">connect_t</a></span><span class="p">,</span> <span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span> <span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="p">)</span>
-        <span class="o">:</span> <span class="n">scope</span><span class="p">(</span><span class="n">scope</span><span class="p">),</span>
-          <span class="n">receiver</span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span>
-          <span class="n">op</span><span class="p">(</span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n">rcvr</span><span class="p">))),</span> <span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">rcvr</span><span class="p">)))</span> <span class="p">{}</span>
+<span class="w">      </span><span class="n">state</span><span class="p">(</span><span class="n">Scope</span><span class="o">*</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w">       </span><span class="c1">// exposition only</span>
+<span class="w">        </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../functional/nothrow-callable.html">nothrow-callable</a></span><span class="o">&lt;</span><span class="n"><a href="connect.html">connect_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">scope</span><span class="p">(</span><span class="n">scope</span><span class="p">),</span>
+<span class="w">          </span><span class="n">receiver</span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span>
+<span class="w">          </span><span class="n">op</span><span class="p">(</span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n">rcvr</span><span class="p">))),</span><span class="w"> </span><span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">rcvr</span><span class="p">)))</span><span class="w"> </span><span class="p">{}</span>
 
-      <span class="kt">void</span> <span class="n">complete</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>            <span class="c1">// exposition only</span>
-        <span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
-      <span class="p">}</span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">complete</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w">            </span><span class="c1">// exposition only</span>
+<span class="w">        </span><span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
 
-      <span class="kt">void</span> <span class="n">complete</span><span class="o">-</span><span class="kr">inline</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>     <span class="c1">// exposition only</span>
-        <span class="n">set_value</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">receiver</span><span class="p">));</span>
-      <span class="p">}</span>
-    <span class="p">};</span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">complete</span><span class="o">-</span><span class="kr">inline</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w">     </span><span class="c1">// exposition only</span>
+<span class="w">        </span><span class="n">set_value</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">receiver</span><span class="p">));</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
 
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">get</span><span class="o">-</span><span class="n">state</span> <span class="o">=</span>       <span class="c1">// exposition only</span>
-      <span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">sender</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">receiver</span><span class="p">)</span>
-        <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="data-type.html">data-type</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sender</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">auto</span><span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">sender</span><span class="p">;</span>
-        <span class="k">return</span> <span class="nf">state</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">receiver</span><span class="p">);</span>
-      <span class="p">};</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w">       </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">receiver</span><span class="p">)</span>
+<span class="w">        </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="data-type.html">data-type</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sender</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sender</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">state</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">receiver</span><span class="p">);</span>
+<span class="w">      </span><span class="p">};</span>
 
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n"><a href="start.html">start</a></span> <span class="o">=</span>           <span class="c1">// exposition only</span>
-      <span class="p">[](</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">scope</span><span class="o">-&gt;</span><span class="n"><a href="start.html">start</a></span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">sender</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-          <span class="n">s</span><span class="p">.</span><span class="n">complete</span><span class="o">-</span><span class="kr">inline</span><span class="p">();</span>
-      <span class="p">};</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n"><a href="start.html">start</a></span><span class="w"> </span><span class="o">=</span><span class="w">           </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="p">[](</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">scope</span><span class="o">-&gt;</span><span class="n"><a href="start.html">start</a></span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">sender</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="w">          </span><span class="n">s</span><span class="p">.</span><span class="n">complete</span><span class="o">-</span><span class="kr">inline</span><span class="p">();</span>
+<span class="w">      </span><span class="p">};</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -484,7 +484,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

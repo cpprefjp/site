@@ -585,34 +585,34 @@
 </table>
 <h2>例</h2>
 <p>以下に示す例では、標準の乱数ライブラリを用いてランダムデバイスでシードを生成してメルセンヌツイスタエンジンを初期化、単精度浮動小数点数型で区間[-1.0f, 1.0f)の一様分布、および<code>1.0f</code>を中心として標準偏差<code>0.5f</code>の正規分布に基づく擬似乱数を100万個生成し"random.tsv"にタブ区切り形式のファイルとして結果を保存する。</p>
-<p><div class="yata" id="831b2bc82df0e41738ec6fe1745750c8e2aa5842"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="">&lt;random&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="831b2bc82df0e41738ec6fe1745750c8e2aa5842"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="fstream.html">&lt;fstream&gt;</a></span>
+<span class="cp">#include <a href="">&lt;random&gt;</a></span>
+<span class="cp">#include <a href="cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// メルセンヌ・ツイスター法による擬似乱数生成器を、</span>
-  <span class="c1">// ハードウェア乱数をシードにして初期化</span>
-  <span class="n"><a href="random/random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
-  <span class="n"><a href="cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
-  <span class="n"><a href="random/mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// メルセンヌ・ツイスター法による擬似乱数生成器を、</span>
+<span class="w">  </span><span class="c1">// ハードウェア乱数をシードにして初期化</span>
+<span class="w">  </span><span class="n"><a href="random/random_device.html">std::random_device</a></span><span class="w"> </span><span class="n">seed_gen</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seed_gen</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="random/mt19937.html">std::mt19937</a></span><span class="w"> </span><span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
 
-  <span class="c1">// 一様実数分布</span>
-  <span class="c1">// [-1.0f, 1.0f)の値の範囲で、等確率に実数を生成する</span>
-  <span class="n"><a href="random/uniform_real_distribution.html">std::uniform_real_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">dist1</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 一様実数分布</span>
+<span class="w">  </span><span class="c1">// [-1.0f, 1.0f)の値の範囲で、等確率に実数を生成する</span>
+<span class="w">  </span><span class="n"><a href="random/uniform_real_distribution.html">std::uniform_real_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist1</span><span class="p">(</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">);</span>
 
-  <span class="c1">// 正規分布</span>
-  <span class="c1">// 平均1.0f、標準偏差0.5fで分布させる</span>
-  <span class="n"><a href="random/normal_distribution.html">std::normal_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">dist2</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 正規分布</span>
+<span class="w">  </span><span class="c1">// 平均1.0f、標準偏差0.5fで分布させる</span>
+<span class="w">  </span><span class="n"><a href="random/normal_distribution.html">std::normal_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist2</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">);</span>
 
-  <span class="n"><a href="fstream/basic_ofstream.html">std::ofstream</a></span> <span class="n">file</span><span class="p">(</span><span class="s">"random.tsv"</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">*</span><span class="mi">1000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 各分布法に基いて乱数を生成</span>
-    <span class="kt">float</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><a href="random/uniform_real_distribution/op_call.html">dist1(engine)</a></span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">r2</span> <span class="o">=</span> <span class="n"><a href="random/normal_distribution/op_call.html">dist2(engine)</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="fstream/basic_ofstream.html">std::ofstream</a></span><span class="w"> </span><span class="n">file</span><span class="p">(</span><span class="s">"random.tsv"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="o">*</span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 各分布法に基いて乱数を生成</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="random/uniform_real_distribution/op_call.html">dist1(engine)</a></span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="random/normal_distribution/op_call.html">dist2(engine)</a></span><span class="p">;</span>
 
-    <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">r1</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">r2</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -702,7 +702,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

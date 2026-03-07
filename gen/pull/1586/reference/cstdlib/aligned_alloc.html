@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">aligned_alloc</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="kt">void</span><span class="o">*</span> <span class="n">aligned_alloc</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">size_t</a></span> <span class="n">alignment</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">size_t</a></span> <span class="n">size</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">aligned_alloc</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">alignment</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -234,13 +234,13 @@
 <p>確保した領域へのポインタを返す。</p>
 <p>確保できなかった場合、ヌルポインタを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="ef7886282ddea3cf09d6b2561acc20aa7c74d926"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ef7886282ddea3cf09d6b2561acc20aa7c74d926"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdlib.html">&lt;cstdlib&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 8バイトアライメントで、16バイトの領域を確保する</span>
-  <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::aligned_alloc</span></span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 8バイトアライメントで、16バイトの領域を確保する</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::aligned_alloc</span></span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -287,7 +287,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

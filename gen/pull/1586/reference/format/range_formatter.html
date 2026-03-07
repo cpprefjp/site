@@ -213,10 +213,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">range_formatter</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span> <span class="o">=</span> <span class="kt">char</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="formattable.html">formattable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">range_formatter</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="formattable.html">formattable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">range_formatter</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -267,87 +267,87 @@
 </table>
 <h2>例</h2>
 <h3>オリジナル書式を定義する例</h3>
-<p><div class="yata" id="ba43ff747e7dbd9df98ace5e1eb36bb66305ba5e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ba43ff747e7dbd9df98ace5e1eb36bb66305ba5e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../format.html">&lt;format&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">MyVector</span> <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">v_</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyVector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">using</span> <span class="n">base_type</span> <span class="o">=</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">iterator</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">iterator</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">const_iterator</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">const_iterator</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">reference</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">reference</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">const_reference</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">const_reference</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">base_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">base_type</span><span class="o">::</span><span class="n">iterator</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">const_iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">base_type</span><span class="o">::</span><span class="n">const_iterator</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">base_type</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">base_type</span><span class="o">::</span><span class="n">reference</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">const_reference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">base_type</span><span class="o">::</span><span class="n">const_reference</span><span class="p">;</span>
 
-  <span class="n">MyVector</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">MyVector</span><span class="p">(</span><span class="n"><a href="../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">)</span>
-      <span class="o">:</span> <span class="n">v_</span><span class="p">(</span><span class="n">init</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">init</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{}</span>
+<span class="w">  </span><span class="n">MyVector</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">MyVector</span><span class="p">(</span><span class="n"><a href="../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">init</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">v_</span><span class="p">(</span><span class="n">init</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">init</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="n">iterator</span> <span class="n">begin</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v_</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="p">}</span>
-  <span class="n">const_iterator</span> <span class="n">begin</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v_</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="p">}</span>
+<span class="w">  </span><span class="n">iterator</span><span class="w"> </span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">v_</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="n">const_iterator</span><span class="w"> </span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">v_</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="n">iterator</span> <span class="n">end</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v_</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="p">}</span>
-  <span class="n">const_iterator</span> <span class="n">end</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v_</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="p">}</span>
+<span class="w">  </span><span class="n">iterator</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">v_</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="n">const_iterator</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">v_</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 
-  <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">base</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v_</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">base</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">v_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="n">range_format</span> <span class="n">std</span><span class="o">::</span><span class="n">format_kind</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">range_format</span><span class="o">::</span><span class="n">sequence</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">range_format</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format_kind</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">range_format</span><span class="o">::</span><span class="n">sequence</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">std</span><span class="o">::</span><span class="n">formatter</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="kt">bool</span> <span class="n">is_colon</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="k">using</span> <span class="n">base_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">formatter</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_colon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">base_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
 
-  <span class="c1">// コンパイル時の書式文字列の解析があるため、</span>
-  <span class="c1">// constexprにする必要がある。</span>
-  <span class="c1">// この関数に渡されるパラメータは、{:c:02x}のc以降。</span>
-  <span class="c1">// 解析がおわった場所を指すイテレータを返す。</span>
-  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">parse</span><span class="p">(</span><span class="n"><a href="basic_format_parse_context.html">std::format_parse_context</a></span><span class="o">&amp;</span> <span class="n">pctx</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><a href="basic_format_parse_context/begin.html">pctx.begin()</a></span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="sc">'c'</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">is_colon</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-      <span class="o">++</span><span class="n">it</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n"><a href="basic_format_parse_context/advance_to.html">pctx.advance_to</a></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">base_type</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">pctx</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// コンパイル時の書式文字列の解析があるため、</span>
+<span class="w">  </span><span class="c1">// constexprにする必要がある。</span>
+<span class="w">  </span><span class="c1">// この関数に渡されるパラメータは、{:c:02x}のc以降。</span>
+<span class="w">  </span><span class="c1">// 解析がおわった場所を指すイテレータを返す。</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n"><a href="basic_format_parse_context.html">std::format_parse_context</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">pctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="basic_format_parse_context/begin.html">pctx.begin()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'c'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">is_colon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">      </span><span class="o">++</span><span class="n">it</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="basic_format_parse_context/advance_to.html">pctx.advance_to</a></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">base_type</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">pctx</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// format()関数は書式の情報をもたない。</span>
-  <span class="c1">// parse()関数で解析した書式をメンバ変数で保持しておいて、</span>
-  <span class="c1">// それをもとに書式化する</span>
-  <span class="k">auto</span> <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="n"><a href="basic_format_context.html">std::format_context</a></span><span class="o">&amp;</span> <span class="n">fctx</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">is_colon</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">auto</span> <span class="n">out</span> <span class="o">=</span> <span class="n"><a href="basic_format_context/out.html">fctx.out()</a></span><span class="p">;</span>
-      <span class="kt">bool</span> <span class="n">is_first</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-      <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">is_first</span><span class="p">)</span> <span class="p">{</span>
-          <span class="n">is_first</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-          <span class="o">*</span><span class="n">out</span> <span class="o">=</span> <span class="sc">':'</span><span class="p">;</span>
-          <span class="o">++</span><span class="n">out</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n"><a href="basic_format_context/advance_to.html">fctx.advance_to</a></span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="range_formatter/underlying.html">underlying()</a></span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fctx</span><span class="p">);</span>
-      <span class="p">}</span>
-      <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">base_type</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">base</span><span class="p">(),</span> <span class="n">fctx</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// format()関数は書式の情報をもたない。</span>
+<span class="w">  </span><span class="c1">// parse()関数で解析した書式をメンバ変数で保持しておいて、</span>
+<span class="w">  </span><span class="c1">// それをもとに書式化する</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">format</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="basic_format_context.html">std::format_context</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">fctx</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_colon</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">auto</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="basic_format_context/out.html">fctx.out()</a></span><span class="p">;</span>
+<span class="w">      </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_first</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">is_first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="o">*</span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">':'</span><span class="p">;</span>
+<span class="w">          </span><span class="o">++</span><span class="n">out</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n"><a href="basic_format_context/advance_to.html">fctx.advance_to</a></span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
+<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n"><a href="range_formatter/underlying.html">underlying()</a></span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">fctx</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">base_type</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">base</span><span class="p">(),</span><span class="w"> </span><span class="n">fctx</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">MyVector</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">,</span> <span class="mh">0xcc</span><span class="p">,</span> <span class="mh">0xdd</span><span class="p">,</span> <span class="mh">0xee</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">};</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:c:02x}"</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mh">0xaa</span><span class="p">,</span><span class="w"> </span><span class="mh">0xbb</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcc</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdd</span><span class="p">,</span><span class="w"> </span><span class="mh">0xee</span><span class="p">,</span><span class="w"> </span><span class="mh">0xff</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:c:02x}"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -355,40 +355,40 @@
 <p><pre><code>aa:bb:cc:dd:ee:ff
 </code></pre></p>
 <h3>オリジナル書式を定義する例（<code>set_separator</code>と<code>set_brackets</code>を使う場合）</h3>
-<p><div class="yata" id="20275de998df0cf57c429cd8526ec1e0da27e233"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="20275de998df0cf57c429cd8526ec1e0da27e233"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../format.html">&lt;format&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">MyVector</span> <span class="p">:</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">vector</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">MyVector</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">vector</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="n">range_format</span> <span class="n">std</span><span class="o">::</span><span class="n">format_kind</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">range_format</span><span class="o">::</span><span class="n">sequence</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">range_format</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format_kind</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">range_format</span><span class="o">::</span><span class="n">sequence</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">std</span><span class="o">::</span><span class="n">formatter</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">base_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">formatter</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">base_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">parse</span><span class="p">(</span><span class="n"><a href="basic_format_parse_context.html">std::format_parse_context</a></span><span class="o">&amp;</span> <span class="n">pctx</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><a href="basic_format_parse_context/begin.html">pctx.begin()</a></span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="sc">'c'</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">set_separator</span><span class="p">(</span><span class="s">":"</span><span class="p">);</span>  <span class="c1">// 区切り文字を「:」に設定</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">set_brackets</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>  <span class="c1">// 囲み文字を空文字列に設定</span>
-      <span class="o">++</span><span class="n">it</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n"><a href="basic_format_parse_context/advance_to.html">pctx.advance_to</a></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">base_type</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">pctx</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n"><a href="basic_format_parse_context.html">std::format_parse_context</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">pctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="basic_format_parse_context/begin.html">pctx.begin()</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'c'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">set_separator</span><span class="p">(</span><span class="s">":"</span><span class="p">);</span><span class="w">  </span><span class="c1">// 区切り文字を「:」に設定</span>
+<span class="w">      </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">set_brackets</span><span class="p">(</span><span class="s">""</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span><span class="w">  </span><span class="c1">// 囲み文字を空文字列に設定</span>
+<span class="w">      </span><span class="o">++</span><span class="n">it</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="basic_format_parse_context/advance_to.html">pctx.advance_to</a></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">base_type</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">pctx</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<span class="cp">#include <a href="../cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">MyVector</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">,</span> <span class="mh">0xcc</span><span class="p">,</span> <span class="mh">0xdd</span><span class="p">,</span> <span class="mh">0xee</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">};</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:c:02x}"</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mh">0xaa</span><span class="p">,</span><span class="w"> </span><span class="mh">0xbb</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcc</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdd</span><span class="p">,</span><span class="w"> </span><span class="mh">0xee</span><span class="p">,</span><span class="w"> </span><span class="mh">0xff</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:c:02x}"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -437,7 +437,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

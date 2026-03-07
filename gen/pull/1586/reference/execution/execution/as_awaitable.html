@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">as_awaitable</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">as_awaitable_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
-  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">as_awaitable_t</span> <span class="n">as_awaitable</span><span class="p">{};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">as_awaitable_t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">as_awaitable_t</span><span class="w"> </span><span class="n">as_awaitable</span><span class="p">{};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -267,48 +267,48 @@
 </ul>
 <h2>説明専用エンティティ</h2>
 <h3>コンセプト<code>awaitable-sender</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Promise</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span>
-    <span class="n"><a href="single-sender.html">single-sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n"><a href="sender_to.html">sender_to</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="k">typename</span> <span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Promise</span><span class="o">&gt;::</span><span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>  <span class="c1">// <i>see below</i></span>
-    <span class="n">requires</span> <span class="p">(</span><span class="n">Promise</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">{</span> <span class="n">p</span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">()</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle&lt;&gt;</a></span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Promise</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">awaitable</span><span class="o">-</span><span class="n">sender</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n"><a href="single-sender.html">single-sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="n"><a href="sender_to.html">sender_to</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Promise</span><span class="o">&gt;::</span><span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span><span class="c1">// <i>see below</i></span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">Promise</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle&lt;&gt;</a></span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>コンセプト<code>has-queryable-await-completion-adaptor</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">has</span><span class="o">-</span><span class="n">queryable</span><span class="o">-</span><span class="n">await</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">adaptor</span> <span class="o">=</span>  <span class="c1">// exposition only</span>
-    <span class="n"><a href="sender.html">sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span>
-    <span class="o">&amp;&amp;</span> <span class="n">requires</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n"><a href="sender.html">sender</a></span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="sender.html">sender</a></span><span class="p">));</span>
-    <span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">has</span><span class="o">-</span><span class="n">queryable</span><span class="o">-</span><span class="n">await</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">adaptor</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="sender.html">sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="sender.html">sender</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="sender.html">sender</a></span><span class="p">));</span>
+<span class="w">    </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>クラステンプレート<code>sender-awaitable</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Promise</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">sender</span><span class="o">-</span><span class="n">awaitable</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">unit</span> <span class="p">{};</span>                                           <span class="c1">// exposition only</span>
-    <span class="k">using</span> <span class="n">value</span><span class="o">-</span><span class="n">type</span> <span class="o">=</span>                                        <span class="c1">// exposition only</span>
-      <span class="n"><a href="single-sender-value-type.html">single-sender-value-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;&gt;</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">result</span><span class="o">-</span><span class="n">type</span> <span class="o">=</span>                                       <span class="c1">// exposition only</span>
-      <span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/is_void.html">is_void_v</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="p">;</span>                                <span class="c1">// exposition only</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Promise</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">unit</span><span class="w"> </span><span class="p">{};</span><span class="w">                                           </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w">                                        </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n"><a href="single-sender-value-type.html">single-sender-value-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w">                                       </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/is_void.html">is_void_v</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="p">;</span><span class="w">                                </span><span class="c1">// exposition only</span>
 
-    <span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span> <span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="p">,</span> <span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="o">&gt;</span> <span class="n">result</span><span class="p">{};</span>  <span class="c1">// exposition only</span>
-    <span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span> <span class="n">state</span><span class="p">;</span>         <span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">{};</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w">         </span><span class="c1">// exposition only</span>
 
-  <span class="k">public</span><span class="o">:</span>
-    <span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Promise</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">await_ready</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-    <span class="kt">void</span> <span class="nf">await_suspend</span><span class="p">(</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">state</span><span class="p">);</span> <span class="p">}</span>
-    <span class="n">value</span><span class="o">-</span><span class="n">type</span> <span class="n">await_resume</span><span class="p">();</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Promise</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">await_ready</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">await_suspend</span><span class="p">(</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">state</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">await_resume</span><span class="p">();</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -321,11 +321,11 @@
 </ul>
 <h3>クラステンプレート<code>awaitable-receiver</code></h3>
 <p>説明専用のクラステンプレート<code>sender-awaitable&lt;Sndr, Promise&gt;::awaitable-receiver</code>は下記の通り定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">receiver_concept</span> <span class="o">=</span> <span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
-  <span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span> <span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="p">,</span> <span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="o">&gt;*</span> <span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="p">;</span>  <span class="c1">// exposition only</span>
-  <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;</span> <span class="n">continuation</span><span class="p">;</span>                      <span class="c1">// exposition only</span>
-  <span class="c1">// <i>see below</i></span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="o">&gt;*</span><span class="w"> </span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;</span><span class="w"> </span><span class="n">continuation</span><span class="p">;</span><span class="w">                      </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="c1">// <i>see below</i></span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -333,10 +333,10 @@
 <ul>
 <li>
 <p><code><a href="../../concepts/constructible_from.html">constructible_from</a>&lt;result-type, decltype((vs))...&gt;</code>を満たすとき、式<code><a href="set_value.html">set_value</a>(rcvr, vs...)</code>は下記と等価。そうでなければ、式<code>set_value(rcvr, vs...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
-  <span class="n">rcvr</span><span class="p">.</span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vs</span><span class="p">...);</span>
-<span class="p">}</span> <span class="k">catch</span><span class="p">(...)</span> <span class="p">{</span>
-  <span class="n">rcvr</span><span class="p">.</span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../exception/current_exception.html">current_exception()</a></span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">rcvr</span><span class="p">.</span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vs</span><span class="p">...);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">rcvr</span><span class="p">.</span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../exception/current_exception.html">current_exception()</a></span><span class="p">);</span>
 <span class="p">}</span>
 <span class="n">rcvr</span><span class="p">.</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
 </code></pre></div>
@@ -357,33 +357,33 @@
 </li>
 <li>
 <p><code><a href="../forwarding-query.html">forwarding-query</a></code>を満たす型の式<code>tag</code>とパック式<code>as</code>に対して、式<code><a href="get_env.html">get_env</a>(crcvr).query(tag, as...)</code>は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">tag</span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="../../utility/as_const.html">as_const</a></span><span class="p">(</span><span class="n">crcvr</span><span class="p">.</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">)),</span> <span class="n">as</span><span class="p">...)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">tag</span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="../../utility/as_const.html">as_const</a></span><span class="p">(</span><span class="n">crcvr</span><span class="p">.</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">)),</span><span class="w"> </span><span class="n">as</span><span class="p">...)</span>
 </code></pre></div>
 </p>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Promise</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Promise</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <ul>
 <li>
 <p>効果 : <code>state</code>を下記で初期化する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span>
-        <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="p">{</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;::</span><span class="n"><a href="../../coroutine/coroutine_handle/from_promise.html">from_promise</a></span><span class="p">(</span><span class="n">p</span><span class="p">)})</span>
+<span class="w">        </span><span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="p">{</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">result</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;::</span><span class="n"><a href="../../coroutine/coroutine_handle/from_promise.html">from_promise</a></span><span class="p">(</span><span class="n">p</span><span class="p">)})</span>
 </code></pre></div>
 </p>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="n">value</span><span class="o">-</span><span class="n">type</span> <span class="n">await_resume</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">await_resume</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <ul>
 <li>
 <p>効果 : 下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n"><a href="../../variant/variant/index.html">index()</a></span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
-  <span class="n"><a href="../../exception/rethrow_exception.html">rethrow_exception</a></span><span class="p">(</span><span class="n"><a href="../../variant/variant/get.html">get</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
-<span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../type_traits/is_void.html">is_void_v</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../variant/variant/get.html">get</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n"><a href="../../variant/variant/index.html">index()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">  </span><span class="n"><a href="../../exception/rethrow_exception.html">rethrow_exception</a></span><span class="p">(</span><span class="n"><a href="../../variant/variant/get.html">get</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+<span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../type_traits/is_void.html">is_void_v</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../variant/variant/get.html">get</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
 </code></pre></div>
 </p>
 </li>
@@ -434,7 +434,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

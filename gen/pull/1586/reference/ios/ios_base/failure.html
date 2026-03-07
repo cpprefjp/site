@@ -225,21 +225,21 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class ios_base">ios_base::</span><span class="token">failure</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="c1">// C++03 まで</span>
-  <span class="k">class</span> <span class="nc"><a href="../ios_base.html">ios_base</a></span><span class="o">::</span><span class="nl">failure</span> <span class="p">:</span> <span class="k">public</span> <span class="n"><a href="../../exception/exception.html">exception</a></span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">failure</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">string</a></span><span class="o">&amp;</span> <span class="n">msg</span><span class="p">);</span>
-    <span class="k">virtual</span> <span class="o">~</span><span class="n">failure</span><span class="p">();</span>                         <span class="c1">// 備考を参照</span>
-    <span class="k">virtual</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="nf">what</span><span class="p">()</span> <span class="k">const</span> <span class="k">throw</span><span class="p">();</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// C++03 まで</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">failure</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../../exception/exception.html">exception</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">failure</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">failure</span><span class="p">();</span><span class="w">                         </span><span class="c1">// 備考を参照</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">what</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">throw</span><span class="p">();</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// C++11 から</span>
-  <span class="k">class</span> <span class="nc"><a href="../ios_base.html">ios_base</a></span><span class="o">::</span><span class="nl">failure</span> <span class="p">:</span> <span class="k">public</span> <span class="n"><a href="../../system_error/system_error.html">system_error</a></span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">failure</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">string</a></span><span class="o">&amp;</span> <span class="n">msg</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../system_error/error_code.html">error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span> <span class="o">=</span> <span class="n"><a href="../io_errc.html">io_errc</a></span><span class="o">::</span><span class="n">stream</span><span class="p">);</span>
-    <span class="k">explicit</span> <span class="nf">failure</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">msg</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../system_error/error_code.html">error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span> <span class="o">=</span> <span class="n"><a href="../io_errc.html">io_errc</a></span><span class="o">::</span><span class="n">stream</span><span class="p">);</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// C++11 から</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">failure</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../../system_error/system_error.html">system_error</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">failure</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../system_error/error_code.html">error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../io_errc.html">io_errc</a></span><span class="o">::</span><span class="n">stream</span><span class="p">);</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">failure</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../system_error/error_code.html">error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../io_errc.html">io_errc</a></span><span class="o">::</span><span class="n">stream</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -332,7 +332,7 @@ C++11 からは、エラー内容としてメッセージだけではなく、<c
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -213,35 +213,35 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">generate_random</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">G</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../ranges/output_range.html">output_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span> <span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-             <span class="n"><a href="uniform_random_bit_generator.html">uniform_random_bit_generator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
-    <span class="n">generate_random</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">G</span><span class="o">&amp;&amp;</span> <span class="n">g</span><span class="p">);</span>                  <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">G</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../ranges/output_range.html">output_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">             </span><span class="n"><a href="uniform_random_bit_generator.html">uniform_random_bit_generator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">generate_random</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">g</span><span class="p">);</span><span class="w">                  </span><span class="c1">// (1) C++26</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">G</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/output_iterator.html">output_iterator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span> <span class="n">O</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">O</span><span class="o">&gt;</span> <span class="n">S</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="uniform_random_bit_generator.html">uniform_random_bit_generator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;&gt;</span>
-  <span class="k">constexpr</span> <span class="n">O</span>
-    <span class="n">generate_random</span><span class="p">(</span><span class="n">O</span> <span class="n">first</span><span class="p">,</span> <span class="n">S</span> <span class="n">last</span><span class="p">,</span> <span class="n">G</span><span class="o">&amp;&amp;</span> <span class="n">g</span><span class="p">);</span>        <span class="c1">// (2) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">G</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/output_iterator.html">output_iterator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span><span class="w"> </span><span class="n">O</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">O</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="uniform_random_bit_generator.html">uniform_random_bit_generator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">O</span>
+<span class="w">    </span><span class="n">generate_random</span><span class="p">(</span><span class="n">O</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">g</span><span class="p">);</span><span class="w">        </span><span class="c1">// (2) C++26</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">G</span><span class="p">,</span> <span class="k">class</span> <span class="nc">D</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../ranges/output_range.html">output_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span> <span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">G</span><span class="o">&amp;&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-             <span class="n"><a href="../concepts/invocable.html">invocable</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">G</span><span class="o">&amp;&gt;</span> <span class="o">&amp;&amp;</span>
-             <span class="n"><a href="uniform_random_bit_generator.html">uniform_random_bit_generator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
-    <span class="n">generate_random</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">G</span><span class="o">&amp;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="n">D</span><span class="o">&amp;&amp;</span> <span class="n">d</span><span class="p">);</span>           <span class="c1">// (3) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">G</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../ranges/output_range.html">output_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">             </span><span class="n"><a href="../concepts/invocable.html">invocable</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">             </span><span class="n"><a href="uniform_random_bit_generator.html">uniform_random_bit_generator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="n">generate_random</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">           </span><span class="c1">// (3) C++26</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">G</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">D</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/output_iterator.html">output_iterator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">G</span><span class="o">&amp;&gt;&gt;</span> <span class="n">O</span><span class="p">,</span>
-            <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">O</span><span class="o">&gt;</span> <span class="n">S</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../concepts/invocable.html">invocable</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">G</span><span class="o">&amp;&gt;</span> <span class="o">&amp;&amp;</span>
-             <span class="n"><a href="uniform_random_bit_generator.html">uniform_random_bit_generator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;&gt;</span>
-  <span class="k">constexpr</span> <span class="n">O</span>
-    <span class="n">generate_random</span><span class="p">(</span><span class="n">O</span> <span class="n">first</span><span class="p">,</span> <span class="n">S</span> <span class="n">last</span><span class="p">,</span> <span class="n">G</span><span class="o">&amp;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="n">D</span><span class="o">&amp;&amp;</span> <span class="n">d</span><span class="p">);</span> <span class="c1">// (4) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">G</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/output_iterator.html">output_iterator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span><span class="w"> </span><span class="n">O</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">O</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/invocable.html">invocable</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">             </span><span class="n"><a href="uniform_random_bit_generator.html">uniform_random_bit_generator</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">O</span>
+<span class="w">    </span><span class="n">generate_random</span><span class="p">(</span><span class="n">O</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="c1">// (4) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -254,22 +254,22 @@
 <li>(4) : 出力<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>の各要素に、乱数生成器<code>g</code>と分布生成器<code>d</code>で生成した乱数を代入する</li>
 </ul>
 <p>この関数は、<code>for</code>文を使用した以下のコードをアルゴリズム関数化したものである。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="n"><a href="mt19937.html">std::mt19937</a></span> <span class="n">gen</span> <span class="p">{</span><span class="n"><a href="random_device.html">std::random_device</a></span><span class="p">{}()};</span>
-<span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="random_device.html">std::random_device</a></span><span class="p">{}()};</span>
+<span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">};</span>
 
 <span class="c1">// 以下の3つのコードは等価</span>
-<span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">generate_random</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">gen</span><span class="p">);</span>                  <span class="c1">// (1)</span>
-<span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">generate_random</span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n">gen</span><span class="p">);</span> <span class="c1">// (2)</span>
-<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">gen</span><span class="p">();</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">generate_random</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">gen</span><span class="p">);</span><span class="w">                  </span><span class="c1">// (1)</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">generate_random</span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="n">gen</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gen</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="c1">// 以下の3つのコードは等価</span>
-<span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">generate_random</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">dist</span><span class="p">);</span>                  <span class="c1">// (3)</span>
-<span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">generate_random</span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">dist</span><span class="p">);</span> <span class="c1">// (4)</span>
-<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">gen</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">generate_random</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="n">dist</span><span class="p">);</span><span class="w">                  </span><span class="c1">// (3)</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">generate_random</span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="n">dist</span><span class="p">);</span><span class="w"> </span><span class="c1">// (4)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="n">gen</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -295,7 +295,7 @@
 <li>
 <p>(2) : 以下と等価
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf">generate_random</span><span class="p">(</span><span class="n"><a href="../ranges/subrange.html">subrange</a></span><span class="o">&lt;</span><span class="n">O</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">first</span><span class="p">),</span> <span class="n">last</span><span class="p">),</span> <span class="n">g</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">generate_random</span><span class="p">(</span><span class="n"><a href="../ranges/subrange.html">subrange</a></span><span class="o">&lt;</span><span class="n">O</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">first</span><span class="p">),</span><span class="w"> </span><span class="n">last</span><span class="p">),</span><span class="w"> </span><span class="n">g</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
@@ -319,7 +319,7 @@
 <li>
 <p>(4) : 以下と等価
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf">generate_random</span><span class="p">(</span><span class="n"><a href="../ranges/subrange.html">subrange</a></span><span class="o">&lt;</span><span class="n">O</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">first</span><span class="p">),</span> <span class="n">last</span><span class="p">),</span> <span class="n">g</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">generate_random</span><span class="p">(</span><span class="n"><a href="../ranges/subrange.html">subrange</a></span><span class="o">&lt;</span><span class="n">O</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">first</span><span class="p">),</span><span class="w"> </span><span class="n">last</span><span class="p">),</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>
@@ -328,32 +328,32 @@
 <ul>
 <li>(1), (3) :
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf"><a href="../ranges/end.html">ranges::end</a></span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n"><a href="../ranges/end.html">ranges::end</a></span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
 </code></pre></div>
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="500e634fad5131bb62090ebad8963640a668ffe5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="500e634fad5131bb62090ebad8963640a668ffe5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../random.html">&lt;random&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../cstdint.html">&lt;cstdint&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
-  <span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
-  <span class="n"><a href="mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
-  <span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="random_device.html">std::random_device</a></span><span class="w"> </span><span class="n">seed_gen</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seed_gen</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="w"> </span><span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">};</span>
 
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 
-  <span class="c1">// コンテナの全要素を乱数で埋める</span>
-  <span class="n"><span style="color:#ff0000">std::ranges::generate_random</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">engine</span><span class="p">);</span>
-  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// コンテナの全要素を乱数で埋める</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::generate_random</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">engine</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
 
-  <span class="c1">// コンテナの全要素を、指定した分布の乱数で埋める</span>
-  <span class="n"><span style="color:#ff0000">std::ranges::generate_random</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">dist</span><span class="p">);</span>
-  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// コンテナの全要素を、指定した分布の乱数で埋める</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::generate_random</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">engine</span><span class="p">,</span><span class="w"> </span><span class="n">dist</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -393,7 +393,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

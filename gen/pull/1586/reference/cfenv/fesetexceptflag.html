@@ -213,8 +213,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cfenv&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">fesetexceptflag</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">fesetexceptflag</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="fexcept_t.html">fexcept_t</a></span> <span class="o">*</span><span class="n">flagp</span><span class="p">,</span> <span class="kt">int</span> <span class="n">excepts</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">fesetexceptflag</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="fexcept_t.html">fexcept_t</a></span><span class="w"> </span><span class="o">*</span><span class="n">flagp</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">excepts</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -230,28 +230,28 @@
 <li>それ以外の場合、この関数は<code>0</code>以外を返す</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="05c34de98712af93b3a0d3f24d33d881a191ab7f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cfenv.html">&lt;cfenv&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="05c34de98712af93b3a0d3f24d33d881a191ab7f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../cfenv.html">&lt;cfenv&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// ゼロ割りを発生させる</span>
-  <span class="kt">float</span> <span class="n">result</span> <span class="o">=</span> <span class="mf">1.0f</span> <span class="o">/</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ゼロ割りを発生させる</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0f</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
 
-  <span class="c1">// 現在の浮動小数点例外の状態を取得</span>
-  <span class="n">std</span><span class="o">::</span><span class="n"><a href="fexcept_t.html">fexcept_t</a></span> <span class="n">excepts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n"><a href="fegetexceptflag.html">std::fegetexceptflag</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">excepts</span><span class="p">,</span> <span class="n"><a href="fe_all_except.html">FE_ALL_EXCEPT</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 現在の浮動小数点例外の状態を取得</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="fexcept_t.html">fexcept_t</a></span><span class="w"> </span><span class="n">excepts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="fegetexceptflag.html">std::fegetexceptflag</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">excepts</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="fe_all_except.html">FE_ALL_EXCEPT</a></span><span class="p">);</span>
 
-  <span class="kt">int</span> <span class="n">div_by_zero_state</span> <span class="o">=</span> <span class="n"><a href="fetestexcept.html">std::fetestexcept</a></span><span class="p">(</span><span class="n"><a href="fe_divbyzero.html">FE_DIVBYZERO</a></span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">div_by_zero_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="fetestexcept.html">std::fetestexcept</a></span><span class="p">(</span><span class="n"><a href="fe_divbyzero.html">FE_DIVBYZERO</a></span><span class="p">);</span>
 
-  <span class="c1">// 浮動小数点例外の状態を変更する</span>
-  <span class="n"><a href="feclearexcept.html">std::feclearexcept</a></span><span class="p">(</span><span class="n"><a href="fe_all_except.html">FE_ALL_EXCEPT</a></span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="fetestexcept.html">std::fetestexcept</a></span><span class="p">(</span><span class="n"><a href="fe_divbyzero.html">FE_DIVBYZERO</a></span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 浮動小数点例外の状態を変更する</span>
+<span class="w">  </span><span class="n"><a href="feclearexcept.html">std::feclearexcept</a></span><span class="p">(</span><span class="n"><a href="fe_all_except.html">FE_ALL_EXCEPT</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="fetestexcept.html">std::fetestexcept</a></span><span class="p">(</span><span class="n"><a href="fe_divbyzero.html">FE_DIVBYZERO</a></span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 
-  <span class="c1">// 保持しておいた浮動小数点例外の状態のうち、</span>
-  <span class="c1">// ゼロ除算の状態のみを復旧させる</span>
-  <span class="n"><span style="color:#ff0000">std::fesetexceptflag</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">excepts</span><span class="p">,</span> <span class="n"><a href="fe_divbyzero.html">FE_DIVBYZERO</a></span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">div_by_zero_state</span> <span class="o">==</span> <span class="n"><a href="fetestexcept.html">std::fetestexcept</a></span><span class="p">(</span><span class="n"><a href="fe_divbyzero.html">FE_DIVBYZERO</a></span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// 保持しておいた浮動小数点例外の状態のうち、</span>
+<span class="w">  </span><span class="c1">// ゼロ除算の状態のみを復旧させる</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::fesetexceptflag</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">excepts</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="fe_divbyzero.html">FE_DIVBYZERO</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">div_by_zero_state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="fetestexcept.html">std::fetestexcept</a></span><span class="p">(</span><span class="n"><a href="fe_divbyzero.html">FE_DIVBYZERO</a></span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -289,7 +289,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

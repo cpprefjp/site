@@ -225,29 +225,29 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std::this_thread">std::this_thread::</span><span class="token">sync-wait-receiver</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">receiver</span> <span class="p">{</span>      <span class="c1">// exposition only</span>
-    <span class="k">using</span> <span class="n">receiver_concept</span> <span class="o">=</span> <span class="n"><a href="../execution/receiver.html">execution::receiver_t</a></span><span class="p">;</span>
-    <span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;*</span> <span class="n">state</span><span class="p">;</span>  <span class="c1">// exposition only</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">this_thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">receiver</span><span class="w"> </span><span class="p">{</span><span class="w">      </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../execution/receiver.html">execution::receiver_t</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-    <span class="kt">void</span> <span class="n">set_value</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Error</span><span class="o">&gt;</span>
-    <span class="kt">void</span> <span class="n">set_error</span><span class="p">(</span><span class="n">Error</span><span class="o">&amp;&amp;</span> <span class="n">err</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Error</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set_error</span><span class="p">(</span><span class="n">Error</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-    <span class="kt">void</span> <span class="nf">set_stopped</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_stopped</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-    <span class="n"><a href="sync-wait-env.html">sync-wait-env</a></span> <span class="nf">get_env</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="p">{</span><span class="o">&amp;</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">loop</span><span class="p">};</span> <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="n"><a href="sync-wait-env.html">sync-wait-env</a></span><span class="w"> </span><span class="nf">get_env</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">loop</span><span class="p">};</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">state</span> <span class="p">{</span>               <span class="c1">// exposition only</span>
-    <span class="n"><a href="../execution/run_loop.html">execution::run_loop</a></span> <span class="n">loop</span><span class="p">;</span>            <span class="c1">// exposition only</span>
-    <span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span> <span class="n">error</span><span class="p">;</span>                 <span class="c1">// exposition only</span>
-    <span class="n"><a href="sync_wait.html">sync-wait-result-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>  <span class="c1">// exposition only</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">state</span><span class="w"> </span><span class="p">{</span><span class="w">               </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="../execution/run_loop.html">execution::run_loop</a></span><span class="w"> </span><span class="n">loop</span><span class="p">;</span><span class="w">            </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="w"> </span><span class="n">error</span><span class="p">;</span><span class="w">                 </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="sync_wait.html">sync-wait-result-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -255,31 +255,31 @@
 <p><code>sync-wait-receiver</code>および<code>sync-wait-state</code>は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。</p>
 <p>Senderコンシューマ<code><a href="sync_wait.html">sync_wait</a></code>動作において<a href="../execution/sender.html">Sender</a>と<a href="../execution/connect.html">接続(connect)</a>する<a href="../execution/receiver.html">Receiver</a>、同Receiverの内部状態として利用される。</p>
 <h3>メンバ関数 <code>set_value</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">set_value</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>効果 : 下記と等価</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
-  <span class="n">state</span><span class="o">-&gt;</span><span class="n">result</span><span class="p">.</span><span class="n"><a href="../../optional/optional/emplace.html">emplace</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
-  <span class="n">state</span><span class="o">-&gt;</span><span class="n">error</span> <span class="o">=</span> <span class="n"><a href="../../exception/current_exception.html">current_exception()</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">result</span><span class="p">.</span><span class="n"><a href="../../optional/optional/emplace.html">emplace</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../exception/current_exception.html">current_exception()</a></span><span class="p">;</span>
 <span class="p">}</span>
 <span class="n">state</span><span class="o">-&gt;</span><span class="n">loop</span><span class="p">.</span><span class="n"><a href="../execution/run_loop/finish.html">finish()</a></span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h3>メンバ関数 <code>set_error</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Error</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">set_error</span><span class="p">(</span><span class="n">Error</span><span class="o">&amp;&amp;</span> <span class="n">err</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Error</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">set_error</span><span class="p">(</span><span class="n">Error</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span>
 </code></pre></div>
 </p>
 <p>効果 : 下記と等価</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">state</span><span class="o">-&gt;</span><span class="n">error</span> <span class="o">=</span> <span class="n"><a href="../execution/as_awaitable.html">AS-EXCEPT-PTR</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Error</span><span class="o">&gt;</span><span class="p">(</span><span class="n">err</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">state</span><span class="o">-&gt;</span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../execution/as_awaitable.html">AS-EXCEPT-PTR</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Error</span><span class="o">&gt;</span><span class="p">(</span><span class="n">err</span><span class="p">));</span>
 <span class="n">state</span><span class="o">-&gt;</span><span class="n">loop</span><span class="p">.</span><span class="n"><a href="../execution/run_loop/finish.html">finish()</a></span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h3>メンバ関数 <code>set_stopped</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">set_stopped</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">set_stopped</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>効果 : <code>state-&gt;loop.<a href="../execution/run_loop/finish.html">finish()</a></code>と等価。</p>
@@ -314,7 +314,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -219,22 +219,22 @@
 <p></p>
 <h2>概要</h2>
 <p>非静的メンバ変数の定義時に、<code>=</code>演算子もしくは<code>{ }</code>波カッコ初期化子によるコンストラクタ構文で、初期化式を記述できる。</p>
-<p><div class="yata" id="643ac49c3f45d79cfcaa2c705ab837b915fff53b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="643ac49c3f45d79cfcaa2c705ab837b915fff53b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Alice"</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">description</span> <span class="p">{</span> <span class="s">"Hello everyone."</span> <span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"Hello everyone."</span><span class="w"> </span><span class="p">};</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Person</span> <span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">"Alice"</span><span class="p">);</span>
-  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">description</span> <span class="o">==</span> <span class="s">"Hello everyone."</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">description</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Hello everyone."</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -249,19 +249,19 @@
 </li>
 <li>
 <p>コンストラクタのメンバ初期化子で明示的にメンバ変数の初期化が行われた場合、そのメンバ変数に対する非静的メンバ変数の初期化子で指定した初期化処理は実行されない：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">id_</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">data_</span> <span class="o">=</span> <span class="s">"hello"</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">id_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">data_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="c1">// id_は4で初期化され、data_は"hello"で初期化される。</span>
-  <span class="c1">// 「id_ = 3」の初期化式は実行されない</span>
-  <span class="n">X</span><span class="p">()</span> <span class="o">:</span> <span class="n">id_</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// id_は4で初期化され、data_は"hello"で初期化される。</span>
+<span class="w">  </span><span class="c1">// 「id_ = 3」の初期化式は実行されない</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">id_</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="c1">// id_はパラメータidで初期化され、data_は"world"で初期化される。</span>
-  <span class="c1">// 「id_ = 3」の初期化式は実行されない。</span>
-  <span class="c1">// 「data_ = "hello"」の初期化式は実行されない</span>
-  <span class="n">X</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">id_</span><span class="p">(</span><span class="n">id</span><span class="p">),</span> <span class="n">data_</span><span class="p">(</span><span class="s">"world"</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">  </span><span class="c1">// id_はパラメータidで初期化され、data_は"world"で初期化される。</span>
+<span class="w">  </span><span class="c1">// 「id_ = 3」の初期化式は実行されない。</span>
+<span class="w">  </span><span class="c1">// 「data_ = "hello"」の初期化式は実行されない</span>
+<span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">id_</span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="n">data_</span><span class="p">(</span><span class="s">"world"</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -301,7 +301,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

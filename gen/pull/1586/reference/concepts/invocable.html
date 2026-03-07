@@ -213,14 +213,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">concept</div><div class="header">&lt;concepts&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">invocable</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n"><a href="">invocable</a></span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc"><a href="">invocable</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n"><a href="">regular_invocable</a></span> <span class="o">=</span> <span class="n"><a href="">invocable</a></span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc"><a href="">regular_invocable</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="">invocable</a></span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -233,54 +233,54 @@
 <p>例えば、<a href="../random.html">乱数・分布生成器</a>はその呼び出しに際して等しさを保持しない（内部に状態を保ち、出力はそれに依存する）ため、<code>regular_invocable</code>コンセプトのモデルにはならないが<code>invocable</code>コンセプトのモデルとなる。</p>
 <h2>例</h2>
 <h3>invocable</h3>
-<p><div class="yata" id="81c3c2d779bd32dbbddd9ce4daf703e9fb36a189"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="81c3c2d779bd32dbbddd9ce4daf703e9fb36a189"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../concepts.html">&lt;concepts&gt;</a></span>
+<span class="cp">#include <a href="../random.html">&lt;random&gt;</a></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="n">requires</span> <span class="n"><span style="color:#ff0000">std::invocable</span></span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is <a href="">invocable</a>"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">requires</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::invocable</span></span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" is <a href="">invocable</a>"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is not <a href="">invocable</a>"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" is not <a href="">invocable</a>"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
 
-<span class="kt">void</span> <span class="n">func</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
-<span class="k">auto</span> <span class="n">lambda</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">auto</span> <span class="n">mut_lambda</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">](</span><span class="k">auto</span> <span class="n">a</span><span class="p">)</span> <span class="k">mutable</span> <span class="p">{</span> <span class="o">++</span><span class="n">n</span><span class="p">;</span> <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">mut_lambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">](</span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">mutable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="k">struct</span> <span class="n"><a href="">invocable</a></span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">t</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc"><a href="">invocable</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">not_invocable</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">not_invocable</span><span class="w"> </span><span class="p">{};</span>
 
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"func(int)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"lambda(int)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span> <span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"lambda(int*)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="">invocable</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="">invocable</a>(int)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="">invocable</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">***&gt;</span><span class="p">(</span><span class="s">"<a href="">invocable</a>(int***)"</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"func(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"lambda(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"lambda(int*)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="">invocable</a></span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="">invocable</a>(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="">invocable</a></span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">***&gt;</span><span class="p">(</span><span class="s">"<a href="">invocable</a>(int***)"</span><span class="p">);</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
 
-  <span class="c1">// 内部状態を保ち、等しさを保持しない呼び出し可能な型</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">mut_lambda</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"mut_lambda(int)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../random/mt19937.html">std::mt19937</a></span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="../random/mt19937.html">std::mt19937</a>()"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 内部状態を保ち、等しさを保持しない呼び出し可能な型</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">mut_lambda</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"mut_lambda(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../random/mt19937.html">std::mt19937</a></span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="../random/mt19937.html">std::mt19937</a>()"</span><span class="p">);</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
 
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">),</span> <span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"func(int*)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n">not_invocable</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_invocable()"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n">not_invocable</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_invocable(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"func(int*)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n">not_invocable</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_invocable()"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n">not_invocable</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_invocable(int)"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -299,55 +299,55 @@ not_invocable() is not <a href="">invocable</a>
 not_invocable(int) is not <a href="">invocable</a>
 </code></pre></p>
 <h3>regular_invocable</h3>
-<p><div class="yata" id="e74bca145b058a018b4ec76a5063343e4291ce73"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e74bca145b058a018b4ec76a5063343e4291ce73"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../concepts.html">&lt;concepts&gt;</a></span>
+<span class="cp">#include <a href="../random.html">&lt;random&gt;</a></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="n">requires</span> <span class="n"><span style="color:#ff0000">std::regular_invocable</span></span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is <a href="">regular_invocable</a>"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">requires</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::regular_invocable</span></span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" is <a href="">regular_invocable</a>"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is not <a href="">regular_invocable</a>"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" is not <a href="">regular_invocable</a>"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
 
-<span class="kt">void</span> <span class="n">func</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
-<span class="k">auto</span> <span class="n">lambda</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">auto</span> <span class="n">mut_lambda</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">](</span><span class="k">auto</span> <span class="n">a</span><span class="p">)</span> <span class="k">mutable</span> <span class="p">{</span> <span class="o">++</span><span class="n">n</span><span class="p">;</span> <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">mut_lambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">](</span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">mutable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="k">struct</span> <span class="n"><a href="">invocable</a></span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">t</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc"><a href="">invocable</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">not_invocable</span> <span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">not_invocable</span><span class="w"> </span><span class="p">{};</span>
 
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"func(int)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"lambda(int)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span> <span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"lambda(int*)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="">invocable</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="">invocable</a>(int)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="">invocable</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">***&gt;</span><span class="p">(</span><span class="s">"<a href="">invocable</a>(int***)"</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"func(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"lambda(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"lambda(int*)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="">invocable</a></span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="">invocable</a>(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="">invocable</a></span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">***&gt;</span><span class="p">(</span><span class="s">"<a href="">invocable</a>(int***)"</span><span class="p">);</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="c1">// 内部状態を保ち、等しさを保持しない呼び出し可能な型</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">mut_lambda</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"mut_lambda(int)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../random/mt19937.html">std::mt19937</a></span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="../random/mt19937.html">std::mt19937</a>()"</span><span class="p">);</span>
-  <span class="c1">// これらの型は <span style="color:#ff0000">std::regular_invocable</span> コンセプトのモデルではないが</span>
-  <span class="c1">// C++構文上では std::<a href="">invocable</a> との差異を区別しない／できないため</span>
-  <span class="c1">// それぞれ「XXX is <a href="">regular_invocable</a>」と出力される。</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 内部状態を保ち、等しさを保持しない呼び出し可能な型</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">mut_lambda</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"mut_lambda(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../random/mt19937.html">std::mt19937</a></span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="../random/mt19937.html">std::mt19937</a>()"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// これらの型は <span style="color:#ff0000">std::regular_invocable</span> コンセプトのモデルではないが</span>
+<span class="w">  </span><span class="c1">// C++構文上では std::<a href="">invocable</a> との差異を区別しない／できないため</span>
+<span class="w">  </span><span class="c1">// それぞれ「XXX is <a href="">regular_invocable</a>」と出力される。</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">),</span> <span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"func(int*)"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n">not_invocable</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_invocable()"</span><span class="p">);</span>
-  <span class="n">f</span><span class="o">&lt;</span><span class="n">not_invocable</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_invocable(int)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"func(int*)"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n">not_invocable</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_invocable()"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">f</span><span class="o">&lt;</span><span class="n">not_invocable</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_invocable(int)"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -403,7 +403,7 @@ not_invocable(int) is not <a href="">regular_invocable</a>
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

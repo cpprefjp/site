@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class ios_base">ios_base::</span><span class="token">iword</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">long</span><span class="o">&amp;</span> <span class="n">iword</span><span class="p">(</span><span class="kt">int</span> <span class="n">idx</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">long</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">iword</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -244,67 +244,67 @@
 <li>本関数で取得した <code>long</code> 型の記憶域の内容は、<code><a href="../basic_ios.html">basic_ios</a>::<a href="../basic_ios/copyfmt.html">copyfmt</a></code> でコピーされる。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="b37c3b591d4593fdc342cb3bf08abf193c5cf2ff"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b37c3b591d4593fdc342cb3bf08abf193c5cf2ff"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
 
 <span class="c1">// 任意の基数で出力可能な unsigned 型</span>
-<span class="k">struct</span> <span class="n">MyUnsigned</span> <span class="p">{</span>
-  <span class="kt">unsigned</span> <span class="n">value</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">MyUnsigned</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// 基数を指定するためのマニピュレータ</span>
-<span class="k">struct</span> <span class="n">setradix</span> <span class="p">{</span>
-  <span class="k">explicit</span> <span class="n">setradix</span><span class="p">(</span><span class="kt">int</span> <span class="n">radix</span><span class="p">)</span> <span class="o">:</span> <span class="n">radix</span><span class="p">(</span><span class="n">radix</span><span class="p">)</span> <span class="p">{}</span>
-  <span class="k">friend</span> <span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">MyUnsigned</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>
-  <span class="k">friend</span> <span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">setradix</span><span class="o">&amp;</span> <span class="n">manip</span><span class="p">);</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">setradix</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">setradix</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">radix</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">radix</span><span class="p">(</span><span class="n">radix</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">MyUnsigned</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">setradix</span><span class="o">&amp;</span><span class="w"> </span><span class="n">manip</span><span class="p">);</span>
 <span class="k">private</span><span class="o">:</span>
-  <span class="kt">int</span> <span class="n">radix</span><span class="p">;</span>
-  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">index</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">radix</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// 記憶域用の添え字を取得</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">setradix</span><span class="o">::</span><span class="n">index</span> <span class="o">=</span> <span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="xalloc.html">xalloc</a></span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">setradix</span><span class="o">::</span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><a href="xalloc.html">xalloc</a></span><span class="p">();</span>
 
 <span class="c1">// MyUnsigned 用の出力演算子</span>
-<span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">MyUnsigned</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">MyUnsigned</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="kt">long</span> <span class="n">radix</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n"><span style="color:#ff0000">iword</span></span><span class="p">(</span><span class="n">setradix</span><span class="o">::</span><span class="n">index</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">radix</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">radix</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">radix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="n"><span style="color:#ff0000">iword</span></span><span class="p">(</span><span class="n">setradix</span><span class="o">::</span><span class="n">index</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">radix</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">radix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
-  <span class="kt">unsigned</span> <span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
-  <span class="k">do</span> <span class="p">{</span>
-    <span class="n">s</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/insert.html">insert</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="sc">'0'</span> <span class="o">+</span> <span class="n">n</span> <span class="o">%</span> <span class="n">radix</span><span class="p">);</span>
-    <span class="n">n</span> <span class="o">/=</span> <span class="n">radix</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/insert.html">insert</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'0'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">radix</span><span class="p">);</span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">radix</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 
-  <span class="k">return</span> <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// マニピュレータ用の出力演算子</span>
-<span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">setradix</span><span class="o">&amp;</span> <span class="n">manip</span><span class="p">)</span>
+<span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">setradix</span><span class="o">&amp;</span><span class="w"> </span><span class="n">manip</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="kt">long</span><span class="o">&amp;</span> <span class="n">radix</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n"><span style="color:#ff0000">iword</span></span><span class="p">(</span><span class="n">setradix</span><span class="o">::</span><span class="n">index</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">os</span><span class="p">.</span><span class="n"><a href="../basic_ios/bad.html">bad()</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">radix</span> <span class="o">=</span> <span class="n">manip</span><span class="p">.</span><span class="n">radix</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">long</span><span class="o">&amp;</span><span class="w"> </span><span class="n">radix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="n"><span style="color:#ff0000">iword</span></span><span class="p">(</span><span class="n">setradix</span><span class="o">::</span><span class="n">index</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">os</span><span class="p">.</span><span class="n"><a href="../basic_ios/bad.html">bad()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">radix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">manip</span><span class="p">.</span><span class="n">radix</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">MyUnsigned</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">};</span>
+<span class="w">  </span><span class="n">MyUnsigned</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>                      <span class="c1">// 10 進数として普通に出力</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">setradix</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>       <span class="c1">// 7 進数として出力</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w">                      </span><span class="c1">// 10 進数として普通に出力</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setradix</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w">       </span><span class="c1">// 7 進数として出力</span>
 
-  <span class="n"><a href="../../sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">ss</span><span class="p">;</span>
-  <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">setradix</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>                                <span class="c1">// ss に基数 3 を設定</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../basic_ios/copyfmt.html">copyfmt</a></span><span class="p">(</span><span class="n">ss</span><span class="p">);</span>                            <span class="c1">// ss から <a href="../../iostream/cout.html">std::cout</a> にフォーマットをコピー</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>                      <span class="c1">// 3 進数として出力</span>
+<span class="w">  </span><span class="n"><a href="../../sstream/basic_stringstream.html">std::stringstream</a></span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setradix</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">                                </span><span class="c1">// ss に基数 3 を設定</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../basic_ios/copyfmt.html">copyfmt</a></span><span class="p">(</span><span class="n">ss</span><span class="p">);</span><span class="w">                            </span><span class="c1">// ss から <a href="../../iostream/cout.html">std::cout</a> にフォーマットをコピー</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w">                      </span><span class="c1">// 3 進数として出力</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -336,7 +336,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

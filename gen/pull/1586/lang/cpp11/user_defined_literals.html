@@ -225,12 +225,12 @@
 <li>型 : <code>"hello"s</code>とすることで<code><a href="../../reference/string/basic_string.html">std::string</a></code>型の文字列リテラル、<code>1.2i</code>とすることで<code><a href="../../reference/complex/complex.html">std::complex&lt;double&gt;</a></code>型のリテラルとするなど</li>
 </ul>
 <p><a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルは、<code>operator"" サフィックス名</code>の演算子を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>する。<code>""</code>とサフィックス名の間にスペースが必要なので注意（C++14 では空白は必須では無くなった。<a href="../cpp14/no_whitespace_literal_operators.html">リテラル演算子のスペースを省略可能とする</a>参照）。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="s">""</span> <span class="n">s</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="s">"hello"</span><span class="n">s</span><span class="p">;</span> <span class="c1">// xの型は<a href="../../reference/string/basic_string.html">std::string</a></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">// xの型は<a href="../../reference/string/basic_string.html">std::string</a></span>
 </code></pre></div>
 </p>
 <p><code>operator"" サフィックス名</code>は、「リテラル演算子 (literal operator)」という。</p>
@@ -250,18 +250,18 @@
 </li>
 <li>
 <p>リテラル演算子のサフィックス名として、ユニバーサルキャラクタ名を使用することができる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">literals</span> <span class="p">{</span>
-  <span class="c1">// _ + ギリシャ文字の小文字の pi</span>
-  <span class="kt">float</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_</span><span class="err">\</span><span class="n">u03C0</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">count</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="mf">3.141592f</span> <span class="o">*</span> <span class="n">count</span><span class="p">;</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">literals</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// _ + ギリシャ文字の小文字の pi</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_\u03C0</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">count</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">3.141592f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">literals</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">literals</span><span class="p">;</span>
 
-<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="n">_</span><span class="err">\</span><span class="n">u03C0</span><span class="p">;</span> <span class="c1">// OK</span>
-<span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="n">_π</span><span class="p">;</span>     <span class="c1">// OK（ただし、π がソースファイル文字として許されている場合のみ）</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">_\u03C0</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">_π</span><span class="p">;</span><span class="w">     </span><span class="c1">// OK（ただし、π がソースファイル文字として許されている場合のみ）</span>
 </code></pre></div>
 </p>
 </li>
@@ -279,7 +279,7 @@
 <li>
 <p><code>unsigned long long</code> 型のパラメータをひとつだけ持つリテラル演算子<br />
 <br />
-<div class="codehilite"><pre><span></span><code><span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="err">整数リテラル</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">整数リテラル</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>ここで、<code>整数リテラル</code> には<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルのサフィックス名を削除した部分が <code>unsigned long long</code> 型で渡される。</p>
@@ -287,7 +287,7 @@
 <li>
 <p><code>const char*</code> 型のパラメータをひとつだけ持つリテラル演算子<br />
 <br />
-<div class="codehilite"><pre><span></span><code><span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="err">整数リテラル</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">整数リテラル</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>ここで、<code>整数リテラル</code> には<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルのサフィックス名を削除した部分が <code>const char*</code> 型（<code>'\0'</code> で終端された C 文字列）で渡される。</p>
@@ -295,8 +295,8 @@
 <li>
 <p><code>char</code> 型のテンプレートパラメータパックを一つだけ持ち、パラメータの無いリテラル演算子テンプレート<br />
 <br />
-<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">char</span><span class="p">...</span> <span class="err">整数リテラル</span><span class="o">&gt;</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">();</span>
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">char</span><span class="p">...</span><span class="w"> </span><span class="n">整数リテラル</span><span class="o">&gt;</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <p>ここで、<code>整数リテラル</code> には<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルのサフィックス名を削除した部分の各文字が <code>char</code> 型のテンプレートパラメータパックで渡される。</p>
@@ -306,43 +306,43 @@
 1 は引数が <code>unsigned long long</code> であるため、リテラル部分が <code>unsigned long long</code> を超えたユーザリテラルを使用する事はできないが、2 と 3 の形式の場合はリテラル部分が文字列として引き渡されるため、<code>unsigned long long</code> の範囲を超えた<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルを使用する事が可能となる。<br />
 なお、1 は整数リテラルにしか使用する事ができないが、2 と 3 は浮動小数点リテラルに対しても使用する事ができてしまうため、注意が必要である。<br />
 （引数として渡された文字列が整数リテラルであるという仮定をしないでリテラル演算子を定義したほうが良いだろう）</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">unit_literals</span> <span class="p">{</span>
-  <span class="c1">// intの大きさを持ち、km (kiro-meter, キロメートル)単位を表すリテラル演算子</span>
-  <span class="c1">// 上記 1 のバージョン</span>
-  <span class="kt">int</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_kmi</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">unit_literals</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// intの大きさを持ち、km (kiro-meter, キロメートル)単位を表すリテラル演算子</span>
+<span class="w">  </span><span class="c1">// 上記 1 のバージョン</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_kmi</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 上記 2 のバージョン</span>
-  <span class="kt">int</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_kmj</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">strtoull</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 上記 2 のバージョン</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_kmj</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">strtoull</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 上記 3 のバージョン</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">...</span> <span class="n">S</span><span class="o">&gt;</span>
-  <span class="kt">int</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_kmk</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">using</span> <span class="n">CSTR</span> <span class="o">=</span> <span class="k">const</span> <span class="kt">char</span><span class="p">[];</span>
-    <span class="k">return</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_kmj</span><span class="p">(</span><span class="n">CSTR</span><span class="p">{</span> <span class="n">S</span><span class="p">...,</span> <span class="sc">'\0'</span> <span class="p">});</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 上記 3 のバージョン</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">...</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_kmk</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">CSTR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="p">[];</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_kmj</span><span class="p">(</span><span class="n">CSTR</span><span class="p">{</span><span class="w"> </span><span class="n">S</span><span class="p">...,</span><span class="w"> </span><span class="sc">'\0'</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">unit_literals</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">unit_literals</span><span class="p">;</span>
 
 <span class="c1">// 123km (123,000m)</span>
-<span class="kt">int</span> <span class="n">distance1</span> <span class="o">=</span> <span class="mi">123</span><span class="n">_kmi</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">distance1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="n">_kmi</span><span class="p">;</span>
 <span class="c1">// 456km (456,000m)</span>
-<span class="kt">int</span> <span class="n">distance2</span> <span class="o">=</span> <span class="mi">456</span><span class="n">_kmj</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">distance2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">456</span><span class="n">_kmj</span><span class="p">;</span>
 <span class="c1">// 789km (789,000m)</span>
-<span class="kt">int</span> <span class="n">distance3</span> <span class="o">=</span> <span class="mi">789</span><span class="n">_kmk</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">distance3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">789</span><span class="n">_kmk</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>整数リテラルの前にマイナス記号（<code>-</code>）を付けて記述した場合でも、リテラル演算子には正数部分のみが渡される（通常の数値と同様、マイナス記号はリテラルの一部とはみなされない）。<br />
 マイナス記号は、リテラル演算子によって返された値に対して単項マイナス演算子として適用される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// _kmiリテラル演算子に渡されるのは整数値123LL</span>
-<span class="kt">int</span> <span class="n">minus_distance</span> <span class="o">=</span> <span class="o">-</span><span class="mi">123</span><span class="n">_kmi</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">minus_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-123</span><span class="n">_kmi</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h3>浮動小数点数に対するリテラル演算子</h3>
@@ -351,7 +351,7 @@
 <li>
 <p><code>long double</code> 型のパラメータをひとつだけ持つリテラル演算子<br />
 <br />
-<div class="codehilite"><pre><span></span><code><span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="err">浮動小数点リテラル</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">浮動小数点リテラル</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>ここで、<code>浮動小数点リテラル</code> には<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルのサフィックス名を削除した部分が <code>long double</code> 型で渡される。</p>
@@ -359,7 +359,7 @@
 <li>
 <p><code>const char*</code> 型のパラメータをひとつだけ持つリテラル演算子<br />
 <br />
-<div class="codehilite"><pre><span></span><code><span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="err">浮動小数点リテラル</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">浮動小数点リテラル</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>ここで、<code>浮動小数点リテラル</code> には<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルのサフィックス名を削除した部分が <code>const char*</code> 型（<code>'\0'</code> で終端された C 文字列）で渡される。</p>
@@ -367,8 +367,8 @@
 <li>
 <p><code>char</code> 型のテンプレートパラメータパックを一つだけ持ち、パラメータの無いリテラル演算子テンプレート<br />
 <br />
-<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">char</span><span class="p">...</span> <span class="err">浮動小数点リテラル</span><span class="o">&gt;</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">();</span>
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">char</span><span class="p">...</span><span class="w"> </span><span class="n">浮動小数点リテラル</span><span class="o">&gt;</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <p>ここで、<code>浮動小数点リテラル</code> には<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルのサフィックス名を削除した部分の各文字が <code>char</code> 型のテンプレートパラメータパックで渡される。</p>
@@ -378,87 +378,87 @@
 1 は引数が <code>long double</code> であるため、リテラル部分が <code>long double</code> を超えたユーザリテラルを使用する事はできないが、2 と 3 の形式の場合はリテラル部分が文字列として引き渡されるため、<code>long double</code> の範囲を超えた<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルを使用する事が可能となる。<br />
 なお、1 は浮動小数点リテラルにしか使用する事ができないが、2 と 3 は整数リテラルに対しても使用する事ができてしまうため、注意が必要である。<br />
 （引数として渡された文字列が浮動小数点リテラルであるという仮定をしないでリテラル演算子を定義したほうが良いだろう）</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">unit_literals</span> <span class="p">{</span>
-  <span class="c1">// floatの大きさを持ち、km (kiro-meter, キロメートル)単位を表すリテラル演算子</span>
-  <span class="c1">// 上記 1 のバージョン</span>
-  <span class="kt">float</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_kmf</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mf">1000.0f</span><span class="p">;</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">unit_literals</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// floatの大きさを持ち、km (kiro-meter, キロメートル)単位を表すリテラル演算子</span>
+<span class="w">  </span><span class="c1">// 上記 1 のバージョン</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_kmf</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000.0f</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 上記 2 のバージョン</span>
-  <span class="kt">float</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_kmg</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><a href="../../reference/string/stold.html">std::stold</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0f</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 上記 2 のバージョン</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_kmg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/string/stold.html">std::stold</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000.0f</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 上記 3 のバージョン</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">...</span> <span class="n">S</span><span class="o">&gt;</span>
-  <span class="kt">float</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_kmh</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">using</span> <span class="n">CSTR</span> <span class="o">=</span> <span class="k">const</span> <span class="kt">char</span><span class="p">[];</span>
-    <span class="k">return</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_kmg</span><span class="p">(</span><span class="n">CSTR</span><span class="p">{</span> <span class="n">S</span><span class="p">...,</span> <span class="sc">'\0'</span> <span class="p">});</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 上記 3 のバージョン</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">...</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_kmh</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">CSTR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="p">[];</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_kmg</span><span class="p">(</span><span class="n">CSTR</span><span class="p">{</span><span class="w"> </span><span class="n">S</span><span class="p">...,</span><span class="w"> </span><span class="sc">'\0'</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">unit_literals</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">unit_literals</span><span class="p">;</span>
 
 <span class="c1">// 123km (123,000m)</span>
-<span class="kt">float</span> <span class="n">distance1</span> <span class="o">=</span> <span class="mf">123.0</span><span class="n">_kmf</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">distance1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">123.0</span><span class="n">_kmf</span><span class="p">;</span>
 <span class="c1">// 456km (456,000m)</span>
-<span class="kt">float</span> <span class="n">distance2</span> <span class="o">=</span> <span class="mf">456.0</span><span class="n">_kmg</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">distance2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">456.0</span><span class="n">_kmg</span><span class="p">;</span>
 <span class="c1">// 789km (789,000m)</span>
-<span class="kt">float</span> <span class="n">distance3</span> <span class="o">=</span> <span class="mf">789.0</span><span class="n">_kmh</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">distance3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">789.0</span><span class="n">_kmh</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>浮動小数点リテラルの前にマイナス記号（<code>-</code>）を付けて記述した場合でも、リテラル演算子には正数部分のみが渡される（通常の数値と同様、マイナス記号はリテラルの一部とはみなされない）。<br />
 マイナス記号は、リテラル演算子によって返された値に対して単項マイナス演算子として適用される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// _kmfリテラル演算子に渡されるのは浮動小数点数の値123.0L</span>
-<span class="kt">float</span> <span class="n">minus_distance</span> <span class="o">=</span> <span class="o">-</span><span class="mf">123.0</span><span class="n">_kmf</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">minus_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-123.0</span><span class="n">_kmf</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h3>文字列に対するリテラル演算子</h3>
 <p>文字列に対するリテラル演算子は、文字列リテラルの型によって以下のいずれかとなる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 通常の文字列リテラルの場合</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="err">文字列リテラル</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="err">文字列リテラル長</span><span class="p">);</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">文字列リテラル</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">文字列リテラル長</span><span class="p">);</span>
 
 <span class="c1">// ワイド文字列リテラルの場合</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="k">const</span> <span class="kt">wchar_t</span><span class="o">*</span> <span class="err">文字列リテラル</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="err">文字列リテラル長</span><span class="p">);</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">wchar_t</span><span class="o">*</span><span class="w"> </span><span class="n">文字列リテラル</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">文字列リテラル長</span><span class="p">);</span>
 
 <span class="c1">// char16_t 文字列リテラルの場合</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="k">const</span> <span class="kt">char16_t</span><span class="o">*</span> <span class="err">文字列リテラル</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="err">文字列リテラル長</span><span class="p">);</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char16_t</span><span class="o">*</span><span class="w"> </span><span class="n">文字列リテラル</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">文字列リテラル長</span><span class="p">);</span>
 
 <span class="c1">// char32_t 文字列リテラルの場合</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="k">const</span> <span class="kt">char32_t</span><span class="o">*</span> <span class="err">文字列リテラル</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="err">文字列リテラル長</span><span class="p">);</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char32_t</span><span class="o">*</span><span class="w"> </span><span class="n">文字列リテラル</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">文字列リテラル長</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>ここで、<code>文字列リテラル</code> には<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルのサフィックス名を削除した文字列部分の先頭を指すポインタが、<code>文字列リテラル長</code> には当該文字列の長さが渡される。<br />
 なお、<code>文字列リテラル長</code> には終端文字（ヌル文字）は含まれない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">literals</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span> <span class="k">operator</span><span class="s">""</span> <span class="n">_s</span><span class="p">(</span><span class="k">const</span> <span class="kt">char32_t</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">literals</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_s</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char32_t</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">literals</span><span class="p">;</span>
-<span class="k">auto</span> <span class="n">str</span> <span class="o">=</span> <span class="n">UR</span><span class="s">"(こんにちは"</span><span class="err">世界</span><span class="s">")"</span><span class="n">_s</span><span class="p">;</span>
-<span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/string/basic_string/size.html">str.size()</a></span> <span class="o">==</span> <span class="mi">9</span><span class="p">);</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">literals</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">UR</span><span class="s">"</span><span class="dl">(</span><span class="s">こんにちは"世界"</span><span class="dl">)</span><span class="s">"</span><span class="n">_s</span><span class="p">;</span>
+<span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/string/basic_string/size.html">str.size()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h3>文字に対するリテラル演算子</h3>
 <p>文字に対するリテラル演算子は、文字リテラルの型によって以下のいずれかとなる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 通常の文字リテラルの場合</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="kt">char</span> <span class="err">文字リテラル</span><span class="p">);</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">文字リテラル</span><span class="p">);</span>
 
 <span class="c1">// ワイド文字リテラルの場合</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="kt">wchar_t</span> <span class="err">文字リテラル</span><span class="p">);</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="kt">wchar_t</span><span class="w"> </span><span class="n">文字リテラル</span><span class="p">);</span>
 
 <span class="c1">// char16_t 文字リテラルの場合</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="kt">char16_t</span> <span class="err">文字リテラル</span><span class="p">);</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="kt">char16_t</span><span class="w"> </span><span class="n">文字リテラル</span><span class="p">);</span>
 
 <span class="c1">// char32_t 文字リテラルの場合</span>
-<span class="err">戻り値型</span> <span class="k">operator</span><span class="s">""</span> <span class="err">サフィックス名</span><span class="p">(</span><span class="kt">char32_t</span> <span class="err">文字リテラル</span><span class="p">);</span>
+<span class="n">戻り値型</span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">サフィックス名</span><span class="p">(</span><span class="kt">char32_t</span><span class="w"> </span><span class="n">文字リテラル</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h3><a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>文字列リテラルの結合</h3>
@@ -466,24 +466,24 @@
 結合は、サフィックス名を無視して通常の文字列リテラルとして行われ、リテラル演算子は結合後の文字列に対して呼び出される。<br />
 なお、結合前の各<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>文字列リテラルのサフィックス名は一致していなければならない。<br />
 しかし、ユーザ定義文字列リテラルと通常の文字列リテラルは結合可能である。その場合、結合後の文字列リテラルはユーザ定義文字列リテラルとなる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="s">""</span> <span class="n">_s</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">l</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_s</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span> <span class="n">s</span><span class="p">,</span> <span class="n">l</span> <span class="p">};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span> <span class="k">operator</span><span class="s">""</span> <span class="n">_t</span><span class="p">(</span><span class="k">const</span> <span class="kt">char32_t</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">l</span><span class="p">)</span>
+<span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_t</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char32_t</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span> <span class="n">s</span><span class="p">,</span> <span class="n">l</span> <span class="p">};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="k">auto</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"hello, "</span><span class="n">_s</span> <span class="s">"world"</span><span class="n">_s</span><span class="p">;</span>            <span class="c1">// operator"" _s は いずれのケースでも</span>
-<span class="k">auto</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"hello, "</span><span class="n">_s</span> <span class="s">"world"</span>  <span class="p">;</span>            <span class="c1">// "hello, world" に対して</span>
-<span class="k">auto</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"hello, "</span>   <span class="s">"world"</span><span class="n">_s</span><span class="p">;</span>            <span class="c1">// 1 度だけ呼び出される。</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello, "</span><span class="n">_s</span><span class="w"> </span><span class="s">"world"</span><span class="n">_s</span><span class="p">;</span><span class="w">            </span><span class="c1">// operator"" _s は いずれのケースでも</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello, "</span><span class="n">_s</span><span class="w"> </span><span class="s">"world"</span><span class="w">  </span><span class="p">;</span><span class="w">            </span><span class="c1">// "hello, world" に対して</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello, "</span><span class="w">   </span><span class="s">"world"</span><span class="n">_s</span><span class="p">;</span><span class="w">            </span><span class="c1">// 1 度だけ呼び出される。</span>
 
-<span class="k">auto</span> <span class="n">t1</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"Bjarne "</span><span class="n">_t</span> <span class="sa">U</span><span class="s">"Stroustrup"</span><span class="n">_t</span><span class="p">;</span>     <span class="c1">// operator"" _t はいずれのケースでも</span>
-<span class="k">auto</span> <span class="n">t2</span> <span class="o">=</span>  <span class="s">"Bjarne "</span><span class="n">_t</span> <span class="sa">U</span><span class="s">"Stroustrup"</span>  <span class="p">;</span>     <span class="c1">// U"Bjarne Stroustrup" に対して</span>
-<span class="k">auto</span> <span class="n">t3</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"Bjarne "</span><span class="n">_t</span>  <span class="s">"Stroustrup"</span>  <span class="p">;</span>     <span class="c1">// 1 度だけ呼び出される。</span>
-<span class="k">auto</span> <span class="n">t4</span> <span class="o">=</span>  <span class="s">"Bjarne "</span>   <span class="sa">U</span><span class="s">"Stroustrup"</span><span class="n">_t</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"Bjarne "</span><span class="n">_t</span><span class="w"> </span><span class="sa">U</span><span class="s">"Stroustrup"</span><span class="n">_t</span><span class="p">;</span><span class="w">     </span><span class="c1">// operator"" _t はいずれのケースでも</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">"Bjarne "</span><span class="n">_t</span><span class="w"> </span><span class="sa">U</span><span class="s">"Stroustrup"</span><span class="w">  </span><span class="p">;</span><span class="w">     </span><span class="c1">// U"Bjarne Stroustrup" に対して</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"Bjarne "</span><span class="n">_t</span><span class="w">  </span><span class="s">"Stroustrup"</span><span class="w">  </span><span class="p">;</span><span class="w">     </span><span class="c1">// 1 度だけ呼び出される。</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">"Bjarne "</span><span class="w">   </span><span class="sa">U</span><span class="s">"Stroustrup"</span><span class="n">_t</span><span class="p">;</span>
 
 <span class="c1">//auto u = "hello, "_s "Bjarne"_t;          // サフィックス名が異なるためエラー</span>
 </code></pre></div>
@@ -493,23 +493,23 @@
 このため、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルを定義する場合、サフィックス名はアンダースコア <code>_</code> で始める必要がある。<br />
 なお、アンダースコア＋大文字で始まる識別子、および、連続した 2 つ以上のアンダースコアを含む識別子は、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>リテラルのサフィックス名に限らず標準C++の規約で予約されているため、注意が必要である。  </p>
 <h2>例</h2>
-<p><div class="yata" id="1e66c340858c6c2d3e188650ab36631db2644312"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1e66c340858c6c2d3e188650ab36631db2644312"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">my_namespace</span> <span class="p">{</span>
-<span class="kr">inline</span> <span class="k">namespace</span> <span class="n">literals</span> <span class="p">{</span>
-  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="s">""</span> <span class="n">_s</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">my_namespace</span><span class="w"> </span><span class="p">{</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">literals</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="k">operator</span><span class="s">""</span><span class="w"> </span><span class="n">_s</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">my_namespace</span><span class="o">::</span><span class="n">literals</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">my_namespace</span><span class="o">::</span><span class="nn">literals</span><span class="p">;</span>
 
-  <span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="s">"hello"</span><span class="n">_s</span><span class="p">;</span> <span class="c1">// xの型は<a href="../../reference/string/basic_string.html">std::string</a></span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="n">_s</span><span class="p">;</span><span class="w"> </span><span class="c1">// xの型は<a href="../../reference/string/basic_string.html">std::string</a></span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -527,12 +527,12 @@
 <h2>検討されたほかの選択肢</h2>
 <p><a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>に対するリテラルのサポートをする方法は、いくつか段階的に提案された。</p>
 <p>まず、リテラルのための特殊なコンストラクタを用意する案：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">DecimalFloat</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DecimalFloat</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">DecimalFloat</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">literalString</span><span class="p">,</span> <span class="kt">double</span> <span class="s">"df"</span><span class="p">,</span> <span class="s">"DF"</span><span class="p">)</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span>
+<span class="w">  </span><span class="n">DecimalFloat</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">literalString</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="s">"df"</span><span class="p">,</span><span class="w"> </span><span class="s">"DF"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n">DecimalFloat</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">12.34</span><span class="n">df</span><span class="p">;</span>
+<span class="n">DecimalFloat</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.34</span><span class="n">df</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>この案では、先頭のパラメータ<code>literalString</code>に<code>12.34</code>のようなリテラルの値が文字列として代入され、リテラルに入力される文字を<code>double</code>に属する値に限定し、サフィックスとして使用できる文字列として<code>"df"</code>と<code>"DF"</code>を許可する、というような形式となっていた。</p>
@@ -580,7 +580,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

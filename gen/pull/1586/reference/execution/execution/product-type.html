@@ -225,19 +225,19 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">product-type</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T0</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="p">...,</span> <span class="k">class</span> <span class="nc">Tn</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">product</span><span class="o">-</span><span class="n">type</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
-  <span class="n">T0</span> <span class="n">t0</span><span class="p">;</span>  <span class="c1">// exposition only</span>
-  <span class="n">T1</span> <span class="n">t1</span><span class="p">;</span>  <span class="c1">// exposition only</span>
-  <span class="c1">// ...</span>
-  <span class="n">Tn</span> <span class="n">tn</span><span class="p">;</span>  <span class="c1">// exposition only</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T0</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tn</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">product</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">T0</span><span class="w"> </span><span class="n">t0</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">T1</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="n">Tn</span><span class="w"> </span><span class="n">tn</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Self</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">get</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">this Self</span></span><span class="o">&amp;&amp;</span> <span class="n">self</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Self</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">this Self</span></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Self</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Fn</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">apply</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">this Self</span></span><span class="o">&amp;&amp;</span> <span class="n">self</span><span class="p">,</span> <span class="n">Fn</span><span class="o">&amp;&amp;</span> <span class="n">fn</span><span class="p">)</span> <span class="c1">// exposition only</span>
-    <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Self</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">apply</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">this Self</span></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -245,29 +245,29 @@
 <p><code>product-type</code>は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。</p>
 <p><code>product-type</code>型の式は<a href="../../../lang/cpp17/structured_bindings.html">構造化束縛</a>における初期化子として利用できる。</p>
 <h2>クラス仕様</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Self</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">get</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">this Self</span></span><span class="o">&amp;&amp;</span> <span class="n">self</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Self</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">this Self</span></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <ul>
 <li>
 <p>効果 : 下記と等価</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span> <span class="p">[...</span><span class="n">ts</span><span class="p">]</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
-<span class="k">return</span> <span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">...[</span><span class="n">I</span><span class="p">]);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[...</span><span class="n">ts</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">...[</span><span class="n">I</span><span class="p">]);</span>
 </code></pre></div>
 </p>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Self</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Fn</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">apply</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">this Self</span></span><span class="o">&amp;&amp;</span> <span class="n">self</span><span class="p">,</span> <span class="n">Fn</span><span class="o">&amp;&amp;</span> <span class="n">fn</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Self</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">apply</span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">this Self</span></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
 </code></pre></div>
 </p>
 <ul>
 <li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a> : 下記<code>return</code>文の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であること。</li>
 <li>
 <p>効果 : 下記と等価</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span> <span class="p">[...</span><span class="n">ts</span><span class="p">]</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
-<span class="k">return</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Fn</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fn</span><span class="p">)(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">)...);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[...</span><span class="n">ts</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Fn</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fn</span><span class="p">)(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">)...);</span>
 </code></pre></div>
 </p>
 </li>
@@ -306,7 +306,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

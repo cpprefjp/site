@@ -228,30 +228,30 @@
 <p>もっとも制約の弱い、すなわちアライメントのサイズが最小となる型は<code>char</code>, <code>signed char</code>, <code>unsigned char</code>であり、
 もっとも制約の強い、すなわちアライメントのサイズが最大となる型は<code><a href="../../reference/cstddef/max_align_t.html">std::max_align_t</a></code>である。</p>
 <h2>例</h2>
-<p><div class="yata" id="c36dad08784081298b07cab8bc45e933a37afaf8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstddef.html">&lt;cstddef&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c36dad08784081298b07cab8bc45e933a37afaf8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cstddef.html">&lt;cstddef&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">hoge</span> <span class="p">{</span>
-  <span class="kt">char</span> <span class="n">c</span><span class="p">[</span><span class="mi">63</span><span class="p">];</span>
-  <span class="kt">short</span> <span class="n">s</span><span class="p">;</span>
-  <span class="kt">double</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">hoge</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">63</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">short</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">empty</span> <span class="p">{</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">empty</span><span class="w"> </span><span class="p">{</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"<a href="../../reference/cstddef/max_align_t.html">std::max_align_t</a>:  "</span> <span class="o">&lt;&lt;</span> <span class="k">alignof</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/max_align_t.html">std::max_align_t</a></span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"char:              "</span> <span class="o">&lt;&lt;</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"int:               "</span> <span class="o">&lt;&lt;</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"double:            "</span> <span class="o">&lt;&lt;</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"struct hoge:       "</span> <span class="o">&lt;&lt;</span> <span class="k">alignof</span><span class="p">(</span><span class="n">hoge</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"struct empty:      "</span> <span class="o">&lt;&lt;</span> <span class="k">alignof</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span>
-    <span class="s">"char *:            "</span> <span class="o">&lt;&lt;</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"<a href="../../reference/cstddef/max_align_t.html">std::max_align_t</a>:  "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/max_align_t.html">std::max_align_t</a></span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"char:              "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"int:               "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"double:            "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"struct hoge:       "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="n">hoge</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"struct empty:      "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="w"> </span><span class="o">&lt;&lt;</span>
+<span class="w">    </span><span class="s">"char *:            "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -296,7 +296,7 @@ char *:            4
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

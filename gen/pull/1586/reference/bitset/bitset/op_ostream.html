@@ -225,30 +225,30 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;bitset&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">operator&lt;&lt;</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
-  <span class="n"><a href="../../ostream/basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span>
-    <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">bitset</span><span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CharT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Traits</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="../../ostream/basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="o">&gt;&amp;</span>
+<span class="w">    </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">bitset</span><span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>2進数表記でストリームに出力する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><div class="codehilite"><pre><span></span><code><span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="k">template</span> <span class="n"><a href="to_string.html">to_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span><span class="p">(</span>
-        <span class="n"><span href="https://cpprefjp.github.io/reference/locale/use_facet.md.nolink">use_facet</span></span><span class="o">&lt;</span><span class="n"><a href="../../locale/ctype.html">ctype</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n"><a href="../../ios/ios_base/getloc.html">getloc</a></span><span class="p">()).</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/ctype/widen.md.nolink">widen</span></span><span class="p">(</span><span class="sc">'0'</span><span class="p">),</span>
-        <span class="n"><span href="https://cpprefjp.github.io/reference/locale/use_facet.md.nolink">use_facet</span></span><span class="o">&lt;</span><span class="n"><a href="../../locale/ctype.html">ctype</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n"><a href="../../ios/ios_base/getloc.html">getloc</a></span><span class="p">()).</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/ctype/widen.md.nolink">widen</span></span><span class="p">(</span><span class="sc">'1'</span><span class="p">));</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n"><a href="to_string.html">to_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/use_facet.md.nolink">use_facet</span></span><span class="o">&lt;</span><span class="n"><a href="../../locale/ctype.html">ctype</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n"><a href="../../ios/ios_base/getloc.html">getloc</a></span><span class="p">()).</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/ctype/widen.md.nolink">widen</span></span><span class="p">(</span><span class="sc">'0'</span><span class="p">),</span>
+<span class="w">        </span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/use_facet.md.nolink">use_facet</span></span><span class="o">&lt;</span><span class="n"><a href="../../locale/ctype.html">ctype</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n"><a href="../../ios/ios_base/getloc.html">getloc</a></span><span class="p">()).</span><span class="n"><span href="https://cpprefjp.github.io/reference/locale/ctype/widen.md.nolink">widen</span></span><span class="p">(</span><span class="sc">'1'</span><span class="p">));</span>
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="9d6c970eaa72caea9be7cbbdca42b8e259400156"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../bitset.html">&lt;bitset&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9d6c970eaa72caea9be7cbbdca42b8e259400156"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../bitset.html">&lt;bitset&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../bitset.html">std::bitset</a></span><span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span> <span class="n">bs</span><span class="p">(</span><span class="mi">10uL</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../bitset.html">std::bitset</a></span><span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bs</span><span class="p">(</span><span class="mi">10uL</span><span class="p">);</span>
 
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">bs</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bs</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -273,7 +273,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

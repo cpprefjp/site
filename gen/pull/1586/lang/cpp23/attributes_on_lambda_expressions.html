@@ -240,21 +240,21 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="6e8a9bdbc69bb31f627f353ab0aed9bc7225cec8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6e8a9bdbc69bb31f627f353ab0aed9bc7225cec8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/stdexcept.html">&lt;stdexcept&gt;</a></span>
+<span class="cp">#include <a href="../../reference/concepts.html">&lt;concepts&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">f1</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span> <span class="p">{</span> <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">"error"</span><span class="p">);</span> <span class="p">};</span>
-  <span class="k">auto</span> <span class="n">f2</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="p">};</span>
-  <span class="k">auto</span> <span class="n">f3</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">[[</span><span class="n">deprecated</span><span class="p">]]</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">"error"</span><span class="p">);</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">f3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">[[</span><span class="n">deprecated</span><span class="p">]]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="k">auto</span> <span class="n">f4</span> <span class="o">=</span> <span class="p">[]</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
-    <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
-    <span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">f4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span>
+<span class="w">    </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -286,7 +286,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;optional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class optional">optional::</span><span class="token">swap</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">optional</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>           <span class="c1">// C++17</span>
-<span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">optional</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span> <span class="c1">// C++23</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="n">optional</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span><span class="w">           </span><span class="c1">// C++17</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="n">optional</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span><span class="w"> </span><span class="c1">// C++23</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -250,64 +250,64 @@
 <p>この関数内で、有効値に対する<code><a href="../../utility/swap.html">swap</a></code>関数の呼び出しで<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合、<code>this-&gt;<a href="value.html">value()</a></code>と<code>rhs.<a href="value.html">value()</a></code>は、その<code><a href="../../utility/swap.html">swap</a></code>関数の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>安全性が保証する状態となる。</p>
 <p>この関数内で、型<code>T</code>のムーブコンストラクタで<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合、<code>this-&gt;<a href="value.html">value()</a></code>と<code>rhs.<a href="value.html">value()</a></code>は、そのムーブコンストラクタの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>安全性が保証する状態となる。</p>
 <h2>例</h2>
-<p><div class="yata" id="7e6b7546ebdac9239399d2b7212be1644c7156d8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7e6b7546ebdac9239399d2b7212be1644c7156d8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../optional.html">&lt;optional&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// 状況1</span>
-  <span class="c1">// 左辺と右辺の両方が有効値を持つ場合</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 状況1</span>
+<span class="w">  </span><span class="c1">// 左辺と右辺の両方が有効値を持つ場合</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-    <span class="c1">// aとbを入れ替える</span>
-    <span class="n">a</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// aとbを入れ替える</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 状況2</span>
-  <span class="c1">// 左辺が有効値を持ち、右辺が有効値を持たない場合</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 状況2</span>
+<span class="w">  </span><span class="c1">// 左辺が有効値を持ち、右辺が有効値を持たない場合</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 
-    <span class="c1">// aとbを入れ替える</span>
-    <span class="n">a</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// aとbを入れ替える</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 状況3</span>
-  <span class="c1">// 左辺が有効値を持たず、右辺が有効値を持つ場合</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 状況3</span>
+<span class="w">  </span><span class="c1">// 左辺が有効値を持たず、右辺が有効値を持つ場合</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-    <span class="c1">// aとbを入れ替える</span>
-    <span class="n">a</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// aとbを入れ替える</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 状況4</span>
-  <span class="c1">// 左辺と右辺の両方が有効値を持たない場合</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 状況4</span>
+<span class="w">  </span><span class="c1">// 左辺と右辺の両方が有効値を持たない場合</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 
-    <span class="c1">// aとbを入れ替える</span>
-    <span class="n">a</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// aとbを入れ替える</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -347,7 +347,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,37 +225,37 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;vector&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class vector">vector::</span><span class="token">insert</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">iterator</span> <span class="n">position</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>                 <span class="c1">// (1) C++03</span>
-<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (1) C++11</span>
-<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                 </span><span class="c1">// (1) C++03</span>
+<span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">           </span><span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 
-<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (2) C++11</span>
-<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (2) C++20</span>
+<span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">           </span><span class="c1">// (2) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) C++20</span>
 
-<span class="kt">void</span> <span class="nf">insert</span><span class="p">(</span><span class="n">iterator</span> <span class="n">position</span><span class="p">,</span>
-            <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>               <span class="c1">// (3) C++03</span>
-<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
-                <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (3) C++11</span>
-<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
-                          <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (3) C++20</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">            </span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">               </span><span class="c1">// (3) C++03</span>
+<span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">           </span><span class="c1">// (3) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3) C++20</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">insert</span><span class="p">(</span><span class="n">iterator</span> <span class="n">position</span><span class="p">,</span>
-            <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
-            <span class="n">InputIterator</span> <span class="n">last</span><span class="p">);</span>                   <span class="c1">// (4) C++03</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="n">iterator</span> <span class="n">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
-                <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
-                <span class="n">InputIterator</span> <span class="n">last</span><span class="p">);</span>               <span class="c1">// (4) C++11</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">iterator</span> <span class="n">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
-                          <span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
-                          <span class="n">InputIterator</span> <span class="n">last</span><span class="p">);</span>     <span class="c1">// (4) C++20</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">            </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">            </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">                   </span><span class="c1">// (4) C++03</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">iterator</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">                </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">               </span><span class="c1">// (4) C++11</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">InputIterator</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">     </span><span class="c1">// (4) C++20</span>
 
-<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
-                <span class="n">initializer_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span>           <span class="c1">// (5) C++11</span>
-<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
-                          <span class="n">initializer_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span> <span class="c1">// (5) C++20</span>
+<span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">                </span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">il</span><span class="p">);</span><span class="w">           </span><span class="c1">// (5) C++11</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">il</span><span class="p">);</span><span class="w"> </span><span class="c1">// (5) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -294,40 +294,40 @@
 </ul>
 <h2>例</h2>
 <h3>基本的な使い方 (C++11)</h3>
-<p><div class="yata" id="ae577380245fb2240ad950240d22a350b4dda9ce"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ae577380245fb2240ad950240d22a350b4dda9ce"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../algorithm.html">&lt;algorithm&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="s">"aaa"</span><span class="p">,</span> <span class="s">"bbb"</span><span class="p">,</span> <span class="s">"ccc"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"aaa"</span><span class="p">,</span><span class="w"> </span><span class="s">"bbb"</span><span class="p">,</span><span class="w"> </span><span class="s">"ccc"</span><span class="p">};</span>
 
-  <span class="c1">// 挿入位置と、追加するconst&amp;の要素を指定するバージョン</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"ddd"</span><span class="p">;</span>
-    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">insert</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 挿入位置と、追加するconst&amp;の要素を指定するバージョン</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ddd"</span><span class="p">;</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">insert</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 挿入位置と、追加する&amp;&amp;の要素を指定するバージョン</span>
-  <span class="p">{</span>
-    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">insert</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"eee"</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 挿入位置と、追加する&amp;&amp;の要素を指定するバージョン</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">insert</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"eee"</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 挿入位置とイテレータの範囲を指定するバージョン</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">"fff"</span><span class="p">,</span> <span class="s">"ggg"</span><span class="p">};</span>
-    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">insert</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 挿入位置とイテレータの範囲を指定するバージョン</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"fff"</span><span class="p">,</span><span class="w"> </span><span class="s">"ggg"</span><span class="p">};</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">insert</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// 挿入位置と初期化子リストを指定するバージョン</span>
-  <span class="p">{</span>
-    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">insert</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s">"hhh"</span><span class="p">,</span> <span class="s">"iii"</span><span class="p">});</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// 挿入位置と初期化子リストを指定するバージョン</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">insert</span></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">"hhh"</span><span class="p">,</span><span class="w"> </span><span class="s">"iii"</span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">const_reference</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">const_reference</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -343,23 +343,23 @@ bbb
 ccc
 </code></pre></p>
 <h3>末尾への挿入 (C++11)</h3>
-<p><div class="yata" id="8edc63334df3933f9175d2fc2df22aa076c00db9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8edc63334df3933f9175d2fc2df22aa076c00db9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../list.html">&lt;list&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 
-  <span class="c1">// 末尾の次を指すイテレータ (<a href="end.html">v.end()</a>) 位置に挿入することで、</span>
-  <span class="c1">// 末尾に要素が追加される</span>
-  <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="end.html">v.end()</a></span><span class="p">,</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">});</span>
+<span class="w">  </span><span class="c1">// 末尾の次を指すイテレータ (<a href="end.html">v.end()</a>) 位置に挿入することで、</span>
+<span class="w">  </span><span class="c1">// 末尾に要素が追加される</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">});</span>
 
-  <span class="n"><a href="../../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
-  <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../../list/list/begin.html">ls.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../list/list/end.html">ls.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n"><a href="end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../list/list/begin.html">ls.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../list/list/end.html">ls.end()</a></span><span class="p">);</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -428,7 +428,7 @@ ccc
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

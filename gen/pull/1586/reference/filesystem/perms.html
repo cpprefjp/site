@@ -213,28 +213,28 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">enum</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="token">perms</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span> <span class="p">{</span>
-  <span class="k">enum</span> <span class="k">class</span> <span class="nc">perms</span> <span class="p">{</span>
-    <span class="n">none</span>         <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">owner_read</span>   <span class="o">=</span> <span class="mo">0400</span><span class="p">,</span>
-    <span class="n">owner_write</span>  <span class="o">=</span> <span class="mo">0200</span><span class="p">,</span>
-    <span class="n">owner_exec</span>   <span class="o">=</span> <span class="mo">0100</span><span class="p">,</span>
-    <span class="n">owner_all</span>    <span class="o">=</span> <span class="mo">0700</span><span class="p">,</span>  <span class="c1">// owner_read | owner_write | owner_exec</span>
-    <span class="n">group_read</span>   <span class="o">=</span> <span class="mo">040</span><span class="p">,</span>
-    <span class="n">group_write</span>  <span class="o">=</span> <span class="mo">020</span><span class="p">,</span>
-    <span class="n">group_exec</span>   <span class="o">=</span> <span class="mo">010</span><span class="p">,</span>
-    <span class="n">group_all</span>    <span class="o">=</span> <span class="mo">070</span><span class="p">,</span>   <span class="c1">// group_read | group_write | group_exec</span>
-    <span class="n">others_read</span>  <span class="o">=</span> <span class="mo">04</span><span class="p">,</span>
-    <span class="n">others_write</span> <span class="o">=</span> <span class="mo">02</span><span class="p">,</span>
-    <span class="n">others_exec</span>  <span class="o">=</span> <span class="mo">01</span><span class="p">,</span>
-    <span class="n">others_all</span>   <span class="o">=</span> <span class="mo">07</span><span class="p">,</span>    <span class="c1">// others_read | others_write | others_exec</span>
-    <span class="n">all</span>          <span class="o">=</span> <span class="mo">0777</span><span class="p">,</span>  <span class="c1">// owner_all | group_all | others_all</span>
-    <span class="n">set_uid</span>      <span class="o">=</span> <span class="mo">04000</span><span class="p">,</span>
-    <span class="n">set_gid</span>      <span class="o">=</span> <span class="mo">02000</span><span class="p">,</span>
-    <span class="n">sticky_bit</span>   <span class="o">=</span> <span class="mo">01000</span><span class="p">,</span>
-    <span class="n">mask</span>         <span class="o">=</span> <span class="mo">07777</span><span class="p">,</span> <span class="c1">// all | set_uid | set_gid | sticky_bit</span>
-    <span class="n">unknown</span>      <span class="o">=</span> <span class="mh">0xFFFF</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">perms</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">none</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">owner_read</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mo">0400</span><span class="p">,</span>
+<span class="w">    </span><span class="n">owner_write</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mo">0200</span><span class="p">,</span>
+<span class="w">    </span><span class="n">owner_exec</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mo">0100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">owner_all</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mo">0700</span><span class="p">,</span><span class="w">  </span><span class="c1">// owner_read | owner_write | owner_exec</span>
+<span class="w">    </span><span class="n">group_read</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mo">040</span><span class="p">,</span>
+<span class="w">    </span><span class="n">group_write</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mo">020</span><span class="p">,</span>
+<span class="w">    </span><span class="n">group_exec</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mo">010</span><span class="p">,</span>
+<span class="w">    </span><span class="n">group_all</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mo">070</span><span class="p">,</span><span class="w">   </span><span class="c1">// group_read | group_write | group_exec</span>
+<span class="w">    </span><span class="n">others_read</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mo">04</span><span class="p">,</span>
+<span class="w">    </span><span class="n">others_write</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mo">02</span><span class="p">,</span>
+<span class="w">    </span><span class="n">others_exec</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span>
+<span class="w">    </span><span class="n">others_all</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mo">07</span><span class="p">,</span><span class="w">    </span><span class="c1">// others_read | others_write | others_exec</span>
+<span class="w">    </span><span class="n">all</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mo">0777</span><span class="p">,</span><span class="w">  </span><span class="c1">// owner_all | group_all | others_all</span>
+<span class="w">    </span><span class="n">set_uid</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mo">04000</span><span class="p">,</span>
+<span class="w">    </span><span class="n">set_gid</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mo">02000</span><span class="p">,</span>
+<span class="w">    </span><span class="n">sticky_bit</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mo">01000</span><span class="p">,</span>
+<span class="w">    </span><span class="n">mask</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mo">07777</span><span class="p">,</span><span class="w"> </span><span class="c1">// all | set_uid | set_gid | sticky_bit</span>
+<span class="w">    </span><span class="n">unknown</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFFFF</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -367,25 +367,25 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="90200f48deff2c40d51ac90809dfde4bc7c12c85"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="90200f48deff2c40d51ac90809dfde4bc7c12c85"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../filesystem.html">&lt;filesystem&gt;</a></span>
+<span class="cp">#include <a href="../fstream.html">&lt;fstream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"a.txt"</span><span class="p">};</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"a.txt"</span><span class="p">};</span>
 
-  <span class="n"><a href="file_status.html">fs::file_status</a></span> <span class="n">status</span> <span class="o">=</span> <span class="n"><a href="status.html">fs::status</a></span><span class="p">(</span><span class="s">"a.txt"</span><span class="p">);</span>
-  <span class="n"><span style="color:#ff0000">fs::perms</span></span> <span class="n">perm</span> <span class="o">=</span> <span class="n"><a href="file_status/permissions.html">status.permissions()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="file_status.html">fs::file_status</a></span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="status.html">fs::status</a></span><span class="p">(</span><span class="s">"a.txt"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="w"> </span><span class="n">perm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="file_status/permissions.html">status.permissions()</a></span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">((</span><span class="n">perm</span> <span class="o">&amp;</span> <span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="o">::</span><span class="n">owner_read</span><span class="p">)</span> <span class="o">==</span> <span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="o">::</span><span class="n">owner_read</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"owner can read the file"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">((</span><span class="n">perm</span> <span class="o">&amp;</span> <span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="o">::</span><span class="n">owner_write</span><span class="p">)</span> <span class="o">==</span> <span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="o">::</span><span class="n">owner_write</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"owner can write the file"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">perm</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="o">::</span><span class="n">owner_read</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="o">::</span><span class="n">owner_read</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"owner can read the file"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">perm</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="o">::</span><span class="n">owner_write</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::perms</span></span><span class="o">::</span><span class="n">owner_write</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"owner can write the file"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -421,7 +421,7 @@ owner can write the file
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

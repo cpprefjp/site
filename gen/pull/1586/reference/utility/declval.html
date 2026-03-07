@@ -213,10 +213,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;utility&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">declval</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">typename</span> <span class="n"><a href="../type_traits/add_rvalue_reference.html">add_rvalue_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span>
-    <span class="n"><a href="">declval</a></span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../type_traits/add_rvalue_reference.html">add_rvalue_reference</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span>
+<span class="w">    </span><span class="n"><a href="">declval</a></span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -232,15 +232,15 @@
 <p>テンプレートパラメータ<code>T</code>は、<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>であってもよい。</p>
 <p>この関数が実際に評価されうる場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <h2>例</h2>
-<p><div class="yata" id="33836758d2494b9ad0e9061d75a8ee541bae8776"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="33836758d2494b9ad0e9061d75a8ee541bae8776"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
 
 <span class="c1">// この関数は、型Fromから型Toへの明示的な型変換が定義されている場合のみ</span>
 <span class="c1">// オーバーロード解決の候補となる</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">To</span><span class="p">,</span> <span class="k">class</span> <span class="nc">From</span><span class="o">&gt;</span>
-<span class="k">decltype</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">To</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::declval</span></span><span class="o">&lt;</span><span class="n">From</span><span class="o">&gt;</span><span class="p">()))</span> <span class="n">convert</span><span class="p">(</span><span class="n">From</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">To</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">From</span><span class="o">&gt;</span>
+<span class="k">decltype</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">To</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::declval</span></span><span class="o">&lt;</span><span class="n">From</span><span class="o">&gt;</span><span class="p">()))</span><span class="w"> </span><span class="n">convert</span><span class="p">(</span><span class="n">From</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">To</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">From</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">To</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">From</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
 <span class="p">}</span>
 
 <span class="c1">// <span style="color:#ff0000">std::declval</span>()は実際に評価してはいけない</span>
@@ -254,12 +254,12 @@
 <span class="cm">}</span>
 <span class="cm">*/</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">convert</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convert</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -300,7 +300,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

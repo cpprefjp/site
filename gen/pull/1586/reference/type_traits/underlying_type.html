@@ -213,14 +213,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">underlying_type</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">underlying_type</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
-  <span class="p">};</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">underlying_type</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">underlying_type_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">underlying_type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span> <span class="c1">// C++14</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">underlying_type_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">underlying_type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++14</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -229,14 +229,14 @@
 <p>C++11以降の列挙型(<code>enum</code>／<code>enum class</code>／<code>enum struct</code>で定義された型)は、列挙子の値を表現するための基底型を指定できる：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 基底型にcharを指定。</span>
 <span class="c1">// 列挙子の値を表現するためにcharが使用される。</span>
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">CharColor</span> <span class="o">:</span> <span class="kt">char</span> <span class="p">{</span>
-  <span class="n">Red</span><span class="p">,</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Blue</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CharColor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Red</span><span class="p">,</span><span class="w"> </span><span class="n">Green</span><span class="p">,</span><span class="w"> </span><span class="n">Blue</span>
 <span class="p">};</span>
 
 <span class="c1">// 基底型を指定しない場合、</span>
 <span class="c1">// enum classではintがデフォルトの基底型となる。</span>
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">IntColor</span> <span class="p">{</span>
-  <span class="n">Red</span><span class="p">,</span> <span class="n">Green</span> <span class="n">Blue</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">IntColor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Red</span><span class="p">,</span><span class="w"> </span><span class="n">Green</span><span class="w"> </span><span class="n">Blue</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -251,7 +251,7 @@
 <p><code>underlying_type</code>は、列挙型<code>T</code>の基底型を、メンバ型<code>type</code>として定義する。</p>
 <p>C++20からは<code>T</code>が列挙型ではない場合、<code>type</code>は定義されない。
 これによりSFINAEの文脈で使うときにこれまで<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となるために列挙型以外の型のときに実体化を防ぐ必要があったところをその必要がなくなった。</p>
-<p><div class="yata" id="ea75ba0253c94b3c4f824ec04487aa28f9ea1fdd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ea75ba0253c94b3c4f824ec04487aa28f9ea1fdd"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 <span class="cm">/**</span>
 <span class="cm">Tが列挙型ではないときも、std::underlying_type_t&lt;T&gt;が実体化してしまっているため不適格</span>
 <span class="cm">template&lt;class T&gt;</span>
@@ -260,49 +260,49 @@
 <span class="cm">*/</span>
 <span class="cp">#if 1</span>
 <span class="c1">// p0340r3が適用されていない処理系</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">is_enum</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">underlying_type_wrap_impl</span> <span class="p">{};</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">underlying_type_wrap_impl</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="nb">true</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">underlying_type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{};</span><span class="c1">//列挙型に対する特殊化なのでOK</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">underlying_type_wrap</span> <span class="p">:</span> <span class="n">underlying_type_wrap_impl</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">is_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="o">&gt;</span> <span class="p">{};</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">underlying_type_wrap_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">underlying_type_wrap</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_enum</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">underlying_type_wrap_impl</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">underlying_type_wrap_impl</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">underlying_type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span><span class="c1">//列挙型に対する特殊化なのでOK</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">underlying_type_wrap</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">underlying_type_wrap_impl</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">underlying_type_wrap_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">underlying_type_wrap</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">underlying_type_wrap_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">foo</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">underlying_type_wrap_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">underlying_type_wrap_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">underlying_type_wrap_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 <span class="cp">#else</span>
 <span class="c1">// C++20またはp0340r3が適用された処理系</span>
 <span class="c1">// =&gt; 上のようなラッパーはいらない</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">underlying_type_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">foo</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">underlying_type_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">underlying_type_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">underlying_type_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 <span class="cp">#endif</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="n"><a href="../cstddef/nullptr_t.html">std::nullptr_t</a></span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">nullptr</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">foo</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">bar</span> <span class="p">{</span>
-    <span class="n">hoge</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../cstddef/nullptr_t.html">std::nullptr_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">bar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hoge</span>
 <span class="p">};</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="k">return</span> <span class="n">foo</span><span class="p">(</span><span class="n">bar</span><span class="o">::</span><span class="n">hoge</span><span class="p">)</span> <span class="o">+</span> <span class="n">foo</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">bar</span><span class="o">::</span><span class="n">hoge</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h2>例</h2>
-<p><div class="yata" id="64a364d86302621831cda5a0510e324f0d7d357c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="64a364d86302621831cda5a0510e324f0d7d357c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
 
-<span class="k">enum</span> <span class="nl">E1</span> <span class="p">:</span> <span class="kt">char</span> <span class="p">{};</span>
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">E2</span> <span class="o">:</span> <span class="kt">char</span> <span class="p">{};</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">E1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">enum</span> <span class="n">E3</span> <span class="p">{};</span>
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">E4</span> <span class="p">{};</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">E3</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E4</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::underlying_type</span></span><span class="o">&lt;</span><span class="n">E1</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span> <span class="kt">char</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"E1 based type is char"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::underlying_type</span></span><span class="o">&lt;</span><span class="n">E2</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span> <span class="kt">char</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"E2 based type is char"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::underlying_type</span></span><span class="o">&lt;</span><span class="n">E1</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"E1 based type is char"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::underlying_type</span></span><span class="o">&lt;</span><span class="n">E2</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">"E2 based type is char"</span><span class="p">);</span>
 
-<span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::underlying_type</span></span><span class="o">&lt;</span><span class="n">E3</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"E3 based type is integral type"</span><span class="p">);</span>
-<span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::underlying_type</span></span><span class="o">&lt;</span><span class="n">E4</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"E4 based type is integral type"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::underlying_type</span></span><span class="o">&lt;</span><span class="n">E3</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"E3 based type is integral type"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::underlying_type</span></span><span class="o">&lt;</span><span class="n">E4</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">"E4 based type is integral type"</span><span class="p">);</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
@@ -364,7 +364,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,24 +225,24 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;scoped_allocator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class scoped_allocator_adaptor">scoped_allocator_adaptor::</span><span class="token">construct</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                         <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">construct</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">                         </span><span class="c1">// (1)</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args1</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args2</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/piecewise_construct_t.html">piecewise_construct_t</a></span><span class="p">,</span>
-               <span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Args1</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Args2</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">);</span>         <span class="c1">// (2) C++17 まで</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args2</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/piecewise_construct_t.html">piecewise_construct_t</a></span><span class="p">,</span>
+<span class="w">               </span><span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Args1</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Args2</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">         </span><span class="c1">// (2) C++17 まで</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">);</span>                              <span class="c1">// (3) C++17 まで</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                              </span><span class="c1">// (3) C++17 まで</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">,</span> <span class="n">U</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="n">V</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">);</span>                <span class="c1">// (4) C++17 まで</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">V</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">                </span><span class="c1">// (4) C++17 まで</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span>         <span class="c1">// (5) C++17 まで</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">V</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">         </span><span class="c1">// (5) C++17 まで</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">&gt;&amp;&amp;</span> <span class="n">x</span><span class="p">);</span>              <span class="c1">// (6) C++17 まで</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">V</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">              </span><span class="c1">// (6) C++17 まで</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -272,10 +272,10 @@
 <li>
 <p>C++20 から : 以下と等価の動作を行う。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../tuple/apply.html">apply</a></span><span class="p">(</span>
-  <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="k">this</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">newargs</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">CONSTRUCT</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">newargs</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">newargs</span><span class="p">)...);</span>
-  <span class="p">},</span>
-  <span class="n"><a href="../../memory/uses_allocator_construction_args.html">uses_allocator_construction_args</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="inner_allocator.html">inner_allocator</a></span><span class="p">(),</span> <span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...)</span>
+<span class="w">  </span><span class="p">[</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">newargs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CONSTRUCT</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">newargs</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">newargs</span><span class="p">)...);</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="n"><a href="../../memory/uses_allocator_construction_args.html">uses_allocator_construction_args</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="inner_allocator.html">inner_allocator</a></span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...)</span>
 <span class="p">);</span>
 </code></pre></div>
 </p>
@@ -318,113 +318,113 @@
 <li>C++20 における変更は、一見新規導入されたユーティリティ関数（<code><a href="../../memory/uses_allocator_construction_args.html">uses_allocator_construction_args</a></code>）を使用して定義を簡略化しただけのように思えるが、実はこの変更によりネストした <code><a href="../../utility/pair.html">pair</a></code>  に対しても <a href="../../memory/uses_allocator.html">uses-allocator 構築</a>がサポートされるように改善されている。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="6337f593b1bc4c99c1d54767184a5a6924e94d58"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../scoped_allocator.html">&lt;scoped_allocator&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="6337f593b1bc4c99c1d54767184a5a6924e94d58"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../scoped_allocator.html">&lt;scoped_allocator&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">alloc_t</span> <span class="o">=</span> <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">alloc_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="c1">// コンテナの要素(Inner)</span>
-<span class="k">using</span> <span class="n">string</span> <span class="o">=</span> <span class="n"><a href="../../string/basic_string.html">std::basic_string</a></span><span class="o">&lt;</span>
-  <span class="kt">char</span><span class="p">,</span>
-  <span class="n"><a href="../../string/char_traits.html">std::char_traits</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="n">alloc_t</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::basic_string</a></span><span class="o">&lt;</span>
+<span class="w">  </span><span class="kt">char</span><span class="p">,</span>
+<span class="w">  </span><span class="n"><a href="../../string/char_traits.html">std::char_traits</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">alloc_t</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span>
 <span class="o">&gt;</span><span class="p">;</span>
 
 <span class="c1">// コンテナ(Outer)</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">vector</span> <span class="o">=</span> <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span>
-  <span class="n">T</span><span class="p">,</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">scoped_allocator_adaptor</span><span class="o">&lt;</span><span class="n">alloc_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">alloc_t</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span>
+<span class="w">  </span><span class="n">T</span><span class="p">,</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">scoped_allocator_adaptor</span><span class="o">&lt;</span><span class="n">alloc_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">alloc_t</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;&gt;</span>
 <span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">pair_of_vector</span> <span class="o">=</span> <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span>
-  <span class="n">T</span><span class="p">,</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">scoped_allocator_adaptor</span><span class="o">&lt;</span><span class="n">alloc_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">pair_of_vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span>
+<span class="w">  </span><span class="n">T</span><span class="p">,</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">scoped_allocator_adaptor</span><span class="o">&lt;</span><span class="n">alloc_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
 <span class="o">&gt;</span><span class="p">;</span>
 
 <span class="c1">// (1)</span>
-<span class="kt">void</span> <span class="nf">construct_propagate_alloc</span><span class="p">()</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">construct_propagate_alloc</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">allocator_type</span> <span class="n">alloc</span> <span class="p">{</span>
-    <span class="n">alloc_t</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(),</span> <span class="c1">// vector自体のアロケータオブジェクト</span>
-    <span class="n">alloc_t</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">()</span>    <span class="c1">// vectorの全ての要素に使用するアロケータオブジェクト</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">allocator_type</span><span class="w"> </span><span class="n">alloc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">alloc_t</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="c1">// vector自体のアロケータオブジェクト</span>
+<span class="w">    </span><span class="n">alloc_t</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">()</span><span class="w">    </span><span class="c1">// vectorの全ての要素に使用するアロケータオブジェクト</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// 外側のアロケータを使用し、stringが1要素入るメモリを確保</span>
-  <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n">string</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="allocate.html">alloc.allocate</a></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// 外側のアロケータを使用し、stringが1要素入るメモリを確保</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="allocate.html">alloc.allocate</a></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 
-  <span class="c1">// (1) 以下のコンストラクタを呼び出し、アロケータオブジェクトを伝播させる</span>
-  <span class="c1">// basic_string(const char*, Allocator)</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (1) 以下のコンストラクタを呼び出し、アロケータオブジェクトを伝播させる</span>
+<span class="w">  </span><span class="c1">// basic_string(const char*, Allocator)</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
 
-  <span class="c1">// オブジェクトを破棄</span>
-  <span class="n"><a href="destroy.html">alloc.destroy</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// オブジェクトを破棄</span>
+<span class="w">  </span><span class="n"><a href="destroy.html">alloc.destroy</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 
-  <span class="c1">// メモリを解放</span>
-  <span class="n"><a href="deallocate.html">alloc.deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// メモリを解放</span>
+<span class="w">  </span><span class="n"><a href="deallocate.html">alloc.deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">construct_pair</span><span class="p">()</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">construct_pair</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">pair_of_vector</span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;&gt;::</span><span class="n">allocator_type</span> <span class="n">alloc</span><span class="p">;</span>
+<span class="w">  </span><span class="n">pair_of_vector</span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">&gt;&gt;::</span><span class="n">allocator_type</span><span class="w"> </span><span class="n">alloc</span><span class="p">;</span>
 
-  <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-  <span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;*</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="allocate.html">alloc.allocate</a></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="allocate.html">alloc.allocate</a></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// <a href="../../utility/pair.html">pair</a>の各要素に対して以下のコンストラクタを呼び出し、</span>
-  <span class="c1">// アロケータオブジェクトを伝播させる。</span>
-  <span class="c1">// basic_string(const char*, Allocator)</span>
-  <span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;*</span> <span class="n">pair_p</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/piecewise_construct_t.html">std::piecewise_construct</a></span><span class="p">,</span>
-                  <span class="n"><a href="../../tuple/forward_as_tuple.html">std::forward_as_tuple</a></span><span class="p">(</span><span class="s">"hello"</span><span class="p">),</span>
-                  <span class="n"><a href="../../tuple/forward_as_tuple.html">std::forward_as_tuple</a></span><span class="p">(</span><span class="s">"world"</span><span class="p">));</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">==</span> <span class="s">"hello"</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">==</span> <span class="s">"world"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// <a href="../../utility/pair.html">pair</a>の各要素に対して以下のコンストラクタを呼び出し、</span>
+<span class="w">  </span><span class="c1">// アロケータオブジェクトを伝播させる。</span>
+<span class="w">  </span><span class="c1">// basic_string(const char*, Allocator)</span>
+<span class="w">  </span><span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">pair_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/piecewise_construct_t.html">std::piecewise_construct</a></span><span class="p">,</span>
+<span class="w">                  </span><span class="n"><a href="../../tuple/forward_as_tuple.html">std::forward_as_tuple</a></span><span class="p">(</span><span class="s">"hello"</span><span class="p">),</span>
+<span class="w">                  </span><span class="n"><a href="../../tuple/forward_as_tuple.html">std::forward_as_tuple</a></span><span class="p">(</span><span class="s">"world"</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">second</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"world"</span><span class="p">);</span>
 
-  <span class="c1">// (3)</span>
-  <span class="c1">// <a href="../../utility/pair.html">pair</a>の要素をデフォルト構築する。</span>
-  <span class="n">pair_p</span> <span class="o">=</span> <span class="n"><a href="../../iterator/next.html">std::next</a></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">==</span> <span class="s">""</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">==</span> <span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="c1">// <a href="../../utility/pair.html">pair</a>の要素をデフォルト構築する。</span>
+<span class="w">  </span><span class="n">pair_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../iterator/next.html">std::next</a></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">second</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
 
-  <span class="c1">// (4)</span>
-  <span class="c1">// <a href="../../utility/pair.html">pair</a>の各要素のコンストラクタ引数をひとつずつ受け取って構築</span>
-  <span class="n">pair_p</span> <span class="o">=</span> <span class="n"><a href="../../iterator/next.html">std::next</a></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">pair_p</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">==</span> <span class="s">"hello"</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">==</span> <span class="s">"world"</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (4)</span>
+<span class="w">  </span><span class="c1">// <a href="../../utility/pair.html">pair</a>の各要素のコンストラクタ引数をひとつずつ受け取って構築</span>
+<span class="w">  </span><span class="n">pair_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../iterator/next.html">std::next</a></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">pair_p</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s">"world"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">pair_p</span><span class="o">-&gt;</span><span class="n">second</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"world"</span><span class="p">);</span>
 
-  <span class="c1">// (5)</span>
-  <span class="c1">// <a href="../../utility/pair.html">pair</a>の各要素のコンストラクタ引数をひとつずつ、</span>
-  <span class="c1">// まとめて<a href="../../utility/pair.html">pair</a>として受け取り、それぞれを<a href="../../tuple/tuple.html">tuple</a>に分解して構築</span>
-  <span class="n">pair_p</span> <span class="o">=</span> <span class="n"><a href="../../iterator/next.html">std::next</a></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
-  <span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span> <span class="n">fifth_args</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">);</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">pair_p</span><span class="p">,</span> <span class="n">fifth_args</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (5)</span>
+<span class="w">  </span><span class="c1">// <a href="../../utility/pair.html">pair</a>の各要素のコンストラクタ引数をひとつずつ、</span>
+<span class="w">  </span><span class="c1">// まとめて<a href="../../utility/pair.html">pair</a>として受け取り、それぞれを<a href="../../tuple/tuple.html">tuple</a>に分解して構築</span>
+<span class="w">  </span><span class="n">pair_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../iterator/next.html">std::next</a></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">fifth_args</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s">"world"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">pair_p</span><span class="p">,</span><span class="w"> </span><span class="n">fifth_args</span><span class="p">);</span>
 
-  <span class="c1">// (6)</span>
-  <span class="c1">// <a href="../../utility/pair.html">pair</a>の各要素のコンストラクタ引数をひとつずつ、</span>
-  <span class="c1">// まとめて<a href="../../utility/pair.html">pair</a>として受け取り、それぞれを<a href="../../tuple/tuple.html">tuple</a>に分解して転送して構築</span>
-  <span class="n">pair_p</span> <span class="o">=</span> <span class="n"><a href="../../iterator/next.html">std::next</a></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
-  <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">pair_p</span><span class="p">,</span> <span class="n"><a href="../../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// (6)</span>
+<span class="w">  </span><span class="c1">// <a href="../../utility/pair.html">pair</a>の各要素のコンストラクタ引数をひとつずつ、</span>
+<span class="w">  </span><span class="c1">// まとめて<a href="../../utility/pair.html">pair</a>として受け取り、それぞれを<a href="../../tuple/tuple.html">tuple</a>に分解して転送して構築</span>
+<span class="w">  </span><span class="n">pair_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../iterator/next.html">std::next</a></span><span class="p">(</span><span class="n">pair_p</span><span class="p">);</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">pair_p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s">"world"</span><span class="p">));</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="destroy.html">alloc.destroy</a></span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="destroy.html">alloc.destroy</a></span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="n"><a href="deallocate.html">alloc.deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="deallocate.html">alloc.deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">construct_propagate_alloc</span><span class="p">();</span>
-  <span class="n">construct_pair</span><span class="p">();</span>
+<span class="w">  </span><span class="n">construct_propagate_alloc</span><span class="p">();</span>
+<span class="w">  </span><span class="n">construct_pair</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -473,7 +473,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

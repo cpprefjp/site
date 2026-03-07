@@ -225,15 +225,15 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class seed_seq">seed_seq::</span><span class="token">param</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">param</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">dest</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">param</span><span class="p">(</span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">dest</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>シード列を取得する。</p>
 <h2>効果</h2>
 <p>32ビット単位になったシード列を、以下の式で<code>dest</code>にコピーする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../algorithm/copy.html">copy</a></span><span class="p">(</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n">dest</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../algorithm/copy.html">copy</a></span><span class="p">(</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="n">dest</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <p>※ <code>v</code>は、メンバ変数として保持される、<code>vector&lt;result_type&gt;</code>型のシード列オブジェクトである。</p>
@@ -244,30 +244,30 @@
 <li>C++14 : <code>OutputIterator</code>要件のオブジェクト<code>dest</code>への操作が、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる可能性がある</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="c7765c4fcd84b41cebbac10635029c1d9a57e4e9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../random.html">&lt;random&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c7765c4fcd84b41cebbac10635029c1d9a57e4e9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../random.html">&lt;random&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../../limits.html">&lt;limits&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstdint/uint64_t.html">std::uint64_t</a></span><span class="o">&gt;</span> <span class="n">seed_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">,</span>
-    <span class="mi">2</span><span class="p">,</span>
-    <span class="n"><a href="../../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstdint/uint64_t.html">std::uint64_t</a></span><span class="o">&gt;::</span><span class="n"><a href="../../limits/numeric_limits/max.html">max()</a></span>
-      <span class="c1">// 64ビットの最大値を入れる。seed_seqによって32ビット値に変換される。</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstdint/uint64_t.html">std::uint64_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">seed_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="n"><a href="../../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstdint/uint64_t.html">std::uint64_t</a></span><span class="o">&gt;::</span><span class="n"><a href="../../limits/numeric_limits/max.html">max()</a></span>
+<span class="w">      </span><span class="c1">// 64ビットの最大値を入れる。seed_seqによって32ビット値に変換される。</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">seed_seq</span> <span class="n">seq</span><span class="p">(</span><span class="n"><a href="../../vector/vector/begin.html">seed_data.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">seed_data.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">seed_seq</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="n"><a href="../../vector/vector/begin.html">seed_data.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../vector/vector/end.html">seed_data.end()</a></span><span class="p">);</span>
 
-  <span class="c1">// シード列を取得</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstdint/uint64_t.html">std::uint64_t</a></span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
-  <span class="n">seq</span><span class="p">.</span><span class="n">param</span><span class="p">(</span><span class="n"><a href="../../iterator/back_inserter.html">std::back_inserter</a></span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// シード列を取得</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstdint/uint64_t.html">std::uint64_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="n">seq</span><span class="p">.</span><span class="n">param</span><span class="p">(</span><span class="n"><a href="../../iterator/back_inserter.html">std::back_inserter</a></span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstdint/uint64_t.html">std::uint64_t</a></span> <span class="nl">x</span> <span class="p">:</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../cstdint/uint64_t.html">std::uint64_t</a></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -309,7 +309,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

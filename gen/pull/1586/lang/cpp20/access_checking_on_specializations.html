@@ -219,29 +219,29 @@
 <p></p>
 <h2>概要</h2>
 <p>クラス<code>C</code>の内側で宣言されたクラス（ローカルクラス<code>impl</code>）が<code>private/protected</code>で宣言されている場合、テンプレートの文脈で<code>C</code>の外側から<code>impl</code>を参照することは禁止されていた。しかし、実際にはほぼ全てのコンパイラでこれは許可されており、実際に使用されていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">traits</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="p">;</span>
 
-<span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">impl</span><span class="p">;</span> <span class="c1">// クラス内ローカルクラス</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">impl</span><span class="p">;</span><span class="w"> </span><span class="c1">// クラス内ローカルクラス</span>
 <span class="p">};</span>
 
 <span class="c1">// C++17まではill-formed、しかし実際にはほぼ全てのコンパイラでエラーにならなかった</span>
 <span class="c1">// C++20からはok</span>
 <span class="k">template</span><span class="o">&lt;&gt;</span>
-<span class="k">struct</span> <span class="n">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>ただし、この<code>impl</code>がクラステンプレートになるとコンパイラによってはエラーとなっていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">impl</span><span class="p">{};</span> <span class="c1">// クラス内ローカルクラステンプレート</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">impl</span><span class="p">{};</span><span class="w"> </span><span class="c1">// クラス内ローカルクラステンプレート</span>
 <span class="p">};</span>
 
 <span class="c1">// C++17まではill-formed、しかし一部のコンパイラではエラーにならなかった</span>
 <span class="c1">// C++20からはok</span>
 <span class="k">template</span><span class="o">&lt;&gt;</span>
-<span class="k">struct</span> <span class="n">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>C++20からはこれらの場合の挙動が標準化され、アクセス指定やテンプレートであるかに関わらずローカルクラスをその親クラスの外側からテンプレートの文脈で参照することが許可されるようになる。</p>
@@ -254,41 +254,41 @@
 </li>
 </ol>
 <p>部分特殊化のテンプレート引数の依存名については、部分特殊化宣言時にはアクセスチェックされないが、部分特殊化の置換時にはチェックされる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">impl</span><span class="p">{};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">impl</span><span class="p">{};</span>
 <span class="p">};</span>
 
 <span class="c1">// プライマリテンプレート</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">traits</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="p">;</span>
 
 <span class="c1">// 部分特殊化</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span> <span class="p">{};</span> <span class="c1">// ok、部分特殊化の宣言、インスタンス化時には依存名でなくなる</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// ok、部分特殊化の宣言、インスタンス化時には依存名でなくなる</span>
 
 <span class="c1">// 他のテンプレート</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
-  <span class="n">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">t</span><span class="p">;</span>     <span class="c1">// ng、Sのインスタンス化に伴って部分特殊化の置換が発生し、C::impl&lt;T&gt;は依存名なのでアクセスチェックが行われる</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w">     </span><span class="c1">// ng、Sのインスタンス化に伴って部分特殊化の置換が発生し、C::impl&lt;T&gt;は依存名なのでアクセスチェックが行われる</span>
 <span class="p">};</span>
 
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">S</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">S</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>この機能が必要になった背景・経緯</h2>
 <p>冒頭で示した例は抽象的で出会うことは少なそうに思われるが、実際にはこのようなコードは範囲を表すクラスのイテレータ型の実装においてよく行われていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">V</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">my_view</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">my_view_iterator</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">V</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">my_view</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">my_view_iterator</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">my_view</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">my_view_iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n"><a href="../../reference/iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">my_view</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">my_view_iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>このようなイテレータの実装方法はC++17以前にもよく行われており、C++20の<code>&lt;ranges&gt;</code>の一部の<code>view</code>型の実装においても行われる。これを放置すると、そのような<code>view</code>型ではポータブルかつ合法的に<code>std::iterator_traits</code>を使用することができなくなる。</p>
@@ -300,39 +300,39 @@
 <li>プライベートローカルクラス定義内で、自身を使用したテンプレート特殊化の<code>friend</code>宣言によってアクセス権を与える</li>
 <li>テンプレートの特殊化ではなくテンプレートの<code>friend</code>宣言によってアクセス権を与える</li>
 </ol>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">option1</span> <span class="p">{</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">option1</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-    <span class="k">class</span> <span class="nc">impl</span><span class="p">;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">impl</span><span class="p">;</span>
 
-    <span class="c1">// オプション1によるfriend宣言</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-    <span class="k">friend</span> <span class="k">struct</span> <span class="n">trait</span><span class="o">&lt;</span><span class="n">impl</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="c1">// オプション1によるfriend宣言</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">trait</span><span class="o">&lt;</span><span class="n">impl</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="k">namespace</span> <span class="n">option2</span> <span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">option2</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-    <span class="k">class</span> <span class="nc">impl</span> <span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">impl</span><span class="w"> </span><span class="p">{</span>
 
-      <span class="c1">// オプション2によるfriend宣言</span>
-      <span class="k">friend</span> <span class="k">struct</span> <span class="n">trait</span><span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="p">};</span>
-  <span class="p">};</span>
+<span class="w">      </span><span class="c1">// オプション2によるfriend宣言</span>
+<span class="w">      </span><span class="k">friend</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">trait</span><span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="k">namespace</span> <span class="n">option3</span> <span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">option3</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-    <span class="k">class</span> <span class="nc">impl</span><span class="p">;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">impl</span><span class="p">;</span>
 
-    <span class="c1">// オプション3によるfriend宣言</span>
-    <span class="k">friend</span> <span class="n">trait</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="c1">// オプション3によるfriend宣言</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">trait</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -364,7 +364,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

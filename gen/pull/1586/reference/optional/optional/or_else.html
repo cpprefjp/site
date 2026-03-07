@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;optional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class optional">optional::</span><span class="token">or_else</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="n">optional</span> <span class="n">or_else</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">;</span> <span class="c1">// (1)</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="n">optional</span> <span class="n">or_else</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="o">&amp;&amp;</span><span class="p">;</span>      <span class="c1">// (2)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">or_else</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">or_else</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">;</span><span class="w">      </span><span class="c1">// (2)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -234,10 +234,10 @@
 有効値を保持していなければ、<code>f()</code>の呼び出し結果を<code>optional</code>として返す。</p>
 <p>実際には複数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が提供されるが、大まかには下記シグニチャのようにみなせる。
 <code>or_else</code>へは、空の引数リストをとり<code>std::optional&lt;T&gt;</code>へ変換可能な<code>Return</code>型を返す関数や関数オブジェクトを与える。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">optional</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Return</span><span class="o">&gt;</span>
-  <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">or_else</span><span class="p">(</span><span class="n"><a href="../../functional/function.html">function</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">func</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Return</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">or_else</span><span class="p">(</span><span class="n"><a href="../../functional/function.html">function</a></span><span class="o">&lt;</span><span class="n">Return</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">func</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -252,20 +252,20 @@
 <ul>
 <li>
 <p>(1) : 次と等価</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">)();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">)();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 </li>
 <li>
 <p>(2) : 次と等価</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">)();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">)();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -275,57 +275,57 @@
 <p><code>or_else</code>は、メソッドチェーンをサポートするモナド風(monadic)操作として導入された。</p>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="f284b3769aab647ccd0464bc13c5246490aa1b03"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f284b3769aab647ccd0464bc13c5246490aa1b03"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../optional.html">&lt;optional&gt;</a></span>
 
-<span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">defvalue</span><span class="p">()</span>
+<span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">defvalue</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">o1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">o1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">or_else</span></span><span class="p">(</span><span class="n">defvalue</span><span class="p">).</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">o1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">o1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">or_else</span></span><span class="p">(</span><span class="n">defvalue</span><span class="p">).</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-  <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">o2</span> <span class="o">=</span> <span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">o2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">or_else</span></span><span class="p">(</span><span class="n">defvalue</span><span class="p">).</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">o2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">o2</span><span class="p">.</span><span class="n"><span style="color:#ff0000">or_else</span></span><span class="p">(</span><span class="n">defvalue</span><span class="p">).</span><span class="n"><a href="value.html">value()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力</h4>
 <p><pre><code></code></pre></p>
 <h3>メソッドチェインとしての使い方</h3>
-<p><div class="yata" id="005d39ba96928e03f601dfbe090d88771ba3ae9f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../charconv.html">&lt;charconv&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="005d39ba96928e03f601dfbe090d88771ba3ae9f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../charconv.html">&lt;charconv&gt;</a></span>
+<span class="cp">#include <a href="../../optional.html">&lt;optional&gt;</a></span>
+<span class="cp">#include <a href="../../string_view.html">&lt;string_view&gt;</a></span>
 
-<span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">parse</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">sv</span><span class="p">,</span> <span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">prefix</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span>
+<span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../string_view/basic_string_view/empty.html">prefix.empty()</a></span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n"><a href="../../string_view/basic_string_view/starts_with.html">sv.starts_with</a></span><span class="p">(</span><span class="n">prefix</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">{};</span>
-  <span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../../charconv/from_chars.html">std::from_chars</a></span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view/data.html">sv.data()</a></span> <span class="o">+</span> <span class="n"><a href="../../string_view/basic_string_view/size.html">prefix.size()</a></span><span class="p">,</span> <span class="n"><a href="../../string_view/basic_string_view/data.html">sv.data()</a></span> <span class="o">+</span> <span class="n"><a href="../../string_view/basic_string_view/size.html">sv.size()</a></span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">base</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">ec</span> <span class="o">==</span> <span class="n"><a href="../../system_error/errc.html">std::errc</a></span><span class="p">{}</span> <span class="o">&amp;&amp;</span> <span class="n">ptr</span> <span class="o">==</span> <span class="n"><a href="../../string_view/basic_string_view/data.html">sv.data()</a></span> <span class="o">+</span> <span class="n"><a href="../../string_view/basic_string_view/size.html">sv.size()</a></span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
-  <span class="k">else</span>
-    <span class="k">return</span> <span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../string_view/basic_string_view/empty.html">prefix.empty()</a></span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n"><a href="../../string_view/basic_string_view/starts_with.html">sv.starts_with</a></span><span class="p">(</span><span class="n">prefix</span><span class="p">))</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">{};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../charconv/from_chars.html">std::from_chars</a></span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view/data.html">sv.data()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../string_view/basic_string_view/size.html">prefix.size()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../string_view/basic_string_view/data.html">sv.data()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../string_view/basic_string_view/size.html">sv.size()</a></span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ec</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../system_error/errc.html">std::errc</a></span><span class="p">{}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../string_view/basic_string_view/data.html">sv.data()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><a href="../../string_view/basic_string_view/size.html">sv.size()</a></span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">parse_digit</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">sv</span><span class="p">)</span>
+<span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parse_digit</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">sv</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">return</span> <span class="n">parse</span><span class="p">(</span><span class="n">sv</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"0b"</span><span class="p">)</span>
-    <span class="p">.</span><span class="n"><span style="color:#ff0000">or_else</span></span><span class="p">([</span><span class="n">sv</span><span class="p">]</span> <span class="p">{</span> <span class="k">return</span> <span class="n">parse</span><span class="p">(</span><span class="n">sv</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="p">})</span>
-    <span class="p">.</span><span class="n"><span style="color:#ff0000">or_else</span></span><span class="p">([</span><span class="n">sv</span><span class="p">]</span> <span class="p">{</span> <span class="k">return</span> <span class="n">parse</span><span class="p">(</span><span class="n">sv</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="s">"0x"</span><span class="p">);</span> <span class="p">});</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">sv</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">"0b"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n"><span style="color:#ff0000">or_else</span></span><span class="p">([</span><span class="n">sv</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">sv</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="p">.</span><span class="n"><span style="color:#ff0000">or_else</span></span><span class="p">([</span><span class="n">sv</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">sv</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="s">"0x"</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">parse_digit</span><span class="p">(</span><span class="s">"0b11"</span><span class="p">)</span> <span class="o">==</span> <span class="n"><a href="../optional.html">std::optional</a></span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">parse_digit</span><span class="p">(</span><span class="s">"11"</span><span class="p">)</span> <span class="o">==</span> <span class="n"><a href="../optional.html">std::optional</a></span><span class="p">(</span><span class="mi">11</span><span class="p">));</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">parse_digit</span><span class="p">(</span><span class="s">"0x11"</span><span class="p">)</span> <span class="o">==</span> <span class="n"><a href="../optional.html">std::optional</a></span><span class="p">(</span><span class="mi">17</span><span class="p">));</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">parse_digit</span><span class="p">(</span><span class="s">"x"</span><span class="p">)</span> <span class="o">==</span> <span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">parse_digit</span><span class="p">(</span><span class="s">"0b11"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">parse_digit</span><span class="p">(</span><span class="s">"11"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="p">(</span><span class="mi">11</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">parse_digit</span><span class="p">(</span><span class="s">"0x11"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../optional.html">std::optional</a></span><span class="p">(</span><span class="mi">17</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">parse_digit</span><span class="p">(</span><span class="s">"x"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../nullopt_t.html">std::nullopt</a></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -370,7 +370,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

@@ -225,7 +225,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_ios">basic_ios::</span><span class="token">operator void*</span><span class="cpp cpp11removed text-danger" title="C++11で削除">(C++11で削除)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">operator</span> <span class="kt">void</span><span class="o">*</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">operator</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -239,14 +239,14 @@
     なお、<code>if</code> 文や <code>while</code> 文の条件式で使用している分には問題とならないが、この変更によって一部 C++03 までは問題の無かったコードがコンパイルエラーとなる等の非互換が生じている。
   <br />
 <div class="codehilite"><pre><span></span><code><span class="c1">// C++03 まではコンパイル可能だが C++11 からはコンパイルエラーになる例</span>
-<span class="kt">bool</span> <span class="n">b1</span> <span class="o">=</span> <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">b2</span> <span class="o">=</span> <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </code></pre></div>
 </li>
 </ul>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">explicit</span> <span class="k">operator</span> <span class="kt">void</span><span class="o">*</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><a href="fail.html">fail</a></span><span class="p">()</span> <span class="o">?</span> <span class="nb">NULL</span> <span class="o">:</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="n"><a href="../basic_ios.html">basic_ios</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">explicit</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="fail.html">fail</a></span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">const_cast</span><span class="o">&lt;</span><span class="n"><a href="../basic_ios.html">basic_ios</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -293,7 +293,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

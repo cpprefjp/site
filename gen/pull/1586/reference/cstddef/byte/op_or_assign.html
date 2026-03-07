@@ -225,8 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cstddef&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">operator|=</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="n">byte</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">|=</span><span class="p">(</span><span class="n">byte</span><span class="o">&amp;</span> <span class="n">l</span><span class="p">,</span> <span class="n">byte</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">byte</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">|=</span><span class="p">(</span><span class="n">byte</span><span class="o">&amp;</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -234,23 +234,23 @@
 <p><code>byte</code>型のオブジェクトに対して、ビット論理和の複合代入をする。</p>
 <h2>効果</h2>
 <p>以下の式と等価の効果をもつ：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">|</span> <span class="n">r</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="75a539563d07e7e1a05ab85922d57bed45825218"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../cstddef.html">&lt;cstddef&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="75a539563d07e7e1a05ab85922d57bed45825218"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../cstddef.html">&lt;cstddef&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">byte</span> <span class="n">a</span><span class="p">{</span><span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mo">0011</span><span class="p">};</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">byte</span> <span class="n">b</span><span class="p">{</span><span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mo">0101</span><span class="p">};</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">byte</span><span class="w"> </span><span class="n">a</span><span class="p">{</span><span class="mb">0b0000'0011</span><span class="p">};</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">byte</span><span class="w"> </span><span class="n">b</span><span class="p">{</span><span class="mb">0b0000'0101</span><span class="p">};</span>
 
-  <span class="n">a</span> <span class="o">|=</span> <span class="n">b</span><span class="p">;</span>
+<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="n">b0000</span><span class="err">'</span><span class="mo">0111</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b0000'0111</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -288,7 +288,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

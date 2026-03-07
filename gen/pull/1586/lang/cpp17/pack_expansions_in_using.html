@@ -222,22 +222,22 @@
 具体的には<code>using</code>宣言の識別子をカンマで区切ること、
 パラメータパックに省略記号<code>...</code>を指定してパック展開が可能になる。</p>
 <p>C++14では下記のように1つずつ宣言していたが、</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">;</span>
-<span class="k">using</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>下記のように一度に宣言できるようになった。
 1つ目の識別子と名前空間が同じであっても省略はできないため、
 2番目のような書き方はできない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">,</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
 <span class="c1">//using <a href="../../reference/iostream/cout.html">std::cout</a>, endl; // NG</span>
 </code></pre></div>
 </p>
 <p>省略記号<code>...</code>を指定しパック展開を行う例は下記の通り。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">A</span> <span class="p">:</span> <span class="n">T</span><span class="p">...</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span> <span class="c1">// 受け取ったクラスのoperator()を全て使えるようにする</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">...</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span><span class="w"> </span><span class="c1">// 受け取ったクラスのoperator()を全て使えるようにする</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -257,34 +257,34 @@
 継承した全てのクラスの<code>operator()</code>を使えるようにしている。</p>
 <p>この例では<code>long</code>や<code>std::string</code>を引数として渡すと<code>ForAll::operator()(int)</code>ではなく、
 <code>using</code>宣言した<code>ForLong::operator()(long)</code>や<code>ForString::operator()(cons std::string&amp;)</code>が呼び出される。</p>
-<p><div class="yata" id="090ee0fe2280dde14b37e874f380af61a0c2333b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="090ee0fe2280dde14b37e874f380af61a0c2333b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">ForLong</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">long</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForLong:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ForLong</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="kt">long</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"ForLong:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">ForString</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForString:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ForString</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"ForString:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">ForAll</span> <span class="p">:</span> <span class="n">T</span><span class="p">...</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span>
-  <span class="kt">void</span> <span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForAll:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ForAll</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">...</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"ForAll:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">ForAll</span><span class="o">&lt;</span><span class="n">ForLong</span><span class="p">,</span> <span class="n">ForString</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">100L</span><span class="p">);</span>
-  <span class="n">p</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ForAll</span><span class="o">&lt;</span><span class="n">ForLong</span><span class="p">,</span><span class="w"> </span><span class="n">ForString</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mf">100L</span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -296,9 +296,9 @@ ForString:hello
 <h2>この機能が必要になった背景・経緯</h2>
 <p>C++11にて可変引数テンプレートが導入され、
 テンプレートパラメータに渡されたクラスをパック展開し、一度に全て継承することができるようになった。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">ForAll2</span> <span class="p">:</span> <span class="n">T</span><span class="p">...</span> <span class="p">{</span>
-  <span class="c1">// Tに指定されたクラスを全て継承</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ForAll2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">...</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Tに指定されたクラスを全て継承</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -306,27 +306,27 @@ ForString:hello
 全て<code>using</code>宣言する簡単な方法がなかった。
 このためクラステンプレートが基底クラスと派生クラスでメンバ関数を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>する場合、
 実装が煩雑になってしまう問題があった。</p>
-<p><div class="yata" id="d1e9b99ec705ad34bec4bf5fefa60e2e74e07d13"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d1e9b99ec705ad34bec4bf5fefa60e2e74e07d13"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">ForLong</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">long</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForLong:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ForLong</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="kt">long</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"ForLong:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">ForString</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForString:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ForString</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"ForString:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">// C++14までの方法、C++17でも使えるが冗長</span>
 
 <span class="c1">// クラスを2つ以上受け取る場合、先頭のクラス T とそれ以外 Ts に分割する</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">ForAll2</span> <span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">();</span> <span class="c1">// 先頭のクラス T の operator() を使えるようにする</span>
-  <span class="k">using</span> <span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">();</span> <span class="c1">// 残りのクラスを再帰的に使えるようにする</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ForAll2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">();</span><span class="w"> </span><span class="c1">// 先頭のクラス T の operator() を使えるようにする</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">();</span><span class="w"> </span><span class="c1">// 残りのクラスを再帰的に使えるようにする</span>
 <span class="p">};</span>
 
 <span class="c1">// クラスを1つだけ受け取る場合、特殊な処理を行う（部分特殊化）</span>
@@ -334,20 +334,20 @@ ForString:hello
 <span class="c1">// クラステンプレートのみだと、クラスを1つしか受け取らない場合に</span>
 <span class="c1">// Ts... が空になって ForAll2&lt;Ts...&gt; が文法エラーになる</span>
 <span class="c1">// このためクラスが1つの場合は特別扱いする必要がある</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n">T</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">();</span>
-  <span class="kt">void</span> <span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForAll2:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ForAll2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"ForAll2:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">ForLong</span><span class="p">,</span> <span class="n">ForString</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
-  <span class="n">p</span><span class="p">(</span><span class="mi">200L</span><span class="p">);</span>
-  <span class="n">p</span><span class="p">(</span><span class="s">"hello2"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">ForLong</span><span class="p">,</span><span class="w"> </span><span class="n">ForString</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="mf">200L</span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="p">(</span><span class="s">"hello2"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -382,7 +382,7 @@ ForString:hello2
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

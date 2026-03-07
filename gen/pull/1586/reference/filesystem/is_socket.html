@@ -213,10 +213,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="token">is_socket</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span> <span class="p">{</span>
-  <span class="kt">bool</span> <span class="n">is_socket</span><span class="p">(</span><span class="n"><a href="file_status.html">file_status</a></span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                      <span class="c1">// (1)</span>
-  <span class="kt">bool</span> <span class="nf">is_socket</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>                               <span class="c1">// (2)</span>
-  <span class="kt">bool</span> <span class="nf">is_socket</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span> <span class="n">ec</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (3)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_socket</span><span class="p">(</span><span class="n"><a href="file_status.html">file_status</a></span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                      </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_socket</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                               </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_socket</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="path.html">path</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -228,8 +228,8 @@
 <li>(2) : <code>return is_socket(<a href="status.html">status</a>(p));</code></li>
 <li>(3) :
   <br />
-<div class="codehilite"><pre><span></span><code><span class="n"><a href="file_status.html">file_status</a></span> <span class="n">s</span> <span class="o">=</span> <span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ec</span><span class="p">);</span>
-<span class="k">return</span> <span class="nf">is_socket</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="file_status.html">file_status</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="status.html">status</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span>
+<span class="k">return</span><span class="w"> </span><span class="n">is_socket</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
 </code></pre></div>
 </li>
 </ul>
@@ -241,38 +241,38 @@
 </ul>
 <h2>例</h2>
 <h3>Linux環境の例</h3>
-<p><div class="yata" id="4e6573cd0d30ef11c7e7eef33beac10157ce8681"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstring.html">&lt;cstring&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;sys/un.h&gt;</span><span class="cp"></span>
+<p><div class="yata" id="4e6573cd0d30ef11c7e7eef33beac10157ce8681"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../filesystem.html">&lt;filesystem&gt;</a></span>
+<span class="cp">#include <a href="../cstring.html">&lt;cstring&gt;</a></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/un.h&gt;</span>
 
-<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">filesystem</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// プロセス間通信用に、ポート番号の代わりにファイル名でソケットを区別する。</span>
-  <span class="c1">// (UNIXドメインソケット)</span>
-  <span class="n">sockaddr_un</span> <span class="n">addr</span><span class="p">;</span>
-  <span class="n">addr</span><span class="p">.</span><span class="n">sun_family</span> <span class="o">=</span> <span class="n">AF_UNIX</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">strcpy</span><span class="p">(</span><span class="n">addr</span><span class="p">.</span><span class="n">sun_path</span><span class="p">,</span> <span class="s">"sock"</span><span class="p">);</span>
-  <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">PF_UNIX</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="n">bind</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="p">(</span><span class="n">sockaddr</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">addr</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// プロセス間通信用に、ポート番号の代わりにファイル名でソケットを区別する。</span>
+<span class="w">  </span><span class="c1">// (UNIXドメインソケット)</span>
+<span class="w">  </span><span class="n">sockaddr_un</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">addr</span><span class="p">.</span><span class="n">sun_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AF_UNIX</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">strcpy</span><span class="p">(</span><span class="n">addr</span><span class="p">.</span><span class="n">sun_path</span><span class="p">,</span><span class="w"> </span><span class="s">"sock"</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">PF_UNIX</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">bind</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">sockaddr</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">addr</span><span class="p">));</span>
 
-  <span class="c1">// (1)</span>
-  <span class="c1">// 取得済みのファイル状態を使用して、ソケットかを確認</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_socket</span></span><span class="p">(</span><span class="n"><a href="status.html">fs::status</a></span><span class="p">(</span><span class="s">"sock"</span><span class="p">)));</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="c1">// 取得済みのファイル状態を使用して、ソケットかを確認</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_socket</span></span><span class="p">(</span><span class="n"><a href="status.html">fs::status</a></span><span class="p">(</span><span class="s">"sock"</span><span class="p">)));</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// パスを指定して、ソケットかを確認。</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_socket</span></span><span class="p">(</span><span class="s">"sock"</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// パスを指定して、ソケットかを確認。</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">fs::is_socket</span></span><span class="p">(</span><span class="s">"sock"</span><span class="p">));</span>
 
-  <span class="c1">// (3)</span>
-  <span class="c1">// エラー情報を例外ではなくerror_codeで受け取る</span>
-  <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span> <span class="n">ec</span><span class="p">;</span>
-  <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">fs::is_socket</span></span><span class="p">(</span><span class="s">"sock"</span><span class="p">,</span> <span class="n">ec</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">ec</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="c1">// エラー情報を例外ではなくerror_codeで受け取る</span>
+<span class="w">  </span><span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="w"> </span><span class="n">ec</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">fs::is_socket</span></span><span class="p">(</span><span class="s">"sock"</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">ec</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -306,7 +306,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

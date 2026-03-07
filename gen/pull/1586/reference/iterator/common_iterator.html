@@ -213,32 +213,32 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;iterator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">common_iterator</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="input_or_output_iterator.html">input_or_output_iterator</a></span> <span class="n">I</span><span class="p">,</span> <span class="n"><a href="sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">S</span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/copyable.html">copyable</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="k">class</span> <span class="nc"><a href="">common_iterator</a></span> <span class="p">{</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="input_or_output_iterator.html">input_or_output_iterator</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../concepts/copyable.html">copyable</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="">common_iterator</a></span><span class="w"> </span><span class="p">{</span>
 
-  <span class="k">private</span><span class="o">:</span>
-    <span class="n"><a href="../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">v_</span><span class="p">;</span> <span class="c1">// 説明専用メンバ変数</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n"><a href="../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v_</span><span class="p">;</span><span class="w"> </span><span class="c1">// 説明専用メンバ変数</span>
+<span class="w">  </span><span class="p">};</span>
 
 
-  <span class="c1">// <a href="incrementable_traits.html">incrementable_traits</a>にアダプトする</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">S</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n"><a href="incrementable_traits.html">incrementable_traits</a></span><span class="o">&lt;</span><span class="n"><a href="">common_iterator</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">difference_type</span> <span class="o">=</span> <span class="n"><a href="iter_difference_t.html">iter_difference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// <a href="incrementable_traits.html">incrementable_traits</a>にアダプトする</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">S</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="incrementable_traits.html">incrementable_traits</a></span><span class="o">&lt;</span><span class="n"><a href="">common_iterator</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">difference_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="iter_difference_t.html">iter_difference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// <a href="iterator_traits.html">iterator_traits</a>にアダプトする</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="input_iterator.html">input_iterator</a></span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">S</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n"><a href="iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n"><a href="">common_iterator</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
-    <span class="k">using</span> <span class="n">iterator_concept</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">iterator_category</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>  <span class="c1">// 定義されない場合がある</span>
-    <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n"><a href="iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">difference_type</span> <span class="o">=</span> <span class="n"><a href="iter_difference_t.html">iter_difference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">pointer</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">reference</span> <span class="o">=</span> <span class="n"><a href="iter_reference_t.html">iter_reference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// <a href="iterator_traits.html">iterator_traits</a>にアダプトする</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="input_iterator.html">input_iterator</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">S</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n"><a href="">common_iterator</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">iterator_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">iterator_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w">  </span><span class="c1">// 定義されない場合がある</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">difference_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="iter_difference_t.html">iter_difference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="iter_reference_t.html">iter_reference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -365,32 +365,32 @@
 <li><code>iterator_category</code>は<code>iter_difference_t&lt;I&gt;</code>が組み込みの整数型の場合にのみ定義される（<a href="is_integer_like.html"><em>integer-class</em></a>型の場合には定義されない）</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="b8dca6138c73a34c378e5bfcf5f524e6f8b54396"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b8dca6138c73a34c378e5bfcf5f524e6f8b54396"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
 
 <span class="c1">// イテレータによって範囲の要素を出力する</span>
 <span class="c1">// イテレータ型と番兵型が同一であることを前提とするレガシーな実装</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">I</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">iter_output</span><span class="p">(</span><span class="n">I</span> <span class="n">it</span><span class="p">,</span> <span class="n">I</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(;</span><span class="n">it</span> <span class="o">!=</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">I</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">iter_output</span><span class="p">(</span><span class="n">I</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">it</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">seq</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/iota_view.html">views::iota</a></span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/take_view.html">views::take</a></span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">seq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/iota_view.html">views::iota</a></span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/take_view.html">views::take</a></span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 
-  <span class="c1">// 範囲seqはイテレータ型と番兵型が異なっているためそのままだとエラー</span>
-  <span class="c1">//iter_output(std::<a href="../ranges/begin.html">ranges::begin</a>(seq), std::<a href="../ranges/end.html">ranges::end</a>(seq));</span>
+<span class="w">  </span><span class="c1">// 範囲seqはイテレータ型と番兵型が異なっているためそのままだとエラー</span>
+<span class="w">  </span><span class="c1">//iter_output(std::<a href="../ranges/begin.html">ranges::begin</a>(seq), std::<a href="../ranges/end.html">ranges::end</a>(seq));</span>
 
-  <span class="c1">// <a href="">common_iterator</a>を通すことでイテレータ型と番兵型を合わせる</span>
-  <span class="k">using</span> <span class="n">CI</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::common_iterator</span></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/sentinel_t.html">sentinel_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// <a href="">common_iterator</a>を通すことでイテレータ型と番兵型を合わせる</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">CI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::common_iterator</span></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/sentinel_t.html">sentinel_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 
-  <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">CI</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/begin.html">ranges::begin</a></span><span class="p">(</span><span class="n">seq</span><span class="p">)};</span>
-  <span class="k">auto</span> <span class="n">end</span> <span class="o">=</span> <span class="n">CI</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/end.html">ranges::end</a></span><span class="p">(</span><span class="n">seq</span><span class="p">)};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CI</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/begin.html">ranges::begin</a></span><span class="p">(</span><span class="n">seq</span><span class="p">)};</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CI</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/end.html">ranges::end</a></span><span class="p">(</span><span class="n">seq</span><span class="p">)};</span>
 
-  <span class="n">iter_output</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
+<span class="w">  </span><span class="n">iter_output</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -440,7 +440,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

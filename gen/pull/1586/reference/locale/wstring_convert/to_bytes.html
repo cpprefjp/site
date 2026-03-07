@@ -225,11 +225,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;locale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class wstring_convert">wstring_convert::</span><span class="token">to_bytes</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp17deprecated text-warning" title="C++17で非推奨">(C++17で非推奨)</span><span class="cpp cpp26removed text-danger" title="C++26で削除">(C++26で削除)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">byte_string</span> <span class="nf">to_bytes</span><span class="p">(</span><span class="n">Elem</span> <span class="n">wchar</span><span class="p">);</span>              <span class="c1">// (1)</span>
-<span class="n">byte_string</span> <span class="nf">to_bytes</span><span class="p">(</span><span class="k">const</span> <span class="n">Elem</span><span class="o">*</span> <span class="n">wptr</span><span class="p">);</span>        <span class="c1">// (2)</span>
-<span class="n">byte_string</span> <span class="nf">to_bytes</span><span class="p">(</span><span class="k">const</span> <span class="n">wide_string</span><span class="o">&amp;</span> <span class="n">wstr</span><span class="p">);</span> <span class="c1">// (3)</span>
-<span class="n">byte_string</span> <span class="nf">to_bytes</span><span class="p">(</span><span class="k">const</span> <span class="n">Elem</span><span class="o">*</span> <span class="n">first</span><span class="p">,</span>
-                     <span class="k">const</span> <span class="n">Elem</span><span class="o">*</span> <span class="n">last</span><span class="p">);</span>        <span class="c1">// (4)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">byte_string</span><span class="w"> </span><span class="nf">to_bytes</span><span class="p">(</span><span class="n">Elem</span><span class="w"> </span><span class="n">wchar</span><span class="p">);</span><span class="w">              </span><span class="c1">// (1)</span>
+<span class="n">byte_string</span><span class="w"> </span><span class="nf">to_bytes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Elem</span><span class="o">*</span><span class="w"> </span><span class="n">wptr</span><span class="p">);</span><span class="w">        </span><span class="c1">// (2)</span>
+<span class="n">byte_string</span><span class="w"> </span><span class="nf">to_bytes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">wide_string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">wstr</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
+<span class="n">byte_string</span><span class="w"> </span><span class="nf">to_bytes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Elem</span><span class="o">*</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">                     </span><span class="k">const</span><span class="w"> </span><span class="n">Elem</span><span class="o">*</span><span class="w"> </span><span class="n">last</span><span class="p">);</span><span class="w">        </span><span class="c1">// (4)</span>
 </code></pre></div>
 </p>
 <p>このクラスはC++17から非推奨となり、C++26で削除された。</p>
@@ -250,48 +250,48 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>変換に失敗し、コンストラクタで<code>byte_err</code>パラメータ(エラー時に返す文字列)が設定されていなかった場合、<code><a href="../../stdexcept.html">std::range_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="2411cb387efed94af22546ae39b9bf9e2746667a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../codecvt.html">&lt;codecvt&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="2411cb387efed94af22546ae39b9bf9e2746667a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="../../codecvt.html">&lt;codecvt&gt;</a></span>
+<span class="cp">#include <a href="../../iterator.html">&lt;iterator&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">wstring_convert</span><span class="o">&lt;</span><span class="n"><a href="../../codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">char32_t</span><span class="o">&gt;</span> <span class="n">converter</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">wstring_convert</span><span class="o">&lt;</span><span class="n"><a href="../../codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">converter</span><span class="p">;</span>
 
-  <span class="c1">// (1)</span>
-  <span class="c1">// 1つのワイド文字からバイト文字列に変換</span>
-  <span class="p">{</span>
-    <span class="kt">char32_t</span> <span class="n">input</span> <span class="o">=</span> <span class="n">U</span><span class="sc">'あ'</span><span class="p">;</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">u8result</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">u8result</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/empty.html">empty()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="c1">// 1つのワイド文字からバイト文字列に変換</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char32_t</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="sc">'あ'</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">u8result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">u8result</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/empty.html">empty()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (2)</span>
-  <span class="c1">// ワイド文字配列からバイト文字列に変換</span>
-  <span class="p">{</span>
-    <span class="k">const</span> <span class="kt">char32_t</span> <span class="n">input</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">u8result</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">u8result</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/empty.html">empty()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="c1">// ワイド文字配列からバイト文字列に変換</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char32_t</span><span class="w"> </span><span class="n">input</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">u8result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">u8result</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/empty.html">empty()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (3)</span>
-  <span class="c1">// ワイド文字列からバイト文字列に変換</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../string/basic_string.html">std::u32string</a></span> <span class="n">input</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">u8result</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">u8result</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/empty.html">empty()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="c1">// ワイド文字列からバイト文字列に変換</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::u32string</a></span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">u8result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">u8result</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/empty.html">empty()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// (4)</span>
-  <span class="c1">// ワイド文字の範囲からバイト文字列に変換</span>
-  <span class="p">{</span>
-    <span class="k">const</span> <span class="kt">char32_t</span> <span class="n">input</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
-    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">u8result</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">input</span><span class="p">),</span> <span class="n"><a href="../../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">input</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">u8result</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/empty.html">empty()</a></span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// (4)</span>
+<span class="w">  </span><span class="c1">// ワイド文字の範囲からバイト文字列に変換</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char32_t</span><span class="w"> </span><span class="n">input</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">u8result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">input</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">u8result</span><span class="p">.</span><span class="n"><a href="../../string/basic_string/empty.html">empty()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -330,7 +330,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

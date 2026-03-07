@@ -226,10 +226,10 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class common_view">common_view::</span><span class="token">コンストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">common_view</span><span class="p">()</span>
-  <span class="n">requires</span> <span class="n"><a href="../../concepts/default_initializable.html">default_initializable</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../concepts/default_initializable.html">default_initializable</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1) C++20</span>
 
-<span class="k">constexpr</span> <span class="k">explicit</span>
-<span class="nf">common_view</span><span class="p">(</span><span class="n">V</span> <span class="n">r</span><span class="p">);</span>                               <span class="c1">// (2) C++20</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span>
+<span class="n">common_view</span><span class="p">(</span><span class="n">V</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">                               </span><span class="c1">// (2) C++20</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -243,24 +243,24 @@
 <li>(2) : <code>base_</code>を<code>std::move(r)</code>で初期化する</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="d1288cb12474f8b9301847abfd140e0b06f7fdef"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d1288cb12474f8b9301847abfd140e0b06f7fdef"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 
-  <span class="c1">// (1) デフォルトコンストラクタ</span>
-  <span class="n"><span style="color:#ff0000">std::ranges::common_view</span></span><span class="o">&lt;</span><span class="n"><a href="../iota_view.html">std::ranges::iota_view</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">cv1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (1) デフォルトコンストラクタ</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::common_view</span></span><span class="o">&lt;</span><span class="n"><a href="../iota_view.html">std::ranges::iota_view</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">cv1</span><span class="p">;</span>
 
-  <span class="c1">// (2) 元となるRangeを受け取るコンストラクタ</span>
-  <span class="k">auto</span> <span class="n">taken</span> <span class="o">=</span> <span class="n">vec</span> <span class="o">|</span> <span class="n"><a href="../take_while_view.html">std::views::take_while</a></span><span class="p">([](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="p">});</span>
-  <span class="n"><span style="color:#ff0000">std::ranges::common_view</span></span> <span class="n">cv2</span><span class="p">(</span><span class="n">taken</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// (2) 元となるRangeを受け取るコンストラクタ</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">taken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="../take_while_view.html">std::views::take_while</a></span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::common_view</span></span><span class="w"> </span><span class="n">cv2</span><span class="p">(</span><span class="n">taken</span><span class="p">);</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">cv2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cv2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -300,7 +300,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

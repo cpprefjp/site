@@ -219,16 +219,16 @@
 <p></p>
 <h2>概要</h2>
 <p>インライン名前空間 (inline namespace)は、名前空間内の機能に透過的にアクセスするための機能である。<code>inline namespace</code>によって定義した名前空間の機能には、その名前空間を指定しなくてもアクセスできる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">my_namespace</span> <span class="p">{</span>
-  <span class="kr">inline</span> <span class="k">namespace</span> <span class="n">features</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">my_namespace</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">features</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">my_namespace</span><span class="o">::</span><span class="n">features</span><span class="o">::</span><span class="n">f</span><span class="p">();</span>
-  <span class="n">my_namespace</span><span class="o">::</span><span class="n">f</span><span class="p">();</span>           <span class="c1">// features名前空間は省略できる</span>
+<span class="w">  </span><span class="n">my_namespace</span><span class="o">::</span><span class="n">features</span><span class="o">::</span><span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="n">my_namespace</span><span class="o">::</span><span class="n">f</span><span class="p">();</span><span class="w">           </span><span class="c1">// features名前空間は省略できる</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -241,8 +241,8 @@
 <ul>
 <li>
 <p>名前空間の<code>inline</code>指定は、名前付き名前空間と無名名前空間の定義で使用できる。<code>inline</code>指定された名前空間を「インライン名前空間 (inline namespace)」と呼ぶ</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kr">inline</span> <span class="k">namespace</span> <span class="n">my_namespace</span> <span class="p">{}</span>
-<span class="kr">inline</span> <span class="k">namespace</span> <span class="p">{}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">my_namespace</span><span class="w"> </span><span class="p">{}</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </p>
 </li>
@@ -251,101 +251,101 @@
 </li>
 <li>
 <p>インライン名前空間とその外側の名前空間は、引数依存の名前探索で探索される「関連ある名前空間(associated namespace)」となる</p>
-<p><div class="yata" id="135c2b629aa6034c05c603ffa8af2c79d5968ff4"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="135c2b629aa6034c05c603ffa8af2c79d5968ff4"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">ns1</span> <span class="p">{</span>
-  <span class="k">class</span> <span class="nc">X</span> <span class="p">{};</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ns1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span>
 
-  <span class="kr">inline</span> <span class="k">namespace</span> <span class="n">ns2</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="nc">Y</span> <span class="p">{};</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ns2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{};</span>
 
-    <span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"call f()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"call f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"call g()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"call g()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">f</span><span class="p">(</span><span class="n">ns1</span><span class="o">::</span><span class="n">X</span><span class="p">());</span>      <span class="c1">// 「call f()」が出力される</span>
-  <span class="n">g</span><span class="p">(</span><span class="n">ns1</span><span class="o">::</span><span class="n">Y</span><span class="p">());</span>      <span class="c1">// 「call g()」が出力される</span>
-  <span class="n">g</span><span class="p">(</span><span class="n">ns1</span><span class="o">::</span><span class="n">ns2</span><span class="o">::</span><span class="n">Y</span><span class="p">());</span> <span class="c1">// 「call g()」が出力される</span>
+<span class="w">  </span><span class="n">f</span><span class="p">(</span><span class="n">ns1</span><span class="o">::</span><span class="n">X</span><span class="p">());</span><span class="w">      </span><span class="c1">// 「call f()」が出力される</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n">ns1</span><span class="o">::</span><span class="n">Y</span><span class="p">());</span><span class="w">      </span><span class="c1">// 「call g()」が出力される</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="n">ns1</span><span class="o">::</span><span class="n">ns2</span><span class="o">::</span><span class="n">Y</span><span class="p">());</span><span class="w"> </span><span class="c1">// 「call g()」が出力される</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 </li>
 <li>
 <p>インライン名前空間の外側の名前空間をusingディレクティブに指定することで、インライン名前空間のメンバがその外側の名前空間のメンバとして暗黙的に挿入される</p>
-<p><div class="yata" id="539db680f1fbe5145824fc953e688e24ae371ce6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="539db680f1fbe5145824fc953e688e24ae371ce6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">ns1</span> <span class="p">{</span>
-  <span class="kr">inline</span> <span class="k">namespace</span> <span class="n">ns2</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"call f()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ns1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ns2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"call f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="k">using</span> <span class="k">namespace</span> <span class="n">ns1</span><span class="p">;</span>
-  <span class="n">f</span><span class="p">();</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ns1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">f</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 </li>
 <li>
 <p>インライン名前空間のメンバは、外側の名前空間で外側の名前空間のメンバであるかのように、明示的にインスタンス化、および明示的に特殊化できる</p>
-<p><div class="yata" id="a5b1ebcafd25c3b929e261ca64408300dda21c47"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="a5b1ebcafd25c3b929e261ca64408300dda21c47"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">ns1</span> <span class="p">{</span>
-  <span class="kr">inline</span> <span class="k">namespace</span> <span class="n">ns2</span> <span class="p">{</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-    <span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
-      <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">};</span>
-  <span class="p">}</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ns1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ns2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">// インライン名前空間で定義されたクラステンプレートを</span>
-  <span class="c1">// 明示的にインスタンス化</span>
-  <span class="k">template</span> <span class="k">struct</span> <span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// インライン名前空間で定義されたクラステンプレートを</span>
+<span class="w">  </span><span class="c1">// 明示的にインスタンス化</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
 
-  <span class="c1">// インライン名前空間で定義されたクラステンプレートを</span>
-  <span class="c1">// 明示的に特殊化</span>
-  <span class="k">template</span> <span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n">X</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="c1">// インライン名前空間で定義されたクラステンプレートを</span>
+<span class="w">  </span><span class="c1">// 明示的に特殊化</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ns1</span><span class="o">::</span><span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>       <span class="c1">// 0が出力される</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ns1</span><span class="o">::</span><span class="n">X</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>      <span class="c1">// 1が出力される</span>
-  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ns1</span><span class="o">::</span><span class="n">ns2</span><span class="o">::</span><span class="n">X</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 1が出力される</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ns1</span><span class="o">::</span><span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w">       </span><span class="c1">// 0が出力される</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ns1</span><span class="o">::</span><span class="n">X</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w">      </span><span class="c1">// 1が出力される</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ns1</span><span class="o">::</span><span class="n">ns2</span><span class="o">::</span><span class="n">X</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 1が出力される</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 </li>
 <li>
 <p>インライン名前空間の外側の名前空間の機能に、明示的な名前空間修飾付きでアクセスした場合でも、インライン名前空間をusingディレクティブしたのと同様にそのインライン名前空間の機能が外側の名前空間に持ち込まれる。これは、外側の名前空間とインライン名前空間で同名のメンバが定義されたときに、名前衝突による曖昧さが発生することを意味する</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">ns1</span> <span class="p">{</span>
-  <span class="kr">inline</span> <span class="k">namespace</span> <span class="n">ns2</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">ns1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ns2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">ns1</span><span class="o">::</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// ns2で同名の変数が定義されているため、曖昧になる</span>
+<span class="w">  </span><span class="n">ns1</span><span class="o">::</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// ns2で同名の変数が定義されているため、曖昧になる</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -357,31 +357,31 @@
 <h2>例</h2>
 <h3>using namespaceによる名前空間省略の階層を段階的に指定する</h3>
 <p>インライン名前空間を使用することで、<code>using namespace</code>の影響範囲をユーザーが選択できるようになる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">my_namespace</span> <span class="p">{</span>
-  <span class="kr">inline</span> <span class="k">namespace</span> <span class="n">features</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">my_namespace</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">features</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">{</span>
-    <span class="c1">// my_namespace::features名前空間も含む</span>
-    <span class="c1">// my_namespace名前空間以下の機能を、名前空間修飾なしで</span>
-    <span class="c1">// アクセスできるようにする</span>
-    <span class="k">using</span> <span class="k">namespace</span> <span class="n">my_namespace</span><span class="p">;</span>
-    <span class="n">f</span><span class="p">();</span>
-    <span class="n">g</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="c1">// my_namespace::features名前空間以下の機能だけを</span>
-    <span class="c1">// 名前空間修飾なしでアクセスできるようにする</span>
-    <span class="k">using</span> <span class="k">namespace</span> <span class="n">my_namespace</span><span class="o">::</span><span class="n">features</span><span class="p">;</span>
-    <span class="n">f</span><span class="p">();</span>
-    <span class="n">my_namespace</span><span class="o">::</span><span class="n">g</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// my_namespace::features名前空間も含む</span>
+<span class="w">    </span><span class="c1">// my_namespace名前空間以下の機能を、名前空間修飾なしで</span>
+<span class="w">    </span><span class="c1">// アクセスできるようにする</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">my_namespace</span><span class="p">;</span>
+<span class="w">    </span><span class="n">f</span><span class="p">();</span>
+<span class="w">    </span><span class="n">g</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// my_namespace::features名前空間以下の機能だけを</span>
+<span class="w">    </span><span class="c1">// 名前空間修飾なしでアクセスできるようにする</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">my_namespace</span><span class="o">::</span><span class="nn">features</span><span class="p">;</span>
+<span class="w">    </span><span class="n">f</span><span class="p">();</span>
+<span class="w">    </span><span class="n">my_namespace</span><span class="o">::</span><span class="n">g</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -391,29 +391,29 @@
 <p>インライン名前空間をデフォルトのバージョンとし、古いAPIを元の名前空間でそのまま残すようにできる。</p>
 <p>デフォルトのバージョンを切り替える際は、デフォルトバージョンにする名前空間をインライン名前空間に変更し、デフォルトバージョン以外の名前空間を非インライン名前空間に変更する。</p>
 <p>これによって、バイナリ互換性を保つバージョニングをしやすくする。</p>
-<p><div class="yata" id="59626e39b731af7e7351959b2bf5d663d6c4c88a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="59626e39b731af7e7351959b2bf5d663d6c4c88a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">namespace</span> <span class="n">my_namespace</span> <span class="p">{</span>
-  <span class="k">namespace</span> <span class="n">v1</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"v1"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">my_namespace</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">v1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"v1"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kr">inline</span> <span class="k">namespace</span> <span class="n">v2</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"v2"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">v2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"v2"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">my_namespace</span><span class="o">::</span><span class="n">v1</span><span class="o">::</span><span class="n">f</span><span class="p">();</span> <span class="c1">// 古いバージョンのAPIを呼び出す</span>
-  <span class="n">my_namespace</span><span class="o">::</span><span class="n">v2</span><span class="o">::</span><span class="n">f</span><span class="p">();</span> <span class="c1">// バージョンを明示的に指定してAPIを呼び出す</span>
-  <span class="n">my_namespace</span><span class="o">::</span><span class="n">f</span><span class="p">();</span>     <span class="c1">// デフォルトバージョンのAPIを呼び出す</span>
+<span class="w">  </span><span class="n">my_namespace</span><span class="o">::</span><span class="n">v1</span><span class="o">::</span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// 古いバージョンのAPIを呼び出す</span>
+<span class="w">  </span><span class="n">my_namespace</span><span class="o">::</span><span class="n">v2</span><span class="o">::</span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// バージョンを明示的に指定してAPIを呼び出す</span>
+<span class="w">  </span><span class="n">my_namespace</span><span class="o">::</span><span class="n">f</span><span class="p">();</span><span class="w">     </span><span class="c1">// デフォルトバージョンのAPIを呼び出す</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -473,7 +473,7 @@ v2
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

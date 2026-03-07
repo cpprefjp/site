@@ -213,54 +213,54 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">fill_n</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Size</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="kt">void</span>
-    <span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">first</span><span class="p">,</span>
-           <span class="n">Size</span> <span class="n">n</span><span class="p">,</span>
-           <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>        <span class="c1">// (1) C++03</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Size</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">OutputIterator</span>
-    <span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">first</span><span class="p">,</span>
-           <span class="n">Size</span> <span class="n">n</span><span class="p">,</span>
-           <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>        <span class="c1">// (1) C++11</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Size</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">OutputIterator</span>
-    <span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">first</span><span class="p">,</span>
-           <span class="n">Size</span> <span class="n">n</span><span class="p">,</span>
-           <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>        <span class="c1">// (1) C++20</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Size</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">T</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">OutputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;</span>
-  <span class="k">constexpr</span> <span class="n">OutputIterator</span>
-    <span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">first</span><span class="p">,</span>
-           <span class="n">Size</span> <span class="n">n</span><span class="p">,</span>
-           <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>        <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Size</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span>
+<span class="w">    </span><span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Size</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">           </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">        </span><span class="c1">// (1) C++03</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Size</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">OutputIterator</span>
+<span class="w">    </span><span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Size</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">           </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">        </span><span class="c1">// (1) C++11</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Size</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">OutputIterator</span>
+<span class="w">    </span><span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Size</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">           </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">        </span><span class="c1">// (1) C++20</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Size</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">OutputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">OutputIterator</span>
+<span class="w">    </span><span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Size</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">           </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">        </span><span class="c1">// (1) C++26</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Size</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-  <span class="n">ForwardIterator</span>
-    <span class="n">fill_n</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-           <span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span>
-           <span class="n">Size</span> <span class="n">n</span><span class="p">,</span>
-           <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>        <span class="c1">// (2) C++17</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">Size</span><span class="p">,</span>
-            <span class="k">class</span> <span class="nc">T</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">ForwardIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;</span>
-  <span class="n">ForwardIterator</span>
-    <span class="n">fill_n</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
-           <span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span>
-           <span class="n">Size</span> <span class="n">n</span><span class="p">,</span>
-           <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>        <span class="c1">// (2) C++26</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">ForwardIterator</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Size</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">ForwardIterator</span>
+<span class="w">    </span><span class="n">fill_n</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">           </span><span class="n">ForwardIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Size</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">           </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">        </span><span class="c1">// (2) C++17</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">ForwardIterator</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">Size</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">ForwardIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">ForwardIterator</span>
+<span class="w">    </span><span class="n">fill_n</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
+<span class="w">           </span><span class="n">ForwardIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
+<span class="w">           </span><span class="n">Size</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">           </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">        </span><span class="c1">// (2) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -287,8 +287,8 @@
 <li>(1), (2) :<ul>
 <li>C++26 : <code>value</code>パラメータとして波カッコ初期化<code>{}</code>を受け付ける
   <br />
-<div class="codehilite"><pre><span></span><code><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">fill_n</span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">});</span>
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">fill_n</span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">});</span>
 </code></pre></div>
 </li>
 </ul>
@@ -296,13 +296,13 @@
 </ul>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
-<p><div class="yata" id="1ef64ff2d4164f29e28f0510f5c3586c73126841"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="1ef64ff2d4164f29e28f0510f5c3586c73126841"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../iterator.html">&lt;iterator&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 値3を10個出力する</span>
-  <span class="n"><span style="color:#ff0000">std::fill_n</span></span><span class="p">(</span><span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">,</span> <span class="s">","</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 値3を10個出力する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::fill_n</span></span><span class="p">(</span><span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">,</span><span class="w"> </span><span class="s">","</span><span class="p">),</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -310,26 +310,26 @@
 <p><pre><code>3,3,3,3,3,3,3,3,3,3,
 </code></pre></p>
 <h3>波カッコ初期化を入力として使用する (C++26)</h3>
-<p><div class="yata" id="f338aabdb5f4ecfdecc593ef13c7abdfad8e362a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f338aabdb5f4ecfdecc593ef13c7abdfad8e362a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 
-  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 
-  <span class="c1">// 先頭3個の要素を値{1, 2}で埋める</span>
-  <span class="n"><span style="color:#ff0000">std::fill_n</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">});</span>
+<span class="w">  </span><span class="c1">// 先頭3個の要素を値{1, 2}で埋める</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::fill_n</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">});</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="nl">p</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">","</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">","</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -341,17 +341,17 @@
 0,0
 </code></pre></p>
 <h2>実装例</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Size</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">OutputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Size</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 <span class="cp">#if __cplusplus &gt;= 201103L</span>
 <span class="n">OutputIterator</span>
 <span class="cp">#else</span>
 <span class="kt">void</span>
 <span class="cp">#endif</span>
-<span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">Size</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="o">*</span><span class="n">first</span><span class="o">++</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+<span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">Size</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="o">--</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">*</span><span class="n">first</span><span class="o">++</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 <span class="cp">#if __cplusplus &gt;= 201103L</span>
-  <span class="k">return</span> <span class="n">first</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
 <span class="cp">#endif</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -394,7 +394,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

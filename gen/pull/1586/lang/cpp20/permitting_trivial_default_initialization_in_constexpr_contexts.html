@@ -220,62 +220,62 @@
 <h2>概要</h2>
 <p>型<code>T</code>の変数を単に<code>T t;</code>のように（関数スコープで）初期化した時、<code>T</code>がクラス型であり非トリビアルなデフォルトコンストラクタを持っているか、集成体型であり全てのメンバがデフォルトメンバ初期化によって初期化されていれば、<code>t</code>は初期化されており値は決定的である。しかし、組み込み型など<a href="../../reference/type_traits/is_trivially_default_constructible.html">トリビアルにデフォルト構築可能</a>な型の場合はその初期化は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>であり、その値の読み取りは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>である。</p>
 <p>定数式には<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>が含まれてはならない事から、<code>constexpr</code>関数内のローカル変数が初期化されておらずその関数がコンパイル時に実行された場合、C++17までは不定な値が読み取られているかに関わらずコンパイルエラーとなっていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">ng</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// トリビアルなデフォルト初期化、組み込み型については値は不定</span>
-         <span class="c1">// C++17までは定数式ではコンパイルエラー</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">ng</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="c1">// トリビアルなデフォルト初期化、組み込み型については値は不定</span>
+<span class="w">         </span><span class="c1">// C++17までは定数式ではコンパイルエラー</span>
 
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">ok</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">{};</span>  <span class="c1">// OK、デフォルト初期化（0）される</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">ok</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">{};</span><span class="w">  </span><span class="c1">// OK、デフォルト初期化（0）される</span>
 
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p>C++20からは、このような変数の値が読み取られない限り、定数式で現れる事が許可されるようになる。</p>
 <h2>例</h2>
-<p><div class="yata" id="8f463466dbbc446728de401fe57ededbd1211fa0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8f463466dbbc446728de401fe57ededbd1211fa0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">T</span> <span class="n">copy</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">t</span><span class="p">;</span>  <span class="c1">// トリビアルなデフォルト初期化</span>
-  <span class="n">t</span> <span class="o">=</span> <span class="n">other</span><span class="p">;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w">  </span><span class="c1">// トリビアルなデフォルト初期化</span>
+<span class="w">  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="n">t</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">trivial</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">trivial</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">non_trivial</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">non_trivial</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">{</span>
-    <span class="c1">// 実行時、全てOK</span>
-    <span class="k">auto</span> <span class="n">cp1</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-    <span class="k">auto</span> <span class="n">cp2</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">trivial</span><span class="p">{});</span>
-    <span class="k">auto</span> <span class="n">cp3</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">non_trivial</span><span class="p">{});</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 実行時、全てOK</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">cp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">cp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="n">trivial</span><span class="p">{});</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">cp3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="n">non_trivial</span><span class="p">{});</span>
 
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">cp1</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">cp2</span><span class="p">.</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">cp3</span><span class="p">.</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cp1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cp2</span><span class="p">.</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cp3</span><span class="p">.</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="p">{</span>
-    <span class="c1">// コンパイル時、C++20からは全てOK</span>
-    <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">cp1</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>            <span class="c1">// C++17まではNG</span>
-    <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">cp2</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">trivial</span><span class="p">{});</span>     <span class="c1">// C++17まではNG</span>
-    <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">cp3</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">non_trivial</span><span class="p">{});</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// コンパイル時、C++20からは全てOK</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">cp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">            </span><span class="c1">// C++17まではNG</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">cp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="n">trivial</span><span class="p">{});</span><span class="w">     </span><span class="c1">// C++17まではNG</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">cp3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="n">non_trivial</span><span class="p">{});</span>
 
-    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">cp1</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">cp2</span><span class="p">.</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">cp3</span><span class="p">.</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cp1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cp2</span><span class="p">.</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cp3</span><span class="p">.</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -286,28 +286,28 @@
 <h2>この機能が必要になった背景・経緯</h2>
 <p>例のコードのように、<code>constexpr</code>関数テンプレート内でローカル変数のトリビアルな<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a>が行われていると、そこに渡される型によってコンパイルエラーとなるかどうかが変化していた。一方、そのような関数でも、未初期化変数の値の読み取りをしなければ実行時に<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を起こすことはない。</p>
 <p>また、この機能に先んじてコンパイル時に<code>new</code>式の実行が許可されるようになっていたが、そこでは確保領域の初期化は任意であるため、同じ結果となるコードでもコンパイルできるかどうかが異なっていた。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">T</span> <span class="n">f1</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">auto</span><span class="o">*</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">T</span><span class="p">;</span>  <span class="c1">// 当初からOK</span>
-  <span class="o">*</span><span class="n">t</span> <span class="o">=</span> <span class="n">other</span><span class="p">;</span>
-  <span class="n">T</span> <span class="n">out</span> <span class="o">=</span> <span class="o">*</span><span class="n">t</span><span class="p">;</span> 
-  <span class="k">delete</span> <span class="n">t</span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">f1</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w">  </span><span class="c1">// 当初からOK</span>
+<span class="w">  </span><span class="o">*</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">;</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">T</span> <span class="n">f2</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">T</span> <span class="n">t</span><span class="p">;</span>  <span class="c1">// NG</span>
-  <span class="n">t</span> <span class="o">=</span> <span class="n">other</span><span class="p">;</span> 
-  <span class="n">T</span> <span class="n">out</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span> 
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">f2</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w">  </span><span class="c1">// NG</span>
+<span class="w">  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
 
-  <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>  <span class="c1">// OK</span>
-  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">f2</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>  <span class="c1">// NG</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f1</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f2</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span><span class="w">  </span><span class="c1">// NG</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -338,7 +338,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

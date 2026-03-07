@@ -213,33 +213,33 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">class template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">in_in_result</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
-  <span class="c1">// (1)</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">I1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">I2</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">in_in_result</span> <span class="p">{</span>
-    <span class="p">[[</span><span class="n"><a href="../../lang/cpp20/language_support_for_empty_objects.html">no_unique_address</a></span><span class="p">]]</span> <span class="n">I1</span> <span class="n">in1</span><span class="p">;</span>
-    <span class="p">[[</span><span class="n"><a href="../../lang/cpp20/language_support_for_empty_objects.html">no_unique_address</a></span><span class="p">]]</span> <span class="n">I2</span> <span class="n">in2</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// (1)</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">I1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">I2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_in_result</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[[</span><span class="n"><a href="../../lang/cpp20/language_support_for_empty_objects.html">no_unique_address</a></span><span class="p">]]</span><span class="w"> </span><span class="n">I1</span><span class="w"> </span><span class="n">in1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">[[</span><span class="n"><a href="../../lang/cpp20/language_support_for_empty_objects.html">no_unique_address</a></span><span class="p">]]</span><span class="w"> </span><span class="n">I2</span><span class="w"> </span><span class="n">in2</span><span class="p">;</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">II1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">II2</span><span class="o">&gt;</span>
-      <span class="n">requires</span> <span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">I1</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">II1</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">I2</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">II2</span><span class="o">&gt;</span>
-    <span class="k">constexpr</span> <span class="k">operator</span> <span class="n">in_in_result</span><span class="o">&lt;</span><span class="n">II1</span><span class="p">,</span> <span class="n">II2</span><span class="o">&gt;</span><span class="p">()</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">{</span><span class="n">in1</span><span class="p">,</span> <span class="n">in2</span><span class="p">};</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">II1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">II2</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">I1</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">II1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">I2</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">II2</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">in_in_result</span><span class="o">&lt;</span><span class="n">II1</span><span class="p">,</span><span class="w"> </span><span class="n">II2</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">in2</span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">II1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">II2</span><span class="o">&gt;</span>
-      <span class="n">requires</span> <span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">II1</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">I2</span><span class="p">,</span> <span class="n">II2</span><span class="o">&gt;</span>
-    <span class="k">constexpr</span> <span class="k">operator</span> <span class="n">in_in_result</span><span class="o">&lt;</span><span class="n">II1</span><span class="p">,</span> <span class="n">II2</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">{</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">in1</span><span class="p">),</span> <span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">in2</span><span class="p">)};</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">II1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">II2</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">II1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">I2</span><span class="p">,</span><span class="w"> </span><span class="n">II2</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">in_in_result</span><span class="o">&lt;</span><span class="n">II1</span><span class="p">,</span><span class="w"> </span><span class="n">II2</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">in1</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">in2</span><span class="p">)};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  <span class="c1">// (2)</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">I1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">I2</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">mismatch_result</span> <span class="o">=</span> <span class="n">in_in_result</span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">I1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">I2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">mismatch_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in_in_result</span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">I2</span><span class="o">&gt;</span><span class="p">;</span>
 
-  <span class="c1">// (3)</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">I1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">I2</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">swap_ranges_result</span> <span class="o">=</span> <span class="n">in_in_result</span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (3)</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">I1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">I2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">swap_ranges_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in_in_result</span><span class="o">&lt;</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">I2</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -292,20 +292,20 @@
 </table>
 <p>変換演算子は、各テンプレートパラメーターが変換できる場合のみ<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加する。</p>
 <h2>例</h2>
-<p><div class="yata" id="8f7515a2de3df40eac2ae0bd00a14f9a1696f2db"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8f7515a2de3df40eac2ae0bd00a14f9a1696f2db"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../array.html">&lt;array&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>   <span class="n">v</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span> <span class="p">};</span>
-  <span class="k">const</span> <span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span> <span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w">   </span><span class="n">v</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="w"> </span><span class="p">};</span>
 
-  <span class="c1">// v と v2 で異なる場所を探す</span>
-  <span class="k">const</span> <span class="n"><span style="color:#ff0000">std::ranges::in_in_result</span></span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="ranges_mismatch.html">std::ranges::mismatch</a></span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// v と v2 で異なる場所を探す</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::ranges::in_in_result</span></span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="ranges_mismatch.html">std::ranges::mismatch</a></span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">);</span>
 
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">in1</span> <span class="o">==</span> <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">in2</span> <span class="o">==</span> <span class="n"><a href="../vector/vector/begin.html">v2.begin()</a></span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">in1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">in2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../vector/vector/begin.html">v2.begin()</a></span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -344,7 +344,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>

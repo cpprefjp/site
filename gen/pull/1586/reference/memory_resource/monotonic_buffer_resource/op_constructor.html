@@ -225,23 +225,23 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;memory_resource&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::pmr">std::pmr::</span><span class="class" title="class monotonic_buffer_resource">monotonic_buffer_resource::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">explicit</span> <span class="nf">monotonic_buffer_resource</span><span class="p">(</span><span class="n">memory_resource</span><span class="o">*</span> <span class="n">upstream</span><span class="p">);</span>                      <span class="c1">//(1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">explicit</span><span class="w"> </span><span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n">memory_resource</span><span class="o">*</span><span class="w"> </span><span class="n">upstream</span><span class="p">);</span><span class="w">                      </span><span class="c1">//(1)</span>
 
-<span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">initial_size</span><span class="p">,</span> <span class="n">memory_resource</span> <span class="o">*</span><span class="n">upstream</span><span class="p">);</span>          <span class="c1">//(2)</span>
+<span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">initial_size</span><span class="p">,</span><span class="w"> </span><span class="n">memory_resource</span><span class="w"> </span><span class="o">*</span><span class="n">upstream</span><span class="p">);</span><span class="w">          </span><span class="c1">//(2)</span>
 
-<span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">buffer_size</span><span class="p">,</span>
-                            <span class="n">memory_resource</span> <span class="o">*</span><span class="n">upstream</span><span class="p">);</span>                             <span class="c1">//(3)</span>
+<span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">buffer_size</span><span class="p">,</span>
+<span class="w">                            </span><span class="n">memory_resource</span><span class="w"> </span><span class="o">*</span><span class="n">upstream</span><span class="p">);</span><span class="w">                             </span><span class="c1">//(3)</span>
 
 <span class="n">monotonic_buffer_resource</span><span class="p">()</span>
-        <span class="o">:</span> <span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n">get_default_resource</span><span class="p">())</span> <span class="p">{}</span>                      <span class="c1">//(4)</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n">get_default_resource</span><span class="p">())</span><span class="w"> </span><span class="p">{}</span><span class="w">                      </span><span class="c1">//(4)</span>
 
-<span class="k">explicit</span> <span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">initial_size</span><span class="p">)</span>
-        <span class="o">:</span> <span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n">initial_size</span><span class="p">,</span> <span class="n">get_default_resource</span><span class="p">())</span> <span class="p">{}</span>        <span class="c1">//(5)</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">initial_size</span><span class="p">)</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n">initial_size</span><span class="p">,</span><span class="w"> </span><span class="n">get_default_resource</span><span class="p">())</span><span class="w"> </span><span class="p">{}</span><span class="w">        </span><span class="c1">//(5)</span>
 
-<span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">buffer_size</span><span class="p">)</span>
-        <span class="o">:</span> <span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">buffer_size</span><span class="p">,</span> <span class="n">get_default_resource</span><span class="p">())</span> <span class="p">{}</span> <span class="c1">//(6)</span>
+<span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="n">buffer_size</span><span class="p">)</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">buffer_size</span><span class="p">,</span><span class="w"> </span><span class="n">get_default_resource</span><span class="p">())</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">//(6)</span>
 
-<span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="k">const</span> <span class="n">monotonic_buffer_resource</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>               <span class="c1">//(7)</span>
+<span class="n">monotonic_buffer_resource</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">monotonic_buffer_resource</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">               </span><span class="c1">//(7)</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -292,44 +292,44 @@
 <h2>備考</h2>
 <p>どのコンストラクタの初期化においても、上流メモリリソースの所有権を保持しない。</p>
 <h2>例</h2>
-<p><div class="yata" id="4ac9c6581b0fe3de6f2953a78940569c0c1af49b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4ac9c6581b0fe3de6f2953a78940569c0c1af49b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="c1">//(1) 上流メモリリソースを受けて構築</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><a href="../pool_resource.html">synchronized_pool_resource</a></span> <span class="n">pr</span><span class="p">{};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span> <span class="n">mr</span><span class="p">{</span> <span class="o">&amp;</span><span class="n">pr</span> <span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(1) 上流メモリリソースを受けて構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><a href="../pool_resource.html">synchronized_pool_resource</a></span><span class="w"> </span><span class="n">pr</span><span class="p">{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span><span class="w"> </span><span class="n">mr</span><span class="p">{</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pr</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//(2) 初期サイズと上流メモリリソースを受けて構築</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><a href="../pool_resource.html">synchronized_pool_resource</a></span> <span class="n">pr</span><span class="p">{};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span> <span class="n">mr</span><span class="p">{</span> <span class="mi">1024</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pr</span> <span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(2) 初期サイズと上流メモリリソースを受けて構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><a href="../pool_resource.html">synchronized_pool_resource</a></span><span class="w"> </span><span class="n">pr</span><span class="p">{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span><span class="w"> </span><span class="n">mr</span><span class="p">{</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pr</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//(3) 外部領域を初期メモリ領域として利用し、上流メモリリソースを受けて構築</span>
-  <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">]{};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><a href="../pool_resource.html">synchronized_pool_resource</a></span> <span class="n">pr</span><span class="p">{};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span> <span class="n">mr</span><span class="p">{</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">pr</span> <span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(3) 外部領域を初期メモリ領域として利用し、上流メモリリソースを受けて構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">]{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><a href="../pool_resource.html">synchronized_pool_resource</a></span><span class="w"> </span><span class="n">pr</span><span class="p">{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span><span class="w"> </span><span class="n">mr</span><span class="p">{</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pr</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//(4) デフォルト構築</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span> <span class="n">mr</span><span class="p">{};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(4) デフォルト構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span><span class="w"> </span><span class="n">mr</span><span class="p">{};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//(5) 初期サイズのみを指定して構築</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span> <span class="n">mr</span><span class="p">{</span> <span class="mi">1024</span> <span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(5) 初期サイズのみを指定して構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span><span class="w"> </span><span class="n">mr</span><span class="p">{</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="c1">//(6) 外部領域を初期メモリ領域として利用し構築</span>
-  <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">]{};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span> <span class="n">mr</span><span class="p">{</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span> <span class="p">};</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">//(6) 外部領域を初期メモリ領域として利用し構築</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">]{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n"><span style="color:#ff0000">monotonic_buffer_resource</span></span><span class="w"> </span><span class="n">mr</span><span class="p">{</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -374,7 +374,7 @@
   <div class="container-fluid">
     <p><small>
       本サイトの情報は、
-        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
       の下に提供されています。
     </small></p>
   </div>
