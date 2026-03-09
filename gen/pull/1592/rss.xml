@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-03-09T10:16:10.550253</updated>
+  <id>a47daa83-e387-4490-916d-bf4269677071</id>
+
+  
+    <entry>
+      <title>spawn -- fix typo in reference/execution/execution/{spawn.md,spawn_future.md}</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/spawn.html"/>
+      <id>971dd4b9f6412a01304d2bd69523f86c8a0dc767:reference/execution/execution/spawn.md</id>
+      <updated>2026-03-09T19:10:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/spawn.md b/reference/execution/execution/spawn.md
+index 4e9ab7ce8..25bbfe118 100644
+--- a/reference/execution/execution/spawn.md
++++ b/reference/execution/execution/spawn.md
+@@ -28,7 +28,7 @@ namespace std::execution {
+ そうでなければ、呼び出し式`spawn(sndr, token, env)`に対して、説明用の式`new_sender`を[`token.wrap`](scope_token.md)`(sndr)`とし、`alloc`と`senv`を次の通りとする。
+ 
+ - 式[`get_allocator`](../get_allocator.md)`(env)`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(env)`の結果、`senv`を式`env`とする。
+-- そうでなはく、式[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`の結果、`senv`を式[`JOIN-ENV`](../queryable.md)`(`[`prop`](prop.md)`(`[`get_allocator`](../get_allocator.md)`, alloc), env)`とする。
++- そうではなく、式[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`の結果、`senv`を式[`JOIN-ENV`](../queryable.md)`(`[`prop`](prop.md)`(`[`get_allocator`](../get_allocator.md)`, alloc), env)`とする。
+ - そうではないとき、`alloc`を[`allocator`](/reference/memory/allocator.md)`&amp;lt;void&amp;gt;()`、`senv`を式`env`とする。
+ 
+ 呼び出し式`spawn(sndr, token, env)`は`void`型であり、次の効果をもつ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Ryoga-exe</name>
+        <email>git@ryoga.dev</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>spawn_future -- fix typo in reference/execution/execution/{spawn.md,spawn_future.md}</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/spawn_future.html"/>
+      <id>971dd4b9f6412a01304d2bd69523f86c8a0dc767:reference/execution/execution/spawn_future.md</id>
+      <updated>2026-03-09T19:10:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/spawn_future.md b/reference/execution/execution/spawn_future.md
+index df9ec183d..f462903ff 100644
+--- a/reference/execution/execution/spawn_future.md
++++ b/reference/execution/execution/spawn_future.md
+@@ -30,7 +30,7 @@ namespace std::execution {
+ そうでなければ、呼び出し式`spawn_future(sndr, token, env)`に対して、説明用の式`new_sender`を[`token.wrap`](scope_token.md)`(sndr)`とし、`alloc`と`senv`を次の通りとする。
+ 
+ - 式[`get_allocator`](../get_allocator.md)`(env)`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(env)`の結果、`senv`を式`env`とする。
+-- そうでなはく、式[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`の結果、`senv`を式[`JOIN-ENV`](../queryable.md)`(`[`prop`](prop.md)`(`[`get_allocator`](../get_allocator.md)`, alloc), env)`とする。
++- そうではなく、式[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`の結果、`senv`を式[`JOIN-ENV`](../queryable.md)`(`[`prop`](prop.md)`(`[`get_allocator`](../get_allocator.md)`, alloc), env)`とする。
+ - そうではないとき、`alloc`を[`allocator`](/reference/memory/allocator.md)`&amp;lt;void&amp;gt;()`、`senv`を式`env`とする。
+ 
+ 呼び出し式`spawn_future(sndr, token, env)`は、次の効果をもつ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Ryoga-exe</name>
+        <email>git@ryoga.dev</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>random -- random: Code Projectの記事がリンク切れしていたが基本的な使い方の内容だったので言及を削除することにした #1590</title>
+      <link href="https://cpprefjp.github.io/reference/random.html"/>
+      <id>c22c39fe3073c46b31426ec4541a341044a575c3:reference/random.md</id>
+      <updated>2026-03-09T11:24:36+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random.md b/reference/random.md
+index f09f5dc71..9e2aab544 100644
+--- a/reference/random.md
++++ b/reference/random.md
+@@ -246,7 +246,6 @@ int main()
+ 
+ ### 乱数ライブラリの使い方
+ * [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
+-* [Pitfalls in Random Number Generation](https://www.codeproject.com/articles/28548/pitfalls-in-random-number-generation)
+ 
+ ### 乱数ライブラリが導入された経緯
+ * [N0352 Proposal for Standardization of Random Number Generators in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1993/N0352.asc)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>csignal -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal.html"/>
+      <id>f3a41a5cc843870eefb09204b853b21c8a2f86b6:reference/csignal.md</id>
+      <updated>2026-02-15T00:39:52+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;ヘッダでは、シグナル操作のための機能を定義する。
+シグナルの集合、意味、及びデフォルトの処理は処理系定義である。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_atomic_t.html&#34;&gt;sig_atomic_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非同期シグナルハンドラからアトミックなエンティティとしてアクセス可能な整数型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;h3&gt;&lt;code&gt;signal&lt;/code&gt;関数用のハンドラ指定子&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_dfl.html&#34;&gt;SIG_DFL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルト動作を指定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_err.html&#34;&gt;SIG_ERR&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;関数が失敗したことを示す戻り値&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_ign.html&#34;&gt;SIG_IGN&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;シグナルを無視する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;シグナル番号を表すマクロ&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigint.html&#34;&gt;SIGINT&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;割り込みを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigill.html&#34;&gt;SIGILL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;不正な命令を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigabrt.html&#34;&gt;SIGABRT&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;abort&lt;/code&gt;関数などによる異常終了を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigfpe.html&#34;&gt;SIGFPE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;算術演算エラーを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigsegv.html&#34;&gt;SIGSEGV&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;無効なメモリアクセスを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sigterm.html&#34;&gt;SIGTERM&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;終了要求を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/signal.html&#34;&gt;signal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;特定のシグナルに対するシグナルハンドラを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/raise.html&#34;&gt;raise&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムにシグナルを送信する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_DFL -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_dfl.html"/>
+      <id>f3a41a5cc843870eefb09204b853b21c8a2f86b6:reference/csignal/sig_dfl.md</id>
+      <updated>2026-02-15T00:39:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_dfl.md b/reference/csignal/sig_dfl.md
+new file mode 100644
+index 000000000..dce1c15df
+--- /dev/null
++++ b/reference/csignal/sig_dfl.md
+@@ -0,0 +1,56 @@
++# SIG_DFL
++* csignal[meta header]
++* macro[meta id-type]
++
++```cpp
++#define SIG_DFL see below
++```
++
++## 概要
++`signal`関数に渡される引数として、シグナルハンドラをデフォルトに設定するマクロ。
++
++シグナル受信時に`signal`関数で`SIG_DFL`が指定されている場合、そのシグナルに対する実装定義のデフォルト処理が実行される。
++
++## 例
++```cpp example
++#include &amp;lt;csignal&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;thread&amp;gt;
++#include &amp;lt;chrono&amp;gt;
++
++volatile std::sig_atomic_t flag = 0;
++
++void handler(int)
++{
++  flag = 1;
++}
++
++int main()
++{
++  std::signal(SIGINT, handler);
++
++  std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C (handled)&amp;#34; &amp;lt;&amp;lt; std::endl;
++  while (!flag) {
++    std::this_thread::sleep_for(std::chrono::milliseconds(100));
++  }
++
++  // デフォルトに戻す
++  std::signal(SIGINT, SIG_DFL);
++  std::cout &amp;lt;&amp;lt; &amp;#34;Press Ctrl+C again (default action)&amp;#34; &amp;lt;&amp;lt; std::endl;
++  for (;;) {
++    std::this_thread::sleep_for(std::chrono::milliseconds(100));
++  }
++}
++```
++* SIG_DFL[color ff0000]
++* std::signal[link /reference/csignal/signal.md]
++
++### 出力
++
++```
++Press Ctrl+C (handled)
++Press Ctrl+C again (default action)
++```
++
++## 関連項目
++- [`signal`](/reference/csignal/signal.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_ERR -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_err.html"/>
+      <id>f3a41a5cc843870eefb09204b853b21c8a2f86b6:reference/csignal/sig_err.md</id>
+      <updated>2026-02-15T00:39:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_err.md b/reference/csignal/sig_err.md
+new file mode 100644
+index 000000000..49f17b00c
+--- /dev/null
++++ b/reference/csignal/sig_err.md
+@@ -0,0 +1,51 @@
++# SIG_ERR
++* csignal[meta header]
++* macro[meta id-type]
++
++```cpp
++#define SIG_ERR see below
++```
++
++## 概要
++`signal`関数の戻り値で、シグナルハンドラの設定に失敗したことを示す値。
++
++`signal`関数が失敗した場合、この値が返される。
++
++## 例
++```cpp example
++#include &amp;lt;csignal&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;thread&amp;gt;
++#include &amp;lt;chrono&amp;gt;
++
++volatile std::sig_atomic_t flag = 0;
++
++void signal_handler(int sig)
++{
++  flag = 1;
++}
++
++int main()
++{
++  if (std::signal(SIGINT, signal_handler) == SIG_ERR) {
++    std::cerr &amp;lt;&amp;lt; &amp;#34;Failed to set signal handler&amp;#34; &amp;lt;&amp;lt; std::endl;
++    return 1;
++  }
++  std::cout &amp;lt;&amp;lt; &amp;#34;Signal handler set successfully&amp;#34; &amp;lt;&amp;lt; std::endl; 
++  while (!flag) {
++    std::this_thread::sleep_for(std::chrono::milliseconds(100));
++  }
++  return 0;
++}
++```
++* SIG_ERR[color ff0000]
++* std::signal[link /reference/csignal/signal.md]
++
++### 出力例
++
++```
++Signal handler set successfully
++```
++
++## 関連項目
++- [`signal`](/reference/csignal/signal.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIG_IGN -- add new pages `sig_dfl`,`sig_err`,`sig_ign`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_ign.html"/>
+      <id>f3a41a5cc843870eefb09204b853b21c8a2f86b6:reference/csignal/sig_ign.md</id>
+      <updated>2026-02-15T00:39:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_ign.md b/reference/csignal/sig_ign.md
+new file mode 100644
+index 000000000..9d2d5e112
+--- /dev/null
++++ b/reference/csignal/sig_ign.md
+@@ -0,0 +1,43 @@
++# SIG_IGN
++* csignal[meta header]
++* macro[meta id-type]
++
++```cpp
++#define SIG_IGN see below
++```
++
++## 概要
++`signal`関数に渡される引数として、指定されたシグナルを無視させるマクロ。
++
++シグナル受信時に`signal`関数で`SIG_IGN`が指定されている場合、そのシグナルは無視される。
++
++## 例
++```cpp example
++#include &amp;lt;csignal&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;thread&amp;gt;
++#include &amp;lt;chrono&amp;gt;
++
++int main()
++{
++  std::signal(SIGINT, SIG_IGN);
++  // Ctrl+Cを押してもプログラムは続行する
++  for (int i = 0; i &amp;lt; 10; ++i) {
++    std::cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; std::flush;
++    std::this_thread::sleep_for(std::chrono::milliseconds(500));
++  }
++  std::cout &amp;lt;&amp;lt; std::endl;
++  return 0;
++}
++```
++* SIG_IGN[color ff0000]
++* std::signal[link /reference/csignal/signal.md]
++
++### 出力
++
++```
++0 1 2 3 4 5 6 7 8 9
++```
++
++## 関連項目
++- [`signal`](/reference/csignal/signal.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>機能テストマクロ -- fix: レイアウト互換に関する機能テストマクロを修正 (#1589)</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/feature_test_macros.html"/>
+      <id>567d3cc5679972745e13c65042d4be3a10fe4959:lang/cpp20/feature_test_macros.md</id>
+      <updated>2026-03-06T09:01:03+09:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;機能テストマクロ&lt;/span&gt;&lt;span class=&#34;cpp cpp20&#34; title=&#34;C++20で追加&#34;&gt;(C++20)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;このページはC++20に採用された言語機能の変更を解説しています。&lt;/p&gt;
+&lt;p&gt;のちのC++規格でさらに変更される場合があるため&lt;a href=&#34;#relative-page&#34;&gt;関連項目&lt;/a&gt;を参照してください。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;概要&lt;/h2&gt;
+&lt;h3&gt;言語機能&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;マクロ名&lt;/th&gt;
+&lt;th&gt;値&lt;/th&gt;
+&lt;th&gt;機能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_aggregate_paren_init&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201902L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;allow_initializing_aggregates_from_a_parenthesized_list_of_values.html&#34;&gt;丸カッコの値リストからの集成体初期化を許可&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_char8_t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;char8_t.html&#34;&gt;UTF-8エンコーディングされた文字の型として&lt;code&gt;char8_t&lt;/code&gt;を追加&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_concepts&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;concepts.html&#34;&gt;コンセプト&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_conditional_explicit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;explicit_bool.html&#34;&gt;関数を条件付きで&lt;code&gt;explicit&lt;/code&gt;にする構文を追加&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_constexpr&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;allow_virtual_function_calls_in_constant_expressions.html&#34;&gt;定数式からの仮想関数の呼び出しを許可&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.html&#34;&gt;定数式での&lt;code&gt;dynamic_cast&lt;/code&gt;、多態的な&lt;code&gt;typeid&lt;/code&gt;を許可&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;try-catch_blocks_in_constexpr_functions.html&#34;&gt;constexpr関数内でのtry-catchブロックを許可&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;changing_the_active_member_of_a_union_inside_constexpr.html&#34;&gt;定数式内での共用体のアクティブメンバの変更を許可&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;permitting_trivial_default_initialization_in_constexpr_contexts.html&#34;&gt;constexpr関数内でのトリビアルなデフォルト初期化を許可&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.html&#34;&gt;constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_constexpr_dynamic_alloc&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;more_constexpr_containers.html&#34;&gt;可変サイズをもつコンテナの&lt;code&gt;constexpr&lt;/code&gt;化&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_constexpr_in_decltype&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201711L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;less_eager_instantiation_of_constexpr_functions.html&#34;&gt;評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_consteval&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;immediate_functions.html&#34;&gt;常に定数式評価する&lt;code&gt;consteval&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_constinit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;constinit.html&#34;&gt;コンパイル時初期化を強制する&lt;code&gt;constinit&lt;/code&gt;キーワードを追加&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_deduction_guides&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;class_template_argument_deduction_for_aggregates.html&#34;&gt;集成体クラステンプレートのテンプレート引数推論&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;class_template_argument_deduction_for_alias_templates.html&#34;&gt;エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_designated_initializers&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201707L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;designated_initialization.html&#34;&gt;指示付き初期化&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_generic_lambdas&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201707L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;familiar_template_syntax_for_generic_lambdas.html&#34;&gt;ジェネリックラムダのテンプレート構文&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_impl_coroutine&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201902L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;coroutines.html&#34;&gt;コルーチン&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_impl_destroying_delete&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;efficient_sized_delete_for_variable_sized_classes.html&#34;&gt;可変長データを扱うクラスの効率的な&lt;code&gt;delete&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_impl_three_way_comparison&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;consistent_comparison.html&#34;&gt;&lt;code&gt;&amp;lt;=&amp;gt;&lt;/code&gt;/&lt;code&gt;==&lt;/code&gt;による比較演算子の自動定義&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_init_captures&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201803L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;allow_pack_expansion_in_lambda_init_capture.html&#34;&gt;ラムダ式の初期化キャプチャでのパック展開を許可&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_modules&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;modules.html&#34;&gt;モジュール&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_nontype_template_args&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201911L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;class_types_in_non-type_template_parameters.html&#34;&gt;非型テンプレートパラメータとしてクラス型を許可する&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_using_enum&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;using_enum.html&#34;&gt;スコープ付き列挙型のusing宣言&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;ライブラリ&lt;/h3&gt;
+&lt;p&gt;ライブラリの機能テストマクロは全て&lt;code&gt;&lt;a href=&#34;../../reference/version.html&#34;&gt;&amp;lt;version&amp;gt;&lt;/a&gt;&lt;/code&gt;でも提供される。&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;マクロ名&lt;/th&gt;
+&lt;th&gt;値&lt;/th&gt;
+&lt;th&gt;機能&lt;/th&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_array_constexpr&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201803L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/array/array.html&#34;&gt;std::array&lt;/a&gt;&lt;/code&gt;の完全&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/array.html&#34;&gt;&amp;lt;array&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_assume_aligned&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory/assume_aligned.html&#34;&gt;std::assume_aligned()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_atomic_flag_test&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic/atomic_flag/test.html&#34;&gt;std::atomic_flag::test()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_atomic_float&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201711L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../../reference/atomic/atomic.html&#34;&gt;&lt;code&gt;std::atomic&lt;/code&gt;の浮動小数点数型に対する特殊化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_atomic_lock_free_type_aliases&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic/atomic.html&#34;&gt;atomic_signed_lock_free/atomic_unsigned_lock_free&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_atomic_ref&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic/atomic_ref.html&#34;&gt;std::atomic_ref&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_atomic_shared_ptr&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201711L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../../reference/memory/atomic.html&#34;&gt;&lt;code&gt;std::atomic&lt;/code&gt;の&lt;code&gt;std::shared_ptr/std::weak_ptr&lt;/code&gt;に対する特殊化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_atomic_value_initialization&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201911L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../../reference/atomic/atomic_flag/op_constructor.html&#34;&gt;&lt;code&gt;std::atomic_flag&lt;/code&gt;の値初期化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_atomic_wait&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic/atomic/wait.html&#34;&gt;std::atomic::wait()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/atomic/atomic/notify_one.html&#34;&gt;std::atomic::notify_one()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/atomic/atomic/notify_all.html&#34;&gt;std::atomic::notify_all()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_barrier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/barrier.html&#34;&gt;&amp;lt;barrier&amp;gt;&lt;/a&gt;&lt;/code&gt;の追加&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/barrier.html&#34;&gt;&amp;lt;barrier&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_bind_front&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/functional/bind_front.html&#34;&gt;std::bind_front()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_bit_cast&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/bit/bit_cast.html&#34;&gt;std::bit_cast()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_bitops&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;の追加&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_bounded_array_traits&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201902L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/is_bounded_array.html&#34;&gt;std::is_bounded_array&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/is_unbounded_array.html&#34;&gt;std::is_unbounded_array&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_char8_t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;char8_t&lt;/code&gt;に対する特殊化の追加&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/filesystem.html&#34;&gt;&amp;lt;filesystem&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/limits.html&#34;&gt;&amp;lt;limits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/locale.html&#34;&gt;&amp;lt;locale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string_view.html&#34;&gt;&amp;lt;string_view&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_chrono&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;カレンダーとタイムゾーン&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/chrono.html&#34;&gt;&amp;lt;chrono&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_concepts&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/concepts.html&#34;&gt;&amp;lt;concepts&amp;gt;&lt;/a&gt;&lt;/code&gt;の追加&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/concepts.html&#34;&gt;&amp;lt;concepts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_algorithms&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多くのアルゴリズムに&lt;code&gt;constexpr&lt;/code&gt;を追加&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_complex&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201711L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/complex/complex.html&#34;&gt;std::complex&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/complex.html&#34;&gt;&amp;lt;complex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_dynamic_alloc&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory/destroy_at.html&#34;&gt;std::destroy_at&lt;/a&gt;&lt;/code&gt;ファミリと&lt;code&gt;&lt;a href=&#34;../../reference/memory/allocator.html&#34;&gt;std::allocator&lt;/a&gt;&lt;/code&gt;/&lt;code&gt;&lt;a href=&#34;../../reference/memory/allocator_traits.html&#34;&gt;std::allocator_traits&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;対応&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory/construct_at.html&#34;&gt;std::construct_at&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_functional&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/functional/invoke.html&#34;&gt;std::invoke&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/functional/reference_wrapper.html&#34;&gt;std::reference_wrapper&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/functional/not_fn.html&#34;&gt;std::not_fn&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/functional/bind_front.html&#34;&gt;std::bind_front&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/functional/bind.html&#34;&gt;std::bind&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/functional/mem_fn.html&#34;&gt;std::mem_fn&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_iterator&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/iterator/back_insert_iterator.html&#34;&gt;back_insert_iterator&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/iterator/front_insert_iterator.html&#34;&gt;front_insert_iterator&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../../reference/iterator/insert_iterator.html&#34;&gt;insert_iterator&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_memory&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory/pointer_traits.html&#34;&gt;std::pointer_traits&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_numeric&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201911L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;の数値アルゴリズムの&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string/basic_string.html&#34;&gt;std::string&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_string_view&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string_view/basic_string_view/copy.html&#34;&gt;std::string_view::copy&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string_view.html&#34;&gt;&amp;lt;string_view&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_tuple&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/tuple/tuple.html&#34;&gt;std::tuple&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;追加対応（一部のコンストラクタと代入演算子）&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/tuple.html&#34;&gt;&amp;lt;tuple&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_utility&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/utility/pair.html&#34;&gt;std::pair&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;追加対応（一部のコンストラクタと代入演算子）&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_constexpr_vector&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/vector/vector.html&#34;&gt;std::vector&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/vector.html&#34;&gt;&amp;lt;vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_coroutine&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201902L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/coroutine.html&#34;&gt;&amp;lt;coroutine&amp;gt;&lt;/a&gt;&lt;/code&gt;ヘッダの追加&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/coroutine.html&#34;&gt;&amp;lt;coroutine&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_destroying_delete&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/new/destroying_delete_t.html&#34;&gt;std::destroying_delete_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/new.html&#34;&gt;&amp;lt;new&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_endian&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/bit/endian.html&#34;&gt;std::endian&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_erase_if&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;各コンテナに対する&lt;code&gt;std::erase&lt;/code&gt;、&lt;code&gt;std::erase_if&lt;/code&gt;の特殊化&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/deque.html&#34;&gt;&amp;lt;deque&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/forward_list.html&#34;&gt;&amp;lt;forward_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/list.html&#34;&gt;&amp;lt;list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/vector.html&#34;&gt;&amp;lt;vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/map.html&#34;&gt;&amp;lt;map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/set.html&#34;&gt;&amp;lt;set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/unordered_map.html&#34;&gt;&amp;lt;unordered_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/unordered_set.html&#34;&gt;&amp;lt;unordered_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_execution&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201902L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/execution/execution/execution_policy.html&#34;&gt;std::execution::unsequenced_policy&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/execution.html&#34;&gt;&amp;lt;execution&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_format&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;202106L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;202110L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/format.html&#34;&gt;&amp;lt;format&amp;gt;&lt;/a&gt;&lt;/code&gt;ヘッダ&lt;br /&gt;コンパイル時フォーマット文字列検査/&lt;code&gt;&lt;a href=&#34;../../reference/format/vformat.html&#34;&gt;std::vformat&lt;/a&gt;&lt;/code&gt;のコードサイズ削減&lt;br /&gt;&lt;code&gt;std::chrono&lt;/code&gt;のフォーマットにおけるロケール指定の修正/&lt;code&gt;const&lt;/code&gt;だとフォーマットできない型に対する対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/format.html&#34;&gt;&amp;lt;format&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_generic_unordered_lookup&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非順序連想コンテナの&lt;code&gt;find(), count(), contains(), equal_range()&lt;/code&gt;に対するHeterogeneous Overload追加&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/unordered_map.html&#34;&gt;&amp;lt;unordered_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/unordered_set.html&#34;&gt;&amp;lt;unordered_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_int_pow2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;の2の冪乗に関する操作を行う関数の名前変更&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_integer_comparison_functions&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/utility/cmp_equal.html&#34;&gt;std::cmp_equal()&lt;/a&gt;&lt;/code&gt;等の整数比較関数と&lt;code&gt;&lt;a href=&#34;../../reference/utility/in_range.html&#34;&gt;std::in_range()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_interpolate&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201902L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/cmath/lerp.html&#34;&gt;std::lerp()&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/numeric/midpoint.html&#34;&gt;std::midpoint()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/cmath.html&#34;&gt;&amp;lt;cmath&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_is_constant_evaluated&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/is_constant_evaluated.html&#34;&gt;std::is_constant_evaluated()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_is_layout_compatible&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/is_layout_compatible.html&#34;&gt;std::is_layout_compatible&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/is_corresponding_member.html&#34;&gt;std::is_corresponding_member&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_is_nothrow_convertible&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/is_nothrow_convertible.html&#34;&gt;std::is_nothrow_convertible&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_is_pointer_interconvertible&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/is_pointer_interconvertible_base_of.html&#34;&gt;std::is_pointer_interconvertible_base_of&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/is_pointer_interconvertible_with_class.html&#34;&gt;std::is_pointer_interconvertible_with_class&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_jthread&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201911L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/thread/jthread.html&#34;&gt;std::jthread&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;stop_token&lt;/code&gt;による協調的キャンセル機構&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/stop_token.html&#34;&gt;&amp;lt;stop_token&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/thread.html&#34;&gt;&amp;lt;thread&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_latch&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/latch/latch.html&#34;&gt;std::latch&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/latch.html&#34;&gt;&amp;lt;latch&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_list_remove_return_type&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/list/list.html&#34;&gt;std::list&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/forward_list/forward_list.html&#34;&gt;std::forward_list&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;remove(), remove_if(), unique()&lt;/code&gt;の戻り値型変更&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/forward_list.html&#34;&gt;&amp;lt;forward_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/list.html&#34;&gt;&amp;lt;list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_math_constants&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数学定数&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/numbers.html&#34;&gt;&amp;lt;numbers&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_polymorphic_allocator&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201902L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory_resource/polymorphic_allocator.html&#34;&gt;std::pmr::polymorphic_allocator&lt;/a&gt;&lt;/code&gt;の改修&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_ranges&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201911L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;202106L&lt;/code&gt;&lt;br /&gt;&lt;code&gt;202110L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;RangeライブラリとRangeアルゴリズム&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/ranges/view.html&#34;&gt;view&lt;/a&gt;&lt;/code&gt;コンセプトのデフォルト構築要求を削除&lt;br /&gt;所有権を持つ&lt;code&gt;view&lt;/code&gt;の許可と&lt;code&gt;&lt;a href=&#34;../../reference/ranges/owning_view.html&#34;&gt;owning_view&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_remove_cvref&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201711L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/remove_cvref.html&#34;&gt;std::remove_cvref&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_semaphore&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/semaphore/counting_semaphore.html&#34;&gt;std::counting_semaphore&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;std::binary_semaphore&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/semaphore.html&#34;&gt;&amp;lt;semaphore&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_shared_ptr_arrays&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201707L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory/make_shared.html&#34;&gt;std::make_shared&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/memory/allocate_shared.html&#34;&gt;std::allocate_shared&lt;/a&gt;&lt;/code&gt;の配列対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_shift&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/algorithm/shift_left.html&#34;&gt;std::shift_left&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/algorithm/shift_right.html&#34;&gt;std::shift_right&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_smart_ptr_for_overwrite&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory/make_shared_for_overwrite.html&#34;&gt;std::make_shared_for_overwrite()&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/memory/allocate_shared_for_overwrite.html&#34;&gt;std::allocate_shared_for_overwrite()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_source_location&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/source_location/source_location.html&#34;&gt;std::source_location&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/source_location.html&#34;&gt;&amp;lt;source_location&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_span&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/span/span.html&#34;&gt;std::span&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/span.html&#34;&gt;&amp;lt;span&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_ssize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201902L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/iterator/ssize.html&#34;&gt;std::ssize()&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/span/span.html&#34;&gt;std::span&lt;/a&gt;&lt;/code&gt;で使用する整数型の符号なし（&lt;code&gt;size_t&lt;/code&gt;）への変更&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_starts_ends_with&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201711L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string/basic_string.html&#34;&gt;std::string&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/string_view/basic_string_view.html&#34;&gt;std::string_view&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;starts_with()&lt;/code&gt;と&lt;code&gt;ends_with()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string_view.html&#34;&gt;&amp;lt;string_view&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_string_view&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201803L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string/basic_string.html&#34;&gt;std::string&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/string_view/basic_string_view.html&#34;&gt;std::string_view&lt;/a&gt;&lt;/code&gt;のイテレータの&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&lt;a href=&#34;../../reference/string_view.html&#34;&gt;&amp;lt;string_view&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_syncbuf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201803L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;同期化出力ストリーム（&lt;code&gt;&lt;a href=&#34;../../reference/syncstream/basic_osyncstream.html&#34;&gt;std::osyncstream&lt;/a&gt;&lt;/code&gt;）とバッファ（&lt;code&gt;&lt;a href=&#34;../../reference/syncstream/basic_syncbuf.html&#34;&gt;std::syncbuf&lt;/a&gt;&lt;/code&gt;）&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/syncstream.html&#34;&gt;&amp;lt;syncstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_three_way_comparison&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準ライブラリの三方比較演算子対応&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/compare.html&#34;&gt;&amp;lt;compare&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_to_address&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201711L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory/to_address.html&#34;&gt;std::to_address()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_to_array&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201907L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/array/to_array.html&#34;&gt;std::to_array()&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/array.html&#34;&gt;&amp;lt;array&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_type_identity&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201806L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/type_identity.html&#34;&gt;std::type_identity&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__cpp_lib_unwrap_ref&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;201811L&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/unwrap_reference.html&#34;&gt;std::unwrap_reference&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../../reference/type_traits/unwrap_ref_decay.html&#34;&gt;std::unwrap_ref_decay&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;../../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations&#34; target=&#34;_blank&#34;&gt;SD-FeatureTest: Feature-Test Macros and Policies - isocpp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cpprefjp - C++日本語リファレンス -- スポンサー更新 #1588</title>
+      <link href="https://cpprefjp.github.io/index.html"/>
+      <id>c24db09111b5f3b7ee49085818e5f35ad30be485:index.md</id>
+      <updated>2026-03-05T16:41:09+09:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cpprefjp - C++日本語リファレンス&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。&lt;/p&gt;
+&lt;p&gt;最新C++バージョンのリファレンスを提供していきます。&lt;/p&gt;
+&lt;h2&gt;運営方針&lt;/h2&gt;
+&lt;p&gt;本リファレンスサイトは、C++言語の最新のリファレンスを常に提供し続けることを目標にしています。&lt;/p&gt;
+&lt;p&gt;各クラス、関数にはそれぞれ1つ以上のサンプルコードを付けていく方針です。&lt;/p&gt;
+&lt;p&gt;本サイトでは、他サイトおよび規格書の直接的な翻訳ではなく、編集者の調査と考えに基づいた解説を提供していきます。&lt;/p&gt;
+&lt;h2&gt;HTMLデータのダウンロード&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cpprefjp/cpprefjp.github.io/archive/refs/heads/master.zip&#34; target=&#34;_blank&#34;&gt;cpprefjp.github.io-master.zip&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ローカルで閲覧できるHTMLを用意しています。&lt;/p&gt;
+&lt;h2&gt;スポンサーシップ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://opencollective.com/cpprefjp&#34; target=&#34;_blank&#34;&gt;cpprefjp - Open Collective&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;このプロジェクトは、持続的な活動のため、ユーザーの方々からのご支援をお待ちしております。上記Open Collectiveのプロジェクトでスポンサーシップの募集をしております。&lt;/p&gt;
+&lt;p&gt;ご支援いただくユーザーの方々には、以下の特典があります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本ページ (cpprefjpサイトのトップページ) に1年間、金額順でロゴを表示させていただきます (金額が同じ場合は登録順)&lt;/li&gt;
+&lt;li&gt;シルバースポンサー以上の方は、&lt;a href=&#34;https://github.com/cpprefjp/site&#34; target=&#34;_blank&#34;&gt;cpprefjp/site&lt;/a&gt;リポジトリのissueとして、採用情報を投稿できます (一週間ほどで閉じます)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ご支援いただいた資金は、貢献度に応じてコントリビューターに分配させていただきます。&lt;/p&gt;
+&lt;p&gt;また、スポンサーシップの入金方法として、Open Collectiveのほかに銀行振込も対応しております。&lt;/p&gt;
+&lt;p&gt;銀行振込に関して、またはそれ以外でスポンサーシップの相談に関しては、以下のメールアドレスにお問い合わせください。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;メールアドレス : &lt;a href=&#34;mailto:cpprefjp_org@googlegroups.com&#34;&gt;cpprefjp_org@googlegroups.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;宛名 : cpprefjp管理者&lt;ul&gt;
+&lt;li&gt;代表として、主に高橋晶 (Akira Takahashi) がご対応させていただきます&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参加方法&lt;/h2&gt;
+&lt;p&gt;本サイトは、多くのユーザの手によって書かれています。&lt;/p&gt;
+&lt;p&gt;あなたがこの cpprefjp プロジェクトに参加したいのであれば、私達はそれをとても歓迎します。&lt;/p&gt;
+&lt;p&gt;cpprefjp プロジェクトに参加する方法は簡単です。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cpprefjp/site/issues?state=open&#34; target=&#34;_blank&#34;&gt;cpprefjp の Issues&lt;/a&gt; にアクセスし、&lt;/li&gt;
+&lt;li&gt;あなたが手伝えそうな、まだ誰にもアサインされていないタスクを見つけ、&lt;/li&gt;
+&lt;li&gt;その Issue のコメントに「このタスクやります」と書く&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;これだけです。&lt;/p&gt;
+&lt;p&gt;あとは、そのタスクを完了させて pull request を送れば、あなたも cpprefjp のコミッタになれます。&lt;/p&gt;
+&lt;h2&gt;編集者向けのさらなる情報&lt;/h2&gt;
+&lt;p&gt;本サイトは、GitHubのリポジトリ上で、Markdown形式でリファレンスを記載し、GitHub Pagesに自動反映するという形をとっています。本サイトのMarkdownソースは、以下のリポジトリにあります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cpprefjp/site&#34; target=&#34;_blank&#34;&gt;https://github.com/cpprefjp/site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記リポジトリのREADMEに、コアメンバの一覧を記載してありますので、何かありましたらそのうちの誰か、もしくはリポジトリへのIssueという形でご相談ください。&lt;/p&gt;
+&lt;p&gt;本サイトの編集方法については、以下のドキュメントを参照してください。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;start_editing.html&#34;&gt;cpprefjpを編集するには&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本サイトのコンテンツを作成、編集するにあたり、仕様を熟知し、一人で完璧に正しい内容を書くことは要求しません。&lt;/p&gt;
+&lt;p&gt;たとえ間違ったことを記載した場合や、不安の残る内容を記載した場合でも、それに気づいた誰かが修正してくれます。&lt;/p&gt;
+&lt;h2&gt;その他参考情報&lt;/h2&gt;
+&lt;p&gt;以下のWebサイトから転載許可をいただいています。&lt;/p&gt;
+&lt;p&gt;翻訳や解説などで活用してください：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20190112041213/http://episteme.wankuma.com/stlprog/index.html&#34; target=&#34;_blank&#34;&gt;Standard Template Library プログラミング on the Web&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;スポンサー&lt;/h2&gt;
+&lt;p&gt;cpprefjpプロジェクトは、以下の方々にスポンサーになっていただいております。&lt;/p&gt;
+&lt;h3&gt;ゴールドスポンサー&lt;/h3&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.cocotone.jp&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;cocotone様&#34; src=&#34;static/image/sponsors/cocotone/cocotone.png&#34; title=&#34;cocotone様&#34; width=&#34;560&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.cube-soft.jp/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;CubeSoft様&#34; src=&#34;https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png&#34; title=&#34;CubeSoft様&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h3&gt;シルバースポンサー&lt;/h3&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://acerola-software.jp/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;Acerola Software様&#34; src=&#34;static/image/sponsors/Acerola/as_logo.png&#34; title=&#34;Acerola Software様&#34; width=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.fixstars.com/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;Fixstars様&#34; src=&#34;static/image/sponsors/Fixstars/fixstars-logo.png&#34; title=&#34;Fixstars様&#34; width=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.pegasys-inc.com/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;pegasys様&#34; src=&#34;https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png&#34; title=&#34;pegasys様&#34; width=&#34;320&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://vaporoid.com/sys/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;vaporoid様&#34; src=&#34;static/image/sponsors/vaporoid/cpprefjp-400x150.png&#34; title=&#34;vaporoid様&#34; width=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://mkohana.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;M.Kohana様&#34; src=&#34;static/image/sponsors/m_kohana/m_kohana.jpg&#34; title=&#34;M.Kohana様&#34; width=&#34;320&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.techarts.co.jp/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;有限会社テクニカルアーツ様&#34; src=&#34;static/image/sponsors/technical_arts/TechnicalArtsLogo3.png&#34; title=&#34;有限会社テクニカルアーツ様&#34; width=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;T.Kishu様&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;h3&gt;ブロンズスポンサー&lt;/h3&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;img alt=&#34;Azaika様&#34; src=&#34;static/image/sponsors/Azaika/Azaika.jpg&#34; title=&#34;Azaika様&#34; width=&#34;256&#34; /&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;イシハラユウヤ様&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&#34;https://opencollective.com/meg_nakagami&#34; target=&#34;_blank&#34;&gt;Megumi Nakagami様&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/minachun/minachun&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;minachun / J.Minami様&#34; src=&#34;https://raw.githubusercontent.com/minachun/minachun/main/banner.png&#34; title=&#34;minachun / J.Minami様&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://gravatar.com/overthestardust&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;星くず彼方に&#34; src=&#34;static/image/sponsors/overthestardust/overthestardust.png&#34; title=&#34;星くず彼方に&#34; width=&#34;256&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/zonuexe&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;USAMI Kenta&#34; src=&#34;https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256&#34; title=&#34;USAMI Kenta&#34; width=&#34;256&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/soramimi&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;soramimi&#34; src=&#34;https://www.soramimi.jp/avater.jpg&#34; title=&#34;soramimi&#34; width=&#34;256&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;Agate Pris様&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;tomoteru様&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://profile.bocchi-master.net/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;ぼっちマスター様&#34; src=&#34;static/image/sponsors/bocchi-master/my-icon.png&#34; title=&#34;ぼっちマスター様&#34; width=&#34;320&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;甲斐智丈&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;スポンサーシップについては、以下のページを参照ください。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://opencollective.com/cpprefjp&#34; target=&#34;_blank&#34;&gt;cpprefjp - Open Collective&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;連絡先が不明なスポンサー様は、ロゴの表示が現在できておりません。Open Collectiveの問い合わせフォームから、表示するロゴ画像とリンク先URLについてご連絡いただきたいです。&lt;/p&gt;
+&lt;h2&gt;プライバシーポリシー&lt;/h2&gt;
+&lt;p&gt;本サイトは、サイトの改善のためにGoogleアナリティクスを使用しています。本サイトをご利用中のブラウザは、Googleに特定の情報を自動的に送信します。本サイトは、この分析のためにCookieを使用します。利用者は、本サイトを利用することで、この目的においてCookieを使用することを許可したものとみなします。&lt;/p&gt;
+&lt;p&gt;Googleによるデータ使用の詳細は、以下のURLで確認することができます。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.google.com/intl/ja/policies/privacy/partners/&#34; target=&#34;_blank&#34;&gt;https://www.google.com/intl/ja/policies/privacy/partners/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;ライセンスについて&lt;/h2&gt;
+&lt;p&gt;本サイトの情報は、&lt;a href=&#34;https://creativecommons.org/licenses/by/4.0/&#34; target=&#34;_blank&#34;&gt;クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)&lt;/a&gt;の下に提供しています。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;https://i.creativecommons.org/l/by/4.0/88x31.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;cpprefjpサイトのアイコン・ロゴ画像は、&lt;a href=&#34;https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja&#34; target=&#34;_blank&#34;&gt;クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)&lt;/a&gt;の下に提供しています。&lt;/p&gt;
+&lt;p&gt;高解像度画像データ： &lt;a href=&#34;https://github.com/cpprefjp/image/tree/master/cpprefjp/icon&#34; target=&#34;_blank&#34;&gt;cpprefjp/image&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png&#34; /&gt;&lt;/p&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
