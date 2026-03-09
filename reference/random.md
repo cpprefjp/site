@@ -246,7 +246,6 @@ int main()
 
 ### 乱数ライブラリの使い方
 * [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
-* [Pitfalls in Random Number Generation](https://www.codeproject.com/articles/28548/pitfalls-in-random-number-generation)
 
 ### 乱数ライブラリが導入された経緯
 * [N0352 Proposal for Standardization of Random Number Generators in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1993/N0352.asc)
