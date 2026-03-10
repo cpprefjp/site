@@ -28,7 +28,7 @@ namespace std::execution {
 そうでなければ、呼び出し式`spawn(sndr, token, env)`に対して、説明用の式`new_sender`を[`token.wrap`](scope_token.md)`(sndr)`とし、`alloc`と`senv`を次の通りとする。
 
 - 式[`get_allocator`](../get_allocator.md)`(env)`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(env)`の結果、`senv`を式`env`とする。
-- そうでなはく、式[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`の結果、`senv`を式[`JOIN-ENV`](../queryable.md)`(`[`prop`](prop.md)`(`[`get_allocator`](../get_allocator.md)`, alloc), env)`とする。
+- そうではなく、式[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`の結果、`senv`を式[`JOIN-ENV`](../queryable.md)`(`[`prop`](prop.md)`(`[`get_allocator`](../get_allocator.md)`, alloc), env)`とする。
 - そうではないとき、`alloc`を[`allocator`](/reference/memory/allocator.md)`<void>()`、`senv`を式`env`とする。
 
 呼び出し式`spawn(sndr, token, env)`は`void`型であり、次の効果をもつ。
