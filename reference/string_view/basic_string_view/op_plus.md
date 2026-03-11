@@ -1,5 +1,5 @@
 # operator+
-* string[meta header]
+* string_view[meta header]
 * std[meta namespace]
 * function template[meta id-type]
 * cpp26[meta cpp]
