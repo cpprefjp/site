@@ -182,6 +182,8 @@
 | [`is_invocable_r`](type_traits/is_invocable_r.md) | 関数呼び出し可能でその戻り値型がある型へ変換可能かを調べる (class template) | C++17 |
 | [`is_nothrow_invocable`](type_traits/is_nothrow_invocable.md) | 例外を投げずに関数呼び出し可能かを調べる (class template) | C++17 |
 | [`is_nothrow_invocable_r`](type_traits/is_nothrow_invocable_r.md) | 例外を投げずに関数呼び出し可能でその戻り値型がある型へ変換可能かを調べる (class template) | C++17 |
+| [`is_applicable`](type_traits/is_applicable.md) | タプルを展開して関数呼び出し可能かを調べる (class template) | C++26 |
+| [`is_nothrow_applicable`](type_traits/is_nothrow_applicable.md) | 例外を投げずにタプルを展開して関数呼び出し可能かを調べる (class template) | C++26 |
 
 
 ## その他の変換
@@ -202,6 +204,7 @@
 | [`underlying_type`](type_traits/underlying_type.md) | 列挙型の基底型を取得する (class template) | C++11 |
 | [`result_of`](type_traits/result_of.md) | 関数の戻り値の型を取得する (class template) | C++11 |
 | [`invoke_result`](type_traits/invoke_result.md) | 関数の戻り値の型を取得する (class template) | C++17 |
+| [`apply_result`](type_traits/apply_result.md) | タプルを展開して関数を呼び出した場合の戻り値の型を取得する (class template) | C++26 |
 | [`unwrap_reference`](type_traits/unwrap_reference.md) | [`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)型を`T&`型に展開する (class template) | C++20 |
 | [`unwrap_ref_decay`](type_traits/unwrap_ref_decay.md) | [`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)型を`T&`型に展開し、型推論規則による型変換を行う (class template) | C++20 |
 

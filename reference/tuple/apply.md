@@ -13,10 +13,18 @@ namespace std {
   template<class F, tuple-like Tuple>
   constexpr decltype(auto)
     apply(F&& f, Tuple&& t) noexcept(see below); // (1) C++23
+
+  template<class F, tuple-like Tuple>
+  constexpr apply_result_t<F, Tuple>
+    apply(F&& f, Tuple&& t)
+      noexcept(is_nothrow_applicable_v<F, Tuple>); // (1) C++26
 }
 ```
 * tuple-like[link tuple-like.md]
 * tuple-like[link tuple-like.md]
+* tuple-like[link tuple-like.md]
+* apply_result_t[link /reference/type_traits/apply_result.md]
+* is_nothrow_applicable_v[link /reference/type_traits/is_nothrow_applicable.md]
 
 ## 概要
 タプルを展開し、関数の引数に適用してその関数を実行する。
@@ -69,7 +77,8 @@ return apply-impl(std::forward<F>(f), std::forward<Tuple>(t),
 
 
 ## 例外
-C++23から : `I`をパラメータパック`0, 1, ..., (`[`tuple_size_v`](tuple_size.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<Tuple>>-1)`としたとき、例外指定の式は次と等価 : `noexcept(`[`invoke`](/reference/functional/invoke.md)`(std::forward<F>(f), get<I>(std::forward<Tuple>(t))...))`
+- C++23から : `I`をパラメータパック`0, 1, ..., (`[`tuple_size_v`](tuple_size.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<Tuple>>-1)`としたとき、例外指定の式は次と等価 : `noexcept(`[`invoke`](/reference/functional/invoke.md)`(std::forward<F>(f), get<I>(std::forward<Tuple>(t))...))`
+- C++26から : 例外指定は[`is_nothrow_applicable_v`](/reference/type_traits/is_nothrow_applicable.md)`<F, Tuple>`
 
 
 ## 例
@@ -117,6 +126,9 @@ hello
 - [`std::tuple`](../tuple.md)
 - [INVOKE](/reference/concepts/Invoke.md)
 - [`tuple-like`](tuple-like.md)
+- [`apply_result`](/reference/type_traits/apply_result.md)
+- [`is_applicable`](/reference/type_traits/is_applicable.md)
+- [`is_nothrow_applicable`](/reference/type_traits/is_nothrow_applicable.md)
 
 
 ## 参照
@@ -130,3 +142,5 @@ hello
     - C++20から効果説明の`decay_t`を`remove_cvref_t`へ変更。
 - [P2517R1 Add a conditional `noexcept` specification to `std::apply`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2517r1.html)
     - C++23から条件付きで`noexcept`例外指定が行われる。
+- [P1317R2 Remove return type deduction in `std::apply`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1317r2.pdf)
+    - C++26から戻り値型が`decltype(auto)`から`apply_result_t<F, Tuple>`に変更され、SFINAEフレンドリーになった。
