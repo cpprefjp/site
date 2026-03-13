@@ -259,3 +259,5 @@ int main()
     - C++23で`flat_set`が導入された経緯・動機・設計について記載されている
 - [P1222R4 A Standard `flat_set`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1222r4.pdf)
     - C++23で導入された`flat_set`の仕様
+- [P3567R2 flat_meow Fixes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3567r2.html)
+    - C++26で`swap`の条件付き`noexcept`、`insert_range`のソート済みオーバーロード追加などの修正が行われた

@@ -44,7 +44,7 @@ namespace std {
 
 `value_type`は、[`std::multimap`](/reference/map/multimap.md)では[`std::pair`](/reference/utility/pair.md)`<const Key, T>`だが、このクラスは[`std::pair`](/reference/utility/pair.md)`<Key, T>`である (`const`がつかない)。
 
-以下の不変条件をもち、メンバ関数のいずれかが例外によって終了した場合には不変条件の状態に復元される (ただし、その復元操作によってコンテナが空になる可能性がある)：
+以下の不変条件をもち、メンバ関数のいずれかが例外によって終了した場合には不変条件の状態に復元される (ただし、その復元操作によってコンテナが空になる可能性がある)。ムーブコンストラクタとムーブ代入演算子の場合、両方の引数の不変条件が復元される：
 
 - キーの配列と値の配列が、同じ要素数をもつ
 - キーの配列が、指定された比較関数オブジェクトを尊重してソートを行う
@@ -284,3 +284,5 @@ int main()
     - C++23で`flat_map`が導入された経緯・動機・設計について記載されている
 - [P0429R9 A Standard `flat_map`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0429r9.pdf)
     - C++23で導入された`flat_map`の仕様
+- [P3567R2 flat_meow Fixes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3567r2.html)
+    - C++26で`swap`の条件付き`noexcept`、`insert_range`のソート済みオーバーロード追加などの修正が行われた

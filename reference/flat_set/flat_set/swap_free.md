@@ -13,7 +13,8 @@ namespace std {
   template <class Key, class Compare, class KeyContainer>
   constexpr void
     swap(flat_set<Key, Compare, KeyContainer>& x,
-         flat_set<Key, Compare, KeyContainer>& y); // (1) C++26
+         flat_set<Key, Compare, KeyContainer>& y)
+      noexcept(noexcept(x.swap(y)));               // (1) C++26
 }
 ```
 
@@ -83,3 +84,5 @@ fs2 : {10, 20, 30}
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [P3567R2 flat_meow Fixes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3567r2.html)
+    - C++26で、`noexcept`指定が条件付きに変更された。メンバ関数[`swap()`](swap.md)の`noexcept`条件に従う

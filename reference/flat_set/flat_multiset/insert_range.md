@@ -7,11 +7,15 @@
 
 ```cpp
 template<container-compatible-range<value_type> R>
-void insert_range(R&& rg);           // (1) C++23
+void insert_range(R&& rg);                             // (1) C++23
 template<container-compatible-range<value_type> R>
-constexpr void insert_range(R&& rg); // (1) C++26
+constexpr void insert_range(R&& rg);                   // (1) C++26
+
+template<container-compatible-range<value_type> R>
+constexpr void insert_range(sorted_equivalent_t, R&& rg); // (2) C++26
 ```
 * container-compatible-range[link /reference/exposition-only/container-compatible-range.md]
+* sorted_equivalent_t[link /reference/flat_set/sorted_equivalent_t.md]
 
 ## 概要
 Rangeを挿入し、コンテナを拡張する。
@@ -21,12 +25,31 @@ Rangeを挿入し、コンテナを拡張する。
 内部的に `flat_multiset` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
 
 
+## 効果
+- (1) : メンバ変数として保持しているコンテナ`c`に、以下のように挿入する：
+    ```cpp
+    ranges::for_each(rg, [&](auto&& e) {
+      c.insert(c.end(), std::forward<decltype(e)>(e));
+    });
+    ```
+    * ranges::for_each[link /reference/algorithm/ranges_for_each.md]
+    * end()[link /reference/vector/vector/end.md]
+    * insert[link /reference/vector/vector/insert.md]
+    * std::forward[link /reference/utility/forward.md]
+
+    - 次に、新しく挿入された要素の範囲を`value_comp()`を基準にソートする
+    - 次に、ソートされた結果の範囲と、既存の要素のソートされた範囲をひとつのソートされた範囲にマージする
+
+- (2) : `insert_range(rg)`と等価
+
+
 ## 戻り値
 なし
 
 
 ## 計算量
-- Nをこの操作の前の[`size()`](size.md)、Mを[`ranges::distance`](/reference/iterator/ranges_distance.md)`(rg)`として、N + MlogM
+- (1) : Nをこの操作の前の[`size()`](size.md)、Mを[`ranges::distance`](/reference/iterator/ranges_distance.md)`(rg)`として、N + MlogM
+- (2) : 線形
 
 
 ## 備考
@@ -77,3 +100,5 @@ int main()
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [P3567R2 flat_meow Fixes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3567r2.html)
+    - C++26で(2)の`sorted_equivalent_t`をとるオーバーロードが追加された
