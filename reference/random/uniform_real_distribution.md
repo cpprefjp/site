@@ -20,6 +20,13 @@ namespace std {
 - `RealType` : 生成する実数の型。
 
 
+## 備考
+- `uniform_real_distribution`の実装は、内部的に[`std::generate_canonical()`](generate_canonical.md)を使用している環境がある
+    - C++23まではその`std::generate_canonical()`の仕様上、浮動小数点数の丸めにより指定範囲外の値（上限値`b`）が生成されることがあった
+    - C++26では`std::generate_canonical()`に棄却法が導入されたことで、この問題は解消された
+        - [P0952R2 A New Specification for `generate_canonical`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0952r2.html)
+
+
 ## メンバ関数
 ### 構築・リセット
 
