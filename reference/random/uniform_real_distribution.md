@@ -22,6 +22,7 @@ namespace std {
 
 ## 備考
 - `uniform_real_distribution`の実装は、内部的に[`std::generate_canonical()`](generate_canonical.md)を使用している環境がある
+    - `std::generate_canonical<std::numeric_limits<RealType>::digits>(rng) * (b - a) + a`のようにして、指定された範囲`[a, b)`の値を生成する
     - C++23まではその`std::generate_canonical()`の仕様上、浮動小数点数の丸めにより指定範囲外の値（上限値`b`）が生成されることがあった
     - C++26では`std::generate_canonical()`に棄却法が導入されたことで、この問題は解消された
         - [P0952R2 A New Specification for `generate_canonical`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0952r2.html)
