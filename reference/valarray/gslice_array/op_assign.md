@@ -86,17 +86,17 @@ int main()
         0,
         std::valarray<std::size_t>(3u, 1),
         std::valarray<std::size_t>(1u, 1))] = va[std::gslice(start, lengths, strides)];
-  print("assign gslice_array", va1);
+  ::print("assign gslice_array", va1);
 
   // (2)
   // 抽出した要素全てに33を代入する
   va[std::gslice(start, lengths, strides)] = std::valarray<int>(33, product(lengths));
-  print("assign valarray", va);
+  ::print("assign valarray", va);
 
   // (3)
   // 抽出した要素全てに55を代入する
   va[std::gslice(start, lengths, strides)] = 55;
-  print("assign value", va);
+  ::print("assign value", va);
 }
 ```
 * std::gslice[link /reference/valarray/gslice.md]

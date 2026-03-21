@@ -68,8 +68,8 @@ int main()
   // m1とm2を入れ替える
   std::swap(m1, m2);
 
-  print("m1", m1);
-  print("m2", m2);
+  ::print("m1", m1);
+  ::print("m2", m2);
 }
 ```
 * std::swap[color ff0000]

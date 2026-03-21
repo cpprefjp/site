@@ -68,9 +68,9 @@ int main()
   std::unordered_set<int> us2{ 4, 5, 6, };
   std::unordered_set<int> us3{ 1, 2, 3, };
 
-  print("us1", us1);
-  print("us2", us2);
-  print("us3", us3);
+  ::print("us1", us1);
+  ::print("us2", us2);
+  ::print("us3", us3);
 
   std::cout << "us1 != us2:" << (us1 != us2) << std::endl;
   std::cout << "us1 != us3:" << (us1 != us3) << std::endl;

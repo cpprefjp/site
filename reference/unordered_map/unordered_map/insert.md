@@ -177,7 +177,7 @@ int main()
     std::cout << p1.second << ' ' << *p1.first << ' ';
     auto p2 = um.insert(cis{2, "2nd"}); // 追加されないケース
     std::cout << p2.second << ' ' << *p2.first << std::endl;
-    print("insert one element", um);
+    ::print("insert one element", um);
   }
 
   // 一つの要素を挿入（(3)の形式）
@@ -188,7 +188,7 @@ int main()
     std::cout << p1.second << ' ' << *p1.first << ' ';
     auto p2 = um.insert(is{2, "2nd"}); // 追加されないケース
     std::cout << p2.second << ' ' << *p2.first << std::endl;
-    print("insert one element", um);
+    ::print("insert one element", um);
   }
 
   // 一つの要素を挿入（(4), (5)の形式）
@@ -199,7 +199,7 @@ int main()
     std::cout << *it1 << ' ';
     auto it2 = um.insert(um.cbegin(), cis{2, "2nd"}); // 追加されないケース
     std::cout << *it2 << std::endl;
-    print("insert one element with hint", um);
+    ::print("insert one element with hint", um);
   }
 
   // 一つの要素を挿入（(6)の形式）
@@ -210,7 +210,7 @@ int main()
     std::cout << *it1 << ' ';
     auto it2 = um.insert(um.cbegin(), is{2, "2nd"}); // 追加されないケース
     std::cout << *it2 << std::endl;
-    print("insert one element with hint", um);
+    ::print("insert one element with hint", um);
   }
 
   // 複数の要素を挿入（(7)の形式）
@@ -219,7 +219,7 @@ int main()
 
     std::forward_list<std::pair<short, const char*>> fl{ {5, "5th"}, {6, "6th"}, {0, "0th"}, {8, "8th"}, {7, "7th"}, };
     um.insert(fl.cbegin(), fl.cend()); // forward_list の要素を全部
-    print("insert range", um);
+    ::print("insert range", um);
   }
 
   // 複数の要素を挿入（(8)の形式）
@@ -227,7 +227,7 @@ int main()
     std::unordered_map<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
     um.insert({ {5, "5th"}, {6, "6th"}, {0, "0th"}, {8, "8th"}, {7, "7th"}, });
-    print("insert initializer_list", um);
+    ::print("insert initializer_list", um);
   }
 }
 ```

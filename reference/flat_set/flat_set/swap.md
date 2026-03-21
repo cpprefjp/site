@@ -56,8 +56,8 @@ int main()
   // fs1とfs2を入れ替える
   fs1.swap(fs2);
 
-  print("fs1", fs1);
-  print("fs2", fs2);
+  ::print("fs1", fs1);
+  ::print("fs2", fs2);
 }
 ```
 * swap[color ff0000]

@@ -79,30 +79,30 @@ int main()
   // コピー代入
   std::valarray<int> va1_org = {1, 2, 3};
   std::valarray<int> va1 = va1_org;
-  print("va1", va1);
+  ::print("va1", va1);
 
   // (2)
   // ムーブ代入
   std::valarray<int> va2 = std::move(va1);
-  print("va2", va2);
+  ::print("va2", va2);
 
   // (3)
   // 初期化子リストを代入
   std::valarray<int> va3;
   va3 = {1, 2, 3};
-  print("va3", va3);
+  ::print("va3", va3);
 
   // (4)
   // 値を全要素に代入
   std::valarray<int> va4(3);
   va4 = 1;
-  print("va4", va4);
+  ::print("va4", va4);
 
   // (5)
   // スライスされたvalarrayオブジェクトを代入
   std::valarray<int> va5_org = {1, 2, 3, 4, 5};
   std::valarray<int> va5 = va5_org[std::slice(0, 3, 1)]; // 先頭3要素
-  print("va5", va5);
+  ::print("va5", va5);
 
   // (6)
   // 行列スライスされたvalarrayオブジェクトを代入
@@ -110,21 +110,21 @@ int main()
   std::valarray<std::size_t> va6_len = {1, 2, 2};
   std::valarray<std::size_t> va6_stride = {2, 3, 1};
   std::valarray<int> va6 = va6_org[std::gslice(0, va6_len, va6_stride)];
-  print("va6", va6);
+  ::print("va6", va6);
 
   // (7)
   // マスクされたvalarrayオブジェクトを代入
   std::valarray<int> va7_org = {1, 2, 3, 4, 5};
   std::valarray<bool> va7_mask = {true, false, true, false, true};
   std::valarray<int> va7 = va7_org[va7_mask];
-  print("va7", va7);
+  ::print("va7", va7);
 
   // (8)
   // インデックス列の指定によってマスクされたvalarrayオブジェクトを代入
   std::valarray<int> va8_org = {1, 2, 3, 4, 5};
   std::valarray<std::size_t> va8_indices = {0, 2, 4};
   std::valarray<int> va8 = va8_org[va8_indices];
-  print("va8", va8);
+  ::print("va8", va8);
 }
 ```
 * std::move[link /reference/utility/move.md]

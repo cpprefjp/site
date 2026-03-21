@@ -136,7 +136,7 @@ int main()
     std::cout << *it1 << ' ';
     auto it2 = ums.insert(2); // 重複のあるケース
     std::cout << *it2 << std::endl;
-    print("insert one element", ums);
+    ::print("insert one element", ums);
   }
 
   // 一つの要素を挿入（(2)の形式）
@@ -147,7 +147,7 @@ int main()
     std::cout << *it1 << ' ';
     auto it2 = ums.insert(ums.cbegin(), 2); // 重複のあるケース
     std::cout << *it2 << std::endl;
-    print("insert one element with hint", ums);
+    ::print("insert one element with hint", ums);
   }
 
   // 複数の要素を挿入（(3)の形式）
@@ -156,7 +156,7 @@ int main()
 
     std::forward_list<int> fl{ 5, 6, 0, 8, 7, };
     ums.insert(fl.cbegin(), fl.cend()); // forward_list の要素を全部
-    print("insert range", ums);
+    ::print("insert range", ums);
   }
 
   // 複数の要素を挿入（(4)の形式）
@@ -164,7 +164,7 @@ int main()
     std::unordered_multiset<int> ums{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
 
     ums.insert({ 5, 6, 0, 8, 7, });
-    print("insert initializer_list", ums);
+    ::print("insert initializer_list", ums);
   }
 }
 ```

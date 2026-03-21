@@ -102,13 +102,13 @@ int main()
   const std::valarray<int> b = {1, 2, 3};
 
   std::valarray<int> result1 = a + b;
-  print("valarray+valarray", result1);
+  ::print("valarray+valarray", result1);
 
   std::valarray<int> result2 = a + 1;
-  print("valarray+int", result2);
+  ::print("valarray+int", result2);
 
   std::valarray<int> result3 = 1 + a;
-  print("int+valarray", result3);
+  ::print("int+valarray", result3);
 }
 ```
 

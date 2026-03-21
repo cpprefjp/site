@@ -122,7 +122,7 @@ int main() {
     // 不要になった要素を削除
     v.erase(result.begin(), result.end());
 
-    print("unsorted unique", v);
+    ::print("unsorted unique", v);
   }
 
   // 入力の配列がソート済みである場合、
@@ -136,7 +136,7 @@ int main() {
     // 不要になった要素を削除
     v.erase(result.begin(), result.end());
 
-    print("sorted unique", v);
+    ::print("sorted unique", v);
   }
 }
 ```

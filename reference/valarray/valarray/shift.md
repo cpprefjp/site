@@ -53,10 +53,10 @@ int main()
   const std::valarray<int> va = {1, 2, 3, 4, 5};
 
   const std::valarray<int> left_shift_result = va.shift(3);
-  print("left_shift_result", left_shift_result);
+  ::print("left_shift_result", left_shift_result);
 
   const std::valarray<int> right_shift_result = va.shift(-3);
-  print("right_shift_result", right_shift_result);
+  ::print("right_shift_result", right_shift_result);
 }
 ```
 * shift[color ff0000]

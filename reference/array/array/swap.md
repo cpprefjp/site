@@ -62,8 +62,8 @@ int main()
 
   x.swap(y);
 
-  print("x", x);
-  print("y", y);
+  ::print("x", x);
+  ::print("y", y);
 }
 ```
 * swap[color ff0000]

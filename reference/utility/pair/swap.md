@@ -52,8 +52,8 @@ int main()
 
   p1.swap(p2);
 
-  print("p1", p1);
-  print("p2", p2);
+  ::print("p1", p1);
+  ::print("p2", p2);
 }
 ```
 * swap[color ff0000]

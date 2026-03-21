@@ -71,14 +71,14 @@ int main()
   std::unordered_set<int> us1{ 1, 3, 5, 7, 9, };
   std::unordered_set<int> us2{ 0, 2, 4, 6, 8, };
 
-  print("us1 before", us1);
-  print("us2 before", us2);
+  ::print("us1 before", us1);
+  ::print("us2 before", us2);
   std::cout << std::endl;
 
   us1.swap(us2);
 
-  print("us1 after", us1);
-  print("us2 after", us2);
+  ::print("us1 after", us1);
+  ::print("us2 after", us2);
 }
 ```
 * swap[color ff0000]

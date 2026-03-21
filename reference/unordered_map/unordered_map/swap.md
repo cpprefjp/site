@@ -72,14 +72,14 @@ int main()
   std::unordered_map<std::string, int> um1{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, };
   std::unordered_map<std::string, int> um2{ {"0th", 0}, {"2nd", 2}, {"4th", 4}, {"6th", 6}, {"8th", 8}, };
 
-  print("um1 before", um1);
-  print("um2 before", um2);
+  ::print("um1 before", um1);
+  ::print("um2 before", um2);
   std::cout << std::endl;
 
   um1.swap(um2);
 
-  print("um1 after", um1);
-  print("um2 after", um2);
+  ::print("um1 after", um1);
+  ::print("um2 after", um2);
 }
 ```
 * swap[color ff0000]

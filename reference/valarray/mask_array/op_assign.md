@@ -73,17 +73,17 @@ int main()
   std::valarray<bool> mask1 = {true, true, true, false, false, false};
   std::mask_array<int> result1 = va1[mask1];
   result1 = result;
-  print("assign mask_array", va1);
+  ::print("assign mask_array", va1);
 
   // (2)
   // resultが参照する要素全てに、33を代入
   result = std::valarray<int>(33, 3);
-  print("assign valarray", va);
+  ::print("assign valarray", va);
 
   // (3)
   // resultが参照する要素全てに、55を代入
   result = 55;
-  print("assign value", va);
+  ::print("assign value", va);
 }
 ```
 

@@ -72,7 +72,7 @@ int main()
   // 偶数グループと奇数グループに分かれた位置を得る
   auto it = std::ranges::partition_point(v, is_even);
 
-  print("v", v);
+  ::print("v", v);
   std::cout << *it << std::endl;
 }
 ```

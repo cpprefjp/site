@@ -171,31 +171,31 @@ int main()
 {
   // (1) デフォルト構築
   std::forward_list<int> ls1;
-  print("ls1", ls1);
+  ::print("ls1", ls1);
 
   // (4) n個の要素を持つリストを作成
   std::forward_list<int> ls2(3);
-  print("ls2", ls2);
+  ::print("ls2", ls2);
 
   // (3) n個の指定された値を要素を持つリストを作成
   std::forward_list<int> ls3(3, 1);
-  print("ls3", ls3);
+  ::print("ls3", ls3);
 
   // (5) 範囲から構築
   std::forward_list<int> ls4(ls3.begin(), ls3.end());
-  print("ls4", ls4);
+  ::print("ls4", ls4);
 
   // (6) コピー構築
   std::forward_list<int> ls5 = ls4;
-  print("ls5", ls5);
+  ::print("ls5", ls5);
 
   // (7) ムーブ構築
   std::forward_list<int> ls6 = std::move(ls5);
-  print("ls6", ls6);
+  ::print("ls6", ls6);
 
   // (10) 初期化子リストで構築
   std::forward_list<int> ls7 = {1, 2, 3};
-  print("ls7", ls7);
+  ::print("ls7", ls7);
 }
 ```
 * begin[link begin.md]

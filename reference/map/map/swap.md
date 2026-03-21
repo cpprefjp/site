@@ -61,8 +61,8 @@ int main()
   // m1とm2を入れ替える
   m1.swap(m2);
 
-  print("m1", m1);
-  print("m2", m2);
+  ::print("m1", m1);
+  ::print("m2", m2);
 }
 ```
 

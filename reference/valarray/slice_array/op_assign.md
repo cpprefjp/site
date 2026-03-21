@@ -75,17 +75,17 @@ int main()
   std::valarray<int> va1 = {1, 2, 3, 4, 5, 6};
   std::slice_array<int> result1 = va1[std::slice(0, 3, 1)];
   result1 = result;
-  print("assign slice_array", va1);
+  ::print("assign slice_array", va1);
 
   // (2)
   // resultが参照する要素全てに、33を代入
   result = std::valarray<int>(33, length);
-  print("assign valarray", va);
+  ::print("assign valarray", va);
 
   // (3)
   // resultが参照する要素全てに、55を代入
   result = 55;
-  print("assign value", va);
+  ::print("assign value", va);
 }
 ```
 * std::slice[link /reference/valarray/slice.md]

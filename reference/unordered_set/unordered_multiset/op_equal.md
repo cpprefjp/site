@@ -69,9 +69,9 @@ int main()
   std::unordered_multiset<int> ums2{ 4, 5, 6, 4, 5, 6, };
   std::unordered_multiset<int> ums3{ 1, 2, 3, 1, 2, 3, };
 
-  print("ums1", ums1);
-  print("ums2", ums2);
-  print("ums3", ums3);
+  ::print("ums1", ums1);
+  ::print("ums2", ums2);
+  ::print("ums3", ums3);
 
   std::cout << "ums1 == ums2:" << (ums1 == ums2) << std::endl;
   std::cout << "ums1 == ums3:" << (ums1 == ums3) << std::endl;

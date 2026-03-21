@@ -54,8 +54,8 @@ int main()
 
   std::swap(v1, v2);
 
-  print("v1", v1);
-  print("v2", v2);
+  ::print("v1", v1);
+  ::print("v2", v2);
 }
 ```
 * std::swap[color ff0000]

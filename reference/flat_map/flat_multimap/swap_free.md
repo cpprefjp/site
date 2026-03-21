@@ -66,8 +66,8 @@ int main()
   // fm1とfm2を入れ替える
   std::swap(fm1, fm2);
 
-  print("fm1", fm1);
-  print("fm2", fm2);
+  ::print("fm1", fm1);
+  ::print("fm2", fm2);
 }
 ```
 * std::swap[color ff0000]

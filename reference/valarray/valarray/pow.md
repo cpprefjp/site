@@ -107,13 +107,13 @@ int main()
   const std::valarray<float> ys = {3.0f, 4.0f, 5.0f};
 
   std::valarray<float> result1 = std::pow(xs, ys);
-  print("valarray-valarray", result1);
+  ::print("valarray-valarray", result1);
 
   std::valarray<float> result2 = std::pow(xs, 3.0f);
-  print("valarray-float", result2);
+  ::print("valarray-float", result2);
 
   std::valarray<float> result3 = std::pow(3.0f, ys);
-  print("float-valarray", result3);
+  ::print("float-valarray", result3);
 }
 ```
 * std::pow[color ff0000]

@@ -100,9 +100,9 @@ int main()
                       std::back_inserter(odds),
                       is_even);
 
-  print("v", v);
-  print("evens", evens);
-  print("odds", odds);
+  ::print("v", v);
+  ::print("evens", evens);
+  ::print("odds", odds);
 }
 ```
 * std::partition_copy[color ff0000]

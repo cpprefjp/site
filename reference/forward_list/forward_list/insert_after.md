@@ -109,7 +109,7 @@ int main()
     decltype(ls)::iterator it = std::next(ls.begin(), 2);
     ls.insert_after(it, 3);
 
-    print("insert one element", ls);
+    ::print("insert one element", ls);
   }
   // n個の要素を挿入する
   {
@@ -118,7 +118,7 @@ int main()
     // 2の後ろに3を2個挿入する
     ls.insert_after(std::next(ls.begin(), 1), 2, 3);
 
-    print("insert n elements", ls);
+    ::print("insert n elements", ls);
   }
   // 指定範囲の要素を挿入する
   {
@@ -128,7 +128,7 @@ int main()
     const std::vector<int> v = {3, 4, 5};
     ls.insert_after(std::next(ls.begin(), 1), v.begin(), v.end());
 
-    print("insert range", ls);
+    ::print("insert range", ls);
   }
   // 初期化子リストで要素を挿入する
   {
@@ -136,7 +136,7 @@ int main()
 
     ls.insert_after(std::next(ls.begin(), 1), {3, 4, 5});
 
-    print("insert initializer_list", ls);
+    ::print("insert initializer_list", ls);
   }
 }
 ```

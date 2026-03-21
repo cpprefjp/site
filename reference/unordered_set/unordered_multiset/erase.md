@@ -81,41 +81,41 @@ int main()
   // 指定した位置にある要素を削除（(1)の形式）
   {
     std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 3, };
-    print("(1) erase(const_iterator) before", ums);
+    ::print("(1) erase(const_iterator) before", ums);
 
     auto it1 = std::next(ums.cbegin(), 3);
     std::cout << "argument: " << *it1 << '\n';
     auto it2 = ums.erase(it1);
     std::cout << "return value: " << *it2 << '\n';
-    print("after", ums);
+    ::print("after", ums);
     std::cout << std::endl;
   }
 
   // 指定したキーと等価な要素を削除（(3)の形式）
   {
     std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 3, };
-    print("(3) erase(const value_type&) before", ums);
+    ::print("(3) erase(const value_type&) before", ums);
 
     auto count1 = ums.erase(5);
     auto count2 = ums.erase(8);
     auto count3 = ums.erase(3);
     std::cout << "argument: 5, 8, 3" << '\n';
     std::cout << "return value: " << count1 << ", " << count2 << ", " << count3 << std::endl;
-    print("after", ums);
+    ::print("after", ums);
     std::cout << std::endl;
   }
 
   // 指定した位置にある要素を削除（(4)の形式）
   {
     std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 3, };
-    print("(4) erase(const_iterator, const_iterator) before", ums);
+    ::print("(4) erase(const_iterator, const_iterator) before", ums);
 
     auto it1 = std::next(ums.cbegin());
     auto it2 = std::next(it1, 2);
     std::cout << "arguments: " << *it1 << ", " << *it2 << '\n';
     auto it3 = ums.erase(it1, it2);
     std::cout << "return value: " << *it3 << '\n';
-    print("after", ums);
+    ::print("after", ums);
     std::cout << std::endl;
   }
 }

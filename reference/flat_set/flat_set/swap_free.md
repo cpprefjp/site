@@ -59,8 +59,8 @@ int main()
   // fs1とfs2を入れ替える
   std::swap(fs1, fs2);
 
-  print("fs1", fs1);
-  print("fs2", fs2);
+  ::print("fs1", fs1);
+  ::print("fs2", fs2);
 }
 ```
 * std::swap[color ff0000]

@@ -61,8 +61,8 @@ int main()
   std::valarray<float> exp_result = std::exp(va);
   std::valarray<float> log_result = std::log(exp_result);
 
-  print("exp_result", exp_result);
-  print("log_result", log_result);
+  ::print("exp_result", exp_result);
+  ::print("log_result", log_result);
 }
 ```
 * std::log[color ff0000]

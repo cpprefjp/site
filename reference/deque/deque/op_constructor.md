@@ -202,13 +202,13 @@ int main ()
   // (10) : 初期化子リストによる構築
   std::deque<int> c7 = {1, 2, 3};
 
-  print("c1", c1);
-  print("c2", c2);
-  print("c3", c3);
-  print("c4", c4);
-  print("c5", c5);
-  print("c6", c6);
-  print("c7", c7);
+  ::print("c1", c1);
+  ::print("c2", c2);
+  ::print("c3", c3);
+  ::print("c4", c4);
+  ::print("c5", c5);
+  ::print("c6", c6);
+  ::print("c7", c7);
 }
 ```
 * begin()[link begin.md]

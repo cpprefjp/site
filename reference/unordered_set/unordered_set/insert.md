@@ -195,7 +195,7 @@ int main()
     std::cout << p1.second << ' ' << *p1.first << ' ';
     auto p2 = us.insert(2); // 追加されないケース
     std::cout << p2.second << ' ' << *p2.first << std::endl;
-    print("insert one element", us);
+    ::print("insert one element", us);
   }
 
   // 一つの要素を挿入（(4), (5), (6)の形式）
@@ -206,7 +206,7 @@ int main()
     std::cout << *it1 << ' ';
     auto it2 = us.insert(us.begin(), 2); // 追加されないケース
     std::cout << *it2 << std::endl;
-    print("insert one element with hint", us);
+    ::print("insert one element with hint", us);
   }
 
   // 複数の要素を挿入（(7)の形式）
@@ -215,7 +215,7 @@ int main()
 
     std::forward_list<int> fl{ 5, 6, 0, 8, 7, };
     us.insert(fl.cbegin(), fl.cend()); // forward_list の要素を全部
-    print("insert range", us);
+    ::print("insert range", us);
   }
 
   // 複数の要素を挿入（(8)の形式）
@@ -223,7 +223,7 @@ int main()
     std::unordered_set<int> us{ 0, 1, 2, 3, 4, 5, };
 
     us.insert({ 5, 6, 0, 8, 7, });
-    print("insert initializer_list", us);
+    ::print("insert initializer_list", us);
   }
 }
 ```

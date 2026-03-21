@@ -72,17 +72,17 @@ int main()
   std::valarray<std::size_t> mask1 = {0, 1, 2};
   std::indirect_array<int> result1 = va1[mask1];
   result1 = result;
-  print("assign indirect_array", va1);
+  ::print("assign indirect_array", va1);
 
   // (2)
   // resultが参照する要素全てに、33を代入
   result = std::valarray<int>(33, mask.size());
-  print("assign valarray", va);
+  ::print("assign valarray", va);
 
   // (3)
   // resultが参照する要素全てに、55を代入
   result = 55;
-  print("assign value", va);
+  ::print("assign value", va);
 }
 ```
 * mask.size()[link /reference/valarray/valarray/size.md]

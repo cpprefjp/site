@@ -74,8 +74,8 @@ int main()
   // c1とc2を入れ替える
   std::swap(um1, um2);
 
-  print("um1", um1);
-  print("um2", um2);
+  ::print("um1", um1);
+  ::print("um2", um2);
 }
 ```
 * std::swap[color ff0000]

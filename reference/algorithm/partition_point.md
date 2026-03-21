@@ -66,7 +66,7 @@ int main()
   // 偶数グループと奇数グループに分かれた位置を得る
   decltype(v)::iterator it = std::partition_point(v.begin(), v.end(), is_even);
 
-  print("v", v);
+  ::print("v", v);
   std::cout << *it << std::endl;
 }
 ```

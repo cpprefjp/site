@@ -107,7 +107,7 @@ int main()
     std::pair<int, std::string> p(1, "abc");
     std::pair<int, std::string> p1;
     p1 = p;
-    print("p1", p1);
+    ::print("p1", p1);
   }
 
   // 変換可能なpairのコピー代入
@@ -115,7 +115,7 @@ int main()
     std::pair<int, const char*> p(1, "abc");
     std::pair<int, std::string> p2;
     p2 = p;
-    print("p2", p2);
+    ::print("p2", p2);
   }
 
   // ムーブ代入
@@ -123,7 +123,7 @@ int main()
     std::pair<int, std::string> p(1, "abc");
     std::pair<int, std::string> p3;
     p3 = std::move(p);
-    print("p3", p3);
+    ::print("p3", p3);
   }
 
   // 変換可能なpairのムーブ代入
@@ -131,7 +131,7 @@ int main()
     std::pair<int, const char*> p(1, "abc");
     std::pair<int, std::string> p4;
     p4 = std::move(p);
-    print("p4", p4);
+    ::print("p4", p4);
   }
 }
 ```

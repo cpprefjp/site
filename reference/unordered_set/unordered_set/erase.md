@@ -81,40 +81,40 @@ int main()
   // 指定した位置にある要素を削除（(1)の形式）
   {
     std::unordered_set<int> us{ 1, 3, 5, 7, 9, };
-    print("(1) erase(const_iterator) before", us);
+    ::print("(1) erase(const_iterator) before", us);
 
     auto it1 = std::next(us.cbegin(), 3);
     std::cout << "argument: " << *it1 << '\n';
     auto it2 = us.erase(it1);
     std::cout << "return value: " << *it2 << '\n';
-    print("after", us);
+    ::print("after", us);
     std::cout << std::endl;
   }
 
   // 指定したキーと等価な要素を削除（(3)の形式）
   {
     std::unordered_set<int> us{ 1, 3, 5, 7, 9, };
-    print("(3) erase(const value_type&) before", us);
+    ::print("(3) erase(const value_type&) before", us);
 
     auto count1 = us.erase(5);
     auto count2 = us.erase(8);
     std::cout << "argument: 5, 8" << '\n';
     std::cout << "return value: " << count1 << ", " << count2 << '\n';
-    print("after", us);
+    ::print("after", us);
     std::cout << std::endl;
   }
 
   // 指定した位置にある要素を削除（(4)の形式）
   {
     std::unordered_set<int> us{ 1, 3, 5, 7, 9, };
-    print("(4) erase(const_iterator, const_iterator) before", us);
+    ::print("(4) erase(const_iterator, const_iterator) before", us);
 
     auto it1 = std::next(us.cbegin());
     auto it2 = std::next(it1, 2);
     std::cout << "arguments: " << *it1 << ", " << *it2 << '\n';
     auto it3 = us.erase(it1, it2);
     std::cout << "return value: " << *it3 << '\n';
-    print("after", us);
+    ::print("after", us);
     std::cout << std::endl;
   }
 }

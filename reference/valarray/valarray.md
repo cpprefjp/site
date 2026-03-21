@@ -235,19 +235,19 @@ int main()
     std::valarray<int> b = {4, 5, 6};
 
     std::valarray<int> plus = a + b;
-    print("add", plus);
+    ::print("add", plus);
 
     std::valarray<int> minus = a - b;
-    print("minus", minus);
+    ::print("minus", minus);
 
     std::valarray<int> multiply = a * b;
-    print("multiply", multiply);
+    ::print("multiply", multiply);
 
     std::valarray<int> divide = a / b;
-    print("divide", divide);
+    ::print("divide", divide);
 
     std::valarray<int> modulo = a % b;
-    print("modulo", modulo);
+    ::print("modulo", modulo);
   }
   std::cout << std::endl;
 
@@ -257,10 +257,10 @@ int main()
     std::valarray<float> a = {0.1f, 0.2f, 0.3f};
 
     std::valarray<float> sin = std::sin(a);
-    print("sin", sin);
+    ::print("sin", sin);
 
     std::valarray<float> cos = std::cos(a);
-    print("cos", cos);
+    ::print("cos", cos);
   }
   std::cout << std::endl;
 
@@ -275,7 +275,7 @@ int main()
     // {2, 4, 6}を抽出し、その全要素を* 2する
     a[std::slice(start, length, stride)] *= std::valarray<int> {2, 2, 2};
 
-    print("slice + multiply", a);
+    ::print("slice + multiply", a);
   }
 }
 ```

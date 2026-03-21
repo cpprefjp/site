@@ -107,13 +107,13 @@ int main()
   const std::valarray<float> xs = {0.3f, 0.2f, 0.1f};
 
   std::valarray<float> result1 = std::atan2(ys, xs);
-  print("valarray-valarray", result1);
+  ::print("valarray-valarray", result1);
 
   std::valarray<float> result2 = std::atan2(ys, 0.3f);
-  print("valarray-float", result2);
+  ::print("valarray-float", result2);
 
   std::valarray<float> result3 = std::atan2(0.1f, xs);
-  print("float-valarray", result3);
+  ::print("float-valarray", result3);
 }
 ```
 * std::atan2[color ff0000]

@@ -171,12 +171,12 @@ int main()
   // 初期化子リストからvectorを構築
   std::vector<int> sixth = {1, 2, 3};
 
-  print("first", first);
-  print("second", second);
-  print("third", third);
-  print("fourth", fourth);
-  print("fifth", fifth);
-  print("sixth", sixth);
+  ::print("first", first);
+  ::print("second", second);
+  ::print("third", third);
+  ::print("fourth", fourth);
+  ::print("fifth", fifth);
+  ::print("sixth", sixth);
 }
 ```
 

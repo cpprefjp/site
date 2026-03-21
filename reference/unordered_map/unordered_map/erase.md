@@ -90,40 +90,40 @@ int main()
   // 指定した位置にある要素を削除（(1)の形式）
   {
     std::unordered_map<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, };
-    print("(1) erase(const_iterator) before", um);
+    ::print("(1) erase(const_iterator) before", um);
 
     auto it1 = std::next(um.cbegin(), 3);
     std::cout << "argument: " << *it1 << '\n';
     auto it2 = um.erase(it1);
     std::cout << "return value: " << *it2 << '\n';
-    print("after", um);
+    ::print("after", um);
     std::cout << std::endl;
   }
 
   // 指定したキーと等価な要素を削除（(3)の形式）
   {
     std::unordered_map<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, };
-    print("(3) erase(const value_type&) before", um);
+    ::print("(3) erase(const value_type&) before", um);
 
     auto count1 = um.erase("5th");
     auto count2 = um.erase("8th");
     std::cout << "argument: 5th, 8th" << '\n';
     std::cout << "return value: " << count1 << ", " << count2 << '\n';
-    print("after", um);
+    ::print("after", um);
     std::cout << std::endl;
   }
 
   // 指定した位置にある要素を削除（(4)の形式）
   {
     std::unordered_map<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, };
-    print("(4) erase(const_iterator, const_iterator) before", um);
+    ::print("(4) erase(const_iterator, const_iterator) before", um);
 
     auto it1 = std::next(um.cbegin());
     auto it2 = std::next(it1, 2);
     std::cout << "arguments: " << *it1 << ", " << *it2 << '\n';
     auto it3 = um.erase(it1, it2);
     std::cout << "return value: " << *it3 << '\n';
-    print("after", um);
+    ::print("after", um);
     std::cout << std::endl;
   }
 }

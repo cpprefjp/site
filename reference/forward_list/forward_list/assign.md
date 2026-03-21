@@ -89,7 +89,7 @@ int main()
     std::forward_list<int> ls1;
     ls1.assign(ls.begin(), ls.end());
 
-    print("ls1", ls1);
+    ::print("ls1", ls1);
   }
 
   // n個の指定された値で埋める
@@ -97,7 +97,7 @@ int main()
     std::forward_list<int> ls2;
     ls2.assign(3, 1);
 
-    print("ls2", ls2);
+    ::print("ls2", ls2);
   }
 
   // 初期化子リストを代入
@@ -105,7 +105,7 @@ int main()
     std::forward_list<int> ls3;
     ls3.assign({1, 2, 3});
 
-    print("ls3", ls3);
+    ::print("ls3", ls3);
   }
 }
 ```

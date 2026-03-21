@@ -74,7 +74,7 @@ int main()
 
     // 2番目の単一要素(値3)を削除
     v.erase(v.begin() + 2);
-    print("(1)", v);
+    ::print("(1)", v);
   }
 
   // (2)
@@ -83,7 +83,7 @@ int main()
 
     // 範囲[v.begin(), v.begin() + 2)の要素を削除
     v.erase(v.begin(), v.begin() + 2);
-    print("(2)", v);
+    ::print("(2)", v);
   }
 }
 ```

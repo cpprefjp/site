@@ -77,11 +77,11 @@ int main()
 
   std::valarray<int> result1 = a;
   result1 %= b;
-  print("valarray%=valarray", result1);
+  ::print("valarray%=valarray", result1);
 
   std::valarray<int> result2 = a;
   result2 %= 2;
-  print("valarray%=int", result2);
+  ::print("valarray%=int", result2);
 }
 ```
 

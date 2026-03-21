@@ -200,27 +200,27 @@ int main()
   // (1) デフォルト構築
   {
     constexpr std::pair<int, double> p1;
-    print("p1", p1);
+    ::print("p1", p1);
   }
 
   // (2) コピー構築
   {
     std::pair<int, std::string> p(1, "abc");
     std::pair<int, std::string> p2 = p;
-     print("p2", p2);
+     ::print("p2", p2);
   }
 
   // (3) ムーブ構築
   {
     std::pair<int, std::string> p(1, "abc");
     std::pair<int, std::string> p3 = std::move(p);
-    print("p3", p3);
+    ::print("p3", p3);
   }
 
   // (4) firstとsecondの初期値から構築
   {
     std::pair<int, std::string> p4(1, std::string("abc"));
-    print("p4", p4);
+    ::print("p4", p4);
   }
 
   // (5) firstとsecondの右辺値からムーブ構築
@@ -228,21 +228,21 @@ int main()
     int x = 1;
     std::string s = "abc";
     std::pair<int, std::string> p5(std::move(x), std::move(s));
-    print("p5", p5);
+    ::print("p5", p5);
   }
 
   // (7) 変換可能なpairから構築
   {
     std::pair<int, const char*> p(1, "abc");
     std::pair<int, std::string> p6 = p;
-    print("p6", p6);
+    ::print("p6", p6);
   }
 
   // (8) 変換可能なpairからムーブ構築
   {
     std::pair<int, const char*> p(1, "abc");
     std::pair<int, std::string> p7 = std::move(p);
-    print("p7", p7);
+    ::print("p7", p7);
   }
 
   // (11) first_typeとsecond_typeのコンストラクタ引数から構築
@@ -250,7 +250,7 @@ int main()
     std::pair<X, Y> p8(std::piecewise_construct,
                        std::make_tuple(1, 2, 3),
                        std::make_tuple(4, 5));
-    print("p8", p8);
+    ::print("p8", p8);
   }
 }
 ```

@@ -141,7 +141,7 @@ int main() {
     // 重複を除いた要素がuniquedに追加されていく
     std::ranges::unique_copy(v, std::back_inserter(uniqued));
 
-    print("unsorted unique", uniqued);
+    ::print("unsorted unique", uniqued);
   }
 
   // 入力の配列がソート済みである場合、
@@ -153,7 +153,7 @@ int main() {
     std::ranges::sort(v);
     std::ranges::unique_copy(v, std::back_inserter(uniqued));
 
-    print("sorted unique", uniqued);
+    ::print("sorted unique", uniqued);
   }
 }
 ```

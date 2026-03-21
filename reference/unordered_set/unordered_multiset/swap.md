@@ -71,14 +71,14 @@ int main()
   std::unordered_multiset<int> ums1{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
   std::unordered_multiset<int> ums2{ 0, 2, 4, 6, 8, 0, 2, 4, 6, 8, };
 
-  print("ums1 before", ums1);
-  print("ums2 before", ums2);
+  ::print("ums1 before", ums1);
+  ::print("ums2 before", ums2);
   std::cout << std::endl;
 
   ums1.swap(ums2);
 
-  print("ums1 after", ums1);
-  print("ums2 after", ums2);
+  ::print("ums1 after", ums1);
+  ::print("ums2 after", ums2);
 }
 ```
 * swap[color ff0000]

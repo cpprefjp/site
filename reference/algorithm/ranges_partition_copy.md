@@ -135,9 +135,9 @@ int main()
   std::vector<int> odds;
   std::ranges::partition_copy(v, std::back_inserter(evens), std::back_inserter(odds), is_even);
 
-  print("v", v);
-  print("evens", evens);
-  print("odds", odds);
+  ::print("v", v);
+  ::print("evens", evens);
+  ::print("odds", odds);
 }
 ```
 * std::ranges::partition_copy[color ff0000]

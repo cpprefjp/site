@@ -73,9 +73,9 @@ int main ()
   std::deque<int> c3;
   c3 = {1, 2, 3};
 
-  print("c1", c1);
-  print("c2", c2);
-  print("c3", c3);
+  ::print("c1", c1);
+  ::print("c2", c2);
+  ::print("c3", c3);
 }
 ```
 * std::move[link /reference/utility/move.md]

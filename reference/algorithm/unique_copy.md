@@ -114,7 +114,7 @@ int main() {
     // 重複を除いた要素がuniquedに追加されていく
     std::unique_copy(v.begin(), v.end(), std::back_inserter(uniqued));
 
-    print("unsorted unique", uniqued);
+    ::print("unsorted unique", uniqued);
   }
 
   // 入力の配列がソート済みである場合、
@@ -126,7 +126,7 @@ int main() {
     std::sort(v.begin(), v.end());
     std::unique_copy(v.begin(), v.end(), std::back_inserter(uniqued));
 
-    print("sorted unique", uniqued);
+    ::print("sorted unique", uniqued);
   }
 }
 ```
