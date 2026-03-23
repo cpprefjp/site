@@ -40,7 +40,7 @@ int main()
 
   // 別スレッドを立てて、そのスレッドからjt1スレッドに停止要求を発行する
   std::jthread jt2 {
-    [ssource = jt1.get_stop_source()]() {
+    [ssource = jt1.get_stop_source()]() mutable {
       ssource.request_stop();
     }
   };
