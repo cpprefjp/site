@@ -33,7 +33,7 @@ namespace std {
 - `U`が参照型や関数型の場合、[`declval`](/reference/utility/declval.md)`<U>()`と同じ型と値カテゴリを持つ式
 - `U`が参照型や関数型でない場合、型`U`である`prvalue`（ただし、`U`に`const`/`volatile`修飾があれば調整される）
 
-[`conjunction_v`](conjunction.md)`<`[`is_reference`](is_reference.md)`<T>,` [`is_constructible`](is_constructible.md)`<T, U>>`が`true`かつ、`T t(VAL<U>)`において`t`が一時オブジェクトの寿命を延長する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+[`conjunction_v`](conjunction.md)`<`[`is_reference`](is_reference.md)`<T>,` [`is_constructible`](is_constructible.md)`<T, U>>`が`true`かつ、`T t(VAL<U>);`において`t`が一時オブジェクトの寿命を延長する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ## 備考
@@ -109,6 +109,12 @@ int main()
 	static_assert(std::reference_constructs_from_temporary_v<A&&, C&&>);
 	static_assert(std::reference_constructs_from_temporary_v<A&&, int>);
 
+	// OK: 変換されて rvalue になってから束縛されて寿命が延長されるタイプ
+	//     C → B の変換は explicit だが、丸カッコ初期化なので変換できる
+	static_assert(std::reference_constructs_from_temporary_v<B&&, C>);
+	static_assert(std::reference_constructs_from_temporary_v<B&&, C&>);
+	static_assert(std::reference_constructs_from_temporary_v<B&&, C&&>);
+
 
 	// NG: const ではない左辺値参照は寿命を延長しないんですタイプ
 	//     1つ目3つ目はそもそも参照そのものが構築出来ない
@@ -121,9 +127,6 @@ int main()
 	static_assert(false == std::reference_constructs_from_temporary_v<int&&, int&&>);
 
 	// NG: explicit なので変換出来ずに詰むパターン
-	static_assert(false == std::reference_constructs_from_temporary_v<B&&, C>);
-	static_assert(false == std::reference_constructs_from_temporary_v<B&&, C&>);
-	static_assert(false == std::reference_constructs_from_temporary_v<B&&, C&&>);
 	static_assert(false == std::reference_constructs_from_temporary_v<B&&, int>);
 }
 

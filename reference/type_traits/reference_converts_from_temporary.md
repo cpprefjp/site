@@ -29,7 +29,7 @@ namespace std {
 - `U`が参照型や関数型の場合、[`declval`](/reference/utility/declval.md)`<U>()`と同じ型と値カテゴリを持つ式
 - `U`が参照型や関数型でない場合、型`U`である`prvalue`（ただし、`U`に`const`/`volatile`修飾があれば調整される）
 
-[`conjunction_v`](conjunction.md)`<`[`is_reference`](is_reference.md)`<T>,` [`is_convertible`](is_convertible.md)`<U, T>>`が`true`かつ、`T t(VAL<U>)`において`t`が一時オブジェクトの寿命を延長する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+[`conjunction_v`](conjunction.md)`<`[`is_reference`](is_reference.md)`<T>,` [`is_convertible`](is_convertible.md)`<U, T>>`が`true`かつ、`T t = VAL<U>;`において`t`が一時オブジェクトの寿命を延長する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ## 備考
