@@ -62,7 +62,7 @@ struct OptBool {
     }
   }
 
-  constexpr auto operator*() -> bool& {
+  constexpr auto operator*() const -> const bool& {
     return b;
   }
 };
