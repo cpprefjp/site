@@ -220,6 +220,8 @@ Promise型のスコープにおいて、非修飾な`get_return_object_on_alloca
 ```cpp example
 #include <iostream>
 #include <coroutine>
+#include <new> // std::nothrow
+#include <exception> // std::terminate()
 
 // メモリ確保が必要となったときは::operator new(size_t, nothrow_t)が使われる
 struct generator {
@@ -455,6 +457,7 @@ _p_ をコルーチンPromiseオブジェクトのlvalue名とすると、`co_re
 #include <iostream>
 #include <coroutine>
 #include <utility>
+#include <exception> // std::terminate()
 
 // コルーチン利用ライブラリ: ジェネレータ型
 struct my_generator {

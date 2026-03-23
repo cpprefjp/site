@@ -35,6 +35,7 @@ using promise_type = typename R::promise_type;
 #include <coroutine>
 #include <iostream>
 #include <utility>
+#include <exception> // std::terminate()
 
 struct task;
 

@@ -144,6 +144,7 @@ set_intersection_result {
 #include <iostream>
 #include <set>
 #include <algorithm>
+#include <iterator> // std::inserter()
 
 int main()
 {

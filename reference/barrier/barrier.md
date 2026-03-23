@@ -87,6 +87,7 @@ namespace std {
 #include <barrier>
 #include <iostream>
 #include <thread>
+#include <mutex>
 
 constexpr int NWORKERS = 2;  // ワーカ数
 constexpr int NPHASES  = 3;  // フェーズ数

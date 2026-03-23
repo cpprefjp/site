@@ -46,6 +46,7 @@ namespace std {
 ```cpp example
 #include <tuple>
 #include <type_traits>
+#include <utility> // std::pair
 
 int main()
 {

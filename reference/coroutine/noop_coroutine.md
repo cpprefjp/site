@@ -33,6 +33,7 @@ noop_coroutine_handle noop_coroutine() noexcept;
 #include <coroutine>
 #include <iostream>
 #include <utility>
+#include <exception> // std::terminate()
 
 struct task {
   struct promise_type {

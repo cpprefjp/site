@@ -114,6 +114,7 @@ C++コルーチンとC API（コールバック関数へのポインタと`void*
 #include <coroutine>
 #include <iostream>
 #include <utility>
+#include <exception> // std::terminate()
 
 struct task {
   struct promise_type {

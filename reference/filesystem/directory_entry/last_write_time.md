@@ -32,6 +32,7 @@ file_time_type last_write_time(std::error_code& ec) const noexcept; // (2)
 #include <iostream>
 #include <filesystem>
 #include <fstream>
+#include <sstream>
 #include <ctime>
 #include <iomanip>
 

@@ -33,6 +33,7 @@ namespace std {
 #include <coroutine>
 #include <iostream>
 #include <utility>
+#include <exception> // std::terminate()
 
 struct task {
   struct promise_type {

@@ -36,6 +36,7 @@ return result;
 #include <cassert>
 #include <valarray>
 #include <cstdint>
+#include <algorithm> // std::all_of()
 
 int main()
 {

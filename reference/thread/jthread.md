@@ -128,6 +128,7 @@ int main()
 ```cpp example
 #include <cassert>
 #include <thread>
+#include <stop_token>
 
 int main()
 {
