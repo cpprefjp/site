@@ -32,7 +32,7 @@ int main()
     std::cout << *i; // １度通る
   }
 
-  std::optional<int> p2 = std::null_opt;
+  std::optional<int> p2 = std::nullopt;
   for (auto i = p2.begin(); i != p2.end(); ++i) {
     std::cout << *i; // １度も通らない
   }

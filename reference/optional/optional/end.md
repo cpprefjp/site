@@ -29,7 +29,7 @@ int main()
   std::optional<int> p = 1;
   std::cout << std::distance(p.begin(), p.end()) << std::endl;
 
-  p = std::null_opt;
+  p = std::nullopt;
   std::cout << std::distance(p.begin(), p.end()) << std::endl;
 }
 ```
