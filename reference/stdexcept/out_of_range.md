@@ -36,7 +36,7 @@ int main() {
   try {
     std::cout << vec.at(3) << "\n";
   } catch (const std::out_of_range& e) {
-    std::cerr << e.wnat() << "\n";
+    std::cerr << e.what() << "\n";
   }
 }
 ```
