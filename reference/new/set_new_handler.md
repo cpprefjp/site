@@ -45,7 +45,9 @@ int main()
   // new失敗時の動作をカスタマイズ
   std::set_new_handler(on_new_failed);
 
-  int* p = new int[std::numeric_limits<std::size_t>::max()];
+  auto n = std::numeric_limits<std::size_t>::max();
+  int* p = new int[n];
+  delete[] p;
 }
 ```
 * std::set_new_handler[color ff0000]
@@ -57,5 +59,5 @@ int main()
 メモリ確保に失敗した
 
 This application has requested the Runtime to terminate it in an unusual way.
-Please contact the application's support team for more information.</span>
+Please contact the application's support team for more information.
 ```

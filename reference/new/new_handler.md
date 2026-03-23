@@ -41,7 +41,9 @@ int main()
   std::new_handler handler = on_new_failed;
   std::set_new_handler(handler);
 
-  int* p = new int[std::numeric_limits<std::size_t>::max()];
+  auto n = std::numeric_limits<std::size_t>::max();
+  int* p = new int[n];
+  delete[] p;
 }
 ```
 * std::new_handler[color ff0000]
