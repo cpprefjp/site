@@ -89,7 +89,8 @@ int main()
   static_assert(std::is_same_v<decltype(s5), std::basic_string<char>>);
 
   // string_viewからの推論
-  std::basic_string s6 = "Hello"sv;
+  // explicit なので ="Hello"sv とはできない
+  std::basic_string s6("Hello"sv);
   static_assert(std::is_same_v<decltype(s6), std::basic_string<char>>);
 }
 ```
