@@ -581,11 +581,11 @@ int main()
 
 #### 出力
 ```
-[1, 2, 3]
-[3, 2, 1]
-[1, 2, 3]
-{1: "aaa", 2: "bbb"}
-{1, 2, 3}
+queue: [1, 2, 3]
+priority_queue: [3, 2, 1]
+stack: [1, 2, 3]
+flat_map: {1: "aaa", 2: "bbb"}
+flat_set: {1, 2, 3}
 ```
 
 ### `vector<bool>`を出力する (C++23)
