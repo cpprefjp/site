@@ -21,6 +21,7 @@ namespace std {
 | `operator=` | 代入演算子 |
 | `combine` | 合成 |
 | `name` | 名前の取得 |
+| [`encoding`](locale/encoding.md) | エンコーディングの取得 (C++26) |
 | [`operator==`](locale/op_equal.md) | 等値比較 |
 | [`operator!=`](locale/op_not_equal.md) | 非等値比較 |
 | `operator()` | 照合オブジェクトを使用した文字列比較 |

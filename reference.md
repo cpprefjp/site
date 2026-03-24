@@ -92,7 +92,7 @@
 | ヘッダ                               | 説明                 | 対応バージョン |
 |--------------------------------------|----------------------|----------------|
 | [`<locale>`](/reference/locale.md)   | ロケール             |                |
-| [`<text_encoding>`](/reference/text_encoding.md.nolink) | 文字列エンコーディングの識別 | C++26 |
+| [`<text_encoding>`](/reference/text_encoding.md) | 文字列エンコーディングの識別 | C++26 |
 | [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨<br/> C++26で削除 |
 
 

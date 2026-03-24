@@ -152,7 +152,7 @@
 |`__cpp_lib_string_view`|`202403L`|[`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を連結させる`operator+`を追加|[`<string>`](/reference/string.md), [`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_submdspan`|`202411L`|[`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加|[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_task`|`202506L`||[`<execution>`](/reference/execution.md)|
-|`__cpp_lib_text_encoding`|`202306L`|文字列エンコーディングを識別するライブラリ[`<text_encoding>`](/reference/text_encoding.md.nolink)を追加|[`<text_encoding>`](/reference/text_encoding.md.nolink)|
+|`__cpp_lib_text_encoding`|`202306L`|文字列エンコーディングを識別するライブラリ[`<text_encoding>`](/reference/text_encoding.md)を追加|[`<text_encoding>`](/reference/text_encoding.md)|
 |`__cpp_lib_to_chars`|`202306L`|[`std::to_chars_result`](/reference/charconv/to_chars_result.md)と[`std::from_chars_result`](/reference/charconv/from_chars_result.md)に`operator bool`を追加|[`<charconv>`](/reference/charconv.md)|
 |`__cpp_lib_to_string`|`202306L`|[`std::to_string`](/reference/string/to_string.md)の変換結果を`sprintf()`ベースから`std::format()`ベースに変更|[`<string>`](/reference/string.md)|
 |`__cpp_lib_trivially_relocatable`|`202502L`|トリビアルな再配置|[`<memory>`](/reference/memory.md), [`<type_traits>`](/reference/type_traits.md)|
