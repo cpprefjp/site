@@ -70,7 +70,7 @@ C++26以降は、実行時文字列のフォーマット引数を使用したい
 
 int main() {
   std::string fmt = "0x{:x} 0b{:04b}";
-  int m=10, n=6;
+  int m = 10, n = 6;
   std::string s = std::vformat(fmt, std::make_format_args(m, n));
   std::cout << s << std::endl;
 }
