@@ -1,0 +1,416 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>text_encoding - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,text_encoding,cpp26
+">
+        <meta name="title" content="text_encoding - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="text_encoding - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="text_encoding - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/text_encoding.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="text_encoding - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/text_encoding.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;text_encoding&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1d91b01b31672438b68ca6b02104f4e13e6654b9&#34;, &#34;source&#34;: &#34;#include &lt;text_encoding&gt;\n\n// \u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u306b\u30ea\u30c6\u30e9\u30eb\u30a8\u30f3\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u3092\u691c\u8a3c\nstatic_assert(std::text_encoding::literal() == std::text_encoding::id::UTF8,\n              \&#34;This program requires UTF-8 literal encoding\&#34;);\n\nint main() {}\n&#34;}, {&#34;id&#34;: &#34;0524ca886c6cfeef56fd1e5971dbe7a662f3bc60&#34;, &#34;source&#34;: &#34;#include &lt;text_encoding&gt;\n#include &lt;iostream&gt;\n\nint main() {\n  if (std::text_encoding::literal() != std::text_encoding::environment()) {\n    std::println(std::cerr,\n                 \&#34;Warning: literal encoding ({}) differs from environment encoding ({})\&#34;,\n                 std::text_encoding::literal().name(),\n                 std::text_encoding::environment().name());\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;387b91fa06e946e09029e71a5fca0434350475aa&#34;, &#34;source&#34;: &#34;#include &lt;text_encoding&gt;\n#include &lt;format&gt;\n#include &lt;cstdlib&gt;\n\n#include &lt;iconv.h&gt;\n\nint main() {\n  // iconv\u3092\u4f7f\u7528\u3057\u3066UTF-8\u304b\u3089\u74b0\u5883\u30a8\u30f3\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u306b\u5909\u63db\n  iconv_t conv = iconv_open(\n       std::text_encoding::environment().name(),\n       \&#34;UTF-8\&#34;);\n\n  // ICU\u3092\u4f7f\u7528\u3059\u308b\u5834\u5408\n  UErrorCode err;\n  UConverter* converter = ucnv_open(\n       std::text_encoding::environment().name(),\n       &amp;err);\n}\n&#34;}, {&#34;id&#34;: &#34;1702699331223f99962b582ed4985a8a2d0d2c0e&#34;, &#34;source&#34;: &#34;#include &lt;text_encoding&gt;\n#include &lt;locale&gt;\n#include &lt;print&gt;\n\nvoid print_microseconds(int count) {\n  if constexpr (std::text_encoding::literal() == std::text_encoding::id::UTF8) {\n    if (std::locale().encoding() == std::text_encoding::id::UTF8) {\n      std::println(\&#34;{}\\u00B5s\&#34;, count); // \u00b5s\n      return;\n    }\n  }\n  std::println(\&#34;{}us\&#34;, count);\n}\n\nint main() {\n  print_microseconds(42);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;text_encoding&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">text_encoding</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-03-24T04:23:43">
+        2026年03月24日 04時23分43秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/text_encoding.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/text_encoding.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;text_encoding&gt;</div><h1 itemprop="name"><span class="token">text_encoding</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;text_encoding&gt;</code>ヘッダでは、テキストエンコーディングを識別するためのクラスおよび関数を定義する。</p>
+<h2>概要</h2>
+<p>C++プログラムにおけるテキストエンコーディングは、大きく以下の3種類に分けられる：</p>
+<ol>
+<li><strong>リテラルエンコーディング</strong>  : コンパイル時に決定される、文字列リテラルのエンコーディング</li>
+<li><strong>環境エンコーディング</strong>  : 実行時の環境（OS・シェル）が期待するエンコーディング</li>
+<li><strong>ロケールエンコーディング</strong>  : <code><a href="locale/locale.html">std::locale</a></code>オブジェクトに関連付けられたエンコーディング</li>
+</ol>
+<p>従来のC++では、これらのエンコーディングに関する情報はロケール経由でしか取得できず、実際の環境と一致しないことが多かった。<code>&lt;text_encoding&gt;</code>ヘッダは、ロケールに依存せずにエンコーディングを識別・比較する手段を提供する。</p>
+<p>エンコーディングの識別には<a href="https://www.iana.org/assignments/character-sets/character-sets.xhtml" target="_blank">IANA文字集合</a>レジストリを使用し、エンコーディング名・MIB番号・エイリアスによる相互運用性を確保する。</p>
+<h3>リテラルエンコーディングとは</h3>
+<p>リテラルエンコーディング（ordinary literal encoding）とは、コンパイラが文字列リテラル（<code>"hello"</code>など）をオブジェクトファイルに書き込む際に使用するエンコーディングである。これはコンパイル時に決定され、<code><a href="text_encoding/text_encoding/literal.html">std::text_encoding::literal()</a></code>で取得できる。<code>consteval</code>関数であるため、コンパイル時定数として使用できる。</p>
+<p>各コンパイラにおけるリテラルエンコーディングの決定方法は以下の通り：</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>コンパイラ</th>
+<th>デフォルト</th>
+<th>変更方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GCC</td>
+<td>UTF-8</td>
+<td><code>-fexec-charset=エンコーディング名</code></td>
+</tr>
+<tr>
+<td>Clang</td>
+<td>UTF-8</td>
+<td><code>-fexec-charset=エンコーディング名</code></td>
+</tr>
+<tr>
+<td>MSVC</td>
+<td>システムのアクティブコードページ（日本語環境ではShift_JIS / CP932）</td>
+<td><code>/execution-charset:utf-8</code> または <code>/utf-8</code>（ソース・実行両方をUTF-8にする）</td>
+</tr>
+</tbody>
+</table>
+<p>日本語環境における注意点として、GCCおよびClangはデフォルトで UTF-8 を使用するが、MSVCは日本語Windowsのアクティブコードページ（Shift_JIS / Windows-31J, CP932）をデフォルトとする。そのため、MSVCでUTF-8リテラルを使いたい場合は明示的にオプションを指定する必要がある。</p>
+<h3>環境エンコーディングとは</h3>
+<p>環境エンコーディングとは、プログラムの実行環境が文字列の入出力に使用することを期待するエンコーディングである。<code><a href="text_encoding/text_encoding/environment.html">std::text_encoding::environment()</a></code>で取得できる。</p>
+<p>環境エンコーディングは以下のものに適用される：</p>
+<ul>
+<li><strong>コマンドライン引数</strong> (<code>argv</code>)</li>
+<li><strong>環境変数</strong> (<code>std::getenv()</code>で取得される値)</li>
+<li><strong>標準入出力</strong> (リダイレクトされていない<code>stdin</code> / <code>stdout</code> / <code>stderr</code>)</li>
+</ul>
+<p>環境エンコーディングは実行環境のプロパティであり、コンパイル環境ではない。クロスコンパイルの場合、リテラルエンコーディング（コンパイル環境で決定）と環境エンコーディング（実行環境で決定）は異なりうる。</p>
+<p>各プラットフォームにおける環境エンコーディングの決定方法：</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>プラットフォーム</th>
+<th>決定方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux / macOS</td>
+<td>POSIXロケール（空文字列<code>""</code>）に関連付けられたエンコーディング。環境変数<code>LC_CTYPE</code>、<code>LC_ALL</code>、<code>LANG</code>から決定される。近年のLinux / macOSでは多くの場合UTF-8</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>GetACP()</code>が返すアクティブコードページ。日本語環境ではCP932（Shift_JIS系）</td>
+</tr>
+</tbody>
+</table>
+<p>注意として、Windowsではコンソールのコードページ（<code>GetConsoleCP()</code>/<code>GetConsoleOutputCP()</code>で取得）が環境エンコーディングと異なる場合がある。<code>&lt;text_encoding&gt;</code>の環境エンコーディングはコンソールのコードページではなく、プロセスのアクティブコードページを返す。</p>
+<p><code><a href="text_encoding/text_encoding/environment.html">std::text_encoding::environment()</a></code>は<code>setlocale()</code>の呼び出しに影響されないことが推奨されている。これは、プログラムの初期化時にCロケールが設定されることによって環境の情報が失われることを防ぐためである。</p>
+<h3>ロケールに依存しないエンコーディング取得</h3>
+<p>従来のC++では、テキストエンコーディングの情報はロケールと結び付いていた。しかし、Unicodeモデルではエンコーディングとロケール（書式設定やテキスト変換のルール）は直交する概念である。</p>
+<p><code>std::text_encoding</code>クラスは、ロケールに依存せずにエンコーディングを取得・判定する手段を提供する：</p>
+<ul>
+<li><code><a href="text_encoding/text_encoding/literal.html">std::text_encoding::literal()</a></code>は<code>consteval</code>関数であり、ロケールとは完全に独立している</li>
+<li><code><a href="text_encoding/text_encoding/environment.html">std::text_encoding::environment()</a></code>は実行時関数だが、<code>setlocale()</code>の影響を受けない（推奨実装）</li>
+<li><code><a href="text_encoding/text_encoding/environment_is.html">std::text_encoding::environment_is()</a></code>により、特定のエンコーディングかどうかをロケール操作なしに判定できる</li>
+</ul>
+<p>これにより、ロケールを変更することなく、環境が期待するエンコーディングを安全に取得できる。</p>
+<h2>クラス</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="text_encoding/text_encoding.html">text_encoding</a></code></td>
+<td>テキストエンコーディングを識別するクラス (class)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>ユースケース</h2>
+<h3>C++26仕様でのユースケース</h3>
+<h4>リテラルエンコーディングの確認</h4>
+<p>コンパイル時に文字列リテラルのエンコーディングがUTF-8であることを保証する：</p>
+<p><div class="yata" id="1d91b01b31672438b68ca6b02104f4e13e6654b9"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="">&lt;text_encoding&gt;</a></span>
+
+<span class="c1">// コンパイル時にリテラルエンコーディングを検証</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">literal</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">id</span><span class="o">::</span><span class="n">UTF8</span><span class="p">,</span>
+<span class="w">              </span><span class="s">"This program requires UTF-8 literal encoding"</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+</div></p>
+<h4>環境エンコーディングとリテラルエンコーディングの互換性確認</h4>
+<p>実行時に、リテラルエンコーディングと環境エンコーディングが一致するかを確認する：</p>
+<p><div class="yata" id="0524ca886c6cfeef56fd1e5971dbe7a662f3bc60"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="">&lt;text_encoding&gt;</a></span>
+<span class="cp">#include <a href="iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">literal</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">environment</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="print/println.html">std::println</a></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="p">,</span>
+<span class="w">                 </span><span class="s">"Warning: literal encoding ({}) differs from environment encoding ({})"</span><span class="p">,</span>
+<span class="w">                 </span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">literal</span><span class="p">().</span><span class="n">name</span><span class="p">(),</span>
+<span class="w">                 </span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">environment</span><span class="p">().</span><span class="n">name</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>外部ライブラリとの相互運用</h4>
+<p>ICU、iconv等のライブラリにエンコーディング名を渡す：</p>
+<p><div class="yata" id="387b91fa06e946e09029e71a5fca0434350475aa"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="">&lt;text_encoding&gt;</a></span>
+<span class="cp">#include <a href="format.html">&lt;format&gt;</a></span>
+<span class="cp">#include <a href="cstdlib.html">&lt;cstdlib&gt;</a></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iconv.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// iconvを使用してUTF-8から環境エンコーディングに変換</span>
+<span class="w">  </span><span class="n">iconv_t</span><span class="w"> </span><span class="n">conv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iconv_open</span><span class="p">(</span>
+<span class="w">       </span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">environment</span><span class="p">().</span><span class="n">name</span><span class="p">(),</span>
+<span class="w">       </span><span class="s">"UTF-8"</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// ICUを使用する場合</span>
+<span class="w">  </span><span class="n">UErrorCode</span><span class="w"> </span><span class="n">err</span><span class="p">;</span>
+<span class="w">  </span><span class="n">UConverter</span><span class="o">*</span><span class="w"> </span><span class="n">converter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ucnv_open</span><span class="p">(</span>
+<span class="w">       </span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">environment</span><span class="p">().</span><span class="n">name</span><span class="p">(),</span>
+<span class="w">       </span><span class="o">&amp;</span><span class="n">err</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>µs表記の安全な使用</h4>
+<p>リテラルと出力先のエンコーディングがともにUTF-8である場合にのみ、µ記号を使用する：</p>
+<p><div class="yata" id="1702699331223f99962b582ed4985a8a2d0d2c0e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="">&lt;text_encoding&gt;</a></span>
+<span class="cp">#include <a href="locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="print.html">&lt;print&gt;</a></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_microseconds</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">literal</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">id</span><span class="o">::</span><span class="n">UTF8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">locale</span><span class="p">().</span><span class="n">encoding</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="text_encoding/text_encoding.html">std::text_encoding</a></span><span class="o">::</span><span class="n">id</span><span class="o">::</span><span class="n">UTF8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}</span><span class="se">\u00B5</span><span class="s">s"</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span><span class="w"> </span><span class="c1">// µs</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}us"</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">print_microseconds</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../implementation.html#gcc">GCC</a>: 15 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="locale/locale/encoding.html">std::locale::encoding()</a></code> : ロケールに関連付けられたエンコーディングの取得</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1885r12.pdf" target="_blank">P1885R12 Naming Text Encodings to Demystify Them</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2862r1.html" target="_blank">P2862R1 <code>text_encoding::name()</code> should never return null values</a></li>
+<li><a href="https://www.iana.org/assignments/character-sets/character-sets.xhtml" target="_blank">IANA Character Sets</a></li>
+<li><a href="https://www.unicode.org/reports/tr22/" target="_blank">Unicode Technical Standard #22: Unicode Character Mapping Markup Language</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
