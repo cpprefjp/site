@@ -70,7 +70,8 @@ C++26以降は、実行時文字列のフォーマット引数を使用したい
 
 int main() {
   std::string fmt = "0x{:x} 0b{:04b}";
-  std::string s = std::vformat(fmt, std::make_format_args(10, 6));
+  int m=10, n=6;
+  std::string s = std::vformat(fmt, std::make_format_args(m, n));
   std::cout << s << std::endl;
 }
 ```
@@ -132,5 +133,6 @@ string vformat(const locale& loc, wstring_view fmt, wformat_args args) {
 
 - [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 - [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P2905R2 Runtime format strings](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2905r2.html)
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から非ロケール版が`constexpr`に対応した
