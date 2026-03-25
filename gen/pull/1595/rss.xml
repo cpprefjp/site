@@ -2,9 +2,41 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-03-25T23:23:08.721340</updated>
-  <id>990550ef-2b5a-4455-be99-210cd270b1f3</id>
+  <updated>2026-03-25T23:45:10.793165</updated>
+  <id>860a662a-52c0-4a2a-9f45-e330e7abad85</id>
 
+  
+    <entry>
+      <title>make_format_args -- P2905R2 に関する簡単な説明を追加</title>
+      <link href="https://cpprefjp.github.io/reference/format/make_format_args.html"/>
+      <id>2988ba75cebca2e5959154ce5eff0dd8703c5f20:reference/format/make_format_args.md</id>
+      <updated>2026-03-26T08:40:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/make_format_args.md b/reference/format/make_format_args.md
+index 60dc5e62d..326ca50e8 100644
+--- a/reference/format/make_format_args.md
++++ b/reference/format/make_format_args.md
+@@ -79,7 +79,7 @@ return make_format_args&amp;lt;wformat_context&amp;gt;(args...);
+ 
+ int main() {
+   std::string fmt = &amp;#34;0x{:x} 0b{:04b}&amp;#34;;
+-  int m=10, n=6;
++  int m = 10, n = 6;
+   std::string s = std::vformat(fmt, std::make_format_args(m, n));
+   std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
+ }
+@@ -126,3 +126,4 @@ namespace std {
+ * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+ * [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
+ * [P2905R2 Runtime format strings](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2905r2.html)
++    * C++23 発効後の DR として、引数を非 `const` 左辺値参照とすることで、一時オブジェクトを渡すことによる寿命切れオブジェクトの参照を回避する変更が提案された。これは C++20 まで遡及適用された。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>cycloawaodorin</name>
+        <email>cycloawaodorin@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>vformat -- Update reference/format/vformat.md</title>
@@ -4730,41 +4762,6 @@ index 000000000..609dbae5e
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>format -- format : サンプルコードの出力を修正</title>
-      <link href="https://cpprefjp.github.io/reference/format/format.html"/>
-      <id>0fd244266081c2ea7358d81398a03077aa872b07:reference/format/format.md</id>
-      <updated>2026-03-23T23:12:31+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/format.md b/reference/format/format.md
-index b4265b9d8..be84af4fe 100644
---- a/reference/format/format.md
-+++ b/reference/format/format.md
-@@ -581,11 +581,11 @@ int main()
- 
- #### 出力
- ```
--[1, 2, 3]
--[3, 2, 1]
--[1, 2, 3]
--{1: &amp;#34;aaa&amp;#34;, 2: &amp;#34;bbb&amp;#34;}
--{1, 2, 3}
-+queue: [1, 2, 3]
-+priority_queue: [3, 2, 1]
-+stack: [1, 2, 3]
-+flat_map: {1: &amp;#34;aaa&amp;#34;, 2: &amp;#34;bbb&amp;#34;}
-+flat_set: {1, 2, 3}
- ```
- 
- ### `vector&amp;lt;bool&amp;gt;`を出力する (C++23)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
