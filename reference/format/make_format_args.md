@@ -9,17 +9,17 @@
 namespace std {
   template<class Context = format_context, class... Args>
   format_arg_store<Context, Args...>
-    make_format_args(Args&&... args);         // (1) C++20
+    make_format_args(Args&... args);         // (1) C++20
   template<class Context = format_context, class... Args>
   constexpr format_arg_store<Context, Args...>
-    make_format_args(Args&&... args);         // (1) C++26
+    make_format_args(Args&... args);         // (1) C++26
 
   template<class... Args>
   format_arg_store<wformat_context, Args...>
-    make_wformat_args(Args&&... args);        // (2) C++20
+    make_wformat_args(Args&... args);        // (2) C++20
   template<class... Args>
   constexpr format_arg_store<wformat_context, Args...>
-    make_wformat_args(Args&&... args);        // (2) C++26
+    make_wformat_args(Args&... args);        // (2) C++26
 }
 ```
 * format_arg_store[italic]
@@ -79,7 +79,8 @@ return make_format_args<wformat_context>(args...);
 
 int main() {
   std::string fmt = "0x{:x} 0b{:04b}";
-  std::string s = std::vformat(fmt, std::make_format_args(10, 6));
+  int m = 10, n = 6;
+  std::string s = std::vformat(fmt, std::make_format_args(m, n));
   std::cout << s << std::endl;
 }
 ```
@@ -124,3 +125,5 @@ namespace std {
 
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 * [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
+* [P2905R2 Runtime format strings](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2905r2.html)
+    * C++23 発効後の DR として、引数を非 `const` 左辺値参照とすることで、一時オブジェクトを渡すことによる寿命切れオブジェクトの参照を回避する変更が提案された。これは C++20 まで遡及適用された。
