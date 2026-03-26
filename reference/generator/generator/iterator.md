@@ -1,7 +1,8 @@
-# generator::iterator
+# iterator
 * generator[meta header]
 * class template[meta id-type]
 * std[meta namespace]
+* generator[meta class]
 * cpp23[meta cpp]
 
 ```cpp
