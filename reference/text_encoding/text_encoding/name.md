@@ -1,4 +1,4 @@
-# text_encoding::name
+# name
 * text_encoding[meta header]
 * std[meta namespace]
 * text_encoding[meta class]

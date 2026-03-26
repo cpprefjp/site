@@ -1,4 +1,4 @@
-# locale::encoding
+# encoding
 * locale[meta header]
 * std[meta namespace]
 * locale[meta class]

@@ -1,4 +1,4 @@
-# text_encoding::aliases_view
+# aliases_view
 * text_encoding[meta header]
 * std[meta namespace]
 * text_encoding[meta class]

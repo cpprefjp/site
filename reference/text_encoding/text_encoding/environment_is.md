@@ -1,4 +1,4 @@
-# text_encoding::environment_is
+# environment_is
 * text_encoding[meta header]
 * std[meta namespace]
 * text_encoding[meta class]
