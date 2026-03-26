@@ -4,6 +4,7 @@
 * text_encoding[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
 static constexpr bool comp-name(string_view a, string_view b); // 説明専用
