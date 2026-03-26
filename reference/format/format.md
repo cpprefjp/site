@@ -582,7 +582,7 @@ int main()
 #### 出力
 ```
 queue: [1, 2, 3]
-priority_queue: [3, 2, 1]
+priority_queue: [3, 1, 2]
 stack: [1, 2, 3]
 flat_map: {1: "aaa", 2: "bbb"}
 flat_set: {1, 2, 3}
