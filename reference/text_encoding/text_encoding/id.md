@@ -362,6 +362,7 @@ int main() {
   }
 }
 ```
+* std::text_encoding::literal()[link literal.md]
 
 ### 出力例
 ```

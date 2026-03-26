@@ -38,6 +38,7 @@ int main() {
   }
 }
 ```
+* std::text_encoding::environment()[link environment.md]
 
 ### 出力例
 ```

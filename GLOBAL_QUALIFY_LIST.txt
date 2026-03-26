@@ -217,6 +217,7 @@
 * <list>[link /reference/list.md]
     * std::list[link /reference/list/list.md]
 * <locale>[link /reference/locale.md]
+    * std::locale[link /reference/locale/locale.md]
 * <map>[link /reference/map.md]
     * std::map[link /reference/map/map.md]
 * <mdspan>[link /reference/mdspan.md]

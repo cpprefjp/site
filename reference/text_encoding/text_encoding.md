@@ -111,6 +111,8 @@ int main() {
   ::print(std::text_encoding::environment());
 }
 ```
+* std::text_encoding::literal()[link text_encoding/literal.md]
+* std::text_encoding::environment()[link text_encoding/environment.md]
 
 #### 出力例
 ```

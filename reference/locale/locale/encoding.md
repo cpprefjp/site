@@ -43,6 +43,7 @@ int main() {
   }
 }
 ```
+* std::text_encoding::environment()[link /reference/text_encoding/text_encoding/environment.md]
 
 ### 出力例
 ```

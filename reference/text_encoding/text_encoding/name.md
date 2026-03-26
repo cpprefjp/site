@@ -55,6 +55,8 @@ int main() {
   std::println("Is empty: {}", std::string_view(unknown.name()).empty());
 }
 ```
+* std::text_encoding::literal()[link literal.md]
+* std::text_encoding::environment()[link environment.md]
 
 ### 出力例
 ```
