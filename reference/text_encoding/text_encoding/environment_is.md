@@ -38,7 +38,9 @@ int main() {
   }
 }
 ```
-* std::text_encoding::environment()[link environment.md]
+* name()[link name.md]
+* id::UTF8[link id.md]
+* environment()[link environment.md]
 
 ### 出力例
 ```

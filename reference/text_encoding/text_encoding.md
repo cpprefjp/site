@@ -111,8 +111,11 @@ int main() {
   ::print(std::text_encoding::environment());
 }
 ```
-* std::text_encoding::literal()[link text_encoding/literal.md]
-* std::text_encoding::environment()[link text_encoding/environment.md]
+* name()[link text_encoding/name.md]
+* mib()[link text_encoding/mib.md]
+* aliases()[link text_encoding/aliases.md]
+* literal()[link text_encoding/literal.md]
+* environment()[link text_encoding/environment.md]
 
 #### 出力例
 ```
@@ -155,6 +158,10 @@ int main() {
   assert(wtf8 == std::text_encoding{"___wtf8__"});
 }
 ```
+* name()[link text_encoding/name.md]
+* mib()[link text_encoding/mib.md]
+* id::UTF8[link text_encoding/id.md]
+* id::other[link text_encoding/id.md]
 
 #### 出力
 ```

@@ -362,7 +362,9 @@ int main() {
   }
 }
 ```
-* std::text_encoding::literal()[link literal.md]
+* name()[link name.md]
+* mib()[link mib.md]
+* literal()[link literal.md]
 
 ### 出力例
 ```

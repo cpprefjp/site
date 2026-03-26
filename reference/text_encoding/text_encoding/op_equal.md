@@ -54,6 +54,7 @@ int main() {
   assert(other_a != other_b);
 }
 ```
+* id::UTF8[link id.md]
 
 ### 出力
 ```

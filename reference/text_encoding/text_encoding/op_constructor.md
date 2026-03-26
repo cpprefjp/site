@@ -66,6 +66,12 @@ int main() {
   assert(te4.mib() == std::text_encoding::id::ShiftJIS);
 }
 ```
+* mib()[link mib.md]
+* name()[link name.md]
+* id::unknown[link id.md]
+* id::UTF8[link id.md]
+* id::other[link id.md]
+* id::ShiftJIS[link id.md]
 
 ### 出力
 ```

@@ -50,6 +50,8 @@ int main() {
   std::println("Number of aliases: {}", std::ranges::distance(aliases));
 }
 ```
+* aliases()[link aliases.md]
+* id::ShiftJIS[link id.md]
 
 ### 出力例
 ```

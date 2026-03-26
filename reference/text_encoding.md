@@ -89,7 +89,8 @@ static_assert(std::text_encoding::literal() == std::text_encoding::id::UTF8,
 
 int main() {}
 ```
-* std::text_encoding::literal()[link text_encoding/text_encoding/literal.md]
+* literal()[link text_encoding/text_encoding/literal.md]
+* id::UTF8[link text_encoding/text_encoding/id.md]
 
 #### 環境エンコーディングとリテラルエンコーディングの互換性確認
 
@@ -108,8 +109,8 @@ int main() {
   }
 }
 ```
-* std::text_encoding::literal()[link text_encoding/text_encoding/literal.md]
-* std::text_encoding::environment()[link text_encoding/text_encoding/environment.md]
+* literal()[link text_encoding/text_encoding/literal.md]
+* environment()[link text_encoding/text_encoding/environment.md]
 
 #### 外部ライブラリとの相互運用
 
@@ -135,7 +136,7 @@ int main() {
        &err);
 }
 ```
-* std::text_encoding::environment()[link text_encoding/text_encoding/environment.md]
+* environment()[link text_encoding/text_encoding/environment.md]
 
 #### µs表記の安全な使用
 
@@ -160,7 +161,8 @@ int main() {
   print_microseconds(42);
 }
 ```
-* std::text_encoding::literal()[link text_encoding/text_encoding/literal.md]
+* literal()[link text_encoding/text_encoding/literal.md]
+* id::UTF8[link text_encoding/text_encoding/id.md]
 * encoding()[link locale/locale/encoding.md]
 
 

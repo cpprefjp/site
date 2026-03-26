@@ -79,6 +79,9 @@ int main() {
   static_assert(std::text_encoding::literal().mib() != std::text_encoding::id::unknown);
 }
 ```
+* name()[link name.md]
+* id::UTF8[link id.md]
+* id::unknown[link id.md]
 
 ### 出力例
 ```

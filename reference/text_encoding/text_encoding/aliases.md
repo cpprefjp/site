@@ -52,6 +52,7 @@ int main() {
   }
 }
 ```
+* id::UTF8[link id.md]
 
 ### 出力例
 ```

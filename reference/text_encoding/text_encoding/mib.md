@@ -35,7 +35,8 @@ int main() {
   }
 }
 ```
-* std::text_encoding::literal()[link literal.md]
+* literal()[link literal.md]
+* id::UTF8[link id.md]
 
 ### 出力例
 ```
