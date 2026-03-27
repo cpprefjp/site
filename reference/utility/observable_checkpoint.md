@@ -48,7 +48,8 @@ int main() {
 `std::observable_checkpoint()`の明示的な呼び出しに加え、以下の操作も暗黙的に観測可能チェックポイントを設置する:
 
 - C標準の入出力関数（[`std::printf()`](/reference/cstdio/printf.md)、[`std::fwrite()`](/reference/cstdio/fwrite.md)など）のうち、ファイルへのデータ書き込みを行う関数呼び出しからの復帰
-- [`std::basic_filebuf`](/reference/fstream/basic_filebuf.md)のオーバーフロー操作（出力シーケンスへの書き込み完了時）
+    - デフォルトの[`sync_with_stdio(true)`](/reference/ios/ios_base/sync_with_stdio.md)の状態では、[`std::cout`](/reference/iostream/cout.md)などの標準ストリームは`stdout`と同期しているため、これに該当する
+- [`std::ofstream`](/reference/fstream/basic_ofstream.md)などのファイルストリーム出力時の[`std::basic_filebuf`](/reference/fstream/basic_filebuf.md)のオーバーフロー操作（バッファの内容をファイルに書き出した時点）
 - Unicode出力時の[`std::print()`](/reference/print/print.md) / [`std::println()`](/reference/print/println.md)の内部出力関数[`std::vprint_unicode()`](/reference/print/vprint_unicode.md)によるターミナルへの書き込み（[`<ostream>`](/reference/ostream.md)版および[`<print>`](/reference/print.md)版）
 
 上記の例では`std::printf()`がC標準の入出力関数であるため、(1)の呼び出しの復帰が暗黙の観測可能チェックポイントとなり、`"Hello, "`の出力は(2)の未定義動作によって遡って消去されない。
