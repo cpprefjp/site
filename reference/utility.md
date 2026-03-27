@@ -68,11 +68,12 @@
 | [`to_underlying`](utility/to_underlying.md) | 列挙値を基底型に変換する (function template) | C++23 |
 
 
-## 到達しない表明
+## 未定義動作
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`unreachable`](utility/unreachable.md) | コードパス不到達を表明する (function) | C++23 |
+| [`observable_checkpoint`](utility/observable_checkpoint.md) | 観測可能チェックポイントを設置する (function) | C++26 |
 
 
 ## 組

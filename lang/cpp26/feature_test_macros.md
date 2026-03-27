@@ -117,7 +117,7 @@
 |`__cpp_lib_linalg`|`202412L`|線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加|[`<linalg>`](/reference/linalg.md)|
 |`__cpp_lib_mdspan`|`202406L`|[`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加|[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_not_fn`|`202306L`|[`std::not_fn()`](/reference/functional/not_fn.md)に、非型テンプレート引数として関数を指定するオーバーロードを追加|[`<functional>`](/reference/functional.md)|
-|`__cpp_lib_observable_checkpoint`|`202506L`|[`<utility>`](/reference/utility.md)に[`std::observable_checkpoint()`](/reference/utility/observable_checkpoint.md.nolink)を追加|[`<utility>`](/reference/utility.md)|
+|`__cpp_lib_observable_checkpoint`|`202506L`|[`<utility>`](/reference/utility.md)に[`std::observable_checkpoint()`](/reference/utility/observable_checkpoint.md)を追加|[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_optional`|`202506L`|[`std::optional`](/reference/optional/optional.md)に、参照を保持するための`T&`の部分特殊化を追加|[`<optional>`](/reference/optional.md)|
 |`__cpp_lib_optional_range_support`|`202406L`|[`std::optional`](/reference/optional/optional.md)にイテレータインタフェースを追加|[`<optional>`](/reference/optional.md)|
 |`__cpp_lib_out_ptr`|`202311L`||[`<memory>`](/reference/memory.md)|
