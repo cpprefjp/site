@@ -15,16 +15,14 @@ namespace std {
 
 C++では未定義動作を含むプログラムに対して、コンパイラは未定義動作が「将来」発生することを根拠に、それより「前」の操作を削除・変更する最適化を行うことが許容される。これは「タイムトラベル最適化」と呼ばれる。
 
-例として以下のコードでは、(2)で未定義動作があるため、(1)の出力すら省略される可能性がある:
+例として以下のコードでは、nullポインタが渡された場合にエラーメッセージを出力してからデリファレンスに到達する意図だが、コンパイラは`++*p`が未定義動作にならないと仮定して`p`がnullでないと推論し、`if(!p)`の分岐ごと削除できる。その結果、エラーメッセージが出力されることなくクラッシュする可能性がある:
 
 ```cpp
 #include <cstdio>
 
-int main() {
-  std::printf("Hello, ");   // (1) 出力
-  int* p = nullptr;
-  *p = 42;                  // (2) 未定義動作（nullポインタのデリファレンス）
-  std::printf("World!\n");  // (3) 出力
+void inc(int* p) {
+  if (!p) std::fputs("Null!\n", stderr);  // (1) エラー出力（削除される可能性がある）
+  ++*p;                                   // (2) pがnullなら未定義動作
 }
 ```
 
@@ -34,16 +32,14 @@ int main() {
 #include <cstdio>
 #include <utility>
 
-int main() {
-  std::printf("Hello, ");          // (1) 出力
-  std::observable_checkpoint();    // ここまでの観測可能な動作を保護
-  int* p = nullptr;
-  *p = 42;                         // (2) 未定義動作
-  std::printf("World!\n");         // (3) 出力
+void inc(int* p) {
+  if (!p) std::fputs("Null!\n", stderr);  // (1) エラー出力
+  std::observable_checkpoint();           // ここまでの観測可能な動作を保護
+  ++*p;                                   // (2) pがnullなら未定義動作
 }
 ```
 
-この場合、`std::observable_checkpoint()`によって(1)の出力`"Hello, "`が保護され、(2)の未定義動作があっても遡って消去されない。
+この場合、`std::observable_checkpoint()`によって(1)のエラー出力が保護され、(2)の未定義動作があっても遡って消去されない。
 
 `std::observable_checkpoint()`の明示的な呼び出しに加え、以下の操作も暗黙的に観測可能チェックポイントを設置する:
 
@@ -51,6 +47,8 @@ int main() {
     - デフォルトの[`sync_with_stdio(true)`](/reference/ios/ios_base/sync_with_stdio.md)の状態では、[`std::cout`](/reference/iostream/cout.md)などの標準ストリームは`stdout`と同期しているため、これに該当する
 - [`std::ofstream`](/reference/fstream/basic_ofstream.md)などのファイルストリーム出力時の[`std::basic_filebuf`](/reference/fstream/basic_filebuf.md)のオーバーフロー操作（バッファの内容をファイルに書き出した時点）
 - Unicode出力時の[`std::print()`](/reference/print/print.md) / [`std::println()`](/reference/print/println.md)の内部出力関数[`std::vprint_unicode()`](/reference/print/vprint_unicode.md)によるターミナルへの書き込み（[`<ostream>`](/reference/ostream.md)版および[`<print>`](/reference/print.md)版）
+    - Unicode出力時はネイティブのOS API（Windowsでの`WriteConsoleW()`など）を直接使用しC標準の入出力を経由しないため、このルールで明示的にカバーしている
+    - 非Unicode出力時はC標準I/O関数を経由するため、上記のC標準入出力関数のルールでカバーされる
 
 上記の例では`std::printf()`がC標準の入出力関数であるため、(1)の呼び出しの復帰が暗黙の観測可能チェックポイントとなり、`"Hello, "`の出力は(2)の未定義動作によって遡って消去されない。
 
