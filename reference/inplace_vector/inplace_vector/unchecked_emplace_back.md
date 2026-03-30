@@ -15,7 +15,7 @@ constexpr reference unchecked_emplace_back(Args&&... args); // (1) C++26
 
 
 ## 事前条件
-[`size()`](size.md) `< N`であること。この条件を満たさない場合、未定義動作となる。
+[`size()`](size.md) `< N`であること。この条件を満たさない場合、動作は未定義。
 
 
 ## 効果
