@@ -107,7 +107,7 @@
 | [`<queue>`](/reference/queue.md)                 | FIFOキュー            |                |
 | [`<stack>`](/reference/stack.md)                 | LIFOスタック          |                |
 | [`<vector>`](/reference/vector.md)               | 可変長配列            |                |
-| [`<inplace_vector>`](/reference/inplace_vector.md.nolink) | 容量固定の可変長配列            | C++26 |
+| [`<inplace_vector>`](/reference/inplace_vector.md) | 容量固定の可変長配列            | C++26 |
 | [`<map>`](/reference/map.md)                     | 順序付き連想配列      |                |
 | [`<set>`](/reference/set.md)                     | 順序付き集合          |                |
 | [`<flat_map>`](/reference/flat_map.md)           | ソート済みキーによる順序付き連想配列 | C++23 |

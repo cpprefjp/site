@@ -60,7 +60,7 @@
 |`__cpp_lib_constexpr_flat_map`|`202502L`|[`std::flat_map`](/reference/flat_map/flat_map.md) / [`std::flat_multimap`](/reference/flat_map/flat_multimap.md)を`constexpr`対応|[`<flat_map>`](/reference/flat_map.md)|
 |`__cpp_lib_constexpr_flat_set`|`202502L`|[`std::flat_set`](/reference/flat_set/flat_set.md) / [`std::flat_multiset`](/reference/flat_set/flat_multiset.md)を`constexpr`対応|[`<flat_set>`](/reference/flat_set.md)|
 |`__cpp_lib_constexpr_forward_list`|`202502L`|[`std::forward_list`](/reference/forward_list/forward_list.md)を`constexpr`対応|[`<forward_list>`](/reference/forward_list.md)|
-|`__cpp_lib_constexpr_inplace_vector`|`202502L`|[`std::inplace_vector`](/reference/inplace_vector/inplace_vector.md.nolink)を`constexpr`対応|[`<inplace_vector>`](/reference/inplace_vector.md.nolink)|
+|`__cpp_lib_constexpr_inplace_vector`|`202502L`|[`std::inplace_vector`](/reference/inplace_vector/inplace_vector.md)を`constexpr`対応|[`<inplace_vector>`](/reference/inplace_vector.md)|
 |`__cpp_lib_constexpr_list`|`202502L`|[`std::list`](/reference/list/list.md)を`constexpr`対応|[`<list>`](/reference/list.md)|
 |`__cpp_lib_constexpr_map`|`202502L`|[`std::map`](/reference/map/map.md) / [`std::multimap`](/reference/map/multimap.md)を`constexpr`対応|[`<map>`](/reference/map.md)|
 |`__cpp_lib_constexpr_memory`|`202506L`|[`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスとその関連機能を`constexpr`対応|[`<memory>`](/reference/memory.md)|
@@ -110,7 +110,7 @@
 |`__cpp_lib_hazard_pointer`|`202306L`|ハザードポインタのライブラリ[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)|
 |`__cpp_lib_hive`|`202502L`|シーケンスコンテナのライブラリ[`<hive>`](/reference/hive.md.nolink)を追加|[`<hive>`](/reference/hive.md.nolink)|
 |`__cpp_lib_indirect`|`202502L`|[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md.nolink)と[`std::polymorphic`](/reference/memory/polymorphic.md.nolink)を追加|[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_inplace_vector`|`202406L`|容量固定の可変長配列のライブラリ[`<inplace_vector>`](/reference/inplace_vector.md.nolink)を追加|[`<inplace_vector>`](/reference/inplace_vector.md.nolink)|
+|`__cpp_lib_inplace_vector`|`202406L`|容量固定の可変長配列のライブラリ[`<inplace_vector>`](/reference/inplace_vector.md)を追加|[`<inplace_vector>`](/reference/inplace_vector.md)|
 |`__cpp_lib_is_sufficiently_aligned`|`202411L`|[`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_is_virtual_base_of`|`202406L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_is_within_lifetime`|`202306L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
@@ -174,7 +174,7 @@
 |`__cpp_lib_hardened_deque`|`202502L`||[`<deque>`](/reference/deque.md)|
 |`__cpp_lib_hardened_expected`|`202502L`||[`<expected>`](/reference/expected.md)|
 |`__cpp_lib_hardened_forward_list`|`202502L`||[`<forward_list>`](/reference/forward_list.md)|
-|`__cpp_lib_hardened_inplace_vector`|`202502L`||[`<inplace_vector>`](/reference/inplace_vector.md.nolink)|
+|`__cpp_lib_hardened_inplace_vector`|`202502L`||[`<inplace_vector>`](/reference/inplace_vector.md)|
 |`__cpp_lib_hardened_list`|`202502L`||[`<list>`](/reference/list.md)|
 |`__cpp_lib_hardened_mdspan`|`202502L`||[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_hardened_optional`|`202502L`||[`<optional>`](/reference/optional.md)|

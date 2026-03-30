@@ -170,6 +170,8 @@
     * std::initializer_list[link /reference/initializer_list/initializer_list.md]
     * il.begin()[link /reference/initializer_list/initializer_list/begin.md]
     * il.end()[link /reference/initializer_list/initializer_list/end.md]
+* <inplace_vector>[link /reference/inplace_vector.md]
+    * std::inplace_vector[link /reference/inplace_vector/inplace_vector.md]
 * <iomanip>[link /reference/iomanip.md]
 * <ios>[link /reference/ios.md]
     * std::boolalpha[link /reference/ios/boolalpha.md]
