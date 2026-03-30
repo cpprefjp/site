@@ -1,5 +1,6 @@
 import sys
 import code_qualify_check
+import defined_word_check
 import display_error_check
 import forbidden_character_check
 import global_qualify_check
@@ -10,6 +11,9 @@ import ngword_check
 if __name__ == '__main__':
     if not code_qualify_check.check():
         print("code_qualify_check failed")
+        sys.exit(1)
+    if not defined_word_check.check():
+        print("defined_word_check failed")
         sys.exit(1)
     if not display_error_check.check():
         print("display_error_check failed")
