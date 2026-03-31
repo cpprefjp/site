@@ -8,7 +8,7 @@
 ```cpp
 template<class... SliceSpecifiers>
 constexpr auto submdspan-mapping-impl(  // exposition only
-  SliceSpecifiers ... slices) const -> see below;
+  SliceSpecifiers... slices) const -> see below;
 
 template<class... SliceSpecifiers>
 friend constexpr auto submdspan_mapping(
@@ -22,29 +22,17 @@ friend constexpr auto submdspan_mapping(
 ## 概要
 [`submdspan`](../../submdspan.md)関数をサポートするためのカスタマイゼーションポイント。
 
-説明用の型`index_type`を[`Extents::index_type`](../../extents.md)、型`S_k`を`SliceSpecifiers`の`k`番目の型とする。
-
 
 ## テンプレートパラメータ制約
-`sizeof...(slices)`が[`Extents::rank()`](../../extents/rank.md)と等しいこと。
+`sizeof...(SliceSpecifiers)`が[`Extents::rank()`](../../extents/rank.md)と等しいこと。
 
 
 ## 適格要件
-`extents()`の各次元インデクス`k`において、下記いずれかのうち1つだけを満たすこと。
-
-- 型`S_k`が[`convertible_to`](/reference/concepts/convertible_to.md)`<index_type>`のモデル
-- 型`S_k`が[`index-pair-like`](../../index-pair-like.md)`<index_type>`のモデル
-- [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](../../full_extent_t.md)`>`が`true`
-- 型`S_k`が[`strided_slice`](../../strided_slice.md)の特殊化
+`extents()`の各次元インデクス`k`において、`SliceSpecifiers...[k]`が`Extents`のk番目次元の[有効`submdspan`スライス型(valid `submdspan` slice type)](../../submdspan_canonicalize_slices.md)であること。
 
 
 ## 事前条件
-`extents()`の各次元インデクス`k`において、`s_k`を`slices`の`k`番目の値としたとき、下記を全て満たすこと。
-
-- 型`S_k`が[`strided_slice`](../../strided_slice.md)の特殊化のとき
-    - `s_k.extent == 0`、または
-    - `s_k.stride > 0`
-- `0` ≤ [`first_`](../../first_.md)`<index_type, k>(slices...)` ≤ [`last_`](../../last_.md)`<k>(extents(), slices...)` ≤ `extents().`[`extent(k)`](../../extents/extent.md)
+`extents()`の各次元インデクス`k`において、`slices...[k]`が`extents()`のk番目次元の有効スライスであること。
 
 
 ## 戻り値
@@ -52,11 +40,11 @@ friend constexpr auto submdspan_mapping(
 
 - 値`sub_ext` : 式[`submdspan_extents`](../../submdspan_extents.md)`(extents(), slices...)`の結果
 - 型`SubExtents` : `decltype(sub_ext)`
-- 値`sub_strides` : `extents()`の各次元インデクス`k`において、[`map-rank[k]`](../../submdspan_extents.md)が[`dynamic_extent`](/reference/span/dynamic_extent.md)ではない`k`に対し`sub_strides[map-rank[k]]`が下記を満たす、[`array`](/reference/array/array.md)`<SubExtents::index_type,` [`SubExtents::rank()`](../../extents/rank.md)`>`型の配列値
-    - 型`S_k`が[`strided_slice`](../../strided_slice.md)の特殊化かつ`s_k.stride < s_k.extent`の場合、[`stride(k)`](stride.md) `*` [`de-ice`](../../de-ice.md)`(s_k.stride)`
+- 値`sub_strides` : `slices...[k]`の型が縮約スライス型(collapsing slice type)ではない`extents()`の各次元インデクス`k`において`sub_strides[MAP_RANK(slices, k)]`が下記を満たす、[`array`](/reference/array/array.md)`<SubExtents::index_type,` [`SubExtents::rank()`](../../extents/rank.md)`>`型の配列値
+    - 説明用の`s`を`slices...[k]`としたとき、`s`の型が[`strided_slice`](../../strided_slice.md)の特殊化かつ`s.stride < s.extent`の場合、[`stride(k)`](stride.md) `* s.stride`
     - そうでなければ、[`stride(k)`](stride.md)
-- パラメータパック`P` : [`is_same_v`](/reference/type_traits/is_same.md)`<`[`make_index_sequence`](/reference/utility/make_index_sequence.md)`<rank()>,` [`index_sequence`](/reference/utility/index_sequence.md)`<P...>> == true`
-- 値`offset` : `size_t`型の値[`(*this)`](op_call.md)`(`[`first_`](../../first_.md)`<index_type, P>(slices...)...)`
+- パック`ls` : `extents()`の次元`r`に対して、`r`番目の要素が`slices...[r]`の`submdspan`スライス範囲の下限に等しい`index_type`型の値パック
+- 値`offset` : `extents()`における任意の次元インデクス`k`に対して`ls...[k]`が`extents().extent(k)`と等しいとき、`required_span_size()`に等しい`size_t`型の値。そうでなければ、[`operator()`](op_call.md)に等しい`size_t`型の値。
 
 説明専用の`submdspan-mapping-impl`関数テンプレートは下記の値を返す。
 
@@ -81,3 +69,4 @@ friend constexpr auto submdspan_mapping(
 
 ## 参照
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
+- [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)

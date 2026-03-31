@@ -49,6 +49,7 @@
 | [`full_extent`](mdspan/full_extent_t.md) | 指定次元の全要素取り出しを指示するタグ値 (variable) | C++26 |
 | [`submdspan_mapping_result`](mdspan/submdspan_mapping_result.md) | 多次元配列部分ビューのレイアウトマッピング情報 (class template) | C++26 |
 | [`submdspan_extents`](mdspan/submdspan_extents.md) | 多次元配列部分ビューの多次元配列サイズを計算する (function template) | C++26 |
+| [`submdspan_canonicalize_slices`](mdspan/submdspan_canonicalize_slices.md) | 多次元配列部分ビュー取得時の多次元インデクスを正規化する (function template) | C++26 |
 | [`submdspan`](mdspan/submdspan.md) | 多次元配列部分ビューを取得する (function template) | C++26 |
 
 
@@ -67,3 +68,4 @@
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
 - [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
 - [P2897R7 `aligned_accessor`: An mdspan accessor expressing pointer over-alignment](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2897r7.html)
+- [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)

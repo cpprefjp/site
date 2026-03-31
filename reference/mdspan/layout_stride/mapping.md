@@ -25,6 +25,10 @@ namespace std {
 - `extents_` : `extents_type`型の[多次元配列サイズ情報](../extents.md)
 - `strides_` : [`array`](/reference/array/array.md)`<index_type,` [`extents_type::rank()`](../extents/rank.md)`>`型のストライド幅配列
 
+また下記の説明専用静的メンバ変数を保持する。
+
+- `rank_` : `size_t`型の定数`extents_type::`[`rank()`](../extents/rank.md)
+
 
 ## 適格要件
 - `Extents`は[`extents`](../extents.md)の特殊化であること。
