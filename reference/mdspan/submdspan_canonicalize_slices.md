@@ -43,7 +43,7 @@ namespace std {
 ### 縮約スライス型と`MAP_RANK`
 ある型が[`full_extent_t`](full_extent_t.md)ないし[`strided_slice`](strided_slice.md)の特殊化いずれでもないとき、縮約スライス型(collapsing slice type)となる。
 
-パック`p`と整数`i`に対して、説明用の`MAP_RANK(p, i)`を`0 <= j < `のうち縮約スライス型ではない要素`p...[j]`の個数とする。
+パック`p`と整数`i`に対して、説明用の`MAP_RANK(p, i)`を`0 <= j < i`のうち縮約スライス型ではない要素`p...[j]`の個数とする。
 
 ### 有効`submdspan`スライス型
 [`extents`](extents.md)の特殊化である型`E`に対して、型`S`が`E::index_type`の正則スライス型であり、かつ`E::static_extent(k)`に等しい`x`に対して`x`が`dynamic_extent`に等しいか下記を満たすとき、型`S`は`E`の`k`番目次元の有効`submdspan`スライス型(valid `submdspan` slice type)となる。
@@ -61,7 +61,7 @@ namespace std {
 - `e`の`k`番目区間が、`e`の`k`番目次元に対して`s`の`submdspan`スライス範囲を含む
 - `S`が[`strided_slice`](strided_slice.md)の特殊化であるとき :
     - `s.extent`が値`0`以上であり、かつ
-    - `s.extents`が値`0`に等しい、もしくは`s.stride`が値`0`より大きい
+    - `s.extent`が値`0`に等しい、もしくは`s.stride`が値`0`より大きい
 
 
 ## テンプレートパラメータ制約

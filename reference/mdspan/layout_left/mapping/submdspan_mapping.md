@@ -46,7 +46,7 @@ friend constexpr auto submdspan_mapping(
 - パック`ls` : `extents()`の次元`r`に対して、`r`番目の要素が`slices...[r]`の`submdspan`スライス範囲の下限に等しい`index_type`型の値パック
 - 値`offset` : `extents()`における任意の次元インデクス`k`に対して`ls...[k]`が`extents().extent(k)`と等しいとき、`required_span_size()`に等しい`size_t`型の値。そうでなければ、[`operator()`](op_call.md)に等しい`size_t`型の値。
 
-下記を満たす型`S`を、単位ストライド幅スライス型(unit-stride slice type)と定義する。
+下記を満たす型`S`を、単位ストライド幅スライス型と定義する。
 
 - `S`が[`strided_slice`](../../strided_slice.md)の特殊化であり、`S::stride_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化かつ`S::stride_type::value`が`1`、または
 - `S`が[`full_extent_t`](../../full_extent_t.md)

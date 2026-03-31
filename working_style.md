@@ -154,7 +154,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | trait                              | トレイト                     |
 | trivial                            | トリビアル (逆は非トリビアル)            |
 | underlying type                    | 基底型                       |
-| unit-stride slice                  | 単位ストライド幅スライス     |
+| unit-stride slice type             | 単位ストライド幅スライス型   |
 | unordered associative container(s) | 非順序連想コンテナ           |
 | unspecified                        | 未規定                       |
 | program-defined type               | プログラム定義型             |

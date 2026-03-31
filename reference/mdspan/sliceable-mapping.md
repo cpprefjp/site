@@ -43,7 +43,7 @@ concept sliceable-mapping = see below;
     submdspan_mapping(m, valid_slices...)
     ```
 
-    下記を満たす型`SM`に対して`submdspan_mapping_result<SM>`の特殊化である型`SMR`をもつ。
+    下記を満たす型`SM`に対して[`submdspan_mapping_result`](submdspan_mapping_result.md)`<SM>`の特殊化である型`SMR`をもつ。
 
     - `SM`が[レイアウトマッピング要件](LayoutMapping.md)を満たす
     - `SM::extents_type`が[`extents`](extents.md)の特殊化である
@@ -52,7 +52,7 @@ concept sliceable-mapping = see below;
 
     下記を満たす`SMR`型のオブジェクト`smr`を返す。
 
-    - `smr.mapping.extents() == submdspan_extents(m.extents(), valid_slices...)`、かつ
+    - `smr.mapping.extents() ==` [`submdspan_extents`](submdspan_extents.md)`(m.extents(), valid_slices...)`、かつ
     - `smr.mapping.extents()`の多次元インデクス値を表す整数パック`i`に対して、下記を満たす整数パック`j`に対し`smr.mapping(i...) + smr.offset == m(j)`が`true`となる
         - `sizeof...(j)`が`M_rank`に等しく、かつ
         - `m.extents()`の各次元インデクス`r`に対して、`j...[r]`が下記の総和に等しい
