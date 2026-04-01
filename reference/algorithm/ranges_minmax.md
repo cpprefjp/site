@@ -76,27 +76,66 @@ minmax_result {
 - 2値比較バージョンは1操作。
 - 範囲バージョンは高々`(3/2) * t.size()`回の述語適用。
 
+## 備考
+- (1) : 引数に一時オブジェクトを与えた場合、`minmax`の呼び出しを含む完全式 (full-expression; 一番外側の式) の評価が終わる時点で、返された参照の寿命が切れる(ダングリング)ことに注意：
+
+```cpp example
+#include <cassert>
+#include <algorithm>
+
+int main()
+{
+  int x = 10;
+  auto result1 = std::ranges::minmax(x, 11); // decltype(result1) == std::ranges::minmax_result<const int&>
+  assert(result1.min == 10);                 // ok: result1.min は xを参照している
+  //assert(result1.max == 11);               // 未定義動作 : result1.maxは寿命が尽きたオブジェクト(一時オブジェクト11)を指しているため、
+                                             // そのオブジェクトにアクセスしてはならない
+
+  // 構造化束縛を使用した場合も同様に未定義動作を引き起こす
+  // auto [min_val, max_val] = std::ranges::minmax(x, 11);
+  // max_val; // 未定義動作 : 一時オブジェクト11の寿命は尽きている
+
+  // 初期化子リストやRangeを渡すオーバーロード(2), (3)では、値が返されるため問題ない
+  auto result2 = std::ranges::minmax({x, 11}); // decltype(result2) == std::ranges::minmax_result<int>
+  assert(result2.min == 10);                   // ok: result2.min は xのコピーを持っている
+  assert(result2.max == 11);                   // ok: result2.max は 一時オブジェクト11のコピーを持っている
+}
+```
+
 ## 例
 ### 基本的な使い方
 ```cpp example
+#include <algorithm>
 #include <array>
 #include <cassert>
-#include <algorithm>
 #include <functional>
 
 int main()
 {
-  const auto result1 = std::ranges::minmax(2, 3);
+  const int x = 2;
+  const int y = 3;
+
+  // (1) 2つの値を受け取るオーバーロード
+  // 一時オブジェクトを渡すと戻り値のメンバがダングリング参照になるため、左辺値を渡す
+  const auto result1 = std::ranges::minmax(x, y);
   assert(result1.min == 2 && result1.max == 3);
 
-  const auto result2 = std::ranges::minmax(2, 3, std::ranges::greater());
+  const auto result2 = std::ranges::minmax(x, y, std::ranges::greater());
   assert(result2.min == 3 && result2.max == 2);
 
+  // NG! ダングリング参照が発生する
+  // const auto result1 = std::ranges::minmax(2, 3);
+
+  // (2) 初期化子リストを受け取るオーバーロード
   constexpr auto result3 = std::ranges::minmax({1, 2, 3});
   static_assert(result3.min == 1 && result3.max == 3);
 
-  constexpr std::array<int, 3> a = {1, 2, 3};
+  // 構造化束縛も可能
+  auto [min_val, max_val] = std::ranges::minmax({1, 2, 3}, std::ranges::greater());
+  assert(min_val == 3 && max_val == 1);
 
+  // (3) Rangeを受け取るオーバーロード
+  constexpr std::array<int, 3> a = {1, 2, 3};
   constexpr auto result4 = std::ranges::minmax(a, std::ranges::greater());
   static_assert(result4.min == 3 && result4.max == 1);
 }
