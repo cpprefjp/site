@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-04-01T12:40:33">
+        2026年04月01日 12時40分33秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">teruyamato0731</span>
       </span>
       が更新
     </small></p>
@@ -257,7 +257,7 @@
 </ul>
 <h2>備考</h2>
 <ul>
-<li>(1), (2) : 引数に右辺値を与えた場合、<code>minmax</code>の呼び出しを含む式の評価が終わった時点で、返された参照は寿命が切れている(ダングリング)ことに注意：</li>
+<li>(1), (2) : 引数に右辺値を与えた場合、<code>minmax</code>の呼び出しを含む完全式 (full-expression; 一番外側の式) の評価が終わる時点で、返された参照の寿命が切れる(ダングリング)ことに注意：</li>
 </ul>
 <p><div class="yata" id="ace1876fa86d7ccd0bfa6b9258e7f96cd49dd00a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
 <span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
