@@ -77,7 +77,7 @@ minmax_result {
 - 範囲バージョンは高々`(3/2) * t.size()`回の述語適用。
 
 ## 備考
-- (1) : 引数に右辺値を与えた場合、`minmax`の呼び出しを含む完全式 (full-expression; 一番外側の式) の評価が終わる時点で、返された参照の寿命が切れる(ダングリング)ことに注意：
+- (1) : 引数に一時オブジェクトを与えた場合、`minmax`の呼び出しを含む完全式 (full-expression; 一番外側の式) の評価が終わる時点で、返された参照の寿命が切れる(ダングリング)ことに注意：
 
 ```cpp example
 #include <cassert>
@@ -88,17 +88,17 @@ int main()
   int x = 10;
   auto result1 = std::ranges::minmax(x, 11); // decltype(result1) == std::ranges::minmax_result<const int&>
   assert(result1.min == 10);                 // ok: result1.min は xを参照している
-  //assert(result1.max == 11);               // 未定義動作 : result1.maxは寿命が尽きたオブジェクト(右辺値11)を指しているため、
+  //assert(result1.max == 11);               // 未定義動作 : result1.maxは寿命が尽きたオブジェクト(一時オブジェクト11)を指しているため、
                                              // そのオブジェクトにアクセスしてはならない
 
   // 構造化束縛を使用した場合も同様に未定義動作を引き起こす
   // auto [min_val, max_val] = std::ranges::minmax(x, 11);
-  // max_val; // 未定義動作 : 右辺値11の寿命は尽きている
+  // max_val; // 未定義動作 : 一時オブジェクト11の寿命は尽きている
 
   // 初期化子リストやRangeを渡すオーバーロード(2), (3)では、値が返されるため問題ない
   auto result2 = std::ranges::minmax({x, 11}); // decltype(result2) == std::ranges::minmax_result<int>
   assert(result2.min == 10);                   // ok: result2.min は xのコピーを持っている
-  assert(result2.max == 11);                   // ok: result2.max は 右辺値11のコピーを持っている
+  assert(result2.max == 11);                   // ok: result2.max は 一時オブジェクト11のコピーを持っている
 }
 ```
 
@@ -116,7 +116,7 @@ int main()
   const int y = 3;
 
   // (1) 2つの値を受け取るオーバーロード
-  // 右辺値(一時オブジェクト)を渡すと戻り値のメンバがダングリング参照になるため、左辺値を渡す
+  // 一時オブジェクトを渡すと戻り値のメンバがダングリング参照になるため、左辺値を渡す
   const auto result1 = std::ranges::minmax(x, y);
   assert(result1.min == 2 && result1.max == 3);
 

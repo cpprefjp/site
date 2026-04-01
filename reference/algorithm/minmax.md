@@ -53,7 +53,7 @@ namespace std {
 - `initializer_list`バージョンは高々`(3/2) * t.size()`回の述語適用。
 
 ## 備考
-- (1), (2) : 引数に右辺値を与えた場合、`minmax`の呼び出しを含む完全式 (full-expression; 一番外側の式) の評価が終わる時点で、返された参照の寿命が切れる(ダングリング)ことに注意：
+- (1), (2) : 引数に一時オブジェクトを与えた場合、`minmax`の呼び出しを含む完全式 (full-expression; 一番外側の式) の評価が終わる時点で、返された参照の寿命が切れる(ダングリング)ことに注意：
 
 ```cpp example
 #include <cassert>
@@ -69,7 +69,7 @@ int main()
 
   std::pair<int, int> result2 = std::minmax(x, 11);
   assert(result2.first == 10);       // ok: result2.first は xのコピーを持っている
-  assert(result2.second == 11);      // ok: result2.second は 右辺値11のコピーを持っている
+  assert(result2.second == 11);      // ok: result2.second は 一時オブジェクト11のコピーを持っている
 }
 ```
 
