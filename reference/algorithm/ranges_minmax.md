@@ -97,8 +97,8 @@ int main()
 
   // 初期化子リストやRangeを渡すオーバーロード(2), (3)では、値が返されるため問題ない
   auto result2 = std::ranges::minmax({x, 11}); // decltype(result2) == std::ranges::minmax_result<int>
-  assert(result2.min == 10);       // ok: result2.min はコピーを持っている
-  assert(result2.max == 11);       // ok: result2.max は 右辺値11のコピーを持っている
+  assert(result2.min == 10);                   // ok: result2.min はコピーを持っている
+  assert(result2.max == 11);                   // ok: result2.max は 右辺値11のコピーを持っている
 }
 ```
 
