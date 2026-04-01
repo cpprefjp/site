@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ace1876fa86d7ccd0bfa6b9258e7f96cd49dd00a&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;algorithm&gt;\n\nint main()\n{\n  int x = 10;\n  auto result1 = std::minmax(x, 11); // decltype(result1) == std::pair&lt;const int&amp;, const int&amp;&gt;\n  assert(result1.first == 10);       // ok: result1.first \u306f x\u3092\u53c2\u7167\u3057\u3066\u3044\u308b\n  //assert(result1.second == 11);    // \u672a\u5b9a\u7fa9\u52d5\u4f5c : result1.second\u306f\u5bff\u547d\u304c\u5c3d\u304d\u305f\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u6307\u3057\u3066\u3044\u308b\u305f\u3081\u3001\n                                     // \u305d\u306e\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306b\u30a2\u30af\u30bb\u30b9\u3057\u3066\u306f\u306a\u3089\u306a\u3044\n\n  std::pair&lt;int, int&gt; result2 = std::minmax(x, 11);\n  assert(result2.first == 10);       // ok: result2.first \u306f x\u306e\u30b3\u30d4\u30fc\u3092\u6301\u3063\u3066\u3044\u308b\n  assert(result2.second == 11);      // ok: result2.second \u306f \u53f3\u8fba\u502411\u306e\u30b3\u30d4\u30fc\u3092\u6301\u3063\u3066\u3044\u308b\n}\n&#34;}, {&#34;id&#34;: &#34;133625193d61f576fc8a92476fa49a006ddf6ee8&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n\nint main()\n{\n  std::pair&lt;int, int&gt; result1 = std::minmax(2, 3);\n  assert(result1.first == 2 &amp;&amp; result1.second == 3);\n\n  std::pair&lt;int, int&gt; result2 = std::minmax(2, 3, std::greater&lt;int&gt;());\n  assert(result2.first == 3 &amp;&amp; result2.second == 2);\n\n  std::pair&lt;int, int&gt; result3 = std::minmax({1, 2, 3});\n  assert(result3.first == 1 &amp;&amp; result3.second == 3);\n\n  std::pair&lt;int, int&gt; result4 = std::minmax({1, 2, 3}, std::greater&lt;int&gt;());\n  assert(result4.first == 3 &amp;&amp; result4.second == 1);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;minmax&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4e36c2ca397921e3900d650cf34bd712b2ba0f02&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;algorithm&gt;\n\nint main()\n{\n  int x = 10;\n  auto result1 = std::minmax(x, 11); // decltype(result1) == std::pair&lt;const int&amp;, const int&amp;&gt;\n  assert(result1.first == 10);       // ok: result1.first \u306f x\u3092\u53c2\u7167\u3057\u3066\u3044\u308b\n  //assert(result1.second == 11);    // \u672a\u5b9a\u7fa9\u52d5\u4f5c : result1.second\u306f\u5bff\u547d\u304c\u5c3d\u304d\u305f\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u6307\u3057\u3066\u3044\u308b\u305f\u3081\u3001\n                                     // \u305d\u306e\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306b\u30a2\u30af\u30bb\u30b9\u3057\u3066\u306f\u306a\u3089\u306a\u3044\n\n  std::pair&lt;int, int&gt; result2 = std::minmax(x, 11);\n  assert(result2.first == 10);       // ok: result2.first \u306f x\u306e\u30b3\u30d4\u30fc\u3092\u6301\u3063\u3066\u3044\u308b\n  assert(result2.second == 11);      // ok: result2.second \u306f \u4e00\u6642\u30aa\u30d6\u30b8\u30a7\u30af\u30c811\u306e\u30b3\u30d4\u30fc\u3092\u6301\u3063\u3066\u3044\u308b\n}\n&#34;}, {&#34;id&#34;: &#34;133625193d61f576fc8a92476fa49a006ddf6ee8&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n\nint main()\n{\n  std::pair&lt;int, int&gt; result1 = std::minmax(2, 3);\n  assert(result1.first == 2 &amp;&amp; result1.second == 3);\n\n  std::pair&lt;int, int&gt; result2 = std::minmax(2, 3, std::greater&lt;int&gt;());\n  assert(result2.first == 3 &amp;&amp; result2.second == 2);\n\n  std::pair&lt;int, int&gt; result3 = std::minmax({1, 2, 3});\n  assert(result3.first == 1 &amp;&amp; result3.second == 3);\n\n  std::pair&lt;int, int&gt; result4 = std::minmax({1, 2, 3}, std::greater&lt;int&gt;());\n  assert(result4.first == 3 &amp;&amp; result4.second == 1);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;minmax&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-01T12:40:33">
-        2026年04月01日 12時40分33秒
+      <span itemprop="datePublished" content="2026-04-01T14:39:50">
+        2026年04月01日 14時39分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -257,9 +257,9 @@
 </ul>
 <h2>備考</h2>
 <ul>
-<li>(1), (2) : 引数に右辺値を与えた場合、<code>minmax</code>の呼び出しを含む完全式 (full-expression; 一番外側の式) の評価が終わる時点で、返された参照の寿命が切れる(ダングリング)ことに注意：</li>
+<li>(1), (2) : 引数に一時オブジェクトを与えた場合、<code>minmax</code>の呼び出しを含む完全式 (full-expression; 一番外側の式) の評価が終わる時点で、返された参照の寿命が切れる(ダングリング)ことに注意：</li>
 </ul>
-<p><div class="yata" id="ace1876fa86d7ccd0bfa6b9258e7f96cd49dd00a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<p><div class="yata" id="4e36c2ca397921e3900d650cf34bd712b2ba0f02"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
 <span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -272,7 +272,7 @@
 
 <span class="w">  </span><span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">minmax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">);</span>
 <span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result2</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w">       </span><span class="c1">// ok: result2.first は xのコピーを持っている</span>
-<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result2</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="p">);</span><span class="w">      </span><span class="c1">// ok: result2.second は 右辺値11のコピーを持っている</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result2</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="p">);</span><span class="w">      </span><span class="c1">// ok: result2.second は 一時オブジェクト11のコピーを持っている</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
