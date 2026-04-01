@@ -200,7 +200,7 @@
 | P1330R0: [定数式内での共用体のアクティブメンバの変更を許可](/lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.md) | 共用体メンバの書き換えを定数式内で行えるようにする | 9 | 9.0 | 2021.4 | 2017 |
 | P1008R1: [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止](/lang/cpp20/prohibit_aggregates_with_user-declared_constructors.md) | コンストラクタが`delete`／`default`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | 8.0 | 2021.4 | 2019 |
 | P0892R2: [関数を条件付きで`explicit`にする構文を追加](/lang/cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | 9.0 | 2021.4 | 2019 Update 2 |
-| P1236R1: [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | 9.0 | 2023.0 | |
+| P1236R1: [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | 9.0 | 2023.0 | 2022 Update 14 |
 | P0482R6: [UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md) | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | 9 | 7 (`-fchar8_t`オプションが必要) | 2021.4 | 2019 Update 2 |
 | P1094R2: [入れ子名前空間定義でのインライン名前空間](/lang/cpp20/nested_inline_mamespaces.md) | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | 8.0 | 2021.4 | 2019 Update 7 |
 | P1091R3: [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial) | 2021.4 | 2019 Update 4 |
@@ -272,7 +272,7 @@
 | P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | 19 | - | - |
 | P2316R2: [文字リテラルエンコーディングを一貫させる](/lang/cpp23/consistent_character_literal_encoding.md) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする | yes | yes | 2022.2 | 2022 |
 | P2334R1: [`elif`/`elifdef`/`elifndef`のサポートを追加](/lang/cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する | 12 | 13 | 2022.2 | 2022 Update 10 |
-| P2437R1: [`#warning`のサポートを追加](/lang/cpp23/warning.md) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート | yes | yes | 2023.2 | yes |
+| P2437R1: [`#warning`のサポートを追加](/lang/cpp23/warning.md) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート | yes | yes | 2023.2 | 2026 |
 | P2295R6: [汎用的なソースコードのエンコーディングとしてUTF-8をサポート](/lang/cpp23/support_for_utf8_as_a_portable_source_file_encoding.md) | すべてのコンパイラはUTF-8文字コードのソースコードをサポートしなければならない | 13 | 15 | 2023.2 | 2019 Update 2 |
 | P2223R2: [行末スペースを無視するよう規定](/lang/cpp23/trimming_whitespaces_before_line_splicing.md) | 行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定 | Yes | Yes | 2022.2 | 2026 |
 
