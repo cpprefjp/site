@@ -2,9 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-01T10:13:05.641586</updated>
-  <id>9eedf085-f32e-42b5-89cc-e0b0619abe73</id>
+  <updated>2026-04-01T10:27:15.267197</updated>
+  <id>7e72ed18-2ff1-469a-b444-24fd24cdf415</id>
 
+  
+    <entry>
+      <title>minmax -- fix: スペースの調整</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_minmax.html"/>
+      <id>ae6396f3f783a2b57a40416df259ef58c059051d:reference/algorithm/ranges_minmax.md</id>
+      <updated>2026-04-01T19:22:37+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_minmax.md b/reference/algorithm/ranges_minmax.md
+index 6e46b0a56..e22baec86 100644
+--- a/reference/algorithm/ranges_minmax.md
++++ b/reference/algorithm/ranges_minmax.md
+@@ -97,8 +97,8 @@ int main()
+ 
+   // 初期化子リストやRangeを渡すオーバーロード(2), (3)では、値が返されるため問題ない
+   auto result2 = std::ranges::minmax({x, 11}); // decltype(result2) == std::ranges::minmax_result&amp;lt;int&amp;gt;
+-  assert(result2.min == 10);       // ok: result2.min はコピーを持っている
+-  assert(result2.max == 11);       // ok: result2.max は 右辺値11のコピーを持っている
++  assert(result2.min == 10);                   // ok: result2.min はコピーを持っている
++  assert(result2.max == 11);                   // ok: result2.max は 右辺値11のコピーを持っている
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>minmax -- feat(algorithm/ranges_minmax): `ranges::minmax`呼び出しのダングリングに関する備考を追加</title>
@@ -5913,240 +5942,6 @@ index 22b63c906..6e46b0a56 100644
       <author>
         <name>Akiko Kawai</name>
         <email>haruka.sao@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>canonical-slice -- mdspan: P3663R3対応 調整 (#1567)</title>
-      <link href="https://cpprefjp.github.io/reference/mdspan/canonical-slice.html"/>
-      <id>e6ae6328970cd24f21e8ab6f410869d084725e84:reference/mdspan/canonical-slice.md</id>
-      <updated>2026-03-31T23:35:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/canonical-slice.md b/reference/mdspan/canonical-slice.md
-index 30b8c7a43..9851624ef 100644
---- a/reference/mdspan/canonical-slice.md
-+++ b/reference/mdspan/canonical-slice.md
-@@ -14,7 +14,7 @@ constexpr auto canonical-slice(S s);
- 
- 
- ## 適格要件
--`S`が`IndexType`の`submdspan`スライス型であること。
-+`S`が`IndexType`の[`submdspan`スライス型](submdspan_canonicalize_slices.md)であること。
- 
- 
- ## 効果
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>submdspan_mapping -- mdspan: P3663R3対応 調整 (#1567)</title>
-      <link href="https://cpprefjp.github.io/reference/mdspan/layout_left/mapping/submdspan_mapping.html"/>
-      <id>e6ae6328970cd24f21e8ab6f410869d084725e84:reference/mdspan/layout_left/mapping/submdspan_mapping.md</id>
-      <updated>2026-03-31T23:35:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_left/mapping/submdspan_mapping.md b/reference/mdspan/layout_left/mapping/submdspan_mapping.md
-index 4e4fe550f..de47a5bb7 100644
---- a/reference/mdspan/layout_left/mapping/submdspan_mapping.md
-+++ b/reference/mdspan/layout_left/mapping/submdspan_mapping.md
-@@ -46,7 +46,7 @@ friend constexpr auto submdspan_mapping(
- - パック`ls` : `extents()`の次元`r`に対して、`r`番目の要素が`slices...[r]`の`submdspan`スライス範囲の下限に等しい`index_type`型の値パック
- - 値`offset` : `extents()`における任意の次元インデクス`k`に対して`ls...[k]`が`extents().extent(k)`と等しいとき、`required_span_size()`に等しい`size_t`型の値。そうでなければ、[`operator()`](op_call.md)に等しい`size_t`型の値。
- 
--下記を満たす型`S`を、単位ストライド幅スライス型(unit-stride slice type)と定義する。
-+下記を満たす型`S`を、単位ストライド幅スライス型と定義する。
- 
- - `S`が[`strided_slice`](../../strided_slice.md)の特殊化であり、`S::stride_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化かつ`S::stride_type::value`が`1`、または
- - `S`が[`full_extent_t`](../../full_extent_t.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>submdspan_mapping -- mdspan: P3663R3対応 調整 (#1567)</title>
-      <link href="https://cpprefjp.github.io/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.html"/>
-      <id>e6ae6328970cd24f21e8ab6f410869d084725e84:reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md</id>
-      <updated>2026-03-31T23:35:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md b/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md
-index 8c2009911..2cd672438 100644
---- a/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md
-+++ b/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md
-@@ -46,7 +46,7 @@ friend constexpr auto submdspan_mapping(
- - パック`ls` : `extents()`の次元`r`に対して、`r`番目の要素が`slices...[r]`の`submdspan`スライス範囲の下限に等しい`index_type`型の値パック
- - 値`offset` : `extents()`における任意の次元インデクス`k`に対して`ls...[k]`が`extents().extent(k)`と等しいとき、`required_span_size()`に等しい`size_t`型の値。そうでなければ、[`operator()`](op_call.md)に等しい`size_t`型の値。
- 
--下記を満たす型`S`を、単位ストライド幅スライス型(unit-stride slice type)と定義する。
-+下記を満たす型`S`を、単位ストライド幅スライス型と定義する。
- 
- - `S`が[`strided_slice`](../../strided_slice.md)の特殊化であり、`S::stride_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化かつ`S::stride_type::value`が`1`、または
- - `S`が[`full_extent_t`](../../full_extent_t.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>submdspan_mapping -- mdspan: P3663R3対応 調整 (#1567)</title>
-      <link href="https://cpprefjp.github.io/reference/mdspan/layout_right/mapping/submdspan_mapping.html"/>
-      <id>e6ae6328970cd24f21e8ab6f410869d084725e84:reference/mdspan/layout_right/mapping/submdspan_mapping.md</id>
-      <updated>2026-03-31T23:35:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_right/mapping/submdspan_mapping.md b/reference/mdspan/layout_right/mapping/submdspan_mapping.md
-index 8b99e9e87..c5d6788af 100644
---- a/reference/mdspan/layout_right/mapping/submdspan_mapping.md
-+++ b/reference/mdspan/layout_right/mapping/submdspan_mapping.md
-@@ -46,7 +46,7 @@ friend constexpr auto submdspan_mapping(
- - パック`ls` : `extents()`の次元`r`に対して、`r`番目の要素が`slices...[r]`の`submdspan`スライス範囲の下限に等しい`index_type`型の値パック
- - 値`offset` : `extents()`における任意の次元インデクス`k`に対して`ls...[k]`が`extents().extent(k)`と等しいとき、`required_span_size()`に等しい`size_t`型の値。そうでなければ、[`operator()`](op_call.md)に等しい`size_t`型の値。
- 
--下記を満たす型`S`を、単位ストライド幅スライス型(unit-stride slice type)と定義する。
-+下記を満たす型`S`を、単位ストライド幅スライス型と定義する。
- 
- - `S`が[`strided_slice`](../../strided_slice.md)の特殊化であり、`S::stride_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化かつ`S::stride_type::value`が`1`、または
- - `S`が[`full_extent_t`](../../full_extent_t.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>submdspan_mapping -- mdspan: P3663R3対応 調整 (#1567)</title>
-      <link href="https://cpprefjp.github.io/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.html"/>
-      <id>e6ae6328970cd24f21e8ab6f410869d084725e84:reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md</id>
-      <updated>2026-03-31T23:35:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md b/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md
-index 2109ce271..783e77792 100644
---- a/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md
-+++ b/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md
-@@ -46,7 +46,7 @@ friend constexpr auto submdspan_mapping(
- - パック`ls` : `extents()`の次元`r`に対して、`r`番目の要素が`slices...[r]`の`submdspan`スライス範囲の下限に等しい`index_type`型の値パック
- - 値`offset` : `extents()`における任意の次元インデクス`k`に対して`ls...[k]`が`extents().extent(k)`と等しいとき、`required_span_size()`に等しい`size_t`型の値。そうでなければ、[`operator()`](op_call.md)に等しい`size_t`型の値。
- 
--下記を満たす型`S`を、単位ストライド幅スライス型(unit-stride slice type)と定義する。
-+下記を満たす型`S`を、単位ストライド幅スライス型と定義する。
- 
- - `S`が[`strided_slice`](../../strided_slice.md)の特殊化であり、`S::stride_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化かつ`S::stride_type::value`が`1`、または
- - `S`が[`full_extent_t`](../../full_extent_t.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>sliceable-mapping -- mdspan: P3663R3対応 調整 (#1567)</title>
-      <link href="https://cpprefjp.github.io/reference/mdspan/sliceable-mapping.html"/>
-      <id>e6ae6328970cd24f21e8ab6f410869d084725e84:reference/mdspan/sliceable-mapping.md</id>
-      <updated>2026-03-31T23:35:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/sliceable-mapping.md b/reference/mdspan/sliceable-mapping.md
-index b894148a3..f086584e2 100644
---- a/reference/mdspan/sliceable-mapping.md
-+++ b/reference/mdspan/sliceable-mapping.md
-@@ -43,7 +43,7 @@ concept sliceable-mapping = see below;
-     submdspan_mapping(m, valid_slices...)
-     ```
- 
--    下記を満たす型`SM`に対して`submdspan_mapping_result&amp;lt;SM&amp;gt;`の特殊化である型`SMR`をもつ。
-+    下記を満たす型`SM`に対して[`submdspan_mapping_result`](submdspan_mapping_result.md)`&amp;lt;SM&amp;gt;`の特殊化である型`SMR`をもつ。
- 
-     - `SM`が[レイアウトマッピング要件](LayoutMapping.md)を満たす
-     - `SM::extents_type`が[`extents`](extents.md)の特殊化である
-@@ -52,7 +52,7 @@ concept sliceable-mapping = see below;
- 
-     下記を満たす`SMR`型のオブジェクト`smr`を返す。
- 
--    - `smr.mapping.extents() == submdspan_extents(m.extents(), valid_slices...)`、かつ
-+    - `smr.mapping.extents() ==` [`submdspan_extents`](submdspan_extents.md)`(m.extents(), valid_slices...)`、かつ
-     - `smr.mapping.extents()`の多次元インデクス値を表す整数パック`i`に対して、下記を満たす整数パック`j`に対し`smr.mapping(i...) + smr.offset == m(j)`が`true`となる
-         - `sizeof...(j)`が`M_rank`に等しく、かつ
-         - `m.extents()`の各次元インデクス`r`に対して、`j...[r]`が下記の総和に等しい
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>submdspan_canonicalize_slices -- mdspan: P3663R3対応 調整 (#1567)</title>
-      <link href="https://cpprefjp.github.io/reference/mdspan/submdspan_canonicalize_slices.html"/>
-      <id>e6ae6328970cd24f21e8ab6f410869d084725e84:reference/mdspan/submdspan_canonicalize_slices.md</id>
-      <updated>2026-03-31T23:35:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/submdspan_canonicalize_slices.md b/reference/mdspan/submdspan_canonicalize_slices.md
-index 2e4bf1b7e..f72ed0f58 100644
---- a/reference/mdspan/submdspan_canonicalize_slices.md
-+++ b/reference/mdspan/submdspan_canonicalize_slices.md
-@@ -43,7 +43,7 @@ namespace std {
- ### 縮約スライス型と`MAP_RANK`
- ある型が[`full_extent_t`](full_extent_t.md)ないし[`strided_slice`](strided_slice.md)の特殊化いずれでもないとき、縮約スライス型(collapsing slice type)となる。
- 
--パック`p`と整数`i`に対して、説明用の`MAP_RANK(p, i)`を`0 &amp;lt;= j &amp;lt; `のうち縮約スライス型ではない要素`p...[j]`の個数とする。
-+パック`p`と整数`i`に対して、説明用の`MAP_RANK(p, i)`を`0 &amp;lt;= j &amp;lt; i`のうち縮約スライス型ではない要素`p...[j]`の個数とする。
- 
- ### 有効`submdspan`スライス型
- [`extents`](extents.md)の特殊化である型`E`に対して、型`S`が`E::index_type`の正則スライス型であり、かつ`E::static_extent(k)`に等しい`x`に対して`x`が`dynamic_extent`に等しいか下記を満たすとき、型`S`は`E`の`k`番目次元の有効`submdspan`スライス型(valid `submdspan` slice type)となる。
-@@ -61,7 +61,7 @@ namespace std {
- - `e`の`k`番目区間が、`e`の`k`番目次元に対して`s`の`submdspan`スライス範囲を含む
- - `S`が[`strided_slice`](strided_slice.md)の特殊化であるとき :
-     - `s.extent`が値`0`以上であり、かつ
--    - `s.extents`が値`0`に等しい、もしくは`s.stride`が値`0`より大きい
-+    - `s.extent`が値`0`に等しい、もしくは`s.stride`が値`0`より大きい
- 
- 
- ## テンプレートパラメータ制約
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>スタイル -- mdspan: P3663R3対応 調整 (#1567)</title>
-      <link href="https://cpprefjp.github.io/working_style.html"/>
-      <id>e6ae6328970cd24f21e8ab6f410869d084725e84:working_style.md</id>
-      <updated>2026-03-31T23:35:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/working_style.md b/working_style.md
-index b0209396b..2265d4392 100644
---- a/working_style.md
-+++ b/working_style.md
-@@ -154,7 +154,7 @@ C++11以降対応については対応バージョンを明記します。バー
- | trait                              | トレイト                     |
- | trivial                            | トリビアル (逆は非トリビアル)            |
- | underlying type                    | 基底型                       |
--| unit-stride slice                  | 単位ストライド幅スライス     |
-+| unit-stride slice type             | 単位ストライド幅スライス型   |
- | unordered associative container(s) | 非順序連想コンテナ           |
- | unspecified                        | 未規定                       |
- | program-defined type               | プログラム定義型             |
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
       </author>
     </entry>
   
