@@ -76,6 +76,32 @@ minmax_result {
 - 2値比較バージョンは1操作。
 - 範囲バージョンは高々`(3/2) * t.size()`回の述語適用。
 
+## 備考
+- (1) : 引数に右辺値を与えた場合、`minmax`の呼び出しを含む式の評価が終わった時点で、返された参照は寿命が切れている(ダングリング)ことに注意：
+
+```cpp example
+#include <cassert>
+#include <algorithm>
+
+int main()
+{
+  int x = 10;
+  auto result1 = std::ranges::minmax(x, 11); // decltype(result1) == std::ranges::minmax_result<const int&>
+  assert(result1.min == 10);                 // ok: result1.min は xを参照している
+  //assert(result1.max == 11);               // 未定義動作 : result1.maxは寿命が尽きたオブジェクト(右辺値11)を指しているため、
+                                             // そのオブジェクトにアクセスしてはならない
+
+  // 構造化束縛を使用した場合も同様に未定義動作を引き起こす
+  // auto [min_val, max_val] = std::ranges::minmax(x, 11);
+  // max_val; // 未定義動作 : 右辺値11の寿命は尽きている
+
+  // 初期化子リストやRangeを渡すオーバーロード(2), (3)では、値が返されるため問題ない
+  auto result2 = std::ranges::minmax({x, 11}); // decltype(result2) == std::ranges::minmax_result<int>
+  assert(result2.min == 10);       // ok: result2.min はコピーを持っている
+  assert(result2.max == 11);       // ok: result2.max は 右辺値11のコピーを持っている
+}
+```
+
 ## 例
 ### 基本的な使い方
 ```cpp example
