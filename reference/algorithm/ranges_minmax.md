@@ -105,24 +105,37 @@ int main()
 ## 例
 ### 基本的な使い方
 ```cpp example
+#include <algorithm>
 #include <array>
 #include <cassert>
-#include <algorithm>
 #include <functional>
 
 int main()
 {
-  const auto result1 = std::ranges::minmax(2, 3);
+  const int x = 2;
+  const int y = 3;
+
+  // (1) 2つの値を受け取るオーバーロード
+  // 右辺値(一時オブジェクト)を渡すと戻り値のメンバがダングリング参照になるため、左辺値を渡す
+  const auto result1 = std::ranges::minmax(x, y);
   assert(result1.min == 2 && result1.max == 3);
 
-  const auto result2 = std::ranges::minmax(2, 3, std::ranges::greater());
+  const auto result2 = std::ranges::minmax(x, y, std::ranges::greater());
   assert(result2.min == 3 && result2.max == 2);
 
+  // NG! ダングリング参照が発生する
+  // const auto result1 = std::ranges::minmax(2, 3);
+
+  // (2) 初期化子リストを受け取るオーバーロード
   constexpr auto result3 = std::ranges::minmax({1, 2, 3});
   static_assert(result3.min == 1 && result3.max == 3);
 
-  constexpr std::array<int, 3> a = {1, 2, 3};
+  // 構造化束縛も可能
+  auto [min_val, max_val] = std::ranges::minmax({1, 2, 3}, std::ranges::greater());
+  assert(min_val == 3 && max_val == 1);
 
+  // (3) Rangeを受け取るオーバーロード
+  constexpr std::array<int, 3> a = {1, 2, 3};
   constexpr auto result4 = std::ranges::minmax(a, std::ranges::greater());
   static_assert(result4.min == 3 && result4.max == 1);
 }
