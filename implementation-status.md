@@ -325,7 +325,7 @@
 | P2900R14: [契約プログラミングをサポートする](/lang/cpp26/contracts.md) | 関数の事前条件、事後条件、不変条件を記述できるようにする | | | | |
 | P2841R7: [コンセプトと変数テンプレートにテンプレートテンプレートパラメータのサポートを追加](/lang/cpp26/concept_and_variable-template_template-parameters.md.nolink) | テンプレート引数をあとで指定するテンプレートテンプレートパラメータを、コンセプトと変数テンプレートでも使用できるようにする | | | | |
 | P1967R14: [ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md) | バイナリファイルをインクルードするメカニズム。`#include`とちがって読み出しサイズなどの柔軟な指定ができる | 15 | | | |
-| P3618R0: [`main`関数をグローバルモジュールに含められるようにする](/lang/cpp26/allow_attaching_main_to_the_global_module.md.nolink) | `main`関数に`extern "C++"`を指定できるようにすることで名前付きモジュールに含められるようにする | 16 | 21 | | | |
+| P3618R0: [`main`関数をグローバルモジュールに含められるようにする](/lang/cpp26/allow_attaching_main_to_the_global_module.md) | `main`関数に`extern "C++"`を指定できるようにすることで名前付きモジュールに含められるようにする | 16 | 21 | | | |
 | P2996R13: [静的リフレクション](/lang/cpp26/reflection.md.nolink) | リフレクション演算子`^^`と`std::meta::info`型によりコンパイル時にさまざまな情報を取得できる | | | | |
 | P1306R5: [コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md.nolink) | クラス・タプル・Range・パラメータパックなどを展開してすべての要素をコンパイル時の処理する`template for`文を追加 | 16 | | | |
 | P3533R2: [`constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md.nolink) | 定数式の文脈での仮想継承を許可 | 16 | | | |
