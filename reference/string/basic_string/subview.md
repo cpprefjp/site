@@ -26,7 +26,7 @@ constexpr basic_string_view<charT, traits>
 
 
 ## 注意
-本関数は使い方を誤ると、ぶら下がり参照が発生し得る。
+本関数は使い方を誤ると、ダングリング参照が発生し得る。
 ```cpp example
 #include <print>
 #include <string>
@@ -42,7 +42,7 @@ int main() {
     std::println("{}", std::string(3, 'A').subview());
 
     // NG!
-    std::string_view d = std::string(3, 'A').subview();  // ぶら下がり参照発生
+    std::string_view d = std::string(3, 'A').subview();  // ダングリング参照発生
     std::println("{}", d);  // 不定動作
 }
 ```
