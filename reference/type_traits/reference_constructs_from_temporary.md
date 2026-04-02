@@ -116,7 +116,7 @@ int main()
 	static_assert(std::reference_constructs_from_temporary_v<B&&, C&&>);
 
 
-	// NG: const ではない左辺値参照は寿命を延長しないんですタイプ
+	// NG: const ではない左辺値参照は寿命を延長しないタイプ
 	//     1つ目3つ目はそもそも参照そのものが構築出来ない
 	static_assert(false == std::reference_constructs_from_temporary_v<int&, int>);
 	static_assert(false == std::reference_constructs_from_temporary_v<int&, int&>);
