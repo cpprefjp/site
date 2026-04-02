@@ -2,9 +2,63 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-02T03:31:23.255980</updated>
-  <id>aa09a753-55ca-41ea-9b85-82e3eb1ecda5</id>
+  <updated>2026-04-02T04:03:45.367729</updated>
+  <id>97b5493e-ff6f-446e-ae84-a9b6117fee43</id>
 
+  
+    <entry>
+      <title>function_ref -- feat: ダングリング(dangling) -&gt; ダングリング</title>
+      <link href="https://cpprefjp.github.io/reference/functional/function_ref.html"/>
+      <id>e3a41f9b2e81405ea731e657a51721900b7751a8:reference/functional/function_ref.md</id>
+      <updated>2026-04-02T12:57:17+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref.md b/reference/functional/function_ref.md
+index c1f86340b..76f7db38d 100644
+--- a/reference/functional/function_ref.md
++++ b/reference/functional/function_ref.md
+@@ -35,7 +35,7 @@ namespace std {
+     - `operator bool`を提供しない。
+ - メンバ関数・メンバ変数を参照する場合は、[`std::constant_arg`](/reference/utility/constant_arg_t.md)タグを利用する。
+     - 対象オブジェクトの束縛タイミングは、構築時または呼び出し時のいずれもサポートする。
+-- ダングリング(dangling)参照を避けるため、左辺値(lvalue)のみを取り扱う。
++- ダングリング参照を避けるため、左辺値(lvalue)のみを取り扱う。
+ 
+ 
+ ## メンバ関数
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>generator -- feat: ダングリング(dangling) -&gt; ダングリング</title>
+      <link href="https://cpprefjp.github.io/reference/generator/generator.html"/>
+      <id>e3a41f9b2e81405ea731e657a51721900b7751a8:reference/generator/generator.md</id>
+      <updated>2026-04-02T12:57:17+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/generator/generator.md b/reference/generator/generator.md
+index 4ba98f5de..f95c3713e 100644
+--- a/reference/generator/generator.md
++++ b/reference/generator/generator.md
+@@ -318,7 +318,7 @@ int main()
+   // もし fizzbuzz() 戻り値型が std::generator&amp;lt;std::string_view&amp;gt; であった場合、
+   // 変数 vec は std::vector&amp;lt;std::string_view&amp;gt; 型となる。このときコルーチン内部実装の
+   // std::to_string() の戻り値 std::string オブジェクトはco_yield式末尾で寿命が切れるため、
+-  // 各要素 vec[i] に格納される std::string_view はダングリング(dangling)状態になってしまう。
++  // 各要素 vec[i] に格納される std::string_view はダングリング状態になってしまう。
+ 
+   for (const auto&amp;amp; e : vec) {
+     std::cout &amp;lt;&amp;lt; e &amp;lt;&amp;lt; std::endl;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>スタイル -- feat: 訳語表にダングリングを追加</title>
@@ -3087,31 +3141,6 @@ index 000000000..72fc86986
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>FE_TONEAREST -- 参考リンクを追加</title>
-      <link href="https://cpprefjp.github.io/reference/cfenv/fe_tonearest.html"/>
-      <id>7e4e769bc80a5893daf3a31dca0ec4b8f075d717:reference/cfenv/fe_tonearest.md</id>
-      <updated>2026-04-02T09:08:48+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_tonearest.md b/reference/cfenv/fe_tonearest.md
-index baf9d47b5..ed41f9894 100644
---- a/reference/cfenv/fe_tonearest.md
-+++ b/reference/cfenv/fe_tonearest.md
-@@ -77,3 +77,6 @@ int main()
- - [ICC](/implementation.md#icc): ??
- - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
- 	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
-+
-+## 参照
-+- [ISO/IEC 60559:2020](https://ja.wikibooks.org/wiki/ISO/IEC_60559:2020)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>KAZOON</name>
-        <email>48007342+cycloawaodorin@users.noreply.github.com</email>
       </author>
     </entry>
   

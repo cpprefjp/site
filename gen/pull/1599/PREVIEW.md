@@ -1,11 +1,13 @@
 # PR [\#1599](https://github.com/cpprefjp/site/pull/1599) プレビュー
-- &#x231a; 更新時刻: 2026-04-02 12:31:24 JST
+- &#x231a; 更新時刻: 2026-04-02 13:03:46 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1599)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Afeat%2F%231598-dangling)
-- **&#x2AEF;** ソースの変更: [`18aae7e..c24e241`](https://github.com/cpprefjp/site/compare/18aae7ed9e191ca5c790f297c4d107cd2594cac9..c24e2417631f1b0fad0e0b0e3fa57ddad471ba8e)
+- **&#x2AEF;** ソースの変更: [`18aae7e..e3a41f9`](https://github.com/cpprefjp/site/compare/18aae7ed9e191ca5c790f297c4d107cd2594cac9..e3a41f9b2e81405ea731e657a51721900b7751a8)
 
-## 変更記事一覧 (5件)
+## 変更記事一覧 (7件)
 
+- &#x1f4dd; [`reference/functional/function_ref`](https://cpprefjp.github.io/site/gen/pull/1599/reference/functional/function_ref.html)
+- &#x1f4dd; [`reference/generator/generator`](https://cpprefjp.github.io/site/gen/pull/1599/reference/generator/generator.html)
 - &#x1f4dd; [`reference/iterator/reverse_iterator/op_deref`](https://cpprefjp.github.io/site/gen/pull/1599/reference/iterator/reverse_iterator/op_deref.html)
 - &#x1f4dd; [`reference/string/basic_string/subview`](https://cpprefjp.github.io/site/gen/pull/1599/reference/string/basic_string/subview.html)
 - &#x1f4dd; [`reference/valarray/gslice_array/op_constructor`](https://cpprefjp.github.io/site/gen/pull/1599/reference/valarray/gslice_array/op_constructor.html)
