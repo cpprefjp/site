@@ -318,7 +318,7 @@ int main()
   // もし fizzbuzz() 戻り値型が std::generator<std::string_view> であった場合、
   // 変数 vec は std::vector<std::string_view> 型となる。このときコルーチン内部実装の
   // std::to_string() の戻り値 std::string オブジェクトはco_yield式末尾で寿命が切れるため、
-  // 各要素 vec[i] に格納される std::string_view はダングリング(dangling)状態になってしまう。
+  // 各要素 vec[i] に格納される std::string_view はダングリング状態になってしまう。
 
   for (const auto& e : vec) {
     std::cout << e << std::endl;
