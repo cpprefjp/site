@@ -35,7 +35,7 @@ namespace std {
     - `operator bool`を提供しない。
 - メンバ関数・メンバ変数を参照する場合は、[`std::constant_arg`](/reference/utility/constant_arg_t.md)タグを利用する。
     - 対象オブジェクトの束縛タイミングは、構築時または呼び出し時のいずれもサポートする。
-- ダングリング(dangling)参照を避けるため、左辺値(lvalue)のみを取り扱う。
+- ダングリング参照を避けるため、左辺値(lvalue)のみを取り扱う。
 
 
 ## メンバ関数
