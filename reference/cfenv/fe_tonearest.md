@@ -77,3 +77,6 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
 	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
+
+## 参照
+- [ISO/IEC 60559:2020](https://ja.wikibooks.org/wiki/ISO/IEC_60559:2020)
