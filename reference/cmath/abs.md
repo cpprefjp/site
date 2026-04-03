@@ -20,8 +20,8 @@ namespace std {
   int abs(int x);                           // (6) C++17
   constexpr int abs(int x);                 // (6) C++23
 
-  long abs(long int x);                     // (7) C++17
-  constexpr long abs(long int x);           // (7) C++23
+  long abs(long x);                         // (7) C++17
+  constexpr long abs(long x);               // (7) C++23
 
   long long abs(long long x);               // (8) C++17
   constexpr long long abs(long long x);     // (8) C++23
@@ -38,7 +38,7 @@ namespace std {
 - (4) : 浮動小数点数型に対するオーバーロード
 - (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
 - (6) : `int`に対するオーバーロード
-- (7) : `long int`に対するオーバーロード
+- (7) : `long`に対するオーバーロード
 - (8) : `long long`に対するオーバーロード
 
 

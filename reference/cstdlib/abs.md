@@ -11,9 +11,9 @@ namespace std {
     abs(int j);         // (1) C++23
 
   long
-    int abs(long j);    // (2) C++03
+    abs(long j);        // (2) C++03
   constexpr long
-    int abs(long j);    // (2) C++23
+    abs(long j);        // (2) C++23
 
   long long
     abs(long long j);   // (3) C++11
