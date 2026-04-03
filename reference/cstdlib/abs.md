@@ -6,19 +6,19 @@
 ```cpp
 namespace std {
   int
-    abs(int j);         // (1) C++03
+    abs(int j);                 // (1) C++03
   constexpr int
-    abs(int j);         // (1) C++23
+    abs(int j);                 // (1) C++23
 
   long
-    int abs(long j);    // (2) C++03
+    abs(long j);                // (2) C++03
   constexpr long
-    int abs(long j);    // (2) C++23
+    abs(long j);                // (2) C++23
 
   long long
-    abs(long long j);   // (3) C++11
+    abs(long long j);           // (3) C++11
   constexpr long long
-    abs(long long j);   // (3) C++23
+    abs(long long j);           // (3) C++23
 
   float
     abs(float j);               // (4) C++03からC++20まで
@@ -27,23 +27,23 @@ namespace std {
   long double
     abs(long double j);         // (6) C++03からC++20まで
 
-  floating-point-type
-    abs(floating-point-type j); // (7) C++03からC++20まで
+  constexpr floating-point-type
+    abs(floating-point-type j); // (7) C++23
 
   long
-    labs(long j);       // (8) C++03
+    labs(long j);               // (8) C++03
   constexpr long
-    labs(long j);       // (8) C++23
+    labs(long j);               // (8) C++23
 
   long long
-    llabs(long long j); // (9) C++11
+    llabs(long long j);         // (9) C++11
   constexpr long long
-    llabs(long long j); // (9) C++23
+    llabs(long long j);         // (9) C++23
 }
 ```
 
 ## 概要
-絶対値を求める。abs は absolute value（絶対値）の略。
+算術型の絶対値を求める。abs は absolute value（絶対値）の略。
 
 - (1) : `int`に対するオーバーロード
 - (2) : `long`に対するオーバーロード
@@ -52,8 +52,8 @@ namespace std {
 - (5) : `double`に対するオーバーロード
 - (6) : `long double`に対するオーバーロード
 - (7) : 浮動小数点数型に対するオーバーロード
-- (8) : `long`規定
-- (9) : `long long`規定
+- (8) : `long`型規定
+- (9) : `long long`型規定
 
 
 ## 戻り値
@@ -93,6 +93,11 @@ int main()
 特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
+
+
+## 関連項目
+- [`abs - <cmath>`](/reference/cmath/abs.md)
+- [`fabs`](/reference/cmath/fabs.md)
 
 
 ## 参照
