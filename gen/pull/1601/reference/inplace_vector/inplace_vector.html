@@ -1,0 +1,790 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>inplace_vector - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,inplace_vector,std,class template,cpp26
+">
+        <meta name="title" content="inplace_vector - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="inplace_vector - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="inplace_vector - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/inplace_vector/inplace_vector.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`inplace_vector`はシーケンスコンテナの一種で、各要素は線形に、順序を保ったまま格納される。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="inplace_vector - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/inplace_vector/inplace_vector.html" />
+        <meta name="twitter:description" content="`inplace_vector`はシーケンスコンテナの一種で、各要素は線形に、順序を保ったまま格納される。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;inplace_vector&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c95a89e7047c949d6ddb2c33173664d852f49e98&#34;, &#34;source&#34;: &#34;#include &lt;print&gt;\n#include &lt;inplace_vector&gt;\n\nint main()\n{\n  // int\u578b\u3092\u8981\u7d20\u3068\u3057\u3001\u6700\u5927\u5bb9\u91cf5\u306e\u56fa\u5b9a\u5bb9\u91cf\u53ef\u5909\u9577\u914d\u5217\n  std::inplace_vector&lt;int, 5&gt; iv = {1, 99, 4};\n\n  iv[1] = 3;                      // 1\u756a\u76ee\u306e\u8981\u7d20\u3092\u53c2\u7167\u3057\u3001\u66f8\u304d\u63db\u3048\u308b\n  iv.push_back(5);                // \u672b\u5c3e\u306b\u50245\u3092\u8ffd\u52a0\n  iv.insert(iv.begin() + 1, 2);  // 1\u756a\u76ee\u306b\u50242\u3092\u633f\u5165\n\n  int* p = iv.data();           // \u5185\u90e8\u8868\u73fe\u306e\u30dd\u30a4\u30f3\u30bf\u3092\u53d6\u5f97\n  std::size_t size = iv.size(); // \u8981\u7d20\u6570\u3092\u53d6\u5f97\n\n  // \u5404\u8981\u7d20\u306b\u5bfe\u3057\u3066\u64cd\u4f5c\u3092\u884c\u3046\n  for (int x : iv) {\n    std::println(\&#34;{}\&#34;, x);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;210862f225f66184216500f35ba05916c4f8d8be&#34;, &#34;source&#34;: &#34;#include &lt;print&gt;\n#include &lt;inplace_vector&gt;\n\nint main()\n{\n  std::inplace_vector&lt;int, 3&gt; iv = {1, 2, 3};\n\n  // \u5bb9\u91cf\u304c\u6e80\u676f\u306a\u306e\u3067\u3001try_push_back\u306fnullptr\u3092\u8fd4\u3059\n  int* result = iv.try_push_back(4);\n  if (result == nullptr) {\n    std::println(\&#34;\u5bb9\u91cf\u8d85\u904e: \u8981\u7d20\u3092\u8ffd\u52a0\u3067\u304d\u307e\u305b\u3093\&#34;);\n  }\n\n  // unchecked_push_back\u306f\u5bb9\u91cf\u30c1\u30a7\u30c3\u30af\u3092\u884c\u308f\u306a\u3044\uff08\u5bb9\u91cf\u8d85\u904e\u306f\u672a\u5b9a\u7fa9\u52d5\u4f5c\uff09\n  // iv.unchecked_push_back(4); // \u672a\u5b9a\u7fa9\u52d5\u4f5c\uff01\n\n  std::println(\&#34;size: {}\&#34;, iv.size());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;inplace_vector&#34;, &#34;inplace_vector&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/inplace_vector.html" itemprop="url">
+              
+                <span itemprop="name">inplace_vector</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">inplace_vector</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-03-30T09:31:10">
+        2026年03月30日 09時31分10秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/inplace_vector/inplace_vector.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/inplace_vector/inplace_vector.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;inplace_vector&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">inplace_vector</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">inplace_vector</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>inplace_vector</code>はシーケンスコンテナの一種で、各要素は線形に、順序を保ったまま格納される。</p>
+<p><code>inplace_vector</code>は容量をコンパイル時定数<code>N</code>で固定する可変長配列として実装される。<code><a href="../vector/vector.html">std::vector</a></code>と異なり、要素はオブジェクト自身の内部ストレージ（スタック領域）に直接格納され、動的メモリ確保を一切行わない。容量は最大<code>N</code>要素であり、実行時にこれを超えて拡張することはできない。</p>
+<p><code>inplace_vector</code>は連続コンテナ (contiguous container) であり、要素は隣接するメモリ上に配置される。添字による要素のランダムアクセスもできる。</p>
+<p><code><a href="../array/array.html">std::array</a></code>との主な違いは、<code>inplace_vector</code>は要素数が可変であること、つまり<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>時に空であり、要素の追加・削除ができる点である。<code><a href="../vector/vector.html">std::vector</a></code>との主な違いは、ヒープではなくスタック配列であり、容量がコンパイル時に固定される点と、ムーブ・<code><a href="inplace_vector/swap.html">swap</a></code>操作の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>が<code><a href="../array/array.html">std::array</a></code>と同様に要素数に対して線形時間であり全イテレータが無効化される点である。</p>
+<p><code>is_trivially_copyable_v&lt;T&gt;</code>が<code>true</code>であるか、<code>N == 0</code>である場合、<code>inplace_vector&lt;T, N&gt;</code>自身もトリビアルにコピー可能である。</p>
+<p>容量<code>N</code>が<code>0</code>の場合、<code>inplace_vector&lt;T, 0&gt;</code>は空の型 (<code><a href="../type_traits/is_empty.html">is_empty_v</a></code>が<code>true</code>) となる。</p>
+<p>サイズが<code>N</code>を超える操作（<code><a href="inplace_vector/push_back.html">push_back()</a></code>や<code><a href="inplace_vector/insert.html">insert()</a></code>など）は<code><a href="../new/bad_alloc.html">std::bad_alloc</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。容量超過時に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>ではなく<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>で失敗を通知する失敗許容API (fallible API)（<code><a href="inplace_vector/try_push_back.html">try_push_back()</a></code>、<code><a href="inplace_vector/try_emplace_back.html">try_emplace_back()</a></code>、<code><a href="inplace_vector/try_append_range.html">try_append_range()</a></code>）や、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>として容量超過しないことを要求する<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>チェックなしAPI (unchecked API)（<code><a href="inplace_vector/unchecked_push_back.html">unchecked_push_back()</a></code>、<code><a href="inplace_vector/unchecked_emplace_back.html">unchecked_emplace_back()</a></code>）も提供される。</p>
+<p><code>inplace_vector</code>はアロケータを使用しない。</p>
+<p><code>inplace_vector</code>の全メンバ関数は<code>constexpr</code>指定されており、定数式の中で使用できる。</p>
+<h3>コンテナとしての特性</h3>
+<ul>
+<li>各要素への添字アクセス（定数時間）</li>
+<li>双方向への走査（線形時間）</li>
+<li>末尾への要素の追加・削除（定数時間。ただし容量超過時は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出）</li>
+</ul>
+<h3>テンプレートパラメータ</h3>
+<ul>
+<li><code>T</code>: 格納される要素の型</li>
+<li><code>N</code>: コンパイル時に決定される最大容量。<code><a href="../cstddef/size_t.html">std::size_t</a></code>型</li>
+</ul>
+<h3>推論補助はない</h3>
+<p><code>inplace_vector</code>にはクラステンプレートの推論補助が定義されていない。これは、初期化子リストや<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>から要素型<code>T</code>を推論できたとしても、コンパイル定数である容量<code>N</code>を推論する方法がないためである。容量はコンパイル時定数として明示的に指定する必要がある。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="../vector/vector.html">std::vector</a> では推論補助が使える</span>
+<span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w"> </span><span class="c1">// OK: vector&lt;int&gt;</span>
+
+<span class="c1">// <a href="">std::inplace_vector</a> では推論補助が使えない</span>
+<span class="c1">// <a href="">std::inplace_vector</a> iv = {1, 2, 3};      // エラー: Nを推論できない</span>
+<span class="n"><a href="">std::inplace_vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w"> </span><span class="c1">// OK: 明示的に型と容量を指定</span>
+</code></pre></div>
+</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/begin.html">begin</a></code></td>
+<td>先頭の要素を指すイテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/end.html">end</a></code></td>
+<td>末尾の次を指すイテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/cbegin.html">cbegin</a></code></td>
+<td>先頭の要素を指す読み取り専用イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/cend.html">cend</a></code></td>
+<td>末尾の次を指す読み取り専用イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/rbegin.html">rbegin</a></code></td>
+<td>末尾を指す逆イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/rend.html">rend</a></code></td>
+<td>先頭の前を指す逆イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/crbegin.html">crbegin</a></code></td>
+<td>末尾を指す読み取り専用逆イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/crend.html">crend</a></code></td>
+<td>先頭の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数を取得する（<code>N</code>を返す）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/capacity.html">capacity</a></code></td>
+<td>格納可能な最大の要素数を取得する（<code>N</code>を返す）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/resize.html">resize</a></code></td>
+<td>要素数を変更する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/empty.html">empty</a></code></td>
+<td>コンテナが空かどうかを判定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/reserve.html">reserve</a></code></td>
+<td>容量を確認する（<code>n &gt; N</code>の場合に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/shrink_to_fit.html">shrink_to_fit</a></code></td>
+<td>何もしない</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/op_at.html">operator[]</a></code></td>
+<td>要素アクセス</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/at.html">at</a></code></td>
+<td>要素アクセス</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/front.html">front</a></code></td>
+<td>先頭要素への参照を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/back.html">back</a></code></td>
+<td>末尾要素への参照を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/data.html">data</a></code></td>
+<td>配列の先頭へのポインタを取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>コンテナの変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/assign.html">assign</a></code></td>
+<td>コンテナの再代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/assign_range.html">assign_range</a></code></td>
+<td>Rangeの要素を再代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/push_back.html">push_back</a></code></td>
+<td>末尾へ要素追加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/emplace_back.html">emplace_back</a></code></td>
+<td>末尾へ直接構築</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/append_range.html">append_range</a></code></td>
+<td>Rangeの要素を末尾へ追加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/pop_back.html">pop_back</a></code></td>
+<td>末尾から要素削除</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/insert.html">insert</a></code></td>
+<td>要素の挿入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/emplace.html">emplace</a></code></td>
+<td>要素の直接構築による挿入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/insert_range.html">insert_range</a></code></td>
+<td>Rangeの要素を挿入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/erase.html">erase</a></code></td>
+<td>要素の削除</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/swap.html">swap</a></code></td>
+<td>コンテナの交換</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/clear.html">clear</a></code></td>
+<td>全要素削除</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>失敗許容の追加操作 (fallible API)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/try_push_back.html">try_push_back</a></code></td>
+<td>末尾へ要素追加を試みる。容量超過時は<code>nullptr</code>を返す</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/try_emplace_back.html">try_emplace_back</a></code></td>
+<td>末尾へ直接構築を試みる。容量超過時は<code>nullptr</code>を返す</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/try_append_range.html">try_append_range</a></code></td>
+<td>Rangeの要素を末尾へ追加を試みる。容量超過時は挿入されなかった最初の要素を指すイテレータを返す</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>チェックなしの追加操作 (unchecked API)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/unchecked_push_back.html">unchecked_push_back</a></code></td>
+<td>容量チェックなしで末尾へ要素追加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/unchecked_emplace_back.html">unchecked_emplace_back</a></code></td>
+<td>容量チェックなしで末尾へ直接構築</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td>要素型 <code>T</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td><code>T*</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td><code>const T*</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td><code>T&amp;</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td><code>const T&amp;</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>符号なし整数型 (通常は<code><a href="../cstddef/size_t.html">size_t</a></code>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>符号付き整数型 (通常は<code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td><a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>のランダムアクセスイテレータかつ<code><a href="../iterator/contiguous_iterator.html">contiguous_iterator</a></code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td><a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の読み取り専用ランダムアクセスイテレータかつ<code><a href="../iterator/contiguous_iterator.html">contiguous_iterator</a></code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td><code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;iterator&gt;</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td><code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;const_iterator&gt;</code></td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>bool operator!=(const inplace_vector&amp; x, const inplace_vector&amp; y);</code></td>
+<td>非等値比較 (<code>==</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>bool operator&lt;(const inplace_vector&amp; x, const inplace_vector&amp; y);</code></td>
+<td>左辺が右辺より小さいかの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>bool operator&lt;=(const inplace_vector&amp; x, const inplace_vector&amp; y);</code></td>
+<td>左辺が右辺以下かの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>bool operator&gt;(const inplace_vector&amp; x, const inplace_vector&amp; y);</code></td>
+<td>左辺が右辺より大きいかの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>bool operator&gt;=(const inplace_vector&amp; x, const inplace_vector&amp; y);</code></td>
+<td>左辺が右辺以上かの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/swap_free.html">swap</a></code></td>
+<td>2つの<code>inplace_vector</code>オブジェクトを入れ替える</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>要素削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="inplace_vector/erase_free.html">erase</a></code></td>
+<td>指定した値をもつ要素とその分の領域を、コンテナから削除する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="inplace_vector/erase_if_free.html">erase_if</a></code></td>
+<td>指定した条件に合致する要素とその分の領域を、コンテナから削除する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="c95a89e7047c949d6ddb2c33173664d852f49e98"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../inplace_vector.html">&lt;inplace_vector&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// int型を要素とし、最大容量5の固定容量可変長配列</span>
+<span class="w">  </span><span class="n"><a href="">std::inplace_vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
+
+<span class="w">  </span><span class="n"><a href="inplace_vector/op_at.html">iv[1]</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">                      </span><span class="c1">// 1番目の要素を参照し、書き換える</span>
+<span class="w">  </span><span class="n"><a href="inplace_vector/push_back.html">iv.push_back</a></span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">                </span><span class="c1">// 末尾に値5を追加</span>
+<span class="w">  </span><span class="n"><a href="inplace_vector/insert.html">iv.insert</a></span><span class="p">(</span><span class="n">iv</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1番目に値2を挿入</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="inplace_vector/data.html">iv.data()</a></span><span class="p">;</span><span class="w">           </span><span class="c1">// 内部表現のポインタを取得</span>
+<span class="w">  </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="inplace_vector/size.html">iv.size()</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 要素数を取得</span>
+
+<span class="w">  </span><span class="c1">// 各要素に対して操作を行う</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">iv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+2
+3
+4
+5
+</code></pre></p>
+<h3>失敗許容API (fallible API) の使用例</h3>
+<p><div class="yata" id="210862f225f66184216500f35ba05916c4f8d8be"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../inplace_vector.html">&lt;inplace_vector&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="">std::inplace_vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// 容量が満杯なので、try_push_backはnullptrを返す</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="inplace_vector/try_push_back.html">iv.try_push_back</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"容量超過: 要素を追加できません"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// unchecked_push_backは容量チェックを行わない（容量超過は未定義動作）</span>
+<span class="w">  </span><span class="c1">// iv.unchecked_push_back(4); // 未定義動作！</span>
+
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"size: {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="inplace_vector/size.html">iv.size()</a></span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>容量超過: 要素を追加できません
+size: 3
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 23 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0843r14.html" target="_blank">P0843R14 <code>inplace_vector</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3074r7.html" target="_blank">P3074R7 Trivial Unions (was <code>std::uninitialized&lt;T&gt;</code>)</a><ul>
+<li>C++26で非トリビアルな型に対する<code>constexpr</code>制限が撤廃された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

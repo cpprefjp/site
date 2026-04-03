@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-04-03T04:20:01.247483</updated>
+  <id>f19253d2-7b1e-4b95-9b0a-4b9fda2ccfbf</id>
+
+  
+    <entry>
+      <title>abs -- feat: 概要の微調整</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>bef90dc662ed392b9e568989286daf0dcb92b6f6:reference/cstdlib/abs.md</id>
+      <updated>2026-04-03T13:02:55+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index d8020fa16..99826663b 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -43,7 +43,7 @@ namespace std {
+ ```
+ 
+ ## 概要
+-絶対値を求める。abs は absolute value（絶対値）の略。
++算術型の絶対値を求める。abs は absolute value（絶対値）の略。
+ 
+ - (1) : `int`に対するオーバーロード
+ - (2) : `long`に対するオーバーロード
+@@ -52,8 +52,8 @@ namespace std {
+ - (5) : `double`に対するオーバーロード
+ - (6) : `long double`に対するオーバーロード
+ - (7) : 浮動小数点数型に対するオーバーロード
+-- (8) : `long`規定
+-- (9) : `long long`規定
++- (8) : `long`型規定
++- (9) : `long long`型規定
+ 
+ 
+ ## 戻り値
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- feat: abs間で関連項目とする</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/abs.html"/>
+      <id>f8703c0d1764909cf0335b7f40f0b7c66efb07ff:reference/cmath/abs.md</id>
+      <updated>2026-04-03T13:01:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/abs.md b/reference/cmath/abs.md
+index b0f4ce100..c9dc83698 100644
+--- a/reference/cmath/abs.md
++++ b/reference/cmath/abs.md
+@@ -100,6 +100,11 @@ namespace std {
+ ```
+ 
+ 
++## 関連項目
++- [`abs`](/reference/cstdlib/abs.md)
++- [`fabs`](/reference/cmath/fabs.md)
++
++
+ ## 参照
+ - [P0533R9 constexpr for `&amp;lt;cmath&amp;gt;` and `&amp;lt;cstdlib&amp;gt;`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+     - C++23での、一部関数の`constexpr`対応
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fabs -- feat: abs間で関連項目とする</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/fabs.html"/>
+      <id>f8703c0d1764909cf0335b7f40f0b7c66efb07ff:reference/cmath/fabs.md</id>
+      <updated>2026-04-03T13:01:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fabs.md b/reference/cmath/fabs.md
+index 80215e8eb..63e755905 100644
+--- a/reference/cmath/fabs.md
++++ b/reference/cmath/fabs.md
+@@ -131,6 +131,12 @@ namespace std {
+ * is_integral[link ../type_traits/is_integral.md]
+ * enable_if[link ../type_traits/enable_if.md]
+ 
++
++## 関連項目
++- [`abs`](/reference/cmath/abs.md)
++- [`abs`](/reference/cstdlib/abs.md)
++
++
+ ## 参照
+ - [P0533R9 constexpr for `&amp;lt;cmath&amp;gt;` and `&amp;lt;cstdlib&amp;gt;`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+     - C++23での、一部関数の`constexpr`対応
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- feat: abs間で関連項目とする</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>f8703c0d1764909cf0335b7f40f0b7c66efb07ff:reference/cstdlib/abs.md</id>
+      <updated>2026-04-03T13:01:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index 4d417a117..d8020fa16 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -95,6 +95,11 @@ int main()
+ - GCC 4.6.1 以上
+ 
+ 
++## 関連項目
++- [`abs`](/reference/cmath/abs.md)
++- [`fabs`](/reference/cmath/fabs.md)
++
++
+ ## 参照
+ - [P0533R9 constexpr for `&amp;lt;cmath&amp;gt;` and `&amp;lt;cstdlib&amp;gt;`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+     - C++23での、一部関数の`constexpr`対応
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- feat: インデントの調整</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>3289215d23ae803e93500d203346f5977a72c2b5:reference/cstdlib/abs.md</id>
+      <updated>2026-04-03T11:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index b4fd3f7d5..4d417a117 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -6,19 +6,19 @@
+ ```cpp
+ namespace std {
+   int
+-    abs(int j);         // (1) C++03
++    abs(int j);                 // (1) C++03
+   constexpr int
+-    abs(int j);         // (1) C++23
++    abs(int j);                 // (1) C++23
+ 
+   long
+-    abs(long j);        // (2) C++03
++    abs(long j);                // (2) C++03
+   constexpr long
+-    abs(long j);        // (2) C++23
++    abs(long j);                // (2) C++23
+ 
+   long long
+-    abs(long long j);   // (3) C++11
++    abs(long long j);           // (3) C++11
+   constexpr long long
+-    abs(long long j);   // (3) C++23
++    abs(long long j);           // (3) C++23
+ 
+   float
+     abs(float j);               // (4) C++03からC++20まで
+@@ -31,14 +31,14 @@ namespace std {
+     abs(floating-point-type j); // (7) C++23
+ 
+   long
+-    labs(long j);       // (8) C++03
++    labs(long j);               // (8) C++03
+   constexpr long
+-    labs(long j);       // (8) C++23
++    labs(long j);               // (8) C++23
+ 
+   long long
+-    llabs(long long j); // (9) C++11
++    llabs(long long j);         // (9) C++11
+   constexpr long long
+-    llabs(long long j); // (9) C++23
++    llabs(long long j);         // (9) C++23
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- feat: absにおいてlong int -&gt; longに統一</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/abs.html"/>
+      <id>2eb66cf40a14a0343d5eb62dcd94d4761e0b597c:reference/cmath/abs.md</id>
+      <updated>2026-04-03T11:25:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/abs.md b/reference/cmath/abs.md
+index 7efe04348..b0f4ce100 100644
+--- a/reference/cmath/abs.md
++++ b/reference/cmath/abs.md
+@@ -20,8 +20,8 @@ namespace std {
+   int abs(int x);                           // (6) C++17
+   constexpr int abs(int x);                 // (6) C++23
+ 
+-  long abs(long int x);                     // (7) C++17
+-  constexpr long abs(long int x);           // (7) C++23
++  long abs(long x);                         // (7) C++17
++  constexpr long abs(long x);               // (7) C++23
+ 
+   long long abs(long long x);               // (8) C++17
+   constexpr long long abs(long long x);     // (8) C++23
+@@ -38,7 +38,7 @@ namespace std {
+ - (4) : 浮動小数点数型に対するオーバーロード
+ - (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+ - (6) : `int`に対するオーバーロード
+-- (7) : `long int`に対するオーバーロード
++- (7) : `long`に対するオーバーロード
+ - (8) : `long long`に対するオーバーロード
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- feat: absにおいてlong int -&gt; longに統一</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>2eb66cf40a14a0343d5eb62dcd94d4761e0b597c:reference/cstdlib/abs.md</id>
+      <updated>2026-04-03T11:25:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index 5f5183c24..b4fd3f7d5 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -11,9 +11,9 @@ namespace std {
+     abs(int j);         // (1) C++23
+ 
+   long
+-    int abs(long j);    // (2) C++03
++    abs(long j);        // (2) C++03
+   constexpr long
+-    int abs(long j);    // (2) C++23
++    abs(long j);        // (2) C++23
+ 
+   long long
+     abs(long long j);   // (3) C++11
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- fix: floating-point-typeへのオーバーロードが誤っていたのを修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>b8f374a563eae8107d1aa600beb9c485216a510c:reference/cstdlib/abs.md</id>
+      <updated>2026-04-03T11:20:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index cda9c3f69..5f5183c24 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -27,8 +27,8 @@ namespace std {
+   long double
+     abs(long double j);         // (6) C++03からC++20まで
+ 
+-  floating-point-type
+-    abs(floating-point-type j); // (7) C++03からC++20まで
++  constexpr floating-point-type
++    abs(floating-point-type j); // (7) C++23
+ 
+   long
+     labs(long j);       // (8) C++03
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+</feed>
