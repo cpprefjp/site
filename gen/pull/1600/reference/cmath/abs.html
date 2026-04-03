@@ -204,8 +204,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-02T12:42:13">
-        2026年04月02日 12時42分13秒
+      <span itemprop="datePublished" content="2026-04-03T01:52:18">
+        2026年04月03日 01時52分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -273,7 +273,7 @@
 <ul>
 <li>$$ f(x) = | x | $$</li>
 <li>(6), (7), (8) : 引数の絶対値が、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型で表現できない場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。<ul>
-<li>一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例: <code>int</code> における <code>INT_MIN</code>）の絶対値は、表現できる最大値（<code>INT_MAX</code>）よりも1大きくなってしまうため、この<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>に該当する。</li>
+<li>一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例:<code>int</code>における<code><a href="../climits/int_min.html">INT_MIN</a></code>）の絶対値は、表現できる最大値（<code><a href="../climits/int_max.html">INT_MAX</a></code>）よりも1大きくなってしまうため、この<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>に該当する。</li>
 </ul>
 </li>
 <li>任意の整数型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>(5)は C++11 で追加されたが、<a href="http://wg21.cmeerw.net/lwg/issue2192" target="_blank">一部の符号なし整数型に対して問題を引き起こす</a>ことから C++17 で削除され、符号付き整数型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>(6), (7), (8)が追加された</li>

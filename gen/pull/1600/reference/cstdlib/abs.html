@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-02T11:48:30">
-        2026年04月02日 11時48分30秒
+      <span itemprop="datePublished" content="2026-04-03T01:52:18">
+        2026年04月03日 01時52分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -272,7 +272,7 @@
 <h2>備考</h2>
 <ul>
 <li>(1), (2), (3), (8), (9) : 引数の絶対値が、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型で表現できない場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。<ul>
-<li>一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例: <code>int</code> における <code>INT_MIN</code>）の絶対値は、表現できる最大値（<code>INT_MAX</code>）よりも1大きくなってしまうため、この<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>に該当する。</li>
+<li>一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例:<code>int</code>における<code><a href="../climits/int_min.html">INT_MIN</a></code>）の絶対値は、表現できる最大値（<code><a href="../climits/int_max.html">INT_MAX</a></code>）よりも1大きくなってしまうため、この<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>に該当する。</li>
 </ul>
 </li>
 <li>パラメータの型<code>X</code>において<code><a href="../type_traits/is_unsigned.html">is_unsigned_v</a>&lt;X&gt;</code>が<code>true</code>であり、<code>X</code>が整数昇格によって<code>int</code>に変換できない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる<ul>
