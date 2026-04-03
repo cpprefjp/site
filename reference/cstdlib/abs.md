@@ -95,6 +95,11 @@ int main()
 - GCC 4.6.1 以上
 
 
+## 関連項目
+- [`abs`](/reference/cmath/abs.md)
+- [`fabs`](/reference/cmath/fabs.md)
+
+
 ## 参照
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
     - C++23での、一部関数の`constexpr`対応

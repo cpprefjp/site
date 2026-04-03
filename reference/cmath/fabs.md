@@ -131,6 +131,12 @@ namespace std {
 * is_integral[link ../type_traits/is_integral.md]
 * enable_if[link ../type_traits/enable_if.md]
 
+
+## 関連項目
+- [`abs`](/reference/cmath/abs.md)
+- [`abs`](/reference/cstdlib/abs.md)
+
+
 ## 参照
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
     - C++23での、一部関数の`constexpr`対応
