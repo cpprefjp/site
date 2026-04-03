@@ -27,8 +27,8 @@ namespace std {
   long double
     abs(long double j);         // (6) C++03からC++20まで
 
-  floating-point-type
-    abs(floating-point-type j); // (7) C++03からC++20まで
+  constexpr floating-point-type
+    abs(floating-point-type j); // (7) C++23
 
   long
     labs(long j);       // (8) C++03
