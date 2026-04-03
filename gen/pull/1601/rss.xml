@@ -2,9 +2,92 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-03T04:20:01.247483</updated>
-  <id>f19253d2-7b1e-4b95-9b0a-4b9fda2ccfbf</id>
+  <updated>2026-04-03T07:07:40.724672</updated>
+  <id>b44f7b89-6405-4aa8-a8f2-0c1ab4046526</id>
 
+  
+    <entry>
+      <title>abs -- feat: 関連項目のリンク先をわかりやすくする</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/abs.html"/>
+      <id>cd24fc731a89541123ff837fcefb212a6ea4986e:reference/cmath/abs.md</id>
+      <updated>2026-04-03T16:02:19+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/abs.md b/reference/cmath/abs.md
+index c9dc83698..019c59eec 100644
+--- a/reference/cmath/abs.md
++++ b/reference/cmath/abs.md
+@@ -101,7 +101,7 @@ namespace std {
+ 
+ 
+ ## 関連項目
+-- [`abs`](/reference/cstdlib/abs.md)
++- [`abs - &amp;lt;cstdlib&amp;gt;`](/reference/cstdlib/abs.md)
+ - [`fabs`](/reference/cmath/fabs.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fabs -- feat: 関連項目のリンク先をわかりやすくする</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/fabs.html"/>
+      <id>cd24fc731a89541123ff837fcefb212a6ea4986e:reference/cmath/fabs.md</id>
+      <updated>2026-04-03T16:02:19+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fabs.md b/reference/cmath/fabs.md
+index 63e755905..65f8d5f70 100644
+--- a/reference/cmath/fabs.md
++++ b/reference/cmath/fabs.md
+@@ -133,8 +133,8 @@ namespace std {
+ 
+ 
+ ## 関連項目
+-- [`abs`](/reference/cmath/abs.md)
+-- [`abs`](/reference/cstdlib/abs.md)
++- [`abs - &amp;lt;cmath&amp;gt;`](/reference/cmath/abs.md)
++- [`abs - &amp;lt;cstdlib&amp;gt;`](/reference/cstdlib/abs.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- feat: 関連項目のリンク先をわかりやすくする</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>cd24fc731a89541123ff837fcefb212a6ea4986e:reference/cstdlib/abs.md</id>
+      <updated>2026-04-03T16:02:19+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index 99826663b..cc4fe877d 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -96,7 +96,7 @@ int main()
+ 
+ 
+ ## 関連項目
+-- [`abs`](/reference/cmath/abs.md)
++- [`abs - &amp;lt;cmath&amp;gt;`](/reference/cmath/abs.md)
+ - [`fabs`](/reference/cmath/fabs.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>abs -- feat: 概要の微調整</title>
@@ -258,35 +341,6 @@ index 5f5183c24..b4fd3f7d5 100644
  
    long long
      abs(long long j);   // (3) C++11
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>teruyamato0731</name>
-        <email>77840326+teruyamato0731@users.noreply.github.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>abs -- fix: floating-point-typeへのオーバーロードが誤っていたのを修正</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
-      <id>b8f374a563eae8107d1aa600beb9c485216a510c:reference/cstdlib/abs.md</id>
-      <updated>2026-04-03T11:20:50+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
-index cda9c3f69..5f5183c24 100644
---- a/reference/cstdlib/abs.md
-+++ b/reference/cstdlib/abs.md
-@@ -27,8 +27,8 @@ namespace std {
-   long double
-     abs(long double j);         // (6) C++03からC++20まで
- 
--  floating-point-type
--    abs(floating-point-type j); // (7) C++03からC++20まで
-+  constexpr floating-point-type
-+    abs(floating-point-type j); // (7) C++23
- 
-   long
-     labs(long j);       // (8) C++03
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
