@@ -133,8 +133,8 @@ namespace std {
 
 
 ## 関連項目
-- [`abs`](/reference/cmath/abs.md)
-- [`abs`](/reference/cstdlib/abs.md)
+- [`abs - <cmath>`](/reference/cmath/abs.md)
+- [`abs - <cstdlib>`](/reference/cstdlib/abs.md)
 
 
 ## 参照

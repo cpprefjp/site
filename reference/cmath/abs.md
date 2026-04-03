@@ -101,7 +101,7 @@ namespace std {
 
 
 ## 関連項目
-- [`abs`](/reference/cstdlib/abs.md)
+- [`abs - <cstdlib>`](/reference/cstdlib/abs.md)
 - [`fabs`](/reference/cmath/fabs.md)
 
 

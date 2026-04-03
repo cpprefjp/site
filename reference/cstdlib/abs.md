@@ -96,7 +96,7 @@ int main()
 
 
 ## 関連項目
-- [`abs`](/reference/cmath/abs.md)
+- [`abs - <cmath>`](/reference/cmath/abs.md)
 - [`fabs`](/reference/cmath/fabs.md)
 
 
