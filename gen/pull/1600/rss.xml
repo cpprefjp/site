@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-04-03T01:13:04.727519</updated>
+  <id>4582eb19-5c54-4d25-be8f-bd617c699f2c</id>
+
+  
+    <entry>
+      <title>abs -- feat: cmathのabsに対しても記述</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/abs.html"/>
+      <id>cf120714965c2a30ec382312e67a4e549fc16bb9:reference/cmath/abs.md</id>
+      <updated>2026-04-02T21:42:13+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/abs.md b/reference/cmath/abs.md
+index 12397ef4e..0f98ad651 100644
+--- a/reference/cmath/abs.md
++++ b/reference/cmath/abs.md
+@@ -50,6 +50,8 @@ namespace std {
+ 
+ ## 備考
+ - $$ f(x) = | x | $$
++- (6), (7), (8) : 引数の絶対値が、戻り値の型で表現できない場合、未定義動作を引き起こす。
++    - 一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例: `int` における `INT_MIN`）の絶対値は、表現できる最大値（`INT_MAX`）よりも1大きくなってしまうため、この未定義動作に該当する。
+ - 任意の整数型に対するオーバーロード(5)は C++11 で追加されたが、[一部の符号なし整数型に対して問題を引き起こす](http://wg21.cmeerw.net/lwg/issue2192)ことから C++17 で削除され、符号付き整数型に対するオーバーロード(6), (7), (8)が追加された
+ - C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- fix: 整数型に対するオーバーロードに限定</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>31d036f97ec149ba264bd3fa0fb13817fac0695a:reference/cstdlib/abs.md</id>
+      <updated>2026-04-02T20:48:30+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index 3c22d2eb0..d74d9b9de 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -63,7 +63,7 @@ namespace std {
+ 
+ 
+ ## 備考
+-- 引数の絶対値が、戻り値の型で表現できない場合、未定義動作を引き起こす。
++- (1), (2), (3), (8), (9) : 引数の絶対値が、戻り値の型で表現できない場合、未定義動作を引き起こす。
+     - 一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例: `int` における `INT_MIN`）の絶対値は、表現できる最大値（`INT_MAX`）よりも1大きくなってしまうため、この未定義動作に該当する。
+ - パラメータの型`X`において[`is_unsigned_v`](/reference/type_traits/is_unsigned.md)`&amp;lt;X&amp;gt;`が`true`であり、`X`が整数昇格によって`int`に変換できない場合、プログラムは不適格となる
+     - Cとの互換性のため、`int`に昇格できる符号なし整数型は許可される
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- feat: `std::abs`に表現不可能な値を渡した際の未定義動作について追記</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>6d0102112bd8c8d260e461fbac72a589fc985e61:reference/cstdlib/abs.md</id>
+      <updated>2026-04-02T20:31:23+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index 3ed633d17..3c22d2eb0 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -63,6 +63,8 @@ namespace std {
+ 
+ 
+ ## 備考
++- 引数の絶対値が、戻り値の型で表現できない場合、未定義動作を引き起こす。
++    - 一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例: `int` における `INT_MIN`）の絶対値は、表現できる最大値（`INT_MAX`）よりも1大きくなってしまうため、この未定義動作に該当する。
+ - パラメータの型`X`において[`is_unsigned_v`](/reference/type_traits/is_unsigned.md)`&amp;lt;X&amp;gt;`が`true`であり、`X`が整数昇格によって`int`に変換できない場合、プログラムは不適格となる
+     - Cとの互換性のため、`int`に昇格できる符号なし整数型は許可される
+ - C++23では、(4), (5), (6)が(7)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reference_constructs_from_temporary -- typo: 不自然な文言を修正</title>
+      <link href="https://cpprefjp.github.io/reference/type_traits/reference_constructs_from_temporary.html"/>
+      <id>c20c72f02a6a1698a5749a2cea7bb667535be32c:reference/type_traits/reference_constructs_from_temporary.md</id>
+      <updated>2026-04-02T16:56:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/type_traits/reference_constructs_from_temporary.md b/reference/type_traits/reference_constructs_from_temporary.md
+index 19c1a6051..c2236d735 100644
+--- a/reference/type_traits/reference_constructs_from_temporary.md
++++ b/reference/type_traits/reference_constructs_from_temporary.md
+@@ -116,7 +116,7 @@ int main()
+ 	static_assert(std::reference_constructs_from_temporary_v&amp;lt;B&amp;amp;&amp;amp;, C&amp;amp;&amp;amp;&amp;gt;);
+ 
+ 
+-	// NG: const ではない左辺値参照は寿命を延長しないんですタイプ
++	// NG: const ではない左辺値参照は寿命を延長しないタイプ
+ 	//     1つ目3つ目はそもそも参照そのものが構築出来ない
+ 	static_assert(false == std::reference_constructs_from_temporary_v&amp;lt;int&amp;amp;, int&amp;gt;);
+ 	static_assert(false == std::reference_constructs_from_temporary_v&amp;lt;int&amp;amp;, int&amp;amp;&amp;gt;);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reference_converts_from_temporary -- typo: 不自然な文言を修正</title>
+      <link href="https://cpprefjp.github.io/reference/type_traits/reference_converts_from_temporary.html"/>
+      <id>c20c72f02a6a1698a5749a2cea7bb667535be32c:reference/type_traits/reference_converts_from_temporary.md</id>
+      <updated>2026-04-02T16:56:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/type_traits/reference_converts_from_temporary.md b/reference/type_traits/reference_converts_from_temporary.md
+index 7d18146e6..1c3e77d7f 100644
+--- a/reference/type_traits/reference_converts_from_temporary.md
++++ b/reference/type_traits/reference_converts_from_temporary.md
+@@ -107,7 +107,7 @@ int main()
+ 	static_assert(std::reference_converts_from_temporary_v&amp;lt;A&amp;amp;&amp;amp;, int&amp;gt;);
+ 
+ 
+-	// NG: const ではない左辺値参照は寿命を延長しないんですタイプ
++	// NG: const ではない左辺値参照は寿命を延長しないタイプ
+ 	//     1つ目3つ目はそもそも参照そのものが構築出来ない
+ 	static_assert(false == std::reference_converts_from_temporary_v&amp;lt;int&amp;amp;, int&amp;gt;);
+ 	static_assert(false == std::reference_converts_from_temporary_v&amp;lt;int&amp;amp;, int&amp;amp;&amp;gt;);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>function_ref -- feat(GLOBAL_DEFINED_WORDS): &#34;ダングリング&#34;の定義追加、および訳語の統一 (#1599)</title>
+      <link href="https://cpprefjp.github.io/reference/functional/function_ref.html"/>
+      <id>36dc97276c8853fe25544f1ef5d41934ace9185f:reference/functional/function_ref.md</id>
+      <updated>2026-04-02T14:29:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref.md b/reference/functional/function_ref.md
+index c1f86340b..76f7db38d 100644
+--- a/reference/functional/function_ref.md
++++ b/reference/functional/function_ref.md
+@@ -35,7 +35,7 @@ namespace std {
+     - `operator bool`を提供しない。
+ - メンバ関数・メンバ変数を参照する場合は、[`std::constant_arg`](/reference/utility/constant_arg_t.md)タグを利用する。
+     - 対象オブジェクトの束縛タイミングは、構築時または呼び出し時のいずれもサポートする。
+-- ダングリング(dangling)参照を避けるため、左辺値(lvalue)のみを取り扱う。
++- ダングリング参照を避けるため、左辺値(lvalue)のみを取り扱う。
+ 
+ 
+ ## メンバ関数
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>generator -- feat(GLOBAL_DEFINED_WORDS): &#34;ダングリング&#34;の定義追加、および訳語の統一 (#1599)</title>
+      <link href="https://cpprefjp.github.io/reference/generator/generator.html"/>
+      <id>36dc97276c8853fe25544f1ef5d41934ace9185f:reference/generator/generator.md</id>
+      <updated>2026-04-02T14:29:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/generator/generator.md b/reference/generator/generator.md
+index 4ba98f5de..f95c3713e 100644
+--- a/reference/generator/generator.md
++++ b/reference/generator/generator.md
+@@ -318,7 +318,7 @@ int main()
+   // もし fizzbuzz() 戻り値型が std::generator&amp;lt;std::string_view&amp;gt; であった場合、
+   // 変数 vec は std::vector&amp;lt;std::string_view&amp;gt; 型となる。このときコルーチン内部実装の
+   // std::to_string() の戻り値 std::string オブジェクトはco_yield式末尾で寿命が切れるため、
+-  // 各要素 vec[i] に格納される std::string_view はダングリング(dangling)状態になってしまう。
++  // 各要素 vec[i] に格納される std::string_view はダングリング状態になってしまう。
+ 
+   for (const auto&amp;amp; e : vec) {
+     std::cout &amp;lt;&amp;lt; e &amp;lt;&amp;lt; std::endl;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator* -- feat(GLOBAL_DEFINED_WORDS): &#34;ダングリング&#34;の定義追加、および訳語の統一 (#1599)</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/reverse_iterator/op_deref.html"/>
+      <id>36dc97276c8853fe25544f1ef5d41934ace9185f:reference/iterator/reverse_iterator/op_deref.md</id>
+      <updated>2026-04-02T14:29:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/reverse_iterator/op_deref.md b/reference/iterator/reverse_iterator/op_deref.md
+index 434f83bc7..60075bbda 100644
+--- a/reference/iterator/reverse_iterator/op_deref.md
++++ b/reference/iterator/reverse_iterator/op_deref.md
+@@ -22,7 +22,7 @@ deref_tmp = current;
+ return *deref_tmp;
+ ```
+ 
+-※`deref_tmp`は、ぶら下がり参照を避けるために関数内のローカル変数ではなく、メンバ変数として保持される。
++※`deref_tmp`は、ダングリング参照を避けるために関数内のローカル変数ではなく、メンバ変数として保持される。
+ 
+ 
+ - C++14
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>subview -- feat(GLOBAL_DEFINED_WORDS): &#34;ダングリング&#34;の定義追加、および訳語の統一 (#1599)</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/subview.html"/>
+      <id>36dc97276c8853fe25544f1ef5d41934ace9185f:reference/string/basic_string/subview.md</id>
+      <updated>2026-04-02T14:29:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/subview.md b/reference/string/basic_string/subview.md
+index 364409e34..8af696964 100644
+--- a/reference/string/basic_string/subview.md
++++ b/reference/string/basic_string/subview.md
+@@ -26,7 +26,7 @@ constexpr basic_string_view&amp;lt;charT, traits&amp;gt;
+ 
+ 
+ ## 注意
+-本関数は使い方を誤ると、ぶら下がり参照が発生し得る。
++本関数は使い方を誤ると、ダングリング参照が発生し得る。
+ ```cpp example
+ #include &amp;lt;print&amp;gt;
+ #include &amp;lt;string&amp;gt;
+@@ -42,7 +42,7 @@ int main() {
+     std::println(&amp;#34;{}&amp;#34;, std::string(3, &amp;#39;A&amp;#39;).subview());
+ 
+     // NG!
+-    std::string_view d = std::string(3, &amp;#39;A&amp;#39;).subview();  // ぶら下がり参照発生
++    std::string_view d = std::string(3, &amp;#39;A&amp;#39;).subview();  // ダングリング参照発生
+     std::println(&amp;#34;{}&amp;#34;, d);  // 不定動作
+ }
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- feat(GLOBAL_DEFINED_WORDS): &#34;ダングリング&#34;の定義追加、および訳語の統一 (#1599)</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_constructor.html"/>
+      <id>36dc97276c8853fe25544f1ef5d41934ace9185f:reference/valarray/gslice_array/op_constructor.md</id>
+      <updated>2026-04-02T14:29:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_constructor.md b/reference/valarray/gslice_array/op_constructor.md
+index fe0e9de29..41abbecba 100644
+--- a/reference/valarray/gslice_array/op_constructor.md
++++ b/reference/valarray/gslice_array/op_constructor.md
+@@ -70,7 +70,7 @@ int main()
+ 
+ 
+ ### 備考
+-- GCC 4.9.0時点のlibstdc++は、(2)のオーバーロードにおいて、ぶら下がり参照の問題が発生する実装のバグがある([Bug 62119](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=62119))
++- GCC 4.9.0時点のlibstdc++は、(2)のオーバーロードにおいて、ダングリング参照の問題が発生する実装のバグがある([Bug 62119](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=62119))
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator[] -- feat(GLOBAL_DEFINED_WORDS): &#34;ダングリング&#34;の定義追加、および訳語の統一 (#1599)</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_at.html"/>
+      <id>36dc97276c8853fe25544f1ef5d41934ace9185f:reference/valarray/valarray/op_at.md</id>
+      <updated>2026-04-02T14:29:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_at.md b/reference/valarray/valarray/op_at.md
+index f28b2951b..119ee2b35 100644
+--- a/reference/valarray/valarray/op_at.md
++++ b/reference/valarray/valarray/op_at.md
+@@ -270,7 +270,7 @@ int main()
+ ```
+ 
+ ### 備考
+-- GCC 4.8.2時点のlibstdc++において、(8)と(10)のオーバーロードにおいて、一時オブジェクトのマスク配列を渡すと、ぶら下がり参照が発生する問題がある([#Bug 63314](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314), [mask_array behavior in libstdc++](http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc))
++- GCC 4.8.2時点のlibstdc++において、(8)と(10)のオーバーロードにおいて、一時オブジェクトのマスク配列を渡すと、ダングリング参照が発生する問題がある([#Bug 63314](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314), [mask_array behavior in libstdc++](http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc))
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>スタイル -- feat(GLOBAL_DEFINED_WORDS): &#34;ダングリング&#34;の定義追加、および訳語の統一 (#1599)</title>
+      <link href="https://cpprefjp.github.io/working_style.html"/>
+      <id>36dc97276c8853fe25544f1ef5d41934ace9185f:working_style.md</id>
+      <updated>2026-04-02T14:29:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/working_style.md b/working_style.md
+index 2265d4392..bb37c58ad 100644
+--- a/working_style.md
++++ b/working_style.md
+@@ -81,6 +81,7 @@ C++11以降対応については対応バージョンを明記します。バー
+ | const iterator                     | 読み取り専用イテレータ       |
+ | const reverse iterator             | 読み取り専用逆イテレータ     |
+ | covariant                          | 共変的                       |
++| dangling                           | ダングリング                 |
+ | data member                        | メンバ変数 (ユーザー視点ではデータメンバより一般的のため) |
+ | dereference                        | 間接参照                     |
+ | dereferenceable                    | 間接参照可能                 |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+</feed>
