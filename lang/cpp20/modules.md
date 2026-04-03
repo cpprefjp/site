@@ -494,6 +494,7 @@ int main() {
 - [C++23 無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md)
 - [C++26 モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md)
 - [C++26 `main`関数をグローバルモジュールに関連付けることを許可](/lang/cpp26/allow_attaching_main_to_the_global_module.md)
+- [C++26 モジュール宣言より前での`#line`ディレクティブの使用を許可する](/lang/cpp26/allow_line_before_module_declarations.md)
 
 
 ## 参照
