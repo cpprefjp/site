@@ -6,19 +6,19 @@
 ```cpp
 namespace std {
   int
-    abs(int j);         // (1) C++03
+    abs(int j);                 // (1) C++03
   constexpr int
-    abs(int j);         // (1) C++23
+    abs(int j);                 // (1) C++23
 
   long
-    abs(long j);        // (2) C++03
+    abs(long j);                // (2) C++03
   constexpr long
-    abs(long j);        // (2) C++23
+    abs(long j);                // (2) C++23
 
   long long
-    abs(long long j);   // (3) C++11
+    abs(long long j);           // (3) C++11
   constexpr long long
-    abs(long long j);   // (3) C++23
+    abs(long long j);           // (3) C++23
 
   float
     abs(float j);               // (4) C++03からC++20まで
@@ -31,14 +31,14 @@ namespace std {
     abs(floating-point-type j); // (7) C++23
 
   long
-    labs(long j);       // (8) C++03
+    labs(long j);               // (8) C++03
   constexpr long
-    labs(long j);       // (8) C++23
+    labs(long j);               // (8) C++23
 
   long long
-    llabs(long long j); // (9) C++11
+    llabs(long long j);         // (9) C++11
   constexpr long long
-    llabs(long long j); // (9) C++23
+    llabs(long long j);         // (9) C++23
 }
 ```
 
