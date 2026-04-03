@@ -43,7 +43,7 @@ namespace std {
 ```
 
 ## 概要
-絶対値を求める。abs は absolute value（絶対値）の略。
+算術型の絶対値を求める。abs は absolute value（絶対値）の略。
 
 - (1) : `int`に対するオーバーロード
 - (2) : `long`に対するオーバーロード
@@ -52,8 +52,8 @@ namespace std {
 - (5) : `double`に対するオーバーロード
 - (6) : `long double`に対するオーバーロード
 - (7) : 浮動小数点数型に対するオーバーロード
-- (8) : `long`規定
-- (9) : `long long`規定
+- (8) : `long`型規定
+- (9) : `long long`型規定
 
 
 ## 戻り値
