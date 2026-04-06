@@ -91,6 +91,10 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`stdc_has_single_bit`](/reference/stdbit.h/stdc_has_single_bit.md) - C互換のビット操作関数
+
+
 ## 参照
 - [P0556R3 Integral power-of-2 operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0556r3.html)
 - [P1956R1 On the names of low-level bit manipulation functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1956r1.pdf)

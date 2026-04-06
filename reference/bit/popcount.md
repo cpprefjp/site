@@ -71,6 +71,7 @@ int main()
 
 ## 関連項目
 - [`std::bitset::count()`](/reference/bitset/bitset/count.md)
+- [`stdc_count_ones`](/reference/stdbit.h/stdc_count_ones.md) - C互換のビット操作関数
 
 
 ## 参照

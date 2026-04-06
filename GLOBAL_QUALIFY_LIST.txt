@@ -310,6 +310,8 @@
     * std::istringstream[link /reference/sstream/basic_istringstream.md]
 * <stack>[link /reference/stack.md]
 * <stacktrace>[link /reference/stacktrace.md]
+* <stdbit.h>[link /reference/stdbit.h.md]
+* <stdckdint.h>[link /reference/stdckdint.h.md]
 * <stdexcept>[link /reference/stdexcept.md]
 * <stdfloat>[link /reference/stdfloat.md]
     * std::bfloat16_t[link /reference/stdfloat/bfloat16_t.md]

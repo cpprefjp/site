@@ -68,5 +68,9 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`stdc_leading_zeros`](/reference/stdbit.h/stdc_leading_zeros.md) - C互換のビット操作関数
+
+
 ## 参照
 - [P0553R4 Bit operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0553r4.html)

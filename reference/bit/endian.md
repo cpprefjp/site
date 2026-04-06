@@ -71,6 +71,10 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`__STDC_ENDIAN_BIG__`](/reference/stdbit.h/stdc_endian_big.md), [`__STDC_ENDIAN_LITTLE__`](/reference/stdbit.h/stdc_endian_little.md), [`__STDC_ENDIAN_NATIVE__`](/reference/stdbit.h/stdc_endian_native.md) - C互換のエンディアン定数
+
+
 ## 参照
 - [P0463R1 endian, Just endian](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0463r1.html)
 - [P1612R1 Relocate Endian's Specification](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1612r1.pdf)
