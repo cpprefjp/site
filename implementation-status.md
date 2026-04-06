@@ -321,7 +321,7 @@
 | P2865R6: [非推奨だった組み込み配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md) | C++20で非推奨となっていた配列比較を削除 | 15 | 20 | | |
 | P1061R10: [構造化束縛でパックを導入できるようにする](/lang/cpp26/structured_bindings_can_introduce_a_pack.md) | タプルを分解する際に複数の変数をパックとして宣言できるようにする。`auto [a, ...xs] = f();` | | | | |
 | P3176R0: [先行するカンマのない省略記号を非推奨化](/lang/cpp26/the_oxford_variadic_comma.md) | `void f(int, ...);`はOK。`void f(int...);`は非推奨 | 15 | 20 | | |
-| P3074R7: [共用体をトリビアルに未初期化できるようにする](/lang/cpp26/trivial_unions.md.nolink) | `constexpr`での`union U { T storage[N]; };`を許可し、未初期化にできるようにする | | | | |
+| P3074R7: [共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md) | 非トリビアルな型をメンバにもつ共用体のデフォルトコンストラクタとデストラクタをトリビアルにし、未初期化ストレージとして使用可能にする | | | | |
 | P2900R14: [契約プログラミングをサポートする](/lang/cpp26/contracts.md) | 関数の事前条件、事後条件、不変条件を記述できるようにする | | | | |
 | P2841R7: [コンセプトと変数テンプレートにテンプレートテンプレートパラメータのサポートを追加](/lang/cpp26/concept_and_variable-template_template-parameters.md.nolink) | テンプレート引数をあとで指定するテンプレートテンプレートパラメータを、コンセプトと変数テンプレートでも使用できるようにする | | | | |
 | P1967R14: [ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md) | バイナリファイルをインクルードするメカニズム。`#include`とちがって読み出しサイズなどの柔軟な指定ができる | 15 | | | |

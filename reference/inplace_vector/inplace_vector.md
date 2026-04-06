@@ -265,6 +265,10 @@ size: 3
 - [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
 
 
+## 関連項目
+- [C++26 共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md)
+
+
 ## 参照
 - [P0843R14 `inplace_vector`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0843r14.html)
 - [P3074R7 Trivial Unions (was `std::uninitialized<T>`)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3074r7.html)
