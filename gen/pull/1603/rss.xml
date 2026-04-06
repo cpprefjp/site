@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-06T02:37:00.169285</updated>
-  <id>f5ac2894-b27d-45e8-bdb6-6f5c94d66ae1</id>
+  <updated>2026-04-06T02:44:09.784008</updated>
+  <id>afa9736f-993e-4568-8f57-fa448d337bdc</id>
 
   
     <entry>
@@ -7122,60 +7122,6 @@ index cda9c3f69..cc4fe877d 100644
  ## 参照
  - [P0533R9 constexpr for `&amp;lt;cmath&amp;gt;` and `&amp;lt;cstdlib&amp;gt;`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
      - C++23での、一部関数の`constexpr`対応
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>teruyamato0731</name>
-        <email>77840326+teruyamato0731@users.noreply.github.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>abs -- feat: `std::abs`に表現不可能な値（`INT_MIN`等）を渡した際の未定義動作について追記 (#1600)</title>
-      <link href="https://cpprefjp.github.io/reference/cmath/abs.html"/>
-      <id>486647fbec3b34f07974d0139fc98d03b3f964bb:reference/cmath/abs.md</id>
-      <updated>2026-04-03T11:02:19+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/abs.md b/reference/cmath/abs.md
-index 12397ef4e..7efe04348 100644
---- a/reference/cmath/abs.md
-+++ b/reference/cmath/abs.md
-@@ -50,6 +50,8 @@ namespace std {
- 
- ## 備考
- - $$ f(x) = | x | $$
-+- (6), (7), (8) : 引数の絶対値が、戻り値の型で表現できない場合、未定義動作を引き起こす。
-+    - 一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例:`int`における[`INT_MIN`](/reference/climits/int_min.md)）の絶対値は、表現できる最大値（[`INT_MAX`](/reference/climits/int_max.md)）よりも1大きくなってしまうため、この未定義動作に該当する。
- - 任意の整数型に対するオーバーロード(5)は C++11 で追加されたが、[一部の符号なし整数型に対して問題を引き起こす](http://wg21.cmeerw.net/lwg/issue2192)ことから C++17 で削除され、符号付き整数型に対するオーバーロード(6), (7), (8)が追加された
- - C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>teruyamato0731</name>
-        <email>77840326+teruyamato0731@users.noreply.github.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>abs -- feat: `std::abs`に表現不可能な値（`INT_MIN`等）を渡した際の未定義動作について追記 (#1600)</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
-      <id>486647fbec3b34f07974d0139fc98d03b3f964bb:reference/cstdlib/abs.md</id>
-      <updated>2026-04-03T11:02:19+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
-index 3ed633d17..cda9c3f69 100644
---- a/reference/cstdlib/abs.md
-+++ b/reference/cstdlib/abs.md
-@@ -63,6 +63,8 @@ namespace std {
- 
- 
- ## 備考
-+- (1), (2), (3), (8), (9) : 引数の絶対値が、戻り値の型で表現できない場合、未定義動作を引き起こす。
-+    - 一般的な2の補数表現のシステムにおいて、符号付き整数型の最小値（例:`int`における[`INT_MIN`](/reference/climits/int_min.md)）の絶対値は、表現できる最大値（[`INT_MAX`](/reference/climits/int_max.md)）よりも1大きくなってしまうため、この未定義動作に該当する。
- - パラメータの型`X`において[`is_unsigned_v`](/reference/type_traits/is_unsigned.md)`&amp;lt;X&amp;gt;`が`true`であり、`X`が整数昇格によって`int`に変換できない場合、プログラムは不適格となる
-     - Cとの互換性のため、`int`に昇格できる符号なし整数型は許可される
- - C++23では、(4), (5), (6)が(7)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
