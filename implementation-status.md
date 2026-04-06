@@ -328,7 +328,7 @@
 | P3618R0: [`main`関数をグローバルモジュールに含められるようにする](/lang/cpp26/allow_attaching_main_to_the_global_module.md) | `main`関数に`extern "C++"`を指定できるようにすることで名前付きモジュールに含められるようにする | 16 | 21 | | | |
 | P2996R13: [静的リフレクション](/lang/cpp26/reflection.md.nolink) | リフレクション演算子`^^`と`std::meta::info`型によりコンパイル時にさまざまな情報を取得できる | | | | |
 | P1306R5: [コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md.nolink) | クラス・タプル・Range・パラメータパックなどを展開してすべての要素をコンパイル時の処理する`template for`文を追加 | 16 | | | |
-| P3533R2: [`constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md.nolink) | 定数式の文脈での仮想継承を許可 | 16 | | | |
+| P3533R2: [`constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md) | 定数式の文脈での仮想継承を許可 | 16 | | | |
 | P2843R3: [プリプロセッサ仕様での「未定義動作」を不適格 (診断不要) に変更](/lang/cpp26/preprocessing_is_never_undefined.md.nolink) | プリプロセッサとレキサーの文脈での「未定義動作」用語を不適格 (診断不要) に変更 | 16 | | | |
 | P3868R1: [モジュール宣言より前での`#line`ディレクティブの使用を許可する](/lang/cpp26/allow_line_before_module_declarations.md) | モジュール宣言より前での`#line`ディレクティブの使用を禁止していたのは過度な制限だった | | | | |
 

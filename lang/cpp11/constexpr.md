@@ -219,6 +219,7 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
 - [C++26 定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md)
 - [C++26 `constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md)
 - [C++26 `constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md)
+- [C++26 `constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md)
 
 
 ## 参照
