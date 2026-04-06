@@ -108,6 +108,10 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`stdc_bit_ceil`](/reference/stdbit.h/stdc_bit_ceil.md) - C互換のビット操作関数
+
+
 ## 参照
 - [P0556R3 Integral power-of-2 operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0556r3.html)
 - [P1355R2 Exposing a narrow contract for `ceil2`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1355r2.html)
