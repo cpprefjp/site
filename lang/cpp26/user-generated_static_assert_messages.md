@@ -54,6 +54,7 @@ static_assert(定数式, 診断メッセージ);
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
 - [C++17 `static_assert`のメッセージ省略を許可](/lang/cpp17/extending_static_assert.md)
+- [C++26 コンパイル時にのみ使用される文字列の扱いを明確化](/lang/cpp26/unevaluated_strings.md)
 
 
 ## 参照

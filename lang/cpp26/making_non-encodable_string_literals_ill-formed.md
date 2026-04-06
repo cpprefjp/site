@@ -29,6 +29,7 @@ char c = 'é'; // C++23:実装定義, C++26:NG グレイブアクセントをつ
 
 ## 関連項目
 - [C++23 1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md)
+- [C++26 コンパイル時にのみ使用される文字列の扱いを明確化](/lang/cpp26/unevaluated_strings.md)
 
 
 ## 参照
