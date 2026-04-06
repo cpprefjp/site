@@ -1,0 +1,311 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>is_applicable - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,std,class template,cpp26
+">
+        <meta name="title" content="is_applicable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="is_applicable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="is_applicable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/is_applicable.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="関数呼び出し可能な型`F`に対して、[`tuple-like`](/reference/tuple/tuple-like.md)な型`Tuple`の要素を展開して[`apply`](/reference/tuple/apply.md)による呼び出しが可能かどうかを調べる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="is_applicable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/is_applicable.html" />
+        <meta name="twitter:description" content="関数呼び出し可能な型`F`に対して、[`tuple-like`](/reference/tuple/tuple-like.md)な型`Tuple`の要素を展開して[`apply`](/reference/tuple/apply.md)による呼び出しが可能かどうかを調べる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;45d5db0b098016c14054814205e5c65c9092bd89&#34;, &#34;source&#34;: &#34;#include &lt;tuple&gt;\n#include &lt;type_traits&gt;\n#include &lt;string&gt;\n#include &lt;iostream&gt;\n\nint add(int a, int b) { return a + b; }\nvoid no_args() {}\n\nint main()\n{\n  std::cout &lt;&lt; std::boolalpha;\n\n  // add(int, int) \u306b tuple&lt;int, int&gt; \u3092\u5c55\u958b\u3057\u3066\u547c\u3073\u51fa\u3057\u53ef\u80fd\n  std::cout &lt;&lt; std::is_applicable_v&lt;decltype(&amp;add), std::tuple&lt;int, int&gt;&gt; &lt;&lt; std::endl;\n\n  // add(int, int) \u306b tuple&lt;int&gt; \u3067\u306f\u5f15\u6570\u304c\u8db3\u308a\u306a\u3044\n  std::cout &lt;&lt; std::is_applicable_v&lt;decltype(&amp;add), std::tuple&lt;int&gt;&gt; &lt;&lt; std::endl;\n\n  // no_args() \u306b\u7a7a\u306e\u30bf\u30d7\u30eb\u3067\u547c\u3073\u51fa\u3057\u53ef\u80fd\n  std::cout &lt;&lt; std::is_applicable_v&lt;decltype(&amp;no_args), std::tuple&lt;&gt;&gt; &lt;&lt; std::endl;\n\n  // no_args() \u306b tuple&lt;int&gt; \u306f\u5f15\u6570\u304c\u591a\u3059\u304e\u308b\n  std::cout &lt;&lt; std::is_applicable_v&lt;decltype(&amp;no_args), std::tuple&lt;int&gt;&gt; &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;is_applicable&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">is_applicable</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-03-12T02:15:34">
+        2026年03月12日 02時15分34秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/is_applicable.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/is_applicable.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_applicable</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_applicable</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_applicable_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_applicable</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">Tuple</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>関数呼び出し可能な型<code>F</code>に対して、<code><a href="../tuple/tuple-like.html">tuple-like</a></code>な型<code>Tuple</code>の要素を展開して<code><a href="../tuple/apply.html">apply</a></code>による呼び出しが可能かどうかを調べる。</p>
+<p><code><a href="is_invocable.html">is_invocable</a></code>の<code><a href="../tuple/apply.html">apply</a></code>版である。</p>
+<h2>要件</h2>
+<p>型<code>F</code>および<code>Tuple</code>が、<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>であること。もしくは<code>const</code>/<code>volatile</code>修飾された(あるいはされていない)<code>void</code>か、要素数不明の配列型であること。</p>
+<h2>効果</h2>
+<p><code>ELEMS-OF(T)</code>を、<code>make_index_sequence&lt;tuple_size_v&lt;remove_reference_t&lt;T&gt;&gt;&gt;</code>が示す<code>index_sequence</code>の特殊化のテンプレート引数である<code>size_t</code>のパラメータパック<code>N</code>に対する、パラメータパック<code>get&lt;N&gt;(declval&lt;T&gt;())</code>とする。</p>
+<p><code><a href="../tuple/tuple-like.html">tuple-like</a>&lt;Tuple&gt;</code>が<code>true</code>であり、かつ式<a href="../concepts/Invoke.html"><em>INVOKE</em></a><code>(declval&lt;F&gt;(), ELEMS-OF(Tuple)...)</code>が未評価オペランドとして扱われたときに<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば<code><a href="true_type.html">true_type</a></code>から派生し、そうでなければ<code><a href="false_type.html">false_type</a></code>から派生する。</p>
+<h2>例</h2>
+<p><div class="yata" id="45d5db0b098016c14054814205e5c65c9092bd89"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../tuple.html">&lt;tuple&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">no_args</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// add(int, int) に <a href="../tuple/tuple.html">tuple</a>&lt;int, int&gt; を展開して呼び出し可能</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_applicable_v</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">add</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// add(int, int) に <a href="../tuple/tuple.html">tuple</a>&lt;int&gt; では引数が足りない</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_applicable_v</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">add</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// no_args() に空のタプルで呼び出し可能</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_applicable_v</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">no_args</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;&gt;&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// no_args() に <a href="../tuple/tuple.html">tuple</a>&lt;int&gt; は引数が多すぎる</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::is_applicable_v</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">no_args</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>true
+false
+true
+false
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 22 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 15 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="is_invocable.html">is_invocable</a></code></li>
+<li><code><a href="is_nothrow_applicable.html">is_nothrow_applicable</a></code></li>
+<li><code><a href="apply_result.html">apply_result</a></code></li>
+<li><code><a href="../tuple/apply.html">apply</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1317r2.pdf" target="_blank">P1317R2 Remove return type deduction in <code>std::apply</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

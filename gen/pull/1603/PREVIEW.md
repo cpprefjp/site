@@ -1,0 +1,43 @@
+# PR [\#1603](https://github.com/cpprefjp/site/pull/1603) プレビュー
+- &#x231a; 更新時刻: 2026-04-06 11:37:01 JST
+- &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1603)
+- &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Ac23_lib)
+- **&#x2AEF;** ソースの変更: [`5c82273..79d6c61`](https://github.com/cpprefjp/site/compare/5c82273b49dc364df021a0568081255a846026b7..79d6c61c104962e5270973f299e4832b9c809aa9)
+
+## 変更記事一覧 (35件)
+
+- &#x1f4dd; [`lang/cpp26`](https://cpprefjp.github.io/site/gen/pull/1603/lang/cpp26.html)
+- &#x1f4dd; [`reference`](https://cpprefjp.github.io/site/gen/pull/1603/reference.html)
+- &#x1f4dd; [`reference/bit`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit.html)
+- &#x1f4dd; [`reference/bit/bit_ceil`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/bit_ceil.html)
+- &#x1f4dd; [`reference/bit/bit_floor`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/bit_floor.html)
+- &#x1f4dd; [`reference/bit/bit_width`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/bit_width.html)
+- &#x1f4dd; [`reference/bit/countl_one`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/countl_one.html)
+- &#x1f4dd; [`reference/bit/countl_zero`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/countl_zero.html)
+- &#x1f4dd; [`reference/bit/countr_one`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/countr_one.html)
+- &#x1f4dd; [`reference/bit/countr_zero`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/countr_zero.html)
+- &#x1f4dd; [`reference/bit/endian`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/endian.html)
+- &#x1f4dd; [`reference/bit/has_single_bit`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/has_single_bit.html)
+- &#x1f4dd; [`reference/bit/popcount`](https://cpprefjp.github.io/site/gen/pull/1603/reference/bit/popcount.html)
+- &#x1f4dd; [`reference/stdbit.h`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_bit_ceil`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_bit_ceil.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_bit_floor`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_bit_floor.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_bit_width`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_bit_width.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_count_ones`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_count_ones.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_count_zeros`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_count_zeros.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_endian_big`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_endian_big.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_endian_little`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_endian_little.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_endian_native`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_endian_native.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_first_leading_one`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_first_leading_one.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_first_leading_zero`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_first_leading_zero.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_first_trailing_one`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_first_trailing_one.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_first_trailing_zero`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_first_trailing_zero.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_has_single_bit`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_has_single_bit.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_leading_ones`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_leading_ones.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_leading_zeros`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_leading_zeros.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_trailing_ones`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_trailing_ones.html) &#x2728;
+- &#x1f4dd; [`reference/stdbit.h/stdc_trailing_zeros`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdbit.h/stdc_trailing_zeros.html) &#x2728;
+- &#x1f4dd; [`reference/stdckdint.h`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdckdint.h.html) &#x2728;
+- &#x1f4dd; [`reference/stdckdint.h/ckd_add`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdckdint.h/ckd_add.html) &#x2728;
+- &#x1f4dd; [`reference/stdckdint.h/ckd_mul`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdckdint.h/ckd_mul.html) &#x2728;
+- &#x1f4dd; [`reference/stdckdint.h/ckd_sub`](https://cpprefjp.github.io/site/gen/pull/1603/reference/stdckdint.h/ckd_sub.html) &#x2728;
