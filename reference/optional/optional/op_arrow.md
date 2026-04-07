@@ -6,12 +6,22 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr const T* operator->() const;
-constexpr T* operator->();
+// optional<T>版のオーバーロード
+constexpr const T* operator->() const; // (1) C++17
+constexpr T* operator->();             // (2) C++17
+
+// optional<T&>版のオーバーロード (C++26)
+constexpr T* operator->() const noexcept; // (3) C++26
 ```
 
 ## 概要
 保持している有効値のメンバにアクセスする。
+
+- (1) : `optional<T>`のconst版。`const T*`を返す
+- (2) : `optional<T>`の非const版。`T*`を返す
+- (3) : `optional<T&>`の場合。`T*`を返す
+
+`optional<T>`では (1), (2) が定義され、`optional<T&>`では (3) のみが定義される。
 
 
 ## 堅牢化された事前条件
@@ -19,7 +29,9 @@ constexpr T* operator->();
 
 
 ## 戻り値
-保持している有効値へのポインタを返す。
+- (1) : 有効値への`const T*`
+- (2) : 有効値への`T*`
+- (3) : 参照先への`T*`
 
 
 ## 例外
@@ -72,3 +84,5 @@ int main()
 - [LWG Issue 2740. `constexpr optional<T>::operator->`](https://wg21.cmeerw.net/lwg/issue2740)
 - [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加

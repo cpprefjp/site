@@ -38,6 +38,29 @@ template <class U>
 explicit(see below) optional(optional<U>&& rhs);                // (9) C++20
 template <class U>
 explicit(see below) constexpr optional(optional<U>&& rhs);      // (9) C++23
+
+// optional<T&>固有のオーバーロード (C++26)
+constexpr optional(const optional&) noexcept = default;         // (10) C++26
+
+template <class Arg>
+constexpr explicit optional(in_place_t, Arg&& arg);             // (11) C++26
+
+template <class U>
+constexpr explicit(see below) optional(U&& u)
+  noexcept(see below);                                          // (12) C++26
+
+template <class U>
+constexpr explicit(see below)
+  optional(optional<U>& rhs) noexcept(see below);              // (13) C++26
+template <class U>
+constexpr explicit(see below)
+  optional(const optional<U>& rhs) noexcept(see below);        // (14) C++26
+template <class U>
+constexpr explicit(see below)
+  optional(optional<U>&& rhs) noexcept(see below);             // (15) C++26
+template <class U>
+constexpr explicit(see below)
+  optional(const optional<U>&& rhs) noexcept(see below);       // (16) C++26
 ```
 * EXPLICIT[italic]
 * nullopt_t[link /reference/optional/nullopt_t.md]
@@ -52,6 +75,15 @@ explicit(see below) constexpr optional(optional<U>&& rhs);      // (9) C++23
 - (7) : 型`T`に変換可能な型`U`の値を有効値として受け取り、ムーブして保持する
 - (8) : 変換可能な`optional`オブジェクトからコピー構築する
 - (9) : 変換可能な`optional`オブジェクトからムーブ構築する
+- (10) : `optional<T&>`のコピーコンストラクタ (`noexcept = default`)
+- (11) : `optional<T&>`を`in_place_t`と単一引数から構築する
+- (12) : `optional<T&>`を型`T&`に変換可能な値から構築する
+- (13) : `optional<T&>`を非const左辺値参照の`optional`オブジェクトから構築する
+- (14) : `optional<T&>`をconst左辺値参照の`optional`オブジェクトから構築する
+- (15) : `optional<T&>`を非const右辺値参照の`optional`オブジェクトから構築する
+- (16) : `optional<T&>`をconst右辺値参照の`optional`オブジェクトから構築する
+
+`optional<T>`では (1)～(9) が定義される。`optional<T&>`では (1), (2) および (10)～(16) が定義される。
 
 
 ## テンプレートパラメータ制約
@@ -60,6 +92,9 @@ explicit(see below) constexpr optional(optional<U>&& rhs);      // (9) C++23
 - (7) : 型`U`から型`T`がムーブ構築可能であること
 - (8) : 型`U`から型`T`がコピー構築可能であること
 - (9) : 型`U`から型`T`がムーブ構築可能であること
+- (11) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T&, Arg> == true`であり、[`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<T&, Arg> == false`であること
+- (12) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T&, U> == true`であること
+- (13)～(16) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T&, U&> == true`であること (型`U`は`rhs`の要素型)
 
 
 ## 効果
@@ -71,6 +106,10 @@ explicit(see below) constexpr optional(optional<U>&& rhs);      // (9) C++23
 - (7) : `rhs`を有効値として、`*this`にムーブする
 - (8) : `rhs`が有効値を保持していれば、それを`*this`にコピーする
 - (9) : `rhs`が有効値を保持していれば、それを`*this`にムーブする
+- (10) : `rhs`が有効値 (参照先) を保持していれば、そのポインタを`*this`にコピーする
+- (11) : `arg`への参照を有効値として保持する
+- (12) : `u`への参照を有効値として保持する
+- (13)～(16) : `rhs`が有効値を保持していれば、その参照先を`*this`の参照先として保持する
 
 
 ## 例外
@@ -108,6 +147,7 @@ explicit(see below) constexpr optional(optional<U>&& rhs);      // (9) C++23
 
 ## 備考
 - (5) : [`std::in_place_t`](/reference/utility/in_place_t.md)はオーバーロードに機能名を付けるためにあり、その型による動的な処理内容への影響はない。このオーバーロードを選択したい場合は、事前定義されている定数[`std::in_place`](/reference/utility/in_place_t.md)を第1引数として指定すること
+- (10)～(16) : ダングリング参照を防ぐため、一時オブジェクトから参照を構築するオーバーロードは削除定義される
 
 
 ## 例
@@ -230,3 +270,5 @@ int main()
     - C++20での`explicit(bool)`構文への対応
 - [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
 - [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加

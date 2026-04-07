@@ -6,10 +6,14 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr T& operator*() &;                 // (1)
-constexpr T&& operator*() &&;               // (2)
-constexpr const T& operator*() const&;      // (3)
-constexpr const T&& operator*() const&&;    // (4)
+// optional<T>版のオーバーロード
+constexpr T& operator*() &;                 // (1) C++17
+constexpr T&& operator*() &&;               // (2) C++17
+constexpr const T& operator*() const&;      // (3) C++17
+constexpr const T&& operator*() const&&;    // (4) C++17
+
+// optional<T&>版のオーバーロード (C++26)
+constexpr T& operator*() const noexcept;    // (5) C++26
 ```
 
 ## 概要
@@ -19,6 +23,9 @@ constexpr const T&& operator*() const&&;    // (4)
 - (2) : `*this` が非 `const` 右辺値である場合に、有効値への非 `const` 右辺値参照を返す
 - (3) : `*this` が `const` 左辺値である場合に、有効値への `const` 左辺値参照を返す
 - (4) : `*this` が `const` 右辺値である場合に、有効値への `const` 右辺値参照を返す
+- (5) : `optional<T&>`の場合に、参照先への左辺値参照を返す
+
+`optional<T>`では (1)～(4) が定義され、`optional<T&>`では (5) のみが定義される。
 
 
 ## 堅牢化された事前条件
@@ -30,6 +37,7 @@ constexpr const T&& operator*() const&&;    // (4)
 - (2) : 有効値への非 `const` 右辺値参照
 - (3) : 有効値への `const` 左辺値参照
 - (4) : 有効値への `const` 右辺値参照
+- (5) : 参照先への`T&`
 
 
 ## 例外
@@ -86,3 +94,5 @@ int main()
 ## 参照
 - [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加
