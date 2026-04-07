@@ -58,6 +58,7 @@ concept decays_to = C<std::decay_t<T>>;
 template <decays_to<std::copyable> T>
 auto f(T&& x);
 ```
+* std::copyable[link /reference/concepts/copyable.md]
 
 ### 変数テンプレートテンプレートパラメータ
 テンプレートパラメータリストにおいて、`auto`キーワードで変数テンプレートを受け取るパラメータを宣言できる。

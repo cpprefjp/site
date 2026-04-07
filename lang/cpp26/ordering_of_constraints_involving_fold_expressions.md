@@ -36,6 +36,8 @@ void g(T...);
 // C++26: C<T>はA<T>を包摂するため、2番目のオーバーロードが選択される
 g(std::vector{1, 2, 3});
 ```
+* std::is_move_constructible_v[link /reference/type_traits/is_move_constructible.md]
+* std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
 
 C++26では、`&&`による畳み込み式は個別の制約の連言として、`||`による畳み込み式は個別の制約の選言として正規化され、通常の原子制約と同じ包摂規則が適用される。
 
@@ -73,7 +75,7 @@ f();
 ## この機能が必要になった背景・経緯
 コンセプトと畳み込み式は、可変引数テンプレートの制約を簡潔に記述するために組み合わせて使われることが多い。しかし、C++23では畳み込み式が原子制約として扱われるため、概念的に明らかな包摂関係が認識されず、オーバーロード解決が曖昧になる問題があった。
 
-たとえば、`std::ranges::bidirectional_range`と`std::ranges::random_access_range`は非可変引数テンプレートでは正しく順序付けられるが、可変引数テンプレートで畳み込み式を使用すると順序付けが失われていた。この提案はその問題を解決する。
+たとえば、[`std::ranges::bidirectional_range`](/reference/ranges/bidirectional_range.md)と[`std::ranges::random_access_range`](/reference/ranges/random_access_range.md)は非可変引数テンプレートでは正しく順序付けられるが、可変引数テンプレートで畳み込み式を使用すると順序付けが失われていた。この提案はその問題を解決する。
 
 この提案はP2841R0 (コンセプトと変数テンプレートのテンプレートテンプレートパラメータ) から派生したもので、畳み込み式のパターンが通常の制約式である場合を扱う。パターンがコンセプトテンプレートパラメータである場合はP2841で扱われる。
 
