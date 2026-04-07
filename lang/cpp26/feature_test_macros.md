@@ -27,7 +27,7 @@
 |`__cpp_pp_embed`|`202502L`|[ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md)|
 |`__cpp_static_assert`|`202306L`|[`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md)|
 |`__cpp_structured_bindings`|`202411L`|[構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md)<br/>[構造化束縛でパックを導入できるようにする](/lang/cpp26/structured_bindings_can_introduce_a_pack.md)|
-|`__cpp_template_parameters`|`202502L`|コンセプトと変数テンプレートにテンプレートテンプレートパラメータのサポートを追加|
+|`__cpp_template_parameters`|`202502L`|[コンセプトと変数テンプレートをテンプレート引数として渡せるようにする](/lang/cpp26/concept_and_variable-template_template-parameters.md)|
 |`__cpp_trivial_relocatability`|`202502L`|トリビアルな再配置|
 |`__cpp_trivial_union`|`202502L`|[共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md)|
 |`__cpp_variadic_friend`|`202403L`|[可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md)|

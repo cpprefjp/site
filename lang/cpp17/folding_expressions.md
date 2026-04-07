@@ -243,6 +243,7 @@ auto res =  (std::string(args) + ...);
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 可変引数テンプレート](/lang/cpp11/variadic_templates.md)
 - [`std::accumulate`](/reference/numeric/accumulate.md) — イテレータ範囲について累積的に二項演算を行う
+- [C++26 制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md)
 
 
 ## 参照

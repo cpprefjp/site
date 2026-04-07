@@ -314,7 +314,7 @@
 | P2893R3: [可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md) | クラステンプレートの可変引数テンプレートでまとめて`friend`宣言できるようにする | 15 | 20 | | |
 | P2747R2: [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md) | 定数式の文脈での配置`new`を許可 | 15 | 20 | | |
 | P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md) | 未定義動作を引き起こす操作をコンパイルエラーとする | 15 | 19 | | |
-| P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink) | 畳み込み式では全体ではなく個別の制約を原子制約式として扱う | | 19 | | |
+| P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md) | 畳み込み式を含む制約の包摂関係を認識できるようにし、オーバーロード解決の曖昧さを解消する | | 19 | | |
 | P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | | | |
 | P2686R5: [`constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md) | 定数式に対する構造化束縛を許可し、関連して`constexpr`参照の制限を緩和して自動変数も参照できるようにする | | | | |
 | P3068R6: [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md) | 定数式の文脈での例外の送出と捕捉を許可 | | | | |
@@ -323,7 +323,7 @@
 | P3176R0: [先行するカンマのない省略記号を非推奨化](/lang/cpp26/the_oxford_variadic_comma.md) | `void f(int, ...);`はOK。`void f(int...);`は非推奨 | 15 | 20 | | |
 | P3074R7: [共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md) | 非トリビアルな型をメンバにもつ共用体のデフォルトコンストラクタとデストラクタをトリビアルにし、未初期化ストレージとして使用可能にする | | | | |
 | P2900R14: [契約プログラミングをサポートする](/lang/cpp26/contracts.md) | 関数の事前条件、事後条件、不変条件を記述できるようにする | | | | |
-| P2841R7: [コンセプトと変数テンプレートにテンプレートテンプレートパラメータのサポートを追加](/lang/cpp26/concept_and_variable-template_template-parameters.md.nolink) | テンプレート引数をあとで指定するテンプレートテンプレートパラメータを、コンセプトと変数テンプレートでも使用できるようにする | | | | |
+| P2841R7: [コンセプトと変数テンプレートをテンプレート引数として渡せるようにする](/lang/cpp26/concept_and_variable-template_template-parameters.md) | テンプレートテンプレートパラメータとして、クラステンプレートやエイリアステンプレートに加え、コンセプトと変数テンプレートも渡せるようにする | | | | |
 | P1967R14: [ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md) | バイナリファイルをインクルードするメカニズム。`#include`とちがって読み出しサイズなどの柔軟な指定ができる | 15 | | | |
 | P3618R0: [`main`関数をグローバルモジュールに含められるようにする](/lang/cpp26/allow_attaching_main_to_the_global_module.md) | `main`関数に`extern "C++"`を指定できるようにすることで名前付きモジュールに含められるようにする | 16 | 21 | | | |
 | P2996R13: [静的リフレクション](/lang/cpp26/reflection.md.nolink) | リフレクション演算子`^^`と`std::meta::info`型によりコンパイル時にさまざまな情報を取得できる | | | | |

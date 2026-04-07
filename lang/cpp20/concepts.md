@@ -975,6 +975,8 @@ C++14の策定において、コンセプトの複雑さを回避して必要最
 - [`<iterator>`](/reference/iterator.md)
 - [`<ranges>`](/reference/ranges.md)
 - [C++20 autoパラメータによる関数テンプレートの簡易定義](function_templates_with_auto_parameters.md)
+- [C++26 制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md)
+- [C++26 コンセプトと変数テンプレートをテンプレート引数として渡せるようにする](/lang/cpp26/concept_and_variable-template_template-parameters.md)
 
 
 ## 参照
