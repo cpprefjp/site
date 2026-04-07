@@ -6,29 +6,44 @@
 * cpp17[meta cpp]
 
 ```cpp
+// optional<T>版のオーバーロード
 template <class U> constexpr T value_or(U&& v) const&; // (1)
 template <class U> constexpr T value_or(U&& v) &&;     // (2)
+
+// optional<T&>版のオーバーロード (C++26)
+template <class U = remove_cv_t<T>>
+constexpr remove_cv_t<T> value_or(U&& u) const;        // (3) C++26
 ```
 
 ## 概要
 有効値もしくは指定された無効値を取得する。
 
-この関数は、`*this`が有効値を保持していれば有効値を返し、そうでなければ`v`を返す。
+- (1) : `*this`が`const`左辺値である場合。有効値を保持していれば有効値を返し、そうでなければ`v`を返す
+- (2) : `*this`が右辺値である場合。有効値を保持していれば有効値をムーブして返し、そうでなければ`v`を返す
+- (3) : `optional<T&>`の場合。有効値を保持していれば参照先の値を返し、そうでなければ`u`を返す
+
+`optional<T>`では (1), (2) が定義され、`optional<T&>`では (3) のみが定義される。
 
 
 ## 要件
-- [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`であること
-- [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U&&, T> == true`であること
+- (1), (2) : [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`であること
+- (1), (2) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U&&, T> == true`であること
 
 
 ## 効果
-以下の式と等価の効果を持つ：
+- (1), (2) : 以下の式と等価の効果を持つ：
 
-```cpp
-return has_value() ? value() : static_cast<T>(std::forward<U>(v));
-```
-* has_value()[link has_value.md]
-* value()[link value.md]
+    ```cpp
+    return has_value() ? value() : static_cast<T>(std::forward<U>(v));
+    ```
+    * has_value()[link has_value.md]
+    * value()[link value.md]
+
+- (3) : 以下の式と等価の効果を持つ：
+
+    ```cpp
+    return has_value() ? *val : std::forward<U>(u);
+    ```
 
 
 ## 例
@@ -71,3 +86,8 @@ int main()
 - [`optional::value()`](value.md)
 - [`optional::has_value()`](has_value.md)
 - [`optional::operator bool()`](op_bool.md)
+
+
+## 参照
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加

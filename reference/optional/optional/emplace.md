@@ -6,6 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
+// optional<T>版のオーバーロード
 template <class... Args>
 T& emplace(Args&&... args);                                        // (1) C++17
 template <class... Args>
@@ -15,6 +16,10 @@ template <class U, class... Args>
 T& emplace(std::initializer_list<U> il, Args&&... args);           // (2) C++17
 template <class U, class... Args>
 constexpr T& emplace(std::initializer_list<U> il, Args&&... args); // (2) C++23
+
+// optional<T&>版のオーバーロード (C++26)
+template <class U>
+constexpr T& emplace(U&& u) noexcept(see below);                   // (3) C++26
 ```
 
 ## 概要
@@ -22,17 +27,21 @@ constexpr T& emplace(std::initializer_list<U> il, Args&&... args); // (2) C++23
 
 - (1) : 可変個の引数をとり、それを型`T`のコンストラクタ引数として渡して、この関数内で型`T`の有効値を構築して保持する
 - (2) : 初期化子リストと可変個の引数をとり、それらを型`T`のコンストラクタ引数として渡して、この関数内で型`T`の有効値を構築して保持する
+- (3) : `optional<T&>`の参照先を再束縛する。変換可能な単一引数を受け取る
+
+`optional<T>`では (1), (2) が定義され、`optional<T&>`では (3) のみが定義される。
 
 
-## 要件
+## テンプレートパラメータ制約
 - (1) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, Args&&...> == true`であること
+- (3) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T&, U> == true`であり、[`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<T&, U> == false`であること
 
 
 ## 効果
-まず、共通の動作として、[`reset()`](reset.md)メンバ関数を呼び出す。
-
-- (1) : 型`T`の有効値を、[`std::forward<Args>`](/reference/utility/forward.md)`(args)...`を引数として構築する
-- (2) : 型`T`の有効値を、`il`と[`std::forward<Args>`](/reference/utility/forward.md)`(args)...`を引数として構築する
+- (1), (2) : まず[`reset()`](reset.md)メンバ関数を呼び出す
+    - (1) : 型`T`の有効値を、[`std::forward<Args>`](/reference/utility/forward.md)`(args)...`を引数として構築する
+    - (2) : 型`T`の有効値を、`il`と[`std::forward<Args>`](/reference/utility/forward.md)`(args)...`を引数として構築する
+- (3) : 参照先を`u`に再束縛する
 
 
 ## 戻り値
@@ -49,6 +58,7 @@ constexpr T& emplace(std::initializer_list<U> il, Args&&... args); // (2) C++23
 
 ## 備考
 - (2) : このオーバーロードは主に、コンテナをアロケータ付きで、初期化子リスト代入するためにある
+- (3) : 一時オブジェクトから参照を構築するとダングリングになるケースでは、このオーバーロードは削除定義される
 
 
 ## 例
@@ -114,3 +124,5 @@ int main()
 - [LWG Issue 2857. {`variant`,`optional`,`any`}`::emplace` should return the constructed value](https://wg21.cmeerw.net/lwg/issue2857)
 - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
 - [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加

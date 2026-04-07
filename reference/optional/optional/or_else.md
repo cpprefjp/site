@@ -6,13 +6,23 @@
 * cpp23[meta cpp]
 
 ```cpp
-template<class F> constexpr optional or_else(F&& f) const &; // (1)
-template<class F> constexpr optional or_else(F&& f) &&;      // (2)
+// optional<T>版のオーバーロード
+template<class F> constexpr optional or_else(F&& f) const &; // (1) C++23
+template<class F> constexpr optional or_else(F&& f) &&;      // (2) C++23
+
+// optional<T&>版のオーバーロード (C++26)
+template<class F> constexpr optional or_else(F&& f) const;   // (3) C++26
 ```
 
 ## 概要
 有効値を保持していれば、なにもしない。
 有効値を保持していなければ、`f()`の呼び出し結果を`optional`として返す。
+
+- (1) : `*this`が`const`左辺値の場合
+- (2) : `*this`が右辺値の場合
+- (3) : `optional<T&>`の場合
+
+`optional<T>`では (1), (2) が定義され、`optional<T&>`では (3) のみが定義される。
 
 実際には複数オーバーロードが提供されるが、大まかには下記シグニチャのようにみなせる。
 `or_else`へは、空の引数リストをとり`std::optional<T>`へ変換可能な`Return`型を返す関数や関数オブジェクトを与える。
@@ -30,6 +40,7 @@ class optional {
 ## テンプレートパラメータ制約
 - (1) : `F`は[`invocable<>`](/reference/concepts/invocable.md)のモデル、かつ`T`は[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであること
 - (2) : `F`は[`invocable<>`](/reference/concepts/invocable.md)のモデル、かつ`T`は[`move_constructible`](/reference/concepts/move_constructible.md)のモデルであること
+- (3) : `F`は[`invocable<>`](/reference/concepts/invocable.md)のモデル、かつ`T`は[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであること
 
 
 ## 適格要件
@@ -37,7 +48,7 @@ class optional {
 
 
 ## 効果
-- (1) : 次と等価
+- (1), (3) : 次と等価
 
     ```cpp
     if (*this) {
@@ -158,3 +169,5 @@ int main()
 
 ## 参照
 - [P0798R8 Monadic operations for std::optional](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0798r8.html)
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加

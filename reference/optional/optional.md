@@ -9,6 +9,10 @@ namespace std {
   template <class T>
   class optional;
 
+  // 参照に対する部分特殊化 (C++26)
+  template <class T>
+  class optional<T&>;
+
 
   // viewコンセプトを有効化する (C++26)
   template<class T>
@@ -17,6 +21,10 @@ namespace std {
   // std::formatによるフォーマットを無効化する (C++26)
   template<class T>
   constexpr auto format_kind<optional<T>> = range_format::disabled;
+
+  // borrowed_rangeコンセプトを有効化する (C++26)
+  template<class T>
+  constexpr bool ranges::enable_borrowed_range<optional<T&>> = true;
 }
 ```
 
@@ -41,7 +49,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-型`T`が以下のいずれかに該当してはならない：
+プライマリテンプレート`optional<T>`の型`T`が以下のいずれかに該当してはならない：
 
 - 参照型
 - (CV修飾された)[`std::in_place_t`](/reference/utility/in_place_t.md)
@@ -50,10 +58,20 @@ namespace std {
 また、型`T`は[`std::destructible`](/reference/concepts/destructible.md)要件を満たすこと。
 
 
+## 参照に対する部分特殊化 (C++26)
+このクラスは、`optional<T&>`のように参照を保持できる。内部的には`T`へのポインタとして保持され、代入時には参照先を再束縛 (rebind) する。
+
+`optional<T&>`は以下の特徴をもつ：
+
+- ダングリング参照を防ぐため、一時オブジェクトから構築するオーバーロードは削除定義される
+- 代入は参照先の再束縛 (rebind) を行う（参照先オブジェクトへの代入ではない）
+- [`emplace()`](optional/emplace.md)は参照先の再束縛を行う意味論であるため、可変長引数版や[`std::initializer_list`](/reference/initializer_list/initializer_list.md)版はなく、単一引数のみ受け取る
+- `optional<T&>`はトリビアルコピー可能 (trivially copyable) である
+- モナド操作 ([`and_then()`](optional/and_then.md), [`transform()`](optional/transform.md), [`or_else()`](optional/or_else.md)) も使用可能
+
+
 ## 備考
 このクラスの前身となった[Boost Optional Library](https://boost.org/libs/optional)では、`optional<int&>`のように左辺値参照を要素型とした場合に、無効値の領域を最適化する機能が入っていた。
-
-標準ライブラリの`optional`クラスには現在、参照を持たせることはできない。
 
 
 ## メンバ関数
@@ -199,6 +217,64 @@ error
 ```
 
 
+### 参照型を保持する例 (C++26)
+```cpp example
+#include <print>
+#include <optional>
+#include <map>
+#include <string>
+
+// コンテナからの要素検索。見つからない場合は無効値を返す
+std::optional<const std::string&>
+  find_value(const std::map<int, std::string>& m, int key)
+{
+  auto it = m.find(key);
+  if (it != m.end()) {
+    return it->second;  // 要素への参照を返す (コピーは発生しない)
+  }
+  return std::nullopt;
+}
+
+int main()
+{
+  std::map<int, std::string> m = {
+    {1, "Alice"},
+    {2, "Bob"},
+    {3, "Charlie"}
+  };
+
+  // 値が見つかった場合
+  if (auto name = find_value(m, 2)) {
+    // コピーではなく参照を保持しているため、効率的にアクセスできる
+    std::println("{}", name.value());
+  }
+
+  // 値が見つからなかった場合
+  if (auto name = find_value(m, 99); !name) {
+    std::println("not found");
+  }
+
+  // モナド操作との組み合わせ
+  auto result = find_value(m, 1)
+    .transform([](const std::string& s) { return s.size(); })
+    .value_or(0u);
+  std::println("{}", result);
+}
+```
+* std::nullopt[link nullopt_t.md]
+* std::println[link /reference/print/println.md]
+* name.value()[link optional/value.md]
+* .transform[link optional/transform.md]
+* .value_or[link optional/value_or.md]
+
+#### 出力
+```
+Bob
+not found
+5
+```
+
+
 ## バージョン
 ### 言語
 - C++17
@@ -230,3 +306,7 @@ error
 - [P0504R0 Revisiting in-place tag types for `any`/`optional`/`variant`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0504r0.html)
 - [LWG Issue 3196. `std::optional<T>` is ill-formed is `T` is an array](https://wg21.cmeerw.net/lwg/issue3196)
 - [P0798R8 Monadic operations for std::optional](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0798r8.html)
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加
+- [P3836R2 `optional<T&>` Should Be Trivially Copyable](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3836r2.html)
+    - C++26で`optional<T&>`がトリビアルコピー可能であることを保証

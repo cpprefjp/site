@@ -29,6 +29,9 @@ template <class U>
 optional& operator=(optional<U>&& rhs);                            // (6) C++17
 template <class U>
 constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
+
+// optional<T&>固有のオーバーロード (C++26)
+constexpr optional& operator=(const optional&) noexcept = default; // (7) C++26
 ```
 * nullopt_t[link /reference/optional/nullopt_t.md]
 
@@ -39,6 +42,9 @@ constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
 - (4) : 要素型`T`に変換可能な値をムーブ代入
 - (5) : `optional<T>`に変換可能な`optional`オブジェクトをコピー代入
 - (6) : `optional<T>`に変換可能な`optional`オブジェクトをムーブ代入
+- (7) : `optional<T&>`のコピー代入。参照先の再束縛 (rebind) を行う (`noexcept = default`)
+
+`optional<T>`では (1)～(6) が定義される。`optional<T&>`では (1), (7) が定義される。
 
 
 ## テンプレートパラメータ制約
@@ -46,7 +52,7 @@ constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
 
 
 ## 効果
-いずれのオーバーロードでも、`*this` と `rhs` が有効な値を持っているか否かによって以下のような挙動となる。
+(1)～(6) では、`*this` と `rhs` が有効な値を持っているか否かによって以下のような挙動となる。
 
 |                                    | `*this` が有効な値を持っている                                        | `*this` が有効な値を持っていない                                     |
 |------------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -60,6 +66,8 @@ constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
 - (2), (5): `*rhs`
 - (3), (6): [`std::move`](../../utility/move.md)`(*rhs)`
 - (4): [`std::forward`](../../utility/forward.md)`<U>(rhs)`
+
+(7) では、`rhs`が保持する参照先ポインタをコピーする (参照先の再束縛)。
 
 
 ## 戻り値
@@ -86,6 +94,11 @@ constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
 
 - (2) : 型`T`が、[トリビアルにコピー構築可能](/reference/type_traits/is_trivially_copy_constructible.md)であり[トリビアルにコピー代入可能](/reference/type_traits/is_trivially_copy_assignable.md)かつ、[トリビアルに破棄可能](/reference/type_traits/is_trivially_destructible.md)である
 - (3) : 型`T`が、[トリビアルにムーブ構築可能](/reference/type_traits/is_trivially_move_constructible.md)であり[トリビアルにムーブ代入可能](/reference/type_traits/is_nothrow_move_assignable.md)かつ、[トリビアルに破棄可能](/reference/type_traits/is_trivially_destructible.md)である
+
+## 備考
+- (7) : `optional<T&>`への代入は、参照先オブジェクトへの代入ではなく、参照先の再束縛 (rebind) を行う。これはポインタの代入と同じセマンティクスである
+- `optional<T&>`では、値の代入や異なる型の`optional`からの変換代入は提供されない。値を代入する場合は、暗黙の変換による`optional<T&>`の構築とコピー代入 (7) を通じて行われる
+
 
 ## 例
 ```cpp example
@@ -180,3 +193,5 @@ int main()
 - [LWG Issue 2756. `optional<T>` should `forward` `T`'s implicit conversions](https://wg21.cmeerw.net/lwg/issue2756)
 - [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
 - [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加

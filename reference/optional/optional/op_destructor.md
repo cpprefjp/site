@@ -6,16 +6,19 @@
 * cpp17[meta cpp]
 
 ```cpp
-~optional();           // C++17
-constexpr ~optional(); // C++23
+~optional();           // (1) C++17
+constexpr ~optional(); // (1) C++23
 ```
 
 ## 概要
-`optional`オブジェクトを破棄する
-
+`optional`オブジェクトを破棄する。
 
 ## 効果
 有効値を保持している場合、型`T`が非トリビアルなデストラクタを持っているならデストラクタを呼び出す。有効値を保持していない場合は、なにもしない。
+
+
+## 備考
+- (1) : `optional<T&>`の場合、内部的にはポインタを保持しているだけであるため、デストラクタはトリビアル (`= default`) であり、破棄時に特別な処理はしない
 
 
 ## 例
@@ -78,3 +81,5 @@ int main()
 - [`std::vector`クラスのデストラクタ](/reference/vector/vector/op_destructor.md)
 - [`std::is_trivially_destructible`](/reference/type_traits/is_trivially_destructible.md)
 - [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
+- [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
+    - C++26で参照型`T&`に対する部分特殊化を追加
