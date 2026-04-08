@@ -129,6 +129,7 @@ hello
 - [`apply_result`](/reference/type_traits/apply_result.md)
 - [`is_applicable`](/reference/type_traits/is_applicable.md)
 - [`is_nothrow_applicable`](/reference/type_traits/is_nothrow_applicable.md)
+- [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
 
 
 ## 参照

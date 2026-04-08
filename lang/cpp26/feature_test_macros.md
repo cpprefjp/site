@@ -20,7 +20,7 @@
 |`__cpp_constexpr_virtual_inheritance`|`202506L`|`constexpr`仮想継承を許可|
 |`__cpp_contracts`|`202502L`|[契約プログラミングをサポートする](/lang/cpp26/contracts.md)|
 |`__cpp_deleted_function`|`202403L`|[関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md)|
-|`__cpp_expansion_statements`|`202506L`|[コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md.nolink)|
+|`__cpp_expansion_statements`|`202506L`|[コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)|
 |`__cpp_impl_reflection`|`202506L`|静的リフレクション|
 |`__cpp_pack_indexing`|`202311L`|[パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md)|
 |`__cpp_placeholder_variables`|`202306L`|[宣言のみで使用しない変数の名前として`_`をサポート](/lang/cpp26/nice_placeholder_with_no_name.md)|

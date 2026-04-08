@@ -261,6 +261,7 @@ after  b: i=0, d=0
 ## 関連項目
 - [`std::pair`](/reference/utility/pair.md)
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
+- [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
 
 ## 参照
 - [タプル - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB)
