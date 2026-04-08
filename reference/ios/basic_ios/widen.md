@@ -32,7 +32,7 @@ int main()
   std::wcout << c1 << L", " << c2 << L'\n';
 }
 ```
-* std::wcout[link ../../iostream/wcout.md.nolink]
+* std::wcout[link ../../iostream/wcout.md]
 * widen[color ff0000]
 
 ### 出力

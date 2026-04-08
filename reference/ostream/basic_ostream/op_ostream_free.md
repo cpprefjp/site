@@ -135,7 +135,7 @@ int main()
   std::wcout << std::setw(10) << "cpprefjp" << std::endl;
 }
 ```
-* std::wcout[link ../../iostream/wcout.md.nolink]
+* std::wcout[link ../../iostream/wcout.md]
 * std::left[link ../../ios/left.md]
 * std::setfill[link ../../iomanip/setfill.md]
 * std::setw[link ../../iomanip/setw.md]

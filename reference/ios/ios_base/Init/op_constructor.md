@@ -14,7 +14,7 @@ Init();
 
 ## 効果
 `Init` クラスのオブジェクトを構築する。  
-[`cin`](../../../iostream/cin.md)、[`cout`](../../../iostream/cout.md)、[`cerr`](../../../iostream/cerr.md)、[`clog`](../../../iostream/clog.md)、[`wcin`](../../../iostream/wcin.md.nolink)、[`wcout`](../../../iostream/wcout.md.nolink)、[`wcerr`](../../../iostream/wcerr.md.nolink)、[`wclog`](../../../iostream/wclog.md.nolink) の 8 つのオブジェクトが構築・初期化されていなければ、それらの構築・初期化を行う。
+[`cin`](../../../iostream/cin.md)、[`cout`](../../../iostream/cout.md)、[`cerr`](../../../iostream/cerr.md)、[`clog`](../../../iostream/clog.md)、[`wcin`](../../../iostream/wcin.md.nolink)、[`wcout`](../../../iostream/wcout.md)、[`wcerr`](../../../iostream/wcerr.md.nolink)、[`wclog`](../../../iostream/wclog.md.nolink) の 8 つのオブジェクトが構築・初期化されていなければ、それらの構築・初期化を行う。
 
 
 ## バージョン
@@ -35,6 +35,6 @@ Init();
 - [`cerr`](../../../iostream/cerr.md)
 - [`clog`](../../../iostream/clog.md)
 - [`wcin`](../../../iostream/wcin.md.nolink)
-- [`wcout`](../../../iostream/wcout.md.nolink)
+- [`wcout`](../../../iostream/wcout.md)
 - [`wcerr`](../../../iostream/wcerr.md.nolink)
 - [`wclog`](../../../iostream/wclog.md.nolink)

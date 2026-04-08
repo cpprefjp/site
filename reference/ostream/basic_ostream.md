@@ -106,7 +106,7 @@ namespace std {
     - [`basic_ios`](../ios/basic_ios.md)
 - `basic_ostream<>`型のオブジェクト
     - [`cout`](../iostream/cout.md)
-    - [`wcout`](../iostream/wcout.md.nolink)
+    - [`wcout`](../iostream/wcout.md)
     - [`clog`](../iostream/clog.md)
     - [`wclog`](../iostream/wclog.md.nolink)
     - [`cerr`](../iostream/cerr.md)

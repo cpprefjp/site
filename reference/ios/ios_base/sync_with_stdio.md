@@ -61,7 +61,7 @@ int main()
     - [`cerr`](../../iostream/cerr.md)
     - [`clog`](../../iostream/clog.md)
     - [`wcin`](../../iostream/wcin.md.nolink)
-    - [`wcout`](../../iostream/wcout.md.nolink)
+    - [`wcout`](../../iostream/wcout.md)
     - [`wcerr`](../../iostream/wcerr.md.nolink)
     - [`wclog`](../../iostream/wclog.md.nolink)
 - C 言語ライブラリの標準ストリームオブジェクト

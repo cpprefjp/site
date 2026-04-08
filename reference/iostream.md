@@ -22,7 +22,15 @@
 | [`cout`](iostream/cout.md)   | マルチバイト文字による標準出力                             |                |
 | [`clog`](iostream/clog.md)   | マルチバイト文字による標準エラー出力                       |                |
 | [`cerr`](iostream/cerr.md)   | マルチバイト文字による標準エラー出力（バッファリング無し） |                |
+<<<<<<< HEAD
 | [`wcin`](iostream/cin.md)    | ワイド文字による標準入力                                           |                |
 | [`wcout`](iostream/cout.md)  | ワイド文字による標準出力                                   |                |
+||||||| parent of 36310447d (temp)
+| [`wcin`](iostream/wcin.md)    | ワイド文字による標準入力                                           |                |
+| [`wcout`](iostream/cout.md)  | ワイド文字による標準出力                                   |                |
+=======
+| [`wcin`](iostream/wcin.md)    | ワイド文字による標準入力                                           |                |
+| [`wcout`](iostream/wcout.md)  | ワイド文字による標準出力                                   |                |
+>>>>>>> 36310447d (temp)
 | [`wclog`](iostream/clog.md)  | ワイド文字による標準エラー出力                             |                |
 | [`wcerr`](iostream/cerr.md)  | ワイド文字による標準エラー出力（バッファリング無し）       |                |
