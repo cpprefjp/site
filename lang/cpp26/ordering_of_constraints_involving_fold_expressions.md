@@ -44,7 +44,7 @@ C++26では、制約の種類として新たに「折りたたみ展開制約 (f
 
 ## 仕様
 ### 折りたたみ展開制約 (fold expanded constraint)
-C++26では、制約の種類として連言 (conjunction)、選言 (disjunction)、原子制約 (atomic constraint) に加え、4番目の種類として「折りたたみ展開制約 (fold expanded constraint)」が導入される。
+C++26では、制約の種類として連言 (conjunction)、選言 (disjunction)、原子制約 (atomic constraint) に加え、「折りたたみ展開制約 (fold expanded constraint)」(P2963R3) および「コンセプト依存制約 (concept-dependent constraint)」(P2841R7) が新たに導入される。ここでは折りたたみ展開制約について説明する。
 
 畳み込み式 `(E && ...)` や `(E || ...)` が制約の正規化において処理される際、通常は折りたたみ展開制約として正規化される。折りたたみ展開制約は、制約`E`の正規形と畳み込み演算子 (`&&`または`||`) の組から構成される。
 
