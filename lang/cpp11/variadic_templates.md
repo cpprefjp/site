@@ -207,8 +207,7 @@ hello
       f(a, b);
     }
     ```
-    * std::make_tuple[link /reference/tuple/make_tuple.md]
-
+    
 - テンプレートパラメータ
 
     ```cpp

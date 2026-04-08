@@ -47,7 +47,6 @@ int main()
 }
 ```
 * std::piecewise_construct[color ff0000]
-* std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ### 出力
 ```

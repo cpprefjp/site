@@ -62,7 +62,6 @@ int main()
 }
 ```
 * std::swap[color ff0000]
-* std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ### 出力
 ```

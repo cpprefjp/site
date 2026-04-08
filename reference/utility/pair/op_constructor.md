@@ -256,7 +256,6 @@ int main()
 ```
 * std::move[link /reference/utility/move.md]
 * std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
-* std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ### 出力
 ```

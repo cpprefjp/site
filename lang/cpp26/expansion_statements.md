@@ -18,7 +18,6 @@ template for (auto elem : tup) {
   std::println("{}", elem);
 }
 ```
-* std::make_tuple[link /reference/tuple/make_tuple.md]
 
 出力：
 
@@ -162,7 +161,6 @@ auto result = find_first_int(tup);  // 42
 ```
 * std::is_integral_v[link /reference/type_traits/is_integral.md]
 * std::remove_cvref_t[link /reference/type_traits/remove_cvref.md]
-* std::make_tuple[link /reference/tuple/make_tuple.md]
 
 
 ## `co_await`

@@ -350,6 +350,7 @@
     * t3.join()[link /reference/thread/thread/join.md]
 * <tuple>[link /reference/tuple.md]
     * std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
+    * std::make_tuple[link /reference/tuple/make_tuple.md]
     * std::tie[link /reference/tuple/tie.md]
     * std::tuple[link /reference/tuple/tuple.md]
     * tuple[link /reference/tuple/tuple.md]
