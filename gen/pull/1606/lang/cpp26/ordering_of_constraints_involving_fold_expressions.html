@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-08T04:43:04">
-        2026年04月08日 04時43分04秒
+      <span itemprop="datePublished" content="2026-04-08T06:17:59">
+        2026年04月08日 06時17分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,7 +245,7 @@
 <p>C++26では、制約の種類として新たに「折りたたみ展開制約 (fold expanded constraint)」が導入され、畳み込み式を含む制約の間で包摂関係が認識されるようになる。</p>
 <h2>仕様</h2>
 <h3>折りたたみ展開制約 (fold expanded constraint)</h3>
-<p>C++26では、制約の種類として連言 (conjunction)、選言 (disjunction)、原子制約 (atomic constraint) に加え、4番目の種類として「折りたたみ展開制約 (fold expanded constraint)」が導入される。</p>
+<p>C++26では、制約の種類として連言 (conjunction)、選言 (disjunction)、原子制約 (atomic constraint) に加え、「折りたたみ展開制約 (fold expanded constraint)」(P2963R3) および「コンセプト依存制約 (concept-dependent constraint)」(P2841R7) が新たに導入される。ここでは折りたたみ展開制約について説明する。</p>
 <p>畳み込み式 <code>(E &amp;&amp; ...)</code> や <code>(E || ...)</code> が制約の正規化において処理される際、通常は折りたたみ展開制約として正規化される。折りたたみ展開制約は、制約<code>E</code>の正規形と畳み込み演算子 (<code>&amp;&amp;</code>または<code>||</code>) の組から構成される。</p>
 <p>ただし、<code>E</code>が展開されていないコンセプトテンプレートパラメータパック (unexpanded concept template parameter pack) を含む場合は、そのパックの要素数<code>N</code>に基づいて<code>E_0 Op ... Op E_{N-1}</code>の形に展開され、連言または選言にまで分解される。これはP2841R7 (コンセプトテンプレートパラメータ) との連携による動作である。</p>
 <h3>包摂の規則</h3>

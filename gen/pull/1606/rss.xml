@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-08T04:49:16.011726</updated>
-  <id>5bec7f05-410c-43a4-93e4-b4aa45b228df</id>
+  <updated>2026-04-08T06:22:30.111064</updated>
+  <id>43b662a8-795f-4156-8e3a-f623804d7419</id>
 
+  
+    <entry>
+      <title>制約式内での畳み込み式の順序付け [P2963R3] -- コンセプト依存制約 (concept-dependent constraint) に言及</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/ordering_of_constraints_involving_fold_expressions.html"/>
+      <id>edbf3675bf26bacecccba127cd750576516a0b49:lang/cpp26/ordering_of_constraints_involving_fold_expressions.md</id>
+      <updated>2026-04-08T15:17:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md b/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
+index 0a743f65a..50f79c673 100644
+--- a/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
++++ b/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
+@@ -44,7 +44,7 @@ C++26では、制約の種類として新たに「折りたたみ展開制約 (f
+ 
+ ## 仕様
+ ### 折りたたみ展開制約 (fold expanded constraint)
+-C++26では、制約の種類として連言 (conjunction)、選言 (disjunction)、原子制約 (atomic constraint) に加え、4番目の種類として「折りたたみ展開制約 (fold expanded constraint)」が導入される。
++C++26では、制約の種類として連言 (conjunction)、選言 (disjunction)、原子制約 (atomic constraint) に加え、「折りたたみ展開制約 (fold expanded constraint)」(P2963R3) および「コンセプト依存制約 (concept-dependent constraint)」(P2841R7) が新たに導入される。ここでは折りたたみ展開制約について説明する。
+ 
+ 畳み込み式 `(E &amp;amp;&amp;amp; ...)` や `(E || ...)` が制約の正規化において処理される際、通常は折りたたみ展開制約として正規化される。折りたたみ展開制約は、制約`E`の正規形と畳み込み演算子 (`&amp;amp;&amp;amp;`または`||`) の組から構成される。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>制約式内での畳み込み式の順序付け [P2963R3] -- 制約の畳み込み式について説明を見直し</title>
@@ -268,68 +295,6 @@ index af8300055..3634cc4c2 100644
       <author>
         <name>suomesta</name>
         <email>shawn316michaels@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンセプトと変数テンプレートをテンプレート引数として渡せるようにする [P2841R7] -- コード修飾を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/concept_and_variable-template_template-parameters.html"/>
-      <id>b2a6ab890935f23f70faacf5aac5d43c84a0fd9e:lang/cpp26/concept_and_variable-template_template-parameters.md</id>
-      <updated>2026-04-07T22:06:31+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/concept_and_variable-template_template-parameters.md b/lang/cpp26/concept_and_variable-template_template-parameters.md
-index 6decc9f00..6775b7bcb 100644
---- a/lang/cpp26/concept_and_variable-template_template-parameters.md
-+++ b/lang/cpp26/concept_and_variable-template_template-parameters.md
-@@ -58,6 +58,7 @@ concept decays_to = C&amp;lt;std::decay_t&amp;lt;T&amp;gt;&amp;gt;;
- template &amp;lt;decays_to&amp;lt;std::copyable&amp;gt; T&amp;gt;
- auto f(T&amp;amp;&amp;amp; x);
- ```
-+* std::copyable[link /reference/concepts/copyable.md]
- 
- ### 変数テンプレートテンプレートパラメータ
- テンプレートパラメータリストにおいて、`auto`キーワードで変数テンプレートを受け取るパラメータを宣言できる。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>制約式内での畳み込み式の順序付け [P2963R3] -- コード修飾を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/ordering_of_constraints_involving_fold_expressions.html"/>
-      <id>b2a6ab890935f23f70faacf5aac5d43c84a0fd9e:lang/cpp26/ordering_of_constraints_involving_fold_expressions.md</id>
-      <updated>2026-04-07T22:06:31+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md b/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
-index f86aa70d5..3b64d8b34 100644
---- a/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
-+++ b/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
-@@ -36,6 +36,8 @@ void g(T...);
- // C++26: C&amp;lt;T&amp;gt;はA&amp;lt;T&amp;gt;を包摂するため、2番目のオーバーロードが選択される
- g(std::vector{1, 2, 3});
- ```
-+* std::is_move_constructible_v[link /reference/type_traits/is_move_constructible.md]
-+* std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
- 
- C++26では、`&amp;amp;&amp;amp;`による畳み込み式は個別の制約の連言として、`||`による畳み込み式は個別の制約の選言として正規化され、通常の原子制約と同じ包摂規則が適用される。
- 
-@@ -73,7 +75,7 @@ f();
- ## この機能が必要になった背景・経緯
- コンセプトと畳み込み式は、可変引数テンプレートの制約を簡潔に記述するために組み合わせて使われることが多い。しかし、C++23では畳み込み式が原子制約として扱われるため、概念的に明らかな包摂関係が認識されず、オーバーロード解決が曖昧になる問題があった。
- 
--たとえば、`std::ranges::bidirectional_range`と`std::ranges::random_access_range`は非可変引数テンプレートでは正しく順序付けられるが、可変引数テンプレートで畳み込み式を使用すると順序付けが失われていた。この提案はその問題を解決する。
-+たとえば、[`std::ranges::bidirectional_range`](/reference/ranges/bidirectional_range.md)と[`std::ranges::random_access_range`](/reference/ranges/random_access_range.md)は非可変引数テンプレートでは正しく順序付けられるが、可変引数テンプレートで畳み込み式を使用すると順序付けが失われていた。この提案はその問題を解決する。
- 
- この提案はP2841R0 (コンセプトと変数テンプレートのテンプレートテンプレートパラメータ) から派生したもので、畳み込み式のパターンが通常の制約式である場合を扱う。パターンがコンセプトテンプレートパラメータである場合はP2841で扱われる。
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
       </author>
     </entry>
   
