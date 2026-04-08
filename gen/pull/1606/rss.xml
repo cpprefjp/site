@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-04-08T04:49:16.011726</updated>
+  <id>5bec7f05-410c-43a4-93e4-b4aa45b228df</id>
+
+  
+    <entry>
+      <title>制約式内での畳み込み式の順序付け [P2963R3] -- 制約の畳み込み式について説明を見直し</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/ordering_of_constraints_involving_fold_expressions.html"/>
+      <id>2c3c63353be5e909bca47c711d13df2474747bf2:lang/cpp26/ordering_of_constraints_involving_fold_expressions.md</id>
+      <updated>2026-04-08T13:43:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md b/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
+index 3b64d8b34..0a743f65a 100644
+--- a/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
++++ b/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
+@@ -12,7 +12,7 @@
+ ## 概要
+ C++26では、制約式 (constraint) 内で使用される畳み込み式 (fold expression) に対して、包摂関係 (subsumption) の規則を導入する。
+ 
+-C++23では、`(C&amp;lt;T&amp;gt; &amp;amp;&amp;amp; ...)`のような畳み込み式は構文上は連言 (conjunction) や選言 (disjunction) のように見えるが、制約の順序付けにおいては単一の原子制約 (atomic constraint) として扱われていた。そのため、概念的には一方がもう一方をより強く制約しているにもかかわらず、オーバーロード解決で曖昧になるケースがあった。
++C++23では、`(C&amp;lt;T&amp;gt; &amp;amp;&amp;amp; ...)`のような畳み込み式は制約の順序付けにおいて単一の原子制約 (atomic constraint) として扱われていた。そのため、概念的には一方がもう一方をより強く制約しているにもかかわらず、オーバーロード解決で曖昧になるケースがあった。
+ 
+ ```cpp
+ template &amp;lt;class T&amp;gt;
+@@ -39,19 +39,25 @@ g(std::vector{1, 2, 3});
+ * std::is_move_constructible_v[link /reference/type_traits/is_move_constructible.md]
+ * std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
+ 
+-C++26では、`&amp;amp;&amp;amp;`による畳み込み式は個別の制約の連言として、`||`による畳み込み式は個別の制約の選言として正規化され、通常の原子制約と同じ包摂規則が適用される。
++C++26では、制約の種類として新たに「折りたたみ展開制約 (fold expanded constraint)」が導入され、畳み込み式を含む制約の間で包摂関係が認識されるようになる。
+ 
+ 
+ ## 仕様
+-### 畳み込み式の正規化
+-畳み込み式が制約として使用される場合、以下のように正規化される：
++### 折りたたみ展開制約 (fold expanded constraint)
++C++26では、制約の種類として連言 (conjunction)、選言 (disjunction)、原子制約 (atomic constraint) に加え、4番目の種類として「折りたたみ展開制約 (fold expanded constraint)」が導入される。
+ 
+-- `(C&amp;lt;T&amp;gt; &amp;amp;&amp;amp; ...)` は `C&amp;lt;T1&amp;gt; &amp;amp;&amp;amp; C&amp;lt;T2&amp;gt; &amp;amp;&amp;amp; ... &amp;amp;&amp;amp; C&amp;lt;Tn&amp;gt;` のような連言として扱われる
+-- `(C&amp;lt;T&amp;gt; || ...)` は `C&amp;lt;T1&amp;gt; || C&amp;lt;T2&amp;gt; || ... || C&amp;lt;Tn&amp;gt;` のような選言として扱われる
+-- `(... &amp;amp;&amp;amp; C&amp;lt;T&amp;gt;)` や二項畳み込み式 `(init &amp;amp;&amp;amp; ... &amp;amp;&amp;amp; C&amp;lt;T&amp;gt;)` も同様に正規化される
++畳み込み式 `(E &amp;amp;&amp;amp; ...)` や `(E || ...)` が制約の正規化において処理される際、通常は折りたたみ展開制約として正規化される。折りたたみ展開制約は、制約`E`の正規形と畳み込み演算子 (`&amp;amp;&amp;amp;`または`||`) の組から構成される。
++
++ただし、`E`が展開されていないコンセプトテンプレートパラメータパック (unexpanded concept template parameter pack) を含む場合は、そのパックの要素数`N`に基づいて`E_0 Op ... Op E_{N-1}`の形に展開され、連言または選言にまで分解される。これはP2841R7 (コンセプトテンプレートパラメータ) との連携による動作である。
+ 
+ ### 包摂の規則
+-畳み込み式の制約間の包摂は、同じ畳み込み演算子 (`&amp;amp;&amp;amp;`または`||`) を使用している場合にのみ成立する。異なる畳み込み演算子間の包摂は行われない。
++折りたたみ展開制約`A`がもうひとつの折りたたみ展開制約`B`を包摂するのは、以下の条件をすべて満たす場合である：
++
++- `A`と`B`が包摂の互換性 (compatible for subsumption) をもつこと。すなわち、それぞれの制約が同等の展開されていないパックを含むこと
++- `A`と`B`が同じ畳み込み演算子 (`&amp;amp;&amp;amp;`または`||`) をもつこと
++- `A`の制約が`B`の制約を包摂すること
++
++異なる畳み込み演算子間の包摂は行われない。
+ 
+ ```cpp
+ template &amp;lt;class T&amp;gt;
+@@ -64,12 +70,11 @@ template &amp;lt;class... T&amp;gt;
+ void f() requires (C&amp;lt;T&amp;gt; &amp;amp;&amp;amp; ...); // #2
+ 
+ // &amp;amp;&amp;amp;と||は異なる演算子なので、#2が#1を包摂するとはみなされない
+-// f()の呼び出しは曖昧
+-f();
++f(); // 曖昧
+ ```
+ 
+ ### 短絡評価
+-畳み込み式の制約の評価と充足 (satisfaction) は、通常の連言／選言と同様に短絡評価される。
++折りたたみ展開制約の充足 (satisfaction) は、通常の連言／選言と同様に短絡評価される。`&amp;amp;&amp;amp;`の場合は充足されない最初の要素で、`||`の場合は充足される最初の要素で評価が停止する。
+ 
+ 
+ ## この機能が必要になった背景・経緯
+@@ -77,7 +82,7 @@ f();
+ 
+ たとえば、[`std::ranges::bidirectional_range`](/reference/ranges/bidirectional_range.md)と[`std::ranges::random_access_range`](/reference/ranges/random_access_range.md)は非可変引数テンプレートでは正しく順序付けられるが、可変引数テンプレートで畳み込み式を使用すると順序付けが失われていた。この提案はその問題を解決する。
+ 
+-この提案はP2841R0 (コンセプトと変数テンプレートのテンプレートテンプレートパラメータ) から派生したもので、畳み込み式のパターンが通常の制約式である場合を扱う。パターンがコンセプトテンプレートパラメータである場合はP2841で扱われる。
++この提案はP2841R0から派生したもので、折りたたみ展開制約の導入と包摂規則を定める。畳み込み式のパターンにコンセプトテンプレートパラメータパック (P2841で導入) が含まれる場合は、連言／選言にまで完全に分解される。
+ 
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iostream -- Merge pull request #1605 from rotarymars/fix/typo</title>
+      <link href="https://cpprefjp.github.io/reference/iostream.html"/>
+      <id>2a459f75b5f94a02ae8a24d3229201c2616e1f59:reference/iostream.md</id>
+      <updated>2026-04-08T09:45:58+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;iostream&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;iostream&amp;gt;&lt;/code&gt;ヘッダは、標準入出力オブジェクトを提供する。&lt;/p&gt;
+&lt;p&gt;このヘッダは、以下のヘッダをインクルードすることが規定されている。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;ios.html&#34;&gt;&amp;lt;ios&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;streambuf.html&#34;&gt;&amp;lt;streambuf&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;このため、入出力機能に関する基本的な型や関数（&lt;code&gt;&lt;a href=&#34;ostream/endl.html&#34;&gt;endl&lt;/a&gt;&lt;/code&gt;など主要なマニピュレータを含む）を使用する目的で、このヘッダをインクルードしても良いだろう。&lt;/p&gt;
+&lt;p&gt;なお、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;basic_iostream&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;iostream&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;wiostream&lt;/a&gt;&lt;/code&gt;は&lt;code&gt;&lt;a href=&#34;istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;で定義されている。&lt;/p&gt;
+&lt;h2&gt;標準入出力オブジェクト&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cin.html&#34;&gt;cin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準入力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cout.html&#34;&gt;cout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/clog.html&#34;&gt;clog&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準エラー出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cerr.html&#34;&gt;cerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準エラー出力（バッファリング無し）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cin.html&#34;&gt;wcin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準入力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cout.html&#34;&gt;wcout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/clog.html&#34;&gt;wclog&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準エラー出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cerr.html&#34;&gt;wcerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準エラー出力（バッファリング無し）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iostream -- fixing typo in the stream names</title>
+      <link href="https://cpprefjp.github.io/reference/iostream.html"/>
+      <id>28c1fdbcb2ca15ed6ca20e47f27a92cde54276a5:reference/iostream.md</id>
+      <updated>2026-04-08T09:15:15+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;iostream&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;iostream&amp;gt;&lt;/code&gt;ヘッダは、標準入出力オブジェクトを提供する。&lt;/p&gt;
+&lt;p&gt;このヘッダは、以下のヘッダをインクルードすることが規定されている。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;ios.html&#34;&gt;&amp;lt;ios&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;streambuf.html&#34;&gt;&amp;lt;streambuf&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;このため、入出力機能に関する基本的な型や関数（&lt;code&gt;&lt;a href=&#34;ostream/endl.html&#34;&gt;endl&lt;/a&gt;&lt;/code&gt;など主要なマニピュレータを含む）を使用する目的で、このヘッダをインクルードしても良いだろう。&lt;/p&gt;
+&lt;p&gt;なお、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;basic_iostream&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;iostream&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;wiostream&lt;/a&gt;&lt;/code&gt;は&lt;code&gt;&lt;a href=&#34;istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;で定義されている。&lt;/p&gt;
+&lt;h2&gt;標準入出力オブジェクト&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cin.html&#34;&gt;cin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準入力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cout.html&#34;&gt;cout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/clog.html&#34;&gt;clog&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準エラー出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cerr.html&#34;&gt;cerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準エラー出力（バッファリング無し）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cin.html&#34;&gt;wcin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準入力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cout.html&#34;&gt;wcout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/clog.html&#34;&gt;wclog&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準エラー出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cerr.html&#34;&gt;wcerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準エラー出力（バッファリング無し）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>weekday -- fix sample in std::chrono::weekday</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/weekday.html"/>
+      <id>8bcc307c19ac067a453a38407945f1f71ffcd850:reference/chrono/weekday.md</id>
+      <updated>2026-04-07T22:48:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/weekday.md b/reference/chrono/weekday.md
+index af8300055..3634cc4c2 100644
+--- a/reference/chrono/weekday.md
++++ b/reference/chrono/weekday.md
+@@ -120,8 +120,8 @@ int main() {
+ 
+   // 曜日は循環する
+   chrono::weekday u = chrono::Saturday;
+-  v += chrono::days{2};
+-  assert(v == chrono::Monday);
++  u += chrono::days{2};
++  assert(u == chrono::Monday);
+ }
+ ```
+ * chrono::weekday[color ff0000]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>suomesta</name>
+        <email>shawn316michaels@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンセプトと変数テンプレートをテンプレート引数として渡せるようにする [P2841R7] -- コード修飾を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/concept_and_variable-template_template-parameters.html"/>
+      <id>b2a6ab890935f23f70faacf5aac5d43c84a0fd9e:lang/cpp26/concept_and_variable-template_template-parameters.md</id>
+      <updated>2026-04-07T22:06:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/concept_and_variable-template_template-parameters.md b/lang/cpp26/concept_and_variable-template_template-parameters.md
+index 6decc9f00..6775b7bcb 100644
+--- a/lang/cpp26/concept_and_variable-template_template-parameters.md
++++ b/lang/cpp26/concept_and_variable-template_template-parameters.md
+@@ -58,6 +58,7 @@ concept decays_to = C&amp;lt;std::decay_t&amp;lt;T&amp;gt;&amp;gt;;
+ template &amp;lt;decays_to&amp;lt;std::copyable&amp;gt; T&amp;gt;
+ auto f(T&amp;amp;&amp;amp; x);
+ ```
++* std::copyable[link /reference/concepts/copyable.md]
+ 
+ ### 変数テンプレートテンプレートパラメータ
+ テンプレートパラメータリストにおいて、`auto`キーワードで変数テンプレートを受け取るパラメータを宣言できる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>制約式内での畳み込み式の順序付け [P2963R3] -- コード修飾を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/ordering_of_constraints_involving_fold_expressions.html"/>
+      <id>b2a6ab890935f23f70faacf5aac5d43c84a0fd9e:lang/cpp26/ordering_of_constraints_involving_fold_expressions.md</id>
+      <updated>2026-04-07T22:06:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md b/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
+index f86aa70d5..3b64d8b34 100644
+--- a/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
++++ b/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md
+@@ -36,6 +36,8 @@ void g(T...);
+ // C++26: C&amp;lt;T&amp;gt;はA&amp;lt;T&amp;gt;を包摂するため、2番目のオーバーロードが選択される
+ g(std::vector{1, 2, 3});
+ ```
++* std::is_move_constructible_v[link /reference/type_traits/is_move_constructible.md]
++* std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
+ 
+ C++26では、`&amp;amp;&amp;amp;`による畳み込み式は個別の制約の連言として、`||`による畳み込み式は個別の制約の選言として正規化され、通常の原子制約と同じ包摂規則が適用される。
+ 
+@@ -73,7 +75,7 @@ f();
+ ## この機能が必要になった背景・経緯
+ コンセプトと畳み込み式は、可変引数テンプレートの制約を簡潔に記述するために組み合わせて使われることが多い。しかし、C++23では畳み込み式が原子制約として扱われるため、概念的に明らかな包摂関係が認識されず、オーバーロード解決が曖昧になる問題があった。
+ 
+-たとえば、`std::ranges::bidirectional_range`と`std::ranges::random_access_range`は非可変引数テンプレートでは正しく順序付けられるが、可変引数テンプレートで畳み込み式を使用すると順序付けが失われていた。この提案はその問題を解決する。
++たとえば、[`std::ranges::bidirectional_range`](/reference/ranges/bidirectional_range.md)と[`std::ranges::random_access_range`](/reference/ranges/random_access_range.md)は非可変引数テンプレートでは正しく順序付けられるが、可変引数テンプレートで畳み込み式を使用すると順序付けが失われていた。この提案はその問題を解決する。
+ 
+ この提案はP2841R0 (コンセプトと変数テンプレートのテンプレートテンプレートパラメータ) から派生したもので、畳み込み式のパターンが通常の制約式である場合を扱う。パターンがコンセプトテンプレートパラメータである場合はP2841で扱われる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
