@@ -56,6 +56,8 @@ const auto d = hello("Adolph Blaine Charles David Earl Frederick Gerald Hubert I
 - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)
 - [`<stdexcept>`](/reference/stdexcept.md)
 - [`std::bad_expected_access`](/reference/expected/bad_expected_access.md)
+- [C++26 静的リフレクション](/lang/cpp26/reflection.md)
+    - リフレクションのメタ関数が不正な入力を受けた際のエラー報告として、コンパイル時の例外送出が使われる
 
 
 ## 参照

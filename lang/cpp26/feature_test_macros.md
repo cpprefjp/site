@@ -21,7 +21,7 @@
 |`__cpp_contracts`|`202502L`|[契約プログラミングをサポートする](/lang/cpp26/contracts.md)|
 |`__cpp_deleted_function`|`202403L`|[関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md)|
 |`__cpp_expansion_statements`|`202506L`|[コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)|
-|`__cpp_impl_reflection`|`202506L`|静的リフレクション|
+|`__cpp_impl_reflection`|`202506L`|[静的リフレクション](/lang/cpp26/reflection.md)|
 |`__cpp_pack_indexing`|`202311L`|[パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md)|
 |`__cpp_placeholder_variables`|`202306L`|[宣言のみで使用しない変数の名前として`_`をサポート](/lang/cpp26/nice_placeholder_with_no_name.md)|
 |`__cpp_pp_embed`|`202502L`|[ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md)|
@@ -75,7 +75,7 @@
 |`__cpp_lib_copyable_function`|`202306L`|[`<functional>`](/reference/functional.md)に[`std::copyable_function`](/reference/functional/copyable_function.md)を追加|[`<functional>`](/reference/functional.md)|
 |`__cpp_lib_counting_scope`|`202506L`|[`<execution>`](/reference/execution.md)に[`std::execution::spawn`](/reference/execution/execution/spawn.md)、[`std::execution::scope_token`](/reference/execution/execution/scope_token.md)などを追加|[`<execution>`](/reference/execution.md)|
 |`__cpp_lib_debugging`|`202403L`|デバッグサポートのライブラリとして[`<debugging>`](/reference/debugging.md)を追加|[`<debugging>`](/reference/debugging.md)|
-|`__cpp_lib_define_static`|`202506L`||[`<meta>`](/reference/meta.md.nolink)|
+|`__cpp_lib_define_static`|`202506L`||[`<meta>`](/reference/meta.md)|
 |`__cpp_lib_exception_ptr_cast`|`202506L`|[`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md)関数を追加|[`<exception>`](/reference/exception.md)|
 |`__cpp_lib_format`|`202311L`||[`<format>`](/reference/format.md)|
 |`__cpp_lib_format_path`|`202506L`|[`std::filesystem::path`](/reference/filesystem/path.md)クラスに、文字列フォーマットのサポートを追加<br/>[`std::filesystem::path`](/reference/filesystem/path.md)クラスに、出力用の文字列を取得するためのメンバ関数を追加|[`<filesystem>`](/reference/filesystem.md)|
@@ -138,7 +138,7 @@
 |`__cpp_lib_raw_memory_algorithms`|`202411L`|[`std::uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md)などの未初期化領域に対する操作を`constexpr`対応|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_rcu`|`202306L`|RCU (Read Copy Update) のライブラリとして[`<rcu>`](/reference/rcu.md)を追加|[`<rcu>`](/reference/rcu.md)|
 |`__cpp_lib_reference_wrapper`|`202403L`|[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)に、比較演算子[`==`](/reference/functional/reference_wrapper/op_equal.md)と[`<=>`](/reference/functional/reference_wrapper/op_compare_3way.md)を追加|[`<functional>`](/reference/functional.md)|
-|`__cpp_lib_reflection`|`202506L`||[`<meta>`](/reference/meta.md.nolink)|
+|`__cpp_lib_reflection`|`202506L`|[静的リフレクション](/lang/cpp26/reflection.md)のライブラリ機能|[`<meta>`](/reference/meta.md)|
 |`__cpp_lib_saturation_arithmetic`|`202311L`|[`<numeric>`](/reference/numeric.md)に飽和演算 (Saturation Arithmetic) として[`std::add_sat()`](/reference/numeric/add_sat.md)などの関数を追加|[`<numeric>`](/reference/numeric.md)|
 |`__cpp_lib_senders`|`202506L`||[`<execution>`](/reference/execution.md)|
 |`__cpp_lib_simd`|`202506L`|データ並列ライブラリとして、[`<simd>`](/reference/simd.md.nolink)を追加|[`<simd>`](/reference/simd.md.nolink)|
