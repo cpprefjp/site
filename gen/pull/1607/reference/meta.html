@@ -1,0 +1,1407 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>meta - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,meta,cpp26
+">
+        <meta name="title" content="meta - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="meta - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="meta - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/meta.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;meta&amp;gt;meta(C++26) &amp;lt;meta&amp;gt;ヘッダでは、静的リフレクションのためのメタ関数群を定義する。リフレクション演算子^^で取得したstd::meta::info型の値を操作・検査するための機能を提供する。 このヘッダのすべての関数はconstevalであり、コンパイル時にのみ使用できる。 リフレクション型    名前 説明 対応バージョン     info リフ" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="meta - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta.html" />
+        <meta name="twitter:description" content="&amp;lt;meta&amp;gt;meta(C++26) &amp;lt;meta&amp;gt;ヘッダでは、静的リフレクションのためのメタ関数群を定義する。リフレクション演算子^^で取得したstd::meta::info型の値を操作・検査するための機能を提供する。 このヘッダのすべての関数はconstevalであり、コンパイル時にのみ使用できる。 リフレクション型    名前 説明 対応バージョン     info リフ" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">meta</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-04-09T06:13:07">
+        2026年04月09日 06時13分07秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/meta.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/meta.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;meta&gt;</div><h1 itemprop="name"><span class="token">meta</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;meta&gt;</code>ヘッダでは、<a href="../lang/cpp26/reflection.html">静的リフレクション</a>のためのメタ関数群を定義する。リフレクション演算子<code>^^</code>で取得した<code><a href="meta/info.html">std::meta::info</a></code>型の値を操作・検査するための機能を提供する。</p>
+<p>このヘッダのすべての関数は<code>consteval</code>であり、コンパイル時にのみ使用できる。</p>
+<h2>リフレクション型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/info.html">info</a></code></td>
+<td>リフレクションを表す型 (<code>using info = decltype(^^::);</code>)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>コンセプト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/reflection_range.html">reflection_range</a></code></td>
+<td>要素型が<code>info</code>であるRange (concept)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>アクセス制御</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/access_context.html">access_context</a></code></td>
+<td>メンバ取得時のアクセス制御コンテキスト (class)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>演算子</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/operators.html">operators</a></code></td>
+<td>演算子の種類を表す列挙型 (enum class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/operator_of.html">operator_of</a></code></td>
+<td>演算子のリフレクションから演算子の種類を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/symbol_of.html">symbol_of</a></code></td>
+<td>演算子の種類から記号文字列を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/symbol_of.html">u8symbol_of</a></code></td>
+<td>演算子の種類から記号文字列を<code>u8string_view</code>で取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>名前とソース位置</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/has_identifier.html">has_identifier</a></code></td>
+<td>識別子を持つかどうかを判定</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/identifier_of.html">identifier_of</a></code></td>
+<td>識別子を<code>string_view</code>で取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/identifier_of.html">u8identifier_of</a></code></td>
+<td>識別子を<code>u8string_view</code>で取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/display_string_of.html">display_string_of</a></code></td>
+<td>表示用の文字列を<code>string_view</code>で取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/display_string_of.html">u8display_string_of</a></code></td>
+<td>表示用の文字列を<code>u8string_view</code>で取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/source_location_of.html">source_location_of</a></code></td>
+<td>ソース位置を取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>エンティティの性質</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/type_of.html">type_of</a></code></td>
+<td>型のリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/object_of.html">object_of</a></code></td>
+<td>オブジェクトのリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/constant_of.html">constant_of</a></code></td>
+<td>定数のリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/dealias.html">dealias</a></code></td>
+<td>エイリアスを解決する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_parent.html">has_parent</a></code></td>
+<td>親スコープがあるかどうかを判定</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/parent_of.html">parent_of</a></code></td>
+<td>親スコープのリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>アクセス指定子</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_public.html">is_public</a></code></td>
+<td><code>public</code>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_protected.html">is_protected</a></code></td>
+<td><code>protected</code>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_private.html">is_private</a></code></td>
+<td><code>private</code>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_accessible.html">is_accessible</a></code></td>
+<td>指定したアクセスコンテキストでアクセス可能か</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>エンティティの分類</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_variable.html">is_variable</a></code></td>
+<td>変数であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_type.html">is_type</a></code></td>
+<td>型であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_namespace.html">is_namespace</a></code></td>
+<td>名前空間であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_type_alias.html">is_type_alias</a></code></td>
+<td>型エイリアスであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_namespace_alias.html">is_namespace_alias</a></code></td>
+<td>名前空間エイリアスであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_function.html">is_function</a></code></td>
+<td>関数であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_enumerator.html">is_enumerator</a></code></td>
+<td>列挙子であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_value.html">is_value</a></code></td>
+<td>値であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_object.html">is_object</a></code></td>
+<td>オブジェクトであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_structured_binding.html">is_structured_binding</a></code></td>
+<td>構造化束縛であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_class_member.html">is_class_member</a></code></td>
+<td>クラスメンバであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_namespace_member.html">is_namespace_member</a></code></td>
+<td>名前空間メンバであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nonstatic_data_member.html">is_nonstatic_data_member</a></code></td>
+<td>非静的データメンバであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_static_member.html">is_static_member</a></code></td>
+<td>静的メンバであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_base.html">is_base</a></code></td>
+<td>基底クラス関係であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_function_parameter.html">is_function_parameter</a></code></td>
+<td>関数パラメータであるか</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>関数の分類</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_conversion_function.html">is_conversion_function</a></code></td>
+<td>変換関数であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_operator_function.html">is_operator_function</a></code></td>
+<td>演算子関数であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_literal_operator.html">is_literal_operator</a></code></td>
+<td>リテラル演算子であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_special_member_function.html">is_special_member_function</a></code></td>
+<td>特殊メンバ関数であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_constructor.html">is_constructor</a></code></td>
+<td>コンストラクタであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_default_constructor.html">is_default_constructor</a></code></td>
+<td>デフォルトコンストラクタであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_copy_constructor.html">is_copy_constructor</a></code></td>
+<td>コピーコンストラクタであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_move_constructor.html">is_move_constructor</a></code></td>
+<td>ムーブコンストラクタであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_assignment.html">is_assignment</a></code></td>
+<td>代入演算子であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_copy_assignment.html">is_copy_assignment</a></code></td>
+<td>コピー代入演算子であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_move_assignment.html">is_move_assignment</a></code></td>
+<td>ムーブ代入演算子であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_destructor.html">is_destructor</a></code></td>
+<td>デストラクタであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_deleted.html">is_deleted</a></code></td>
+<td><code>= delete</code>されているか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_defaulted.html">is_defaulted</a></code></td>
+<td><code>= default</code>されているか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_explicit.html">is_explicit</a></code></td>
+<td><code>explicit</code>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_noexcept.html">is_noexcept</a></code></td>
+<td><code>noexcept</code>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_user_provided.html">is_user_provided</a></code></td>
+<td>ユーザー提供であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_user_declared.html">is_user_declared</a></code></td>
+<td>ユーザー宣言であるか</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>関数パラメータの検査</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/parameters_of.html">parameters_of</a></code></td>
+<td>関数パラメータのリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/return_type_of.html">return_type_of</a></code></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型のリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/variable_of.html">variable_of</a></code></td>
+<td>パラメータ変数のリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_default_argument.html">has_default_argument</a></code></td>
+<td>デフォルト引数を持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_ellipsis_parameter.html">has_ellipsis_parameter</a></code></td>
+<td>可変長引数を持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_explicit_object_parameter.html">is_explicit_object_parameter</a></code></td>
+<td>明示的オブジェクトパラメータであるか</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバの性質</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_virtual.html">is_virtual</a></code></td>
+<td><code>virtual</code>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_pure_virtual.html">is_pure_virtual</a></code></td>
+<td>純粋仮想であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_override.html">is_override</a></code></td>
+<td><code>override</code>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_final.html">is_final</a></code></td>
+<td><code>final</code>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_const.html">is_const</a></code></td>
+<td><code>const</code>修飾されているか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_volatile.html">is_volatile</a></code></td>
+<td><code>volatile</code>修飾されているか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_mutable_member.html">is_mutable_member</a></code></td>
+<td><code>mutable</code>メンバであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_lvalue_reference_qualified.html">is_lvalue_reference_qualified</a></code></td>
+<td>左辺値参照修飾されているか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_rvalue_reference_qualified.html">is_rvalue_reference_qualified</a></code></td>
+<td>右辺値参照修飾されているか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_bit_field.html">is_bit_field</a></code></td>
+<td>ビットフィールドであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_default_member_initializer.html">has_default_member_initializer</a></code></td>
+<td>デフォルトメンバ初期化子を持つか</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>記憶域とリンケージ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/has_static_storage_duration.html">has_static_storage_duration</a></code></td>
+<td>静的記憶域期間を持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_thread_storage_duration.html">has_thread_storage_duration</a></code></td>
+<td>スレッド記憶域期間を持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_automatic_storage_duration.html">has_automatic_storage_duration</a></code></td>
+<td>自動記憶域期間を持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_internal_linkage.html">has_internal_linkage</a></code></td>
+<td>内部リンケージを持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_module_linkage.html">has_module_linkage</a></code></td>
+<td>モジュールリンケージを持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_external_linkage.html">has_external_linkage</a></code></td>
+<td>外部リンケージを持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_c_language_linkage.html">has_c_language_linkage</a></code></td>
+<td>C言語リンケージを持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_linkage.html">has_linkage</a></code></td>
+<td>リンケージを持つか</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ・基底クラスの取得</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/members_of.html">members_of</a></code></td>
+<td>すべてのメンバを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/bases_of.html">bases_of</a></code></td>
+<td>基底クラスを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/static_data_members_of.html">static_data_members_of</a></code></td>
+<td>静的データメンバを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/nonstatic_data_members_of.html">nonstatic_data_members_of</a></code></td>
+<td>非静的データメンバを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/enumerators_of.html">enumerators_of</a></code></td>
+<td>列挙子を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/subobjects_of.html">subobjects_of</a></code></td>
+<td>基底クラスと非静的データメンバを統合して取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>テンプレート操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/has_template_arguments.html">has_template_arguments</a></code></td>
+<td>テンプレート引数を持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/template_of.html">template_of</a></code></td>
+<td>テンプレートのリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/template_arguments_of.html">template_arguments_of</a></code></td>
+<td>テンプレート引数のリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/can_substitute.html">can_substitute</a></code></td>
+<td>テンプレート引数が置換可能か判定</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/substitute.html">substitute</a></code></td>
+<td>テンプレートにテンプレート引数を適用</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>レイアウト情報</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/member_offset.html">member_offset</a></code></td>
+<td>メンバオフセットを表す型 (class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/offset_of.html">offset_of</a></code></td>
+<td>メンバのオフセットを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/size_of.html">size_of</a></code></td>
+<td>サイズを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/alignment_of.html">alignment_of</a></code></td>
+<td>アライメントを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/bit_size_of.html">bit_size_of</a></code></td>
+<td>ビットサイズを取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>値の抽出と生成</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/extract.html">extract</a></code></td>
+<td>リフレクションから値を抽出</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/reflect_constant.html">reflect_constant</a></code></td>
+<td>値からリフレクションを生成</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/reflect_object.html">reflect_object</a></code></td>
+<td>オブジェクトからリフレクションを生成</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/reflect_function.html">reflect_function</a></code></td>
+<td>関数からリフレクションを生成</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>集成体の定義</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/data_member_options.html">data_member_options</a></code></td>
+<td>データメンバの仕様を指定するオプション (class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/data_member_spec.html">data_member_spec</a></code></td>
+<td>データメンバの仕様を作成</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_data_member_spec.html">is_data_member_spec</a></code></td>
+<td>データメンバの仕様であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/define_aggregate.html">define_aggregate</a></code></td>
+<td>集成体型を定義</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>静的ストレージへの配置</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/define_static_string.html">define_static_string</a></code></td>
+<td>コンパイル時文字列を静的ストレージに配置し<code>const CharT*</code>を返す</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/define_static_array.html">define_static_array</a></code></td>
+<td>コンパイル時配列を静的ストレージに配置し<code>span&lt;const T&gt;</code>を返す</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/define_static_object.html">define_static_object</a></code></td>
+<td>コンパイル時オブジェクトを静的ストレージに配置し<code>const T*</code>を返す</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>アノテーション</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_annotation.html">is_annotation</a></code></td>
+<td>アノテーションであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/annotations_of.html">annotations_of</a></code></td>
+<td>すべてのアノテーションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/annotations_of_with_type.html">annotations_of_with_type</a></code></td>
+<td>指定した型のアノテーションのみ取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>型特性（プライマリ型カテゴリ）</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_void_type.html">is_void_type</a></code></td>
+<td><code>void</code>型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_null_pointer_type.html">is_null_pointer_type</a></code></td>
+<td><code>nullptr_t</code>型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_integral_type.html">is_integral_type</a></code></td>
+<td>整数型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_floating_point_type.html">is_floating_point_type</a></code></td>
+<td>浮動小数点数型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_array_type.html">is_array_type</a></code></td>
+<td>配列型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_pointer_type.html">is_pointer_type</a></code></td>
+<td>ポインタ型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_lvalue_reference_type.html">is_lvalue_reference_type</a></code></td>
+<td>左辺値参照型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_rvalue_reference_type.html">is_rvalue_reference_type</a></code></td>
+<td>右辺値参照型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_member_object_pointer_type.html">is_member_object_pointer_type</a></code></td>
+<td>メンバオブジェクトポインタ型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_member_function_pointer_type.html">is_member_function_pointer_type</a></code></td>
+<td>メンバ関数ポインタ型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_enum_type.html">is_enum_type</a></code></td>
+<td>列挙型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_union_type.html">is_union_type</a></code></td>
+<td>共用体型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_class_type.html">is_class_type</a></code></td>
+<td>クラス型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_function_type.html">is_function_type</a></code></td>
+<td>関数型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_reflection_type.html">is_reflection_type</a></code></td>
+<td>リフレクション型か</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>型特性（複合型カテゴリ）</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_reference_type.html">is_reference_type</a></code></td>
+<td>参照型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_arithmetic_type.html">is_arithmetic_type</a></code></td>
+<td>算術型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_fundamental_type.html">is_fundamental_type</a></code></td>
+<td>基本型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_object_type.html">is_object_type</a></code></td>
+<td>オブジェクト型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_scalar_type.html">is_scalar_type</a></code></td>
+<td>スカラ型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_compound_type.html">is_compound_type</a></code></td>
+<td>複合型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_member_pointer_type.html">is_member_pointer_type</a></code></td>
+<td>メンバポインタ型か</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>型特性（型の性質）</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_const_type.html">is_const_type</a></code></td>
+<td><code>const</code>型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_volatile_type.html">is_volatile_type</a></code></td>
+<td><code>volatile</code>型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_copyable_type.html">is_trivially_copyable_type</a></code></td>
+<td>トリビアルコピー可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_standard_layout_type.html">is_standard_layout_type</a></code></td>
+<td>標準レイアウト型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_empty_type.html">is_empty_type</a></code></td>
+<td>空の型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_polymorphic_type.html">is_polymorphic_type</a></code></td>
+<td>多態的型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_abstract_type.html">is_abstract_type</a></code></td>
+<td>抽象型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_final_type.html">is_final_type</a></code></td>
+<td><code>final</code>型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_aggregate_type.html">is_aggregate_type</a></code></td>
+<td>集成体型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_signed_type.html">is_signed_type</a></code></td>
+<td>符号付き型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_unsigned_type.html">is_unsigned_type</a></code></td>
+<td>符号なし型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_bounded_array_type.html">is_bounded_array_type</a></code></td>
+<td>境界付き配列型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_unbounded_array_type.html">is_unbounded_array_type</a></code></td>
+<td>境界なし配列型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_scoped_enum_type.html">is_scoped_enum_type</a></code></td>
+<td>スコープ付き列挙型か</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>型変換</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/remove_const.html">remove_const</a></code></td>
+<td><code>const</code>を除去</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/remove_volatile.html">remove_volatile</a></code></td>
+<td><code>volatile</code>を除去</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/remove_cv.html">remove_cv</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を除去</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/add_const.html">add_const</a></code></td>
+<td><code>const</code>を付加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/add_volatile.html">add_volatile</a></code></td>
+<td><code>volatile</code>を付加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/add_cv.html">add_cv</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を付加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/remove_reference.html">remove_reference</a></code></td>
+<td>参照を除去</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/add_lvalue_reference.html">add_lvalue_reference</a></code></td>
+<td>左辺値参照を付加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/add_rvalue_reference.html">add_rvalue_reference</a></code></td>
+<td>右辺値参照を付加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/remove_cvref.html">remove_cvref</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>と参照を除去</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/remove_pointer.html">remove_pointer</a></code></td>
+<td>ポインタを除去</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/add_pointer.html">add_pointer</a></code></td>
+<td>ポインタを付加</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/decay.html">decay</a></code></td>
+<td>配列・関数からポインタへの変換を適用</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/make_signed.html">make_signed</a></code></td>
+<td>符号付き型に変換</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/make_unsigned.html">make_unsigned</a></code></td>
+<td>符号なし型に変換</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/remove_extent.html">remove_extent</a></code></td>
+<td>配列の次元を除去</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/remove_all_extents.html">remove_all_extents</a></code></td>
+<td>配列のすべての次元を除去</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/common_type.html">common_type</a></code></td>
+<td>共通型を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/common_reference.html">common_reference</a></code></td>
+<td>共通参照型を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/type_underlying_type.html">type_underlying_type</a></code></td>
+<td>基底型を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/invoke_result.html">invoke_result</a></code></td>
+<td>呼び出し結果型を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/unwrap_reference.html">unwrap_reference</a></code></td>
+<td><code>reference_wrapper</code>を展開</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/unwrap_ref_decay.html">unwrap_ref_decay</a></code></td>
+<td><code>decay</code>後に<code>reference_wrapper</code>を展開</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/type_order.html">type_order</a></code></td>
+<td>型の順序を取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>エラー処理</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/exception.html">exception</a></code></td>
+<td>リフレクションメタ関数のエラーを表す<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>クラス (class)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../lang/cpp26/reflection.html">C++26 静的リフレクション</a></li>
+<li><a href="../lang/cpp26/expansion_statements.html">C++26 コンパイル時のタプルやリストを展開処理する<code>template for</code>文</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html" target="_blank">P2996R13 Reflection for C++26</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3394r4.html" target="_blank">P3394R4 Annotations for Reflection</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3293r3.html" target="_blank">P3293R3 Splicing a base class subobject</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3096r12.pdf" target="_blank">P3096R12 Function Parameter Reflection in Reflection for C++26</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html" target="_blank">P3491R3 <code>define_static_{string,object,array}</code></a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html" target="_blank">P3560R2 Error Handling in Reflection</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

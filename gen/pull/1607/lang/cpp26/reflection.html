@@ -1,0 +1,610 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>静的リフレクション [P2996R13] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp26
+">
+        <meta name="title" content="静的リフレクション [P2996R13] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="静的リフレクション [P2996R13] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="静的リフレクション [P2996R13] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26/reflection.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++26では、コンパイル時にプログラムの構造を検査・操作できる「静的リフレクション (static reflection)」機能を導入する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="静的リフレクション [P2996R13] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26/reflection.html" />
+        <meta name="twitter:description" content="C++26では、コンパイル時にプログラムの構造を検査・操作できる「静的リフレクション (static reflection)」機能を導入する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8e3965167cc4f636cb43c331d3eb907438171704&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n#include &lt;string&gt;\n\nstruct Point {\n  int x;\n  int y;\n  std::string name;\n};\n\nint main() {\n  Point p{10, 20, \&#34;origin\&#34;};\n\n  template for (constexpr auto m :\n      std::meta::nonstatic_data_members_of(^^Point,\n          std::meta::access_context::unchecked())) {\n    std::println(\&#34;{}: {}\&#34;, std::meta::identifier_of(m), p.[:m:]);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;c067bc078c95a4946606a78001afc8277cd8afcb&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n#include &lt;string_view&gt;\n\nenum class Color { red, green, blue };\n\ntemplate &lt;typename E&gt;\n  requires std::is_enum_v&lt;E&gt;\nconstexpr std::string_view to_string(E value) {\n  template for (constexpr auto e : std::meta::enumerators_of(^^E)) {\n    if (value == [:e:]) {\n      return std::meta::identifier_of(e);\n    }\n  }\n  return \&#34;&lt;unknown&gt;\&#34;;\n}\n\nint main() {\n  std::println(\&#34;{}\&#34;, to_string(Color::red));\n  std::println(\&#34;{}\&#34;, to_string(Color::green));\n  std::println(\&#34;{}\&#34;, to_string(Color::blue));\n}\n&#34;}, {&#34;id&#34;: &#34;53ecf127cf4510700194668a6d311b4a54d66090&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nvoid process(int id, double value, const char* name) {}\n\nint main() {\n  template for (constexpr auto p : std::meta::parameters_of(^^process)) {\n    std::println(\&#34;\u30d1\u30e9\u30e1\u30fc\u30bf: {} (\u578b: {})\&#34;,\n      std::meta::identifier_of(p),\n      std::meta::display_string_of(std::meta::type_of(p)));\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;reflection&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp26.html" itemprop="url">
+              
+                <span itemprop="name">C++26</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">静的リフレクション [P2996R13]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-04-09T06:13:07">
+        2026年04月09日 06時13分07秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26/reflection.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26/reflection.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">静的リフレクション [P2996R13]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++26では、コンパイル時にプログラムの構造を検査・操作できる「静的リフレクション (static reflection)」機能を導入する。</p>
+<p>この機能は以下の要素で構成される：</p>
+<ul>
+<li><strong>リフレクション演算子<code>^^</code></strong> : 型、名前空間、変数、関数、メンバなどのプログラム要素から、その情報を表すコンパイル時の値（リフレクション）を生成する</li>
+<li><strong>スプライス演算子<code>[: :]</code></strong> : リフレクションをプログラム要素（型、式、テンプレート引数など）に変換して挿入する</li>
+<li><strong><code>std::meta::info</code>型</strong> : リフレクションを表すスカラ型。<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a> (structural type) であり、<a class="cpprefjp-defined-word" data-desc="constant template parameter。テンプレートパラメータのうち、型ではなく値をとるもの。C++23以前は「非型テンプレートパラメータ (non-type template parameter)」と呼ばれていた">定数テンプレートパラメータ</a>として使用できる</li>
+<li><strong><code>&lt;meta&gt;</code>ヘッダ</strong> : リフレクションを操作するためのメタ関数群を提供する新しいヘッダ</li>
+<li><strong><code>consteval</code>ブロック</strong> : <code>consteval { ... }</code>によるコンパイル時副作用の実行</li>
+<li><strong>アノテーション</strong> : 宣言にコンパイル時定数を付加し、リフレクションで取得できる機構</li>
+<li><strong>関数パラメータのリフレクション</strong> : 関数の仮引数の型、名前、デフォルト引数の有無などをリフレクションで取得できる</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/meta.html">&lt;meta&gt;</a></span>
+<span class="cp">#include <a href="../../reference/print.html">&lt;print&gt;</a></span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="w"> </span><span class="p">};</span>
+
+<span class="c1">// 列挙値を文字列に変換する汎用関数</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/is_enum.html">std::is_enum_v</a></span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/meta/enumerators_of.html">std::meta::enumerators_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 型から列挙子のリストを取得</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/meta/identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"> </span><span class="c1">// 列挙子の名前を文字列として取得</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"&lt;unknown&gt;"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">red</span><span class="p">));</span><span class="w">    </span><span class="c1">// "red"</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">green</span><span class="p">));</span><span class="w">  </span><span class="c1">// "green"</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">));</span><span class="w">   </span><span class="c1">// "blue"</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>リフレクション演算子<code>^^</code></h2>
+<p><code>^^</code>は前置の単項演算子であり、プログラム要素から<code><a href="../../reference/meta/info.html">std::meta::info</a></code>型の値を生成する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">^^</span><span class="kt">int</span><span class="p">;</span><span class="w">           </span><span class="c1">// 型のリフレクション</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">^^</span><span class="n">std</span><span class="p">;</span><span class="w">           </span><span class="c1">// 名前空間のリフレクション</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">^^::</span><span class="p">;</span><span class="w">            </span><span class="c1">// グローバル名前空間のリフレクション</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">r4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">^^</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="p">;</span><span class="w">   </span><span class="c1">// テンプレートのリフレクション</span>
+</code></pre></div>
+</p>
+<p>リフレクションできる対象と、取得できる主な情報：</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>対象</th>
+<th>構文例</th>
+<th>取得できる情報</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>型</td>
+<td><code>^^int</code>, <code>^^std::string</code></td>
+<td>名前、サイズ、アライメント、型特性、メンバ一覧、基底クラス一覧</td>
+</tr>
+<tr>
+<td>名前空間</td>
+<td><code>^^std</code>, <code>^^::</code></td>
+<td>名前、メンバ一覧</td>
+</tr>
+<tr>
+<td>変数</td>
+<td><code>^^x</code></td>
+<td>名前、型、記憶域期間、リンケージ</td>
+</tr>
+<tr>
+<td>関数</td>
+<td><code>^^f</code></td>
+<td>名前、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型、パラメータ一覧、<code>noexcept</code>の有無</td>
+</tr>
+<tr>
+<td>非静的データメンバ</td>
+<td><code>^^S::m</code></td>
+<td>名前、型、オフセット、アクセス指定子、ビットフィールドの有無</td>
+</tr>
+<tr>
+<td>列挙子</td>
+<td><code>^^Color::red</code></td>
+<td>名前、値、所属する列挙型</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>^^std::vector</code></td>
+<td>名前、テンプレート引数の置換</td>
+</tr>
+<tr>
+<td>基底クラス関係</td>
+<td><code><a href="../../reference/meta/bases_of.html">bases_of()</a></code>経由</td>
+<td>基底クラスの型、アクセス指定子、<code>virtual</code>の有無</td>
+</tr>
+<tr>
+<td>関数パラメータ</td>
+<td><code><a href="../../reference/meta/parameters_of.html">parameters_of()</a></code>経由</td>
+<td>名前、型、デフォルト引数の有無、明示的オブジェクトパラメータか</td>
+</tr>
+</tbody>
+</table>
+<h2>スプライス演算子<code>[: :]</code></h2>
+<p>スプライス演算子は、<code><a href="../../reference/meta/info.html">std::meta::info</a></code>型の値（リフレクション）を受け取り、それが表すプログラム要素（型、式、テンプレート、名前空間）に変換して挿入する。<code>[:</code>と<code>:]</code>の間には<code>std::meta::info</code>型に評価される式を記述する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 型スプライス：リフレクションが表す型を挿入する</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/meta/info.html">std::meta::info</a></span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">^^</span><span class="kt">int</span><span class="p">;</span>
+<span class="k">typename</span><span class="p">[</span><span class="o">:</span><span class="n">r</span><span class="o">:</span><span class="p">]</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// int x = 42; と等価</span>
+
+<span class="c1">// 式スプライス：リフレクションが表す変数や関数を式として挿入する</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/meta/info.html">std::meta::info</a></span><span class="w"> </span><span class="n">rv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">^^</span><span class="n">value</span><span class="p">;</span>
+<span class="p">[</span><span class="o">:</span><span class="n">rv</span><span class="o">:</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// value = 20; と等価</span>
+</code></pre></div>
+</p>
+<p>リフレクションが表す要素の種類に応じて、スプライスの構文が異なる：</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>種類</th>
+<th>構文</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>型スプライス</td>
+<td><code>typename[:r:]</code></td>
+<td>リフレクション<code>r</code>が表す型を挿入。型のみの文脈では<code>typename</code>を省略可能</td>
+</tr>
+<tr>
+<td>式スプライス</td>
+<td><code>[:r:]</code></td>
+<td>リフレクション<code>r</code>が表す変数・関数・列挙子などを式として挿入</td>
+</tr>
+<tr>
+<td>テンプレートスプライス</td>
+<td><code>template[:r:]</code></td>
+<td>リフレクション<code>r</code>が表すテンプレートを挿入</td>
+</tr>
+<tr>
+<td>名前空間スプライス</td>
+<td><code>namespace[:r:]</code></td>
+<td>リフレクション<code>r</code>が表す名前空間を挿入</td>
+</tr>
+</tbody>
+</table>
+<p>メンバアクセスにもスプライスを使用できる。<code>obj.[:r:]</code>の形式で、リフレクション<code>r</code>が表す非静的データメンバや基底クラスにアクセスする：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="n">S</span><span class="w"> </span><span class="n">s</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/meta/nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span>
+<span class="w">  </span><span class="o">^^</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/meta/access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="../../reference/meta/access_context/unchecked.html">unchecked</a></span><span class="p">());</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.[</span><span class="o">:</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span><span class="p">];</span><span class="w">  </span><span class="c1">// s.x と等価。a == 1</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.[</span><span class="o">:</span><span class="n">members</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:</span><span class="p">];</span><span class="w">  </span><span class="c1">// s.y と等価。b == 2</span>
+</code></pre></div>
+</p>
+<h3>基底クラスのサブオブジェクトへのスプライス</h3>
+<p>基底クラスのリフレクションに対してもメンバアクセスのスプライスを使用できる。これにより、非静的データメンバと基底クラスを統一的に扱うことができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="n">Derived</span><span class="w"> </span><span class="n">obj</span><span class="p">{{</span><span class="mi">42</span><span class="p">},</span><span class="w"> </span><span class="mi">100</span><span class="p">};</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">bases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/meta/bases_of.html">std::meta::bases_of</a></span><span class="p">(</span>
+<span class="w">  </span><span class="o">^^</span><span class="n">Derived</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/meta/access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="../../reference/meta/access_context/unchecked.html">unchecked</a></span><span class="p">());</span>
+<span class="n">Base</span><span class="o">&amp;</span><span class="w"> </span><span class="n">base_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.[</span><span class="o">:</span><span class="n">bases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span><span class="p">];</span><span class="w">  </span><span class="c1">// 基底クラスのサブオブジェクトへの参照</span>
+</code></pre></div>
+</p>
+<h2><code>std::meta::info</code>型</h2>
+<p><code><a href="../../reference/meta/info.html">std::meta::info</a></code>型は、リフレクションを表す基本的な型である。</p>
+<ul>
+<li><code><a href="../../reference/meta.html">&lt;meta&gt;</a></code>ヘッダで<code>using info = decltype(^^::);</code>として定義される。<code>^^::</code>はグローバル名前空間のリフレクションを生成する式であり、<code>decltype</code>でその型を取得している</li>
+<li>スカラ型であり、クラス型ではない</li>
+<li><code>==</code>と<code>!=</code>をサポートするが、順序比較（<code>&lt;</code>, <code>&gt;</code>, <code>&lt;=&gt;</code>）はサポートしない</li>
+<li><a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a> (structural type) であり、<a class="cpprefjp-defined-word" data-desc="constant template parameter。テンプレートパラメータのうち、型ではなく値をとるもの。C++23以前は「非型テンプレートパラメータ (non-type template parameter)」と呼ばれていた">定数テンプレートパラメータ</a>として使用できる</li>
+<li>consteval-only型であり、実行時には存在できない</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 定数テンプレートパラメータとして使用する例</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../../reference/meta/info.html">std::meta::info</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">type_of_reflection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="p">[</span><span class="o">:</span><span class="n">R</span><span class="o">:</span><span class="p">];</span>
+
+<span class="n">type_of_reflection</span><span class="o">&lt;^^</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">  </span><span class="c1">// int x = 42;</span>
+</code></pre></div>
+</p>
+<p>2つのリフレクションは、同じエンティティを反映している場合に等値となる。型の別名は、元の型とは区別される：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">MyInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">^^</span><span class="n">MyInt</span><span class="p">);</span><span class="w">                       </span><span class="c1">// 型の別名は区別される</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../../reference/meta/dealias.html">std::meta::dealias</a></span><span class="p">(</span><span class="o">^^</span><span class="n">MyInt</span><span class="p">));</span><span class="w">   </span><span class="c1">// dealias()で元の型を取得</span>
+</code></pre></div>
+</p>
+<h2><code>&lt;meta&gt;</code>ヘッダのメタ関数</h2>
+<p><code><a href="../../reference/meta.html">&lt;meta&gt;</a></code>ヘッダは、リフレクションを操作するための多数の<code>consteval</code>メタ関数を提供する。名前の取得、エンティティの分類・検査、メンバや基底クラスの列挙、型特性の判定と型変換、テンプレート操作、レイアウト情報の取得、集成体型の動的定義など、広範な機能を備える。</p>
+<p>詳細は<a href="../../reference/meta.html"><code>&lt;meta&gt;</code>ヘッダのリファレンス</a>を参照。</p>
+<h2><code>consteval</code>ブロック</h2>
+<p><code>consteval { ... }</code>構文により、コンパイル時に副作用のあるコードを実行できる。<code><a href="../../reference/meta/define_aggregate.html">std::meta::define_aggregate()</a></code>と組み合わせて型を動的に生成する際に使用する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="p">;</span>
+
+<span class="k">consteval</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Sを2つのintメンバを持つ集成体として定義</span>
+<span class="w">  </span><span class="n"><a href="../../reference/meta/define_aggregate.html">std::meta::define_aggregate</a></span><span class="p">(</span><span class="o">^^</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/meta/data_member_spec.html">std::meta::data_member_spec</a></span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"x"</span><span class="p">}),</span>
+<span class="w">    </span><span class="n"><a href="../../reference/meta/data_member_spec.html">std::meta::data_member_spec</a></span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"y"</span><span class="p">})</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="n">S</span><span class="w"> </span><span class="n">s</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w">  </span><span class="c1">// s.x == 1, s.y == 2</span>
+</code></pre></div>
+</p>
+<h2>アノテーション</h2>
+<p>宣言にコンパイル時定数値を付加し、リフレクションで取得できる機構である。属性とは異なり、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の意味的データを運ぶ。</p>
+<h3>構文</h3>
+<p><code>[[=定数式]]</code>の構文でアノテーションを付加する。<code>=</code>接頭辞により通常の属性と区別される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="o">=</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="n">Annotated</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">[[</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="o">=</span><span class="mi">24</span><span class="p">]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>アノテーションの式は<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>でなければならない。アノテーションの取得には<code><a href="../../reference/meta/annotations_of.html">annotations_of()</a></code>や<code><a href="../../reference/meta/annotations_of_with_type.html">annotations_of_with_type()</a></code>メタ関数を使用する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="s">"点"</span><span class="p">}]]</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="s">"x座標"</span><span class="p">}]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="s">"y座標"</span><span class="p">}]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// メンバのアノテーションを取得</span>
+<span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n"><a href="../../reference/meta/nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">Point</span><span class="p">,</span>
+<span class="w">        </span><span class="n"><a href="../../reference/meta/access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="../../reference/meta/access_context/unchecked.html">unchecked</a></span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">annots</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/meta/annotations_of_with_type.html">std::meta::annotations_of_with_type</a></span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="o">^^</span><span class="n">Name</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n">annots</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}: {}"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">annots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span><span class="p">].</span><span class="n">value</span><span class="p">,</span>
+<span class="w">                           </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">identifier_of</span><span class="p">(</span><span class="n">m</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// 出力:</span>
+<span class="c1">// x座標: x</span>
+<span class="c1">// y座標: y</span>
+</code></pre></div>
+</p>
+<h2><code>define_static_string</code> / <code>define_static_array</code> / <code>define_static_object</code></h2>
+<p>これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。<code><a href="../../reference/meta/define_static_string.html">std::meta::define_static_string()</a></code>は文字列を、<code><a href="../../reference/meta/define_static_array.html">std::meta::define_static_array()</a></code>は配列を、<code><a href="../../reference/meta/define_static_object.html">std::meta::define_static_object()</a></code>はオブジェクトをそれぞれ静的ストレージに配置する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// コンパイル時に計算した文字列を実行時に使用する</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/meta/enumerators_of.html">std::meta::enumerators_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/meta/define_static_string.html">std::meta::define_static_string</a></span><span class="p">(</span><span class="n"><a href="../../reference/meta/identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"&lt;unknown&gt;"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>リフレクションのエラー処理</h2>
+<p>リフレクションのメタ関数は、不正な入力に対して<code><a href="../../reference/meta/exception.html">std::meta::exception</a></code>を送出する。定数評価中の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>処理として動作するため、実行時のオーバーヘッドはない。</p>
+<h2>例</h2>
+<h3>構造体のメンバを列挙する</h3>
+<p><div class="yata" id="8e3965167cc4f636cb43c331d3eb907438171704"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/meta.html">&lt;meta&gt;</a></span>
+<span class="cp">#include <a href="../../reference/print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">"origin"</span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">:</span>
+<span class="w">      </span><span class="n"><a href="../../reference/meta/nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">Point</span><span class="p">,</span>
+<span class="w">          </span><span class="n"><a href="../../reference/meta/access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="../../reference/meta/access_context/unchecked.html">unchecked</a></span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}: {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/meta/identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="w"> </span><span class="n">p</span><span class="p">.[</span><span class="o">:</span><span class="n">m</span><span class="o">:</span><span class="p">]);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>x: 10
+y: 20
+name: origin
+</code></pre></p>
+<h3>列挙値を文字列に変換する</h3>
+<p><div class="yata" id="c067bc078c95a4946606a78001afc8277cd8afcb"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/meta.html">&lt;meta&gt;</a></span>
+<span class="cp">#include <a href="../../reference/print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string_view.html">&lt;string_view&gt;</a></span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="w"> </span><span class="p">};</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/is_enum.html">std::is_enum_v</a></span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/meta/enumerators_of.html">std::meta::enumerators_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/meta/identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"&lt;unknown&gt;"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">red</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">green</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>red
+green
+blue
+</code></pre></p>
+<h3>関数パラメータの名前と型を列挙する</h3>
+<p><div class="yata" id="53ecf127cf4510700194668a6d311b4a54d66090"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/meta.html">&lt;meta&gt;</a></span>
+<span class="cp">#include <a href="../../reference/print.html">&lt;print&gt;</a></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/meta/parameters_of.html">std::meta::parameters_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">process</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"パラメータ: {} (型: {})"</span><span class="p">,</span>
+<span class="w">      </span><span class="n"><a href="../../reference/meta/identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">p</span><span class="p">),</span>
+<span class="w">      </span><span class="n"><a href="../../reference/meta/display_string_of.html">std::meta::display_string_of</a></span><span class="p">(</span><span class="n"><a href="../../reference/meta/type_of.html">std::meta::type_of</a></span><span class="p">(</span><span class="n">p</span><span class="p">)));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>パラメータ: id (型: int)
+パラメータ: value (型: double)
+パラメータ: name (型: const char*)
+</code></pre></p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../../reference/meta.html"><code>&lt;meta&gt;</code>ヘッダ</a></li>
+<li><a href="expansion_statements.html">C++26 コンパイル時のタプルやリストを展開処理する<code>template for</code>文</a></li>
+<li><a href="allowing_exception_throwing_in_constant-evaluation.html">C++26 定数評価での例外送出を許可</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html" target="_blank">P2996R13 Reflection for C++26</a><ul>
+<li>C++26での静的リフレクションの基本機能。リフレクション演算子<code>^^</code>、スプライス演算子<code>[: :]</code>、<code>std::meta::info</code>型、<code>&lt;meta&gt;</code>ヘッダのメタ関数群を導入する。</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3394r4.html" target="_blank">P3394R4 Annotations for Reflection</a><ul>
+<li>宣言にコンパイル時定数を付加するアノテーション機能<code>[[=expr]]</code>と、それを取得するための<code>annotations_of()</code>メタ関数を追加する。</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3293r3.html" target="_blank">P3293R3 Splicing a base class subobject</a><ul>
+<li>基底クラスのリフレクションに対するメンバアクセスのスプライス<code>obj.[:base:]</code>と、基底クラスと非静的データメンバを統合取得する<code>subobjects_of()</code>を追加する。</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3096r12.pdf" target="_blank">P3096R12 Function Parameter Reflection in Reflection for C++26</a><ul>
+<li>関数パラメータのリフレクションを追加する。<code>parameters_of()</code>、<code>return_type_of()</code>、<code>has_default_argument()</code>などのメタ関数を導入する。</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html" target="_blank">P3491R3 <code>define_static_{string,object,array}</code></a><ul>
+<li>コンパイル時に計算した値を静的ストレージに配置するための<code>define_static_string()</code>、<code>define_static_array()</code>、<code>define_static_object()</code>を追加する。</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html" target="_blank">P3560R2 Error Handling in Reflection</a><ul>
+<li>リフレクションのメタ関数のエラー処理として<code>std::meta::exception</code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>クラスを導入する。コンパイル時<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>として動作する。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

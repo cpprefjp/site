@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>コンパイル時のタプルやリストを展開処理するtemplate for文 [P1306R5] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp26
+">
+        <meta name="title" content="コンパイル時のタプルやリストを展開処理するtemplate for文 [P1306R5] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="コンパイル時のタプルやリストを展開処理するtemplate for文 [P1306R5] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="コンパイル時のタプルやリストを展開処理するtemplate for文 [P1306R5] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26/expansion_statements.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++26では、タプル、構造体、Range、パラメータパック展開リストなどの各要素に対して、コンパイル時に文を繰り返し展開する「展開文 (expansion statement)」として`template for`文を導入する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="コンパイル時のタプルやリストを展開処理するtemplate for文 [P1306R5] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26/expansion_statements.html" />
+        <meta name="twitter:description" content="C++26では、タプル、構造体、Range、パラメータパック展開リストなどの各要素に対して、コンパイル時に文を繰り返し展開する「展開文 (expansion statement)」として`template for`文を導入する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;expansion_statements&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp26.html" itemprop="url">
+              
+                <span itemprop="name">C++26</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンパイル時のタプルやリストを展開処理するtemplate for文 [P1306R5]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-04-09T06:13:07">
+        2026年04月09日 06時13分07秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26/expansion_statements.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26/expansion_statements.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">コンパイル時のタプルやリストを展開処理する<code>template for</code>文 [P1306R5]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++26では、タプル、構造体、Range、パラメータパック展開リストなどの各要素に対して、コンパイル時に文を繰り返し展開する「展開文 (expansion statement)」として<code>template for</code>文を導入する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/make_tuple.html">std::make_tuple</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>出力：</p>
+<p><pre><code>0
+a
+3.14
+</code></pre></p>
+<p>この<code>template for</code>文は、本体の文をコンパイル時に要素数分だけ展開する。上記のコードは以下と等価である：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tup</span><span class="p">);</span><span class="w"> </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tup</span><span class="p">);</span><span class="w"> </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tup</span><span class="p">);</span><span class="w"> </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>各展開において要素の型が異なりうるため、通常の<code>for</code>文では実現できない処理が可能となる。</p>
+<h2>構文</h2>
+<p><pre><code>template for ( init-statement(opt) for-<a href="../../reference/ranges/range.html">range</a>-declaration : expansion-initializer ) compound-statement
+</code></pre></p>
+<p><code>expansion-initializer</code>には以下の3種類の形式がある：</p>
+<ul>
+<li>列挙展開: <code>{ expression-list }</code> — 引数パック展開や、任意のタプル指定</li>
+<li>反復展開 (Range) : <code>expression</code> — <code>begin()</code>/<code>end()</code>が定義され、要素数がコンパイル時に確定するRange</li>
+<li>分解展開 (構造体・タプル) : <code>expression</code> — 構造化束縛可能なオブジェクト</li>
+</ul>
+<h2>展開の種類</h2>
+<h3>列挙展開</h3>
+<p>ブレース区切りの式リストやパック展開を展開する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print_all</span><span class="p">(</span><span class="n">Ts</span><span class="p">...</span><span class="w"> </span><span class="n">elems</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="n">elems</span><span class="p">...})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">print_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="s">"three"</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>パック展開のほか、任意の式のリストも使用できる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="s">"three"</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>反復展開</h3>
+<p><code>begin()</code>/<code>end()</code>が定義され、<code>end - begin</code>がコンパイル時に確定するRangeを展開する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">I</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>分解展開</h3>
+<p>構造化束縛可能なオブジェクト（タプル、構造体など）を展開する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="k">consteval</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">total_size</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">field</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>範囲としても分解としても解釈できる場合は、範囲が優先される。</p>
+<h2><code>break</code>と<code>continue</code></h2>
+<p><code>template for</code>文の本体内で<code>break</code>と<code>continue</code>を使用できる。これらは実行時の制御フローとして動作する。</p>
+<ul>
+<li><code>break</code> : 展開全体の末尾に飛ぶ</li>
+<li><code>continue</code> : 次の展開の先頭に飛ぶ</li>
+</ul>
+<p>同じ型の要素のみのタプルであれば、通常の<code>if</code>文で条件分岐できる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/make_tuple.html">std::make_tuple</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elem</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 出力: 1</span>
+</code></pre></div>
+</p>
+<p>異なる型の要素をもつタプルでは、型に依存する条件を<code>if constexpr</code>で分岐する必要がある：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/make_tuple.html">std::make_tuple</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">);</span>
+<span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 整数型の場合のみ値を判定してcontinueする</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elem</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 出力:</span>
+<span class="c1">// hello</span>
+<span class="c1">// 3.14</span>
+</code></pre></div>
+</p>
+<h2><code>return</code></h2>
+<p><code>template for</code>文の本体内で<code>return</code>を使用すると、所属する関数から直接返る。これは<code><a href="../../reference/tuple/apply.html">std::apply()</a></code>にラムダ式を渡す方法では実現できなかった利点である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// タプルの要素から最初の整数型の値を探して返す</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+<span class="n"><a href="../../reference/optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">find_first_int</span><span class="p">(</span><span class="n">Tuple</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/type_traits/remove_cvref.html">std::remove_cvref_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">elem</span><span class="p">;</span><span class="w">  </span><span class="c1">// 所属する関数から直接返る</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">nullopt</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/tuple/make_tuple.html">std::make_tuple</a></span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_first_int</span><span class="p">(</span><span class="n">tup</span><span class="p">);</span><span class="w">  </span><span class="c1">// 42</span>
+</code></pre></div>
+</p>
+<h2><code>co_await</code></h2>
+<p><code>template for</code>文の本体内で<code>co_await</code>を使用すると、所属するコルーチンを直接サスペンドできる。ラムダ式内の<code>co_await</code>は囲む関数ではなくラムダ自体をコルーチンにしてしまうため、従来の方法では実現が困難であった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// タプルの各要素に対して非同期処理を順番に実行する</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+<span class="n">Task</span><span class="w"> </span><span class="n">process_all</span><span class="p">(</span><span class="n">Tuple</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">co_await</span><span class="w"> </span><span class="n">async_process</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span><span class="w">  </span><span class="c1">// 所属するコルーチンをサスペンドする</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++23以前では、<code><a href="../../reference/tuple/tuple.html">std::tuple</a></code>のような異種型コンテナの各要素を処理するために、テンプレートの再帰的インスタンス化や<code><a href="../../reference/tuple/apply.html">std::apply()</a></code>を使用する必要があった。これらの手法には以下の問題があった：</p>
+<ul>
+<li>コンパイル時間とメモリの消費が大きい</li>
+<li>ラムダ式内での<code>return</code>や<code>co_await</code>が囲む関数に影響を与えない</li>
+<li>コードが不自然で読みにくい</li>
+</ul>
+<p><code>template for</code>文はこれらの問題を解決し、異種型コンテナの反復処理を通常の<code>for</code>文と同様の構文で記述できるようにする。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/variadic_templates.html">C++11 可変引数テンプレート</a></li>
+<li><a href="../cpp17/folding_expressions.html">C++17 畳み込み式</a></li>
+<li><a href="../cpp17/structured_bindings.html">C++17 構造化束縛</a></li>
+<li><a href="structured_bindings_can_introduce_a_pack.html">C++26 構造化束縛でパックを導入できるようにする</a></li>
+<li><a href="reflection.html">C++26 静的リフレクション</a></li>
+<li><code><a href="../../reference/tuple/tuple.html">std::tuple</a></code></li>
+<li><code><a href="../../reference/tuple/apply.html">std::apply()</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1306r5.html" target="_blank">P1306R5 Expansion Statements</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
