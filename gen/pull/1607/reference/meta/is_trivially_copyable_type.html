@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e10d5b15fb27acffd2ad2ee77447cecf11385ebf&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nint main() {\n  static_assert(std::meta::is_trivially_copyable_type(^^int));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_trivially_copyable_type&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c0058d8d776a7c378b687bef2da14aeebc8cbe2d&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;string&gt;\n\nstruct Trivial {\n  int x;\n  double y;\n};\n\nstruct NonTrivial {\n  NonTrivial(const NonTrivial&amp;) {}  // \u30e6\u30fc\u30b6\u30fc\u5b9a\u7fa9\u30b3\u30d4\u30fc\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n};\n\nint main() {\n  static_assert(std::meta::is_trivially_copyable_type(^^int));\n  static_assert(std::meta::is_trivially_copyable_type(^^Trivial));\n  static_assert(!std::meta::is_trivially_copyable_type(^^NonTrivial));\n  static_assert(!std::meta::is_trivially_copyable_type(^^std::string));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_trivially_copyable_type&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-09T07:48:07">
+        2026年04月09日 07時48分07秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -221,14 +221,27 @@
 <h2>概要</h2>
 <p>トリビアルコピー可能型であるかを判定する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>r</code>がトリビアルコピー可能型を表す場合に<code>true</code>を返す。</p>
+<p><code>type</code>がトリビアルコピー可能型を表す場合に<code>true</code>を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code>type</code>が型を表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="e10d5b15fb27acffd2ad2ee77447cecf11385ebf"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="c0058d8d776a7c378b687bef2da14aeebc8cbe2d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Trivial</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">NonTrivial</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">NonTrivial</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">NonTrivial</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// ユーザー定義コピーコンストラクタ</span>
+<span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_trivially_copyable_type</span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::meta::is_trivially_copyable_type</span></span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::meta::is_trivially_copyable_type</span></span><span class="p">(</span><span class="o">^^</span><span class="n">Trivial</span><span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::meta::is_trivially_copyable_type</span></span><span class="p">(</span><span class="o">^^</span><span class="n">NonTrivial</span><span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::meta::is_trivially_copyable_type</span></span><span class="p">(</span><span class="o">^^</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

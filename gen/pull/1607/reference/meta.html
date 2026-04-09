@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-09T07:48:07">
+        2026年04月09日 07時48分07秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -400,6 +400,16 @@
 <td>指定したアクセスコンテキストでアクセス可能か</td>
 <td>C++26</td>
 </tr>
+<tr>
+<td><code><a href="meta/has_inaccessible_nonstatic_data_members.html">has_inaccessible_nonstatic_data_members</a></code></td>
+<td>アクセス不可能な非静的データメンバがあるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_inaccessible_bases.html">has_inaccessible_bases</a></code></td>
+<td>アクセス不可能な基底クラスがあるか</td>
+<td>C++26</td>
+</tr>
 </tbody>
 </table>
 <h2>エンティティの分類</h2>
@@ -490,6 +500,66 @@
 <tr>
 <td><code><a href="meta/is_function_parameter.html">is_function_parameter</a></code></td>
 <td>関数パラメータであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_template.html">is_template</a></code></td>
+<td>テンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_function_template.html">is_function_template</a></code></td>
+<td>関数テンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_variable_template.html">is_variable_template</a></code></td>
+<td>変数テンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_class_template.html">is_class_template</a></code></td>
+<td>クラステンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_alias_template.html">is_alias_template</a></code></td>
+<td>エイリアステンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_conversion_function_template.html">is_conversion_function_template</a></code></td>
+<td>変換関数テンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_operator_function_template.html">is_operator_function_template</a></code></td>
+<td>演算子関数テンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_literal_operator_template.html">is_literal_operator_template</a></code></td>
+<td>リテラル演算子テンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_constructor_template.html">is_constructor_template</a></code></td>
+<td>コンストラクタテンプレートであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_concept.html">is_concept</a></code></td>
+<td>コンセプトであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_complete_type.html">is_complete_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>であるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_enumerable_type.html">is_enumerable_type</a></code></td>
+<td>列挙可能型であるか</td>
 <td>C++26</td>
 </tr>
 </tbody>
@@ -1205,6 +1275,280 @@
 <td>スコープ付き列挙型か</td>
 <td>C++26</td>
 </tr>
+<tr>
+<td><code><a href="meta/is_constructible_type.html">is_constructible_type</a></code></td>
+<td>構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_default_constructible_type.html">is_default_constructible_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_copy_constructible_type.html">is_copy_constructible_type</a></code></td>
+<td>コピー構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_move_constructible_type.html">is_move_constructible_type</a></code></td>
+<td>ムーブ構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_assignable_type.html">is_assignable_type</a></code></td>
+<td>代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_copy_assignable_type.html">is_copy_assignable_type</a></code></td>
+<td>コピー代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_move_assignable_type.html">is_move_assignable_type</a></code></td>
+<td>ムーブ代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_swappable_with_type.html">is_swappable_with_type</a></code></td>
+<td>指定型とのswap可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_swappable_type.html">is_swappable_type</a></code></td>
+<td>swap可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_destructible_type.html">is_destructible_type</a></code></td>
+<td>破棄可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_constructible_type.html">is_trivially_constructible_type</a></code></td>
+<td>トリビアルに構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_default_constructible_type.html">is_trivially_default_constructible_type</a></code></td>
+<td>トリビアルに<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_copy_constructible_type.html">is_trivially_copy_constructible_type</a></code></td>
+<td>トリビアルにコピー構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_move_constructible_type.html">is_trivially_move_constructible_type</a></code></td>
+<td>トリビアルにムーブ構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_assignable_type.html">is_trivially_assignable_type</a></code></td>
+<td>トリビアルに代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_copy_assignable_type.html">is_trivially_copy_assignable_type</a></code></td>
+<td>トリビアルにコピー代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_move_assignable_type.html">is_trivially_move_assignable_type</a></code></td>
+<td>トリビアルにムーブ代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_destructible_type.html">is_trivially_destructible_type</a></code></td>
+<td>トリビアルに破棄可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_constructible_type.html">is_nothrow_constructible_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_default_constructible_type.html">is_nothrow_default_constructible_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_copy_constructible_type.html">is_nothrow_copy_constructible_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずにコピー構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_move_constructible_type.html">is_nothrow_move_constructible_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずにムーブ構築可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_assignable_type.html">is_nothrow_assignable_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_copy_assignable_type.html">is_nothrow_copy_assignable_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずにコピー代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_move_assignable_type.html">is_nothrow_move_assignable_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずにムーブ代入可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_swappable_with_type.html">is_nothrow_swappable_with_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに指定型とswap可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_swappable_type.html">is_nothrow_swappable_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずにswap可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_destructible_type.html">is_nothrow_destructible_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに破棄可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_trivially_relocatable_type.html">is_trivially_relocatable_type</a></code></td>
+<td>トリビアルにリロケート可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_relocatable_type.html">is_nothrow_relocatable_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずにリロケート可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_replaceable_type.html">is_replaceable_type</a></code></td>
+<td>置換可能型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_consteval_only_type.html">is_consteval_only_type</a></code></td>
+<td>consteval-only型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_implicit_lifetime_type.html">is_implicit_lifetime_type</a></code></td>
+<td>暗黙の生存期間型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_virtual_destructor.html">has_virtual_destructor</a></code></td>
+<td>仮想デストラクタを持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/has_unique_object_representations.html">has_unique_object_representations</a></code></td>
+<td>一意なオブジェクト表現を持つか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/reference_constructs_from_temporary.html">reference_constructs_from_temporary</a></code></td>
+<td>参照が一時オブジェクトから構築されるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/reference_converts_from_temporary.html">reference_converts_from_temporary</a></code></td>
+<td>参照への変換が一時オブジェクトを経由するか</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>型特性（型プロパティクエリ）</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/rank.html">rank</a></code></td>
+<td>配列型の次元数を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/extent.html">extent</a></code></td>
+<td>配列型の指定次元の要素数を取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>型特性（型の関係）</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/is_same_type.html">is_same_type</a></code></td>
+<td>同じ型か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_base_of_type.html">is_base_of_type</a></code></td>
+<td>基底クラスであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_virtual_base_of_type.html">is_virtual_base_of_type</a></code></td>
+<td>仮想基底クラスであるか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_convertible_type.html">is_convertible_type</a></code></td>
+<td>変換可能か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_convertible_type.html">is_nothrow_convertible_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに変換可能か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_layout_compatible_type.html">is_layout_compatible_type</a></code></td>
+<td>レイアウト互換か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_pointer_interconvertible_base_of_type.html">is_pointer_interconvertible_base_of_type</a></code></td>
+<td>ポインタ相互変換可能な基底クラスか</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_invocable_type.html">is_invocable_type</a></code></td>
+<td>呼び出し可能か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_invocable_r_type.html">is_invocable_r_type</a></code></td>
+<td>指定<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型で呼び出し可能か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_invocable_type.html">is_nothrow_invocable_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに呼び出し可能か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_invocable_r_type.html">is_nothrow_invocable_r_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに指定<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型で呼び出し可能か</td>
+<td>C++26</td>
+</tr>
 </tbody>
 </table>
 <h2>型変換</h2>
@@ -1330,6 +1674,26 @@
 <tr>
 <td><code><a href="meta/unwrap_ref_decay.html">unwrap_ref_decay</a></code></td>
 <td><code>decay</code>後に<code>reference_wrapper</code>を展開</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/tuple_size.html">tuple_size</a></code></td>
+<td>tuple-like型の要素数を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/tuple_element.html">tuple_element</a></code></td>
+<td>tuple-like型の要素型を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/variant_size.html">variant_size</a></code></td>
+<td>variant型の候補型の数を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/variant_alternative.html">variant_alternative</a></code></td>
+<td>variant型の候補型を取得</td>
 <td>C++26</td>
 </tr>
 <tr>

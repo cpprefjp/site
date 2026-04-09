@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-09T07:48:07">
+        2026年04月09日 07時48分07秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -318,6 +318,27 @@
 </tr>
 </tbody>
 </table>
+<h3><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された関数のリフレクション</h3>
+<p><code>^^f</code>で関数<code>f</code>をリフレクションする場合、<code>f</code>が<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>されていると<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。<code>^^</code>は<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>集合ではなく単一の関数を対象とする。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+
+<span class="c1">// constexpr auto r = ^^f;  // エラー: fはオーバーロードされている</span>
+</code></pre></div>
+</p>
+<p><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された関数の個々の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を取得するには、<code><a href="../../reference/meta/members_of.html">members_of()</a></code>を使用する。<code>members_of()</code>は各<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を個別のリフレクションとして返す。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// members_of()で個々のオーバーロードを取得</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/meta/members_of.html">std::meta::members_of</a></span><span class="p">(</span>
+<span class="w">    </span><span class="o">^^</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/meta/access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="../../reference/meta/access_context/unchecked.html">unchecked</a></span><span class="p">());</span>
+<span class="c1">// フィルタリングで特定のオーバーロードを選択できる</span>
+</code></pre></div>
+</p>
+<p>また、スプライスで関数のリフレクションを式に変換する場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>は行われず、そのリフレクションが表す特定の関数が直接使用される。</p>
 <h2>スプライス演算子<code>[: :]</code></h2>
 <p>スプライス演算子は、<code><a href="../../reference/meta/info.html">std::meta::info</a></code>型の値（リフレクション）を受け取り、それが表すプログラム要素（型、式、テンプレート、名前空間）に変換して挿入する。<code>[:</code>と<code>:]</code>の間には<code>std::meta::info</code>型に評価される式を記述する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 型スプライス：リフレクションが表す型を挿入する</span>
