@@ -9,7 +9,7 @@ namespace std {
 }
 ```
 * ostream[link ../ostream/basic_ostream.md]
-* wostream[link ../ostream/basic_ostream.md]
+* ostream[link ../ostream/basic_ostream.md]
 
 ## 概要
 `cout`は、標準出力に対する出力ストリームオブジェクトである。

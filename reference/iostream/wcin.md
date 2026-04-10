@@ -15,7 +15,7 @@ namespace std {
 
 すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`<cstdio>`の`stdin`オブジェクトに結びつけられているストリームバッファから入力を受ける。
 
-本オブジェクトは、初期化が完了すると [`tie`](../ios/basic_ios/tie.md)`()` が `&`[`cout`](cout.md) を返すようになる。  
+本オブジェクトは、初期化が完了すると [`tie`](../ios/basic_ios/tie.md)`()` が `&`[`wcout`](wcout.md) を返すようになる。  
 その他の状態は、[`basic_ios`](../ios/basic_ios.md)`::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
 
 `wcin`は`wide character input`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
@@ -27,9 +27,9 @@ namespace std {
 
 int main()
 {
-  std::cout << "名前を入力してください: ";
+  std::wcout << L"名前を入力してください: ";
 
-  std::string s;     // std::wcin.tie() == &std::wcout であるため、
+  std::wstring s;    // std::wcin.tie() == &std::wcout であるため、
   std::wcin >> s;    // std::wcout を明示的に flush しなくても
                      // 上記の出力が flush されることが保証されている
 
