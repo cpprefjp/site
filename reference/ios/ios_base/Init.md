@@ -45,7 +45,7 @@ namespace std {
 - [`cout`](../../iostream/cout.md)
 - [`cerr`](../../iostream/cerr.md)
 - [`clog`](../../iostream/clog.md)
-- [`wcin`](../../iostream/wcin.md.nolink)
+- [`wcin`](../../iostream/wcin.md)
 - [`wcout`](../../iostream/wcout.md)
 - [`wcerr`](../../iostream/wcerr.md.nolink)
 - [`wclog`](../../iostream/wclog.md.nolink)

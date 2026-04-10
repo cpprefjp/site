@@ -39,7 +39,7 @@ basic_ostream<CharT, Traits>* tie(basic_ostream<CharT, Traits>* tiestr);    // (
     なお、この要件は「`tie` に設定した後でこのようになってはいけない」という意味であるものと思われる。（さもないと、設定したことによって無限ループが生じることを防げない）
 - 標準入出力ストリームは、以下のような設定が行われている。
     - [`cin`](../../iostream/cin.md)`.tie() == &`[`cout`](../../iostream/cout.md)
-    - [`wcin`](../../iostream/wcin.md.nolink)`.tie() == &`[`wcout`](../../iostream/wcout.md)
+    - [`wcin`](../../iostream/wcin.md)`.tie() == &`[`wcout`](../../iostream/wcout.md)
     - [`cerr`](../../iostream/cerr.md)`.tie() == &`[`cout`](../../iostream/cout.md)（C++11 から）
     - [`wcerr`](../../iostream/wcerr.md.nolink)`.tie() == &`[`wcout`](../../iostream/wcout.md)（C++11 から）
 
@@ -101,7 +101,7 @@ new
 - [`cin`](../../iostream/cin.md)
 - [`cout`](../../iostream/cout.md)
 - [`cerr`](../../iostream/cerr.md)
-- [`wcin`](../../iostream/wcin.md.nolink)
+- [`wcin`](../../iostream/wcin.md)
 - [`wcout`](../../iostream/wcout.md)
 - [`wcerr`](../../iostream/wcerr.md.nolink)
 - [`basic_istream`](../../istream/basic_istream.md)`::`[`sentry`](../../istream/basic_istream/sentry.md)`::`[`sentry`](../../istream/basic_istream/sentry/op_constructor.md)
