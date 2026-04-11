@@ -228,11 +228,11 @@ struct [[=1]] Annotated {
 アノテーションの式は構造的型でなければならない。アノテーションの取得には[`annotations_of()`](/reference/meta/annotations_of.md)や[`annotations_of_with_type()`](/reference/meta/annotations_of_with_type.md)メタ関数を使用する。
 
 ```cpp
-struct Name { std::string_view value; };
+struct Name { const char* value; };
 
-struct [[=Name{"点"}]] Point {
-  [[=Name{"x座標"}]] int x;
-  [[=Name{"y座標"}]] int y;
+struct [[=Name{std::define_static_string("点")}]] Point {
+  [[=Name{std::define_static_string("x座標")}]] int x;
+  [[=Name{std::define_static_string("y座標")}]] int y;
 };
 
 // メンバのアノテーションを取得
