@@ -26,7 +26,7 @@ namespace std::meta {
 
 struct Label { const char* text; };
 
-struct [[=Label{"my struct"}, =42]] S {};
+struct [[=Label{std::define_static_string("my struct")}, =42]] S {};
 
 int main() {
   constexpr auto annots = std::meta::annotations_of(^^S);
