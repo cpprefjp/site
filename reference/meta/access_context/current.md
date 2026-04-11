@@ -1,7 +1,7 @@
 # current
 * meta[meta header]
 * std::meta[meta namespace]
-* std::meta::access_context[meta class]
+* access_context[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
