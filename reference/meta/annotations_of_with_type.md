@@ -26,9 +26,9 @@ namespace std::meta {
 
 struct Name { const char* value; };
 
-struct [[=Name{"点"}, =42]] Point {
-  [[=Name{"x座標"}]] int x;
-  [[=Name{"y座標"}]] int y;
+struct [[=Name{std::define_static_string("点")}, =42]] Point {
+  [[=Name{std::define_static_string("x座標")}]] int x;
+  [[=Name{std::define_static_string("y座標")}]] int y;
 };
 
 int main() {
