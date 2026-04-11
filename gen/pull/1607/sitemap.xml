@@ -227,7 +227,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta.html</loc>
-      <lastmod>2026-04-10T11:05:14+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
@@ -11385,21 +11385,21 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_scoped_enum_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_base_of_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_destructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11427,14 +11427,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_standard_layout_type.html</loc>
-      <lastmod>2026-04-10T11:05:14+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_constructor_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11448,7 +11448,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/reference_converts_from_temporary.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11497,7 +11497,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_member_object_pointer_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11511,7 +11511,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_move_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11525,35 +11525,35 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_union_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/tuple_element.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/reference_constructs_from_temporary.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_class_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_copyable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11567,7 +11567,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_swappable_with_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11588,7 +11588,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_default_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11602,14 +11602,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/has_inaccessible_bases.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_concept.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11630,7 +11630,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_swappable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11651,14 +11651,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_function_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_signed_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11679,7 +11679,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_swappable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11693,7 +11693,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_lvalue_reference_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11707,14 +11707,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_array_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_consteval_only_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11728,7 +11728,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11742,7 +11742,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_copy_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11756,70 +11756,70 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_relocatable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_copy_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_virtual_base_of_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_class_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_invocable_r_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_reflection_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_copy_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_copy_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_pointer_interconvertible_base_of_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_empty_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11840,7 +11840,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_copy_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11854,14 +11854,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/has_unique_object_representations.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_member_function_pointer_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11882,7 +11882,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_conversion_function_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11917,7 +11917,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_invocable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11931,7 +11931,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/variant_alternative.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11959,7 +11959,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_default_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12001,7 +12001,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_move_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12050,14 +12050,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_move_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_implicit_lifetime_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12071,7 +12071,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_complete_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12092,7 +12092,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_null_pointer_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12148,7 +12148,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_void_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12162,21 +12162,21 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_volatile_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_object_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_invocable_r_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12197,7 +12197,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_pointer_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12211,14 +12211,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_aggregate_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_invocable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12232,7 +12232,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_destructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12274,7 +12274,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_move_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12295,14 +12295,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_operator_function_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_reference_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12330,7 +12330,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_move_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12365,7 +12365,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/extent.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12386,7 +12386,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_enum_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12421,14 +12421,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_swappable_with_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_integral_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12449,7 +12449,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_replaceable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12470,7 +12470,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_final_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12512,7 +12512,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_const_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12540,7 +12540,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_arithmetic_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12561,21 +12561,21 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/variant_size.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_relocatable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12596,7 +12596,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_abstract_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12610,21 +12610,21 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_unsigned_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_variable_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/tuple_size.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12645,7 +12645,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_move_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12666,7 +12666,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_fundamental_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12687,70 +12687,70 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/rank.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/has_virtual_destructor.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_convertible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_polymorphic_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_alias_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_enumerable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_convertible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_compound_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_default_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12764,7 +12764,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_copy_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12778,7 +12778,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_same_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12806,7 +12806,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_floating_point_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12820,7 +12820,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_unbounded_array_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12834,7 +12834,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_assignable_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12855,14 +12855,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_rvalue_reference_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_nothrow_destructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12876,7 +12876,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_member_pointer_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12890,21 +12890,21 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_scalar_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_layout_compatible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12918,14 +12918,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_literal_operator_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_trivially_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12988,14 +12988,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_bounded_array_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_constructible_type.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -13016,14 +13016,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/has_inaccessible_nonstatic_data_members.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_function_template.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -44278,7 +44278,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/lang/cpp26/reflection.html</loc>
-      <lastmod>2026-04-09T16:48:07+09:00</lastmod>
+      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
