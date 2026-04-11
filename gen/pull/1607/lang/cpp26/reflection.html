@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-11T01:53:48">
+        2026年04月11日 01時53分48秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -455,11 +455,11 @@
 </code></pre></div>
 </p>
 <p>アノテーションの式は<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>でなければならない。アノテーションの取得には<code><a href="../../reference/meta/annotations_of.html">annotations_of()</a></code>や<code><a href="../../reference/meta/annotations_of_with_type.html">annotations_of_with_type()</a></code>メタ関数を使用する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
-<span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="s">"点"</span><span class="p">}]]</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="s">"x座標"</span><span class="p">}]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">  </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="s">"y座標"</span><span class="p">}]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">define_static_string</span><span class="p">(</span><span class="s">"点"</span><span class="p">)}]]</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">define_static_string</span><span class="p">(</span><span class="s">"x座標"</span><span class="p">)}]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">define_static_string</span><span class="p">(</span><span class="s">"y座標"</span><span class="p">)}]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// メンバのアノテーションを取得</span>

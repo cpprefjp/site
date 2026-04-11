@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>std::meta::access_context::scope - cpprefjp C++日本語リファレンス</title>
+        <title>access_context::scope - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,meta,std::meta,std::meta::access_context,function,cpp26
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,meta,std::meta,access_context,function,cpp26
 ">
-        <meta name="title" content="std::meta::access_context::scope - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="std::meta::access_context::scope - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="std::meta::access_context::scope - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="access_context::scope - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="access_context::scope - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="access_context::scope - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/access_context/scope.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="アクセスコンテキストのスコープのリフレクションを返す。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="std::meta::access_context::scope - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="access_context::scope - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/access_context/scope.html" />
         <meta name="twitter:description" content="アクセスコンテキストのスコープのリフレクションを返す。" />
 
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;class&#34;: [&#34;std::meta::access_context&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d04539f5ff1e16bbfb5fa6dd43232e6d5ee3ad00&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass C {\n  int secret;\npublic:\n  int visible;\n\n  static void inspect() {\n    constexpr auto ctx = std::meta::access_context::current();\n    // C\u5185\u90e8\u304b\u3089current()\u3092\u547c\u3093\u3060\u306e\u3067\u3001\u30b9\u30b3\u30fc\u30d7\u306fC\n    std::println(\&#34;scope: {}\&#34;, std::meta::display_string_of(ctx.scope()));\n  }\n};\n\nint main() {\n  C::inspect();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;access_context&#34;, &#34;scope&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;class&#34;: [&#34;access_context&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d04539f5ff1e16bbfb5fa6dd43232e6d5ee3ad00&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass C {\n  int secret;\npublic:\n  int visible;\n\n  static void inspect() {\n    constexpr auto ctx = std::meta::access_context::current();\n    // C\u5185\u90e8\u304b\u3089current()\u3092\u547c\u3093\u3060\u306e\u3067\u3001\u30b9\u30b3\u30fc\u30d7\u306fC\n    std::println(\&#34;scope: {}\&#34;, std::meta::display_string_of(ctx.scope()));\n  }\n};\n\nint main() {\n  C::inspect();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;access_context&#34;, &#34;scope&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-11T01:56:06">
+        2026年04月11日 01時56分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,7 +224,7 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">function</div><div class="header">&lt;meta&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::meta">std::meta::</span><span class="class" title="class std::meta::access_context">std::meta::access_context::</span><span class="token">scope</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+  <div class="identifier-type">function</div><div class="header">&lt;meta&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::meta">std::meta::</span><span class="class" title="class access_context">access_context::</span><span class="token">scope</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">consteval</span><span class="w"> </span><span class="n"><a href="../info.html">info</a></span><span class="w"> </span><span class="nf">scope</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 </code></pre></div>
 </p>
