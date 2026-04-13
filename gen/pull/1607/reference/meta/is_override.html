@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/is_override.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`override`指定されているかを判定する。" />
+        <meta property="og:description" content="基底クラスの仮想関数をオーバーライドしているメンバ関数であるかを判定する。`override`キーワードの有無に関係なく、意味的にオーバーライドしていれば`true`を返す。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="is_override - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/is_override.html" />
-        <meta name="twitter:description" content="`override`指定されているかを判定する。" />
+        <meta name="twitter:description" content="基底クラスの仮想関数をオーバーライドしているメンバ関数であるかを判定する。`override`キーワードの有無に関係なく、意味的にオーバーライドしていれば`true`を返す。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f4b8bfb27f831a2b61b3227b4e500e8abc03fd70&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nstruct Base {\n  virtual void f() {}\n};\n\nstruct Derived : Base {\n  void f() override {}\n};\n\nint main() {\n  static_assert(!std::meta::is_override(^^Base::f));\n  static_assert(std::meta::is_override(^^Derived::f));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_override&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3cc908a2169563e4d6899a17f767ac7c5755c78f&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nstruct Base {\n  virtual void f() {}\n  virtual void g() {}\n};\n\nstruct Derived : Base {\n  void f() override {}  // override\u30ad\u30fc\u30ef\u30fc\u30c9\u3042\u308a\n  void g() {}           // override\u30ad\u30fc\u30ef\u30fc\u30c9\u306a\u3057\u3060\u304c\u3001\u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u3057\u3066\u3044\u308b\n};\n\nint main() {\n  // \u57fa\u5e95\u30af\u30e9\u30b9\u306e\u4eee\u60f3\u95a2\u6570\u306f\u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u3067\u306f\u306a\u3044\n  static_assert(!std::meta::is_override(^^Base::f));\n\n  // override\u30ad\u30fc\u30ef\u30fc\u30c9\u306e\u6709\u7121\u306b\u95a2\u4fc2\u306a\u304f\u3001\u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u3057\u3066\u3044\u308c\u3070true\n  static_assert(std::meta::is_override(^^Derived::f));\n  static_assert(std::meta::is_override(^^Derived::g));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_override&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-13T04:50:41">
+        2026年04月13日 04時50分41秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,23 +219,29 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>override</code>指定されているかを判定する。</p>
+<p>基底クラスの仮想関数をオーバーライドしているメンバ関数であるかを判定する。<code>override</code>キーワードの有無に関係なく、意味的にオーバーライドしていれば<code>true</code>を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>r</code>が<code>override</code>指定されたメンバ関数を表す場合に<code>true</code>を返す。</p>
+<p><code>r</code>が別のメンバ関数をオーバーライドしているメンバ関数を表す場合に<code>true</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="f4b8bfb27f831a2b61b3227b4e500e8abc03fd70"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="3cc908a2169563e4d6899a17f767ac7c5755c78f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// overrideキーワードあり</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">           </span><span class="c1">// overrideキーワードなしだが、オーバーライドしている</span>
 <span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_override</span><span class="p">(</span><span class="o">^^</span><span class="n">Base</span><span class="o">::</span><span class="n">f</span><span class="p">));</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_override</span><span class="p">(</span><span class="o">^^</span><span class="n">Derived</span><span class="o">::</span><span class="n">f</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// 基底クラスの仮想関数はオーバーライドではない</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::meta::is_override</span></span><span class="p">(</span><span class="o">^^</span><span class="n">Base</span><span class="o">::</span><span class="n">f</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// overrideキーワードの有無に関係なく、オーバーライドしていればtrue</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::meta::is_override</span></span><span class="p">(</span><span class="o">^^</span><span class="n">Derived</span><span class="o">::</span><span class="n">f</span><span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::meta::is_override</span></span><span class="p">(</span><span class="o">^^</span><span class="n">Derived</span><span class="o">::</span><span class="n">g</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
