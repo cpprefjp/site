@@ -2,9 +2,1836 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-13T04:14:05.632294</updated>
-  <id>9c4a023b-2e9d-4171-a450-81887b3aa0af</id>
+  <updated>2026-04-13T04:39:13.002908</updated>
+  <id>1e172b45-86d4-4f35-9581-ae9f79f7cb6f</id>
 
+  
+    <entry>
+      <title>meta -- meta: trivially relocatable関係を削除</title>
+      <link href="https://cpprefjp.github.io/reference/meta.html"/>
+      <id>699d6be99396e9761ca315f3c37c4d0d654bfc6d:reference/meta.md</id>
+      <updated>2026-04-13T13:34:31+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;meta&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;meta&lt;/span&gt;&lt;span class=&#34;cpp cpp26&#34; title=&#34;C++26で追加&#34;&gt;(C++26)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt;ヘッダでは、&lt;a href=&#34;../lang/cpp26/reflection.html&#34;&gt;静的リフレクション&lt;/a&gt;のためのメタ関数群を定義する。リフレクション演算子&lt;code&gt;^^&lt;/code&gt;で取得した&lt;code&gt;&lt;a href=&#34;meta/info.html&#34;&gt;std::meta::info&lt;/a&gt;&lt;/code&gt;型の値を操作・検査するための機能を提供する。&lt;/p&gt;
+&lt;p&gt;このヘッダのすべての関数は&lt;code&gt;consteval&lt;/code&gt;であり、コンパイル時にのみ使用できる。&lt;/p&gt;
+&lt;h2&gt;リフレクション型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/info.html&#34;&gt;info&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;リフレクションを表す型 (&lt;code&gt;using info = decltype(^^::);&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;コンセプト&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/reflection_range.html&#34;&gt;reflection_range&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;要素型が&lt;code&gt;info&lt;/code&gt;であるRange (concept)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;アクセス制御&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/access_context.html&#34;&gt;access_context&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メンバ取得時のアクセス制御コンテキスト (class)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;演算子&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/operators.html&#34;&gt;operators&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;演算子の種類を表す列挙型 (enum class)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/operator_of.html&#34;&gt;operator_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;演算子のリフレクションから演算子の種類を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/symbol_of.html&#34;&gt;symbol_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;演算子の種類から記号文字列を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/symbol_of.html&#34;&gt;u8symbol_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;演算子の種類から記号文字列を&lt;code&gt;u8string_view&lt;/code&gt;で取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;名前とソース位置&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_identifier.html&#34;&gt;has_identifier&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;識別子を持つかどうかを判定&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/identifier_of.html&#34;&gt;identifier_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;識別子を&lt;code&gt;string_view&lt;/code&gt;で取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/identifier_of.html&#34;&gt;u8identifier_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;識別子を&lt;code&gt;u8string_view&lt;/code&gt;で取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/display_string_of.html&#34;&gt;display_string_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;表示用の文字列を&lt;code&gt;string_view&lt;/code&gt;で取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/display_string_of.html&#34;&gt;u8display_string_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;表示用の文字列を&lt;code&gt;u8string_view&lt;/code&gt;で取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/source_location_of.html&#34;&gt;source_location_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソース位置を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;エンティティの性質&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/type_of.html&#34;&gt;type_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型のリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/object_of.html&#34;&gt;object_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;オブジェクトのリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/constant_of.html&#34;&gt;constant_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定数のリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/dealias.html&#34;&gt;dealias&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;エイリアスを解決する&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_parent.html&#34;&gt;has_parent&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;親スコープがあるかどうかを判定&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/parent_of.html&#34;&gt;parent_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;親スコープのリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;アクセス指定子&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_public.html&#34;&gt;is_public&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;public&lt;/code&gt;であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_protected.html&#34;&gt;is_protected&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;protected&lt;/code&gt;であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_private.html&#34;&gt;is_private&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;private&lt;/code&gt;であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_accessible.html&#34;&gt;is_accessible&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定したアクセスコンテキストでアクセス可能か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_inaccessible_nonstatic_data_members.html&#34;&gt;has_inaccessible_nonstatic_data_members&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アクセス不可能な非静的データメンバがあるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_inaccessible_bases.html&#34;&gt;has_inaccessible_bases&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アクセス不可能な基底クラスがあるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;エンティティの分類&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_variable.html&#34;&gt;is_variable&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;変数であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_type.html&#34;&gt;is_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_namespace.html&#34;&gt;is_namespace&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;名前空間であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_type_alias.html&#34;&gt;is_type_alias&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型エイリアスであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_namespace_alias.html&#34;&gt;is_namespace_alias&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;名前空間エイリアスであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_function.html&#34;&gt;is_function&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_enumerator.html&#34;&gt;is_enumerator&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;列挙子であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_value.html&#34;&gt;is_value&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;値であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_object.html&#34;&gt;is_object&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;オブジェクトであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_structured_binding.html&#34;&gt;is_structured_binding&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;構造化束縛であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_class_member.html&#34;&gt;is_class_member&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;クラスメンバであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_namespace_member.html&#34;&gt;is_namespace_member&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;名前空間メンバであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nonstatic_data_member.html&#34;&gt;is_nonstatic_data_member&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非静的データメンバであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_static_member.html&#34;&gt;is_static_member&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;静的メンバであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_base.html&#34;&gt;is_base&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基底クラス関係であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_function_parameter.html&#34;&gt;is_function_parameter&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数パラメータであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_template.html&#34;&gt;is_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;テンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_function_template.html&#34;&gt;is_function_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数テンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_variable_template.html&#34;&gt;is_variable_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;変数テンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_class_template.html&#34;&gt;is_class_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;クラステンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_alias_template.html&#34;&gt;is_alias_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;エイリアステンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_conversion_function_template.html&#34;&gt;is_conversion_function_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;変換関数テンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_operator_function_template.html&#34;&gt;is_operator_function_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;演算子関数テンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_literal_operator_template.html&#34;&gt;is_literal_operator_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;リテラル演算子テンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_constructor_template.html&#34;&gt;is_constructor_template&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンストラクタテンプレートであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_concept.html&#34;&gt;is_concept&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンセプトであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_complete_type.html&#34;&gt;is_complete_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;完全型であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_enumerable_type.html&#34;&gt;is_enumerable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;列挙可能型であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数の分類&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_conversion_function.html&#34;&gt;is_conversion_function&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;変換関数であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_operator_function.html&#34;&gt;is_operator_function&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;演算子関数であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_literal_operator.html&#34;&gt;is_literal_operator&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;リテラル演算子であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_special_member_function.html&#34;&gt;is_special_member_function&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;特殊メンバ関数であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_constructor.html&#34;&gt;is_constructor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンストラクタであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_default_constructor.html&#34;&gt;is_default_constructor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルトコンストラクタであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_copy_constructor.html&#34;&gt;is_copy_constructor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コピーコンストラクタであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_move_constructor.html&#34;&gt;is_move_constructor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ムーブコンストラクタであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_assignment.html&#34;&gt;is_assignment&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;代入演算子であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_copy_assignment.html&#34;&gt;is_copy_assignment&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コピー代入演算子であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_move_assignment.html&#34;&gt;is_move_assignment&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ムーブ代入演算子であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_destructor.html&#34;&gt;is_destructor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デストラクタであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_deleted.html&#34;&gt;is_deleted&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;= delete&lt;/code&gt;されているか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_defaulted.html&#34;&gt;is_defaulted&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;= default&lt;/code&gt;されているか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_explicit.html&#34;&gt;is_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;explicit&lt;/code&gt;であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_noexcept.html&#34;&gt;is_noexcept&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;noexcept&lt;/code&gt;であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_user_provided.html&#34;&gt;is_user_provided&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユーザー提供であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_user_declared.html&#34;&gt;is_user_declared&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユーザー宣言であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数パラメータの検査&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/parameters_of.html&#34;&gt;parameters_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数パラメータのリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/return_type_of.html&#34;&gt;return_type_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数の戻り値型のリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/variable_of.html&#34;&gt;variable_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;パラメータ変数のリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_default_argument.html&#34;&gt;has_default_argument&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルト引数を持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_ellipsis_parameter.html&#34;&gt;has_ellipsis_parameter&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変長引数を持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_explicit_object_parameter.html&#34;&gt;is_explicit_object_parameter&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;明示的オブジェクトパラメータであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;メンバの性質&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_virtual.html&#34;&gt;is_virtual&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;virtual&lt;/code&gt;であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_pure_virtual.html&#34;&gt;is_pure_virtual&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;純粋仮想であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_override.html&#34;&gt;is_override&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;override&lt;/code&gt;であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_final.html&#34;&gt;is_final&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;final&lt;/code&gt;であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_const.html&#34;&gt;is_const&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;const&lt;/code&gt;修飾されているか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_volatile.html&#34;&gt;is_volatile&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;volatile&lt;/code&gt;修飾されているか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_mutable_member.html&#34;&gt;is_mutable_member&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mutable&lt;/code&gt;メンバであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_lvalue_reference_qualified.html&#34;&gt;is_lvalue_reference_qualified&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左辺値参照修飾されているか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_rvalue_reference_qualified.html&#34;&gt;is_rvalue_reference_qualified&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右辺値参照修飾されているか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_bit_field.html&#34;&gt;is_bit_field&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビットフィールドであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_default_member_initializer.html&#34;&gt;has_default_member_initializer&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルトメンバ初期化子を持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;記憶域とリンケージ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_static_storage_duration.html&#34;&gt;has_static_storage_duration&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;静的記憶域期間を持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_thread_storage_duration.html&#34;&gt;has_thread_storage_duration&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スレッド記憶域期間を持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_automatic_storage_duration.html&#34;&gt;has_automatic_storage_duration&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;自動記憶域期間を持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_internal_linkage.html&#34;&gt;has_internal_linkage&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;内部リンケージを持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_module_linkage.html&#34;&gt;has_module_linkage&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;モジュールリンケージを持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_external_linkage.html&#34;&gt;has_external_linkage&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;外部リンケージを持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_c_language_linkage.html&#34;&gt;has_c_language_linkage&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;C言語リンケージを持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_linkage.html&#34;&gt;has_linkage&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;リンケージを持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;メンバ・基底クラスの取得&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/members_of.html&#34;&gt;members_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;すべてのメンバを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/bases_of.html&#34;&gt;bases_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基底クラスを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/static_data_members_of.html&#34;&gt;static_data_members_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;静的データメンバを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/nonstatic_data_members_of.html&#34;&gt;nonstatic_data_members_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非静的データメンバを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/enumerators_of.html&#34;&gt;enumerators_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;列挙子を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/subobjects_of.html&#34;&gt;subobjects_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基底クラスと非静的データメンバを統合して取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;テンプレート操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_template_arguments.html&#34;&gt;has_template_arguments&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;テンプレート引数を持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/template_of.html&#34;&gt;template_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;テンプレートのリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/template_arguments_of.html&#34;&gt;template_arguments_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;テンプレート引数のリフレクションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/can_substitute.html&#34;&gt;can_substitute&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;テンプレート引数が置換可能か判定&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/substitute.html&#34;&gt;substitute&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;テンプレートにテンプレート引数を適用&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;レイアウト情報&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/member_offset.html&#34;&gt;member_offset&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メンバオフセットを表す型 (class)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/offset_of.html&#34;&gt;offset_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メンバのオフセットを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/size_of.html&#34;&gt;size_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;サイズを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/alignment_of.html&#34;&gt;alignment_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アライメントを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/bit_size_of.html&#34;&gt;bit_size_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビットサイズを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;値の抽出と生成&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/extract.html&#34;&gt;extract&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;リフレクションから値を抽出&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/reflect_constant.html&#34;&gt;reflect_constant&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;値からリフレクションを生成&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/reflect_object.html&#34;&gt;reflect_object&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;オブジェクトからリフレクションを生成&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/reflect_function.html&#34;&gt;reflect_function&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数からリフレクションを生成&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;集成体の定義&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/data_member_options.html&#34;&gt;data_member_options&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データメンバの仕様を指定するオプション (class)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/data_member_spec.html&#34;&gt;data_member_spec&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データメンバの仕様を作成&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_data_member_spec.html&#34;&gt;is_data_member_spec&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データメンバの仕様であるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/define_aggregate.html&#34;&gt;define_aggregate&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;集成体型を定義&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;静的ストレージへの配置&lt;/h2&gt;
+&lt;p&gt;以下の&lt;code&gt;define_static_*&lt;/code&gt;と&lt;code&gt;is_string_literal&lt;/code&gt;は&lt;code&gt;std&lt;/code&gt;名前空間に定義される（&lt;code&gt;std::meta&lt;/code&gt;名前空間ではない）。&lt;code&gt;reflect_constant_*&lt;/code&gt;は&lt;code&gt;std::meta&lt;/code&gt;名前空間に定義される。&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/define_static_string.html&#34;&gt;define_static_string&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時文字列を静的ストレージに配置し&lt;code&gt;const CharT*&lt;/code&gt;を返す&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/define_static_array.html&#34;&gt;define_static_array&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時配列を静的ストレージに配置し&lt;code&gt;span&amp;lt;const T&amp;gt;&lt;/code&gt;を返す&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/define_static_object.html&#34;&gt;define_static_object&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時オブジェクトを静的ストレージに配置し&lt;code&gt;const T*&lt;/code&gt;を返す&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/reflect_constant_string.html&#34;&gt;reflect_constant_string&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時文字列のリフレクションを生成する&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/reflect_constant_array.html&#34;&gt;reflect_constant_array&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時配列のリフレクションを生成する&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_string_literal.html&#34;&gt;is_string_literal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ポインタが文字列リテラルを指しているかを判定する&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;アノテーション&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_annotation.html&#34;&gt;is_annotation&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アノテーションであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/annotations_of.html&#34;&gt;annotations_of&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;すべてのアノテーションを取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/annotations_of_with_type.html&#34;&gt;annotations_of_with_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定した型のアノテーションのみ取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;型特性（プライマリ型カテゴリ）&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_void_type.html&#34;&gt;is_void_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;void&lt;/code&gt;型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_null_pointer_type.html&#34;&gt;is_null_pointer_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nullptr_t&lt;/code&gt;型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_integral_type.html&#34;&gt;is_integral_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;整数型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_floating_point_type.html&#34;&gt;is_floating_point_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;浮動小数点数型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_array_type.html&#34;&gt;is_array_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_pointer_type.html&#34;&gt;is_pointer_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ポインタ型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_lvalue_reference_type.html&#34;&gt;is_lvalue_reference_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左辺値参照型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_rvalue_reference_type.html&#34;&gt;is_rvalue_reference_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右辺値参照型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_member_object_pointer_type.html&#34;&gt;is_member_object_pointer_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メンバオブジェクトポインタ型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_member_function_pointer_type.html&#34;&gt;is_member_function_pointer_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メンバ関数ポインタ型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_enum_type.html&#34;&gt;is_enum_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;列挙型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_union_type.html&#34;&gt;is_union_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;共用体型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_class_type.html&#34;&gt;is_class_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;クラス型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_function_type.html&#34;&gt;is_function_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_reflection_type.html&#34;&gt;is_reflection_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;リフレクション型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;型特性（複合型カテゴリ）&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_reference_type.html&#34;&gt;is_reference_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;参照型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_arithmetic_type.html&#34;&gt;is_arithmetic_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;算術型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_fundamental_type.html&#34;&gt;is_fundamental_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基本型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_object_type.html&#34;&gt;is_object_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;オブジェクト型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_scalar_type.html&#34;&gt;is_scalar_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スカラ型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_compound_type.html&#34;&gt;is_compound_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;複合型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_member_pointer_type.html&#34;&gt;is_member_pointer_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メンバポインタ型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;型特性（型の性質）&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_const_type.html&#34;&gt;is_const_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;const&lt;/code&gt;型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_volatile_type.html&#34;&gt;is_volatile_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;volatile&lt;/code&gt;型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_copyable_type.html&#34;&gt;is_trivially_copyable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルコピー可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_standard_layout_type.html&#34;&gt;is_standard_layout_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スタンダードレイアウト型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_empty_type.html&#34;&gt;is_empty_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;空の型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_polymorphic_type.html&#34;&gt;is_polymorphic_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多態的型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_abstract_type.html&#34;&gt;is_abstract_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;抽象型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_final_type.html&#34;&gt;is_final_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;final&lt;/code&gt;型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_aggregate_type.html&#34;&gt;is_aggregate_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;集成体型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_signed_type.html&#34;&gt;is_signed_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;符号付き型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_unsigned_type.html&#34;&gt;is_unsigned_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;符号なし型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_bounded_array_type.html&#34;&gt;is_bounded_array_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;境界付き配列型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_unbounded_array_type.html&#34;&gt;is_unbounded_array_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;境界なし配列型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_scoped_enum_type.html&#34;&gt;is_scoped_enum_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スコープ付き列挙型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_constructible_type.html&#34;&gt;is_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_default_constructible_type.html&#34;&gt;is_default_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルト構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_copy_constructible_type.html&#34;&gt;is_copy_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コピー構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_move_constructible_type.html&#34;&gt;is_move_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ムーブ構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_assignable_type.html&#34;&gt;is_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_copy_assignable_type.html&#34;&gt;is_copy_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コピー代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_move_assignable_type.html&#34;&gt;is_move_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ムーブ代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_swappable_with_type.html&#34;&gt;is_swappable_with_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定型とのswap可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_swappable_type.html&#34;&gt;is_swappable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;swap可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_destructible_type.html&#34;&gt;is_destructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;破棄可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_constructible_type.html&#34;&gt;is_trivially_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルに構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_default_constructible_type.html&#34;&gt;is_trivially_default_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルにデフォルト構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_copy_constructible_type.html&#34;&gt;is_trivially_copy_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルにコピー構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_move_constructible_type.html&#34;&gt;is_trivially_move_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルにムーブ構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_assignable_type.html&#34;&gt;is_trivially_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルに代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_copy_assignable_type.html&#34;&gt;is_trivially_copy_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルにコピー代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_move_assignable_type.html&#34;&gt;is_trivially_move_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルにムーブ代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_trivially_destructible_type.html&#34;&gt;is_trivially_destructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;トリビアルに破棄可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_constructible_type.html&#34;&gt;is_nothrow_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずに構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_default_constructible_type.html&#34;&gt;is_nothrow_default_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずにデフォルト構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_copy_constructible_type.html&#34;&gt;is_nothrow_copy_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずにコピー構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_move_constructible_type.html&#34;&gt;is_nothrow_move_constructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずにムーブ構築可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_assignable_type.html&#34;&gt;is_nothrow_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずに代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_copy_assignable_type.html&#34;&gt;is_nothrow_copy_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずにコピー代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_move_assignable_type.html&#34;&gt;is_nothrow_move_assignable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずにムーブ代入可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_swappable_with_type.html&#34;&gt;is_nothrow_swappable_with_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずに指定型とswap可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_swappable_type.html&#34;&gt;is_nothrow_swappable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずにswap可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_destructible_type.html&#34;&gt;is_nothrow_destructible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずに破棄可能型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_consteval_only_type.html&#34;&gt;is_consteval_only_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;consteval-only型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_implicit_lifetime_type.html&#34;&gt;is_implicit_lifetime_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;暗黙の生存期間型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_virtual_destructor.html&#34;&gt;has_virtual_destructor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;仮想デストラクタを持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/has_unique_object_representations.html&#34;&gt;has_unique_object_representations&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一意なオブジェクト表現を持つか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/reference_constructs_from_temporary.html&#34;&gt;reference_constructs_from_temporary&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;参照が一時オブジェクトから構築されるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/reference_converts_from_temporary.html&#34;&gt;reference_converts_from_temporary&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;参照への変換が一時オブジェクトを経由するか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;型特性（型プロパティクエリ）&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/rank.html&#34;&gt;rank&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列型の次元数を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/extent.html&#34;&gt;extent&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列型の指定次元の要素数を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;型特性（型の関係）&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_same_type.html&#34;&gt;is_same_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;同じ型か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_base_of_type.html&#34;&gt;is_base_of_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基底クラスであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_virtual_base_of_type.html&#34;&gt;is_virtual_base_of_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;仮想基底クラスであるか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_convertible_type.html&#34;&gt;is_convertible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;変換可能か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_convertible_type.html&#34;&gt;is_nothrow_convertible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずに変換可能か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_layout_compatible_type.html&#34;&gt;is_layout_compatible_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;レイアウト互換か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_pointer_interconvertible_base_of_type.html&#34;&gt;is_pointer_interconvertible_base_of_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ポインタ相互変換可能な基底クラスか&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_invocable_type.html&#34;&gt;is_invocable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;呼び出し可能か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_invocable_r_type.html&#34;&gt;is_invocable_r_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定戻り値型で呼び出し可能か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_invocable_type.html&#34;&gt;is_nothrow_invocable_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずに呼び出し可能か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/is_nothrow_invocable_r_type.html&#34;&gt;is_nothrow_invocable_r_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出せずに指定戻り値型で呼び出し可能か&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;型変換&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/remove_const.html&#34;&gt;remove_const&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;const&lt;/code&gt;を除去&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/remove_volatile.html&#34;&gt;remove_volatile&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;volatile&lt;/code&gt;を除去&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/remove_cv.html&#34;&gt;remove_cv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;CV修飾を除去&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/add_const.html&#34;&gt;add_const&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;const&lt;/code&gt;を付加&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/add_volatile.html&#34;&gt;add_volatile&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;volatile&lt;/code&gt;を付加&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/add_cv.html&#34;&gt;add_cv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;CV修飾を付加&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/remove_reference.html&#34;&gt;remove_reference&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;参照を除去&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/add_lvalue_reference.html&#34;&gt;add_lvalue_reference&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左辺値参照を付加&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/add_rvalue_reference.html&#34;&gt;add_rvalue_reference&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右辺値参照を付加&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/remove_cvref.html&#34;&gt;remove_cvref&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;CV修飾と参照を除去&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/remove_pointer.html&#34;&gt;remove_pointer&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ポインタを除去&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/add_pointer.html&#34;&gt;add_pointer&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ポインタを付加&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/decay.html&#34;&gt;decay&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列・関数からポインタへの変換を適用&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/make_signed.html&#34;&gt;make_signed&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;符号付き型に変換&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/make_unsigned.html&#34;&gt;make_unsigned&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;符号なし型に変換&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/remove_extent.html&#34;&gt;remove_extent&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列の次元を除去&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/remove_all_extents.html&#34;&gt;remove_all_extents&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列のすべての次元を除去&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/common_type.html&#34;&gt;common_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;共通型を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/common_reference.html&#34;&gt;common_reference&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;共通参照型を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/type_underlying_type.html&#34;&gt;type_underlying_type&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基底型を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/invoke_result.html&#34;&gt;invoke_result&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;呼び出し結果型を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/unwrap_reference.html&#34;&gt;unwrap_reference&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;reference_wrapper&lt;/code&gt;を展開&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/unwrap_ref_decay.html&#34;&gt;unwrap_ref_decay&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;decay&lt;/code&gt;後に&lt;code&gt;reference_wrapper&lt;/code&gt;を展開&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/tuple_size.html&#34;&gt;tuple_size&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;tuple-like型の要素数を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/tuple_element.html&#34;&gt;tuple_element&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;tuple-like型の要素型を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/variant_size.html&#34;&gt;variant_size&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;variant型の候補型の数を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/variant_alternative.html&#34;&gt;variant_alternative&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;variant型の候補型を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/type_order.html&#34;&gt;type_order&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型の順序を取得&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;エラー処理&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;meta/exception.html&#34;&gt;exception&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;リフレクションメタ関数のエラーを表す例外クラス (class)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;処理系&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#clang&#34;&gt;Clang&lt;/a&gt;: ??&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#gcc&#34;&gt;GCC&lt;/a&gt;: ??&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#visual_cpp&#34;&gt;Visual C++&lt;/a&gt;: ??&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp26/reflection.html&#34;&gt;C++26 静的リフレクション&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp26/expansion_statements.html&#34;&gt;C++26 コンパイル時のタプルやリストを展開処理する&lt;code&gt;template for&lt;/code&gt;文&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html&#34; target=&#34;_blank&#34;&gt;P2996R13 Reflection for C++26&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3394r4.html&#34; target=&#34;_blank&#34;&gt;P3394R4 Annotations for Reflection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3293r3.html&#34; target=&#34;_blank&#34;&gt;P3293R3 Splicing a base class subobject&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3096r12.pdf&#34; target=&#34;_blank&#34;&gt;P3096R12 Function Parameter Reflection in Reflection for C++26&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html&#34; target=&#34;_blank&#34;&gt;P3491R3 &lt;code&gt;define_static_{string,object,array}&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html&#34; target=&#34;_blank&#34;&gt;P3560R2 Error Handling in Reflection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3920r0.html&#34; target=&#34;_blank&#34;&gt;P3920R0 Wording for NB comment resolution on trivial relocation&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;C++26策定中に、trivially relocatable関係が一旦削除された&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_nothrow_relocatable_type.md -- meta: trivially relocatable関係を削除</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_nothrow_relocatable_type.html"/>
+      <id>699d6be99396e9761ca315f3c37c4d0d654bfc6d:reference/meta/is_nothrow_relocatable_type.md</id>
+      <updated>2026-04-13T13:34:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_nothrow_relocatable_type.md b/reference/meta/is_nothrow_relocatable_type.md
+deleted file mode 100644
+index c2a11164d..000000000
+--- a/reference/meta/is_nothrow_relocatable_type.md
++++ /dev/null
+@@ -1,62 +0,0 @@
+-# is_nothrow_relocatable_type
+-* meta[meta header]
+-* std::meta[meta namespace]
+-* function[meta id-type]
+-* cpp26[meta cpp]
+-
+-```cpp
+-namespace std::meta {
+-  consteval bool is_nothrow_relocatable_type(info type);
+-}
+-```
+-* info[link info.md]
+-
+-## 概要
+-例外を送出せずにリロケート可能型であるかを判定する。[`std::is_nothrow_relocatable`](/reference/type_traits/is_nothrow_relocatable.md.nolink)に対応する。
+-
+-
+-## 戻り値
+-`type`が表す型が例外を送出せずにリロケート可能型である場合に`true`を返す。
+-
+-
+-## 例外
+-`type`が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+-
+-
+-## 例
+-```cpp example
+-#include &amp;lt;meta&amp;gt;
+-
+-struct Throwing {
+-  Throwing(Throwing&amp;amp;&amp;amp;) noexcept(false) {}
+-  ~Throwing() noexcept(false) {}
+-};
+-
+-int main() {
+-  static_assert(std::meta::is_nothrow_relocatable_type(^^int));
+-  static_assert(!std::meta::is_nothrow_relocatable_type(^^Throwing));
+-}
+-```
+-* std::meta::is_nothrow_relocatable_type[color ff0000]
+-
+-### 出力
+-```
+-```
+-
+-
+-## バージョン
+-### 言語
+-- C++26
+-
+-### 処理系
+-- [Clang](/implementation.md#clang): ??
+-- [GCC](/implementation.md#gcc): ??
+-- [Visual C++](/implementation.md#visual_cpp): ??
+-
+-
+-## 関連項目
+-- [`std::is_nothrow_relocatable`](/reference/type_traits/is_nothrow_relocatable.md.nolink)
+-
+-
+-## 参照
+-- [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_replaceable_type.md -- meta: trivially relocatable関係を削除</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_replaceable_type.html"/>
+      <id>699d6be99396e9761ca315f3c37c4d0d654bfc6d:reference/meta/is_replaceable_type.md</id>
+      <updated>2026-04-13T13:34:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_replaceable_type.md b/reference/meta/is_replaceable_type.md
+deleted file mode 100644
+index a72a5c4f8..000000000
+--- a/reference/meta/is_replaceable_type.md
++++ /dev/null
+@@ -1,73 +0,0 @@
+-# is_replaceable_type
+-* meta[meta header]
+-* std::meta[meta namespace]
+-* function[meta id-type]
+-* cpp26[meta cpp]
+-
+-```cpp
+-namespace std::meta {
+-  consteval bool is_replaceable_type(info type);
+-}
+-```
+-* info[link info.md]
+-
+-## 概要
+-置換可能型 (replaceable type) であるかを判定する。[`std::is_replaceable`](/reference/type_traits/is_replaceable.md.nolink)に対応する。
+-
+-置換可能型とは、あるオブジェクトの生存期間中にそのストレージ上に同じ型の新しいオブジェクトを構築しても、元のオブジェクトへのポインタや参照が新しいオブジェクトを指すことが保証される型である。コピー・ムーブ代入演算子やデストラクタをユーザー定義していないトリビアルなクラスや、スカラ型が該当する。コンテナの最適化（[`std::vector`](/reference/vector/vector.md)の再配置など）に利用される概念である。
+-
+-
+-## 戻り値
+-`type`が表す型が置換可能型である場合に`true`を返す。
+-
+-
+-## 例外
+-`type`が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+-
+-
+-## 例
+-```cpp example
+-#include &amp;lt;meta&amp;gt;
+-#include &amp;lt;string&amp;gt;
+-
+-struct Trivial {
+-  int x;
+-  double y;
+-};
+-
+-// デストラクタをユーザー定義すると置換可能でなくなる
+-struct NonReplaceable {
+-  ~NonReplaceable() { /* ユーザー定義のデストラクタ */ }
+-};
+-
+-int main() {
+-  static_assert(std::meta::is_replaceable_type(^^int));
+-  static_assert(std::meta::is_replaceable_type(^^Trivial));
+-  static_assert(!std::meta::is_replaceable_type(^^NonReplaceable));
+-  // std::stringは内部でリソース管理するため置換可能でない
+-  static_assert(!std::meta::is_replaceable_type(^^std::string));
+-}
+-```
+-* std::meta::is_replaceable_type[color ff0000]
+-
+-### 出力
+-```
+-```
+-
+-
+-## バージョン
+-### 言語
+-- C++26
+-
+-### 処理系
+-- [Clang](/implementation.md#clang): ??
+-- [GCC](/implementation.md#gcc): ??
+-- [Visual C++](/implementation.md#visual_cpp): ??
+-
+-
+-## 関連項目
+-- [`std::is_replaceable`](/reference/type_traits/is_replaceable.md.nolink)
+-
+-
+-## 参照
+-- [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_trivially_relocatable_type.md -- meta: trivially relocatable関係を削除</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_trivially_relocatable_type.html"/>
+      <id>699d6be99396e9761ca315f3c37c4d0d654bfc6d:reference/meta/is_trivially_relocatable_type.md</id>
+      <updated>2026-04-13T13:34:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_trivially_relocatable_type.md b/reference/meta/is_trivially_relocatable_type.md
+deleted file mode 100644
+index 24ff8c339..000000000
+--- a/reference/meta/is_trivially_relocatable_type.md
++++ /dev/null
+@@ -1,69 +0,0 @@
+-# is_trivially_relocatable_type
+-* meta[meta header]
+-* std::meta[meta namespace]
+-* function[meta id-type]
+-* cpp26[meta cpp]
+-
+-```cpp
+-namespace std::meta {
+-  consteval bool is_trivially_relocatable_type(info type);
+-}
+-```
+-* info[link info.md]
+-
+-## 概要
+-トリビアルにリロケート可能型であるかを判定する。[`std::is_trivially_relocatable`](/reference/type_traits/is_trivially_relocatable.md.nolink)に対応する。
+-
+-
+-## 戻り値
+-`type`が表す型がトリビアルにリロケート可能型である場合に`true`を返す。
+-
+-
+-## 例外
+-`type`が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+-
+-
+-## 例
+-```cpp example
+-#include &amp;lt;meta&amp;gt;
+-#include &amp;lt;memory&amp;gt;
+-
+-struct Trivial {
+-  int x;
+-  double y;
+-};
+-
+-struct NonTrivial {
+-  NonTrivial(NonTrivial&amp;amp;&amp;amp;) noexcept {}  // ユーザー定義ムーブコンストラクタ
+-  ~NonTrivial() {}                      // ユーザー定義デストラクタ
+-};
+-
+-int main() {
+-  static_assert(std::meta::is_trivially_relocatable_type(^^int));
+-  static_assert(std::meta::is_trivially_relocatable_type(^^Trivial));
+-  static_assert(!std::meta::is_trivially_relocatable_type(^^NonTrivial));
+-}
+-```
+-* std::meta::is_trivially_relocatable_type[color ff0000]
+-
+-### 出力
+-```
+-```
+-
+-
+-## バージョン
+-### 言語
+-- C++26
+-
+-### 処理系
+-- [Clang](/implementation.md#clang): ??
+-- [GCC](/implementation.md#gcc): ??
+-- [Visual C++](/implementation.md#visual_cpp): ??
+-
+-
+-## 関連項目
+-- [`std::is_trivially_relocatable`](/reference/type_traits/is_trivially_relocatable.md.nolink)
+-
+-
+-## 参照
+-- [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>静的リフレクション [P2996R13] -- 不足していた関数is_string_literal, reflect_constant_array, reflect_constant_stringを追加</title>
@@ -2100,33 +3927,6 @@ index 984f787f1..25538d4f1 100644
 +++ b/reference/meta/access_context/unchecked.md
 @@ -1,7 +1,7 @@
  # unchecked
- * meta[meta header]
- * std::meta[meta namespace]
--* std::meta::access_context[meta class]
-+* access_context[meta class]
- * function[meta id-type]
- * cpp26[meta cpp]
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>scope -- access_context::scope : タイトル修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/access_context/scope.html"/>
-      <id>4fdd9b515eb334c2854922c8c6edd9bed88e93a5:reference/meta/access_context/scope.md</id>
-      <updated>2026-04-11T10:56:06+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context/scope.md b/reference/meta/access_context/scope.md
-index a6ebf36ff..974d482d2 100644
---- a/reference/meta/access_context/scope.md
-+++ b/reference/meta/access_context/scope.md
-@@ -1,7 +1,7 @@
- # scope
  * meta[meta header]
  * std::meta[meta namespace]
 -* std::meta::access_context[meta class]

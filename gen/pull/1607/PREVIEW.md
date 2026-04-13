@@ -1,10 +1,10 @@
 # PR [\#1607](https://github.com/cpprefjp/site/pull/1607) プレビュー
-- &#x231a; 更新時刻: 2026-04-13 13:14:06 JST
+- &#x231a; 更新時刻: 2026-04-13 13:39:14 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1607)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26_reflection)
-- **&#x2AEF;** ソースの変更: [`c8f0f3f..9d89e50`](https://github.com/cpprefjp/site/compare/c8f0f3f63e70b87bf9b9d66a9344525331eafa1f..9d89e5013cc180c5331c88b60c784f400171b334)
+- **&#x2AEF;** ソースの変更: [`c8f0f3f..699d6be`](https://github.com/cpprefjp/site/compare/c8f0f3f63e70b87bf9b9d66a9344525331eafa1f..699d6be99396e9761ca315f3c37c4d0d654bfc6d)
 
-## 変更記事一覧 (261件)
+## 変更記事一覧 (258件)
 
 - &#x1f4dd; [`implementation-status`](https://cpprefjp.github.io/site/gen/pull/1607/implementation-status.html)
 - &#x1f4dd; [`lang/cpp11/attributes`](https://cpprefjp.github.io/site/gen/pull/1607/lang/cpp11/attributes.html)
@@ -158,7 +158,6 @@
 - &#x1f4dd; [`reference/meta/is_nothrow_invocable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_invocable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_nothrow_move_assignable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_move_assignable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_nothrow_move_constructible_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_move_constructible_type.html) &#x2728;
-- &#x1f4dd; [`reference/meta/is_nothrow_relocatable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_relocatable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_nothrow_swappable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_swappable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_nothrow_swappable_with_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_swappable_with_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_null_pointer_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_null_pointer_type.html) &#x2728;
@@ -176,7 +175,6 @@
 - &#x1f4dd; [`reference/meta/is_pure_virtual`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_pure_virtual.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_reference_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_reference_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_reflection_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_reflection_type.html) &#x2728;
-- &#x1f4dd; [`reference/meta/is_replaceable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_replaceable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_rvalue_reference_qualified`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_rvalue_reference_qualified.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_rvalue_reference_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_rvalue_reference_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_same_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_same_type.html) &#x2728;
@@ -200,7 +198,6 @@
 - &#x1f4dd; [`reference/meta/is_trivially_destructible_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_trivially_destructible_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_trivially_move_assignable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_trivially_move_assignable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_trivially_move_constructible_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_trivially_move_constructible_type.html) &#x2728;
-- &#x1f4dd; [`reference/meta/is_trivially_relocatable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_trivially_relocatable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_type_alias`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_type_alias.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_unbounded_array_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_unbounded_array_type.html) &#x2728;
