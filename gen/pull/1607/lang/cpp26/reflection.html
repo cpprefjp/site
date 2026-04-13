@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-11T01:53:48">
-        2026年04月11日 01時53分48秒
+      <span itemprop="datePublished" content="2026-04-13T04:09:48">
+        2026年04月13日 04時09分48秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -478,14 +478,14 @@
 </code></pre></div>
 </p>
 <h2><code>define_static_string</code> / <code>define_static_array</code> / <code>define_static_object</code></h2>
-<p>これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。<code><a href="../../reference/meta/define_static_string.html">std::meta::define_static_string()</a></code>は文字列を、<code><a href="../../reference/meta/define_static_array.html">std::meta::define_static_array()</a></code>は配列を、<code><a href="../../reference/meta/define_static_object.html">std::meta::define_static_object()</a></code>はオブジェクトをそれぞれ静的ストレージに配置する。</p>
+<p>これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。<code><a href="../../reference/meta/define_static_string.html">std::define_static_string()</a></code>は文字列を、<code><a href="../../reference/meta/define_static_array.html">std::define_static_array()</a></code>は配列を、<code><a href="../../reference/meta/define_static_object.html">std::define_static_object()</a></code>はオブジェクトをそれぞれ静的ストレージに配置する。これらは<code>&lt;meta&gt;</code>ヘッダで提供されるが、<code>std</code>名前空間に定義される（<code>std::meta</code>名前空間ではない）。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// コンパイル時に計算した文字列を実行時に使用する</span>
 <span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
 <span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/meta/enumerators_of.html">std::meta::enumerators_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/meta/define_static_string.html">std::meta::define_static_string</a></span><span class="p">(</span><span class="n"><a href="../../reference/meta/identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/meta/define_static_string.html">std::define_static_string</a></span><span class="p">(</span><span class="n"><a href="../../reference/meta/identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"&lt;unknown&gt;"</span><span class="p">;</span>

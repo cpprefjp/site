@@ -227,7 +227,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta.html</loc>
-      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
+      <lastmod>2026-04-13T13:09:48+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
@@ -11371,7 +11371,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/define_static_object.html</loc>
-      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
+      <lastmod>2026-04-13T13:09:48+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11449,6 +11449,13 @@
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/reference_converts_from_temporary.html</loc>
       <lastmod>2026-04-09T15:13:07+09:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>https://cpprefjp.github.io/reference/meta/reflect_constant_string.html</loc>
+      <lastmod>2026-04-13T13:09:48+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11700,7 +11707,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/define_static_string.html</loc>
-      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
+      <lastmod>2026-04-13T13:09:48+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -11979,6 +11986,13 @@
     </url>
   
     <url>
+      <loc>https://cpprefjp.github.io/reference/meta/reflect_constant_array.html</loc>
+      <lastmod>2026-04-13T13:09:48+09:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
       <loc>https://cpprefjp.github.io/reference/meta/add_volatile.html</loc>
       <lastmod>2026-04-09T15:13:07+09:00</lastmod>
       <changefreq>daily</changefreq>
@@ -12072,6 +12086,13 @@
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/is_complete_type.html</loc>
       <lastmod>2026-04-09T15:13:07+09:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>https://cpprefjp.github.io/reference/meta/is_string_literal.html</loc>
+      <lastmod>2026-04-13T13:09:48+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -12309,7 +12330,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/define_static_array.html</loc>
-      <lastmod>2026-04-09T15:13:07+09:00</lastmod>
+      <lastmod>2026-04-13T13:09:48+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -44278,7 +44299,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/lang/cpp26/reflection.html</loc>
-      <lastmod>2026-04-11T10:53:48+09:00</lastmod>
+      <lastmod>2026-04-13T13:09:48+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>

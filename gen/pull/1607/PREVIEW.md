@@ -1,10 +1,10 @@
 # PR [\#1607](https://github.com/cpprefjp/site/pull/1607) プレビュー
-- &#x231a; 更新時刻: 2026-04-11 11:01:59 JST
+- &#x231a; 更新時刻: 2026-04-13 13:14:06 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1607)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26_reflection)
-- **&#x2AEF;** ソースの変更: [`c8f0f3f..d9136a1`](https://github.com/cpprefjp/site/compare/c8f0f3f63e70b87bf9b9d66a9344525331eafa1f..d9136a1575dffcd6658ca3c3dc7330bc3c09561b)
+- **&#x2AEF;** ソースの変更: [`c8f0f3f..9d89e50`](https://github.com/cpprefjp/site/compare/c8f0f3f63e70b87bf9b9d66a9344525331eafa1f..9d89e5013cc180c5331c88b60c784f400171b334)
 
-## 変更記事一覧 (258件)
+## 変更記事一覧 (261件)
 
 - &#x1f4dd; [`implementation-status`](https://cpprefjp.github.io/site/gen/pull/1607/implementation-status.html)
 - &#x1f4dd; [`lang/cpp11/attributes`](https://cpprefjp.github.io/site/gen/pull/1607/lang/cpp11/attributes.html)
@@ -186,6 +186,7 @@
 - &#x1f4dd; [`reference/meta/is_special_member_function`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_special_member_function.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_standard_layout_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_standard_layout_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_static_member`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_static_member.html) &#x2728;
+- &#x1f4dd; [`reference/meta/is_string_literal`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_string_literal.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_structured_binding`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_structured_binding.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_swappable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_swappable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_swappable_with_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_swappable_with_type.html) &#x2728;
@@ -230,6 +231,8 @@
 - &#x1f4dd; [`reference/meta/reference_constructs_from_temporary`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/reference_constructs_from_temporary.html) &#x2728;
 - &#x1f4dd; [`reference/meta/reference_converts_from_temporary`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/reference_converts_from_temporary.html) &#x2728;
 - &#x1f4dd; [`reference/meta/reflect_constant`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/reflect_constant.html) &#x2728;
+- &#x1f4dd; [`reference/meta/reflect_constant_array`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/reflect_constant_array.html) &#x2728;
+- &#x1f4dd; [`reference/meta/reflect_constant_string`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/reflect_constant_string.html) &#x2728;
 - &#x1f4dd; [`reference/meta/reflect_function`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/reflect_function.html) &#x2728;
 - &#x1f4dd; [`reference/meta/reflect_object`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/reflect_object.html) &#x2728;
 - &#x1f4dd; [`reference/meta/reflection_range`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/reflection_range.html) &#x2728;

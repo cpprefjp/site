@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-13T04:09:48">
+        2026年04月13日 04時09分48秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1008,6 +1008,7 @@
 </tbody>
 </table>
 <h2>静的ストレージへの配置</h2>
+<p>以下の<code>define_static_*</code>と<code>is_string_literal</code>は<code>std</code>名前空間に定義される（<code>std::meta</code>名前空間ではない）。<code>reflect_constant_*</code>は<code>std::meta</code>名前空間に定義される。</p>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
@@ -1030,6 +1031,21 @@
 <tr>
 <td><code><a href="meta/define_static_object.html">define_static_object</a></code></td>
 <td>コンパイル時オブジェクトを静的ストレージに配置し<code>const T*</code>を返す</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/reflect_constant_string.html">reflect_constant_string</a></code></td>
+<td>コンパイル時文字列のリフレクションを生成する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/reflect_constant_array.html">reflect_constant_array</a></code></td>
+<td>コンパイル時配列のリフレクションを生成する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_string_literal.html">is_string_literal</a></code></td>
+<td>ポインタが文字列リテラルを指しているかを判定する</td>
 <td>C++26</td>
 </tr>
 </tbody>
