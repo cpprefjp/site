@@ -332,9 +332,6 @@
 | [`is_nothrow_swappable_with_type`](meta/is_nothrow_swappable_with_type.md) | 例外を送出せずに指定型とswap可能型か | C++26 |
 | [`is_nothrow_swappable_type`](meta/is_nothrow_swappable_type.md) | 例外を送出せずにswap可能型か | C++26 |
 | [`is_nothrow_destructible_type`](meta/is_nothrow_destructible_type.md) | 例外を送出せずに破棄可能型か | C++26 |
-| [`is_trivially_relocatable_type`](meta/is_trivially_relocatable_type.md) | トリビアルにリロケート可能型か | C++26 |
-| [`is_nothrow_relocatable_type`](meta/is_nothrow_relocatable_type.md) | 例外を送出せずにリロケート可能型か | C++26 |
-| [`is_replaceable_type`](meta/is_replaceable_type.md) | 置換可能型か | C++26 |
 | [`is_consteval_only_type`](meta/is_consteval_only_type.md) | consteval-only型か | C++26 |
 | [`is_implicit_lifetime_type`](meta/is_implicit_lifetime_type.md) | 暗黙の生存期間型か | C++26 |
 | [`has_virtual_destructor`](meta/has_virtual_destructor.md) | 仮想デストラクタを持つか | C++26 |
@@ -431,3 +428,5 @@
 - [P3096R12 Function Parameter Reflection in Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3096r12.pdf)
 - [P3491R3 `define_static_{string,object,array}`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html)
 - [P3560R2 Error Handling in Reflection](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html)
+- [P3920R0 Wording for NB comment resolution on trivial relocation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3920r0.html)
+    - C++26策定中に、trivially relocatable関係が一旦削除された
