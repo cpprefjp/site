@@ -20,6 +20,15 @@ namespace std {
 このクラスは、[`tuple`](/reference/tuple/tuple.md)オブジェクトを展開して、引数パックとして他の関数に転送することを主目的として作られた。
 
 
+## 適格要件
+- `T` は整数型であること。
+
+
+## 備考
+- C++17まで : テンプレートパラメータ `T` が整数型でない場合の動作は未定義。
+- C++20から : `T` が整数型でない場合、プログラムは不適格となり、コンパイルエラーとなることが要求されるようになった。
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -61,3 +70,4 @@ int main()
 
 ## 参照
 - [N3658 Compile-time integer sequences](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html)
+- [P1460R1 Mandating the Standard Library: Clause 20 - Utilities library](https://wg21.link/p1460r1)
