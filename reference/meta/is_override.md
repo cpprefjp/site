@@ -12,11 +12,11 @@ namespace std::meta {
 * info[link info.md]
 
 ## 概要
-`override`指定されているかを判定する。
+基底クラスの仮想関数をオーバーライドしているメンバ関数であるかを判定する。`override`キーワードの有無に関係なく、意味的にオーバーライドしていれば`true`を返す。
 
 
 ## 戻り値
-`r`が`override`指定されたメンバ関数を表す場合に`true`を返す。
+`r`が別のメンバ関数をオーバーライドしているメンバ関数を表す場合に`true`を返す。
 
 
 ## 例
@@ -25,17 +25,24 @@ namespace std::meta {
 
 struct Base {
   virtual void f() {}
+  virtual void g() {}
 };
 
 struct Derived : Base {
-  void f() override {}
+  void f() override {}  // overrideキーワードあり
+  void g() {}           // overrideキーワードなしだが、オーバーライドしている
 };
 
 int main() {
+  // 基底クラスの仮想関数はオーバーライドではない
   static_assert(!std::meta::is_override(^^Base::f));
+
+  // overrideキーワードの有無に関係なく、オーバーライドしていればtrue
   static_assert(std::meta::is_override(^^Derived::f));
+  static_assert(std::meta::is_override(^^Derived::g));
 }
 ```
+* std::meta::is_override[color ff0000]
 
 ### 出力
 ```
