@@ -136,6 +136,10 @@ ForwardIterator1 find_end(ForwardIterator1 first1, ForwardIterator1 last1,
 * std::search[link search.md]
 
 
+## 関連項目
+- [`ranges::find_end`](/reference/algorithm/ranges_find_end.md)
+
+
 ## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

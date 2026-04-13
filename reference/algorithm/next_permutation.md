@@ -144,6 +144,7 @@ bool next_permutation(BidirectionalIterator first, BidirectionalIterator last)
 
 ## 関連項目
 - [`std::prev_permutation()`](prev_permutation.md)
+- [`ranges::next_permutation`](/reference/algorithm/ranges_next_permutation.md)
 
 
 ## 参照

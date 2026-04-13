@@ -222,6 +222,11 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - C++14で追加されたオーバーロードは2015から実装されている。
 
+
+## 関連項目
+- [`ranges::is_permutation`](/reference/algorithm/ranges_is_permutation.md)
+
+
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から追加された、`last2`を受け取るオーバーロードの提案文書

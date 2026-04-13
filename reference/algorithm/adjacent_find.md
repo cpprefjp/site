@@ -157,6 +157,11 @@ ForwardIterator adjacent_find(ForwardIterator first, ForwardIterator last, Binar
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 関連項目
+- [`ranges::adjacent_find`](/reference/algorithm/ranges_adjacent_find.md)
+
+
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)

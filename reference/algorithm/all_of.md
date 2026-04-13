@@ -88,6 +88,7 @@ bool all_of(InputIterator first, InputIterator last, Predicate pred) {
 ## 関連項目
 - [`any_of`](/reference/algorithm/any_of.md)
 - [`none_of`](/reference/algorithm/none_of.md)
+- [`ranges::all_of`](/reference/algorithm/ranges_all_of.md)
 
 
 ## 参照

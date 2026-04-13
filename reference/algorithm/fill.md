@@ -136,6 +136,10 @@ void fill(ForwardIterator first, ForwardIterator last, const T& value) {
 ```
 
 
+## 関連項目
+- [`ranges::fill`](/reference/algorithm/ranges_fill.md)
+
+
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)

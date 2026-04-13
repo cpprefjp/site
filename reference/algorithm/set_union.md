@@ -169,6 +169,9 @@ OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
 ```
 
 
+## 関連項目
+- [`ranges::set_union`](/reference/algorithm/ranges_set_union.md)
+
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)

@@ -115,6 +115,7 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
 
 ## 関連項目
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
+- [`ranges::move_backward`](/reference/algorithm/ranges_move_backward.md)
 
 
 ## 参照

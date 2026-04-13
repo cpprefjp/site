@@ -108,6 +108,10 @@ int main()
 - [`inplace_merge` を読んでみた](http://www.kmonos.net/wlog/115.html#_2300101215)
 
 
+## 関連項目
+- [`ranges::inplace_merge`](/reference/algorithm/ranges_inplace_merge.md)
+
+
 ## 参照
 - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
     - C++26から`constexpr`に対応した

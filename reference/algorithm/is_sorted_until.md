@@ -111,6 +111,10 @@ ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
+## 関連項目
+- [`ranges::is_sorted_until`](/reference/algorithm/ranges_is_sorted_until.md)
+
+
 ## 参照
 - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

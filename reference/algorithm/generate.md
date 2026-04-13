@@ -73,5 +73,9 @@ void generate(ForwardIterator first, ForwardIterator last, Generator gen) {
 ```
 
 
+## 関連項目
+- [`ranges::generate`](/reference/algorithm/ranges_generate.md)
+
+
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

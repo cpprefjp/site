@@ -160,6 +160,9 @@ swapping 0x1806043(1) <-> 0x1806045(5)
     - C++11への対応（戻り値の変更）は2010から。
 
 
+## 関連項目
+- [`ranges::rotate`](/reference/algorithm/ranges_rotate.md)
+
 ## 参照
 - [LWG DR488. rotate throws away useful information](http://cplusplus.github.io/LWG/lwg-defects.html#488)  
 	戻り値が追加されるきっかけとなったレポート

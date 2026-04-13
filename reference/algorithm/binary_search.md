@@ -163,6 +163,11 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 関連項目
+- [`ranges::binary_search`](/reference/algorithm/ranges_binary_search.md)
+
+
 ## 参照
 - [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
     - C++03までの計算量が間違っていたので、C++11で修正。

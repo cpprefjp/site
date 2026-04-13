@@ -192,6 +192,11 @@ std::pair<InputIterator1, InputIterator2> mismatch(
 - [Visual C++](/implementation.md#visual_cpp): 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - C++14で追加されたオーバーロードは2015から実装されている。
 
+
+## 関連項目
+- [`ranges::mismatch`](/reference/algorithm/ranges_mismatch.md)
+
+
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から、`last2`を受け取るオーバーロードを追加。
