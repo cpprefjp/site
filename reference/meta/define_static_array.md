@@ -1,11 +1,11 @@
 # define_static_array
 * meta[meta header]
-* std::meta[meta namespace]
+* std[meta namespace]
 * function template[meta id-type]
 * cpp26[meta cpp]
 
 ```cpp
-namespace std::meta {
+namespace std {
   template <ranges::input_range R>
   consteval std::span<const ranges::range_value_t<R>> define_static_array(R&& r);
 }
@@ -26,7 +26,7 @@ namespace std::meta {
 #include <array>
 
 int main() {
-  constexpr auto arr = std::meta::define_static_array(std::array{1, 2, 3, 4, 5});
+  constexpr auto arr = std::define_static_array(std::array{1, 2, 3, 4, 5});
   for (auto v : arr) {
     std::println("{}", v);
   }

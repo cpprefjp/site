@@ -256,7 +256,7 @@ template for (constexpr auto m :
 
 
 ## `define_static_string` / `define_static_array` / `define_static_object`
-これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。[`std::meta::define_static_string()`](/reference/meta/define_static_string.md)は文字列を、[`std::meta::define_static_array()`](/reference/meta/define_static_array.md)は配列を、[`std::meta::define_static_object()`](/reference/meta/define_static_object.md)はオブジェクトをそれぞれ静的ストレージに配置する。
+これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。[`std::define_static_string()`](/reference/meta/define_static_string.md)は文字列を、[`std::define_static_array()`](/reference/meta/define_static_array.md)は配列を、[`std::define_static_object()`](/reference/meta/define_static_object.md)はオブジェクトをそれぞれ静的ストレージに配置する。これらは`<meta>`ヘッダで提供されるが、`std`名前空間に定義される（`std::meta`名前空間ではない）。
 
 ```cpp
 // コンパイル時に計算した文字列を実行時に使用する
@@ -265,7 +265,7 @@ template <typename E>
 constexpr std::string_view enum_to_string(E value) {
   template for (constexpr auto e : std::meta::enumerators_of(^^E)) {
     if (value == [:e:]) {
-      return std::meta::define_static_string(std::meta::identifier_of(e));
+      return std::define_static_string(std::meta::identifier_of(e));
     }
   }
   return "<unknown>";
@@ -273,7 +273,7 @@ constexpr std::string_view enum_to_string(E value) {
 ```
 * std::meta::enumerators_of[link /reference/meta/enumerators_of.md]
 * std::meta::identifier_of[link /reference/meta/identifier_of.md]
-* std::meta::define_static_string[link /reference/meta/define_static_string.md]
+* std::define_static_string[link /reference/meta/define_static_string.md]
 
 
 ## リフレクションのエラー処理

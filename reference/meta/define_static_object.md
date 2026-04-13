@@ -1,13 +1,13 @@
 # define_static_object
 * meta[meta header]
-* std::meta[meta namespace]
+* std[meta namespace]
 * function template[meta id-type]
 * cpp26[meta cpp]
 
 ```cpp
-namespace std::meta {
+namespace std {
   template <class T>
-  consteval const T* define_static_object(T&& t);
+  consteval const remove_cvref_t<T>* define_static_object(T&& t);
 }
 ```
 
@@ -30,7 +30,7 @@ struct Config {
 };
 
 int main() {
-  constexpr auto* p = std::meta::define_static_object(Config{1920, 1080});
+  constexpr auto* p = std::define_static_object(Config{1920, 1080});
   std::println("{}x{}", p->width, p->height);
 }
 ```

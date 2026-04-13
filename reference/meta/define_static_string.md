@@ -1,11 +1,11 @@
 # define_static_string
 * meta[meta header]
-* std::meta[meta namespace]
+* std[meta namespace]
 * function template[meta id-type]
 * cpp26[meta cpp]
 
 ```cpp
-namespace std::meta {
+namespace std {
   template <ranges::input_range R>
   consteval const ranges::range_value_t<R>* define_static_string(R&& r);
 }
@@ -30,7 +30,7 @@ template <typename E>
 constexpr std::string_view to_string(E value) {
   template for (constexpr auto e : std::meta::enumerators_of(^^E)) {
     if (value == [:e:]) {
-      return std::meta::define_static_string(std::meta::identifier_of(e));
+      return std::define_static_string(std::meta::identifier_of(e));
     }
   }
   return "<unknown>";

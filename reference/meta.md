@@ -231,11 +231,16 @@
 
 ## 静的ストレージへの配置
 
+以下の`define_static_*`と`is_string_literal`は`std`名前空間に定義される（`std::meta`名前空間ではない）。`reflect_constant_*`は`std::meta`名前空間に定義される。
+
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
 | [`define_static_string`](meta/define_static_string.md) | コンパイル時文字列を静的ストレージに配置し`const CharT*`を返す | C++26 |
 | [`define_static_array`](meta/define_static_array.md) | コンパイル時配列を静的ストレージに配置し`span<const T>`を返す | C++26 |
 | [`define_static_object`](meta/define_static_object.md) | コンパイル時オブジェクトを静的ストレージに配置し`const T*`を返す | C++26 |
+| [`reflect_constant_string`](meta/reflect_constant_string.md) | コンパイル時文字列のリフレクションを生成する | C++26 |
+| [`reflect_constant_array`](meta/reflect_constant_array.md) | コンパイル時配列のリフレクションを生成する | C++26 |
+| [`is_string_literal`](meta/is_string_literal.md) | ポインタが文字列リテラルを指しているかを判定する | C++26 |
 
 
 ## アノテーション
