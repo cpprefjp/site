@@ -1,0 +1,308 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>constexpr仮想継承を許可 [P3533R2] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp26
+">
+        <meta name="title" content="constexpr仮想継承を許可 [P3533R2] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="constexpr仮想継承を許可 [P3533R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="constexpr仮想継承を許可 [P3533R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26/constexpr_virtual_inheritance.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++26では、`constexpr`の文脈で仮想継承が許可される。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="constexpr仮想継承を許可 [P3533R2] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26/constexpr_virtual_inheritance.html" />
+        <meta name="twitter:description" content="C++26では、`constexpr`の文脈で仮想継承が許可される。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9d9eabbe5765061a114c86a0c06408ec0182baba&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n\nstruct Common {\n  unsigned counter{0};\n  constexpr virtual ~Common() = default;\n};\n\nstruct Left : virtual Common {\n  constexpr const unsigned&amp; get_counter() const {\n    return counter;\n  }\n};\n\nstruct Right : virtual Common {\n  constexpr const unsigned&amp; get_counter() const {\n    return counter;\n  }\n};\n\nstruct Child : Left, Right {};\n\nint main() {\n  constexpr auto ch = Child{};\n  // \u83f1\u5f62\u7d99\u627f\u3067\u3082\u4eee\u60f3\u57fa\u5e95\u30af\u30e9\u30b9\u306e\u30e1\u30f3\u30d0\u306f\u5171\u6709\u3055\u308c\u308b\n  static_assert(&amp;ch.Left::get_counter() == &amp;ch.Right::get_counter());\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;constexpr_virtual_inheritance&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp26.html" itemprop="url">
+              
+                <span itemprop="name">C++26</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">constexpr仮想継承を許可 [P3533R2]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-04-06T01:14:31">
+        2026年04月06日 01時14分31秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26/constexpr_virtual_inheritance.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26/constexpr_virtual_inheritance.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token"><code>constexpr</code>仮想継承を許可 [P3533R2]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++26では、<code>constexpr</code>の文脈で仮想継承が許可される。</p>
+<p>これまで、<code>constexpr</code>コンストラクタおよびデストラクタを持つクラスは仮想基底クラスを持つことができなかった。C++26ではこの制限が撤廃され、仮想継承を含むクラス階層でもコンパイル時の定数評価が可能になる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Base</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Derived</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">  </span><span class="c1">// C++26: OK (C++23以前: 不適格)</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="o">~</span><span class="n">Derived</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// C++26: OK (C++23以前: 不適格)</span>
+<span class="p">};</span>
+
+<span class="k">constexpr</span><span class="w"> </span><span class="n">Derived</span><span class="w"> </span><span class="n">d</span><span class="p">{};</span><span class="w"> </span><span class="c1">// OK</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<p><code>constexpr</code>宣言の仕様にあった以下の制約が削除される:</p>
+<ul>
+<li>(<code>constexpr</code>指定された対象が) コンストラクタまたはデストラクタである場合、そのクラスは仮想基底クラスを持たないこと</li>
+</ul>
+<p>これにより、仮想基底クラスを持つクラスのコンストラクタおよびデストラクタに<code>constexpr</code>を指定できるようになる。</p>
+<h2>例</h2>
+<p><div class="yata" id="9d9eabbe5765061a114c86a0c06408ec0182baba"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Common</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">counter</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Common</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="n">Common</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">get_counter</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Right</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="n">Common</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">get_counter</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Child</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Left</span><span class="p">,</span><span class="w"> </span><span class="n">Right</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Child</span><span class="p">{};</span>
+<span class="w">  </span><span class="c1">// 菱形継承でも仮想基底クラスのメンバは共有される</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ch</span><span class="p">.</span><span class="n">Left</span><span class="o">::</span><span class="n">get_counter</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ch</span><span class="p">.</span><span class="n">Right</span><span class="o">::</span><span class="n">get_counter</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++の<code>constexpr</code>機能は段階的に拡張されてきたが、仮想継承を含むクラスのコンストラクタ・デストラクタを<code>constexpr</code>にすることは禁止されたままだった。これは<code>constexpr</code>の文脈で許可されない最後の構文上の制限であった。</p>
+<p>この制限は、標準ライブラリの<code>constexpr</code>化を妨げる障害にもなっていた。特に、<code><a href="../../reference/sstream/basic_stringstream.html">std::stringstream</a></code>などのストリームユーティリティは仮想継承を使用しており、この制限によりコンパイル時に使用できなかった。また、<code><a href="../../reference/chrono.html">&lt;chrono&gt;</a></code>の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>型（<code><a href="../../reference/chrono/nonexistent_local_time.html">chrono::nonexistent_local_time</a></code>など）の<code>constexpr</code>化も阻害されていた。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/constexpr.html">C++11 <code>constexpr</code></a></li>
+<li><a href="../cpp20/allow_virtual_function_calls_in_constant_expressions.html">C++20 定数式からの仮想関数の呼び出しを許可</a></li>
+<li><a href="allowing_exception_throwing_in_constant-evaluation.html">C++26 定数評価での例外送出を許可</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3533r2.html" target="_blank">P3533R2 constexpr virtual inheritance</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
