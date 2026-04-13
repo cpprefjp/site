@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-12T16:36:44.437134</updated>
-  <id>0ab5eafc-8d81-4353-9b15-9e709238cc9e</id>
+  <updated>2026-04-13T03:18:31.478038</updated>
+  <id>7654f8df-3a8b-416b-94fd-508d28a7b64e</id>
 
+  
+    <entry>
+      <title>integer_sequence -- fix: Mandatesは適格要件</title>
+      <link href="https://cpprefjp.github.io/reference/utility/integer_sequence.html"/>
+      <id>730f83d47adc7fe0d7d764d8b19a7f3ad04b5799:reference/utility/integer_sequence.md</id>
+      <updated>2026-04-13T12:14:21+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/integer_sequence.md b/reference/utility/integer_sequence.md
+index 1a655c2ca..ee2f39938 100644
+--- a/reference/utility/integer_sequence.md
++++ b/reference/utility/integer_sequence.md
+@@ -20,7 +20,7 @@ namespace std {
+ このクラスは、[`tuple`](/reference/tuple/tuple.md)オブジェクトを展開して、引数パックとして他の関数に転送することを主目的として作られた。
+ 
+ 
+-## テンプレートパラメータ制約
++## 適格要件
+ - `T` は整数型であること。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>integer_sequence -- feat(integer_sequence): integer_sequenceに関するテンプレートパラメータ制約と備考を追加</title>
@@ -4455,82 +4482,6 @@ index 3b64d8b34..50f79c673 100644
  
  ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>iostream -- Merge pull request #1605 from rotarymars/fix/typo</title>
-      <link href="https://cpprefjp.github.io/reference/iostream.html"/>
-      <id>2a459f75b5f94a02ae8a24d3229201c2616e1f59:reference/iostream.md</id>
-      <updated>2026-04-08T09:45:58+09:00</updated>
-      
-        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;iostream&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;iostream&amp;gt;&lt;/code&gt;ヘッダは、標準入出力オブジェクトを提供する。&lt;/p&gt;
-&lt;p&gt;このヘッダは、以下のヘッダをインクルードすることが規定されている。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;ios.html&#34;&gt;&amp;lt;ios&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;streambuf.html&#34;&gt;&amp;lt;streambuf&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&lt;a href=&#34;ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;このため、入出力機能に関する基本的な型や関数（&lt;code&gt;&lt;a href=&#34;ostream/endl.html&#34;&gt;endl&lt;/a&gt;&lt;/code&gt;など主要なマニピュレータを含む）を使用する目的で、このヘッダをインクルードしても良いだろう。&lt;/p&gt;
-&lt;p&gt;なお、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;basic_iostream&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;iostream&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;wiostream&lt;/a&gt;&lt;/code&gt;は&lt;code&gt;&lt;a href=&#34;istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;で定義されている。&lt;/p&gt;
-&lt;h2&gt;標準入出力オブジェクト&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cin.html&#34;&gt;cin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字による標準入力&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cout.html&#34;&gt;cout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字による標準出力&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/clog.html&#34;&gt;clog&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字による標準エラー出力&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cerr.html&#34;&gt;cerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字による標準エラー出力（バッファリング無し）&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cin.html&#34;&gt;wcin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字による標準入力&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cout.html&#34;&gt;wcout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字による標準出力&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/clog.html&#34;&gt;wclog&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字による標準エラー出力&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cerr.html&#34;&gt;wcerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字による標準エラー出力（バッファリング無し）&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;</content>
       
       <author>
         <name>Akira Takahashi</name>
