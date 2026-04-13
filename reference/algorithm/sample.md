@@ -123,6 +123,9 @@ bcd
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`ranges::sample`](/reference/algorithm/ranges_sample.md)
+
 ## 参照
 - [N3547 Three `<random>`-related Proposals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3547.pdf)
 - [Three `<random>`-related Proposals, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3742.pdf)

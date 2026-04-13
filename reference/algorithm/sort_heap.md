@@ -80,5 +80,8 @@ int main()
 ```
 
 
+## 関連項目
+- [`ranges::sort_heap`](/reference/algorithm/ranges_sort_heap.md)
+
 ## 参照
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

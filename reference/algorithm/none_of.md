@@ -99,6 +99,7 @@ bool none_of(InputIterator first, InputIterator last, Predicate pred) {
 ## 関連項目
 - [`all_of`](/reference/algorithm/all_of.md)
 - [`any_of`](/reference/algorithm/any_of.md)
+- [`ranges::none_of`](/reference/algorithm/ranges_none_of.md)
 
 
 ## 参照

@@ -272,6 +272,9 @@ ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
 ```
 
 
+## 関連項目
+- [`ranges::search_n`](/reference/algorithm/ranges_search_n.md)
+
 ## 参照
 - [LWG Issue 714. `search_n` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#714)
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)

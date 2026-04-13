@@ -175,5 +175,8 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredic
 * std::move[link /reference/utility/move.md]
 
 
+## 関連項目
+- [`ranges::unique`](/reference/algorithm/ranges_unique.md)
+
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

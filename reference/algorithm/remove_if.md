@@ -112,6 +112,10 @@ ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, Predicate
 * std::move[link /reference/utility/move.md]
 
 
+## 関連項目
+- [`ranges::remove_if`](/reference/algorithm/ranges_remove_if.md)
+
+
 ## 参照
 - [More C++ Idioms/消去・削除(Erase-Remove)](https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove))
 - [LWG Issue 2110. `remove` can't swap but note says it might](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2110)

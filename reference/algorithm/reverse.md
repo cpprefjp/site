@@ -70,6 +70,10 @@ void reverse(BidirectionalIterator first, BidirectionalIterator last) {
 * std::iter_swap[link iter_swap.md]
 
 
+## 関連項目
+- [`ranges::reverse`](/reference/algorithm/ranges_reverse.md)
+
+
 ## 参照
 - [LWG Issue 2039. Issues with `std::reverse` and `std::copy_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2039)
     - C++11まで、効果を「0 以上 `(last - first) / 2` **以下**の整数 `i` について、」と記載していたが、これは間違いなので、C++14で「0 以上 `(last - first) / 2` **未満**の整数 `i` について、」と修正。

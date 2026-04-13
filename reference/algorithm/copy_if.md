@@ -112,6 +112,10 @@ OutputIterator copy_if(InputIterator first, InputIterator last,
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
+## 関連項目
+- [`ranges::copy_if`](/reference/algorithm/ranges_copy_if.md)
+
+
 ## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)

@@ -159,6 +159,10 @@ void replace_if(ForwardIterator first, ForwardIterator last,
 ```
 
 
+## 関連項目
+- [`ranges::replace_if`](/reference/algorithm/ranges_replace_if.md)
+
+
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)

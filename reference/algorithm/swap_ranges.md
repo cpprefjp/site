@@ -92,5 +92,8 @@ ForwardIterator2 swap_ranges(ForwardIterator1 first1, ForwardIterator1 last1,
 * iter_swap[link iter_swap.md]
 
 
+## 関連項目
+- [`ranges::swap_ranges`](/reference/algorithm/ranges_swap_ranges.md)
+
 ## 参照
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

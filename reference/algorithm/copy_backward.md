@@ -95,5 +95,9 @@ BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`ranges::copy_backward`](/reference/algorithm/ranges_copy_backward.md)
+
+
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

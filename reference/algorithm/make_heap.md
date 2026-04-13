@@ -144,5 +144,9 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
 * std::push_heap[link push_heap.md]
 
 
+## 関連項目
+- [`ranges::make_heap`](/reference/algorithm/ranges_make_heap.md)
+
+
 ## 参照
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

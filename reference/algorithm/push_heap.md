@@ -129,5 +129,9 @@ void push_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 
 
+## 関連項目
+- [`ranges::push_heap`](/reference/algorithm/ranges_push_heap.md)
+
+
 ## 参照
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
