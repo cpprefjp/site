@@ -1,0 +1,507 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>text_encoding - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,text_encoding,std,class,cpp26
+">
+        <meta name="title" content="text_encoding - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="text_encoding - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="text_encoding - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/text_encoding/text_encoding.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`std::text_encoding`クラスは、IANA文字集合レジストリに基づいてテキストエンコーディングを識別するクラスである。エンコーディング名、MIB番号（Management Information Base enumeration）、およびエイリアスによるエンコーディングの識別・比較機能を提供する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="text_encoding - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/text_encoding/text_encoding.html" />
+        <meta name="twitter:description" content="`std::text_encoding`クラスは、IANA文字集合レジストリに基づいてテキストエンコーディングを識別するクラスである。エンコーディング名、MIB番号（Management Information Base enumeration）、およびエイリアスによるエンコーディングの識別・比較機能を提供する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;text_encoding&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ccc93deb5f2d3a737798b066ff88eb33bd2560b6&#34;, &#34;source&#34;: &#34;#include &lt;text_encoding&gt;\n#include &lt;print&gt;\n\nvoid print(const std::text_encoding&amp; enc) {\n  std::println(\&#34;{} (IANA MIB: {})\&#34;, enc.name(), static_cast&lt;int&gt;(enc.mib()));\n  std::println(\&#34;Aliases:\&#34;);\n  for (auto&amp;&amp; alias : enc.aliases()) {\n    std::println(\&#34;  {}\&#34;, alias);\n  }\n}\n\nint main() {\n  std::println(\&#34;Literal encoding: \&#34;);\n  ::print(std::text_encoding::literal());\n\n  std::println(\&#34;Environment encoding: \&#34;);\n  ::print(std::text_encoding::environment());\n}\n&#34;}, {&#34;id&#34;: &#34;15c6016db5bfbb40faea51c533fb14906214ae04&#34;, &#34;source&#34;: &#34;#include &lt;text_encoding&gt;\n#include &lt;cassert&gt;\n#include &lt;string_view&gt;\n\nint main() {\n  using namespace std::string_view_literals;\n\n  // \u30a8\u30f3\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u540d\u304b\u3089\u69cb\u7bc9\n  std::text_encoding my_utf8{\&#34;utf8\&#34;};\n  assert(my_utf8.name() == \&#34;utf8\&#34;sv);\n  assert(my_utf8.mib() == std::text_encoding::id::UTF8);\n\n  // MIB\u5024\u304b\u3089\u69cb\u7bc9\n  std::text_encoding my_utf8_2{std::text_encoding::id::UTF8};\n  assert(my_utf8_2.mib() == std::text_encoding::id::UTF8);\n\n  // \u7570\u306a\u308b\u540d\u524d\u3067\u3082\u540c\u3058\u30a8\u30f3\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u306a\u3089\u7b49\u5024\n  assert(my_utf8 == my_utf8_2);\n\n  // \u672a\u767b\u9332\u306e\u30a8\u30f3\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u3082\u30b5\u30dd\u30fc\u30c8\n  std::text_encoding wtf8{\&#34;WTF-8\&#34;};\n  assert(wtf8.name() == \&#34;WTF-8\&#34;sv);\n  assert(wtf8.mib() == std::text_encoding::id::other);\n  // other\u306eMIB\u3092\u6301\u3064\u30a8\u30f3\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u306f\u540d\u524d\u3067\u6bd4\u8f03\u3055\u308c\u308b\n  assert(wtf8 == std::text_encoding{\&#34;___wtf8__\&#34;});\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;text_encoding&#34;, &#34;text_encoding&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/text_encoding.html" itemprop="url">
+              
+                <span itemprop="name">text_encoding</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">text_encoding</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-03-26T02:50:04">
+        2026年03月26日 02時50分04秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/text_encoding/text_encoding.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/text_encoding/text_encoding.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;text_encoding&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">text_encoding</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">text_encoding</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>std::text_encoding</code>クラスは、IANA文字集合レジストリに基づいてテキストエンコーディングを識別するクラスである。エンコーディング名、MIB番号（Management Information Base enumeration）、およびエイリアスによるエンコーディングの識別・比較機能を提供する。</p>
+<p>このクラスは、ロケールに依存せずにエンコーディングを取得・比較する手段を提供する。従来のC++ではエンコーディング情報はロケール経由でしか取得できなかったが、<code>std::text_encoding</code>はロケールとは独立して動作する。</p>
+<ul>
+<li><code><a href="text_encoding/literal.html">literal()</a></code>は<code>consteval</code>関数であり、コンパイル時にリテラルエンコーディングを取得できる</li>
+<li><code><a href="text_encoding/environment.html">environment()</a></code>は<code>setlocale()</code>の影響を受けず、プログラム起動時の環境エンコーディングを返す</li>
+<li><code><a href="text_encoding/environment_is.html">environment_is()</a></code>により、特定のエンコーディングかどうかを効率的に判定できる</li>
+</ul>
+<p><code>std::text_encoding</code>はトリビアルコピー可能な型であり、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない。<code>CHAR_BIT == 8</code>が要求される。</p>
+<p>IANAに登録されていないエンコーディングも、<code><a href="text_encoding/id.html">id::other</a></code>として名前で管理できる。</p>
+<h2>メンバ関数</h2>
+<h3>構築</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="text_encoding/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>観測</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="text_encoding/mib.html">mib</a></code></td>
+<td>MIB列挙値の取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="text_encoding/name.html">name</a></code></td>
+<td>エンコーディング名の取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="text_encoding/aliases.html">aliases</a></code></td>
+<td>エイリアス一覧の取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="text_encoding/literal.html">literal</a></code></td>
+<td>リテラルエンコーディングの取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="text_encoding/environment.html">environment</a></code></td>
+<td>環境エンコーディングの取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="text_encoding/environment_is.html">environment_is</a></code></td>
+<td>環境エンコーディングが指定したエンコーディングかを判定</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="text_encoding/id.html">id</a></code></td>
+<td>MIB列挙型 (enum class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="text_encoding/aliases_view.html">aliases_view</a></code></td>
+<td>エイリアスのビュー (class)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ定数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static constexpr size_t max_name_length = 63;</code></td>
+<td>エンコーディング名の最大長</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="text_encoding/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="text_encoding/op_equal.html">operator!=</a></code></td>
+<td>非等値比較 (<code>==</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>ハッシュサポート</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>template&lt;&gt; struct hash&lt;text_encoding&gt;</code></td>
+<td><code>hash</code>の特殊化</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>説明専用メンバ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id mib_ = id::unknown;</code></td>
+<td>MIB値を保持する</td>
+</tr>
+<tr>
+<td><code>char name_[max_name_length + 1] = {0};</code></td>
+<td>エンコーディング名を保持する</td>
+</tr>
+<tr>
+<td><code><a href="text_encoding/comp-name.html">comp-name</a></code></td>
+<td>エンコーディング名の比較（Unicode Technical Standard #22準拠）</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>エンコーディング情報の表示</h3>
+<p><div class="yata" id="ccc93deb5f2d3a737798b066ff88eb33bd2560b6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../text_encoding.html">&lt;text_encoding&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="">std::text_encoding</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">enc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{} (IANA MIB: {})"</span><span class="p">,</span><span class="w"> </span><span class="n">enc</span><span class="p">.</span><span class="n"><a href="text_encoding/name.html">name()</a></span><span class="p">,</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">enc</span><span class="p">.</span><span class="n"><a href="text_encoding/mib.html">mib()</a></span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Aliases:"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">alias</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">enc</span><span class="p">.</span><span class="n"><a href="text_encoding/aliases.html">aliases()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"  {}"</span><span class="p">,</span><span class="w"> </span><span class="n">alias</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Literal encoding: "</span><span class="p">);</span>
+<span class="w">  </span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="n"><a href="">std::text_encoding</a></span><span class="o">::</span><span class="n"><a href="text_encoding/literal.html">literal()</a></span><span class="p">);</span>
+
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Environment encoding: "</span><span class="p">);</span>
+<span class="w">  </span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="n"><a href="">std::text_encoding</a></span><span class="o">::</span><span class="n"><a href="text_encoding/environment.html">environment()</a></span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>Literal encoding: UTF-8 (IANA MIB: 106)
+Aliases:
+  UTF-8
+  csUTF8
+Environment encoding: UTF-8 (IANA MIB: 106)
+Aliases:
+  UTF-8
+  csUTF8
+</code></pre></p>
+<h3>エンコーディング名の指定</h3>
+<p><div class="yata" id="15c6016db5bfbb40faea51c533fb14906214ae04"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../text_encoding.html">&lt;text_encoding&gt;</a></span>
+<span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../string_view.html">&lt;string_view&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">string_view_literals</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// エンコーディング名から構築</span>
+<span class="w">  </span><span class="n"><a href="">std::text_encoding</a></span><span class="w"> </span><span class="n">my_utf8</span><span class="p">{</span><span class="s">"utf8"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">my_utf8</span><span class="p">.</span><span class="n"><a href="text_encoding/name.html">name()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"utf8"</span><span class="n">sv</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">my_utf8</span><span class="p">.</span><span class="n"><a href="text_encoding/mib.html">mib()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="">std::text_encoding</a></span><span class="o">::</span><span class="n"><a href="text_encoding/id.html">id::UTF8</a></span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// MIB値から構築</span>
+<span class="w">  </span><span class="n"><a href="">std::text_encoding</a></span><span class="w"> </span><span class="n">my_utf8_2</span><span class="p">{</span><span class="n"><a href="">std::text_encoding</a></span><span class="o">::</span><span class="n"><a href="text_encoding/id.html">id::UTF8</a></span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">my_utf8_2</span><span class="p">.</span><span class="n"><a href="text_encoding/mib.html">mib()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="">std::text_encoding</a></span><span class="o">::</span><span class="n"><a href="text_encoding/id.html">id::UTF8</a></span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 異なる名前でも同じエンコーディングなら等値</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">my_utf8</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">my_utf8_2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 未登録のエンコーディングもサポート</span>
+<span class="w">  </span><span class="n"><a href="">std::text_encoding</a></span><span class="w"> </span><span class="n">wtf8</span><span class="p">{</span><span class="s">"WTF-8"</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">wtf8</span><span class="p">.</span><span class="n"><a href="text_encoding/name.html">name()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"WTF-8"</span><span class="n">sv</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">wtf8</span><span class="p">.</span><span class="n"><a href="text_encoding/mib.html">mib()</a></span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="">std::text_encoding</a></span><span class="o">::</span><span class="n"><a href="text_encoding/id.html">id::other</a></span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// otherのMIBを持つエンコーディングは名前で比較される</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">wtf8</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="">std::text_encoding</a></span><span class="p">{</span><span class="s">"___wtf8__"</span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 15 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1885r12.pdf" target="_blank">P1885R12 Naming Text Encodings to Demystify Them</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2862r1.html" target="_blank">P2862R1 <code>text_encoding::name()</code> should never return null values</a></li>
+<li><a href="https://www.iana.org/assignments/character-sets/character-sets.xhtml" target="_blank">IANA Character Sets</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
