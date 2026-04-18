@@ -39,7 +39,7 @@ namespace std {
     count(ExecutionPolicy&& exec,
           ForwardIterator first,
           ForwardIterator last,
-          const T& value);     // (2) C++16
+          const T& value);     // (2) C++26
 }
 ```
 
