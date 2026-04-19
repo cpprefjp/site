@@ -1,0 +1,369 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>observable_checkpoint - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,utility,function,std,cpp26
+">
+        <meta name="title" content="observable_checkpoint - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="observable_checkpoint - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="observable_checkpoint - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/utility/observable_checkpoint.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="観測可能チェックポイント (observable checkpoint) を設置する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="observable_checkpoint - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/utility/observable_checkpoint.html" />
+        <meta name="twitter:description" content="観測可能チェックポイント (observable checkpoint) を設置する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4a35f4558a13ee2c8bbd4416194e68ea10a15e67&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n#include &lt;utility&gt;\n\nint table[10];\n\nvoid process(int i) {\n  std::printf(\&#34;processing %d\\n\&#34;, i);  // (1) \u6697\u9ed9\u306e\u89b3\u6e2c\u53ef\u80fd\u30c1\u30a7\u30c3\u30af\u30dd\u30a4\u30f3\u30c8\n  table[i] = i * i;                   // i \u304c\u7bc4\u56f2\u5916\u306a\u3089\u672a\u5b9a\u7fa9\u52d5\u4f5c\n}\n\nint main() {\n  for (int i = 0; i &lt; 12; ++i) {\n    process(i);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;7b4b5075100162c1fd8641d70e71e39b7865fdd5&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n#include &lt;utility&gt;\n\nint main() {\n  int result = 0;\n\n  for (int i = 1; i &lt;= 5; ++i) {\n    result += i;\n  }\n  std::printf(\&#34;sum = %d\\n\&#34;, result);\n  std::observable_checkpoint();  // \u3053\u3053\u307e\u3067\u306e\u51fa\u529b\u3092\u4fdd\u8b77\n\n  // \u4ee5\u964d\u306e\u30b3\u30fc\u30c9\u306b\u672a\u5b9a\u7fa9\u52d5\u4f5c\u304c\u3042\u3063\u3066\u3082\n  // \&#34;sum = 15\&#34; \u306e\u51fa\u529b\u306f\u4fdd\u8a3c\u3055\u308c\u308b\n  int* p = nullptr;\n  *p = 0;  // \u672a\u5b9a\u7fa9\u52d5\u4f5c\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;observable_checkpoint&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/utility.html" itemprop="url">
+              
+                <span itemprop="name">utility</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">observable_checkpoint</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-03-28T01:51:07">
+        2026年03月28日 01時51分07秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/utility/observable_checkpoint.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/utility/observable_checkpoint.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;utility&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">observable_checkpoint</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">observable_checkpoint</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>観測可能チェックポイント (observable checkpoint) を設置する。</p>
+<p>C++では<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を含むプログラムに対して、コンパイラは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>が「将来」発生することを根拠に、それより「前」の操作を削除・変更する最適化を行うことが許容される。これは「タイムトラベル最適化」と呼ばれる。</p>
+<p>例として以下のコードでは、nullポインタが渡された場合にエラーメッセージを出力してからデリファレンスに到達する意図だが、コンパイラは<code>++*p</code>が<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>にならないと仮定して<code>p</code>がnullでないと推論し、<code>if(!p)</code>の分岐ごと削除できる。その結果、エラーメッセージが出力されることなくクラッシュする可能性がある:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdio.html">&lt;cstdio&gt;</a></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">inc</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fputs</span><span class="p">(</span><span class="s">"Null!</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1) エラー出力（削除される可能性がある）</span>
+<span class="w">  </span><span class="o">++*</span><span class="n">p</span><span class="p">;</span><span class="w">                                   </span><span class="c1">// (2) pがnullなら未定義動作</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>std::observable_checkpoint()</code>を呼び出すと、その時点で観測可能チェックポイントが設置される。観測可能チェックポイントより前に完了した操作の観測可能な動作は、その後に発生する<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>によって遡って無効化されないことが保証される。これにより、タイムトラベル最適化を抑止できる:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdio.html">&lt;cstdio&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">inc</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fputs</span><span class="p">(</span><span class="s">"Null!</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1) エラー出力</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">observable_checkpoint</span><span class="p">();</span><span class="w">           </span><span class="c1">// ここまでの観測可能な動作を保護</span>
+<span class="w">  </span><span class="o">++*</span><span class="n">p</span><span class="p">;</span><span class="w">                                   </span><span class="c1">// (2) pがnullなら未定義動作</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この場合、<code>std::observable_checkpoint()</code>によって(1)のエラー出力が保護され、(2)の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>があっても遡って消去されない。</p>
+<p><code>std::observable_checkpoint()</code>の明示的な呼び出しに加え、以下の操作も暗黙的に観測可能チェックポイントを設置する:</p>
+<ul>
+<li>C標準の入出力関数（<code><a href="../cstdio/printf.html">std::printf()</a></code>、<code><a href="../cstdio/fwrite.html">std::fwrite()</a></code>など）のうち、ファイルへのデータ書き込みを行う関数呼び出しからの復帰<ul>
+<li>デフォルトの<code><a href="../ios/ios_base/sync_with_stdio.html">sync_with_stdio(true)</a></code>の状態では、<code><a href="../iostream/cout.html">std::cout</a></code>などの標準ストリームは<code>stdout</code>と同期しているため、これに該当する</li>
+</ul>
+</li>
+<li><code><a href="../fstream/basic_ofstream.html">std::ofstream</a></code>などのファイルストリーム出力時の<code><a href="../fstream/basic_filebuf.html">std::basic_filebuf</a></code>のオーバーフロー操作（バッファの内容をファイルに書き出した時点）</li>
+<li>Unicode出力時の<code><a href="../print/print.html">std::print()</a></code> / <code><a href="../print/println.html">std::println()</a></code>の内部出力関数<code><a href="../print/vprint_unicode.html">std::vprint_unicode()</a></code>によるターミナルへの書き込み（<code><a href="../ostream.html">&lt;ostream&gt;</a></code>版および<code><a href="../print.html">&lt;print&gt;</a></code>版）<ul>
+<li>Unicode出力時はネイティブのOS API（Windowsでの<code>WriteConsoleW()</code>など）を直接使用しC標準の入出力を経由しないため、このルールで明示的にカバーしている</li>
+<li>非Unicode出力時はC標準I/O関数を経由するため、上記のC標準入出力関数のルールでカバーされる</li>
+</ul>
+</li>
+</ul>
+<p>上記の例では<code>std::fputs()</code>がC標準の入出力関数であるため、(1)の呼び出しの復帰が暗黙の観測可能チェックポイントとなり、<code>"Null!\n"</code>の出力は(2)の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>によって遡って消去されない。</p>
+<h2>効果</h2>
+<p>観測可能チェックポイントを設置する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
+<h2>備考</h2>
+<ul>
+<li><code>std::observable_checkpoint()</code>の呼び出し自体は観測可能な動作ではない。コンパイラはこの関数を組み込み関数 (intrinsic) として実装でき、最適化後にゼロ命令のコードを生成できる</li>
+<li><code>volatile</code>アクセスは暗黙の観測可能チェックポイントではない。<code>volatile</code>アクセスの順序保証は従来の happens before 規則に従う</li>
+<li>この関数はフリースタンディング環境でも使用可能である</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="4a35f4558a13ee2c8bbd4416194e68ea10a15e67"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdio.html">&lt;cstdio&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"processing %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1) 暗黙の観測可能チェックポイント</span>
+<span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">                   </span><span class="c1">// i が範囲外なら未定義動作</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">process</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>この例では、<code>i</code>が10以上になると<code>table[i]</code>で範囲外アクセスの<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>が発生する。しかし<code>std::printf()</code>はC標準の入出力関数であり、呼び出しの復帰が暗黙の観測可能チェックポイントとなる。そのため、<code>i</code>が0から9までの反復で出力された<code>"processing 0"</code>から<code>"processing 9"</code>は、その後の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>によって遡って消去されることはない。</p>
+<h4>出力例</h4>
+<p><pre><code>processing 0
+processing 1
+processing 2
+processing 3
+processing 4
+processing 5
+processing 6
+processing 7
+processing 8
+processing 9
+processing 10
+processing 11
+</code></pre></p>
+<h3>明示的なチェックポイントの設置</h3>
+<p><div class="yata" id="7b4b5075100162c1fd8641d70e71e39b7865fdd5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdio.html">&lt;cstdio&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"sum = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::observable_checkpoint</span></span><span class="p">();</span><span class="w">  </span><span class="c1">// ここまでの出力を保護</span>
+
+<span class="w">  </span><span class="c1">// 以降のコードに未定義動作があっても</span>
+<span class="w">  </span><span class="c1">// "sum = 15" の出力は保証される</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 未定義動作</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>sum = 15
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 22 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 15 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="unreachable.html">unreachable</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1494r5.html" target="_blank">P1494R5 Partial program correctness</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3641r0.html" target="_blank">P3641R0 Rename <code>std::observable</code> to <code>std::observable_checkpoint</code>, and add a feature-test macro</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

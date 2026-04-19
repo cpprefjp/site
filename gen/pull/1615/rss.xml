@@ -1,0 +1,2560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-04-19T19:43:40.522456</updated>
+  <id>1f1dcb63-cc45-49f3-8f2b-f10492ea5551</id>
+
+  
+    <entry>
+      <title>count -- Merge pull request #1612 from yknishidate/fix_cpp_version</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/count.html"/>
+      <id>faebfd2e12ecc3710e41b29300aa6b6aae04b20f:reference/algorithm/count.md</id>
+      <updated>2026-04-19T06:26:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/count.md b/reference/algorithm/count.md
+index 673b89b14..b2bf8502a 100644
+--- a/reference/algorithm/count.md
++++ b/reference/algorithm/count.md
+@@ -39,7 +39,7 @@ namespace std {
+     count(ExecutionPolicy&amp;amp;&amp;amp; exec,
+           ForwardIterator first,
+           ForwardIterator last,
+-          const T&amp;amp; value);     // (2) C++16
++          const T&amp;amp; value);     // (2) C++26
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count -- タイポ修正</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/count.html"/>
+      <id>3313d3a88f744ef4fac19d1a5763b7421df887db:reference/algorithm/count.md</id>
+      <updated>2026-04-18T18:48:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/count.md b/reference/algorithm/count.md
+index 673b89b14..b2bf8502a 100644
+--- a/reference/algorithm/count.md
++++ b/reference/algorithm/count.md
+@@ -39,7 +39,7 @@ namespace std {
+     count(ExecutionPolicy&amp;amp;&amp;amp; exec,
+           ForwardIterator first,
+           ForwardIterator last,
+-          const T&amp;amp; value);     // (2) C++16
++          const T&amp;amp; value);     // (2) C++26
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Yuki Nishidate</name>
+        <email>yuki18425@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>adjacent_find -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/adjacent_find.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/adjacent_find.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/adjacent_find.md b/reference/algorithm/adjacent_find.md
+index fe20630d8..50b87f554 100644
+--- a/reference/algorithm/adjacent_find.md
++++ b/reference/algorithm/adjacent_find.md
+@@ -157,6 +157,11 @@ ForwardIterator adjacent_find(ForwardIterator first, ForwardIterator last, Binar
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
++
++## 関連項目
++- [`ranges::adjacent_find`](/reference/algorithm/ranges_adjacent_find.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>all_of -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/all_of.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/all_of.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/all_of.md b/reference/algorithm/all_of.md
+index 120a26102..3479a06d5 100644
+--- a/reference/algorithm/all_of.md
++++ b/reference/algorithm/all_of.md
+@@ -88,6 +88,7 @@ bool all_of(InputIterator first, InputIterator last, Predicate pred) {
+ ## 関連項目
+ - [`any_of`](/reference/algorithm/any_of.md)
+ - [`none_of`](/reference/algorithm/none_of.md)
++- [`ranges::all_of`](/reference/algorithm/ranges_all_of.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>any_of -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/any_of.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/any_of.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/any_of.md b/reference/algorithm/any_of.md
+index 1923e1dbe..a0f9beeff 100644
+--- a/reference/algorithm/any_of.md
++++ b/reference/algorithm/any_of.md
+@@ -89,6 +89,7 @@ bool any_of(InputIterator first, InputIterator last, Predicate pred) {
+ ## 関連項目
+ - [`all_of`](/reference/algorithm/all_of.md)
+ - [`none_of`](/reference/algorithm/none_of.md)
++- [`ranges::any_of`](/reference/algorithm/ranges_any_of.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>binary_search -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/binary_search.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/binary_search.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/binary_search.md b/reference/algorithm/binary_search.md
+index a1c10635e..6ce083c7b 100644
+--- a/reference/algorithm/binary_search.md
++++ b/reference/algorithm/binary_search.md
+@@ -163,6 +163,11 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
++
++## 関連項目
++- [`ranges::binary_search`](/reference/algorithm/ranges_binary_search.md)
++
++
+ ## 参照
+ - [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
+     - C++03までの計算量が間違っていたので、C++11で修正。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clamp -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/clamp.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/clamp.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/clamp.md b/reference/algorithm/clamp.md
+index 1500a095f..f54883f9c 100644
+--- a/reference/algorithm/clamp.md
++++ b/reference/algorithm/clamp.md
+@@ -78,6 +78,10 @@ int main()
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
++## 関連項目
++- [`ranges::clamp`](/reference/algorithm/ranges_clamp.md)
++
++
+ ## 参照
+ - [N4536 An algorithm to &amp;#34;clamp&amp;#34; a value between a pair of boundary values](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4536.html)
+ - [P0025R0 An algorithm to &amp;#34;clamp&amp;#34; a value between a pair of boundary values (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0025r0.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>copy -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/copy.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/copy.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/copy.md b/reference/algorithm/copy.md
+index b2a8fdc65..1cce8b180 100644
+--- a/reference/algorithm/copy.md
++++ b/reference/algorithm/copy.md
+@@ -102,6 +102,11 @@ OutputIterator copy(InputIterator first, InputIterator last, OutputIterator resu
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
++
++## 関連項目
++- [`ranges::copy`](/reference/algorithm/ranges_copy.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>copy_backward -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/copy_backward.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/copy_backward.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/copy_backward.md b/reference/algorithm/copy_backward.md
+index 5c1fc81de..91e72f01f 100644
+--- a/reference/algorithm/copy_backward.md
++++ b/reference/algorithm/copy_backward.md
+@@ -95,5 +95,9 @@ BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
++## 関連項目
++- [`ranges::copy_backward`](/reference/algorithm/ranges_copy_backward.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>copy_if -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/copy_if.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/copy_if.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/copy_if.md b/reference/algorithm/copy_if.md
+index fae041b1d..1a2fb6c24 100644
+--- a/reference/algorithm/copy_if.md
++++ b/reference/algorithm/copy_if.md
+@@ -112,6 +112,10 @@ OutputIterator copy_if(InputIterator first, InputIterator last,
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::copy_if`](/reference/algorithm/ranges_copy_if.md)
++
++
+ ## 参照
+ - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
+ - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>copy_n -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/copy_n.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/copy_n.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/copy_n.md b/reference/algorithm/copy_n.md
+index 4e495dcde..a742b094c 100644
+--- a/reference/algorithm/copy_n.md
++++ b/reference/algorithm/copy_n.md
+@@ -89,6 +89,10 @@ OutputIterator copy_n(InputIterator first, Size n, OutputIterator result) {
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::copy_n`](/reference/algorithm/ranges_copy_n.md)
++
++
+ ## 参照
+ - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
+ - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/count.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/count.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/count.md b/reference/algorithm/count.md
+index 324da12ef..673b89b14 100644
+--- a/reference/algorithm/count.md
++++ b/reference/algorithm/count.md
+@@ -141,6 +141,11 @@ typename iterator_traits&amp;lt;InputIterator&amp;gt;::difference_type
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
++
++## 関連項目
++- [`ranges::count`](/reference/algorithm/ranges_count.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count_if -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/count_if.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/count_if.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/count_if.md b/reference/algorithm/count_if.md
+index 1f3e8983e..56181fd2c 100644
+--- a/reference/algorithm/count_if.md
++++ b/reference/algorithm/count_if.md
+@@ -83,6 +83,10 @@ typename iterator_traits&amp;lt;InputIterator&amp;gt;::difference_type
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
++## 関連項目
++- [`ranges::count_if`](/reference/algorithm/ranges_count_if.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>equal -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/equal.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/equal.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/equal.md b/reference/algorithm/equal.md
+index 9723fa313..9ba94dc1d 100644
+--- a/reference/algorithm/equal.md
++++ b/reference/algorithm/equal.md
+@@ -219,6 +219,10 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
+ - [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::equal`](/reference/algorithm/ranges_equal.md)
++
++
+ ## 参照
+ - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
+     - C++14から追加された、`last2`を受け取るオーバーロードの提案文書
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>equal_range -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/equal_range.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/equal_range.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/equal_range.md b/reference/algorithm/equal_range.md
+index 0b6d04030..c7a2a6ed2 100644
+--- a/reference/algorithm/equal_range.md
++++ b/reference/algorithm/equal_range.md
+@@ -147,6 +147,11 @@ int main() {
+ 3,4
+ ```
+ 
++
++## 関連項目
++- [`ranges::equal_range`](/reference/algorithm/ranges_equal_range.md)
++
++
+ ## 参照
+ - [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fill -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/fill.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/fill.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/fill.md b/reference/algorithm/fill.md
+index 80b66018c..c345c7dac 100644
+--- a/reference/algorithm/fill.md
++++ b/reference/algorithm/fill.md
+@@ -136,6 +136,10 @@ void fill(ForwardIterator first, ForwardIterator last, const T&amp;amp; value) {
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::fill`](/reference/algorithm/ranges_fill.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fill_n -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/fill_n.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/fill_n.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/fill_n.md b/reference/algorithm/fill_n.md
+index 5eb8a5bd5..b89314d47 100644
+--- a/reference/algorithm/fill_n.md
++++ b/reference/algorithm/fill_n.md
+@@ -169,6 +169,10 @@ fill_n(OutputIterator first, Size n, const T&amp;amp; value) {
+ 	- C++11への対応（戻り値の変更）は2012から。
+ 
+ 
++## 関連項目
++- [`ranges::fill_n`](/reference/algorithm/ranges_fill_n.md)
++
++
+ ## 参照
+ - [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
+ 	戻り値が追加されるきっかけとなったレポート
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/find.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/find.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/find.md b/reference/algorithm/find.md
+index 2eb04c2dd..7cab0e39a 100644
+--- a/reference/algorithm/find.md
++++ b/reference/algorithm/find.md
+@@ -134,6 +134,10 @@ InputIterator find(InputIterator first, InputIterator last, const T&amp;amp; value) {
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::find`](/reference/algorithm/ranges_find.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find_end -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/find_end.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/find_end.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/find_end.md b/reference/algorithm/find_end.md
+index 1998bcd9a..196d52b41 100644
+--- a/reference/algorithm/find_end.md
++++ b/reference/algorithm/find_end.md
+@@ -136,6 +136,10 @@ ForwardIterator1 find_end(ForwardIterator1 first1, ForwardIterator1 last1,
+ * std::search[link search.md]
+ 
+ 
++## 関連項目
++- [`ranges::find_end`](/reference/algorithm/ranges_find_end.md)
++
++
+ ## 参照
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find_first_of -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/find_first_of.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/find_first_of.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/find_first_of.md b/reference/algorithm/find_first_of.md
+index ba3158c38..bc766dc3d 100644
+--- a/reference/algorithm/find_first_of.md
++++ b/reference/algorithm/find_first_of.md
+@@ -136,6 +136,10 @@ InputIterator find_first_of(InputIterator first1, InputIterator last1,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::find_first_of`](/reference/algorithm/ranges_find_first_of.md)
++
++
+ ## 参照
+ - [LWG Issue 576. `find_first_of` is overconstrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#576)
+     - C++11から、パラメータのイテレータ型に対する制約が緩和され、`ForwardIterator`から`InputIterator`に変更になった経緯のレポート
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find_if -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/find_if.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/find_if.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/find_if.md b/reference/algorithm/find_if.md
+index c3cb3a8ad..fcb6e1ec4 100644
+--- a/reference/algorithm/find_if.md
++++ b/reference/algorithm/find_if.md
+@@ -71,6 +71,10 @@ InputIterator find_if(InputIterator first, InputIterator last, Predicate pred) {
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::find_if`](/reference/algorithm/ranges_find_if.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find_if_not -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/find_if_not.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/find_if_not.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/find_if_not.md b/reference/algorithm/find_if_not.md
+index 352e17c24..42c217779 100644
+--- a/reference/algorithm/find_if_not.md
++++ b/reference/algorithm/find_if_not.md
+@@ -72,6 +72,10 @@ InputIterator find_if_not(InputIterator first, InputIterator last, Predicate pre
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::find_if_not`](/reference/algorithm/ranges_find_if_not.md)
++
++
+ ## 参照
+ - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
+ - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>for_each -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/for_each.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/for_each.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/for_each.md b/reference/algorithm/for_each.md
+index 1dace0823..dc270b172 100644
+--- a/reference/algorithm/for_each.md
++++ b/reference/algorithm/for_each.md
+@@ -157,6 +157,10 @@ Function for_each(InputIterator first, InputIterator last, Function f) {
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::for_each`](/reference/algorithm/ranges_for_each.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>for_each_n -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/for_each_n.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/for_each_n.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/for_each_n.md b/reference/algorithm/for_each_n.md
+index 452705bc0..a175ce6ae 100644
+--- a/reference/algorithm/for_each_n.md
++++ b/reference/algorithm/for_each_n.md
+@@ -94,6 +94,10 @@ int main()
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
++## 関連項目
++- [`ranges::for_each_n`](/reference/algorithm/ranges_for_each_n.md)
++
++
+ ## 参照
+ - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>generate -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/generate.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/generate.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/generate.md b/reference/algorithm/generate.md
+index 17aacb71a..5687804b6 100644
+--- a/reference/algorithm/generate.md
++++ b/reference/algorithm/generate.md
+@@ -73,5 +73,9 @@ void generate(ForwardIterator first, ForwardIterator last, Generator gen) {
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::generate`](/reference/algorithm/ranges_generate.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>generate_n -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/generate_n.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/generate_n.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/generate_n.md b/reference/algorithm/generate_n.md
+index b911b527d..c044fdd1d 100644
+--- a/reference/algorithm/generate_n.md
++++ b/reference/algorithm/generate_n.md
+@@ -108,6 +108,10 @@ generate_n(OutputIterator first, Size n, Generator gen) {
+     - C++11への対応（戻り値の変更）は2012から。
+ 
+ 
++## 関連項目
++- [`ranges::generate_n`](/reference/algorithm/ranges_generate_n.md)
++
++
+ ## 参照
+ - [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
+ 	戻り値が追加されるきっかけとなったレポート
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>includes -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/includes.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/includes.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/includes.md b/reference/algorithm/includes.md
+index 82b393e2c..e32059813 100644
+--- a/reference/algorithm/includes.md
++++ b/reference/algorithm/includes.md
+@@ -121,6 +121,10 @@ bool includes(InputIterator1 first1, InputIterator1 last1,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::includes`](/reference/algorithm/ranges_includes.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>inplace_merge -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/inplace_merge.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/inplace_merge.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/inplace_merge.md b/reference/algorithm/inplace_merge.md
+index 2af32581f..865b27241 100644
+--- a/reference/algorithm/inplace_merge.md
++++ b/reference/algorithm/inplace_merge.md
+@@ -108,6 +108,10 @@ int main()
+ - [`inplace_merge` を読んでみた](http://www.kmonos.net/wlog/115.html#_2300101215)
+ 
+ 
++## 関連項目
++- [`ranges::inplace_merge`](/reference/algorithm/ranges_inplace_merge.md)
++
++
+ ## 参照
+ - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+     - C++26から`constexpr`に対応した
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_heap -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_heap.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/is_heap.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_heap.md b/reference/algorithm/is_heap.md
+index 6498b559b..d6395da0a 100644
+--- a/reference/algorithm/is_heap.md
++++ b/reference/algorithm/is_heap.md
+@@ -89,6 +89,10 @@ before: is heap? false
+     - 2008では、`_HAS_TRADITIONAL_STL`を1に定義してから`&amp;lt;algorithm&amp;gt;`をインクルードすると、`stdext`名前空間で`is_heap`が定義される。
+ 
+ 
++## 関連項目
++- [`ranges::is_heap`](/reference/algorithm/ranges_is_heap.md)
++
++
+ ## 参照
+ - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_heap_until -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_heap_until.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/is_heap_until.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_heap_until.md b/reference/algorithm/is_heap_until.md
+index 094cb609c..d433e7d8d 100644
+--- a/reference/algorithm/is_heap_until.md
++++ b/reference/algorithm/is_heap_until.md
+@@ -129,6 +129,10 @@ RandomAccessIterator is_heap_until(RandomAccessIterator first, RandomAccessItera
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::is_heap_until`](/reference/algorithm/ranges_is_heap_until.md)
++
++
+ ## 参照
+ - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_partitioned -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_partitioned.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/is_partitioned.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_partitioned.md b/reference/algorithm/is_partitioned.md
+index 94506f950..81e331724 100644
+--- a/reference/algorithm/is_partitioned.md
++++ b/reference/algorithm/is_partitioned.md
+@@ -110,6 +110,10 @@ bool is_partitioned(InputIterator first, InputIterator last, Predicate pred)
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::is_partitioned`](/reference/algorithm/ranges_is_partitioned.md)
++
++
+ ## 参照
+ - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
+ - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_permutation -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_permutation.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/is_permutation.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_permutation.md b/reference/algorithm/is_permutation.md
+index 62f24efd4..aac5049d1 100644
+--- a/reference/algorithm/is_permutation.md
++++ b/reference/algorithm/is_permutation.md
+@@ -222,6 +222,11 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+     - C++14で追加されたオーバーロードは2015から実装されている。
+ 
++
++## 関連項目
++- [`ranges::is_permutation`](/reference/algorithm/ranges_is_permutation.md)
++
++
+ ## 参照
+ - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
+     - C++14から追加された、`last2`を受け取るオーバーロードの提案文書
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_sorted -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_sorted.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/is_sorted.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_sorted.md b/reference/algorithm/is_sorted.md
+index f0c2de657..0779ec462 100644
+--- a/reference/algorithm/is_sorted.md
++++ b/reference/algorithm/is_sorted.md
+@@ -83,6 +83,10 @@ before: is sorted? false
+     - 2008では、`_HAS_TRADITIONAL_STL`を1に定義してから`&amp;lt;algorithm&amp;gt;`をインクルードすると、`stdext`名前空間で`is_sorted`が定義される。
+ 
+ 
++## 関連項目
++- [`ranges::is_sorted`](/reference/algorithm/ranges_is_sorted.md)
++
++
+ ## 参照
+ - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_sorted_until -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_sorted_until.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/is_sorted_until.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_sorted_until.md b/reference/algorithm/is_sorted_until.md
+index 621f615d0..7965bb8b7 100644
+--- a/reference/algorithm/is_sorted_until.md
++++ b/reference/algorithm/is_sorted_until.md
+@@ -111,6 +111,10 @@ ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::is_sorted_until`](/reference/algorithm/ranges_is_sorted_until.md)
++
++
+ ## 参照
+ - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>lexicographical_compare -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/lexicographical_compare.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/lexicographical_compare.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/lexicographical_compare.md b/reference/algorithm/lexicographical_compare.md
+index b486aed5d..35096690c 100644
+--- a/reference/algorithm/lexicographical_compare.md
++++ b/reference/algorithm/lexicographical_compare.md
+@@ -181,6 +181,10 @@ bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::lexicographical_compare`](/reference/algorithm/ranges_lexicographical_compare.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>lower_bound -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/lower_bound.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/lower_bound.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/lower_bound.md b/reference/algorithm/lower_bound.md
+index 7b3b2e2f0..25716af75 100644
+--- a/reference/algorithm/lower_bound.md
++++ b/reference/algorithm/lower_bound.md
+@@ -262,6 +262,11 @@ lower_bound(ForwardIterator first, ForwardIterator last, const T&amp;amp; value)
+ * std::advance[link /reference/iterator/advance.md]
+ * std::iterator_traits[link /reference/iterator/iterator_traits.md]
+ 
++
++## 関連項目
++- [`ranges::lower_bound`](/reference/algorithm/ranges_lower_bound.md)
++
++
+ ## 参照
+ - [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_heap -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/make_heap.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/make_heap.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/make_heap.md b/reference/algorithm/make_heap.md
+index a57a55f69..5779fabe1 100644
+--- a/reference/algorithm/make_heap.md
++++ b/reference/algorithm/make_heap.md
+@@ -144,5 +144,9 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
+ * std::push_heap[link push_heap.md]
+ 
+ 
++## 関連項目
++- [`ranges::make_heap`](/reference/algorithm/ranges_make_heap.md)
++
++
+ ## 参照
+ - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/max.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/max.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/max.md b/reference/algorithm/max.md
+index 1366d76d3..27d11bf56 100644
+--- a/reference/algorithm/max.md
++++ b/reference/algorithm/max.md
+@@ -127,6 +127,10 @@ Windows環境においては、`&amp;lt;windows.h&amp;gt;`をインクルードすると`max`
+ - `std::max()`を呼び出す際に、`(std::max)(a, b);`のように関数名をカッコで囲んで使用する。これで、名前解決において`std::max()`関数が必ず使用される。
+ 
+ 
++## 関連項目
++- [`ranges::max`](/reference/algorithm/ranges_max.md)
++
++
+ ## 参照
+ - [N2551 A Variadic `std::min(T, ...)` for the C++ Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2551.pdf)
+ - [N2772 Variadic functions: Variadic templates or initializer lists? -- Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2772.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_element -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/max_element.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/max_element.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/max_element.md b/reference/algorithm/max_element.md
+index 5b042cb16..e8d4f7fb1 100644
+--- a/reference/algorithm/max_element.md
++++ b/reference/algorithm/max_element.md
+@@ -111,5 +111,9 @@ ForwardIterator max_element(ForwardIterator first, ForwardIterator last, Compare
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::max_element`](/reference/algorithm/ranges_max_element.md)
++
++
+ ## 参照
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>merge -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/merge.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/merge.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/merge.md b/reference/algorithm/merge.md
+index 933045f7b..d8977c8aa 100644
+--- a/reference/algorithm/merge.md
++++ b/reference/algorithm/merge.md
+@@ -174,6 +174,7 @@ OutputIterator merge(InputIterator1 first1, InputIterator1 last1,
+ ## 関連項目
+ - [`std::set::merge()`](/reference/set/set/merge.md)
+ - [`std::set_union()`](set_union.md)
++- [`ranges::merge`](/reference/algorithm/ranges_merge.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>min -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/min.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/min.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/min.md b/reference/algorithm/min.md
+index a80955dab..8ed16614b 100644
+--- a/reference/algorithm/min.md
++++ b/reference/algorithm/min.md
+@@ -127,6 +127,10 @@ Windows環境においては、`&amp;lt;windows.h&amp;gt;`をインクルードすると`min`
+ - `std::min()`を呼び出す際に、`(std::min)(a, b);`のように関数名をカッコで囲んで使用する。これで、名前解決において`std::min()`関数が必ず使用される。
+ 
+ 
++## 関連項目
++- [`ranges::min`](/reference/algorithm/ranges_min.md)
++
++
+ ## 参照
+ - [N2551 A Variadic `std::min(T, ...)` for the C++ Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2551.pdf)
+ - [N2772 Variadic functions: Variadic templates or initializer lists? -- Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2772.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>min_element -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/min_element.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/min_element.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/min_element.md b/reference/algorithm/min_element.md
+index 988a553d9..456885302 100644
+--- a/reference/algorithm/min_element.md
++++ b/reference/algorithm/min_element.md
+@@ -110,5 +110,10 @@ ForwardIterator min_element(ForwardIterator first, ForwardIterator last, Compare
+ }
+ ```
+ 
++
++## 関連項目
++- [`ranges::min_element`](/reference/algorithm/ranges_min_element.md)
++
++
+ ## 参照
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>minmax -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/minmax.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/minmax.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/minmax.md b/reference/algorithm/minmax.md
+index 10c14e2e4..d49debc30 100644
+--- a/reference/algorithm/minmax.md
++++ b/reference/algorithm/minmax.md
+@@ -158,6 +158,10 @@ std::pair&amp;lt;T, T&amp;gt; minmax(std::initializer_list&amp;lt;T&amp;gt; init, Compare comp)
+ - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::minmax`](/reference/algorithm/ranges_minmax.md)
++
++
+ ## 参照
+ - [N1840 C++0x Proposal: Function template `std::minmax` and / or algorithm `std::minmax_element`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1840.pdf)
+ - [N1990 Proposed Text for `minmax` (N1840)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1990.htm)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>minmax_element -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/minmax_element.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/minmax_element.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/minmax_element.md b/reference/algorithm/minmax_element.md
+index b839bc566..351deb163 100644
+--- a/reference/algorithm/minmax_element.md
++++ b/reference/algorithm/minmax_element.md
+@@ -162,6 +162,10 @@ minmax_element(ForwardIterator first, ForwardIterator last)
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::minmax_element`](/reference/algorithm/ranges_minmax_element.md)
++
++
+ ## 参照
+ - [N1840 C++0x Proposal: Function template `std::minmax` and / or algorithm `std::minmax_element`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1840.pdf)
+ - [N1990 Proposed Text for `minmax` (N1840)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1990.htm)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>mismatch -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/mismatch.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/mismatch.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/mismatch.md b/reference/algorithm/mismatch.md
+index 3e2634534..ac0abd33f 100644
+--- a/reference/algorithm/mismatch.md
++++ b/reference/algorithm/mismatch.md
+@@ -192,6 +192,11 @@ std::pair&amp;lt;InputIterator1, InputIterator2&amp;gt; mismatch(
+ - [Visual C++](/implementation.md#visual_cpp): 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+     - C++14で追加されたオーバーロードは2015から実装されている。
+ 
++
++## 関連項目
++- [`ranges::mismatch`](/reference/algorithm/ranges_mismatch.md)
++
++
+ ## 参照
+ - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
+     - C++14から、`last2`を受け取るオーバーロードを追加。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>move -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/move.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/move.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/move.md b/reference/algorithm/move.md
+index a52904c38..a86948a17 100644
+--- a/reference/algorithm/move.md
++++ b/reference/algorithm/move.md
+@@ -110,6 +110,7 @@ OutputIterator move(InputIterator first, InputIterator last, OutputIterator resu
+ 
+ ## 関連項目
+ - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
++- [`ranges::move`](/reference/algorithm/ranges_move.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>move_backward -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/move_backward.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/move_backward.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/move_backward.md b/reference/algorithm/move_backward.md
+index 460289ed1..b761f32b2 100644
+--- a/reference/algorithm/move_backward.md
++++ b/reference/algorithm/move_backward.md
+@@ -115,6 +115,7 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
+ 
+ ## 関連項目
+ - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
++- [`ranges::move_backward`](/reference/algorithm/ranges_move_backward.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>next_permutation -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/next_permutation.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/next_permutation.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/next_permutation.md b/reference/algorithm/next_permutation.md
+index c1938dfe8..0b09dc03f 100644
+--- a/reference/algorithm/next_permutation.md
++++ b/reference/algorithm/next_permutation.md
+@@ -144,6 +144,7 @@ bool next_permutation(BidirectionalIterator first, BidirectionalIterator last)
+ 
+ ## 関連項目
+ - [`std::prev_permutation()`](prev_permutation.md)
++- [`ranges::next_permutation`](/reference/algorithm/ranges_next_permutation.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>none_of -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/none_of.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/none_of.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/none_of.md b/reference/algorithm/none_of.md
+index 77520c8ad..b9635f740 100644
+--- a/reference/algorithm/none_of.md
++++ b/reference/algorithm/none_of.md
+@@ -99,6 +99,7 @@ bool none_of(InputIterator first, InputIterator last, Predicate pred) {
+ ## 関連項目
+ - [`all_of`](/reference/algorithm/all_of.md)
+ - [`any_of`](/reference/algorithm/any_of.md)
++- [`ranges::none_of`](/reference/algorithm/ranges_none_of.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>nth_element -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/nth_element.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/nth_element.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/nth_element.md b/reference/algorithm/nth_element.md
+index 6c8890ac7..fe4a9de50 100644
+--- a/reference/algorithm/nth_element.md
++++ b/reference/algorithm/nth_element.md
+@@ -100,6 +100,11 @@ int main()
+ 7
+ ```
+ 
++
++## 関連項目
++- [`ranges::nth_element`](/reference/algorithm/ranges_nth_element.md)
++
++
+ ## 参照
+ - [LWG Issue 2163. `nth_element` requires inconsistent post-conditions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2163)
+     - C++11まで、この関数を呼び出したあとの状態について「`!(*i &amp;gt; *j)`」と記載していたが、並べ替えには`operator&amp;lt;()`を使用するので、C++14で「`!(*j &amp;lt; *i)`」に訂正。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partial_sort -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partial_sort.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/partial_sort.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partial_sort.md b/reference/algorithm/partial_sort.md
+index 4c0d67336..ce1554292 100644
+--- a/reference/algorithm/partial_sort.md
++++ b/reference/algorithm/partial_sort.md
+@@ -96,5 +96,9 @@ int main()
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::partial_sort`](/reference/algorithm/ranges_partial_sort.md)
++
++
+ ## 参照
+ - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partial_sort_copy -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partial_sort_copy.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/partial_sort_copy.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partial_sort_copy.md b/reference/algorithm/partial_sort_copy.md
+index f70f56d01..c3b534ed7 100644
+--- a/reference/algorithm/partial_sort_copy.md
++++ b/reference/algorithm/partial_sort_copy.md
+@@ -105,6 +105,10 @@ int main()
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::partial_sort_copy`](/reference/algorithm/ranges_partial_sort_copy.md)
++
++
+ ## 参照
+ - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partition -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partition.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/partition.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partition.md b/reference/algorithm/partition.md
+index f58de2d53..0906277f5 100644
+--- a/reference/algorithm/partition.md
++++ b/reference/algorithm/partition.md
+@@ -113,6 +113,10 @@ ForwardIterator partition(ForwardIterator first, ForwardIterator last, Predicate
+ * std::iter_swap[link iter_swap.md]
+ 
+ 
++## 関連項目
++- [`ranges::partition`](/reference/algorithm/ranges_partition.md)
++
++
+ ## 参照
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+ - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partition_copy -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partition_copy.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/partition_copy.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partition_copy.md b/reference/algorithm/partition_copy.md
+index 01c505ee2..2f36bfeba 100644
+--- a/reference/algorithm/partition_copy.md
++++ b/reference/algorithm/partition_copy.md
+@@ -125,6 +125,10 @@ odds : 1,3,5,
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::partition_copy`](/reference/algorithm/ranges_partition_copy.md)
++
++
+ ## 参照
+ - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
+ - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partition_point -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partition_point.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/partition_point.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partition_point.md b/reference/algorithm/partition_point.md
+index 49ad6ac36..e9834f228 100644
+--- a/reference/algorithm/partition_point.md
++++ b/reference/algorithm/partition_point.md
+@@ -112,6 +112,10 @@ partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+ 
+ 
++## 関連項目
++- [`ranges::partition_point`](/reference/algorithm/ranges_partition_point.md)
++
++
+ ## 参照
+ - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
+ - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>pop_heap -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/pop_heap.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/pop_heap.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/pop_heap.md b/reference/algorithm/pop_heap.md
+index 56cb4179d..dd1ca84dd 100644
+--- a/reference/algorithm/pop_heap.md
++++ b/reference/algorithm/pop_heap.md
+@@ -137,5 +137,9 @@ void pop_heap(RandomAccessIterator first, RandomAccessIterator last, Compare com
+ * std::move[link /reference/utility/move.md]
+ 
+ 
++## 関連項目
++- [`ranges::pop_heap`](/reference/algorithm/ranges_pop_heap.md)
++
++
+ ## 参照
+ - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>prev_permutation -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/prev_permutation.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/prev_permutation.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/prev_permutation.md b/reference/algorithm/prev_permutation.md
+index dbdea5b98..57d81d224 100644
+--- a/reference/algorithm/prev_permutation.md
++++ b/reference/algorithm/prev_permutation.md
+@@ -138,6 +138,7 @@ bool prev_permutation(BidirectionalIterator first, BidirectionalIterator last)
+ 
+ ## 関連項目
+ - [`std::next_permutation()`](next_permutation.md)
++- [`ranges::prev_permutation`](/reference/algorithm/ranges_prev_permutation.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>push_heap -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/push_heap.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/push_heap.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/push_heap.md b/reference/algorithm/push_heap.md
+index 3e1cdf5f7..98b172743 100644
+--- a/reference/algorithm/push_heap.md
++++ b/reference/algorithm/push_heap.md
+@@ -129,5 +129,9 @@ void push_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
+ * std::iterator_traits[link /reference/iterator/iterator_traits.md]
+ 
+ 
++## 関連項目
++- [`ranges::push_heap`](/reference/algorithm/ranges_push_heap.md)
++
++
+ ## 参照
+ - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>remove -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/remove.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/remove.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/remove.md b/reference/algorithm/remove.md
+index 425eb8894..8449bd078 100644
+--- a/reference/algorithm/remove.md
++++ b/reference/algorithm/remove.md
+@@ -170,6 +170,10 @@ ForwardIterator remove(ForwardIterator first, ForwardIterator last, const T&amp;amp; val
+ * std::move[link /reference/utility/move.md]
+ 
+ 
++## 関連項目
++- [`ranges::remove`](/reference/algorithm/ranges_remove.md)
++
++
+ ## 参照
+ - [More C++ Idioms/消去・削除(Erase-Remove)](https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove))
+ - [LWG Issue 2110. `remove` can&amp;#39;t swap but note says it might](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2110)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>remove_copy -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/remove_copy.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/remove_copy.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/remove_copy.md b/reference/algorithm/remove_copy.md
+index 0d68759f1..ef2a302ee 100644
+--- a/reference/algorithm/remove_copy.md
++++ b/reference/algorithm/remove_copy.md
+@@ -167,6 +167,10 @@ OutputIterator remove_copy(InputIterator first, InputIterator last,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::remove_copy`](/reference/algorithm/ranges_remove_copy.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>remove_copy_if -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/remove_copy_if.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/remove_copy_if.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/remove_copy_if.md b/reference/algorithm/remove_copy_if.md
+index 02d1c216b..413a92ff2 100644
+--- a/reference/algorithm/remove_copy_if.md
++++ b/reference/algorithm/remove_copy_if.md
+@@ -95,6 +95,10 @@ OutputIterator remove_copy_if(InputIterator first, InputIterator last,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::remove_copy_if`](/reference/algorithm/ranges_remove_copy_if.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>remove_if -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/remove_if.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/remove_if.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/remove_if.md b/reference/algorithm/remove_if.md
+index 3f1ecb2d9..9ec8e63d1 100644
+--- a/reference/algorithm/remove_if.md
++++ b/reference/algorithm/remove_if.md
+@@ -112,6 +112,10 @@ ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, Predicate
+ * std::move[link /reference/utility/move.md]
+ 
+ 
++## 関連項目
++- [`ranges::remove_if`](/reference/algorithm/ranges_remove_if.md)
++
++
+ ## 参照
+ - [More C++ Idioms/消去・削除(Erase-Remove)](https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove))
+ - [LWG Issue 2110. `remove` can&amp;#39;t swap but note says it might](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2110)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>replace -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/replace.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/replace.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/replace.md b/reference/algorithm/replace.md
+index a53b7d086..998b1ffe0 100644
+--- a/reference/algorithm/replace.md
++++ b/reference/algorithm/replace.md
+@@ -149,6 +149,10 @@ void replace(ForwardIterator first, ForwardIterator last,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::replace`](/reference/algorithm/ranges_replace.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>replace_copy -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/replace_copy.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/replace_copy.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/replace_copy.md b/reference/algorithm/replace_copy.md
+index 9b8e28518..5002d1fbe 100644
+--- a/reference/algorithm/replace_copy.md
++++ b/reference/algorithm/replace_copy.md
+@@ -91,6 +91,10 @@ OutputIterator replace_copy(InputIterator first, InputIterator last, OutputItera
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::replace_copy`](/reference/algorithm/ranges_replace_copy.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>replace_copy_if -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/replace_copy_if.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/replace_copy_if.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/replace_copy_if.md b/reference/algorithm/replace_copy_if.md
+index 39692570c..21bbeadea 100644
+--- a/reference/algorithm/replace_copy_if.md
++++ b/reference/algorithm/replace_copy_if.md
+@@ -178,6 +178,10 @@ OutputIterator replace_copy_if(InputIterator first, InputIterator last, OutputIt
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::replace_copy_if`](/reference/algorithm/ranges_replace_copy_if.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>replace_if -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/replace_if.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/replace_if.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/replace_if.md b/reference/algorithm/replace_if.md
+index b0eabae70..49ca83a87 100644
+--- a/reference/algorithm/replace_if.md
++++ b/reference/algorithm/replace_if.md
+@@ -159,6 +159,10 @@ void replace_if(ForwardIterator first, ForwardIterator last,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::replace_if`](/reference/algorithm/ranges_replace_if.md)
++
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reverse -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/reverse.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/reverse.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/reverse.md b/reference/algorithm/reverse.md
+index 2aa609858..15bbb5379 100644
+--- a/reference/algorithm/reverse.md
++++ b/reference/algorithm/reverse.md
+@@ -70,6 +70,10 @@ void reverse(BidirectionalIterator first, BidirectionalIterator last) {
+ * std::iter_swap[link iter_swap.md]
+ 
+ 
++## 関連項目
++- [`ranges::reverse`](/reference/algorithm/ranges_reverse.md)
++
++
+ ## 参照
+ - [LWG Issue 2039. Issues with `std::reverse` and `std::copy_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2039)
+     - C++11まで、効果を「0 以上 `(last - first) / 2` **以下**の整数 `i` について、」と記載していたが、これは間違いなので、C++14で「0 以上 `(last - first) / 2` **未満**の整数 `i` について、」と修正。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reverse_copy -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/reverse_copy.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/reverse_copy.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/reverse_copy.md b/reference/algorithm/reverse_copy.md
+index 18dbbb6f9..8b5eab01e 100644
+--- a/reference/algorithm/reverse_copy.md
++++ b/reference/algorithm/reverse_copy.md
+@@ -88,3 +88,7 @@ OutputIterator reverse_copy(BidirectionalIterator first,
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
++
++
++## 関連項目
++- [`ranges::reverse_copy`](/reference/algorithm/ranges_reverse_copy.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rotate -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/rotate.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/rotate.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/rotate.md b/reference/algorithm/rotate.md
+index 43c432500..0d3a68fa8 100644
+--- a/reference/algorithm/rotate.md
++++ b/reference/algorithm/rotate.md
+@@ -160,6 +160,9 @@ swapping 0x1806043(1) &amp;lt;-&amp;gt; 0x1806045(5)
+     - C++11への対応（戻り値の変更）は2010から。
+ 
+ 
++## 関連項目
++- [`ranges::rotate`](/reference/algorithm/ranges_rotate.md)
++
+ ## 参照
+ - [LWG DR488. rotate throws away useful information](http://cplusplus.github.io/LWG/lwg-defects.html#488)  
+ 	戻り値が追加されるきっかけとなったレポート
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rotate_copy -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/rotate_copy.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/rotate_copy.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/rotate_copy.md b/reference/algorithm/rotate_copy.md
+index f7c3e7c03..2fbf8e515 100644
+--- a/reference/algorithm/rotate_copy.md
++++ b/reference/algorithm/rotate_copy.md
+@@ -88,6 +88,9 @@ OutputIterator rotate_copy(ForwardIterator first,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::rotate_copy`](/reference/algorithm/ranges_rotate_copy.md)
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sample -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/sample.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/sample.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/sample.md b/reference/algorithm/sample.md
+index ebca486d3..3fe6a35c5 100644
+--- a/reference/algorithm/sample.md
++++ b/reference/algorithm/sample.md
+@@ -123,6 +123,9 @@ bcd
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
++## 関連項目
++- [`ranges::sample`](/reference/algorithm/ranges_sample.md)
++
+ ## 参照
+ - [N3547 Three `&amp;lt;random&amp;gt;`-related Proposals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3547.pdf)
+ - [Three `&amp;lt;random&amp;gt;`-related Proposals, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3742.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>search -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/search.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/search.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/search.md b/reference/algorithm/search.md
+index a131fca3f..51746f78b 100644
+--- a/reference/algorithm/search.md
++++ b/reference/algorithm/search.md
+@@ -219,6 +219,9 @@ ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::search`](/reference/algorithm/ranges_search.md)
++
+ ## 参照
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+ - [N3905 Extending `std::search` to use Additional Searching Algorithms (Version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3905.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>search_n -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/search_n.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/search_n.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/search_n.md b/reference/algorithm/search_n.md
+index 14ed10727..7d1f70ffc 100644
+--- a/reference/algorithm/search_n.md
++++ b/reference/algorithm/search_n.md
+@@ -272,6 +272,9 @@ ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::search_n`](/reference/algorithm/ranges_search_n.md)
++
+ ## 参照
+ - [LWG Issue 714. `search_n` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#714)
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>set_difference -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/set_difference.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/set_difference.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/set_difference.md b/reference/algorithm/set_difference.md
+index 453f1e21a..b4b43579c 100644
+--- a/reference/algorithm/set_difference.md
++++ b/reference/algorithm/set_difference.md
+@@ -125,6 +125,9 @@ int main()
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::set_difference`](/reference/algorithm/ranges_set_difference.md)
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>set_intersection -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/set_intersection.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/set_intersection.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/set_intersection.md b/reference/algorithm/set_intersection.md
+index 413e91de6..5470a9068 100644
+--- a/reference/algorithm/set_intersection.md
++++ b/reference/algorithm/set_intersection.md
+@@ -124,6 +124,9 @@ int main()
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::set_intersection`](/reference/algorithm/ranges_set_intersection.md)
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>set_symmetric_difference -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/set_symmetric_difference.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/set_symmetric_difference.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/set_symmetric_difference.md b/reference/algorithm/set_symmetric_difference.md
+index 3e5cd1a0f..ce7e0a8ba 100644
+--- a/reference/algorithm/set_symmetric_difference.md
++++ b/reference/algorithm/set_symmetric_difference.md
+@@ -132,6 +132,9 @@ int main()
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::set_symmetric_difference`](/reference/algorithm/ranges_set_symmetric_difference.md)
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>set_union -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/set_union.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/set_union.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/set_union.md b/reference/algorithm/set_union.md
+index 981418c3b..1a2ca583c 100644
+--- a/reference/algorithm/set_union.md
++++ b/reference/algorithm/set_union.md
+@@ -169,6 +169,9 @@ OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::set_union`](/reference/algorithm/ranges_set_union.md)
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>shift_left -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/shift_left.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/shift_left.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/shift_left.md b/reference/algorithm/shift_left.md
+index b0c5e19e1..cb63a2697 100644
+--- a/reference/algorithm/shift_left.md
++++ b/reference/algorithm/shift_left.md
+@@ -96,6 +96,7 @@ int main()
+ ## 関連項目
+ - [`shift_right`](shift_right.md)
+ - [`rotate`](rotate.md)
++- [`ranges::shift_left`](/reference/algorithm/ranges_shift_left.md)
+ 
+ ## 参照
+ - [P1243R4 Rangify New Algorithms](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1243r4.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>shift_right -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/shift_right.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/shift_right.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/shift_right.md b/reference/algorithm/shift_right.md
+index c7f0d71d3..4a4766f5c 100644
+--- a/reference/algorithm/shift_right.md
++++ b/reference/algorithm/shift_right.md
+@@ -97,6 +97,7 @@ int main()
+ ## 関連項目
+ - [`shift_left`](shift_left.md)
+ - [`rotate`](rotate.md)
++- [`ranges::shift_right`](/reference/algorithm/ranges_shift_right.md)
+ 
+ ## 参照
+ - [P1243R4 Rangify New Algorithms](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1243r4.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>shuffle -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/shuffle.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/shuffle.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/shuffle.md b/reference/algorithm/shuffle.md
+index 73d432cbf..3a4dcac90 100644
+--- a/reference/algorithm/shuffle.md
++++ b/reference/algorithm/shuffle.md
+@@ -125,6 +125,9 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
+ * iter_swap[link iter_swap.md]
+ 
+ 
++## 関連項目
++- [`ranges::shuffle`](/reference/algorithm/ranges_shuffle.md)
++
+ ## 参照
+ - [P0346R1 A `&amp;lt;random&amp;gt;` Nomenclature Tweak](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0346r1.pdf)
+     - URNGをURBGに変更
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sort -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/sort.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/sort.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/sort.md b/reference/algorithm/sort.md
+index d06ec0b0a..b5022f5b7 100644
+--- a/reference/algorithm/sort.md
++++ b/reference/algorithm/sort.md
+@@ -234,6 +234,7 @@ int main() {
+ 
+ ## 関連項目
+ - [C++20 `&amp;lt;=&amp;gt;`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
++- [`ranges::sort`](/reference/algorithm/ranges_sort.md)
+ 
+ ## 参照
+ - [LWG Issue 713. `sort()` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#713)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sort_heap -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/sort_heap.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/sort_heap.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/sort_heap.md b/reference/algorithm/sort_heap.md
+index 1d9fdf81a..be74bcd79 100644
+--- a/reference/algorithm/sort_heap.md
++++ b/reference/algorithm/sort_heap.md
+@@ -80,5 +80,8 @@ int main()
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::sort_heap`](/reference/algorithm/ranges_sort_heap.md)
++
+ ## 参照
+ - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stable_partition -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/stable_partition.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/stable_partition.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/stable_partition.md b/reference/algorithm/stable_partition.md
+index 1ab0fc7da..1f56fb03c 100644
+--- a/reference/algorithm/stable_partition.md
++++ b/reference/algorithm/stable_partition.md
+@@ -83,6 +83,9 @@ int main()
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::stable_partition`](/reference/algorithm/ranges_stable_partition.md)
++
+ ## 参照
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+ - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stable_sort -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/stable_sort.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/stable_sort.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/stable_sort.md b/reference/algorithm/stable_sort.md
+index f66fe2166..c4b945e1e 100644
+--- a/reference/algorithm/stable_sort.md
++++ b/reference/algorithm/stable_sort.md
+@@ -92,6 +92,9 @@ int main()
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::stable_sort`](/reference/algorithm/ranges_stable_sort.md)
++
+ ## 参照
+ - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+     - C++26から`constexpr`に対応した
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap_ranges -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/swap_ranges.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/swap_ranges.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/swap_ranges.md b/reference/algorithm/swap_ranges.md
+index 5d8650d26..027c30677 100644
+--- a/reference/algorithm/swap_ranges.md
++++ b/reference/algorithm/swap_ranges.md
+@@ -92,5 +92,8 @@ ForwardIterator2 swap_ranges(ForwardIterator1 first1, ForwardIterator1 last1,
+ * iter_swap[link iter_swap.md]
+ 
+ 
++## 関連項目
++- [`ranges::swap_ranges`](/reference/algorithm/ranges_swap_ranges.md)
++
+ ## 参照
+ - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/transform.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/transform.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/transform.md b/reference/algorithm/transform.md
+index 425eb2087..d7fcc26e0 100644
+--- a/reference/algorithm/transform.md
++++ b/reference/algorithm/transform.md
+@@ -178,6 +178,9 @@ OutputIterator transform(InputIterator1 first1,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::transform`](/reference/algorithm/ranges_transform.md)
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>unique -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/unique.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/unique.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/unique.md b/reference/algorithm/unique.md
+index 0a4a38adb..39967d590 100644
+--- a/reference/algorithm/unique.md
++++ b/reference/algorithm/unique.md
+@@ -175,5 +175,8 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredic
+ * std::move[link /reference/utility/move.md]
+ 
+ 
++## 関連項目
++- [`ranges::unique`](/reference/algorithm/ranges_unique.md)
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>unique_copy -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/unique_copy.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/unique_copy.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/unique_copy.md b/reference/algorithm/unique_copy.md
+index 4ad197b38..8a621dfdd 100644
+--- a/reference/algorithm/unique_copy.md
++++ b/reference/algorithm/unique_copy.md
+@@ -177,6 +177,9 @@ OutputIterator unique_copy(InputIterator first, InputIterator last,
+ ```
+ 
+ 
++## 関連項目
++- [`ranges::unique_copy`](/reference/algorithm/ranges_unique_copy.md)
++
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>upper_bound -- feat(algorithm): rangesに対する関連項目を追加 (#1611)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/upper_bound.html"/>
+      <id>c531e9a59af86bff92322a272db39679c6b212d9:reference/algorithm/upper_bound.md</id>
+      <updated>2026-04-13T15:17:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/upper_bound.md b/reference/algorithm/upper_bound.md
+index 2f86c5121..c4ffe7cc4 100644
+--- a/reference/algorithm/upper_bound.md
++++ b/reference/algorithm/upper_bound.md
+@@ -245,6 +245,11 @@ upper_bound(ForwardIterator first, ForwardIterator last, const T&amp;amp; value)
+ * std::advance[link /reference/iterator/advance.md]
+ * std::iterator_traits[link /reference/iterator/iterator_traits.md]
+ 
++
++## 関連項目
++- [`ranges::upper_bound`](/reference/algorithm/ranges_upper_bound.md)
++
++
+ ## 参照
+ - [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンセプトと変数テンプレートをテンプレート引数として渡せるようにする [P2841R7] -- リンクミスを修正 #1609</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/concept_and_variable-template_template-parameters.html"/>
+      <id>33bac4efcd70c7e2cfa6a03e8f8a8350e41598af:lang/cpp26/concept_and_variable-template_template-parameters.md</id>
+      <updated>2026-04-13T13:57:54+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/concept_and_variable-template_template-parameters.md b/lang/cpp26/concept_and_variable-template_template-parameters.md
+index 6775b7bcb..01bacb7be 100644
+--- a/lang/cpp26/concept_and_variable-template_template-parameters.md
++++ b/lang/cpp26/concept_and_variable-template_template-parameters.md
+@@ -86,7 +86,7 @@ C++23でこれらをテンプレート引数として渡すためには、`stati
+ - コンセプトの簡略構文 (terse syntax) や包摂 (subsumption) の恩恵を受けられない
+ - APIに不必要な複雑性を追加する
+ 
+-この提案は、[P1985R3 Universal Template Parameters](https://open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r3.pdf)のサブセットとして、コンセプトと変数テンプレートに対するテンプレートテンプレートパラメータのサポートを先行して追加するものである。
++この提案は、[P1985R3 Universal Template Parameters](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1985r3.pdf)のサブセットとして、コンセプトと変数テンプレートに対するテンプレートテンプレートパラメータのサポートを先行して追加するものである。
+ 
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
