@@ -32,11 +32,15 @@ struct Flags {
   unsigned b : 3;
 };
 
-int main() {
-  constexpr auto members = std::meta::nonstatic_data_members_of(
+consteval bool check() {
+  auto members = std::meta::nonstatic_data_members_of(
       ^^Flags, std::meta::access_context::unchecked());
-  static_assert(std::meta::bit_size_of(members[0]) == 1);
-  static_assert(std::meta::bit_size_of(members[1]) == 3);
+  return std::meta::bit_size_of(members[0]) == 1
+      && std::meta::bit_size_of(members[1]) == 3;
+}
+
+int main() {
+  static_assert(check());
 }
 ```
 

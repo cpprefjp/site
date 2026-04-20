@@ -37,8 +37,8 @@ class Derived : public Base {};
 int main() {
   // Derived経由でBaseのメンバにアクセス
   constexpr auto ctx = std::meta::access_context::current().via(^^Derived);
-  constexpr auto members = std::meta::nonstatic_data_members_of(^^Base, ctx);
-  std::println("Derived経由で見えるメンバ数: {}", members.size());
+  constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();
+  std::println("Derived経由で見えるメンバ数: {}", count);
 }
 ```
 * via[color ff0000]

@@ -26,9 +26,10 @@ namespace std::meta {
 void func(int x, double y);
 
 int main() {
-  constexpr auto params = std::meta::parameters_of(^^func);
-  static_assert(std::meta::is_function_parameter(params[0]));
-  static_assert(std::meta::is_function_parameter(params[1]));
+  static_assert(std::meta::is_function_parameter(
+    std::meta::parameters_of(^^func)[0]));
+  static_assert(std::meta::is_function_parameter(
+    std::meta::parameters_of(^^func)[1]));
 }
 ```
 * std::meta::parameters_of[link parameters_of.md]

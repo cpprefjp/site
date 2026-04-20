@@ -23,28 +23,20 @@ namespace std {
 ```cpp example
 #include <meta>
 #include <print>
-#include <string_view>
+#include <format>
 
-template <typename E>
-  requires std::is_enum_v<E>
-constexpr std::string_view to_string(E value) {
-  template for (constexpr auto e : std::meta::enumerators_of(^^E)) {
-    if (value == [:e:]) {
-      return std::define_static_string(std::meta::identifier_of(e));
-    }
-  }
-  return "<unknown>";
+// コンパイル時に構築した文字列を実行時に使用する
+consteval const char* make_greeting(const char* name) {
+  std::string s = std::format("Hello, {}!", name);
+  return std::define_static_string(s);
 }
-
-enum class Fruit { apple, banana, cherry };
 
 int main() {
-  std::println("{}", to_string(Fruit::banana));
+  constexpr const char* greeting = make_greeting("world");
+  std::println("{}", greeting);
 }
 ```
-* std::is_enum_v[link /reference/type_traits/is_enum.md]
-* std::meta::enumerators_of[link enumerators_of.md]
-* std::meta::identifier_of[link identifier_of.md]
+* std::define_static_string[color ff0000]
 
 ### 出力
 ```

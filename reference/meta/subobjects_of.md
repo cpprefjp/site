@@ -33,8 +33,9 @@ struct Base { int b; };
 struct Derived : Base { int d; };
 
 int main() {
-  constexpr auto subs = std::meta::subobjects_of(
-      ^^Derived, std::meta::access_context::unchecked());
+  constexpr auto subs = std::define_static_array(
+      std::meta::subobjects_of(
+          ^^Derived, std::meta::access_context::unchecked()));
 
   // 基底クラスが先、非静的データメンバが後
   template for (constexpr auto s : subs) {

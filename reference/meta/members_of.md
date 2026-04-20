@@ -36,9 +36,9 @@ struct S {
 };
 
 int main() {
-  constexpr auto members = std::meta::members_of(
-      ^^S, std::meta::access_context::unchecked());
-  std::println("メンバ数: {}", members.size());
+  constexpr auto count = std::meta::members_of(
+      ^^S, std::meta::access_context::unchecked()).size();
+  std::println("メンバ数: {}", count);
 }
 ```
 * std::meta::access_context[link access_context.md]

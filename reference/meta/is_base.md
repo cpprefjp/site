@@ -26,11 +26,14 @@ namespace std::meta {
 struct Base {};
 struct Derived : Base {};
 
-int main() {
-  constexpr auto bases = std::meta::bases_of(
+consteval bool check() {
+  auto bases = std::meta::bases_of(
       ^^Derived, std::meta::access_context::unchecked());
-  static_assert(bases.size() == 1);
-  static_assert(std::meta::is_base(bases[0]));
+  return bases.size() == 1 && std::meta::is_base(bases[0]);
+}
+
+int main() {
+  static_assert(check());
 }
 ```
 * std::meta::bases_of[link bases_of.md]

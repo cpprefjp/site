@@ -35,7 +35,7 @@ struct S {
 
 int main() {
   template for (constexpr auto m :
-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
     if constexpr (std::meta::is_conversion_function(m)) {
       std::println("{}", std::meta::display_string_of(m));
     }

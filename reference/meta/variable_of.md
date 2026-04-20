@@ -34,7 +34,7 @@ namespace std::meta {
 
 void func(int x, double y) {
   // 関数定義内でvariable_of()を使用してパラメータ変数にアクセス
-  template for (constexpr auto p : std::meta::parameters_of(^^func)) {
+  template for (constexpr auto p : std::define_static_array(std::meta::parameters_of(^^func))) {
     std::println("{} = {}", std::meta::identifier_of(p),
                             [:std::meta::variable_of(p):]);
   }

@@ -27,10 +27,13 @@ struct Tag {};
 
 struct [[=Tag{}]] S {};
 
+consteval bool check() {
+  auto annots = std::meta::annotations_of(^^S);
+  return annots.size() == 1 && std::meta::is_annotation(annots[0]);
+}
+
 int main() {
-  constexpr auto annots = std::meta::annotations_of(^^S);
-  static_assert(annots.size() == 1);
-  static_assert(std::meta::is_annotation(annots[0]));
+  static_assert(check());
 }
 ```
 * std::meta::annotations_of[link annotations_of.md]

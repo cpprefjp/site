@@ -33,7 +33,7 @@ struct S {
 
 int main() {
   template for (constexpr auto m :
-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
     if constexpr (std::meta::is_function(m)) {
       std::println("{}: is_constructor={}",
         std::meta::display_string_of(m),

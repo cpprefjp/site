@@ -35,7 +35,7 @@ struct S {
 
 int main() {
   template for (constexpr auto m :
-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
     if constexpr (std::meta::is_operator_function(m)) {
       std::println("演算子: {}", std::meta::symbol_of(std::meta::operator_of(m)));
     }

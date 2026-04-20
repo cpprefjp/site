@@ -33,8 +33,8 @@ public:
 int main() {
   std::println("publicメンバ:");
   template for (constexpr auto m :
-      std::meta::nonstatic_data_members_of(
-          ^^C, std::meta::access_context::unprivileged())) {
+      std::define_static_array(std::meta::nonstatic_data_members_of(
+          ^^C, std::meta::access_context::unprivileged()))) {
     std::println("  {}", std::meta::identifier_of(m));
   }
 }

@@ -26,9 +26,10 @@ namespace std::meta {
 void func(int x, int);
 
 int main() {
-  constexpr auto params = std::meta::parameters_of(^^func);
-  static_assert(std::meta::has_identifier(params[0]));   // "x"という名前がある
-  static_assert(!std::meta::has_identifier(params[1]));  // 名前がない
+  static_assert(std::meta::has_identifier(
+    std::meta::parameters_of(^^func)[0]));   // "x"という名前がある
+  static_assert(!std::meta::has_identifier(
+    std::meta::parameters_of(^^func)[1]));  // 名前がない
 }
 ```
 * std::meta::parameters_of[link parameters_of.md]

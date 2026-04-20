@@ -33,8 +33,8 @@ public:
     // current()はC内部からの呼び出しなのでprivateメンバも見える
     std::println("C内部から見えるメンバ:");
     template for (constexpr auto m :
-        std::meta::nonstatic_data_members_of(
-            ^^C, std::meta::access_context::current())) {
+        std::define_static_array(std::meta::nonstatic_data_members_of(
+            ^^C, std::meta::access_context::current()))) {
       std::println("  {}", std::meta::identifier_of(m));
     }
   }
@@ -46,8 +46,8 @@ int main() {
   // current()はmain関数からの呼び出しなのでpublicのみ
   std::println("外部から見えるメンバ:");
   template for (constexpr auto m :
-      std::meta::nonstatic_data_members_of(
-          ^^C, std::meta::access_context::current())) {
+      std::define_static_array(std::meta::nonstatic_data_members_of(
+          ^^C, std::meta::access_context::current()))) {
     std::println("  {}", std::meta::identifier_of(m));
   }
 }

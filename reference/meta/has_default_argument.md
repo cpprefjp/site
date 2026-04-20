@@ -26,9 +26,10 @@ namespace std::meta {
 void func(int x, int y = 10);
 
 int main() {
-  constexpr auto params = std::meta::parameters_of(^^func);
-  static_assert(!std::meta::has_default_argument(params[0]));  // x
-  static_assert(std::meta::has_default_argument(params[1]));   // y = 10
+  static_assert(!std::meta::has_default_argument(
+    std::meta::parameters_of(^^func)[0]));  // x
+  static_assert(std::meta::has_default_argument(
+    std::meta::parameters_of(^^func)[1]));   // y = 10
 }
 ```
 * std::meta::parameters_of[link parameters_of.md]

@@ -29,7 +29,7 @@ struct Label { const char* text; };
 struct [[=Label{std::define_static_string("my struct")}, =42]] S {};
 
 int main() {
-  constexpr auto annots = std::meta::annotations_of(^^S);
+  constexpr auto annots = std::define_static_array(std::meta::annotations_of(^^S));
   std::println("アノテーション数: {}", annots.size());
 
   template for (constexpr auto a : annots) {

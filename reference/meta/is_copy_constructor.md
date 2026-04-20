@@ -32,7 +32,7 @@ struct S {
 
 int main() {
   template for (constexpr auto m :
-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
     if constexpr (std::meta::is_copy_constructor(m)) {
       // S(const S&)のみがここに到達する
       static_assert(std::meta::is_constructor(m));

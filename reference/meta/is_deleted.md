@@ -30,7 +30,7 @@ struct NonCopyable {
 
 int main() {
   template for (constexpr auto m :
-      std::meta::members_of(^^NonCopyable, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::members_of(^^NonCopyable, std::meta::access_context::unchecked()))) {
     if constexpr (std::meta::is_copy_constructor(m)) {
       static_assert(std::meta::is_deleted(m));
     }

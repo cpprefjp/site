@@ -31,7 +31,7 @@ namespace std::meta {
 void process(int id, double value, const char* name) {}
 
 int main() {
-  template for (constexpr auto p : std::meta::parameters_of(^^process)) {
+  template for (constexpr auto p : std::define_static_array(std::meta::parameters_of(^^process))) {
     std::println("{}: {}",
       std::meta::identifier_of(p),
       std::meta::display_string_of(std::meta::type_of(p)));

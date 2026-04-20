@@ -29,8 +29,7 @@ namespace std::meta {
 #include <vector>
 
 int main() {
-  constexpr auto args = std::meta::template_arguments_of(^^std::vector<int>);
-  static_assert(args[0] == ^^int);
+  static_assert(std::meta::template_arguments_of(^^std::vector<int>)[0] == ^^int);
 }
 ```
 

@@ -28,12 +28,15 @@ struct S {
   void g(int x) {}         // 通常のパラメータ
 };
 
-int main() {
-  constexpr auto f_params = std::meta::parameters_of(^^S::f);
-  static_assert(std::meta::is_explicit_object_parameter(f_params[0]));
+consteval bool check() {
+  auto f_params = std::meta::parameters_of(^^S::f);
+  auto g_params = std::meta::parameters_of(^^S::g);
+  return std::meta::is_explicit_object_parameter(f_params[0])
+      && !std::meta::is_explicit_object_parameter(g_params[0]);
+}
 
-  constexpr auto g_params = std::meta::parameters_of(^^S::g);
-  static_assert(!std::meta::is_explicit_object_parameter(g_params[0]));
+int main() {
+  static_assert(check());
 }
 ```
 * std::meta::parameters_of[link parameters_of.md]

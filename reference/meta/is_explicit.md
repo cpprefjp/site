@@ -30,7 +30,7 @@ struct S {
 
 int main() {
   template for (constexpr auto m :
-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
     if constexpr (std::meta::is_constructor(m) &&
                   !std::meta::is_special_member_function(m)) {
       if constexpr (std::meta::is_explicit(m)) {

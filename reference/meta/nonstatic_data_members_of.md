@@ -37,8 +37,8 @@ struct Point {
 int main() {
   Point p{10, 20};
   template for (constexpr auto m :
-      std::meta::nonstatic_data_members_of(^^Point,
-          std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
+          std::meta::access_context::unchecked()))) {
     std::println("{} = {}", std::meta::identifier_of(m), p.[:m:]);
   }
 }

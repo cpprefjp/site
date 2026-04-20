@@ -31,7 +31,7 @@ namespace std::meta {
 enum class Color { red, green, blue };
 
 int main() {
-  template for (constexpr auto e : std::meta::enumerators_of(^^Color)) {
+  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^Color))) {
     std::println("{}", std::meta::identifier_of(e));
   }
 }

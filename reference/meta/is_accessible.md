@@ -34,12 +34,16 @@ public:
   int visible;
 };
 
-int main() {
-  constexpr auto members = std::meta::nonstatic_data_members_of(
+consteval bool check() {
+  auto members = std::meta::nonstatic_data_members_of(
       ^^C, std::meta::access_context::unchecked());
-  constexpr auto ctx = std::meta::access_context::unprivileged();
-  static_assert(!std::meta::is_accessible(members[0], ctx));  // secret: private
-  static_assert(std::meta::is_accessible(members[1], ctx));   // visible: public
+  auto ctx = std::meta::access_context::unprivileged();
+  return !std::meta::is_accessible(members[0], ctx)  // secret: private
+      && std::meta::is_accessible(members[1], ctx);   // visible: public
+}
+
+int main() {
+  static_assert(check());
 }
 ```
 * std::meta::nonstatic_data_members_of[link nonstatic_data_members_of.md]

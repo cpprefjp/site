@@ -44,16 +44,16 @@ int main() {
   // unchecked: すべてのメンバにアクセス
   std::println("unchecked:");
   template for (constexpr auto m :
-      std::meta::nonstatic_data_members_of(
-          ^^MyClass, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::nonstatic_data_members_of(
+          ^^MyClass, std::meta::access_context::unchecked()))) {
     std::println("  {}", std::meta::identifier_of(m));
   }
 
   // unprivileged: publicのみ
   std::println("unprivileged:");
   template for (constexpr auto m :
-      std::meta::nonstatic_data_members_of(
-          ^^MyClass, std::meta::access_context::unprivileged())) {
+      std::define_static_array(std::meta::nonstatic_data_members_of(
+          ^^MyClass, std::meta::access_context::unprivileged()))) {
     std::println("  {}", std::meta::identifier_of(m));
   }
 }

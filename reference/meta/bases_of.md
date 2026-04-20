@@ -39,7 +39,7 @@ struct C : A, B {};
 int main() {
   // クラスCの直接基底クラスを取得して出力
   template for (constexpr auto b :
-      std::meta::bases_of(^^C, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::bases_of(^^C, std::meta::access_context::unchecked()))) {
     std::println("{}", std::meta::display_string_of(std::meta::type_of(b)));
   }
 }

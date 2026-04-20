@@ -31,7 +31,7 @@ struct S {
 
 int main() {
   template for (constexpr auto m :
-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
     if constexpr (std::meta::is_constructor(m)) {
       if constexpr (std::meta::is_default_constructor(m)) {
         // S()のみがここに到達する

@@ -32,9 +32,12 @@ struct [[=Name{std::define_static_string("点")}, =42]] Point {
 };
 
 int main() {
-  constexpr auto annots = std::meta::annotations_of_with_type(^^Point, ^^Name);
-  static_assert(annots.size() == 1);
-  std::println("{}", [:annots[0]:].value);
+  static_assert(std::meta::annotations_of_with_type(^^Point, ^^Name).size() == 1);
+  template for (constexpr auto a :
+      std::define_static_array(
+          std::meta::annotations_of_with_type(^^Point, ^^Name))) {
+    std::println("{}", [:a:].value);
+  }
 }
 ```
 

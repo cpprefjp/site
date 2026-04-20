@@ -29,12 +29,16 @@ struct Flags {
   unsigned c;
 };
 
-int main() {
-  constexpr auto members = std::meta::nonstatic_data_members_of(
+consteval bool check() {
+  auto members = std::meta::nonstatic_data_members_of(
       ^^Flags, std::meta::access_context::unchecked());
-  static_assert(std::meta::is_bit_field(members[0]));   // a
-  static_assert(std::meta::is_bit_field(members[1]));   // b
-  static_assert(!std::meta::is_bit_field(members[2]));  // c
+  return std::meta::is_bit_field(members[0])    // a
+      && std::meta::is_bit_field(members[1])    // b
+      && !std::meta::is_bit_field(members[2]);  // c
+}
+
+int main() {
+  static_assert(check());
 }
 ```
 * std::meta::nonstatic_data_members_of[link nonstatic_data_members_of.md]

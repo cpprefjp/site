@@ -32,7 +32,7 @@ enum class Color { red, green, blue };
 template <typename E>
   requires std::is_enum_v<E>
 constexpr std::string_view to_string(E value) {
-  template for (constexpr auto e : std::meta::enumerators_of(^^E)) { // 型から列挙子のリストを取得
+  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E)) { // 型から列挙子のリストを取得
     if (value == [:e:]) {
       return std::meta::identifier_of(e); // 列挙子の名前を文字列として取得
     }
@@ -93,10 +93,12 @@ struct S {
   void f(double);
 };
 
-// members_of()で個々のオーバーロードを取得
-constexpr auto members = std::meta::members_of(
-    ^^S, std::meta::access_context::unchecked());
-// フィルタリングで特定のオーバーロードを選択できる
+consteval {
+  // members_of()で個々のオーバーロードを取得
+  auto members = std::meta::members_of(
+      ^^S, std::meta::access_context::unchecked());
+  // フィルタリングで特定のオーバーロードを選択できる
+}
 ```
 * std::meta::members_of[link /reference/meta/members_of.md]
 * std::meta::access_context[link /reference/meta/access_context.md]
@@ -132,13 +134,16 @@ constexpr std::meta::info rv = ^^value;
 
 ```cpp
 struct S { int x; int y; };
-S s{1, 2};
 
-constexpr auto members = std::meta::nonstatic_data_members_of(
-  ^^S, std::meta::access_context::unchecked());
+consteval void example() {
+  S s{1, 2};
 
-int a = s.[:members[0]:];  // s.x と等価。a == 1
-int b = s.[:members[1]:];  // s.y と等価。b == 2
+  auto members = std::meta::nonstatic_data_members_of(
+    ^^S, std::meta::access_context::unchecked());
+
+  int a = s.[:members[0]:];  // s.x と等価。a == 1
+  int b = s.[:members[1]:];  // s.y と等価。b == 2
+}
 ```
 * std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
 * std::meta::access_context[link /reference/meta/access_context.md]
@@ -151,10 +156,12 @@ int b = s.[:members[1]:];  // s.y と等価。b == 2
 struct Base { int b; };
 struct Derived : Base { int d; };
 
-Derived obj{{42}, 100};
-constexpr auto bases = std::meta::bases_of(
-  ^^Derived, std::meta::access_context::unchecked());
-Base& base_ref = obj.[:bases[0]:];  // 基底クラスのサブオブジェクトへの参照
+consteval void example() {
+  Derived obj{{42}, 100};
+  auto bases = std::meta::bases_of(
+    ^^Derived, std::meta::access_context::unchecked());
+  Base& base_ref = obj.[:bases[0]:];  // 基底クラスのサブオブジェクトへの参照
+}
 ```
 * std::meta::bases_of[link /reference/meta/bases_of.md]
 * std::meta::access_context[link /reference/meta/access_context.md]
@@ -237,9 +244,9 @@ struct [[=Name{std::define_static_string("点")}]] Point {
 
 // メンバのアノテーションを取得
 template for (constexpr auto m :
-    std::meta::nonstatic_data_members_of(^^Point,
-        std::meta::access_context::unchecked())) {
-  constexpr auto annots = std::meta::annotations_of_with_type(m, ^^Name);
+    std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
+        std::meta::access_context::unchecked()))) {
+  auto annots = std::meta::annotations_of_with_type(m, ^^Name);
   if constexpr (annots.size() > 0) {
     std::println("{}: {}", [:annots[0]:].value,
                            std::meta::identifier_of(m));
@@ -263,9 +270,9 @@ template for (constexpr auto m :
 template <typename E>
   requires std::is_enum_v<E>
 constexpr std::string_view enum_to_string(E value) {
-  template for (constexpr auto e : std::meta::enumerators_of(^^E)) {
+  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {
     if (value == [:e:]) {
-      return std::define_static_string(std::meta::identifier_of(e));
+      return std::meta::identifier_of(e);
     }
   }
   return "<unknown>";
@@ -273,7 +280,6 @@ constexpr std::string_view enum_to_string(E value) {
 ```
 * std::meta::enumerators_of[link /reference/meta/enumerators_of.md]
 * std::meta::identifier_of[link /reference/meta/identifier_of.md]
-* std::define_static_string[link /reference/meta/define_static_string.md]
 
 
 ## リフレクションのエラー処理
@@ -297,8 +303,8 @@ int main() {
   Point p{10, 20, "origin"};
 
   template for (constexpr auto m :
-      std::meta::nonstatic_data_members_of(^^Point,
-          std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
+          std::meta::access_context::unchecked()))) {
     std::println("{}: {}", std::meta::identifier_of(m), p.[:m:]);
   }
 }
@@ -327,7 +333,7 @@ enum class Color { red, green, blue };
 template <typename E>
   requires std::is_enum_v<E>
 constexpr std::string_view to_string(E value) {
-  template for (constexpr auto e : std::meta::enumerators_of(^^E)) {
+  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {
     if (value == [:e:]) {
       return std::meta::identifier_of(e);
     }
@@ -361,7 +367,7 @@ blue
 void process(int id, double value, const char* name) {}
 
 int main() {
-  template for (constexpr auto p : std::meta::parameters_of(^^process)) {
+  template for (constexpr auto p : std::define_static_array(std::meta::parameters_of(^^process))) {
     std::println("パラメータ: {} (型: {})",
       std::meta::identifier_of(p),
       std::meta::display_string_of(std::meta::type_of(p)));

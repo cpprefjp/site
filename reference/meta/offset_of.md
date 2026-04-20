@@ -38,8 +38,8 @@ int main() {
   std::println("sizeof(S) = {}", sizeof(S));
 
   template for (constexpr auto m :
-      std::meta::nonstatic_data_members_of(
-          ^^S, std::meta::access_context::unchecked())) {
+      std::define_static_array(std::meta::nonstatic_data_members_of(
+          ^^S, std::meta::access_context::unchecked()))) {
     constexpr auto off = std::meta::offset_of(m);
     std::println("{}: offset = {} bytes, size = {}",
       std::meta::identifier_of(m),

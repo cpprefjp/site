@@ -31,12 +31,16 @@ private:
   int priv;
 };
 
-int main() {
-  constexpr auto members = std::meta::nonstatic_data_members_of(
+consteval bool check() {
+  auto members = std::meta::nonstatic_data_members_of(
       ^^S, std::meta::access_context::unchecked());
-  static_assert(std::meta::is_public(members[0]));
-  static_assert(std::meta::is_protected(members[1]));
-  static_assert(std::meta::is_private(members[2]));
+  return std::meta::is_public(members[0])
+      && std::meta::is_protected(members[1])
+      && std::meta::is_private(members[2]);
+}
+
+int main() {
+  static_assert(check());
 }
 ```
 * std::meta::nonstatic_data_members_of[link nonstatic_data_members_of.md]
