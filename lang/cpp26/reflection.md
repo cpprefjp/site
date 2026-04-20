@@ -416,6 +416,74 @@ int main() {
 ```
 
 
+### 任意の型のハッシュ値を自動で求める
+リフレクションを使うことで、任意のクラス型に対する汎用的なハッシュ関数を実装できる。以下の例では以下の方針で実装する：
+
+- [`std::hash`](/reference/functional/hash.md)`<T>`が特殊化されていればそれを使う
+- 特殊化されていない場合は、クラスのすべての非静的データメンバに対して再帰的にハッシュ値を計算しXORで合成する
+
+これにより、ネストしたクラス型に対しても自動的にハッシュ値を計算できる。
+
+```cpp example
+#include <meta>
+#include <functional>
+#include <string>
+#include <print>
+
+// std::hash<T>が使用可能かを判定するコンセプト
+template <class T>
+concept has_std_hash = requires(const T& x) {
+  { std::hash<T>{}(x) } -> std::convertible_to<std::size_t>;
+};
+
+template <class T>
+constexpr std::size_t hash_value(const T& obj) {
+  if constexpr (has_std_hash<T>) {
+    // std::hashが特殊化されていれば利用する
+    return std::hash<T>{}(obj);
+  } else {
+    // 特殊化されていなければ、各メンバのハッシュ値を再帰的に計算してXORで合成
+    std::size_t result = 0;
+    template for (constexpr auto m :
+        std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
+            std::meta::access_context::unchecked()))) {
+      result ^= hash_value(obj.[:m:]);
+    }
+    return result;
+  }
+}
+
+struct Inner {
+  int a;
+  std::string b;
+};
+
+struct Outer {
+  int x;
+  Inner inner;  // ネストしたクラス型も再帰的にハッシュ化される
+};
+
+int main() {
+  Outer o1{10, {1, "hello"}};
+  Outer o2{10, {1, "hello"}};
+  Outer o3{10, {2, "hello"}};
+
+  std::println("hash(o1) == hash(o2): {}", hash_value(o1) == hash_value(o2));
+  std::println("hash(o1) == hash(o3): {}", hash_value(o1) == hash_value(o3));
+}
+```
+* std::hash[link /reference/functional/hash.md]
+* std::convertible_to[link /reference/concepts/convertible_to.md]
+* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
+* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
+
+#### 出力
+```
+hash(o1) == hash(o2): true
+hash(o1) == hash(o3): false
+```
+
+
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`<meta>`ヘッダ](/reference/meta.md)
 - [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
