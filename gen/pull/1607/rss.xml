@@ -2,9 +2,1763 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-13T04:55:24.866371</updated>
-  <id>0ce4e808-ae8a-46c9-98ad-decc37fdbc44</id>
+  <updated>2026-04-20T05:34:09.267656</updated>
+  <id>595d7540-d85d-4bcb-871b-2a5b434a74c2</id>
 
+  
+    <entry>
+      <title>静的リフレクション [P2996R13] -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:lang/cpp26/reflection.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
+index 6fd48a364..98b458b31 100644
+--- a/lang/cpp26/reflection.md
++++ b/lang/cpp26/reflection.md
+@@ -32,7 +32,7 @@ enum class Color { red, green, blue };
+ template &amp;lt;typename E&amp;gt;
+   requires std::is_enum_v&amp;lt;E&amp;gt;
+ constexpr std::string_view to_string(E value) {
+-  template for (constexpr auto e : std::meta::enumerators_of(^^E)) { // 型から列挙子のリストを取得
++  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E)) { // 型から列挙子のリストを取得
+     if (value == [:e:]) {
+       return std::meta::identifier_of(e); // 列挙子の名前を文字列として取得
+     }
+@@ -93,10 +93,12 @@ struct S {
+   void f(double);
+ };
+ 
+-// members_of()で個々のオーバーロードを取得
+-constexpr auto members = std::meta::members_of(
+-    ^^S, std::meta::access_context::unchecked());
+-// フィルタリングで特定のオーバーロードを選択できる
++consteval {
++  // members_of()で個々のオーバーロードを取得
++  auto members = std::meta::members_of(
++      ^^S, std::meta::access_context::unchecked());
++  // フィルタリングで特定のオーバーロードを選択できる
++}
+ ```
+ * std::meta::members_of[link /reference/meta/members_of.md]
+ * std::meta::access_context[link /reference/meta/access_context.md]
+@@ -132,13 +134,16 @@ constexpr std::meta::info rv = ^^value;
+ 
+ ```cpp
+ struct S { int x; int y; };
+-S s{1, 2};
+ 
+-constexpr auto members = std::meta::nonstatic_data_members_of(
+-  ^^S, std::meta::access_context::unchecked());
++consteval void example() {
++  S s{1, 2};
++
++  auto members = std::meta::nonstatic_data_members_of(
++    ^^S, std::meta::access_context::unchecked());
+ 
+-int a = s.[:members[0]:];  // s.x と等価。a == 1
+-int b = s.[:members[1]:];  // s.y と等価。b == 2
++  int a = s.[:members[0]:];  // s.x と等価。a == 1
++  int b = s.[:members[1]:];  // s.y と等価。b == 2
++}
+ ```
+ * std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
+ * std::meta::access_context[link /reference/meta/access_context.md]
+@@ -151,10 +156,12 @@ int b = s.[:members[1]:];  // s.y と等価。b == 2
+ struct Base { int b; };
+ struct Derived : Base { int d; };
+ 
+-Derived obj{{42}, 100};
+-constexpr auto bases = std::meta::bases_of(
+-  ^^Derived, std::meta::access_context::unchecked());
+-Base&amp;amp; base_ref = obj.[:bases[0]:];  // 基底クラスのサブオブジェクトへの参照
++consteval void example() {
++  Derived obj{{42}, 100};
++  auto bases = std::meta::bases_of(
++    ^^Derived, std::meta::access_context::unchecked());
++  Base&amp;amp; base_ref = obj.[:bases[0]:];  // 基底クラスのサブオブジェクトへの参照
++}
+ ```
+ * std::meta::bases_of[link /reference/meta/bases_of.md]
+ * std::meta::access_context[link /reference/meta/access_context.md]
+@@ -237,9 +244,9 @@ struct [[=Name{std::define_static_string(&amp;#34;点&amp;#34;)}]] Point {
+ 
+ // メンバのアノテーションを取得
+ template for (constexpr auto m :
+-    std::meta::nonstatic_data_members_of(^^Point,
+-        std::meta::access_context::unchecked())) {
+-  constexpr auto annots = std::meta::annotations_of_with_type(m, ^^Name);
++    std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
++        std::meta::access_context::unchecked()))) {
++  auto annots = std::meta::annotations_of_with_type(m, ^^Name);
+   if constexpr (annots.size() &amp;gt; 0) {
+     std::println(&amp;#34;{}: {}&amp;#34;, [:annots[0]:].value,
+                            std::meta::identifier_of(m));
+@@ -263,9 +270,9 @@ template for (constexpr auto m :
+ template &amp;lt;typename E&amp;gt;
+   requires std::is_enum_v&amp;lt;E&amp;gt;
+ constexpr std::string_view enum_to_string(E value) {
+-  template for (constexpr auto e : std::meta::enumerators_of(^^E)) {
++  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {
+     if (value == [:e:]) {
+-      return std::define_static_string(std::meta::identifier_of(e));
++      return std::meta::identifier_of(e);
+     }
+   }
+   return &amp;#34;&amp;lt;unknown&amp;gt;&amp;#34;;
+@@ -273,7 +280,6 @@ constexpr std::string_view enum_to_string(E value) {
+ ```
+ * std::meta::enumerators_of[link /reference/meta/enumerators_of.md]
+ * std::meta::identifier_of[link /reference/meta/identifier_of.md]
+-* std::define_static_string[link /reference/meta/define_static_string.md]
+ 
+ 
+ ## リフレクションのエラー処理
+@@ -297,8 +303,8 @@ int main() {
+   Point p{10, 20, &amp;#34;origin&amp;#34;};
+ 
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(^^Point,
+-          std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
++          std::meta::access_context::unchecked()))) {
+     std::println(&amp;#34;{}: {}&amp;#34;, std::meta::identifier_of(m), p.[:m:]);
+   }
+ }
+@@ -327,7 +333,7 @@ enum class Color { red, green, blue };
+ template &amp;lt;typename E&amp;gt;
+   requires std::is_enum_v&amp;lt;E&amp;gt;
+ constexpr std::string_view to_string(E value) {
+-  template for (constexpr auto e : std::meta::enumerators_of(^^E)) {
++  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {
+     if (value == [:e:]) {
+       return std::meta::identifier_of(e);
+     }
+@@ -361,7 +367,7 @@ blue
+ void process(int id, double value, const char* name) {}
+ 
+ int main() {
+-  template for (constexpr auto p : std::meta::parameters_of(^^process)) {
++  template for (constexpr auto p : std::define_static_array(std::meta::parameters_of(^^process))) {
+     std::println(&amp;#34;パラメータ: {} (型: {})&amp;#34;,
+       std::meta::identifier_of(p),
+       std::meta::display_string_of(std::meta::type_of(p)));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>access_context -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/access_context.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/access_context.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context.md b/reference/meta/access_context.md
+index 926d29ae9..c03d0ea93 100644
+--- a/reference/meta/access_context.md
++++ b/reference/meta/access_context.md
+@@ -44,16 +44,16 @@ int main() {
+   // unchecked: すべてのメンバにアクセス
+   std::println(&amp;#34;unchecked:&amp;#34;);
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(
+-          ^^MyClass, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(
++          ^^MyClass, std::meta::access_context::unchecked()))) {
+     std::println(&amp;#34;  {}&amp;#34;, std::meta::identifier_of(m));
+   }
+ 
+   // unprivileged: publicのみ
+   std::println(&amp;#34;unprivileged:&amp;#34;);
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(
+-          ^^MyClass, std::meta::access_context::unprivileged())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(
++          ^^MyClass, std::meta::access_context::unprivileged()))) {
+     std::println(&amp;#34;  {}&amp;#34;, std::meta::identifier_of(m));
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>current -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/access_context/current.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/access_context/current.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context/current.md b/reference/meta/access_context/current.md
+index 3f4d36227..9f3b207f8 100644
+--- a/reference/meta/access_context/current.md
++++ b/reference/meta/access_context/current.md
+@@ -33,8 +33,8 @@ public:
+     // current()はC内部からの呼び出しなのでprivateメンバも見える
+     std::println(&amp;#34;C内部から見えるメンバ:&amp;#34;);
+     template for (constexpr auto m :
+-        std::meta::nonstatic_data_members_of(
+-            ^^C, std::meta::access_context::current())) {
++        std::define_static_array(std::meta::nonstatic_data_members_of(
++            ^^C, std::meta::access_context::current()))) {
+       std::println(&amp;#34;  {}&amp;#34;, std::meta::identifier_of(m));
+     }
+   }
+@@ -46,8 +46,8 @@ int main() {
+   // current()はmain関数からの呼び出しなのでpublicのみ
+   std::println(&amp;#34;外部から見えるメンバ:&amp;#34;);
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(
+-          ^^C, std::meta::access_context::current())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(
++          ^^C, std::meta::access_context::current()))) {
+     std::println(&amp;#34;  {}&amp;#34;, std::meta::identifier_of(m));
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>unchecked -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/access_context/unchecked.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/access_context/unchecked.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context/unchecked.md b/reference/meta/access_context/unchecked.md
+index 25538d4f1..d751e32ab 100644
+--- a/reference/meta/access_context/unchecked.md
++++ b/reference/meta/access_context/unchecked.md
+@@ -35,8 +35,8 @@ public:
+ int main() {
+   std::println(&amp;#34;全メンバ:&amp;#34;);
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(
+-          ^^C, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(
++          ^^C, std::meta::access_context::unchecked()))) {
+     std::println(&amp;#34;  {}&amp;#34;, std::meta::identifier_of(m));
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>unprivileged -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/access_context/unprivileged.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/access_context/unprivileged.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context/unprivileged.md b/reference/meta/access_context/unprivileged.md
+index bd144d304..30db6b0f6 100644
+--- a/reference/meta/access_context/unprivileged.md
++++ b/reference/meta/access_context/unprivileged.md
+@@ -33,8 +33,8 @@ public:
+ int main() {
+   std::println(&amp;#34;publicメンバ:&amp;#34;);
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(
+-          ^^C, std::meta::access_context::unprivileged())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(
++          ^^C, std::meta::access_context::unprivileged()))) {
+     std::println(&amp;#34;  {}&amp;#34;, std::meta::identifier_of(m));
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>via -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/access_context/via.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/access_context/via.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context/via.md b/reference/meta/access_context/via.md
+index 5b163c4f8..9debb15c0 100644
+--- a/reference/meta/access_context/via.md
++++ b/reference/meta/access_context/via.md
+@@ -37,8 +37,8 @@ class Derived : public Base {};
+ int main() {
+   // Derived経由でBaseのメンバにアクセス
+   constexpr auto ctx = std::meta::access_context::current().via(^^Derived);
+-  constexpr auto members = std::meta::nonstatic_data_members_of(^^Base, ctx);
+-  std::println(&amp;#34;Derived経由で見えるメンバ数: {}&amp;#34;, members.size());
++  constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();
++  std::println(&amp;#34;Derived経由で見えるメンバ数: {}&amp;#34;, count);
+ }
+ ```
+ * via[color ff0000]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>annotations_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/annotations_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/annotations_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/annotations_of.md b/reference/meta/annotations_of.md
+index 2c4f9cca1..8c0a3636c 100644
+--- a/reference/meta/annotations_of.md
++++ b/reference/meta/annotations_of.md
+@@ -29,7 +29,7 @@ struct Label { const char* text; };
+ struct [[=Label{std::define_static_string(&amp;#34;my struct&amp;#34;)}, =42]] S {};
+ 
+ int main() {
+-  constexpr auto annots = std::meta::annotations_of(^^S);
++  constexpr auto annots = std::define_static_array(std::meta::annotations_of(^^S));
+   std::println(&amp;#34;アノテーション数: {}&amp;#34;, annots.size());
+ 
+   template for (constexpr auto a : annots) {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>annotations_of_with_type -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/annotations_of_with_type.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/annotations_of_with_type.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/annotations_of_with_type.md b/reference/meta/annotations_of_with_type.md
+index 8c4be8f71..99f5e0421 100644
+--- a/reference/meta/annotations_of_with_type.md
++++ b/reference/meta/annotations_of_with_type.md
+@@ -32,9 +32,12 @@ struct [[=Name{std::define_static_string(&amp;#34;点&amp;#34;)}, =42]] Point {
+ };
+ 
+ int main() {
+-  constexpr auto annots = std::meta::annotations_of_with_type(^^Point, ^^Name);
+-  static_assert(annots.size() == 1);
+-  std::println(&amp;#34;{}&amp;#34;, [:annots[0]:].value);
++  static_assert(std::meta::annotations_of_with_type(^^Point, ^^Name).size() == 1);
++  template for (constexpr auto a :
++      std::define_static_array(
++          std::meta::annotations_of_with_type(^^Point, ^^Name))) {
++    std::println(&amp;#34;{}&amp;#34;, [:a:].value);
++  }
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bases_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/bases_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/bases_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/bases_of.md b/reference/meta/bases_of.md
+index 14fdfeab6..db5b36c67 100644
+--- a/reference/meta/bases_of.md
++++ b/reference/meta/bases_of.md
+@@ -39,7 +39,7 @@ struct C : A, B {};
+ int main() {
+   // クラスCの直接基底クラスを取得して出力
+   template for (constexpr auto b :
+-      std::meta::bases_of(^^C, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::bases_of(^^C, std::meta::access_context::unchecked()))) {
+     std::println(&amp;#34;{}&amp;#34;, std::meta::display_string_of(std::meta::type_of(b)));
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bit_size_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/bit_size_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/bit_size_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/bit_size_of.md b/reference/meta/bit_size_of.md
+index 5d4fcf2ff..11915900c 100644
+--- a/reference/meta/bit_size_of.md
++++ b/reference/meta/bit_size_of.md
+@@ -32,11 +32,15 @@ struct Flags {
+   unsigned b : 3;
+ };
+ 
+-int main() {
+-  constexpr auto members = std::meta::nonstatic_data_members_of(
++consteval bool check() {
++  auto members = std::meta::nonstatic_data_members_of(
+       ^^Flags, std::meta::access_context::unchecked());
+-  static_assert(std::meta::bit_size_of(members[0]) == 1);
+-  static_assert(std::meta::bit_size_of(members[1]) == 3);
++  return std::meta::bit_size_of(members[0]) == 1
++      &amp;amp;&amp;amp; std::meta::bit_size_of(members[1]) == 3;
++}
++
++int main() {
++  static_assert(check());
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>define_static_string -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/define_static_string.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/define_static_string.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/define_static_string.md b/reference/meta/define_static_string.md
+index 972ae757e..d174ee6dc 100644
+--- a/reference/meta/define_static_string.md
++++ b/reference/meta/define_static_string.md
+@@ -23,28 +23,20 @@ namespace std {
+ ```cpp example
+ #include &amp;lt;meta&amp;gt;
+ #include &amp;lt;print&amp;gt;
+-#include &amp;lt;string_view&amp;gt;
+-
+-template &amp;lt;typename E&amp;gt;
+-  requires std::is_enum_v&amp;lt;E&amp;gt;
+-constexpr std::string_view to_string(E value) {
+-  template for (constexpr auto e : std::meta::enumerators_of(^^E)) {
+-    if (value == [:e:]) {
+-      return std::define_static_string(std::meta::identifier_of(e));
+-    }
+-  }
+-  return &amp;#34;&amp;lt;unknown&amp;gt;&amp;#34;;
+-}
++#include &amp;lt;format&amp;gt;
+ 
+-enum class Fruit { apple, banana, cherry };
++// コンパイル時に構築した文字列を実行時に使用する
++consteval const char* make_greeting(const char* name) {
++  std::string s = std::format(&amp;#34;Hello, {}!&amp;#34;, name);
++  return std::define_static_string(s);
++}
+ 
+ int main() {
+-  std::println(&amp;#34;{}&amp;#34;, to_string(Fruit::banana));
++  constexpr const char* greeting = make_greeting(&amp;#34;world&amp;#34;);
++  std::println(&amp;#34;{}&amp;#34;, greeting);
+ }
+ ```
+-* std::is_enum_v[link /reference/type_traits/is_enum.md]
+-* std::meta::enumerators_of[link enumerators_of.md]
+-* std::meta::identifier_of[link identifier_of.md]
++* std::define_static_string[color ff0000]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>enumerators_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/enumerators_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/enumerators_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/enumerators_of.md b/reference/meta/enumerators_of.md
+index 51c4f8ca7..eb675be9b 100644
+--- a/reference/meta/enumerators_of.md
++++ b/reference/meta/enumerators_of.md
+@@ -31,7 +31,7 @@ namespace std::meta {
+ enum class Color { red, green, blue };
+ 
+ int main() {
+-  template for (constexpr auto e : std::meta::enumerators_of(^^Color)) {
++  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^Color))) {
+     std::println(&amp;#34;{}&amp;#34;, std::meta::identifier_of(e));
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_default_argument -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_default_argument.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/has_default_argument.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_default_argument.md b/reference/meta/has_default_argument.md
+index e999bc5ea..6351dce95 100644
+--- a/reference/meta/has_default_argument.md
++++ b/reference/meta/has_default_argument.md
+@@ -26,9 +26,10 @@ namespace std::meta {
+ void func(int x, int y = 10);
+ 
+ int main() {
+-  constexpr auto params = std::meta::parameters_of(^^func);
+-  static_assert(!std::meta::has_default_argument(params[0]));  // x
+-  static_assert(std::meta::has_default_argument(params[1]));   // y = 10
++  static_assert(!std::meta::has_default_argument(
++    std::meta::parameters_of(^^func)[0]));  // x
++  static_assert(std::meta::has_default_argument(
++    std::meta::parameters_of(^^func)[1]));   // y = 10
+ }
+ ```
+ * std::meta::parameters_of[link parameters_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_identifier -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_identifier.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/has_identifier.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_identifier.md b/reference/meta/has_identifier.md
+index eaa7886cf..7f236d643 100644
+--- a/reference/meta/has_identifier.md
++++ b/reference/meta/has_identifier.md
+@@ -26,9 +26,10 @@ namespace std::meta {
+ void func(int x, int);
+ 
+ int main() {
+-  constexpr auto params = std::meta::parameters_of(^^func);
+-  static_assert(std::meta::has_identifier(params[0]));   // &amp;#34;x&amp;#34;という名前がある
+-  static_assert(!std::meta::has_identifier(params[1]));  // 名前がない
++  static_assert(std::meta::has_identifier(
++    std::meta::parameters_of(^^func)[0]));   // &amp;#34;x&amp;#34;という名前がある
++  static_assert(!std::meta::has_identifier(
++    std::meta::parameters_of(^^func)[1]));  // 名前がない
+ }
+ ```
+ * std::meta::parameters_of[link parameters_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>identifier_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/identifier_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/identifier_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/identifier_of.md b/reference/meta/identifier_of.md
+index 909d5be8c..4bcca5f1f 100644
+--- a/reference/meta/identifier_of.md
++++ b/reference/meta/identifier_of.md
+@@ -37,8 +37,8 @@ struct Point {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(^^Point,
+-          std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
++          std::meta::access_context::unchecked()))) {
+     std::println(&amp;#34;{}&amp;#34;, std::meta::identifier_of(m));
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_accessible -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_accessible.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_accessible.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_accessible.md b/reference/meta/is_accessible.md
+index 142de0671..a41686136 100644
+--- a/reference/meta/is_accessible.md
++++ b/reference/meta/is_accessible.md
+@@ -34,12 +34,16 @@ public:
+   int visible;
+ };
+ 
+-int main() {
+-  constexpr auto members = std::meta::nonstatic_data_members_of(
++consteval bool check() {
++  auto members = std::meta::nonstatic_data_members_of(
+       ^^C, std::meta::access_context::unchecked());
+-  constexpr auto ctx = std::meta::access_context::unprivileged();
+-  static_assert(!std::meta::is_accessible(members[0], ctx));  // secret: private
+-  static_assert(std::meta::is_accessible(members[1], ctx));   // visible: public
++  auto ctx = std::meta::access_context::unprivileged();
++  return !std::meta::is_accessible(members[0], ctx)  // secret: private
++      &amp;amp;&amp;amp; std::meta::is_accessible(members[1], ctx);   // visible: public
++}
++
++int main() {
++  static_assert(check());
+ }
+ ```
+ * std::meta::nonstatic_data_members_of[link nonstatic_data_members_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_annotation -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_annotation.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_annotation.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_annotation.md b/reference/meta/is_annotation.md
+index 919b109de..2bb8c234e 100644
+--- a/reference/meta/is_annotation.md
++++ b/reference/meta/is_annotation.md
+@@ -27,10 +27,13 @@ struct Tag {};
+ 
+ struct [[=Tag{}]] S {};
+ 
++consteval bool check() {
++  auto annots = std::meta::annotations_of(^^S);
++  return annots.size() == 1 &amp;amp;&amp;amp; std::meta::is_annotation(annots[0]);
++}
++
+ int main() {
+-  constexpr auto annots = std::meta::annotations_of(^^S);
+-  static_assert(annots.size() == 1);
+-  static_assert(std::meta::is_annotation(annots[0]));
++  static_assert(check());
+ }
+ ```
+ * std::meta::annotations_of[link annotations_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_assignment -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_assignment.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_assignment.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_assignment.md b/reference/meta/is_assignment.md
+index 71ee5fab5..4b4a63276 100644
+--- a/reference/meta/is_assignment.md
++++ b/reference/meta/is_assignment.md
+@@ -32,7 +32,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_function(m)) {
+       std::println(&amp;#34;{}: is_assignment={}&amp;#34;,
+         std::meta::display_string_of(m),
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_base -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_base.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_base.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_base.md b/reference/meta/is_base.md
+index 163dd8bdf..7242ebe43 100644
+--- a/reference/meta/is_base.md
++++ b/reference/meta/is_base.md
+@@ -26,11 +26,14 @@ namespace std::meta {
+ struct Base {};
+ struct Derived : Base {};
+ 
+-int main() {
+-  constexpr auto bases = std::meta::bases_of(
++consteval bool check() {
++  auto bases = std::meta::bases_of(
+       ^^Derived, std::meta::access_context::unchecked());
+-  static_assert(bases.size() == 1);
+-  static_assert(std::meta::is_base(bases[0]));
++  return bases.size() == 1 &amp;amp;&amp;amp; std::meta::is_base(bases[0]);
++}
++
++int main() {
++  static_assert(check());
+ }
+ ```
+ * std::meta::bases_of[link bases_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_bit_field -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_bit_field.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_bit_field.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_bit_field.md b/reference/meta/is_bit_field.md
+index 06e89dcea..a0d869c4f 100644
+--- a/reference/meta/is_bit_field.md
++++ b/reference/meta/is_bit_field.md
+@@ -29,12 +29,16 @@ struct Flags {
+   unsigned c;
+ };
+ 
+-int main() {
+-  constexpr auto members = std::meta::nonstatic_data_members_of(
++consteval bool check() {
++  auto members = std::meta::nonstatic_data_members_of(
+       ^^Flags, std::meta::access_context::unchecked());
+-  static_assert(std::meta::is_bit_field(members[0]));   // a
+-  static_assert(std::meta::is_bit_field(members[1]));   // b
+-  static_assert(!std::meta::is_bit_field(members[2]));  // c
++  return std::meta::is_bit_field(members[0])    // a
++      &amp;amp;&amp;amp; std::meta::is_bit_field(members[1])    // b
++      &amp;amp;&amp;amp; !std::meta::is_bit_field(members[2]);  // c
++}
++
++int main() {
++  static_assert(check());
+ }
+ ```
+ * std::meta::nonstatic_data_members_of[link nonstatic_data_members_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_constructor -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_constructor.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_constructor.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_constructor.md b/reference/meta/is_constructor.md
+index e2d171f99..f19bada67 100644
+--- a/reference/meta/is_constructor.md
++++ b/reference/meta/is_constructor.md
+@@ -33,7 +33,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_function(m)) {
+       std::println(&amp;#34;{}: is_constructor={}&amp;#34;,
+         std::meta::display_string_of(m),
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_constructor_template -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_constructor_template.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_constructor_template.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_constructor_template.md b/reference/meta/is_constructor_template.md
+index 8050330cf..4a827b113 100644
+--- a/reference/meta/is_constructor_template.md
++++ b/reference/meta/is_constructor_template.md
+@@ -31,7 +31,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_constructor_template(m)) {
+       // template &amp;lt;class T&amp;gt; S(T) のみがここに到達する
+       static_assert(std::meta::is_template(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_conversion_function -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_conversion_function.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_conversion_function.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_conversion_function.md b/reference/meta/is_conversion_function.md
+index 799c576bc..42ad46eaa 100644
+--- a/reference/meta/is_conversion_function.md
++++ b/reference/meta/is_conversion_function.md
+@@ -35,7 +35,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_conversion_function(m)) {
+       std::println(&amp;#34;{}&amp;#34;, std::meta::display_string_of(m));
+     }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_conversion_function_template -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_conversion_function_template.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_conversion_function_template.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_conversion_function_template.md b/reference/meta/is_conversion_function_template.md
+index ab74a9e3e..2e21607ad 100644
+--- a/reference/meta/is_conversion_function_template.md
++++ b/reference/meta/is_conversion_function_template.md
+@@ -31,7 +31,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_conversion_function_template(m)) {
+       // template &amp;lt;class T&amp;gt; operator T() のみがここに到達する
+       static_assert(std::meta::is_template(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_copy_assignment -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_copy_assignment.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_copy_assignment.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_copy_assignment.md b/reference/meta/is_copy_assignment.md
+index e049cccba..0dee8f6e6 100644
+--- a/reference/meta/is_copy_assignment.md
++++ b/reference/meta/is_copy_assignment.md
+@@ -30,7 +30,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_copy_assignment(m)) {
+       static_assert(!std::meta::is_move_assignment(m));
+     }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_copy_constructor -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_copy_constructor.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_copy_constructor.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_copy_constructor.md b/reference/meta/is_copy_constructor.md
+index 3466be2f5..1247711d9 100644
+--- a/reference/meta/is_copy_constructor.md
++++ b/reference/meta/is_copy_constructor.md
+@@ -32,7 +32,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_copy_constructor(m)) {
+       // S(const S&amp;amp;)のみがここに到達する
+       static_assert(std::meta::is_constructor(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_default_constructor -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_default_constructor.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_default_constructor.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_default_constructor.md b/reference/meta/is_default_constructor.md
+index b05e053c3..ba6d9ba65 100644
+--- a/reference/meta/is_default_constructor.md
++++ b/reference/meta/is_default_constructor.md
+@@ -31,7 +31,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_constructor(m)) {
+       if constexpr (std::meta::is_default_constructor(m)) {
+         // S()のみがここに到達する
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_defaulted -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_defaulted.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_defaulted.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_defaulted.md b/reference/meta/is_defaulted.md
+index 86289295c..7c8487cc9 100644
+--- a/reference/meta/is_defaulted.md
++++ b/reference/meta/is_defaulted.md
+@@ -30,7 +30,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_default_constructor(m)) {
+       static_assert(std::meta::is_defaulted(m));
+     }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_deleted -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_deleted.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_deleted.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_deleted.md b/reference/meta/is_deleted.md
+index f84102775..b7064fce2 100644
+--- a/reference/meta/is_deleted.md
++++ b/reference/meta/is_deleted.md
+@@ -30,7 +30,7 @@ struct NonCopyable {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^NonCopyable, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^NonCopyable, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_copy_constructor(m)) {
+       static_assert(std::meta::is_deleted(m));
+     }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_destructor -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_destructor.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_destructor.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_destructor.md b/reference/meta/is_destructor.md
+index 6869a27d7..2f7aad876 100644
+--- a/reference/meta/is_destructor.md
++++ b/reference/meta/is_destructor.md
+@@ -31,7 +31,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_destructor(m)) {
+       // ~S()のみがここに到達する
+       static_assert(std::meta::is_special_member_function(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_explicit -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_explicit.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_explicit.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_explicit.md b/reference/meta/is_explicit.md
+index d9edb1e69..7a4cfbbe5 100644
+--- a/reference/meta/is_explicit.md
++++ b/reference/meta/is_explicit.md
+@@ -30,7 +30,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_constructor(m) &amp;amp;&amp;amp;
+                   !std::meta::is_special_member_function(m)) {
+       if constexpr (std::meta::is_explicit(m)) {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_explicit_object_parameter -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_explicit_object_parameter.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_explicit_object_parameter.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_explicit_object_parameter.md b/reference/meta/is_explicit_object_parameter.md
+index b06e1f8a8..ceff6a862 100644
+--- a/reference/meta/is_explicit_object_parameter.md
++++ b/reference/meta/is_explicit_object_parameter.md
+@@ -28,12 +28,15 @@ struct S {
+   void g(int x) {}         // 通常のパラメータ
+ };
+ 
+-int main() {
+-  constexpr auto f_params = std::meta::parameters_of(^^S::f);
+-  static_assert(std::meta::is_explicit_object_parameter(f_params[0]));
++consteval bool check() {
++  auto f_params = std::meta::parameters_of(^^S::f);
++  auto g_params = std::meta::parameters_of(^^S::g);
++  return std::meta::is_explicit_object_parameter(f_params[0])
++      &amp;amp;&amp;amp; !std::meta::is_explicit_object_parameter(g_params[0]);
++}
+ 
+-  constexpr auto g_params = std::meta::parameters_of(^^S::g);
+-  static_assert(!std::meta::is_explicit_object_parameter(g_params[0]));
++int main() {
++  static_assert(check());
+ }
+ ```
+ * std::meta::parameters_of[link parameters_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_function_parameter -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_function_parameter.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_function_parameter.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_function_parameter.md b/reference/meta/is_function_parameter.md
+index d1287da40..edc4ac2e5 100644
+--- a/reference/meta/is_function_parameter.md
++++ b/reference/meta/is_function_parameter.md
+@@ -26,9 +26,10 @@ namespace std::meta {
+ void func(int x, double y);
+ 
+ int main() {
+-  constexpr auto params = std::meta::parameters_of(^^func);
+-  static_assert(std::meta::is_function_parameter(params[0]));
+-  static_assert(std::meta::is_function_parameter(params[1]));
++  static_assert(std::meta::is_function_parameter(
++    std::meta::parameters_of(^^func)[0]));
++  static_assert(std::meta::is_function_parameter(
++    std::meta::parameters_of(^^func)[1]));
+ }
+ ```
+ * std::meta::parameters_of[link parameters_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_move_assignment -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_move_assignment.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_move_assignment.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_move_assignment.md b/reference/meta/is_move_assignment.md
+index 4f1bfed50..cdc1f865a 100644
+--- a/reference/meta/is_move_assignment.md
++++ b/reference/meta/is_move_assignment.md
+@@ -30,7 +30,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_move_assignment(m)) {
+       static_assert(!std::meta::is_copy_assignment(m));
+       static_assert(std::meta::is_assignment(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_move_constructor -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_move_constructor.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_move_constructor.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_move_constructor.md b/reference/meta/is_move_constructor.md
+index 8d2a16ab5..bb018ec05 100644
+--- a/reference/meta/is_move_constructor.md
++++ b/reference/meta/is_move_constructor.md
+@@ -31,7 +31,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_move_constructor(m)) {
+       // S(S&amp;amp;&amp;amp;)のみがここに到達する
+       static_assert(std::meta::is_constructor(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_operator_function -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_operator_function.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_operator_function.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_operator_function.md b/reference/meta/is_operator_function.md
+index 6eca87b95..c8663a753 100644
+--- a/reference/meta/is_operator_function.md
++++ b/reference/meta/is_operator_function.md
+@@ -33,7 +33,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_function(m) &amp;amp;&amp;amp;
+                   !std::meta::is_special_member_function(m)) {
+       std::println(&amp;#34;{}: is_operator_function={}&amp;#34;,
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_operator_function_template -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_operator_function_template.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_operator_function_template.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_operator_function_template.md b/reference/meta/is_operator_function_template.md
+index 609b43558..e16e95b27 100644
+--- a/reference/meta/is_operator_function_template.md
++++ b/reference/meta/is_operator_function_template.md
+@@ -32,7 +32,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_operator_function_template(m)) {
+       // template &amp;lt;class T&amp;gt; operator+(const T&amp;amp;) のみがここに到達する
+       static_assert(std::meta::is_template(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_private -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_private.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_private.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_private.md b/reference/meta/is_private.md
+index 88ea92f37..4967912a3 100644
+--- a/reference/meta/is_private.md
++++ b/reference/meta/is_private.md
+@@ -31,12 +31,16 @@ private:
+   int priv;
+ };
+ 
+-int main() {
+-  constexpr auto members = std::meta::nonstatic_data_members_of(
++consteval bool check() {
++  auto members = std::meta::nonstatic_data_members_of(
+       ^^S, std::meta::access_context::unchecked());
+-  static_assert(std::meta::is_public(members[0]));
+-  static_assert(std::meta::is_protected(members[1]));
+-  static_assert(std::meta::is_private(members[2]));
++  return std::meta::is_public(members[0])
++      &amp;amp;&amp;amp; std::meta::is_protected(members[1])
++      &amp;amp;&amp;amp; std::meta::is_private(members[2]);
++}
++
++int main() {
++  static_assert(check());
+ }
+ ```
+ * std::meta::nonstatic_data_members_of[link nonstatic_data_members_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_protected -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_protected.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_protected.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_protected.md b/reference/meta/is_protected.md
+index f422b84a0..a77a15440 100644
+--- a/reference/meta/is_protected.md
++++ b/reference/meta/is_protected.md
+@@ -31,12 +31,16 @@ private:
+   int priv;
+ };
+ 
+-int main() {
+-  constexpr auto members = std::meta::nonstatic_data_members_of(
++consteval bool check() {
++  auto members = std::meta::nonstatic_data_members_of(
+       ^^S, std::meta::access_context::unchecked());
+-  static_assert(std::meta::is_public(members[0]));
+-  static_assert(std::meta::is_protected(members[1]));
+-  static_assert(std::meta::is_private(members[2]));
++  return std::meta::is_public(members[0])
++      &amp;amp;&amp;amp; std::meta::is_protected(members[1])
++      &amp;amp;&amp;amp; std::meta::is_private(members[2]);
++}
++
++int main() {
++  static_assert(check());
+ }
+ ```
+ * std::meta::nonstatic_data_members_of[link nonstatic_data_members_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_public -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_public.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_public.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_public.md b/reference/meta/is_public.md
+index d1ab6d481..c540a6fb6 100644
+--- a/reference/meta/is_public.md
++++ b/reference/meta/is_public.md
+@@ -31,12 +31,16 @@ private:
+   int priv;
+ };
+ 
+-int main() {
+-  constexpr auto members = std::meta::nonstatic_data_members_of(
++consteval bool check() {
++  auto members = std::meta::nonstatic_data_members_of(
+       ^^S, std::meta::access_context::unchecked());
+-  static_assert(std::meta::is_public(members[0]));
+-  static_assert(std::meta::is_protected(members[1]));
+-  static_assert(std::meta::is_private(members[2]));
++  return std::meta::is_public(members[0])
++      &amp;amp;&amp;amp; std::meta::is_protected(members[1])
++      &amp;amp;&amp;amp; std::meta::is_private(members[2]);
++}
++
++int main() {
++  static_assert(check());
+ }
+ ```
+ * std::meta::nonstatic_data_members_of[link nonstatic_data_members_of.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_special_member_function -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_special_member_function.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_special_member_function.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_special_member_function.md b/reference/meta/is_special_member_function.md
+index 36df560e6..c14a28e6c 100644
+--- a/reference/meta/is_special_member_function.md
++++ b/reference/meta/is_special_member_function.md
+@@ -37,7 +37,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_function(m)) {
+       std::println(&amp;#34;{}: is_special_member_function={}&amp;#34;,
+         std::meta::display_string_of(m),
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_user_declared -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_user_declared.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_user_declared.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_user_declared.md b/reference/meta/is_user_declared.md
+index cdca2e5ce..203f94bc0 100644
+--- a/reference/meta/is_user_declared.md
++++ b/reference/meta/is_user_declared.md
+@@ -30,7 +30,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_default_constructor(m)) {
+       static_assert(std::meta::is_user_declared(m));
+       static_assert(!std::meta::is_user_provided(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_user_provided -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_user_provided.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/is_user_provided.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_user_provided.md b/reference/meta/is_user_provided.md
+index d2e715b6b..c41679364 100644
+--- a/reference/meta/is_user_provided.md
++++ b/reference/meta/is_user_provided.md
+@@ -30,7 +30,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_default_constructor(m)) {
+       static_assert(std::meta::is_user_declared(m));
+       static_assert(!std::meta::is_user_provided(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>members_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/members_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/members_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/members_of.md b/reference/meta/members_of.md
+index 359c404fe..97f871f5d 100644
+--- a/reference/meta/members_of.md
++++ b/reference/meta/members_of.md
+@@ -36,9 +36,9 @@ struct S {
+ };
+ 
+ int main() {
+-  constexpr auto members = std::meta::members_of(
+-      ^^S, std::meta::access_context::unchecked());
+-  std::println(&amp;#34;メンバ数: {}&amp;#34;, members.size());
++  constexpr auto count = std::meta::members_of(
++      ^^S, std::meta::access_context::unchecked()).size();
++  std::println(&amp;#34;メンバ数: {}&amp;#34;, count);
+ }
+ ```
+ * std::meta::access_context[link access_context.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>nonstatic_data_members_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/nonstatic_data_members_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/nonstatic_data_members_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/nonstatic_data_members_of.md b/reference/meta/nonstatic_data_members_of.md
+index 204e12509..bc9d4684b 100644
+--- a/reference/meta/nonstatic_data_members_of.md
++++ b/reference/meta/nonstatic_data_members_of.md
+@@ -37,8 +37,8 @@ struct Point {
+ int main() {
+   Point p{10, 20};
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(^^Point,
+-          std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
++          std::meta::access_context::unchecked()))) {
+     std::println(&amp;#34;{} = {}&amp;#34;, std::meta::identifier_of(m), p.[:m:]);
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>offset_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/offset_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/offset_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/offset_of.md b/reference/meta/offset_of.md
+index a42c2130a..397d6cddf 100644
+--- a/reference/meta/offset_of.md
++++ b/reference/meta/offset_of.md
+@@ -38,8 +38,8 @@ int main() {
+   std::println(&amp;#34;sizeof(S) = {}&amp;#34;, sizeof(S));
+ 
+   template for (constexpr auto m :
+-      std::meta::nonstatic_data_members_of(
+-          ^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::nonstatic_data_members_of(
++          ^^S, std::meta::access_context::unchecked()))) {
+     constexpr auto off = std::meta::offset_of(m);
+     std::println(&amp;#34;{}: offset = {} bytes, size = {}&amp;#34;,
+       std::meta::identifier_of(m),
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/operator_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/operator_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/operator_of.md b/reference/meta/operator_of.md
+index d4a406cbb..b37613ff9 100644
+--- a/reference/meta/operator_of.md
++++ b/reference/meta/operator_of.md
+@@ -35,7 +35,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_operator_function(m)) {
+       std::println(&amp;#34;演算子: {}&amp;#34;, std::meta::symbol_of(std::meta::operator_of(m)));
+     }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>parameters_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/parameters_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/parameters_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/parameters_of.md b/reference/meta/parameters_of.md
+index ecae234e2..0f64a23ef 100644
+--- a/reference/meta/parameters_of.md
++++ b/reference/meta/parameters_of.md
+@@ -31,7 +31,7 @@ namespace std::meta {
+ void process(int id, double value, const char* name) {}
+ 
+ int main() {
+-  template for (constexpr auto p : std::meta::parameters_of(^^process)) {
++  template for (constexpr auto p : std::define_static_array(std::meta::parameters_of(^^process))) {
+     std::println(&amp;#34;{}: {}&amp;#34;,
+       std::meta::identifier_of(p),
+       std::meta::display_string_of(std::meta::type_of(p)));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>static_data_members_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/static_data_members_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/static_data_members_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/static_data_members_of.md b/reference/meta/static_data_members_of.md
+index c0ea8ce27..26206b222 100644
+--- a/reference/meta/static_data_members_of.md
++++ b/reference/meta/static_data_members_of.md
+@@ -36,8 +36,9 @@ struct S {
+ };
+ 
+ int main() {
+-  constexpr auto statics = std::meta::static_data_members_of(
+-      ^^S, std::meta::access_context::unchecked());
++  constexpr auto statics = std::define_static_array(
++      std::meta::static_data_members_of(
++          ^^S, std::meta::access_context::unchecked()));
+   static_assert(statics.size() == 2);
+ 
+   template for (constexpr auto m : statics) {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>subobjects_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/subobjects_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/subobjects_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/subobjects_of.md b/reference/meta/subobjects_of.md
+index b8c5a327f..be0e53545 100644
+--- a/reference/meta/subobjects_of.md
++++ b/reference/meta/subobjects_of.md
+@@ -33,8 +33,9 @@ struct Base { int b; };
+ struct Derived : Base { int d; };
+ 
+ int main() {
+-  constexpr auto subs = std::meta::subobjects_of(
+-      ^^Derived, std::meta::access_context::unchecked());
++  constexpr auto subs = std::define_static_array(
++      std::meta::subobjects_of(
++          ^^Derived, std::meta::access_context::unchecked()));
+ 
+   // 基底クラスが先、非静的データメンバが後
+   template for (constexpr auto s : subs) {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>symbol_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/symbol_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/symbol_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/symbol_of.md b/reference/meta/symbol_of.md
+index 34f271d4c..74aea5728 100644
+--- a/reference/meta/symbol_of.md
++++ b/reference/meta/symbol_of.md
+@@ -32,7 +32,7 @@ struct S {
+ 
+ int main() {
+   template for (constexpr auto m :
+-      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {
++      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {
+     if constexpr (std::meta::is_operator_function(m)) {
+       std::println(&amp;#34;演算子: {}&amp;#34;, std::meta::symbol_of(std::meta::operator_of(m)));
+     }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>template_arguments_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/template_arguments_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/template_arguments_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/template_arguments_of.md b/reference/meta/template_arguments_of.md
+index 55ff86f5a..c73b4e8cf 100644
+--- a/reference/meta/template_arguments_of.md
++++ b/reference/meta/template_arguments_of.md
+@@ -29,8 +29,7 @@ namespace std::meta {
+ #include &amp;lt;vector&amp;gt;
+ 
+ int main() {
+-  constexpr auto args = std::meta::template_arguments_of(^^std::vector&amp;lt;int&amp;gt;);
+-  static_assert(args[0] == ^^int);
++  static_assert(std::meta::template_arguments_of(^^std::vector&amp;lt;int&amp;gt;)[0] == ^^int);
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>variable_of -- define_static_arrayを使用</title>
+      <link href="https://cpprefjp.github.io/reference/meta/variable_of.html"/>
+      <id>742462697124144fdf5b24358bb1f1e19914ef2b:reference/meta/variable_of.md</id>
+      <updated>2026-04-20T14:29:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/variable_of.md b/reference/meta/variable_of.md
+index a9776322f..6cabe252a 100644
+--- a/reference/meta/variable_of.md
++++ b/reference/meta/variable_of.md
+@@ -34,7 +34,7 @@ namespace std::meta {
+ 
+ void func(int x, double y) {
+   // 関数定義内でvariable_of()を使用してパラメータ変数にアクセス
+-  template for (constexpr auto p : std::meta::parameters_of(^^func)) {
++  template for (constexpr auto p : std::define_static_array(std::meta::parameters_of(^^func))) {
+     std::println(&amp;#34;{} = {}&amp;#34;, std::meta::identifier_of(p),
+                             [:std::meta::variable_of(p):]);
+   }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>is_override -- is_override : overrideキーワードの有無に関係なくオーバーライド関係を判定するよう修正</title>
@@ -3931,33 +5685,6 @@ index 4ba7e4d80..5b163c4f8 100644
 +++ b/reference/meta/access_context/via.md
 @@ -1,7 +1,7 @@
  # via
- * meta[meta header]
- * std::meta[meta namespace]
--* std::meta::access_context[meta class]
-+* access_context[meta class]
- * function[meta id-type]
- * cpp26[meta cpp]
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>unprivileged -- access_context::unprivileged : タイトル修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/access_context/unprivileged.html"/>
-      <id>f1e37970da093ae5432c48951533809791acc31d:reference/meta/access_context/unprivileged.md</id>
-      <updated>2026-04-11T10:56:45+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context/unprivileged.md b/reference/meta/access_context/unprivileged.md
-index 69a6b74d9..bd144d304 100644
---- a/reference/meta/access_context/unprivileged.md
-+++ b/reference/meta/access_context/unprivileged.md
-@@ -1,7 +1,7 @@
- # unprivileged
  * meta[meta header]
  * std::meta[meta namespace]
 -* std::meta::access_context[meta class]

@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6652fba0d20b227e0d6939edbb72a3321962dbb0&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nstruct S {\n  int pub;\nprotected:\n  int prot;\nprivate:\n  int priv;\n};\n\nint main() {\n  constexpr auto members = std::meta::nonstatic_data_members_of(\n      ^^S, std::meta::access_context::unchecked());\n  static_assert(std::meta::is_public(members[0]));\n  static_assert(std::meta::is_protected(members[1]));\n  static_assert(std::meta::is_private(members[2]));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_private&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8b33f61eaf14c67ef3117545334fa960b5e4762d&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nstruct S {\n  int pub;\nprotected:\n  int prot;\nprivate:\n  int priv;\n};\n\nconsteval bool check() {\n  auto members = std::meta::nonstatic_data_members_of(\n      ^^S, std::meta::access_context::unchecked());\n  return std::meta::is_public(members[0])\n      &amp;&amp; std::meta::is_protected(members[1])\n      &amp;&amp; std::meta::is_private(members[2]);\n}\n\nint main() {\n  static_assert(check());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_private&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-20T05:29:50">
+        2026年04月20日 05時29分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,7 +223,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>r</code>がクラスメンバまたは基底クラス関係を表し、かつ<code>private</code>アクセスである場合に<code>true</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="6652fba0d20b227e0d6939edbb72a3321962dbb0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="8b33f61eaf14c67ef3117545334fa960b5e4762d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">pub</span><span class="p">;</span>
@@ -233,12 +233,16 @@
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">priv</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">check</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span>
 <span class="w">      </span><span class="o">^^</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">());</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_public.html">std::meta::is_public</a></span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_protected.html">std::meta::is_protected</a></span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_private</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="is_public.html">std::meta::is_public</a></span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="is_protected.html">std::meta::is_protected</a></span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_private</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">check</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;class&#34;: [&#34;access_context&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;56b4a182e6904bf2969edee1035d5d648b78f5a6&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass Base {\nprotected:\n  int prot = 1;\npublic:\n  int pub = 2;\n};\n\nclass Derived : public Base {};\n\nint main() {\n  // Derived\u7d4c\u7531\u3067Base\u306e\u30e1\u30f3\u30d0\u306b\u30a2\u30af\u30bb\u30b9\n  constexpr auto ctx = std::meta::access_context::current().via(^^Derived);\n  constexpr auto members = std::meta::nonstatic_data_members_of(^^Base, ctx);\n  std::println(\&#34;Derived\u7d4c\u7531\u3067\u898b\u3048\u308b\u30e1\u30f3\u30d0\u6570: {}\&#34;, members.size());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;access_context&#34;, &#34;via&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;class&#34;: [&#34;access_context&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1dbaa570e717af2e56f11e029f277d774347b601&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass Base {\nprotected:\n  int prot = 1;\npublic:\n  int pub = 2;\n};\n\nclass Derived : public Base {};\n\nint main() {\n  // Derived\u7d4c\u7531\u3067Base\u306e\u30e1\u30f3\u30d0\u306b\u30a2\u30af\u30bb\u30b9\n  constexpr auto ctx = std::meta::access_context::current().via(^^Derived);\n  constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();\n  std::println(\&#34;Derived\u7d4c\u7531\u3067\u898b\u3048\u308b\u30e1\u30f3\u30d0\u6570: {}\&#34;, count);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;access_context&#34;, &#34;via&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-11T01:57:03">
-        2026年04月11日 01時57分03秒
+      <span itemprop="datePublished" content="2026-04-20T05:29:50">
+        2026年04月20日 05時29分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,7 +234,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>cls</code>が表すクラスを経由した新しい<code>access_context</code>オブジェクトを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="56b4a182e6904bf2969edee1035d5d648b78f5a6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="1dbaa570e717af2e56f11e029f277d774347b601"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
@@ -249,8 +249,8 @@
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// Derived経由でBaseのメンバにアクセス</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">access_context</span><span class="o">::</span><span class="n">current</span><span class="p">().</span><span class="n"><span style="color:#ff0000">via</span></span><span class="p">(</span><span class="o">^^</span><span class="n">Derived</span><span class="p">);</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
-<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Derived経由で見えるメンバ数: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">members</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">).</span><span class="n">size</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Derived経由で見えるメンバ数: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

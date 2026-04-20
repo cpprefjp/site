@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3fb3aef8fbf4f8606cec27fe3ee49601e5672740&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nclass C {\n  int secret;\npublic:\n  int visible;\n};\n\nint main() {\n  constexpr auto members = std::meta::nonstatic_data_members_of(\n      ^^C, std::meta::access_context::unchecked());\n  constexpr auto ctx = std::meta::access_context::unprivileged();\n  static_assert(!std::meta::is_accessible(members[0], ctx));  // secret: private\n  static_assert(std::meta::is_accessible(members[1], ctx));   // visible: public\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_accessible&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;02cb55c5d6624829a498c18d986c9b7c4abc48ee&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nclass C {\n  int secret;\npublic:\n  int visible;\n};\n\nconsteval bool check() {\n  auto members = std::meta::nonstatic_data_members_of(\n      ^^C, std::meta::access_context::unchecked());\n  auto ctx = std::meta::access_context::unprivileged();\n  return !std::meta::is_accessible(members[0], ctx)  // secret: private\n      &amp;&amp; std::meta::is_accessible(members[1], ctx);   // visible: public\n}\n\nint main() {\n  static_assert(check());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_accessible&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-20T05:29:50">
+        2026年04月20日 05時29分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +225,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code>r</code>が不完全なクラスのメンバ、または不完全なクラスの基底クラス関係を表す場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="3fb3aef8fbf4f8606cec27fe3ee49601e5672740"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="02cb55c5d6624829a498c18d986c9b7c4abc48ee"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">secret</span><span class="p">;</span>
@@ -233,12 +233,16 @@
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">visible</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">check</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span>
 <span class="w">      </span><span class="o">^^</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">());</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unprivileged.html">unprivileged</a></span><span class="p">();</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_accessible</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">ctx</span><span class="p">));</span><span class="w">  </span><span class="c1">// secret: private</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_accessible</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">ctx</span><span class="p">));</span><span class="w">   </span><span class="c1">// visible: public</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unprivileged.html">unprivileged</a></span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_accessible</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w">  </span><span class="c1">// secret: private</span>
+<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_accessible</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span><span class="w">   </span><span class="c1">// visible: public</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">check</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

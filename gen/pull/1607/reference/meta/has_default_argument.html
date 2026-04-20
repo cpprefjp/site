@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7e0eb388c34037719d8f09c2da5d99d53a863666&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nvoid func(int x, int y = 10);\n\nint main() {\n  constexpr auto params = std::meta::parameters_of(^^func);\n  static_assert(!std::meta::has_default_argument(params[0]));  // x\n  static_assert(std::meta::has_default_argument(params[1]));   // y = 10\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;has_default_argument&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9363e2b5716adda77e45376ad1770506d5d0ce00&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nvoid func(int x, int y = 10);\n\nint main() {\n  static_assert(!std::meta::has_default_argument(\n    std::meta::parameters_of(^^func)[0]));  // x\n  static_assert(std::meta::has_default_argument(\n    std::meta::parameters_of(^^func)[1]));   // y = 10\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;has_default_argument&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-20T05:29:50">
+        2026年04月20日 05時29分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,14 +223,15 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>r</code>が関数パラメータを表し、そのパラメータが到達可能な宣言のいずれかでデフォルト引数を持つ場合に<code>true</code>を返す。そうでなければ<code>false</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="7e0eb388c34037719d8f09c2da5d99d53a863666"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="9363e2b5716adda77e45376ad1770506d5d0ce00"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="parameters_of.html">std::meta::parameters_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">func</span><span class="p">);</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">has_default_argument</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span><span class="w">  </span><span class="c1">// x</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">has_default_argument</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span><span class="w">   </span><span class="c1">// y = 10</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">has_default_argument</span><span class="p">(</span>
+<span class="w">    </span><span class="n"><a href="parameters_of.html">std::meta::parameters_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">func</span><span class="p">)[</span><span class="mi">0</span><span class="p">]));</span><span class="w">  </span><span class="c1">// x</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">has_default_argument</span><span class="p">(</span>
+<span class="w">    </span><span class="n"><a href="parameters_of.html">std::meta::parameters_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">func</span><span class="p">)[</span><span class="mi">1</span><span class="p">]));</span><span class="w">   </span><span class="c1">// y = 10</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

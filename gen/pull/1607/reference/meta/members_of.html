@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;babe4cdecb76c41d4db54c4cd1545a08d586ba0a&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct S {\n  int x;\n  double y;\n  void f() {}\n};\n\nint main() {\n  constexpr auto members = std::meta::members_of(\n      ^^S, std::meta::access_context::unchecked());\n  std::println(\&#34;\u30e1\u30f3\u30d0\u6570: {}\&#34;, members.size());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;members_of&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;32c0a99bae3011a4614595995e4be060f1b64101&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct S {\n  int x;\n  double y;\n  void f() {}\n};\n\nint main() {\n  constexpr auto count = std::meta::members_of(\n      ^^S, std::meta::access_context::unchecked()).size();\n  std::println(\&#34;\u30e1\u30f3\u30d0\u6570: {}\&#34;, count);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;members_of&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-20T05:29:50">
+        2026年04月20日 05時29分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +225,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code>r</code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>のクラスまたは名前空間を表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="babe4cdecb76c41d4db54c4cd1545a08d586ba0a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="32c0a99bae3011a4614595995e4be060f1b64101"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
@@ -235,9 +235,9 @@
 <span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">members_of</span><span class="p">(</span>
-<span class="w">      </span><span class="o">^^</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">());</span>
-<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"メンバ数: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">members</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">members_of</span><span class="p">(</span>
+<span class="w">      </span><span class="o">^^</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">()).</span><span class="n">size</span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"メンバ数: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

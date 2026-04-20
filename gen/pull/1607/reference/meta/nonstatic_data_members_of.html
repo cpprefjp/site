@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9c6e0791e76b9dc7c09a53b682d5b12ae93caae4&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct Point {\n  int x;\n  int y;\n};\n\nint main() {\n  Point p{10, 20};\n  template for (constexpr auto m :\n      std::meta::nonstatic_data_members_of(^^Point,\n          std::meta::access_context::unchecked())) {\n    std::println(\&#34;{} = {}\&#34;, std::meta::identifier_of(m), p.[:m:]);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;nonstatic_data_members_of&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e23a832932285676558f48999171a535906f5fca&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct Point {\n  int x;\n  int y;\n};\n\nint main() {\n  Point p{10, 20};\n  template for (constexpr auto m :\n      std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,\n          std::meta::access_context::unchecked()))) {\n    std::println(\&#34;{} = {}\&#34;, std::meta::identifier_of(m), p.[:m:]);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;nonstatic_data_members_of&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-20T05:29:50">
+        2026年04月20日 05時29分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +225,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code>r</code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>のクラスを表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="9c6e0791e76b9dc7c09a53b682d5b12ae93caae4"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="e23a832932285676558f48999171a535906f5fca"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
@@ -236,8 +236,8 @@
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">};</span>
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">:</span>
-<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">nonstatic_data_members_of</span><span class="p">(</span><span class="o">^^</span><span class="n">Point</span><span class="p">,</span>
-<span class="w">          </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">define_static_array</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">nonstatic_data_members_of</span><span class="p">(</span><span class="o">^^</span><span class="n">Point</span><span class="p">,</span>
+<span class="w">          </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">())))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{} = {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="w"> </span><span class="n">p</span><span class="p">.[</span><span class="o">:</span><span class="n">m</span><span class="o">:</span><span class="p">]);</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>

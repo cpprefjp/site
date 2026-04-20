@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0ffe67a392e953a84cb4eafd55dc71fbfa2fe395&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct A {};\nstruct B {};\nstruct C : A, B {};\n\nint main() {\n  // \u30af\u30e9\u30b9C\u306e\u76f4\u63a5\u57fa\u5e95\u30af\u30e9\u30b9\u3092\u53d6\u5f97\u3057\u3066\u51fa\u529b\n  template for (constexpr auto b :\n      std::meta::bases_of(^^C, std::meta::access_context::unchecked())) {\n    std::println(\&#34;{}\&#34;, std::meta::display_string_of(std::meta::type_of(b)));\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;bases_of&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4041d463f984f7629a55ef17aecca1d69f80f356&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct A {};\nstruct B {};\nstruct C : A, B {};\n\nint main() {\n  // \u30af\u30e9\u30b9C\u306e\u76f4\u63a5\u57fa\u5e95\u30af\u30e9\u30b9\u3092\u53d6\u5f97\u3057\u3066\u51fa\u529b\n  template for (constexpr auto b :\n      std::define_static_array(std::meta::bases_of(^^C, std::meta::access_context::unchecked()))) {\n    std::println(\&#34;{}\&#34;, std::meta::display_string_of(std::meta::type_of(b)));\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;bases_of&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-20T05:29:50">
+        2026年04月20日 05時29分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -229,7 +229,7 @@
 <li>C++では多重継承ができるため、基底クラスは複数存在する可能性がある</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="0ffe67a392e953a84cb4eafd55dc71fbfa2fe395"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="4041d463f984f7629a55ef17aecca1d69f80f356"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{};</span>
@@ -239,7 +239,7 @@
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// クラスCの直接基底クラスを取得して出力</span>
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span>
-<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">bases_of</span><span class="p">(</span><span class="o">^^</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">access_context</span><span class="o">::</span><span class="n">unchecked</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">define_static_array</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">bases_of</span><span class="p">(</span><span class="o">^^</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">access_context</span><span class="o">::</span><span class="n">unchecked</span><span class="p">())))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="display_string_of.html">std::meta::display_string_of</a></span><span class="p">(</span><span class="n"><a href="type_of.html">std::meta::type_of</a></span><span class="p">(</span><span class="n">b</span><span class="p">)));</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>

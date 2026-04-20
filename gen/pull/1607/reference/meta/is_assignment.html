@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a267bbfd2dd2e6fe70f40eb850d3297e743fbe01&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct S {\n  S&amp; operator=(const S&amp;) = default;  // \u30b3\u30d4\u30fc\u4ee3\u5165\u6f14\u7b97\u5b50\n  S&amp; operator=(S&amp;&amp;) = default;       // \u30e0\u30fc\u30d6\u4ee3\u5165\u6f14\u7b97\u5b50\n  S&amp; operator=(int) { return *this; } // \u4ee3\u5165\u6f14\u7b97\u5b50\u3067\u306f\u306a\u3044\uff08\u901a\u5e38\u306eoperator=\uff09\n};\n\nint main() {\n  template for (constexpr auto m :\n      std::meta::members_of(^^S, std::meta::access_context::unchecked())) {\n    if constexpr (std::meta::is_function(m)) {\n      std::println(\&#34;{}: is_assignment={}\&#34;,\n        std::meta::display_string_of(m),\n        std::meta::is_assignment(m));\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_assignment&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b9f14ef881706049f2da922d2f18bb2d7cbd8768&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct S {\n  S&amp; operator=(const S&amp;) = default;  // \u30b3\u30d4\u30fc\u4ee3\u5165\u6f14\u7b97\u5b50\n  S&amp; operator=(S&amp;&amp;) = default;       // \u30e0\u30fc\u30d6\u4ee3\u5165\u6f14\u7b97\u5b50\n  S&amp; operator=(int) { return *this; } // \u4ee3\u5165\u6f14\u7b97\u5b50\u3067\u306f\u306a\u3044\uff08\u901a\u5e38\u306eoperator=\uff09\n};\n\nint main() {\n  template for (constexpr auto m :\n      std::define_static_array(std::meta::members_of(^^S, std::meta::access_context::unchecked()))) {\n    if constexpr (std::meta::is_function(m)) {\n      std::println(\&#34;{}: is_assignment={}\&#34;,\n        std::meta::display_string_of(m),\n        std::meta::is_assignment(m));\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_assignment&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-20T05:29:50">
+        2026年04月20日 05時29分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,7 +223,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>r</code>が代入演算子を表す場合に<code>true</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="a267bbfd2dd2e6fe70f40eb850d3297e743fbe01"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="b9f14ef881706049f2da922d2f18bb2d7cbd8768"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
@@ -234,7 +234,7 @@
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">:</span>
-<span class="w">      </span><span class="n"><a href="members_of.html">std::meta::members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">access_context</span><span class="o">::</span><span class="n">unchecked</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">define_static_array</span><span class="p">(</span><span class="n"><a href="members_of.html">std::meta::members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">access_context</span><span class="o">::</span><span class="n">unchecked</span><span class="p">())))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="is_function.html">std::meta::is_function</a></span><span class="p">(</span><span class="n">m</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}: is_assignment={}"</span><span class="p">,</span>
 <span class="w">        </span><span class="n"><a href="display_string_of.html">std::meta::display_string_of</a></span><span class="p">(</span><span class="n">m</span><span class="p">),</span>
