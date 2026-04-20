@@ -263,23 +263,52 @@ template for (constexpr auto m :
 
 
 ## `define_static_string` / `define_static_array` / `define_static_object`
-これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。[`std::define_static_string()`](/reference/meta/define_static_string.md)は文字列を、[`std::define_static_array()`](/reference/meta/define_static_array.md)は配列を、[`std::define_static_object()`](/reference/meta/define_static_object.md)はオブジェクトをそれぞれ静的ストレージに配置する。これらは`<meta>`ヘッダで提供されるが、`std`名前空間に定義される（`std::meta`名前空間ではない）。
+これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。これらは`<meta>`ヘッダで提供されるが、`std`名前空間に定義される（`std::meta`名前空間ではない）。
+
+| 関数 | 説明 |
+|------|------|
+| [`std::define_static_string()`](/reference/meta/define_static_string.md) | コンパイル時文字列を静的ストレージに配置し、ヌル終端の`const CharT*`を返す |
+| [`std::define_static_array()`](/reference/meta/define_static_array.md) | コンパイル時配列を静的ストレージに配置し、[`std::span`](/reference/span/span.md)`<const T>`を返す |
+| [`std::define_static_object()`](/reference/meta/define_static_object.md) | コンパイル時オブジェクトを静的ストレージに配置し、`const T*`を返す |
+
+### 主な用途
+これらの関数は、以下のようなリフレクションの典型的なユースケースで頻繁に使用される。
+
+#### (1) `template for`文のrangeを静的配列に変換する
+[`members_of()`](/reference/meta/members_of.md)や[`enumerators_of()`](/reference/meta/enumerators_of.md)などのメタ関数は`std::vector<std::meta::info>`を返すが、`std::vector`は動的メモリ確保を伴うため[`template for`文](/lang/cpp26/expansion_statements.md)のrangeとして直接使用できない。[`std::define_static_array()`](/reference/meta/define_static_array.md)で静的ストレージに配置した[`std::span`](/reference/span/span.md)に変換することで、`template for`文で走査できるようになる。
 
 ```cpp
-// コンパイル時に計算した文字列を実行時に使用する
-template <typename E>
-  requires std::is_enum_v<E>
-constexpr std::string_view enum_to_string(E value) {
-  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {
-    if (value == [:e:]) {
-      return std::meta::identifier_of(e);
-    }
-  }
-  return "<unknown>";
+template for (constexpr auto m :
+    std::define_static_array(std::meta::nonstatic_data_members_of(^^S,
+        std::meta::access_context::unchecked()))) {
+  // mを使った処理
 }
 ```
-* std::meta::enumerators_of[link /reference/meta/enumerators_of.md]
-* std::meta::identifier_of[link /reference/meta/identifier_of.md]
+* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
+* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
+
+#### (2) コンパイル時文字列を実行時に返す
+コンパイル時に構築した[`std::string`](/reference/string/basic_string.md)や[`std::string_view`](/reference/string_view/basic_string_view.md)は、そのままでは実行時にアクセスできない（一時オブジェクトの寿命が尽きる、または`consteval`型の制約）。[`std::define_static_string()`](/reference/meta/define_static_string.md)で静的ストレージに配置することで、ヌル終端の`const char*`として実行時まで持ち越せる。
+
+ただし、[`identifier_of()`](/reference/meta/identifier_of.md)のように既に`string_view`を返す関数は、そのまま戻り値として返せる場合もある（静的ストレージに存在する識別子の文字列を指すため）。
+
+#### (3) アノテーションの文字列リテラル
+アノテーションの式は構造的型でなければならず、文字列リテラルを直接メンバとして持つと寿命の問題が生じる可能性がある。[`std::define_static_string()`](/reference/meta/define_static_string.md)で静的ストレージに配置することで、安全に`const char*`メンバに格納できる。
+
+```cpp
+struct Name { const char* value; };
+struct [[=Name{std::define_static_string("ラベル")}]] Tagged {};
+```
+
+#### (4) コンパイル時に構築したオブジェクトを実行時に参照する
+コンパイル時に構築した任意のオブジェクトを静的ストレージに配置し、実行時にポインタで参照するには[`std::define_static_object()`](/reference/meta/define_static_object.md)を使用する。
+
+```cpp
+struct Config { int width; int height; };
+
+// コンパイル時に構築したConfigオブジェクトを静的ストレージに配置
+constexpr const Config* config = std::define_static_object(Config{1920, 1080});
+```
 
 
 ## リフレクションのエラー処理

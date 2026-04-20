@@ -59,7 +59,6 @@ int main() {
 }
 ```
 * std::is_string_literal[color ff0000]
-* std::define_static_string[link define_static_string.md]
 
 ### 出力
 ```
