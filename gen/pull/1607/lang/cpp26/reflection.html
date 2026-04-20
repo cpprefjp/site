@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;dc713454112d0f6457b061ff4f904f2d28f4f1a3&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n#include &lt;string&gt;\n\nstruct Point {\n  int x;\n  int y;\n  std::string name;\n};\n\nint main() {\n  Point p{10, 20, \&#34;origin\&#34;};\n\n  template for (constexpr auto m :\n      std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,\n          std::meta::access_context::unchecked()))) {\n    std::println(\&#34;{}: {}\&#34;, std::meta::identifier_of(m), p.[:m:]);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;99250cd4295e1e24ac630b5d6a0256d6d939e2c0&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n#include &lt;string_view&gt;\n\nenum class Color { red, green, blue };\n\ntemplate &lt;typename E&gt;\n  requires std::is_enum_v&lt;E&gt;\nconstexpr std::string_view to_string(E value) {\n  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {\n    if (value == [:e:]) {\n      return std::meta::identifier_of(e);\n    }\n  }\n  return \&#34;&lt;unknown&gt;\&#34;;\n}\n\nint main() {\n  std::println(\&#34;{}\&#34;, to_string(Color::red));\n  std::println(\&#34;{}\&#34;, to_string(Color::green));\n  std::println(\&#34;{}\&#34;, to_string(Color::blue));\n}\n&#34;}, {&#34;id&#34;: &#34;debfb987ba31357c31e59a06c81bbfcef765290d&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nvoid process(int id, double value, const char* name) {}\n\nint main() {\n  template for (constexpr auto p : std::define_static_array(std::meta::parameters_of(^^process))) {\n    std::println(\&#34;\u30d1\u30e9\u30e1\u30fc\u30bf: {} (\u578b: {})\&#34;,\n      std::meta::identifier_of(p),\n      std::meta::display_string_of(std::meta::type_of(p)));\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;reflection&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;dc713454112d0f6457b061ff4f904f2d28f4f1a3&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n#include &lt;string&gt;\n\nstruct Point {\n  int x;\n  int y;\n  std::string name;\n};\n\nint main() {\n  Point p{10, 20, \&#34;origin\&#34;};\n\n  template for (constexpr auto m :\n      std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,\n          std::meta::access_context::unchecked()))) {\n    std::println(\&#34;{}: {}\&#34;, std::meta::identifier_of(m), p.[:m:]);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;99250cd4295e1e24ac630b5d6a0256d6d939e2c0&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n#include &lt;string_view&gt;\n\nenum class Color { red, green, blue };\n\ntemplate &lt;typename E&gt;\n  requires std::is_enum_v&lt;E&gt;\nconstexpr std::string_view to_string(E value) {\n  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {\n    if (value == [:e:]) {\n      return std::meta::identifier_of(e);\n    }\n  }\n  return \&#34;&lt;unknown&gt;\&#34;;\n}\n\nint main() {\n  std::println(\&#34;{}\&#34;, to_string(Color::red));\n  std::println(\&#34;{}\&#34;, to_string(Color::green));\n  std::println(\&#34;{}\&#34;, to_string(Color::blue));\n}\n&#34;}, {&#34;id&#34;: &#34;debfb987ba31357c31e59a06c81bbfcef765290d&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nvoid process(int id, double value, const char* name) {}\n\nint main() {\n  template for (constexpr auto p : std::define_static_array(std::meta::parameters_of(^^process))) {\n    std::println(\&#34;\u30d1\u30e9\u30e1\u30fc\u30bf: {} (\u578b: {})\&#34;,\n      std::meta::identifier_of(p),\n      std::meta::display_string_of(std::meta::type_of(p)));\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;9bef0d1d173b9dbefd6082856b1426c96b2d8162&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;functional&gt;\n#include &lt;string&gt;\n#include &lt;print&gt;\n\n// std::hash&lt;T&gt;\u304c\u4f7f\u7528\u53ef\u80fd\u304b\u3092\u5224\u5b9a\u3059\u308b\u30b3\u30f3\u30bb\u30d7\u30c8\ntemplate &lt;class T&gt;\nconcept has_std_hash = requires(const T&amp; x) {\n  { std::hash&lt;T&gt;{}(x) } -&gt; std::convertible_to&lt;std::size_t&gt;;\n};\n\ntemplate &lt;class T&gt;\nconstexpr std::size_t hash_value(const T&amp; obj) {\n  if constexpr (has_std_hash&lt;T&gt;) {\n    // std::hash\u304c\u7279\u6b8a\u5316\u3055\u308c\u3066\u3044\u308c\u3070\u5229\u7528\u3059\u308b\n    return std::hash&lt;T&gt;{}(obj);\n  } else {\n    // \u7279\u6b8a\u5316\u3055\u308c\u3066\u3044\u306a\u3051\u308c\u3070\u3001\u5404\u30e1\u30f3\u30d0\u306e\u30cf\u30c3\u30b7\u30e5\u5024\u3092\u518d\u5e30\u7684\u306b\u8a08\u7b97\u3057\u3066XOR\u3067\u5408\u6210\n    std::size_t result = 0;\n    template for (constexpr auto m :\n        std::define_static_array(std::meta::nonstatic_data_members_of(^^T,\n            std::meta::access_context::unchecked()))) {\n      result ^= hash_value(obj.[:m:]);\n    }\n    return result;\n  }\n}\n\nstruct Inner {\n  int a;\n  std::string b;\n};\n\nstruct Outer {\n  int x;\n  Inner inner;  // \u30cd\u30b9\u30c8\u3057\u305f\u30af\u30e9\u30b9\u578b\u3082\u518d\u5e30\u7684\u306b\u30cf\u30c3\u30b7\u30e5\u5316\u3055\u308c\u308b\n};\n\nint main() {\n  Outer o1{10, {1, \&#34;hello\&#34;}};\n  Outer o2{10, {1, \&#34;hello\&#34;}};\n  Outer o3{10, {2, \&#34;hello\&#34;}};\n\n  std::println(\&#34;hash(o1) == hash(o2): {}\&#34;, hash_value(o1) == hash_value(o2));\n  std::println(\&#34;hash(o1) == hash(o3): {}\&#34;, hash_value(o1) == hash_value(o3));\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;reflection&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T09:33:05">
-        2026年04月20日 09時33分05秒
+      <span itemprop="datePublished" content="2026-04-20T10:03:41">
+        2026年04月20日 10時03分41秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -615,6 +615,65 @@ blue
 <p><pre><code>パラメータ: id (型: int)
 パラメータ: value (型: double)
 パラメータ: name (型: const char*)
+</code></pre></p>
+<h3>任意の型のハッシュ値を自動で求める</h3>
+<p>リフレクションを使うことで、任意のクラス型に対する汎用的なハッシュ関数を実装できる。以下の例では以下の方針で実装する：</p>
+<ul>
+<li><code><a href="../../reference/functional/hash.html">std::hash</a>&lt;T&gt;</code>が特殊化されていればそれを使う</li>
+<li>特殊化されていない場合は、クラスのすべての非静的データメンバに対して再帰的にハッシュ値を計算しXORで合成する</li>
+</ul>
+<p>これにより、ネストしたクラス型に対しても自動的にハッシュ値を計算できる。</p>
+<p><div class="yata" id="9bef0d1d173b9dbefd6082856b1426c96b2d8162"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/meta.html">&lt;meta&gt;</a></span>
+<span class="cp">#include <a href="../../reference/functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../../reference/string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../reference/print.html">&lt;print&gt;</a></span>
+
+<span class="c1">// <a href="../../reference/functional/hash.html">std::hash</a>&lt;T&gt;が使用可能かを判定するコンセプト</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">has_std_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../reference/functional/hash.html">std::hash</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{}(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../reference/concepts/convertible_to.html">std::convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">hash_value</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n">has_std_hash</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// <a href="../../reference/functional/hash.html">std::hash</a>が特殊化されていれば利用する</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/functional/hash.html">std::hash</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{}(</span><span class="n">obj</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 特殊化されていなければ、各メンバのハッシュ値を再帰的に計算してXORで合成</span>
+<span class="w">    </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">:</span>
+<span class="w">        </span><span class="n"><a href="../../reference/meta/define_static_array.html">std::define_static_array</a></span><span class="p">(</span><span class="n"><a href="../../reference/meta/nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">T</span><span class="p">,</span>
+<span class="w">            </span><span class="n"><a href="../../reference/meta/access_context/unchecked.html">std::meta::access_context::unchecked</a></span><span class="p">())))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="n">hash_value</span><span class="p">(</span><span class="n">obj</span><span class="p">.[</span><span class="o">:</span><span class="n">m</span><span class="o">:</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Inner</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Outer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Inner</span><span class="w"> </span><span class="n">inner</span><span class="p">;</span><span class="w">  </span><span class="c1">// ネストしたクラス型も再帰的にハッシュ化される</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Outer</span><span class="w"> </span><span class="n">o1</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">}};</span>
+<span class="w">  </span><span class="n">Outer</span><span class="w"> </span><span class="n">o2</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">}};</span>
+<span class="w">  </span><span class="n">Outer</span><span class="w"> </span><span class="n">o3</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">}};</span>
+
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"hash(o1) == hash(o2): {}"</span><span class="p">,</span><span class="w"> </span><span class="n">hash_value</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_value</span><span class="p">(</span><span class="n">o2</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="../../reference/print/println.html">std::println</a></span><span class="p">(</span><span class="s">"hash(o1) == hash(o3): {}"</span><span class="p">,</span><span class="w"> </span><span class="n">hash_value</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_value</span><span class="p">(</span><span class="n">o3</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>hash(o1) == hash(o2): true
+hash(o1) == hash(o3): false
 </code></pre></p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
 <ul>
