@@ -134,7 +134,7 @@ struct awaitable-receiver {
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 
-説明用の式`rcvr`を`awaitable-receiver`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。このとき
+説明用の式`rcvr`を`awaitable-receiver`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。ある部分式`expr`に対する`MAKE-NOEXCEPT(expr)`を`[] noexcept -> decltype(auto) { return (expr); }()`と等価な式とする。このとき
 
 - [`constructible_from`](/reference/concepts/constructible_from.md)`<result-type, decltype((vs))...>`を満たすとき、式[`set_value`](set_value.md)`(rcvr, vs...)`は下記と等価。そうでなければ、式`set_value(rcvr, vs...)`は不適格となる。
 
@@ -144,7 +144,7 @@ struct awaitable-receiver {
     } catch(...) {
       rcvr.result-ptr->template emplace<2>(current_exception());
     }
-    rcvr.continuation.resume();
+    MAKE-NOEXCEPT(rcvr.continuation.resume());
     ```
     * template emplace[link /reference/variant/variant/emplace.md]
     * current_exception()[link /reference/exception/current_exception.md]
@@ -153,17 +153,22 @@ struct awaitable-receiver {
 - 式[`set_error`](set_error.md)`(rcvr, err)`は下記と等価。
 
     ```cpp
-    rcvr.result-ptr->template emplace<2>(AS-EXCEPT-PTR(err));
-    rcvr.continuation.resume();
+    try {
+      rcvr.result-ptr->template emplace<2>(AS-EXCEPT-PTR(err));
+    } catch(...) {
+      rcvr.result-ptr->template emplace<2>(current_exception());
+    }
+    MAKE-NOEXCEPT(rcvr.continuation.resume());
     ```
     * AS-EXCEPT-PTR[italic]
     * template emplace[link /reference/variant/variant/emplace.md]
+    * current_exception()[link /reference/exception/current_exception.md]
     * resume()[link /reference/coroutine/coroutine_handle/resume.md]
 
 - 式[`set_stopped`](set_stopped.md)`(rcvr)`は下記と等価。
 
     ```cpp
-    static_cast<coroutine_handle<>>(rcvr.continuation.promise().unhandled_stopped()).resume();
+    MAKE-NOEXCEPT(static_cast<coroutine_handle<>>(rcvr.continuation.promise().unhandled_stopped()).resume());
     ```
     * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
     * promise()[link /reference/coroutine/coroutine_handle/promise.md]
@@ -172,7 +177,7 @@ struct awaitable-receiver {
 - [`forwarding-query`](../forwarding-query.md)を満たす型の式`tag`とパック式`as`に対して、式[`get_env`](get_env.md)`(crcvr).query(tag, as...)`は下記と等価。
 
     ```cpp
-    tag(get_env(as_const(crcvr.continuation.promise())), as...)
+    tag(get_env(as_const(MAKE-NOEXCEPT(crcvr.continuation.promise()))), as...)
     ```
     * get_env[link get_env.md]
     * as_const[link /reference/utility/as_const.md]
@@ -239,3 +244,4 @@ value-type await_resume();
 - [P3570R2 optional variants in sender/receiver](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html)
 - [LWG4358 §[exec.as.awaitable] is using "Preconditions:" when it should probably be described in the constraint](https://cplusplus.github.io/LWG/issue4358)
 - [LWG4360 `awaitable-sender` concept should qualify use of `awaitable-receiver` type](https://cplusplus.github.io/LWG/issue4360)
+- [LWG4133 `awaitable-receiver`'s members are potentially throwing](https://cplusplus.github.io/LWG/issue4133)
