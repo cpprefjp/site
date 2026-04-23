@@ -32,7 +32,8 @@ enum class Color { red, green, blue };
 template <typename E>
   requires std::is_enum_v<E>
 constexpr std::string_view to_string(E value) {
-  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E)) { // 型から列挙子のリストを取得
+  // 型Eから列挙子のリストを取得
+  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E)) {
     if (value == [:e:]) {
       return std::meta::identifier_of(e); // 列挙子の名前を文字列として取得
     }
@@ -85,7 +86,7 @@ void f(double);
 // constexpr auto r = ^^f;  // エラー: fはオーバーロードされている
 ```
 
-オーバーロードされた関数の個々のオーバーロードを取得するには、[`members_of()`](/reference/meta/members_of.md)を使用する。`members_of()`は各オーバーロードを個別のリフレクションとして返す。
+オーバーロードされた関数がクラスのメンバ関数である場合、個々のオーバーロードを取得するには[`members_of()`](/reference/meta/members_of.md)を使用する。`members_of()`は各オーバーロードを個別のリフレクションとして返す。
 
 ```cpp
 struct S {
@@ -103,6 +104,8 @@ consteval {
 * std::meta::members_of[link /reference/meta/members_of.md]
 * std::meta::access_context[link /reference/meta/access_context.md]
 * unchecked[link /reference/meta/access_context/unchecked.md]
+
+非メンバ関数（名前空間スコープの関数）の場合、オーバーロード集合そのものをリフレクションとして取得する手段は存在しない。そのため、非メンバ関数でオーバーロード集合から特定のオーバーロードを扱いたい場合は、関数ポインタ型にキャストして型を明示するなどの手段が必要となる。汎用的に関数のオーバーロードをリフレクションで扱いたい場合は、クラスのメンバ関数として定義することが必要になる。
 
 また、スプライスで関数のリフレクションを式に変換する場合、オーバーロード解決は行われず、そのリフレクションが表す特定の関数が直接使用される。
 
