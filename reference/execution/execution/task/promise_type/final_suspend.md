@@ -19,7 +19,7 @@ auto final_suspend() noexcept;
 
 - `errors.`[`index()`](/reference/variant/variant/index.md)が`0`より大きいとき、`e`を`errors`が保持する値として[`set_error`](../../set_error.md)`(std::move(RCVR(*this)), std::move(e))`。そうでなければ、
 - [`is_void`](/reference/type_traits/is_void.md)`<T>`が`true`のとき、[`set_value`](../../set_value.md)`(std::move(RCVR(*this)))`。そうでなければ、
-- [`set_value`](../../set_value.md)`(std::move(RCVR(*this)), *result)`
+- [`set_value`](../../set_value.md)`(std::move(RCVR(*this)), std::move(*result))`
 
 
 ## 例外
@@ -39,3 +39,4 @@ auto final_suspend() noexcept;
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+- [LWG4525. `task`'s `final_suspend` should `move` the result](https://cplusplus.github.io/LWG/issue4525)
