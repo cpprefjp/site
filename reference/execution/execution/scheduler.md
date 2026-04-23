@@ -12,6 +12,7 @@ namespace std::execution {
     queryable<Sch> &&
     requires(Sch&& sch) {
       { schedule(std::forward<Sch>(sch)) } -> sender;
+      { get_forward_progress_guarantee(sch) } -> same_as<forward_progress_guarantee>;
       { auto(get_completion_scheduler<set_value_t>(
           get_env(schedule(std::forward<Sch>(sch))))) }
             -> same_as<remove_cvref_t<Sch>>;
@@ -26,6 +27,8 @@ namespace std::execution {
 * sender[link sender.md]
 * queryable[link ../queryable.md]
 * schedule[link schedule.md]
+* get_forward_progress_guarantee[link get_forward_progress_guarantee.md]
+* forward_progress_guarantee[link forward_progress_guarantee.md]
 * get_completion_scheduler[link get_completion_scheduler.md]
 * set_value_t[link set_value.md]
 * get_env[link get_env.md]
@@ -40,6 +43,7 @@ namespace std::execution {
 - [クエリ可能オブジェクト](../queryable.md)である
 - `Sch`型の値`sch`に対して下記を満たすこと
     - [`execution::schedule`](schedule.md)`(sch)`が[Sender](sender.md)を返す
+    - [`execution::get_forward_progress_guarantee`](get_forward_progress_guarantee.md)`(sch)`が[`forward_progress_guarantee`](forward_progress_guarantee.md)列挙値を返す
     - 上記Senderの[値完了関数](set_value.md)の[完了Scheduler](get_completion_scheduler.md)が`Sch`に等しいこと
 - コピー可能かつ同値比較可能
 
@@ -113,3 +117,4 @@ int main()
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [LWG4354. Reconsider `weakly_parallel` as the default `forward_progress_guarantee`](https://cplusplus.github.io/LWG/issue4354)
