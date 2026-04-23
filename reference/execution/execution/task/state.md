@@ -17,13 +17,17 @@ namespace std::execution {
     template <class Rcvr>
     state(coroutine_handle<promise_type> h, Rcvr&& rr);
     ~state();
+
     void start() & noexcept;
 
+    stop_token_type get-stop-token(); // exposition only
+
   private:
-    using own-env-t = see below;     // exposition only
+    using own-env-t = see below;      // exposition only
     coroutine_handle<promise_type> handle;  // exposition only
     remove_cvref_t<R>              rcvr;    // exposition only
     own-env-t                      own-env; // exposition only
+    optional<stop_source_type>     source;  // exposition only
     Environment                    environment; // exposition only
     optional<T>                    result;  // exposition only; is_void_v<T>がfalseのときのみ有効
     exception_ptr                  error;   // exposition only
@@ -36,6 +40,7 @@ namespace std::execution {
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * promise_type[link promise_type.md]
 * optional[link /reference/optional/optional.md]
+* stop_source_type[link ../task.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * own-env-t[italic]
 
@@ -80,13 +85,18 @@ void start() & noexcept;
     - `RCVR(prom)` : `rcvr`
     - `SCHED(prom)` : 式が有効ならば[`scheduler_type`](../task.md)`(`[`get_scheduler`](../get_scheduler.md)`(`[`get_env`](../get_env.md)`(rcvr)))`で初期化したオブジェクト、そうでなれば`scheduler_type()`。いずれの式も適格でなければ、プログラムは不適格となる。
 
-    説明用の`st`を[`get_stop_token`](../../get_stop_token.md)`(`[`get_env`](../get_env.md)`(rcvr))`とする。`prom.token`と`prom.source`を下記のように初期化する。
-
-    - `prom.token.`[`stop_requested()`](/reference/stop_token/stoppable_token.md) : `st.stop_requested()`を返す。
-    - `prom.token.`[`stop_possible()`](/reference/stop_token/stoppable_token.md) : `st.stop_possible()`を返す。
-    ― 型`Fn`と型`Init`をそれぞれ[`invocable`](/reference/concepts/invocable.md)`<F>`と[`constructible_from`](/reference/concepts/constructible_from.md)`<Fn, Init>`のモデルとしたとき、[`stop_token::callback_type`](/reference/stop_token/stoppable_token.md)`<Fn>`は[`stoppable-callback-for`](/reference/stop_token/stoppable_token.md)`<Fn,` [`stop_token_type`](../task.md)`, Init>`のモデルである。
-
     その後、`handle.`[`resume()`](/reference/coroutine/coroutine_handle/resume.md)を呼び出す。
+
+```cpp
+stop_token_type get-stop-token();
+```
+
+- 効果 : [`same_as`](/reference/concepts/same_as.md)`<decltype(declval<`[`stop_source_type`](../task.md)`>().get_token()), decltype(`[`get_stop_token`](../../get_stop_token.md)`(get_env(rcvr)))>`が`true`のとき、`get_stop_token(get_env(rcvr))`を返す。そうではなく、`source.`[`has_value()`](/reference/optional/optional/has_value.md)が`false`のとき、下記の値で`source`を初期化する。
+
+    - `source->stop_requested()`は`get_stop_token(get_env(rcvr))->stop_requested()`を返し、かつ
+    - `source->stop_possible()`は`get_stop_token(get_env(rcvr))->stop_possible()`を返す。
+
+    最後に、`source->get_token()`を返す。
 
 
 ## バージョン
@@ -101,3 +111,4 @@ void start() & noexcept;
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4339. `task`'s coroutine frame may be released late](https://cplusplus.github.io/LWG/issue4339)
+- [LWG4347. `task`'s stop source is always created](https://cplusplus.github.io/LWG/issue4347)
