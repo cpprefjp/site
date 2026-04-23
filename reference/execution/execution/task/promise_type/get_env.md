@@ -19,7 +19,7 @@ unspecified get_env() const noexcept;
 - `env.query(`[`get_scheduler`](../../get_scheduler.md)`)`は[`scheduler_type`](../../task.md)`(SCHED(*this))`を返す。
 - `env.query(`[`get_allocator`](../../../get_allocator.md)`)`は`alloc`を返す。
 - `env.query(`[`get_stop_token`](../../../get_stop_token.md)`)`は`token`を返す。
-- 上記以外の問い合わせ`q`と引数`a...`に対して、式が妥当かつ[`forwarding_query`](../../../forwarding_query.md)`(q)`が妥当で`true`となるとき、呼び出し`env.query(q, a...)`は`STATE(*this)`を返す。そうでなければ、`env.query(q, a...)`は不適格となる。
+- 上記以外の問い合わせ`q`と引数`a...`に対して、式が妥当かつ[`forwarding_query`](../../../forwarding_query.md)`(q)`が妥当で`true`となるとき、呼び出し`env.query(q, a...)`は[`STATE(*this)`](../state.md)を返す。そうでなければ、`env.query(q, a...)`は不適格となる。
 
 
 ## 例外

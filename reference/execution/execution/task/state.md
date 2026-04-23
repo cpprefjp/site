@@ -25,6 +25,8 @@ namespace std::execution {
     remove_cvref_t<R>              rcvr;    // exposition only
     own-env-t                      own-env; // exposition only
     Environment                    environment; // exposition only
+    optional<T>                    result;  // exposition only; is_void_v<T>がfalseのときのみ有効
+    exception_ptr                  error;   // exposition only
   };
 }
 ```
@@ -33,6 +35,8 @@ namespace std::execution {
 * operation_state_t[link ../operation_state.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * promise_type[link promise_type.md]
+* optional[link /reference/optional/optional.md]
+* exception_ptr[link /reference/exception/exception_ptr.md]
 * own-env-t[italic]
 
 ## 概要
@@ -96,3 +100,4 @@ void start() & noexcept;
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+- [LWG4339. `task`'s coroutine frame may be released late](https://cplusplus.github.io/LWG/issue4339)

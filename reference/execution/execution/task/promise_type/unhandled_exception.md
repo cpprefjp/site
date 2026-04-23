@@ -15,7 +15,7 @@ void unhandled_exception();
 
 
 ## 効果
-完了シグネチャ[`set_error_t`](../../set_error.md)`(`[`exception_ptr`](/reference/exception/exception_ptr.md)`)`が[`error_types`](../../task.md)の要素でないとき、[`terminate()`](/reference/exception/terminate.md)を呼び出す。そうでなければ、`errors`に[`current_exception()`](/reference/exception/current_exception.md)を格納する。
+完了シグネチャ[`set_error_t`](../../set_error.md)`(`[`exception_ptr`](/reference/exception/exception_ptr.md)`)`が[`error_types`](../../task.md)の要素でないとき、[`terminate()`](/reference/exception/terminate.md)を呼び出す。そうでなければ、[`STATE(*this)`](../state.md)`.error`に[`current_exception()`](/reference/exception/current_exception.md)を格納する。
 
 
 ## バージョン
@@ -32,3 +32,4 @@ void unhandled_exception();
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4415. `task::promise_type::uncaught_exception` seems to be misnamed](https://cplusplus.github.io/LWG/issue4415)
+- [LWG4339. `task`'s coroutine frame may be released late](https://cplusplus.github.io/LWG/issue4339)
