@@ -136,7 +136,7 @@ struct awaitable-receiver {
 
 説明用の式`rcvr`を`awaitable-receiver`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。ある部分式`expr`に対する`MAKE-NOEXCEPT(expr)`を`[] noexcept -> decltype(auto) { return (expr); }()`と等価な式とする。このとき
 
-- [`constructible_from`](/reference/concepts/constructible_from.md)`<result-type, decltype((vs))...>`を満たすとき、式[`set_value`](set_value.md)`(rcvr, vs...)`は下記と等価。そうでなければ、式`set_value(rcvr, vs...)`は不適格となる。
+- 式[`set_value`](set_value.md)`(rcvr, vs...)`は下記と等価。[`constructible_from`](/reference/concepts/constructible_from.md)`<result-type, decltype((vs))...>`を満たすこと。
 
     ```cpp
     try {
@@ -245,3 +245,4 @@ value-type await_resume();
 - [LWG4358 §[exec.as.awaitable] is using "Preconditions:" when it should probably be described in the constraint](https://cplusplus.github.io/LWG/issue4358)
 - [LWG4360 `awaitable-sender` concept should qualify use of `awaitable-receiver` type](https://cplusplus.github.io/LWG/issue4360)
 - [LWG4133 `awaitable-receiver`'s members are potentially throwing](https://cplusplus.github.io/LWG/issue4133)
+- [LWG4361 `awaitable-receiver::set_value` should use Mandates instead of constraints](https://cplusplus.github.io/LWG/issue4361)
