@@ -6,7 +6,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-run-loop-scheduler get_scheduler();
+run-loop-scheduler get_scheduler() noexcept;
 ```
 * run-loop-scheduler[link run-loop-scheduler.md]
 
@@ -16,6 +16,10 @@ run-loop-scheduler get_scheduler();
 
 ## 戻り値
 `run_loop`インスタンス上で作業を[スケジュール](../schedule.md)する[`run-loop-scheduler`](run-loop-scheduler.md)インスタンスを返す。
+
+
+## 例外
+投げない
 
 
 ## 例
@@ -83,3 +87,4 @@ int main()
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG4476. `run_loop` should not have a `set_error` completion](https://cplusplus.github.io/LWG/issue4476)

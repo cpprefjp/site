@@ -6,7 +6,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-void run();
+void run() noexcept;
 ```
 
 ## 概要
@@ -19,7 +19,7 @@ void run();
 ### 説明専用メンバ関数 `pop-front`
 
 ```cpp
-run-loop-opstate-base* pop-front();
+run-loop-opstate-base* pop-front() noexcept;
 ```
 * run-loop-opstate-base[link run-loop-opstate.md]
 
@@ -32,7 +32,7 @@ run-loop-opstate-base* pop-front();
 ### 説明専用メンバ関数 `push-back`
 
 ```cpp
-void push-back(run-loop-opstate-base* item);
+void push-back(run-loop-opstate-base* item) noexcept;
 ```
 * run-loop-opstate-base[link run-loop-opstate.md]
 
@@ -57,6 +57,10 @@ while (auto* op = pop-front()) {
 }
 ```
 * execute()[link run-loop-opstate.md]
+
+
+## 例外
+投げない
 
 
 ## 同期操作
@@ -117,3 +121,4 @@ finished
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [LWG4476. `run_loop` should not have a `set_error` completion](https://cplusplus.github.io/LWG/issue4476)

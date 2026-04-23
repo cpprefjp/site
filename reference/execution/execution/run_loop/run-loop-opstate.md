@@ -21,9 +21,9 @@ struct run-loop-opstate;
 
 ```cpp
 struct run-loop-opstate-base {  // exposition only
-  virtual void execute() = 0;   // exposition only
-  run_loop* loop;               // exposition only
-  run-loop-opstate-base* next;  // exposition only
+  virtual void execute() noexcept = 0;  // exposition only
+  run_loop* loop;                       // exposition only
+  run-loop-opstate-base* next;          // exposition only
 };
 ```
 * run_loop[link ../run_loop.md]
@@ -48,16 +48,9 @@ struct run-loop-opstate-base {  // exposition only
 - 式`start(o)`は下記と等価 :
 
     ```cpp
-    try {
-      o.loop->push-back(addressof(o));
-    } catch(...) {
-      set_error(std::move(REC(o)), current_exception());
-    }
+    o.loop->push-back(addressof(o));
     ```
     * push-back[link run.md]
-    * set_error[link ../set_error.md]
-    * std::move[link /reference/utility/move.md]
-    * current_exception()[link /reference/exception/current_exception.md]
 
 
 ## バージョン
@@ -73,3 +66,4 @@ struct run-loop-opstate-base {  // exposition only
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG4476. `run_loop` should not have a `set_error` completion](https://cplusplus.github.io/LWG/issue4476)
