@@ -36,7 +36,14 @@ namespace std::execution {
 
 `error_types`が[`completion_signatures`](completion_signatures.md)`<ErrorSigs...>`の特殊化ではない、もしくは`ErrorSigs`が[`set_error_t`](set_error.md)`(E)`が適格でない要素型`E`を含むとき、プログラムは不適格となる。
 
-型エイリアス`completion_signatures`は、（未規定の順序で）次のテンプレート実引数をもつ[`execution::completion_signatures`](completion_signatures.md)の特殊化となる :
+`task`クラステンプレートは、下記の静的メンバ関数テンプレートを定義する。
+
+```cpp
+template<class Self, class... Env>
+static consteval auto get_completion_signatures();
+```
+
+戻り値 : （未規定の順序で）次のテンプレート実引数をもつ[`execution::completion_signatures`](completion_signatures.md)の特殊化を型`C`としたとき、`C()`を返す。
 
 - `T`が`void`のとき[`set_value_t`](set_value.md)`()`、そうでなければ`set_value_t(T)`
 - `error_types`で表される[`execution::completion_signatures`](completion_signatures.md)の特殊化のテンプレート実引数（エラー型`Err`を持つ[`set_error_t`](set_error.md)`(Err)`）
@@ -57,7 +64,6 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `sender_concept` | [`sender_t`](sender.md) | C++26 |
-| `completion_signatures` | [完了シグネチャ集合](completion_signatures.md) | C++26 |
 | `allocator_type` | コルーチンのアロケータ型 | C++26 |
 | `scheduler_type` | コルーチンのScheduler型 | C++26 |
 | `stop_source_type` | コルーチンの停止ソース型 | C++26 |
@@ -124,4 +130,5 @@ int main()
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4343. Missing default template arguments for `task`](https://cplusplus.github.io/LWG/issue4343)
+- [LWG4528. `task` needs `get_completion_signatures()`](https://cplusplus.github.io/LWG/issue4528)
 - C++now 2025, [Getting The Lazy Task Done](https://schedule.cppnow.org/wp-content/uploads/2025/03/Getting_The_Lazy_Task_Done.pdf)
