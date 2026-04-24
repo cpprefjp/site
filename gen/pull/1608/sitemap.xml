@@ -5225,14 +5225,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/iostream/wcout.html</loc>
-      <lastmod>2026-04-08T14:11:49+09:00</lastmod>
+      <lastmod>2026-04-24T13:15:37+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/iostream/cin.html</loc>
-      <lastmod>2026-04-10T16:07:15+09:00</lastmod>
+      <lastmod>2026-04-24T13:11:30+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -5253,7 +5253,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/iostream/wcin.html</loc>
-      <lastmod>2026-04-10T16:16:18+09:00</lastmod>
+      <lastmod>2026-04-24T13:15:37+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -7794,7 +7794,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ios/basic_ios/tie.html</loc>
-      <lastmod>2026-04-10T16:07:15+09:00</lastmod>
+      <lastmod>2026-04-24T13:18:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -7927,7 +7927,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ios/ios_base/Init.html</loc>
-      <lastmod>2026-04-10T16:07:15+09:00</lastmod>
+      <lastmod>2026-04-24T13:18:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -7941,7 +7941,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ios/ios_base/sync_with_stdio.html</loc>
-      <lastmod>2026-04-10T16:07:15+09:00</lastmod>
+      <lastmod>2026-04-24T13:18:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -8032,14 +8032,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ios/ios_base/Init/op_destructor.html</loc>
-      <lastmod>2026-04-08T14:11:49+09:00</lastmod>
+      <lastmod>2026-04-24T13:18:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.5</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ios/ios_base/Init/op_constructor.html</loc>
-      <lastmod>2026-04-10T16:07:15+09:00</lastmod>
+      <lastmod>2026-04-24T13:18:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.5</priority>
     </url>
