@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T02:44:34.354265</updated>
-  <id>24f8e0c4-9f65-4a36-8b91-0a0e3321e6ca</id>
+  <updated>2026-04-24T02:50:27.615535</updated>
+  <id>5a6bc826-7d47-4fc3-ac78-6f3e8e0c4ed9</id>
 
+  
+    <entry>
+      <title>operator_of -- operator_of : 出力ミスを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/operator_of.html"/>
+      <id>3f275dcd8ef0a8a6b944af4af56b183bc686b9ac:reference/meta/operator_of.md</id>
+      <updated>2026-04-24T11:45:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/operator_of.md b/reference/meta/operator_of.md
+index b37613ff9..71b08757e 100644
+--- a/reference/meta/operator_of.md
++++ b/reference/meta/operator_of.md
+@@ -51,6 +51,8 @@ int main() {
+ ### 出力
+ ```
+ 演算子: ==
++演算子: =
++演算子: =
+ ```
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>reflection_range -- reflection_range : ラムダ式化</title>
@@ -196,116 +223,6 @@ index 11aab3a58..5c9678cdb 100644
  ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
  - [`&amp;lt;meta&amp;gt;`ヘッダ](/reference/meta.md)
  - [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>静的リフレクション [P2996R13] -- reflection : define〜系の解説を強化</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
-      <id>9d2eae52a759c62a62e99e33b2a0a901eca00086:lang/cpp26/reflection.md</id>
-      <updated>2026-04-20T18:33:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
-index 98b458b31..11aab3a58 100644
---- a/lang/cpp26/reflection.md
-+++ b/lang/cpp26/reflection.md
-@@ -263,23 +263,52 @@ template for (constexpr auto m :
- 
- 
- ## `define_static_string` / `define_static_array` / `define_static_object`
--これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。[`std::define_static_string()`](/reference/meta/define_static_string.md)は文字列を、[`std::define_static_array()`](/reference/meta/define_static_array.md)は配列を、[`std::define_static_object()`](/reference/meta/define_static_object.md)はオブジェクトをそれぞれ静的ストレージに配置する。これらは`&amp;lt;meta&amp;gt;`ヘッダで提供されるが、`std`名前空間に定義される（`std::meta`名前空間ではない）。
-+これらは、コンパイル時に計算した値を静的ストレージに配置し、実行時に使用可能にするための関数群である。これらは`&amp;lt;meta&amp;gt;`ヘッダで提供されるが、`std`名前空間に定義される（`std::meta`名前空間ではない）。
-+
-+| 関数 | 説明 |
-+|------|------|
-+| [`std::define_static_string()`](/reference/meta/define_static_string.md) | コンパイル時文字列を静的ストレージに配置し、ヌル終端の`const CharT*`を返す |
-+| [`std::define_static_array()`](/reference/meta/define_static_array.md) | コンパイル時配列を静的ストレージに配置し、[`std::span`](/reference/span/span.md)`&amp;lt;const T&amp;gt;`を返す |
-+| [`std::define_static_object()`](/reference/meta/define_static_object.md) | コンパイル時オブジェクトを静的ストレージに配置し、`const T*`を返す |
-+
-+### 主な用途
-+これらの関数は、以下のようなリフレクションの典型的なユースケースで頻繁に使用される。
-+
-+#### (1) `template for`文のrangeを静的配列に変換する
-+[`members_of()`](/reference/meta/members_of.md)や[`enumerators_of()`](/reference/meta/enumerators_of.md)などのメタ関数は`std::vector&amp;lt;std::meta::info&amp;gt;`を返すが、`std::vector`は動的メモリ確保を伴うため[`template for`文](/lang/cpp26/expansion_statements.md)のrangeとして直接使用できない。[`std::define_static_array()`](/reference/meta/define_static_array.md)で静的ストレージに配置した[`std::span`](/reference/span/span.md)に変換することで、`template for`文で走査できるようになる。
- 
- ```cpp
--// コンパイル時に計算した文字列を実行時に使用する
--template &amp;lt;typename E&amp;gt;
--  requires std::is_enum_v&amp;lt;E&amp;gt;
--constexpr std::string_view enum_to_string(E value) {
--  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {
--    if (value == [:e:]) {
--      return std::meta::identifier_of(e);
--    }
--  }
--  return &amp;#34;&amp;lt;unknown&amp;gt;&amp;#34;;
-+template for (constexpr auto m :
-+    std::define_static_array(std::meta::nonstatic_data_members_of(^^S,
-+        std::meta::access_context::unchecked()))) {
-+  // mを使った処理
- }
- ```
--* std::meta::enumerators_of[link /reference/meta/enumerators_of.md]
--* std::meta::identifier_of[link /reference/meta/identifier_of.md]
-+* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
-+* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
-+
-+#### (2) コンパイル時文字列を実行時に返す
-+コンパイル時に構築した[`std::string`](/reference/string/basic_string.md)や[`std::string_view`](/reference/string_view/basic_string_view.md)は、そのままでは実行時にアクセスできない（一時オブジェクトの寿命が尽きる、または`consteval`型の制約）。[`std::define_static_string()`](/reference/meta/define_static_string.md)で静的ストレージに配置することで、ヌル終端の`const char*`として実行時まで持ち越せる。
-+
-+ただし、[`identifier_of()`](/reference/meta/identifier_of.md)のように既に`string_view`を返す関数は、そのまま戻り値として返せる場合もある（静的ストレージに存在する識別子の文字列を指すため）。
-+
-+#### (3) アノテーションの文字列リテラル
-+アノテーションの式は構造的型でなければならず、文字列リテラルを直接メンバとして持つと寿命の問題が生じる可能性がある。[`std::define_static_string()`](/reference/meta/define_static_string.md)で静的ストレージに配置することで、安全に`const char*`メンバに格納できる。
-+
-+```cpp
-+struct Name { const char* value; };
-+struct [[=Name{std::define_static_string(&amp;#34;ラベル&amp;#34;)}]] Tagged {};
-+```
-+
-+#### (4) コンパイル時に構築したオブジェクトを実行時に参照する
-+コンパイル時に構築した任意のオブジェクトを静的ストレージに配置し、実行時にポインタで参照するには[`std::define_static_object()`](/reference/meta/define_static_object.md)を使用する。
-+
-+```cpp
-+struct Config { int width; int height; };
-+
-+// コンパイル時に構築したConfigオブジェクトを静的ストレージに配置
-+constexpr const Config* config = std::define_static_object(Config{1920, 1080});
-+```
- 
- 
- ## リフレクションのエラー処理
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>is_string_literal -- reflection : define〜系の解説を強化</title>
-      <link href="https://cpprefjp.github.io/reference/meta/is_string_literal.html"/>
-      <id>9d2eae52a759c62a62e99e33b2a0a901eca00086:reference/meta/is_string_literal.md</id>
-      <updated>2026-04-20T18:33:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_string_literal.md b/reference/meta/is_string_literal.md
-index c6feba76f..a892fe6df 100644
---- a/reference/meta/is_string_literal.md
-+++ b/reference/meta/is_string_literal.md
-@@ -59,7 +59,6 @@ int main() {
- }
- ```
- * std::is_string_literal[color ff0000]
--* std::define_static_string[link define_static_string.md]
- 
- ### 出力
- ```
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
