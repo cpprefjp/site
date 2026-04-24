@@ -229,23 +229,23 @@
 <h2>仕様</h2>
 <p><a class="cpprefjp-defined-word" data-desc="定数テンプレートパラメータ。constant template parameter。テンプレートパラメータのうち、型ではなく値をとるもの。C++23以前は「非型テンプレートパラメータ (non-type template parameter)」と呼ばれていた">非型テンプレートパラメータ</a>として、以下のいずれかに分類される型のオブジェクトを受け取ることができる：</p>
 <ul>
-<li><a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a></li>
+<li><a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a></li>
 <li><a href="../cpp17/declaring_non-type_template_arguments_with_auto.html">プレースホルダ型を含む型</a> (<code>template &lt;auto V&gt; class X;</code>の<code>auto</code>)</li>
 <li>推論用クラス型のプレースホルダ (<code>template &lt;class T&gt; A;</code>があったときの<code>A x{};</code>のようなクラステンプレートのテンプレート引数推論を意図した型指定)</li>
 </ul>
-<p><a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a> (structural type) とは以下のいずれかに分類される型である：</p>
+<p><a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a> (structural type) とは以下のいずれかに分類される型である：</p>
 <ul>
 <li><a href="../../reference/type_traits/is_scalar.html">スカラ型</a></li>
 <li><a href="../../reference/type_traits/is_lvalue_reference.html">左辺値参照型</a></li>
 <li>以下の特徴をもつリテラルクラス型：<ul>
 <li>すべての基本クラスと非静的メンバ変数が<code>public</code>かつ非<code>mutable</code>であり、</li>
-<li>すべての基本クラスと非静的メンバ変数が<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>もしくはその (多次元) 配列である</li>
+<li>すべての基本クラスと非静的メンバ変数が<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>もしくはその (多次元) 配列である</li>
 </ul>
 </li>
 </ul>
 <h2>備考</h2>
 <ul>
-<li>C++20では<code><a href="../../reference/vector/vector.html">std::vector</a></code>および<code><a href="../../reference/string/basic_string.html">std::basic_string</a></code>を定数式内で使用できるようになるが、これらの型はC++20時点では<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>に分類されないため、そのオブジェクトをテンプレート引数として渡すことはできない<ul>
+<li>C++20では<code><a href="../../reference/vector/vector.html">std::vector</a></code>および<code><a href="../../reference/string/basic_string.html">std::basic_string</a></code>を定数式内で使用できるようになるが、これらの型はC++20時点では<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>に分類されないため、そのオブジェクトをテンプレート引数として渡すことはできない<ul>
 <li><a href="more_constexpr_containers.html">C++20 可変サイズをもつコンテナのconstexpr化</a></li>
 </ul>
 </li>
@@ -379,7 +379,7 @@
 <h2>備考</h2>
 <ul>
 <li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=97930" target="_blank">Bug 97930 - <code>pair</code> is not a structural type</a><ul>
-<li>GCC 10では<code>pair</code>が<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>とみなされないバグがある。GCC 11で修正済み</li>
+<li>GCC 10では<code>pair</code>が<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>とみなされないバグがある。GCC 11で修正済み</li>
 </ul>
 </li>
 </ul>

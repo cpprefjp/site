@@ -223,7 +223,7 @@
 <ul>
 <li><strong>リフレクション演算子<code>^^</code></strong> : 型、名前空間、変数、関数、メンバなどのプログラム要素から、その情報を表すコンパイル時の値（リフレクション）を生成する</li>
 <li><strong>スプライス演算子<code>[: :]</code></strong> : リフレクションをプログラム要素（型、式、テンプレート引数など）に変換して挿入する</li>
-<li><strong><code>std::meta::info</code>型</strong> : リフレクションを表すスカラ型。<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a> (structural type) であり、<a class="cpprefjp-defined-word" data-desc="constant template parameter。テンプレートパラメータのうち、型ではなく値をとるもの。C++23以前は「非型テンプレートパラメータ (non-type template parameter)」と呼ばれていた">定数テンプレートパラメータ</a>として使用できる</li>
+<li><strong><code>std::meta::info</code>型</strong> : リフレクションを表すスカラ型。<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a> (structural type) であり、<a class="cpprefjp-defined-word" data-desc="constant template parameter。テンプレートパラメータのうち、型ではなく値をとるもの。C++23以前は「非型テンプレートパラメータ (non-type template parameter)」と呼ばれていた">定数テンプレートパラメータ</a>として使用できる</li>
 <li><strong><code>&lt;meta&gt;</code>ヘッダ</strong> : リフレクションを操作するためのメタ関数群を提供する新しいヘッダ</li>
 <li><strong><code>consteval</code>ブロック</strong> : <code>consteval { ... }</code>によるコンパイル時副作用の実行</li>
 <li><strong>アノテーション</strong> : 宣言にコンパイル時定数を付加し、リフレクションで取得できる機構</li>
@@ -425,7 +425,7 @@
 <li><code><a href="../../reference/meta.html">&lt;meta&gt;</a></code>ヘッダで<code>using info = decltype(^^::);</code>として定義される。<code>^^::</code>はグローバル名前空間のリフレクションを生成する式であり、<code>decltype</code>でその型を取得している</li>
 <li>スカラ型であり、クラス型ではない</li>
 <li><code>==</code>と<code>!=</code>をサポートするが、順序比較（<code>&lt;</code>, <code>&gt;</code>, <code>&lt;=&gt;</code>）はサポートしない</li>
-<li><a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a> (structural type) であり、<a class="cpprefjp-defined-word" data-desc="constant template parameter。テンプレートパラメータのうち、型ではなく値をとるもの。C++23以前は「非型テンプレートパラメータ (non-type template parameter)」と呼ばれていた">定数テンプレートパラメータ</a>として使用できる</li>
+<li><a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a> (structural type) であり、<a class="cpprefjp-defined-word" data-desc="constant template parameter。テンプレートパラメータのうち、型ではなく値をとるもの。C++23以前は「非型テンプレートパラメータ (non-type template parameter)」と呼ばれていた">定数テンプレートパラメータ</a>として使用できる</li>
 <li>consteval-only型であり、実行時には存在できない</li>
 </ul>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 定数テンプレートパラメータとして使用する例</span>
@@ -468,7 +468,7 @@
 <span class="p">};</span>
 </code></pre></div>
 </p>
-<p>アノテーションの式は<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>でなければならない。アノテーションの取得には<code><a href="../../reference/meta/annotations_of.html">annotations_of()</a></code>や<code><a href="../../reference/meta/annotations_of_with_type.html">annotations_of_with_type()</a></code>メタ関数を使用する。</p>
+<p>アノテーションの式は<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>でなければならない。アノテーションの取得には<code><a href="../../reference/meta/annotations_of.html">annotations_of()</a></code>や<code><a href="../../reference/meta/annotations_of_with_type.html">annotations_of_with_type()</a></code>メタ関数を使用する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
 <span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="n"><a href="../../reference/meta/define_static_string.html">std::define_static_string</a></span><span class="p">(</span><span class="s">"点"</span><span class="p">)}]]</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="p">{</span>
@@ -532,7 +532,7 @@
 <p>コンパイル時に構築した<code><a href="../../reference/string/basic_string.html">std::string</a></code>や<code><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></code>は、そのままでは実行時にアクセスできない（一時オブジェクトの寿命が尽きる、または<code>consteval</code>型の制約）。<code><a href="../../reference/meta/define_static_string.html">std::define_static_string()</a></code>で静的ストレージに配置することで、<a class="cpprefjp-defined-word" data-desc="null-terminated。文字列においてヌル文字 '\0' を用いてその終端を表すこと。ヌル文字自体は文字列に含まない。広義には線形データ構造においてヌルまたは値 0 を番兵としてその終わりを示すこと">ヌル終端</a>の<code>const char*</code>として実行時まで持ち越せる。</p>
 <p>ただし、<code><a href="../../reference/meta/identifier_of.html">identifier_of()</a></code>のように既に<code>string_view</code>を返す関数は、そのまま<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として返せる場合もある（静的ストレージに存在する識別子の文字列を指すため）。</p>
 <h4>(3) アノテーションの文字列リテラル</h4>
-<p>アノテーションの式は<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスと非静的データメンバがpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>でなければならず、文字列リテラルを直接メンバとして持つと寿命の問題が生じる可能性がある。<code><a href="../../reference/meta/define_static_string.html">std::define_static_string()</a></code>で静的ストレージに配置することで、安全に<code>const char*</code>メンバに格納できる。</p>
+<p>アノテーションの式は<a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>でなければならず、文字列リテラルを直接メンバとして持つと寿命の問題が生じる可能性がある。<code><a href="../../reference/meta/define_static_string.html">std::define_static_string()</a></code>で静的ストレージに配置することで、安全に<code>const char*</code>メンバに格納できる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 <span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="o">=</span><span class="n">Name</span><span class="p">{</span><span class="n"><a href="../../reference/meta/define_static_string.html">std::define_static_string</a></span><span class="p">(</span><span class="s">"ラベル"</span><span class="p">)}]]</span><span class="w"> </span><span class="n">Tagged</span><span class="w"> </span><span class="p">{};</span>
 </code></pre></div>

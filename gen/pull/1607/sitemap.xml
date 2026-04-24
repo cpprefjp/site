@@ -227,7 +227,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/meta.html</loc>
-      <lastmod>2026-04-13T13:34:31+09:00</lastmod>
+      <lastmod>2026-04-24T13:28:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
@@ -11855,6 +11855,13 @@
     <url>
       <loc>https://cpprefjp.github.io/reference/meta/has_unique_object_representations.html</loc>
       <lastmod>2026-04-09T15:13:07+09:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>https://cpprefjp.github.io/reference/meta/has_inaccessible_subobjects.html</loc>
+      <lastmod>2026-04-24T13:28:07+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>

@@ -1,10 +1,10 @@
 # PR [\#1607](https://github.com/cpprefjp/site/pull/1607) プレビュー
-- &#x231a; 更新時刻: 2026-04-24 13:29:51 JST
+- &#x231a; 更新時刻: 2026-04-24 13:34:18 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1607)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26_reflection)
-- **&#x2AEF;** ソースの変更: [`c8f0f3f..6d42316`](https://github.com/cpprefjp/site/compare/c8f0f3f63e70b87bf9b9d66a9344525331eafa1f..6d423169770b8ed61beb8b3cdef3f042d21373cd)
+- **&#x2AEF;** ソースの変更: [`c8f0f3f..bacfeed`](https://github.com/cpprefjp/site/compare/c8f0f3f63e70b87bf9b9d66a9344525331eafa1f..bacfeed86ca5f4db67f29b799721431694c741a8)
 
-## 変更記事一覧 (258件)
+## 変更記事一覧 (259件)
 
 - &#x1f4dd; [`implementation-status`](https://cpprefjp.github.io/site/gen/pull/1607/implementation-status.html)
 - &#x1f4dd; [`lang/cpp11/attributes`](https://cpprefjp.github.io/site/gen/pull/1607/lang/cpp11/attributes.html)
@@ -60,6 +60,7 @@
 - &#x1f4dd; [`reference/meta/has_identifier`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_identifier.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_inaccessible_bases`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_inaccessible_bases.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_inaccessible_nonstatic_data_members`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_inaccessible_nonstatic_data_members.html) &#x2728;
+- &#x1f4dd; [`reference/meta/has_inaccessible_subobjects`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_inaccessible_subobjects.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_internal_linkage`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_internal_linkage.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_linkage`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_linkage.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_module_linkage`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_module_linkage.html) &#x2728;
