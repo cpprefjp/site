@@ -252,7 +252,9 @@ template for (constexpr auto m :
         std::meta::access_context::unchecked()))) {
   constexpr auto annots = std::meta::annotations_of_with_type(m, ^^Name);
   if constexpr (annots.size() > 0) {
-    std::println("{}: {}", [:annots[0]:].value,
+    // アノテーションは値のリフレクションではないため、
+    // constant_of()で値を取り出してからスプライスする
+    std::println("{}: {}", [:std::meta::constant_of(annots[0]):].value,
                            std::meta::identifier_of(m));
   }
 }
@@ -264,6 +266,7 @@ template for (constexpr auto m :
 * std::meta::access_context[link /reference/meta/access_context.md]
 * unchecked[link /reference/meta/access_context/unchecked.md]
 * std::meta::annotations_of_with_type[link /reference/meta/annotations_of_with_type.md]
+* std::meta::constant_of[link /reference/meta/constant_of.md]
 
 
 ## `define_static_string` / `define_static_array` / `define_static_object`

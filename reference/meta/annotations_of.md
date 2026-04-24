@@ -37,16 +37,19 @@ int main() {
     std::println("  型: {}", std::meta::display_string_of(std::meta::type_of(a)));
 
     // 型ごとに値を取り出して出力
+    // アノテーションは値のリフレクションではないため、
+    // constant_of()で値を取り出してからスプライスする
     if constexpr (std::meta::type_of(a) == ^^Label) {
-      std::println("  値: {}", [:a:].text);
+      std::println("  値: {}", [:std::meta::constant_of(a):].text);
     } else if constexpr (std::meta::type_of(a) == ^^int) {
-      std::println("  値: {}", [:a:]);
+      std::println("  値: {}", [:std::meta::constant_of(a):]);
     }
   }
 }
 ```
 * std::meta::display_string_of[link display_string_of.md]
 * std::meta::type_of[link type_of.md]
+* std::meta::constant_of[link constant_of.md]
 
 ### 出力
 ```

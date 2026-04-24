@@ -36,10 +36,12 @@ int main() {
   template for (constexpr auto a :
       std::define_static_array(
           std::meta::annotations_of_with_type(^^Point, ^^Name))) {
-    std::println("{}", [:a:].value);
+    // constant_of()で値のリフレクションを取り出してからスプライスする
+    std::println("{}", [:std::meta::constant_of(a):].value);
   }
 }
 ```
+* std::meta::constant_of[link constant_of.md]
 
 ### 出力
 ```
