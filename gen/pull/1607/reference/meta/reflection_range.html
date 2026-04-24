@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d5edddddcf9037d2683d99e59d87c1a1aab24542&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;vector&gt;\n\nint main() {\n  // initializer_list\u3067\u6e21\u3059\uff08\u30c7\u30d5\u30a9\u30eb\u30c8\uff09\n  constexpr auto r1 = std::meta::substitute(^^std::vector, {^^int});\n\n  // vector\u3067\u6e21\u3059\n  constexpr std::vector&lt;std::meta::info&gt; args = {^^int};\n  constexpr auto r2 = std::meta::substitute(^^std::vector, args);\n\n  static_assert(r1 == r2);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;reflection_range&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;395773ccbf19bc0dd6bc48351ad6924da5477ef3&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;vector&gt;\n\nint main() {\n  // initializer_list\u3067\u6e21\u3059\uff08\u30c7\u30d5\u30a9\u30eb\u30c8\uff09\n  constexpr auto r1 = std::meta::substitute(^^std::vector, {^^int});\n\n  // vector\u3067\u6e21\u3059\n  constexpr auto r2 = [] consteval {\n    std::vector&lt;std::meta::info&gt; args;\n    args.push_back(^^int);\n    return std::meta::substitute(^^std::vector, args);\n  }();\n\n  static_assert(r1 == r2);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;reflection_range&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-24T02:37:31">
+        2026年04月24日 02時37分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,7 +224,7 @@
 <p><code>reflection_range</code>は、要素型が<code><a href="info.html">std::meta::info</a></code>であるRangeを表すコンセプトである。</p>
 <p><code><a href="substitute.html">substitute()</a></code>、<code><a href="define_aggregate.html">define_aggregate()</a></code>、<code><a href="common_type.html">common_type()</a></code>など、複数のリフレクションをまとめて受け取るメタ関数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a>として使用される。デフォルトのテンプレート引数は<code><a href="../initializer_list/initializer_list.html">std::initializer_list</a>&lt;info&gt;</code>であり、ブレース初期化子リスト<code>{^^int, ^^double}</code>のような形式でリフレクションを渡すことができる。</p>
 <h2>例</h2>
-<p><div class="yata" id="d5edddddcf9037d2683d99e59d87c1a1aab24542"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="395773ccbf19bc0dd6bc48351ad6924da5477ef3"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -232,8 +232,11 @@
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="substitute.html">std::meta::substitute</a></span><span class="p">(</span><span class="o">^^</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="o">^^</span><span class="kt">int</span><span class="p">});</span>
 
 <span class="w">  </span><span class="c1">// vectorで渡す</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="info.html">std::meta::info</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">^^</span><span class="kt">int</span><span class="p">};</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="substitute.html">std::meta::substitute</a></span><span class="p">(</span><span class="o">^^</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="k">consteval</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="info.html">std::meta::info</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">args</span><span class="p">;</span>
+<span class="w">    </span><span class="n">args</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="substitute.html">std::meta::substitute</a></span><span class="p">(</span><span class="o">^^</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}();</span>
 
 <span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">r1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">r2</span><span class="p">);</span>
 <span class="p">}</span>
