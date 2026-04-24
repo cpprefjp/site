@@ -2,9 +2,61 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T04:34:17.330480</updated>
-  <id>8cab0ea4-b205-4968-bf02-6cd3ed3eaff1</id>
+  <updated>2026-04-24T05:13:48.857705</updated>
+  <id>33b66c94-8e00-4246-a28b-bd373c4cea47</id>
 
+  
+    <entry>
+      <title>静的リフレクション [P2996R13] -- reflection : define_static_arrayが不足していた</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
+      <id>3058e2035d4f07a18b3801ce24124a115f35d4ff:lang/cpp26/reflection.md</id>
+      <updated>2026-04-24T14:09:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
+index 45e30d195..9d802962a 100644
+--- a/lang/cpp26/reflection.md
++++ b/lang/cpp26/reflection.md
+@@ -142,8 +142,9 @@ struct S { int x; int y; };
+ consteval void example() {
+   S s{1, 2};
+ 
+-  constexpr auto members = std::meta::nonstatic_data_members_of(
+-    ^^S, std::meta::access_context::unchecked());
++  constexpr auto members = std::define_static_array(
++    std::meta::nonstatic_data_members_of(
++      ^^S, std::meta::access_context::unchecked()));
+ 
+   int a = s.[:members[0]:];  // s.x と等価。a == 1
+   int b = s.[:members[1]:];  // s.y と等価。b == 2
+@@ -162,8 +163,9 @@ struct Derived : Base { int d; };
+ 
+ consteval void example() {
+   Derived obj{{42}, 100};
+-  constexpr auto bases = std::meta::bases_of(
+-    ^^Derived, std::meta::access_context::unchecked());
++  constexpr auto bases = std::define_static_array(
++    std::meta::bases_of(
++      ^^Derived, std::meta::access_context::unchecked()));
+   Base&amp;amp; base_ref = obj.[:bases[0]:];  // 基底クラスのサブオブジェクトへの参照
+ }
+ ```
+@@ -250,7 +252,8 @@ struct [[=Name{std::define_static_string(&amp;#34;点&amp;#34;)}]] Point {
+ template for (constexpr auto m :
+     std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
+         std::meta::access_context::unchecked()))) {
+-  constexpr auto annots = std::meta::annotations_of_with_type(m, ^^Name);
++  constexpr auto annots = std::define_static_array(
++    std::meta::annotations_of_with_type(m, ^^Name));
+   if constexpr (annots.size() &amp;gt; 0) {
+     // アノテーションは値のリフレクションではないため、
+     // constant_of()で値を取り出してからスプライスする
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>meta -- has_inaccessible_subobjectsが抜けていたので追加</title>
@@ -1905,40 +1957,6 @@ index a41686136..7c22b9a34 100644
  ## 例外
 -`r`が不完全なクラスのメンバ、または不完全なクラスの基底クラス関係を表す場合、[`std::meta::exception`](exception.md)例外を送出する。
 +`r`がクラスメンバを表し、そのメンバの親クラスが不完全な場合、または不完全な派生クラスを含む基底クラス関係を表す場合、[`std::meta::exception`](exception.md)例外を送出する。
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>has_parent -- has_parent : 仕様が不足していた</title>
-      <link href="https://cpprefjp.github.io/reference/meta/has_parent.html"/>
-      <id>76ebec1fcbeba6055a39b544f91df269bd65e183:reference/meta/has_parent.md</id>
-      <updated>2026-04-24T13:15:37+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_parent.md b/reference/meta/has_parent.md
-index 2aaba4450..e80a07a53 100644
---- a/reference/meta/has_parent.md
-+++ b/reference/meta/has_parent.md
-@@ -16,7 +16,14 @@ namespace std::meta {
- 
- 
- ## 戻り値
--`r`が親スコープを持つ場合は`true`、そうでなければ`false`を返す。
-+`r`について、以下の順に判定する：
-+
-+- グローバル名前空間を表す場合、`false`を返す
-+- C言語リンケージを持つエンティティを表す場合、`false`を返す
-+- C++以外のリンケージを持つエンティティを表す場合、実装定義
-+- クラス型でも列挙型でもない型を表す場合、`false`を返す
-+- それ以外で、エンティティまたは直接基底クラス関係を表す場合、`true`を返す
-+- それ以外の場合、`false`を返す
  
  
  ## 例
