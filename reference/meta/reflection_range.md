@@ -29,8 +29,11 @@ int main() {
   constexpr auto r1 = std::meta::substitute(^^std::vector, {^^int});
 
   // vectorで渡す
-  constexpr std::vector<std::meta::info> args = {^^int};
-  constexpr auto r2 = std::meta::substitute(^^std::vector, args);
+  constexpr auto r2 = [] consteval {
+    std::vector<std::meta::info> args;
+    args.push_back(^^int);
+    return std::meta::substitute(^^std::vector, args);
+  }();
 
   static_assert(r1 == r2);
 }
