@@ -2,9 +2,53 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T03:29:26.573354</updated>
-  <id>07720128-f6f4-448b-9209-cf0ad6d0c080</id>
+  <updated>2026-04-24T03:37:01.662989</updated>
+  <id>0d6d1603-5e76-4977-8308-c89f93d6e03a</id>
 
+  
+    <entry>
+      <title>alignment_of -- alignment_of : 対象が狭かったのを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/alignment_of.html"/>
+      <id>97f4d835c5707123015e8f2df496aa2115c79e9e:reference/meta/alignment_of.md</id>
+      <updated>2026-04-24T12:32:10+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/alignment_of.md b/reference/meta/alignment_of.md
+index 2ef246fd2..91d4a4d2a 100644
+--- a/reference/meta/alignment_of.md
++++ b/reference/meta/alignment_of.md
+@@ -12,15 +12,22 @@ namespace std::meta {
+ * info[link info.md]
+ 
+ ## 概要
+-型またはデータメンバのアライメントを取得する。
++型、オブジェクト、値、変数、メンバ変数、または基底クラス関係のアライメントを取得する。
+ 
+ 
+ ## 戻り値
+-`r`が型を表す場合は`alignof`相当の値を、メンバ変数を表す場合はそのメンバのアライメントを返す。
++`r`が以下のいずれかを表す場合、そのアライメントを返す：
++
++- 型
++- オブジェクト
++- 値
++- 参照型でない変数
++- ビットフィールドでないメンバ変数
++- 直接基底クラス関係
+ 
+ 
+ ## 例外
+-`r`が型またはメンバ変数を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>静的リフレクション [P2996R13] -- reflection : アノテーション値はリフレクションではないためconstant_ofで変換してからスプライスする必要がある</title>
@@ -558,33 +602,6 @@ index acb930cee..c81a1da33 100644
 -`r`が表す値、オブジェクト、変数、関数、非静的データメンバ、ビットフィールド、列挙子、基底クラス関係、データメンバ仕様、または関数パラメータの型のリフレクションを返す。
 +`r`が表す値、オブジェクト、変数、関数、メンバ変数、ビットフィールド、列挙子、基底クラス関係、データメンバ仕様、または関数パラメータの型のリフレクションを返す。
  
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>subobjects_of -- subobjects_of : 出力ミスを修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/subobjects_of.html"/>
-      <id>a410a7634eaec52a3a14359ad3bac05cb7db6190:reference/meta/subobjects_of.md</id>
-      <updated>2026-04-24T11:52:17+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/subobjects_of.md b/reference/meta/subobjects_of.md
-index be0e53545..bf0f183de 100644
---- a/reference/meta/subobjects_of.md
-+++ b/reference/meta/subobjects_of.md
-@@ -49,6 +49,8 @@ int main() {
- 
- #### 出力例
- ```
-+Base
-+d
- ```
  
  
 &lt;/code&gt;&lt;/pre&gt;</summary>
