@@ -2,9 +2,116 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T02:50:27.615535</updated>
-  <id>5a6bc826-7d47-4fc3-ac78-6f3e8e0c4ed9</id>
+  <updated>2026-04-24T02:55:22.522364</updated>
+  <id>ea7dc6c1-e2a1-4dc7-96ef-d10b9cdaa74b</id>
 
+  
+    <entry>
+      <title>is_constructor -- is_constructor : 出力ミスを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_constructor.html"/>
+      <id>11b86c59e9bcdbb80ad2c16cf24cd05df787a975:reference/meta/is_constructor.md</id>
+      <updated>2026-04-24T11:49:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_constructor.md b/reference/meta/is_constructor.md
+index f19bada67..b866ac666 100644
+--- a/reference/meta/is_constructor.md
++++ b/reference/meta/is_constructor.md
+@@ -54,6 +54,8 @@ S::S(): is_constructor=true
+ S::S(int): is_constructor=true
+ S::S(const S&amp;amp;): is_constructor=true
+ S::f(): is_constructor=false
++S::operator=(const S&amp;amp;): is_constructor=false
++S::~S(): is_constructor=false
+ ```
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>members_of -- members_of : 出力ミスを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/members_of.html"/>
+      <id>ed56543f857a3acb869029daee7e47740190b73a:reference/meta/members_of.md</id>
+      <updated>2026-04-24T11:48:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/members_of.md b/reference/meta/members_of.md
+index 97f871f5d..aeb6663cb 100644
+--- a/reference/meta/members_of.md
++++ b/reference/meta/members_of.md
+@@ -46,6 +46,7 @@ int main() {
+ 
+ #### 出力例
+ ```
++メンバ数: 9
+ ```
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>display_string_of -- display_string_of : 出力ミスを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/display_string_of.html"/>
+      <id>2a520e0c08f792a10b96d71a591a15ae72281251:reference/meta/display_string_of.md</id>
+      <updated>2026-04-24T11:47:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/display_string_of.md b/reference/meta/display_string_of.md
+index 491838372..8ca35a2f6 100644
+--- a/reference/meta/display_string_of.md
++++ b/reference/meta/display_string_of.md
+@@ -34,6 +34,8 @@ int main() {
+ 
+ #### 出力例
+ ```
++int
++vector
+ ```
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>symbol_of -- symbol_of : 出力ミスを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/symbol_of.html"/>
+      <id>3483971512d961dc69f0b4f533b544326d5f94ca:reference/meta/symbol_of.md</id>
+      <updated>2026-04-24T11:46:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/symbol_of.md b/reference/meta/symbol_of.md
+index 74aea5728..c9db3f3a0 100644
+--- a/reference/meta/symbol_of.md
++++ b/reference/meta/symbol_of.md
+@@ -48,6 +48,8 @@ int main() {
+ ### 出力
+ ```
+ 演算子: ==
++演算子: =
++演算子: =
+ ```
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>operator_of -- operator_of : 出力ミスを修正</title>
@@ -25,204 +132,6 @@ index b37613ff9..71b08757e 100644
  ```
  
  
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>reflection_range -- reflection_range : ラムダ式化</title>
-      <link href="https://cpprefjp.github.io/reference/meta/reflection_range.html"/>
-      <id>5998198202359bdad4a7645e95ca68e9888de4ef:reference/meta/reflection_range.md</id>
-      <updated>2026-04-24T11:37:31+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/reflection_range.md b/reference/meta/reflection_range.md
-index 071d91655..cebf56766 100644
---- a/reference/meta/reflection_range.md
-+++ b/reference/meta/reflection_range.md
-@@ -29,8 +29,11 @@ int main() {
-   constexpr auto r1 = std::meta::substitute(^^std::vector, {^^int});
- 
-   // vectorで渡す
--  constexpr std::vector&amp;lt;std::meta::info&amp;gt; args = {^^int};
--  constexpr auto r2 = std::meta::substitute(^^std::vector, args);
-+  constexpr auto r2 = [] consteval {
-+    std::vector&amp;lt;std::meta::info&amp;gt; args;
-+    args.push_back(^^int);
-+    return std::meta::substitute(^^std::vector, args);
-+  }();
- 
-   static_assert(r1 == r2);
- }
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>静的リフレクション [P2996R13] -- reflection : 不足していた閉じカッコを修正</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
-      <id>dbaaaf2595063f975d49a790439144cb2b51e5e9:lang/cpp26/reflection.md</id>
-      <updated>2026-04-24T11:35:29+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
-index 8dca2ec67..c05db74e9 100644
---- a/lang/cpp26/reflection.md
-+++ b/lang/cpp26/reflection.md
-@@ -33,7 +33,7 @@ template &amp;lt;typename E&amp;gt;
-   requires std::is_enum_v&amp;lt;E&amp;gt;
- constexpr std::string_view to_string(E value) {
-   // 型Eから列挙子のリストを取得
--  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E)) {
-+  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {
-     if (value == [:e:]) {
-       return std::meta::identifier_of(e); // 列挙子の名前を文字列として取得
-     }
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>静的リフレクション [P2996R13] -- reflection : 非メンバ関数のオーバーロードリストは取得できないことを明記</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
-      <id>906823bc8706b81dea316d328fcede217686b5df:lang/cpp26/reflection.md</id>
-      <updated>2026-04-23T13:57:03+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
-index 5c9678cdb..8dca2ec67 100644
---- a/lang/cpp26/reflection.md
-+++ b/lang/cpp26/reflection.md
-@@ -32,7 +32,8 @@ enum class Color { red, green, blue };
- template &amp;lt;typename E&amp;gt;
-   requires std::is_enum_v&amp;lt;E&amp;gt;
- constexpr std::string_view to_string(E value) {
--  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E)) { // 型から列挙子のリストを取得
-+  // 型Eから列挙子のリストを取得
-+  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E)) {
-     if (value == [:e:]) {
-       return std::meta::identifier_of(e); // 列挙子の名前を文字列として取得
-     }
-@@ -85,7 +86,7 @@ void f(double);
- // constexpr auto r = ^^f;  // エラー: fはオーバーロードされている
- ```
- 
--オーバーロードされた関数の個々のオーバーロードを取得するには、[`members_of()`](/reference/meta/members_of.md)を使用する。`members_of()`は各オーバーロードを個別のリフレクションとして返す。
-+オーバーロードされた関数がクラスのメンバ関数である場合、個々のオーバーロードを取得するには[`members_of()`](/reference/meta/members_of.md)を使用する。`members_of()`は各オーバーロードを個別のリフレクションとして返す。
- 
- ```cpp
- struct S {
-@@ -104,6 +105,8 @@ consteval {
- * std::meta::access_context[link /reference/meta/access_context.md]
- * unchecked[link /reference/meta/access_context/unchecked.md]
- 
-+非メンバ関数（名前空間スコープの関数）の場合、オーバーロード集合そのものをリフレクションとして取得する手段は存在しない。そのため、非メンバ関数でオーバーロード集合から特定のオーバーロードを扱いたい場合は、関数ポインタ型にキャストして型を明示するなどの手段が必要となる。汎用的に関数のオーバーロードをリフレクションで扱いたい場合は、クラスのメンバ関数として定義することが必要になる。
-+
- また、スプライスで関数のリフレクションを式に変換する場合、オーバーロード解決は行われず、そのリフレクションが表す特定の関数が直接使用される。
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>静的リフレクション [P2996R13] -- reflection : ハッシュ値計算の例を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
-      <id>6688b15986645e14adf139ca50f643dcc276e5fa:lang/cpp26/reflection.md</id>
-      <updated>2026-04-20T19:03:41+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
-index 11aab3a58..5c9678cdb 100644
---- a/lang/cpp26/reflection.md
-+++ b/lang/cpp26/reflection.md
-@@ -416,6 +416,74 @@ int main() {
- ```
- 
- 
-+### 任意の型のハッシュ値を自動で求める
-+リフレクションを使うことで、任意のクラス型に対する汎用的なハッシュ関数を実装できる。以下の例では以下の方針で実装する：
-+
-+- [`std::hash`](/reference/functional/hash.md)`&amp;lt;T&amp;gt;`が特殊化されていればそれを使う
-+- 特殊化されていない場合は、クラスのすべての非静的データメンバに対して再帰的にハッシュ値を計算しXORで合成する
-+
-+これにより、ネストしたクラス型に対しても自動的にハッシュ値を計算できる。
-+
-+```cpp example
-+#include &amp;lt;meta&amp;gt;
-+#include &amp;lt;functional&amp;gt;
-+#include &amp;lt;string&amp;gt;
-+#include &amp;lt;print&amp;gt;
-+
-+// std::hash&amp;lt;T&amp;gt;が使用可能かを判定するコンセプト
-+template &amp;lt;class T&amp;gt;
-+concept has_std_hash = requires(const T&amp;amp; x) {
-+  { std::hash&amp;lt;T&amp;gt;{}(x) } -&amp;gt; std::convertible_to&amp;lt;std::size_t&amp;gt;;
-+};
-+
-+template &amp;lt;class T&amp;gt;
-+constexpr std::size_t hash_value(const T&amp;amp; obj) {
-+  if constexpr (has_std_hash&amp;lt;T&amp;gt;) {
-+    // std::hashが特殊化されていれば利用する
-+    return std::hash&amp;lt;T&amp;gt;{}(obj);
-+  } else {
-+    // 特殊化されていなければ、各メンバのハッシュ値を再帰的に計算してXORで合成
-+    std::size_t result = 0;
-+    template for (constexpr auto m :
-+        std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
-+            std::meta::access_context::unchecked()))) {
-+      result ^= hash_value(obj.[:m:]);
-+    }
-+    return result;
-+  }
-+}
-+
-+struct Inner {
-+  int a;
-+  std::string b;
-+};
-+
-+struct Outer {
-+  int x;
-+  Inner inner;  // ネストしたクラス型も再帰的にハッシュ化される
-+};
-+
-+int main() {
-+  Outer o1{10, {1, &amp;#34;hello&amp;#34;}};
-+  Outer o2{10, {1, &amp;#34;hello&amp;#34;}};
-+  Outer o3{10, {2, &amp;#34;hello&amp;#34;}};
-+
-+  std::println(&amp;#34;hash(o1) == hash(o2): {}&amp;#34;, hash_value(o1) == hash_value(o2));
-+  std::println(&amp;#34;hash(o1) == hash(o3): {}&amp;#34;, hash_value(o1) == hash_value(o3));
-+}
-+```
-+* std::hash[link /reference/functional/hash.md]
-+* std::convertible_to[link /reference/concepts/convertible_to.md]
-+* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
-+* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
-+
-+#### 出力
-+```
-+hash(o1) == hash(o2): true
-+hash(o1) == hash(o3): false
-+```
-+
-+
- ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
- - [`&amp;lt;meta&amp;gt;`ヘッダ](/reference/meta.md)
- - [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
