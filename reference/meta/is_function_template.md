@@ -22,13 +22,21 @@ namespace std::meta {
 ## 例
 ```cpp example
 #include <meta>
-#include <algorithm>
+
+// 関数テンプレート
+template <class T>
+T add(T a, T b) { return a + b; }
+
+// 通常の関数
+int multiply(int a, int b) { return a * b; }
 
 int main() {
-  static_assert(std::meta::is_function_template(^^std::sort));
+  static_assert(std::meta::is_function_template(^^add));
+  static_assert(!std::meta::is_function_template(^^multiply));
+  static_assert(!std::meta::is_function_template(^^int));
 }
 ```
-* std::sort[link /reference/algorithm/sort.md]
+* std::meta::is_function_template[color ff0000]
 
 ### 出力
 ```
