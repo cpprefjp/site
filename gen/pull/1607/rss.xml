@@ -2,9 +2,54 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T03:09:12.212799</updated>
-  <id>3f81000d-ead0-410b-b83a-4ad37eff518c</id>
+  <updated>2026-04-24T03:23:29.043945</updated>
+  <id>d94d3d66-e062-435e-837e-d2cd744c027d</id>
 
+  
+    <entry>
+      <title>静的リフレクション [P2996R13] -- reflection : スプライスに使用する変数をconstexprに修正</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
+      <id>8b40265a2b69c4733cb4796486fb7a165cf42378:lang/cpp26/reflection.md</id>
+      <updated>2026-04-24T12:16:35+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
+index 11749b705..3b1e9cac5 100644
+--- a/lang/cpp26/reflection.md
++++ b/lang/cpp26/reflection.md
+@@ -142,7 +142,7 @@ struct S { int x; int y; };
+ consteval void example() {
+   S s{1, 2};
+ 
+-  auto members = std::meta::nonstatic_data_members_of(
++  constexpr auto members = std::meta::nonstatic_data_members_of(
+     ^^S, std::meta::access_context::unchecked());
+ 
+   int a = s.[:members[0]:];  // s.x と等価。a == 1
+@@ -162,7 +162,7 @@ struct Derived : Base { int d; };
+ 
+ consteval void example() {
+   Derived obj{{42}, 100};
+-  auto bases = std::meta::bases_of(
++  constexpr auto bases = std::meta::bases_of(
+     ^^Derived, std::meta::access_context::unchecked());
+   Base&amp;amp; base_ref = obj.[:bases[0]:];  // 基底クラスのサブオブジェクトへの参照
+ }
+@@ -250,7 +250,7 @@ struct [[=Name{std::define_static_string(&amp;#34;点&amp;#34;)}]] Point {
+ template for (constexpr auto m :
+     std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
+         std::meta::access_context::unchecked()))) {
+-  auto annots = std::meta::annotations_of_with_type(m, ^^Name);
++  constexpr auto annots = std::meta::annotations_of_with_type(m, ^^Name);
+   if constexpr (annots.size() &amp;gt; 0) {
+     std::println(&amp;#34;{}: {}&amp;#34;, [:annots[0]:].value,
+                            std::meta::identifier_of(m));
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>静的リフレクション [P2996R13] -- reflection : 「リフレクションできる対象と、取得できる主な情報」の表にannotations_ofを追加</title>
@@ -457,32 +502,6 @@ index f19bada67..b866ac666 100644
  S::f(): is_constructor=false
 +S::operator=(const S&amp;amp;): is_constructor=false
 +S::~S(): is_constructor=false
- ```
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>members_of -- members_of : 出力ミスを修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/members_of.html"/>
-      <id>ed56543f857a3acb869029daee7e47740190b73a:reference/meta/members_of.md</id>
-      <updated>2026-04-24T11:48:20+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/members_of.md b/reference/meta/members_of.md
-index 97f871f5d..aeb6663cb 100644
---- a/reference/meta/members_of.md
-+++ b/reference/meta/members_of.md
-@@ -46,6 +46,7 @@ int main() {
- 
- #### 出力例
- ```
-+メンバ数: 9
  ```
  
  
