@@ -97,7 +97,7 @@ new
 ### 言語
 - C++98
 
-## 参照
+## 関連項目
 - [`cin`](../../iostream/cin.md)
 - [`cout`](../../iostream/cout.md)
 - [`cerr`](../../iostream/cerr.md)
@@ -106,6 +106,8 @@ new
 - [`wcerr`](../../iostream/wcerr.md.nolink)
 - [`basic_istream`](../../istream/basic_istream.md)`::`[`sentry`](../../istream/basic_istream/sentry.md)`::`[`sentry`](../../istream/basic_istream/sentry/op_constructor.md)
 - [`basic_ostream`](../../ostream/basic_ostream.md)`::`[`sentry`](../../ostream/basic_ostream/sentry.md)`::`[`sentry`](../../ostream/basic_ostream/sentry/op_constructor.md)
+
+## 参照
 - [60. What is a formatted input function?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#60)  
     C++03 で [`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力ではないと明記された Defect Report
 - [581. flush() not unformatted function](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#581)  

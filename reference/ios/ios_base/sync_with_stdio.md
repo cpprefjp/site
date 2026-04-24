@@ -54,7 +54,7 @@ int main()
 ```
 
 
-## 参照
+## 関連項目
 - 標準ストリームオブジェクト
     - [`cin`](../../iostream/cin.md)
     - [`cout`](../../iostream/cout.md)

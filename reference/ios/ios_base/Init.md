@@ -40,7 +40,7 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 - [`cin`](../../iostream/cin.md)
 - [`cout`](../../iostream/cout.md)
 - [`cerr`](../../iostream/cerr.md)

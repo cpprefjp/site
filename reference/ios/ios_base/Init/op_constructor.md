@@ -28,7 +28,7 @@ Init();
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 - [`~Init`](op_destructor.md)
 - [`cin`](../../../iostream/cin.md)
 - [`cout`](../../../iostream/cout.md)
