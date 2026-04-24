@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;62af9507f45bb83d0560e5f2c64bde4e2c6b4e18&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;algorithm&gt;\n\nint main() {\n  static_assert(std::meta::is_function_template(^^std::sort));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_function_template&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;dd9157facd78e37b762a07d0b07bf15c842a4224&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\n// \u95a2\u6570\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\ntemplate &lt;class T&gt;\nT add(T a, T b) { return a + b; }\n\n// \u901a\u5e38\u306e\u95a2\u6570\nint multiply(int a, int b) { return a * b; }\n\nint main() {\n  static_assert(std::meta::is_function_template(^^add));\n  static_assert(!std::meta::is_function_template(^^multiply));\n  static_assert(!std::meta::is_function_template(^^int));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_function_template&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-24T04:03:46">
+        2026年04月24日 04時03分46秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,11 +223,19 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>r</code>が関数テンプレートを表す場合に<code>true</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="62af9507f45bb83d0560e5f2c64bde4e2c6b4e18"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
-<span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
+<p><div class="yata" id="dd9157facd78e37b762a07d0b07bf15c842a4224"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_function_template</span><span class="p">(</span><span class="o">^^</span><span class="n"><a href="../algorithm/sort.html">std::sort</a></span><span class="p">));</span>
+<span class="c1">// 関数テンプレート</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// 通常の関数</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">multiply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::meta::is_function_template</span></span><span class="p">(</span><span class="o">^^</span><span class="n">add</span><span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::meta::is_function_template</span></span><span class="p">(</span><span class="o">^^</span><span class="n">multiply</span><span class="p">));</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::meta::is_function_template</span></span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

@@ -2,9 +2,103 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T04:05:12.358540</updated>
-  <id>e39635b8-31a3-4185-a476-d1b55c4d6a33</id>
+  <updated>2026-04-24T04:09:53.955242</updated>
+  <id>26ce4c11-287c-45d5-b62b-d95f5991b98d</id>
 
+  
+    <entry>
+      <title>is_function_template -- is_function_template : オーバーロードは扱えないので例を変更</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_function_template.html"/>
+      <id>7b6af81ad38284d42a9bbeac869dcacaef30b608:reference/meta/is_function_template.md</id>
+      <updated>2026-04-24T13:03:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_function_template.md b/reference/meta/is_function_template.md
+index 597b98d94..b5e14e76c 100644
+--- a/reference/meta/is_function_template.md
++++ b/reference/meta/is_function_template.md
+@@ -22,13 +22,21 @@ namespace std::meta {
+ ## 例
+ ```cpp example
+ #include &amp;lt;meta&amp;gt;
+-#include &amp;lt;algorithm&amp;gt;
++
++// 関数テンプレート
++template &amp;lt;class T&amp;gt;
++T add(T a, T b) { return a + b; }
++
++// 通常の関数
++int multiply(int a, int b) { return a * b; }
+ 
+ int main() {
+-  static_assert(std::meta::is_function_template(^^std::sort));
++  static_assert(std::meta::is_function_template(^^add));
++  static_assert(!std::meta::is_function_template(^^multiply));
++  static_assert(!std::meta::is_function_template(^^int));
+ }
+ ```
+-* std::sort[link /reference/algorithm/sort.md]
++* std::meta::is_function_template[color ff0000]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_inaccessible_bases -- has_inaccesible_bases : 例が正しくなかったのを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_inaccessible_bases.html"/>
+      <id>1bd58d9f5f6c22efe7674218fe0e363412175414:reference/meta/has_inaccessible_bases.md</id>
+      <updated>2026-04-24T13:01:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_inaccessible_bases.md b/reference/meta/has_inaccessible_bases.md
+index ff653a227..9236cb503 100644
+--- a/reference/meta/has_inaccessible_bases.md
++++ b/reference/meta/has_inaccessible_bases.md
+@@ -24,17 +24,26 @@ namespace std::meta {
+ ```cpp example
+ #include &amp;lt;meta&amp;gt;
+ 
+-class C {
+-  int secret;
+-public:
+-  int visible;
+-};
++struct Base1 {};
++struct Base2 {};
++
++// Base1はprivate継承、Base2はpublic継承
++class Derived : private Base1, public Base2 {};
++
++// すべての基底クラスがpublic
++class PublicDerived : public Base1, public Base2 {};
+ 
+ int main() {
+   constexpr auto ctx = std::meta::access_context::unprivileged();
+-  static_assert(std::meta::has_inaccessible_bases(^^C, ctx));
++
++  // Derivedにはprivate基底Base1があるため、外部からはアクセス不可
++  static_assert(std::meta::has_inaccessible_bases(^^Derived, ctx));
++
++  // PublicDerivedはすべての基底クラスがpublic
++  static_assert(!std::meta::has_inaccessible_bases(^^PublicDerived, ctx));
+ }
+ ```
++* std::meta::has_inaccessible_bases[color ff0000]
+ * std::meta::access_context[link access_context.md]
+ * unprivileged[link access_context/unprivileged.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>bit_size_of -- bit_size_of : 対象が狭かったのを修正</title>
@@ -153,160 +247,6 @@ index 2ef246fd2..91d4a4d2a 100644
  
  
  ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>静的リフレクション [P2996R13] -- reflection : アノテーション値はリフレクションではないためconstant_ofで変換してからスプライスする必要がある</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
-      <id>4201f91c0e96e7f35919301a767820f8610fefa8:lang/cpp26/reflection.md</id>
-      <updated>2026-04-24T12:25:00+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
-index 3b1e9cac5..45e30d195 100644
---- a/lang/cpp26/reflection.md
-+++ b/lang/cpp26/reflection.md
-@@ -252,7 +252,9 @@ template for (constexpr auto m :
-         std::meta::access_context::unchecked()))) {
-   constexpr auto annots = std::meta::annotations_of_with_type(m, ^^Name);
-   if constexpr (annots.size() &amp;gt; 0) {
--    std::println(&amp;#34;{}: {}&amp;#34;, [:annots[0]:].value,
-+    // アノテーションは値のリフレクションではないため、
-+    // constant_of()で値を取り出してからスプライスする
-+    std::println(&amp;#34;{}: {}&amp;#34;, [:std::meta::constant_of(annots[0]):].value,
-                            std::meta::identifier_of(m));
-   }
- }
-@@ -264,6 +266,7 @@ template for (constexpr auto m :
- * std::meta::access_context[link /reference/meta/access_context.md]
- * unchecked[link /reference/meta/access_context/unchecked.md]
- * std::meta::annotations_of_with_type[link /reference/meta/annotations_of_with_type.md]
-+* std::meta::constant_of[link /reference/meta/constant_of.md]
- 
- 
- ## `define_static_string` / `define_static_array` / `define_static_object`
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>annotations_of -- reflection : アノテーション値はリフレクションではないためconstant_ofで変換してからスプライスする必要がある</title>
-      <link href="https://cpprefjp.github.io/reference/meta/annotations_of.html"/>
-      <id>4201f91c0e96e7f35919301a767820f8610fefa8:reference/meta/annotations_of.md</id>
-      <updated>2026-04-24T12:25:00+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/annotations_of.md b/reference/meta/annotations_of.md
-index 8c0a3636c..e16fd7158 100644
---- a/reference/meta/annotations_of.md
-+++ b/reference/meta/annotations_of.md
-@@ -37,16 +37,19 @@ int main() {
-     std::println(&amp;#34;  型: {}&amp;#34;, std::meta::display_string_of(std::meta::type_of(a)));
- 
-     // 型ごとに値を取り出して出力
-+    // アノテーションは値のリフレクションではないため、
-+    // constant_of()で値を取り出してからスプライスする
-     if constexpr (std::meta::type_of(a) == ^^Label) {
--      std::println(&amp;#34;  値: {}&amp;#34;, [:a:].text);
-+      std::println(&amp;#34;  値: {}&amp;#34;, [:std::meta::constant_of(a):].text);
-     } else if constexpr (std::meta::type_of(a) == ^^int) {
--      std::println(&amp;#34;  値: {}&amp;#34;, [:a:]);
-+      std::println(&amp;#34;  値: {}&amp;#34;, [:std::meta::constant_of(a):]);
-     }
-   }
- }
- ```
- * std::meta::display_string_of[link display_string_of.md]
- * std::meta::type_of[link type_of.md]
-+* std::meta::constant_of[link constant_of.md]
- 
- ### 出力
- ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>annotations_of_with_type -- reflection : アノテーション値はリフレクションではないためconstant_ofで変換してからスプライスする必要がある</title>
-      <link href="https://cpprefjp.github.io/reference/meta/annotations_of_with_type.html"/>
-      <id>4201f91c0e96e7f35919301a767820f8610fefa8:reference/meta/annotations_of_with_type.md</id>
-      <updated>2026-04-24T12:25:00+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/annotations_of_with_type.md b/reference/meta/annotations_of_with_type.md
-index 99f5e0421..155a79671 100644
---- a/reference/meta/annotations_of_with_type.md
-+++ b/reference/meta/annotations_of_with_type.md
-@@ -36,10 +36,12 @@ int main() {
-   template for (constexpr auto a :
-       std::define_static_array(
-           std::meta::annotations_of_with_type(^^Point, ^^Name))) {
--    std::println(&amp;#34;{}&amp;#34;, [:a:].value);
-+    // constant_of()で値のリフレクションを取り出してからスプライスする
-+    std::println(&amp;#34;{}&amp;#34;, [:std::meta::constant_of(a):].value);
-   }
- }
- ```
-+* std::meta::constant_of[link constant_of.md]
- 
- ### 出力
- ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>静的リフレクション [P2996R13] -- reflection : スプライスに使用する変数をconstexprに修正</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
-      <id>8b40265a2b69c4733cb4796486fb7a165cf42378:lang/cpp26/reflection.md</id>
-      <updated>2026-04-24T12:16:35+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
-index 11749b705..3b1e9cac5 100644
---- a/lang/cpp26/reflection.md
-+++ b/lang/cpp26/reflection.md
-@@ -142,7 +142,7 @@ struct S { int x; int y; };
- consteval void example() {
-   S s{1, 2};
- 
--  auto members = std::meta::nonstatic_data_members_of(
-+  constexpr auto members = std::meta::nonstatic_data_members_of(
-     ^^S, std::meta::access_context::unchecked());
- 
-   int a = s.[:members[0]:];  // s.x と等価。a == 1
-@@ -162,7 +162,7 @@ struct Derived : Base { int d; };
- 
- consteval void example() {
-   Derived obj{{42}, 100};
--  auto bases = std::meta::bases_of(
-+  constexpr auto bases = std::meta::bases_of(
-     ^^Derived, std::meta::access_context::unchecked());
-   Base&amp;amp; base_ref = obj.[:bases[0]:];  // 基底クラスのサブオブジェクトへの参照
- }
-@@ -250,7 +250,7 @@ struct [[=Name{std::define_static_string(&amp;#34;点&amp;#34;)}]] Point {
- template for (constexpr auto m :
-     std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
-         std::meta::access_context::unchecked()))) {
--  auto annots = std::meta::annotations_of_with_type(m, ^^Name);
-+  constexpr auto annots = std::meta::annotations_of_with_type(m, ^^Name);
-   if constexpr (annots.size() &amp;gt; 0) {
-     std::println(&amp;#34;{}: {}&amp;#34;, [:annots[0]:].value,
-                            std::meta::identifier_of(m));
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

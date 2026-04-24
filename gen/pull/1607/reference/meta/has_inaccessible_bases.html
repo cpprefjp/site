@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;cf27f047749c1b913f9bcec958903aeea37ba5aa&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nclass C {\n  int secret;\npublic:\n  int visible;\n};\n\nint main() {\n  constexpr auto ctx = std::meta::access_context::unprivileged();\n  static_assert(std::meta::has_inaccessible_bases(^^C, ctx));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;has_inaccessible_bases&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2a960d381c5262f959c53239986bd5d6ea1af935&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nstruct Base1 {};\nstruct Base2 {};\n\n// Base1\u306fprivate\u7d99\u627f\u3001Base2\u306fpublic\u7d99\u627f\nclass Derived : private Base1, public Base2 {};\n\n// \u3059\u3079\u3066\u306e\u57fa\u5e95\u30af\u30e9\u30b9\u304cpublic\nclass PublicDerived : public Base1, public Base2 {};\n\nint main() {\n  constexpr auto ctx = std::meta::access_context::unprivileged();\n\n  // Derived\u306b\u306fprivate\u57fa\u5e95Base1\u304c\u3042\u308b\u305f\u3081\u3001\u5916\u90e8\u304b\u3089\u306f\u30a2\u30af\u30bb\u30b9\u4e0d\u53ef\n  static_assert(std::meta::has_inaccessible_bases(^^Derived, ctx));\n\n  // PublicDerived\u306f\u3059\u3079\u3066\u306e\u57fa\u5e95\u30af\u30e9\u30b9\u304cpublic\n  static_assert(!std::meta::has_inaccessible_bases(^^PublicDerived, ctx));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;has_inaccessible_bases&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-24T04:01:52">
+        2026年04月24日 04時01分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,17 +223,25 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>指定したアクセスコンテキストでアクセスできない基底クラスが存在する場合に<code>true</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="cf27f047749c1b913f9bcec958903aeea37ba5aa"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="2a960d381c5262f959c53239986bd5d6ea1af935"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">secret</span><span class="p">;</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">visible</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Base1</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Base2</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="c1">// Base1はprivate継承、Base2はpublic継承</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Base1</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base2</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="c1">// すべての基底クラスがpublic</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PublicDerived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base1</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base2</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unprivileged.html">unprivileged</a></span><span class="p">();</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">has_inaccessible_bases</span><span class="p">(</span><span class="o">^^</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Derivedにはprivate基底Base1があるため、外部からはアクセス不可</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::meta::has_inaccessible_bases</span></span><span class="p">(</span><span class="o">^^</span><span class="n">Derived</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// PublicDerivedはすべての基底クラスがpublic</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::meta::has_inaccessible_bases</span></span><span class="p">(</span><span class="o">^^</span><span class="n">PublicDerived</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
