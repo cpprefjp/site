@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-09T06:13:07">
-        2026年04月09日 06時13分07秒
+      <span itemprop="datePublished" content="2026-04-24T04:15:37">
+        2026年04月24日 04時15分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -221,7 +221,15 @@
 <h2>概要</h2>
 <p>リフレクションが親スコープを持つかどうかを判定する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>r</code>が親スコープを持つ場合は<code>true</code>、そうでなければ<code>false</code>を返す。</p>
+<p><code>r</code>について、以下の順に判定する：</p>
+<ul>
+<li>グローバル名前空間を表す場合、<code>false</code>を返す</li>
+<li>C言語リンケージを持つエンティティを表す場合、<code>false</code>を返す</li>
+<li>C++以外のリンケージを持つエンティティを表す場合、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a></li>
+<li>クラス型でも列挙型でもない型を表す場合、<code>false</code>を返す</li>
+<li>それ以外で、エンティティまたは直接基底クラス関係を表す場合、<code>true</code>を返す</li>
+<li>それ以外の場合、<code>false</code>を返す</li>
+</ul>
 <h2>例</h2>
 <p><div class="yata" id="cf00009740c510af05816fe4e95c0ef3ab0849da"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 

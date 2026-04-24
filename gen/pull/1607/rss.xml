@@ -2,9 +2,250 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T04:09:53.955242</updated>
-  <id>26ce4c11-287c-45d5-b62b-d95f5991b98d</id>
+  <updated>2026-04-24T04:20:37.919351</updated>
+  <id>69cb2eb5-5005-461c-b06e-4d848eb7dc19</id>
 
+  
+    <entry>
+      <title>offset_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/offset_of.html"/>
+      <id>0c344656ba62143172e8fed8087b1613957c7716:reference/meta/offset_of.md</id>
+      <updated>2026-04-24T13:16:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/offset_of.md b/reference/meta/offset_of.md
+index bc5abab92..92110ac94 100644
+--- a/reference/meta/offset_of.md
++++ b/reference/meta/offset_of.md
+@@ -12,15 +12,21 @@ namespace std::meta {
+ * info[link info.md]
+ 
+ ## 概要
+-メンバ変数のオフセットを取得する。
++メンバ変数や基底クラスのオフセットを取得する。
++
++以下のいずれかを表すリフレクションを受け取れる：
++
++- メンバ変数
++- 無名ビットフィールド
++- 直接基底クラス関係（仮想基底クラスかつ派生クラスが抽象クラスである組み合わせは除く）
+ 
+ 
+ ## 戻り値
+-`r`がメンバ変数を表す場合、そのメンバの所属するクラスの先頭からのオフセットを[`member_offset`](member_offset.md)として返す。
++`r`が上記のいずれかを表す場合、所属するクラスの先頭からのオフセットを[`member_offset`](member_offset.md)として返す。
+ 
+ 
+ ## 例外
+-`r`がメンバ変数または基底クラス関係を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/size_of.html"/>
+      <id>0c344656ba62143172e8fed8087b1613957c7716:reference/meta/size_of.md</id>
+      <updated>2026-04-24T13:16:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/size_of.md b/reference/meta/size_of.md
+index f7faf1c37..176e8b449 100644
+--- a/reference/meta/size_of.md
++++ b/reference/meta/size_of.md
+@@ -12,15 +12,22 @@ namespace std::meta {
+ * info[link info.md]
+ 
+ ## 概要
+-型またはデータメンバのサイズを取得する。
++型、オブジェクト、値、変数、メンバ変数、または基底クラス関係のサイズを取得する。
+ 
+ 
+ ## 戻り値
+-`r`が型を表す場合は`sizeof`相当の値を、メンバ変数を表す場合はそのメンバのサイズを返す。
++`r`が以下のいずれかを表す場合、そのサイズを返す：
++
++- 型
++- オブジェクト
++- 値
++- 参照型でない変数
++- ビットフィールドでないメンバ変数
++- 直接基底クラス関係
+ 
+ 
+ ## 例外
+-`r`が型またはメンバ変数を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>source_location_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/source_location_of.html"/>
+      <id>0c344656ba62143172e8fed8087b1613957c7716:reference/meta/source_location_of.md</id>
+      <updated>2026-04-24T13:16:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/source_location_of.md b/reference/meta/source_location_of.md
+index 4ad4007dc..b56d796e7 100644
+--- a/reference/meta/source_location_of.md
++++ b/reference/meta/source_location_of.md
+@@ -14,10 +14,21 @@ namespace std::meta {
+ ## 概要
+ リフレクションのソース位置を取得する。
+ 
++任意のリフレクションを受け取れる。
++
+ 
+ ## 戻り値
+ `r`が表すエンティティが宣言されたソース位置を[`std::source_location`](/reference/source_location/source_location.md)として返す。
+ 
++ただし、以下のリフレクションに対してはデフォルト構築された`source_location`（ソース位置情報なし）を返す：
++
++- 値
++- クラス型・列挙型以外の型
++- グローバル名前空間
++- データメンバ仕様
++
++それ以外のリフレクションに対する戻り値は実装定義である。
++
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>type_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/type_of.html"/>
+      <id>0c344656ba62143172e8fed8087b1613957c7716:reference/meta/type_of.md</id>
+      <updated>2026-04-24T13:16:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/type_of.md b/reference/meta/type_of.md
+index c81a1da33..9db5f664c 100644
+--- a/reference/meta/type_of.md
++++ b/reference/meta/type_of.md
+@@ -14,14 +14,22 @@ namespace std::meta {
+ ## 概要
+ リフレクションが表すエンティティの型のリフレクションを取得する。
+ 
++以下のいずれかを表すリフレクションを受け取れる：
++
++- 値、オブジェクト、変数、または関数（未推論のプレースホルダ型を含まず、コンストラクタ・デストラクタでないもの）
++- 列挙子
++- メンバ変数
++- 無名ビットフィールド
++- 直接基底クラス関係
++- データメンバ仕様
+ 
+-## 戻り値
+-`r`が表す値、オブジェクト、変数、関数、メンバ変数、ビットフィールド、列挙子、基底クラス関係、データメンバ仕様、または関数パラメータの型のリフレクションを返す。
+ 
++## 戻り値
++`r`が上記のいずれかを表す場合、対応する型のリフレクションを返す。列挙子の場合は列挙型のリフレクション、直接基底クラス関係の場合は基底クラスの型のリフレクションを返す。
+ 
+ 
+ ## 例外
+-`r`が型を持つエンティティを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`が上記のいずれも表さない場合（型、名前空間、テンプレート、コンストラクタ、デストラクタ、未推論のプレースホルダ戻り値型を持つ関数など）、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_accessible -- is_accessible : 仕様が不足していた</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_accessible.html"/>
+      <id>38f05e0e6d8327aedd211f5a605b8951f1c9fc75:reference/meta/is_accessible.md</id>
+      <updated>2026-04-24T13:16:15+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_accessible.md b/reference/meta/is_accessible.md
+index a41686136..7c22b9a34 100644
+--- a/reference/meta/is_accessible.md
++++ b/reference/meta/is_accessible.md
+@@ -15,13 +15,15 @@ namespace std::meta {
+ ## 概要
+ 指定したアクセスコンテキストでアクセス可能かを判定する。
+ 
++任意のリフレクションを受け取れる。クラスメンバや直接基底クラス関係以外のリフレクション（型や名前空間など）に対しては常に`true`を返す。
++
+ 
+ ## 戻り値
+-`r`がアクセスコンテキスト`ctx`でアクセス可能である場合に`true`を返す。
++`r`がクラスメンバまたは直接基底クラス関係を表す場合、アクセスコンテキスト`ctx`でアクセス可能であれば`true`を返す。それ以外のリフレクションに対しては`true`を返す。
+ 
+ 
+ ## 例外
+-`r`が不完全なクラスのメンバ、または不完全なクラスの基底クラス関係を表す場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`がクラスメンバを表し、そのメンバの親クラスが不完全な場合、または不完全な派生クラスを含む基底クラス関係を表す場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_parent -- has_parent : 仕様が不足していた</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_parent.html"/>
+      <id>76ebec1fcbeba6055a39b544f91df269bd65e183:reference/meta/has_parent.md</id>
+      <updated>2026-04-24T13:15:37+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_parent.md b/reference/meta/has_parent.md
+index 2aaba4450..e80a07a53 100644
+--- a/reference/meta/has_parent.md
++++ b/reference/meta/has_parent.md
+@@ -16,7 +16,14 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`が親スコープを持つ場合は`true`、そうでなければ`false`を返す。
++`r`について、以下の順に判定する：
++
++- グローバル名前空間を表す場合、`false`を返す
++- C言語リンケージを持つエンティティを表す場合、`false`を返す
++- C++以外のリンケージを持つエンティティを表す場合、実装定義
++- クラス型でも列挙型でもない型を表す場合、`false`を返す
++- それ以外で、エンティティまたは直接基底クラス関係を表す場合、`true`を返す
++- それ以外の場合、`false`を返す
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>is_function_template -- is_function_template : オーバーロードは扱えないので例を変更</title>
@@ -92,161 +333,6 @@ index ff653a227..9236cb503 100644
  * std::meta::access_context[link access_context.md]
  * unprivileged[link access_context/unprivileged.md]
  
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>bit_size_of -- bit_size_of : 対象が狭かったのを修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/bit_size_of.html"/>
-      <id>643d7a16e89c3bde1f3684c367d8984fc0855491:reference/meta/bit_size_of.md</id>
-      <updated>2026-04-24T12:59:24+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/bit_size_of.md b/reference/meta/bit_size_of.md
-index 11915900c..86728c3eb 100644
---- a/reference/meta/bit_size_of.md
-+++ b/reference/meta/bit_size_of.md
-@@ -12,37 +12,57 @@ namespace std::meta {
- * info[link info.md]
- 
- ## 概要
--ビットフィールドのビットサイズを取得する。
-+ビットサイズを取得する。
-+
-+以下のいずれかを表すリフレクションを受け取れる：
-+
-+- 型
-+- オブジェクト
-+- 値
-+- 参照型でない変数
-+- メンバ変数（ビットフィールドを含む）
-+- 無名ビットフィールド
-+- 直接基底クラス関係
- 
- 
- ## 戻り値
--`r`がビットフィールドを表す場合、そのビット幅を返す。
-+`r`がビットフィールドまたは無名ビットフィールドを表す場合、そのビット幅を返す。
-+
-+それ以外（型、オブジェクト、値、参照型でない変数、ビットフィールドでないメンバ変数、直接基底クラス関係）を表す場合、[`CHAR_BIT`](/reference/climits/char_bit.md) `*` [`size_of(r)`](size_of.md)を返す。
- 
- 
- ## 例外
--`r`がビットフィールドを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
-+`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
- 
- 
- ## 例
- ```cpp example
- #include &amp;lt;meta&amp;gt;
-+#include &amp;lt;climits&amp;gt;
- 
- struct Flags {
-   unsigned a : 1;
-   unsigned b : 3;
-+  int c;
- };
- 
- consteval bool check() {
-+  // 型のビットサイズ: CHAR_BIT * size_of(int)
-+  static_assert(std::meta::bit_size_of(^^int) == CHAR_BIT * sizeof(int));
-+
-+  // ビットフィールドのビット幅
-   auto members = std::meta::nonstatic_data_members_of(
-       ^^Flags, std::meta::access_context::unchecked());
--  return std::meta::bit_size_of(members[0]) == 1
--      &amp;amp;&amp;amp; std::meta::bit_size_of(members[1]) == 3;
-+  return std::meta::bit_size_of(members[0]) == 1                       // a: 1
-+      &amp;amp;&amp;amp; std::meta::bit_size_of(members[1]) == 3                       // b: 3
-+      &amp;amp;&amp;amp; std::meta::bit_size_of(members[2]) == CHAR_BIT * sizeof(int); // c: CHAR_BIT * sizeof(int)
- }
- 
- int main() {
-   static_assert(check());
- }
- ```
-+* CHAR_BIT[link /reference/climits/char_bit.md]
- 
- ### 出力
- ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>annotations_of -- annotations_of : consteval-only型を実行時に使ってしまっていたのを修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/annotations_of.html"/>
-      <id>f9f61e8c55c85e3a11a65554a07da1ad1b775661:reference/meta/annotations_of.md</id>
-      <updated>2026-04-24T12:55:26+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/annotations_of.md b/reference/meta/annotations_of.md
-index e16fd7158..79a9f7277 100644
---- a/reference/meta/annotations_of.md
-+++ b/reference/meta/annotations_of.md
-@@ -30,7 +30,10 @@ struct [[=Label{std::define_static_string(&amp;#34;my struct&amp;#34;)}, =42]] S {};
- 
- int main() {
-   constexpr auto annots = std::define_static_array(std::meta::annotations_of(^^S));
--  std::println(&amp;#34;アノテーション数: {}&amp;#34;, annots.size());
-+  // annotsはconsteval-only型のため、実行時に使うにはサイズなどを
-+  // 定数式としてあらかじめ取り出しておく必要がある
-+  constexpr std::size_t count = annots.size();
-+  std::println(&amp;#34;アノテーション数: {}&amp;#34;, count);
- 
-   template for (constexpr auto a : annots) {
-     // アノテーションの型名を出力
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>alignment_of -- alignment_of : 対象が狭かったのを修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/alignment_of.html"/>
-      <id>97f4d835c5707123015e8f2df496aa2115c79e9e:reference/meta/alignment_of.md</id>
-      <updated>2026-04-24T12:32:10+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/alignment_of.md b/reference/meta/alignment_of.md
-index 2ef246fd2..91d4a4d2a 100644
---- a/reference/meta/alignment_of.md
-+++ b/reference/meta/alignment_of.md
-@@ -12,15 +12,22 @@ namespace std::meta {
- * info[link info.md]
- 
- ## 概要
--型またはデータメンバのアライメントを取得する。
-+型、オブジェクト、値、変数、メンバ変数、または基底クラス関係のアライメントを取得する。
- 
- 
- ## 戻り値
--`r`が型を表す場合は`alignof`相当の値を、メンバ変数を表す場合はそのメンバのアライメントを返す。
-+`r`が以下のいずれかを表す場合、そのアライメントを返す：
-+
-+- 型
-+- オブジェクト
-+- 値
-+- 参照型でない変数
-+- ビットフィールドでないメンバ変数
-+- 直接基底クラス関係
- 
- 
- ## 例外
--`r`が型またはメンバ変数を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
-+`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
- 
- 
- ## 例
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
