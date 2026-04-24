@@ -2,9 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T04:20:37.919351</updated>
-  <id>69cb2eb5-5005-461c-b06e-4d848eb7dc19</id>
+  <updated>2026-04-24T04:29:49.944375</updated>
+  <id>3f262817-e4c3-4dfc-a9a0-2654cee9773f</id>
 
+  
+    <entry>
+      <title>source_location_of -- source_location_of : 出力例が空だった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/source_location_of.html"/>
+      <id>6d423169770b8ed61beb8b3cdef3f042d21373cd:reference/meta/source_location_of.md</id>
+      <updated>2026-04-24T13:22:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/source_location_of.md b/reference/meta/source_location_of.md
+index b56d796e7..d862a5066 100644
+--- a/reference/meta/source_location_of.md
++++ b/reference/meta/source_location_of.md
+@@ -47,6 +47,7 @@ int main() {
+ 
+ #### 出力例
+ ```
++main.cpp:38
+ ```
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>offset_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
@@ -282,57 +308,6 @@ index 597b98d94..b5e14e76c 100644
  
  ### 出力
  ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>has_inaccessible_bases -- has_inaccesible_bases : 例が正しくなかったのを修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/has_inaccessible_bases.html"/>
-      <id>1bd58d9f5f6c22efe7674218fe0e363412175414:reference/meta/has_inaccessible_bases.md</id>
-      <updated>2026-04-24T13:01:52+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_inaccessible_bases.md b/reference/meta/has_inaccessible_bases.md
-index ff653a227..9236cb503 100644
---- a/reference/meta/has_inaccessible_bases.md
-+++ b/reference/meta/has_inaccessible_bases.md
-@@ -24,17 +24,26 @@ namespace std::meta {
- ```cpp example
- #include &amp;lt;meta&amp;gt;
- 
--class C {
--  int secret;
--public:
--  int visible;
--};
-+struct Base1 {};
-+struct Base2 {};
-+
-+// Base1はprivate継承、Base2はpublic継承
-+class Derived : private Base1, public Base2 {};
-+
-+// すべての基底クラスがpublic
-+class PublicDerived : public Base1, public Base2 {};
- 
- int main() {
-   constexpr auto ctx = std::meta::access_context::unprivileged();
--  static_assert(std::meta::has_inaccessible_bases(^^C, ctx));
-+
-+  // Derivedにはprivate基底Base1があるため、外部からはアクセス不可
-+  static_assert(std::meta::has_inaccessible_bases(^^Derived, ctx));
-+
-+  // PublicDerivedはすべての基底クラスがpublic
-+  static_assert(!std::meta::has_inaccessible_bases(^^PublicDerived, ctx));
- }
- ```
-+* std::meta::has_inaccessible_bases[color ff0000]
- * std::meta::access_context[link access_context.md]
- * unprivileged[link access_context/unprivileged.md]
- 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
