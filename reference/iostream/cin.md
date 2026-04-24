@@ -18,7 +18,7 @@ namespace std {
 本オブジェクトは、初期化が完了すると [`tie`](../ios/basic_ios/tie.md)`()` が `&`[`cout`](cout.md) を返すようになる。  
 その他の状態は、[`basic_ios`](../ios/basic_ios.md)`::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
 
-`cin`は`character input`を意味する。
+`cin`は`character input`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
 
 ## 例
 ```cpp example
