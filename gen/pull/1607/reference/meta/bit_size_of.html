@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/bit_size_of.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="ビットフィールドのビットサイズを取得する。" />
+        <meta property="og:description" content="ビットサイズを取得する。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="bit_size_of - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/bit_size_of.html" />
-        <meta name="twitter:description" content="ビットフィールドのビットサイズを取得する。" />
+        <meta name="twitter:description" content="ビットサイズを取得する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;adc69a14e86100dd3048bd5bc82a35d05e62c827&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nstruct Flags {\n  unsigned a : 1;\n  unsigned b : 3;\n};\n\nconsteval bool check() {\n  auto members = std::meta::nonstatic_data_members_of(\n      ^^Flags, std::meta::access_context::unchecked());\n  return std::meta::bit_size_of(members[0]) == 1\n      &amp;&amp; std::meta::bit_size_of(members[1]) == 3;\n}\n\nint main() {\n  static_assert(check());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;bit_size_of&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;81c4797daf1ce21536b6d128e89d7db31e1f45e1&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;climits&gt;\n\nstruct Flags {\n  unsigned a : 1;\n  unsigned b : 3;\n  int c;\n};\n\nconsteval bool check() {\n  // \u578b\u306e\u30d3\u30c3\u30c8\u30b5\u30a4\u30ba: CHAR_BIT * size_of(int)\n  static_assert(std::meta::bit_size_of(^^int) == CHAR_BIT * sizeof(int));\n\n  // \u30d3\u30c3\u30c8\u30d5\u30a3\u30fc\u30eb\u30c9\u306e\u30d3\u30c3\u30c8\u5e45\n  auto members = std::meta::nonstatic_data_members_of(\n      ^^Flags, std::meta::access_context::unchecked());\n  return std::meta::bit_size_of(members[0]) == 1                       // a: 1\n      &amp;&amp; std::meta::bit_size_of(members[1]) == 3                       // b: 3\n      &amp;&amp; std::meta::bit_size_of(members[2]) == CHAR_BIT * sizeof(int); // c: CHAR_BIT * sizeof(int)\n}\n\nint main() {\n  static_assert(check());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;bit_size_of&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T05:29:50">
-        2026年04月20日 05時29分50秒
+      <span itemprop="datePublished" content="2026-04-24T03:59:24">
+        2026年04月24日 03時59分24秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,24 +219,42 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>ビットフィールドのビットサイズを取得する。</p>
+<p>ビットサイズを取得する。</p>
+<p>以下のいずれかを表すリフレクションを受け取れる：</p>
+<ul>
+<li>型</li>
+<li>オブジェクト</li>
+<li>値</li>
+<li>参照型でない変数</li>
+<li>メンバ変数（ビットフィールドを含む）</li>
+<li>無名ビットフィールド</li>
+<li>直接基底クラス関係</li>
+</ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>r</code>がビットフィールドを表す場合、そのビット幅を返す。</p>
+<p><code>r</code>がビットフィールドまたは無名ビットフィールドを表す場合、そのビット幅を返す。</p>
+<p>それ以外（型、オブジェクト、値、参照型でない変数、ビットフィールドでないメンバ変数、直接基底クラス関係）を表す場合、<code><a href="../climits/char_bit.html">CHAR_BIT</a> * <a href="size_of.html">size_of(r)</a></code>を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
-<p><code>r</code>がビットフィールドを表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
+<p><code>r</code>が上記のいずれも表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="adc69a14e86100dd3048bd5bc82a35d05e62c827"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="81c4797daf1ce21536b6d128e89d7db31e1f45e1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<span class="cp">#include <a href="../climits.html">&lt;climits&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">Flags</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="k">consteval</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">check</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 型のビットサイズ: <a href="../climits/char_bit.html">CHAR_BIT</a> * size_of(int)</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">bit_size_of</span><span class="p">(</span><span class="o">^^</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../climits/char_bit.html">CHAR_BIT</a></span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// ビットフィールドのビット幅</span>
 <span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">nonstatic_data_members_of</span><span class="p">(</span>
 <span class="w">      </span><span class="o">^^</span><span class="n">Flags</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">access_context</span><span class="o">::</span><span class="n">unchecked</span><span class="p">());</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">bit_size_of</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">bit_size_of</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">bit_size_of</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w">                       </span><span class="c1">// a: 1</span>
+<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">bit_size_of</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w">                       </span><span class="c1">// b: 3</span>
+<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">bit_size_of</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n"><a href="../climits/char_bit.html">CHAR_BIT</a></span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="c1">// c: <a href="../climits/char_bit.html">CHAR_BIT</a> * sizeof(int)</span>
 <span class="p">}</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>

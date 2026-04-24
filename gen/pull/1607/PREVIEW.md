@@ -1,8 +1,8 @@
 # PR [\#1607](https://github.com/cpprefjp/site/pull/1607) プレビュー
-- &#x231a; 更新時刻: 2026-04-24 13:00:25 JST
+- &#x231a; 更新時刻: 2026-04-24 13:05:13 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1607)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26_reflection)
-- **&#x2AEF;** ソースの変更: [`c8f0f3f..f9f61e8`](https://github.com/cpprefjp/site/compare/c8f0f3f63e70b87bf9b9d66a9344525331eafa1f..f9f61e8c55c85e3a11a65554a07da1ad1b775661)
+- **&#x2AEF;** ソースの変更: [`c8f0f3f..643d7a1`](https://github.com/cpprefjp/site/compare/c8f0f3f63e70b87bf9b9d66a9344525331eafa1f..643d7a16e89c3bde1f3684c367d8984fc0855491)
 
 ## 変更記事一覧 (258件)
 

@@ -2,9 +2,90 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T04:00:24.698453</updated>
-  <id>6c4a6736-0d8d-4ada-b9c6-6291177635c0</id>
+  <updated>2026-04-24T04:05:12.358540</updated>
+  <id>e39635b8-31a3-4185-a476-d1b55c4d6a33</id>
 
+  
+    <entry>
+      <title>bit_size_of -- bit_size_of : 対象が狭かったのを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/bit_size_of.html"/>
+      <id>643d7a16e89c3bde1f3684c367d8984fc0855491:reference/meta/bit_size_of.md</id>
+      <updated>2026-04-24T12:59:24+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/bit_size_of.md b/reference/meta/bit_size_of.md
+index 11915900c..86728c3eb 100644
+--- a/reference/meta/bit_size_of.md
++++ b/reference/meta/bit_size_of.md
+@@ -12,37 +12,57 @@ namespace std::meta {
+ * info[link info.md]
+ 
+ ## 概要
+-ビットフィールドのビットサイズを取得する。
++ビットサイズを取得する。
++
++以下のいずれかを表すリフレクションを受け取れる：
++
++- 型
++- オブジェクト
++- 値
++- 参照型でない変数
++- メンバ変数（ビットフィールドを含む）
++- 無名ビットフィールド
++- 直接基底クラス関係
+ 
+ 
+ ## 戻り値
+-`r`がビットフィールドを表す場合、そのビット幅を返す。
++`r`がビットフィールドまたは無名ビットフィールドを表す場合、そのビット幅を返す。
++
++それ以外（型、オブジェクト、値、参照型でない変数、ビットフィールドでないメンバ変数、直接基底クラス関係）を表す場合、[`CHAR_BIT`](/reference/climits/char_bit.md) `*` [`size_of(r)`](size_of.md)を返す。
+ 
+ 
+ ## 例外
+-`r`がビットフィールドを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+ ```cpp example
+ #include &amp;lt;meta&amp;gt;
++#include &amp;lt;climits&amp;gt;
+ 
+ struct Flags {
+   unsigned a : 1;
+   unsigned b : 3;
++  int c;
+ };
+ 
+ consteval bool check() {
++  // 型のビットサイズ: CHAR_BIT * size_of(int)
++  static_assert(std::meta::bit_size_of(^^int) == CHAR_BIT * sizeof(int));
++
++  // ビットフィールドのビット幅
+   auto members = std::meta::nonstatic_data_members_of(
+       ^^Flags, std::meta::access_context::unchecked());
+-  return std::meta::bit_size_of(members[0]) == 1
+-      &amp;amp;&amp;amp; std::meta::bit_size_of(members[1]) == 3;
++  return std::meta::bit_size_of(members[0]) == 1                       // a: 1
++      &amp;amp;&amp;amp; std::meta::bit_size_of(members[1]) == 3                       // b: 3
++      &amp;amp;&amp;amp; std::meta::bit_size_of(members[2]) == CHAR_BIT * sizeof(int); // c: CHAR_BIT * sizeof(int)
+ }
+ 
+ int main() {
+   static_assert(check());
+ }
+ ```
++* CHAR_BIT[link /reference/climits/char_bit.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>annotations_of -- annotations_of : consteval-only型を実行時に使ってしまっていたのを修正</title>
@@ -226,32 +307,6 @@ index 11749b705..3b1e9cac5 100644
    if constexpr (annots.size() &amp;gt; 0) {
      std::println(&amp;#34;{}: {}&amp;#34;, [:annots[0]:].value,
                             std::meta::identifier_of(m));
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>静的リフレクション [P2996R13] -- reflection : 「リフレクションできる対象と、取得できる主な情報」の表にannotations_ofを追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
-      <id>f93c669fb5f6776535eca5f40aa3acbd0ef86450:lang/cpp26/reflection.md</id>
-      <updated>2026-04-24T12:02:33+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
-index db68dc1ce..11749b705 100644
---- a/lang/cpp26/reflection.md
-+++ b/lang/cpp26/reflection.md
-@@ -75,6 +75,7 @@ constexpr auto r4 = ^^std::vector;   // テンプレートのリフレクショ
- | テンプレート | `^^std::vector` | 名前、テンプレート引数の置換 |
- | 基底クラス関係 | [`bases_of()`](/reference/meta/bases_of.md)経由 | 基底クラスの型、アクセス指定子、`virtual`の有無 |
- | 関数パラメータ | [`parameters_of()`](/reference/meta/parameters_of.md)経由 | 名前、型、デフォルト引数の有無、明示的オブジェクトパラメータか |
-+| アノテーション | [`annotations_of()`](/reference/meta/annotations_of.md)経由 | 型、値（スプライスで取得）、ソース位置 |
- 
- ### オーバーロードされた関数のリフレクション
- `^^f`で関数`f`をリフレクションする場合、`f`がオーバーロードされていると不適格となる。`^^`はオーバーロード集合ではなく単一の関数を対象とする。
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
