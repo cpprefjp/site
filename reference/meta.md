@@ -70,8 +70,9 @@
 | [`is_protected`](meta/is_protected.md) | `protected`であるか | C++26 |
 | [`is_private`](meta/is_private.md) | `private`であるか | C++26 |
 | [`is_accessible`](meta/is_accessible.md) | 指定したアクセスコンテキストでアクセス可能か | C++26 |
-| [`has_inaccessible_nonstatic_data_members`](meta/has_inaccessible_nonstatic_data_members.md) | アクセス不可能な非静的データメンバがあるか | C++26 |
+| [`has_inaccessible_nonstatic_data_members`](meta/has_inaccessible_nonstatic_data_members.md) | アクセス不可能なメンバ変数があるか | C++26 |
 | [`has_inaccessible_bases`](meta/has_inaccessible_bases.md) | アクセス不可能な基底クラスがあるか | C++26 |
+| [`has_inaccessible_subobjects`](meta/has_inaccessible_subobjects.md) | アクセス不可能な基底クラスまたはメンバ変数があるか | C++26 |
 
 
 ## エンティティの分類
@@ -90,7 +91,7 @@
 | [`is_structured_binding`](meta/is_structured_binding.md) | 構造化束縛であるか | C++26 |
 | [`is_class_member`](meta/is_class_member.md) | クラスメンバであるか | C++26 |
 | [`is_namespace_member`](meta/is_namespace_member.md) | 名前空間メンバであるか | C++26 |
-| [`is_nonstatic_data_member`](meta/is_nonstatic_data_member.md) | 非静的データメンバであるか | C++26 |
+| [`is_nonstatic_data_member`](meta/is_nonstatic_data_member.md) | メンバ変数であるか | C++26 |
 | [`is_static_member`](meta/is_static_member.md) | 静的メンバであるか | C++26 |
 | [`is_base`](meta/is_base.md) | 基底クラス関係であるか | C++26 |
 | [`is_function_parameter`](meta/is_function_parameter.md) | 関数パラメータであるか | C++26 |
@@ -182,9 +183,9 @@
 | [`members_of`](meta/members_of.md) | すべてのメンバを取得 | C++26 |
 | [`bases_of`](meta/bases_of.md) | 基底クラスを取得 | C++26 |
 | [`static_data_members_of`](meta/static_data_members_of.md) | 静的データメンバを取得 | C++26 |
-| [`nonstatic_data_members_of`](meta/nonstatic_data_members_of.md) | 非静的データメンバを取得 | C++26 |
+| [`nonstatic_data_members_of`](meta/nonstatic_data_members_of.md) | メンバ変数を取得 | C++26 |
 | [`enumerators_of`](meta/enumerators_of.md) | 列挙子を取得 | C++26 |
-| [`subobjects_of`](meta/subobjects_of.md) | 基底クラスと非静的データメンバを統合して取得 | C++26 |
+| [`subobjects_of`](meta/subobjects_of.md) | 基底クラスとメンバ変数を統合して取得 | C++26 |
 
 
 ## テンプレート操作
