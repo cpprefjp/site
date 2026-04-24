@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;14ff6e2f4f7ce7a2c0bd37399a619e05dc321ba0&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct Label { const char* text; };\n\nstruct [[=Label{std::define_static_string(\&#34;my struct\&#34;)}, =42]] S {};\n\nint main() {\n  constexpr auto annots = std::define_static_array(std::meta::annotations_of(^^S));\n  std::println(\&#34;\u30a2\u30ce\u30c6\u30fc\u30b7\u30e7\u30f3\u6570: {}\&#34;, annots.size());\n\n  template for (constexpr auto a : annots) {\n    // \u30a2\u30ce\u30c6\u30fc\u30b7\u30e7\u30f3\u306e\u578b\u540d\u3092\u51fa\u529b\n    std::println(\&#34;  \u578b: {}\&#34;, std::meta::display_string_of(std::meta::type_of(a)));\n\n    // \u578b\u3054\u3068\u306b\u5024\u3092\u53d6\u308a\u51fa\u3057\u3066\u51fa\u529b\n    if constexpr (std::meta::type_of(a) == ^^Label) {\n      std::println(\&#34;  \u5024: {}\&#34;, [:a:].text);\n    } else if constexpr (std::meta::type_of(a) == ^^int) {\n      std::println(\&#34;  \u5024: {}\&#34;, [:a:]);\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;annotations_of&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5ff53d27942544ca4f2e511b67a2b449a790f1d4&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct Label { const char* text; };\n\nstruct [[=Label{std::define_static_string(\&#34;my struct\&#34;)}, =42]] S {};\n\nint main() {\n  constexpr auto annots = std::define_static_array(std::meta::annotations_of(^^S));\n  std::println(\&#34;\u30a2\u30ce\u30c6\u30fc\u30b7\u30e7\u30f3\u6570: {}\&#34;, annots.size());\n\n  template for (constexpr auto a : annots) {\n    // \u30a2\u30ce\u30c6\u30fc\u30b7\u30e7\u30f3\u306e\u578b\u540d\u3092\u51fa\u529b\n    std::println(\&#34;  \u578b: {}\&#34;, std::meta::display_string_of(std::meta::type_of(a)));\n\n    // \u578b\u3054\u3068\u306b\u5024\u3092\u53d6\u308a\u51fa\u3057\u3066\u51fa\u529b\n    // \u30a2\u30ce\u30c6\u30fc\u30b7\u30e7\u30f3\u306f\u5024\u306e\u30ea\u30d5\u30ec\u30af\u30b7\u30e7\u30f3\u3067\u306f\u306a\u3044\u305f\u3081\u3001\n    // constant_of()\u3067\u5024\u3092\u53d6\u308a\u51fa\u3057\u3066\u304b\u3089\u30b9\u30d7\u30e9\u30a4\u30b9\u3059\u308b\n    if constexpr (std::meta::type_of(a) == ^^Label) {\n      std::println(\&#34;  \u5024: {}\&#34;, [:std::meta::constant_of(a):].text);\n    } else if constexpr (std::meta::type_of(a) == ^^int) {\n      std::println(\&#34;  \u5024: {}\&#34;, [:std::meta::constant_of(a):]);\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;annotations_of&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T05:29:50">
-        2026年04月20日 05時29分50秒
+      <span itemprop="datePublished" content="2026-04-24T03:25:00">
+        2026年04月24日 03時25分00秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,7 +223,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>item</code>に付加されたすべてのアノテーションのリフレクションを格納した<code><a href="../vector/vector.html">std::vector</a></code>オブジェクトを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="14ff6e2f4f7ce7a2c0bd37399a619e05dc321ba0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="5ff53d27942544ca4f2e511b67a2b449a790f1d4"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">text</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
@@ -239,10 +239,12 @@
 <span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"  型: {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="display_string_of.html">std::meta::display_string_of</a></span><span class="p">(</span><span class="n"><a href="type_of.html">std::meta::type_of</a></span><span class="p">(</span><span class="n">a</span><span class="p">)));</span>
 
 <span class="w">    </span><span class="c1">// 型ごとに値を取り出して出力</span>
+<span class="w">    </span><span class="c1">// アノテーションは値のリフレクションではないため、</span>
+<span class="w">    </span><span class="c1">// constant_of()で値を取り出してからスプライスする</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="type_of.html">std::meta::type_of</a></span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">^^</span><span class="n">Label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"  値: {}"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">a</span><span class="o">:</span><span class="p">].</span><span class="n">text</span><span class="p">);</span>
+<span class="w">      </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"  値: {}"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n"><a href="constant_of.html">std::meta::constant_of</a></span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span><span class="p">].</span><span class="n">text</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="type_of.html">std::meta::type_of</a></span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">^^</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"  値: {}"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">a</span><span class="o">:</span><span class="p">]);</span>
+<span class="w">      </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"  値: {}"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n"><a href="constant_of.html">std::meta::constant_of</a></span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span><span class="p">]);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
