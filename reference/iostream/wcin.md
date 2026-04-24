@@ -51,3 +51,7 @@ int main()
 ## 出典
 
 1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)</cite>(2018-08-21 17:01 JST 閲覧)
+
+## 関連項目
+
+- [`cin`](cin.md)
