@@ -2,9 +2,391 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T02:59:36.221320</updated>
-  <id>dd74a682-1d1b-4b1c-ada7-d72111f795c9</id>
+  <updated>2026-04-24T03:04:21.731929</updated>
+  <id>ddd873f4-07ea-4d0a-9897-6ee6ec0c587d</id>
 
+  
+    <entry>
+      <title>静的リフレクション [P2996R13] -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:lang/cpp26/reflection.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
+index c05db74e9..db68dc1ce 100644
+--- a/lang/cpp26/reflection.md
++++ b/lang/cpp26/reflection.md
+@@ -70,7 +70,7 @@ constexpr auto r4 = ^^std::vector;   // テンプレートのリフレクショ
+ | 名前空間 | `^^std`, `^^::` | 名前、メンバ一覧 |
+ | 変数 | `^^x` | 名前、型、記憶域期間、リンケージ |
+ | 関数 | `^^f` | 名前、戻り値型、パラメータ一覧、`noexcept`の有無 |
+-| 非静的データメンバ | `^^S::m` | 名前、型、オフセット、アクセス指定子、ビットフィールドの有無 |
++| メンバ変数 | `^^S::m` | 名前、型、オフセット、アクセス指定子、ビットフィールドの有無 |
+ | 列挙子 | `^^Color::red` | 名前、値、所属する列挙型 |
+ | テンプレート | `^^std::vector` | 名前、テンプレート引数の置換 |
+ | 基底クラス関係 | [`bases_of()`](/reference/meta/bases_of.md)経由 | 基底クラスの型、アクセス指定子、`virtual`の有無 |
+@@ -133,7 +133,7 @@ constexpr std::meta::info rv = ^^value;
+ | テンプレートスプライス | `template[:r:]` | リフレクション`r`が表すテンプレートを挿入 |
+ | 名前空間スプライス | `namespace[:r:]` | リフレクション`r`が表す名前空間を挿入 |
+ 
+-メンバアクセスにもスプライスを使用できる。`obj.[:r:]`の形式で、リフレクション`r`が表す非静的データメンバや基底クラスにアクセスする：
++メンバアクセスにもスプライスを使用できる。`obj.[:r:]`の形式で、リフレクション`r`が表すメンバ変数や基底クラスにアクセスする：
+ 
+ ```cpp
+ struct S { int x; int y; };
+@@ -153,7 +153,7 @@ consteval void example() {
+ * unchecked[link /reference/meta/access_context/unchecked.md]
+ 
+ ### 基底クラスのサブオブジェクトへのスプライス
+-基底クラスのリフレクションに対してもメンバアクセスのスプライスを使用できる。これにより、非静的データメンバと基底クラスを統一的に扱うことができる。
++基底クラスのリフレクションに対してもメンバアクセスのスプライスを使用できる。これにより、メンバ変数と基底クラスを統一的に扱うことができる。
+ 
+ ```cpp
+ struct Base { int b; };
+@@ -423,7 +423,7 @@ int main() {
+ リフレクションを使うことで、任意のクラス型に対する汎用的なハッシュ関数を実装できる。以下の例では以下の方針で実装する：
+ 
+ - [`std::hash`](/reference/functional/hash.md)`&amp;lt;T&amp;gt;`が特殊化されていればそれを使う
+-- 特殊化されていない場合は、クラスのすべての非静的データメンバに対して再帰的にハッシュ値を計算しXORで合成する
++- 特殊化されていない場合は、クラスのすべてのメンバ変数に対して再帰的にハッシュ値を計算しXORで合成する
+ 
+ これにより、ネストしたクラス型に対しても自動的にハッシュ値を計算できる。
+ 
+@@ -499,7 +499,7 @@ hash(o1) == hash(o3): false
+ - [P3394R4 Annotations for Reflection](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3394r4.html)
+     - 宣言にコンパイル時定数を付加するアノテーション機能`[[=expr]]`と、それを取得するための`annotations_of()`メタ関数を追加する。
+ - [P3293R3 Splicing a base class subobject](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3293r3.html)
+-    - 基底クラスのリフレクションに対するメンバアクセスのスプライス`obj.[:base:]`と、基底クラスと非静的データメンバを統合取得する`subobjects_of()`を追加する。
++    - 基底クラスのリフレクションに対するメンバアクセスのスプライス`obj.[:base:]`と、基底クラスとメンバ変数を統合取得する`subobjects_of()`を追加する。
+ - [P3096R12 Function Parameter Reflection in Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3096r12.pdf)
+     - 関数パラメータのリフレクションを追加する。`parameters_of()`、`return_type_of()`、`has_default_argument()`などのメタ関数を導入する。
+ - [P3491R3 `define_static_{string,object,array}`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>alignment_of -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/alignment_of.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/alignment_of.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/alignment_of.md b/reference/meta/alignment_of.md
+index a5314c0e5..2ef246fd2 100644
+--- a/reference/meta/alignment_of.md
++++ b/reference/meta/alignment_of.md
+@@ -16,11 +16,11 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`が型を表す場合は`alignof`相当の値を、非静的データメンバを表す場合はそのメンバのアライメントを返す。
++`r`が型を表す場合は`alignof`相当の値を、メンバ変数を表す場合はそのメンバのアライメントを返す。
+ 
+ 
+ ## 例外
+-`r`が型または非静的データメンバを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`が型またはメンバ変数を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_default_member_initializer -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_default_member_initializer.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/has_default_member_initializer.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_default_member_initializer.md b/reference/meta/has_default_member_initializer.md
+index ee5dee377..cf4860d3e 100644
+--- a/reference/meta/has_default_member_initializer.md
++++ b/reference/meta/has_default_member_initializer.md
+@@ -16,7 +16,7 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`がデフォルトメンバ初期化子を持つ非静的データメンバを表す場合に`true`を返す。
++`r`がデフォルトメンバ初期化子を持つメンバ変数を表す場合に`true`を返す。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_inaccessible_nonstatic_data_members -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_inaccessible_nonstatic_data_members.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/has_inaccessible_nonstatic_data_members.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_inaccessible_nonstatic_data_members.md b/reference/meta/has_inaccessible_nonstatic_data_members.md
+index f8a6ae261..5b0db367f 100644
+--- a/reference/meta/has_inaccessible_nonstatic_data_members.md
++++ b/reference/meta/has_inaccessible_nonstatic_data_members.md
+@@ -13,11 +13,11 @@ namespace std::meta {
+ * access_context[link access_context.md]
+ 
+ ## 概要
+-クラスにアクセス不可能な非静的データメンバがあるかを判定する。
++クラスにアクセス不可能なメンバ変数があるかを判定する。
+ 
+ 
+ ## 戻り値
+-指定したアクセスコンテキストでアクセスできない非静的データメンバが存在する場合に`true`を返す。
++指定したアクセスコンテキストでアクセスできないメンバ変数が存在する場合に`true`を返す。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_nonstatic_data_member -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_nonstatic_data_member.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/is_nonstatic_data_member.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_nonstatic_data_member.md b/reference/meta/is_nonstatic_data_member.md
+index c1782ff75..742ea8490 100644
+--- a/reference/meta/is_nonstatic_data_member.md
++++ b/reference/meta/is_nonstatic_data_member.md
+@@ -12,11 +12,11 @@ namespace std::meta {
+ * info[link info.md]
+ 
+ ## 概要
+-非静的データメンバであるかを判定する。
++メンバ変数であるかを判定する。
+ 
+ 
+ ## 戻り値
+-`r`が非静的データメンバを表す場合に`true`を返す。
++`r`がメンバ変数を表す場合に`true`を返す。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>member_offset -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/member_offset.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/member_offset.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/member_offset.md b/reference/meta/member_offset.md
+index fb04817ec..3f1c714fa 100644
+--- a/reference/meta/member_offset.md
++++ b/reference/meta/member_offset.md
+@@ -16,7 +16,7 @@ namespace std::meta {
+ ```
+ 
+ ## 概要
+-`member_offset`は、非静的データメンバのオフセットを表すクラスである。[`offset_of()`](offset_of.md)の戻り値型として使用される。
++`member_offset`は、メンバ変数のオフセットを表すクラスである。[`offset_of()`](offset_of.md)の戻り値型として使用される。
+ 
+ ## メンバ変数
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>nonstatic_data_members_of -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/nonstatic_data_members_of.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/nonstatic_data_members_of.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/nonstatic_data_members_of.md b/reference/meta/nonstatic_data_members_of.md
+index bc9d4684b..b5d052baa 100644
+--- a/reference/meta/nonstatic_data_members_of.md
++++ b/reference/meta/nonstatic_data_members_of.md
+@@ -13,11 +13,11 @@ namespace std::meta {
+ * access_context[link access_context.md]
+ 
+ ## 概要
+-クラスの非静的データメンバのリフレクションを取得する。
++クラスのメンバ変数のリフレクションを取得する。
+ 
+ 
+ ## 戻り値
+-`type`が完全型のクラスを表す場合、アクセスコンテキスト`ctx`でアクセス可能な非静的データメンバのリフレクションを宣言順に格納した`vector`を返す。
++`type`が完全型のクラスを表す場合、アクセスコンテキスト`ctx`でアクセス可能なメンバ変数のリフレクションを宣言順に格納した`vector`を返す。
+ 
+ 
+ ## 例外
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>offset_of -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/offset_of.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/offset_of.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/offset_of.md b/reference/meta/offset_of.md
+index 397d6cddf..bc5abab92 100644
+--- a/reference/meta/offset_of.md
++++ b/reference/meta/offset_of.md
+@@ -12,15 +12,15 @@ namespace std::meta {
+ * info[link info.md]
+ 
+ ## 概要
+-非静的データメンバのオフセットを取得する。
++メンバ変数のオフセットを取得する。
+ 
+ 
+ ## 戻り値
+-`r`が非静的データメンバを表す場合、そのメンバの所属するクラスの先頭からのオフセットを[`member_offset`](member_offset.md)として返す。
++`r`がメンバ変数を表す場合、そのメンバの所属するクラスの先頭からのオフセットを[`member_offset`](member_offset.md)として返す。
+ 
+ 
+ ## 例外
+-`r`が非静的データメンバまたは基底クラス関係を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`がメンバ変数または基底クラス関係を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size_of -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/size_of.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/size_of.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/size_of.md b/reference/meta/size_of.md
+index d27cfaf8c..f7faf1c37 100644
+--- a/reference/meta/size_of.md
++++ b/reference/meta/size_of.md
+@@ -16,11 +16,11 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`が型を表す場合は`sizeof`相当の値を、非静的データメンバを表す場合はそのメンバのサイズを返す。
++`r`が型を表す場合は`sizeof`相当の値を、メンバ変数を表す場合はそのメンバのサイズを返す。
+ 
+ 
+ ## 例外
+-`r`が型または非静的データメンバを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`r`が型またはメンバ変数を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>subobjects_of -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/subobjects_of.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/subobjects_of.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/subobjects_of.md b/reference/meta/subobjects_of.md
+index bf0f183de..f3adbb5ca 100644
+--- a/reference/meta/subobjects_of.md
++++ b/reference/meta/subobjects_of.md
+@@ -13,11 +13,11 @@ namespace std::meta {
+ * access_context[link access_context.md]
+ 
+ ## 概要
+-クラスの基底クラスと非静的データメンバを統合して取得する。
++クラスの基底クラスとメンバ変数を統合して取得する。
+ 
+ 
+ ## 戻り値
+-`type`が完全型のクラスを表す場合、アクセスコンテキスト`ctx`でアクセス可能な直接基底クラス関係と非静的データメンバのリフレクションを格納した[`std::vector`](/reference/vector/vector.md)オブジェクトを返す。基底クラスが非静的データメンバより先に配置される。
++`type`が完全型のクラスを表す場合、アクセスコンテキスト`ctx`でアクセス可能な直接基底クラス関係とメンバ変数のリフレクションを格納した[`std::vector`](/reference/vector/vector.md)オブジェクトを返す。基底クラスがメンバ変数より先に配置される。
+ 
+ 
+ ## 例外
+@@ -37,7 +37,7 @@ int main() {
+       std::meta::subobjects_of(
+           ^^Derived, std::meta::access_context::unchecked()));
+ 
+-  // 基底クラスが先、非静的データメンバが後
++  // 基底クラスが先、メンバ変数が後
+   template for (constexpr auto s : subs) {
+     std::println(&amp;#34;{}&amp;#34;, std::meta::display_string_of(s));
+   }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>type_of -- reflection : 非静的データメンバ → メンバ変数</title>
+      <link href="https://cpprefjp.github.io/reference/meta/type_of.html"/>
+      <id>f86637848cc102db28c9d916fc29bc52e668e45f:reference/meta/type_of.md</id>
+      <updated>2026-04-24T11:58:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/type_of.md b/reference/meta/type_of.md
+index acb930cee..c81a1da33 100644
+--- a/reference/meta/type_of.md
++++ b/reference/meta/type_of.md
+@@ -16,7 +16,7 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`が表す値、オブジェクト、変数、関数、非静的データメンバ、ビットフィールド、列挙子、基底クラス関係、データメンバ仕様、または関数パラメータの型のリフレクションを返す。
++`r`が表す値、オブジェクト、変数、関数、メンバ変数、ビットフィールド、列挙子、基底クラス関係、データメンバ仕様、または関数パラメータの型のリフレクションを返す。
+ 
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>subobjects_of -- subobjects_of : 出力ミスを修正</title>
@@ -102,33 +484,6 @@ index 491838372..8ca35a2f6 100644
  ```
 +int
 +vector
- ```
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>symbol_of -- symbol_of : 出力ミスを修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/symbol_of.html"/>
-      <id>3483971512d961dc69f0b4f533b544326d5f94ca:reference/meta/symbol_of.md</id>
-      <updated>2026-04-24T11:46:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/symbol_of.md b/reference/meta/symbol_of.md
-index 74aea5728..c9db3f3a0 100644
---- a/reference/meta/symbol_of.md
-+++ b/reference/meta/symbol_of.md
-@@ -48,6 +48,8 @@ int main() {
- ### 出力
- ```
- 演算子: ==
-+演算子: =
-+演算子: =
  ```
  
  

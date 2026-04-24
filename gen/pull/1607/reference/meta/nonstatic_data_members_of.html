@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/nonstatic_data_members_of.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="クラスの非静的データメンバのリフレクションを取得する。" />
+        <meta property="og:description" content="クラスのメンバ変数のリフレクションを取得する。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="nonstatic_data_members_of - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/nonstatic_data_members_of.html" />
-        <meta name="twitter:description" content="クラスの非静的データメンバのリフレクションを取得する。" />
+        <meta name="twitter:description" content="クラスのメンバ変数のリフレクションを取得する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T05:29:50">
-        2026年04月20日 05時29分50秒
+      <span itemprop="datePublished" content="2026-04-24T02:58:38">
+        2026年04月24日 02時58分38秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,9 +219,9 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>クラスの非静的データメンバのリフレクションを取得する。</p>
+<p>クラスのメンバ変数のリフレクションを取得する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>type</code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>のクラスを表す場合、アクセスコンテキスト<code>ctx</code>でアクセス可能な非静的データメンバのリフレクションを宣言順に格納した<code>vector</code>を返す。</p>
+<p><code>type</code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>のクラスを表す場合、アクセスコンテキスト<code>ctx</code>でアクセス可能なメンバ変数のリフレクションを宣言順に格納した<code>vector</code>を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code>r</code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>のクラスを表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>

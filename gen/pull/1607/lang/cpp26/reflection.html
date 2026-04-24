@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-24T02:35:29">
-        2026年04月24日 02時35分29秒
+      <span itemprop="datePublished" content="2026-04-24T02:58:38">
+        2026年04月24日 02時58分38秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -293,7 +293,7 @@
 <td>名前、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型、パラメータ一覧、<code>noexcept</code>の有無</td>
 </tr>
 <tr>
-<td>非静的データメンバ</td>
+<td>メンバ変数</td>
 <td><code>^^S::m</code></td>
 <td>名前、型、オフセット、アクセス指定子、ビットフィールドの有無</td>
 </tr>
@@ -387,7 +387,7 @@
 </tr>
 </tbody>
 </table>
-<p>メンバアクセスにもスプライスを使用できる。<code>obj.[:r:]</code>の形式で、リフレクション<code>r</code>が表す非静的データメンバや基底クラスにアクセスする：</p>
+<p>メンバアクセスにもスプライスを使用できる。<code>obj.[:r:]</code>の形式で、リフレクション<code>r</code>が表すメンバ変数や基底クラスにアクセスする：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
 <span class="k">consteval</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">example</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -402,7 +402,7 @@
 </code></pre></div>
 </p>
 <h3>基底クラスのサブオブジェクトへのスプライス</h3>
-<p>基底クラスのリフレクションに対してもメンバアクセスのスプライスを使用できる。これにより、非静的データメンバと基底クラスを統一的に扱うことができる。</p>
+<p>基底クラスのリフレクションに対してもメンバアクセスのスプライスを使用できる。これにより、メンバ変数と基底クラスを統一的に扱うことができる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
@@ -622,7 +622,7 @@ blue
 <p>リフレクションを使うことで、任意のクラス型に対する汎用的なハッシュ関数を実装できる。以下の例では以下の方針で実装する：</p>
 <ul>
 <li><code><a href="../../reference/functional/hash.html">std::hash</a>&lt;T&gt;</code>が特殊化されていればそれを使う</li>
-<li>特殊化されていない場合は、クラスのすべての非静的データメンバに対して再帰的にハッシュ値を計算しXORで合成する</li>
+<li>特殊化されていない場合は、クラスのすべてのメンバ変数に対して再帰的にハッシュ値を計算しXORで合成する</li>
 </ul>
 <p>これにより、ネストしたクラス型に対しても自動的にハッシュ値を計算できる。</p>
 <p><div class="yata" id="9bef0d1d173b9dbefd6082856b1426c96b2d8162"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/meta.html">&lt;meta&gt;</a></span>
@@ -694,7 +694,7 @@ hash(o1) == hash(o3): false
 </ul>
 </li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3293r3.html" target="_blank">P3293R3 Splicing a base class subobject</a><ul>
-<li>基底クラスのリフレクションに対するメンバアクセスのスプライス<code>obj.[:base:]</code>と、基底クラスと非静的データメンバを統合取得する<code>subobjects_of()</code>を追加する。</li>
+<li>基底クラスのリフレクションに対するメンバアクセスのスプライス<code>obj.[:base:]</code>と、基底クラスとメンバ変数を統合取得する<code>subobjects_of()</code>を追加する。</li>
 </ul>
 </li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3096r12.pdf" target="_blank">P3096R12 Function Parameter Reflection in Reflection for C++26</a><ul>

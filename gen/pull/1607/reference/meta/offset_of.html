@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/offset_of.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="非静的データメンバのオフセットを取得する。" />
+        <meta property="og:description" content="メンバ変数のオフセットを取得する。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="offset_of - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/offset_of.html" />
-        <meta name="twitter:description" content="非静的データメンバのオフセットを取得する。" />
+        <meta name="twitter:description" content="メンバ変数のオフセットを取得する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T05:29:50">
-        2026年04月20日 05時29分50秒
+      <span itemprop="datePublished" content="2026-04-24T02:58:38">
+        2026年04月24日 02時58分38秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,11 +219,11 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>非静的データメンバのオフセットを取得する。</p>
+<p>メンバ変数のオフセットを取得する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>r</code>が非静的データメンバを表す場合、そのメンバの所属するクラスの先頭からのオフセットを<code><a href="member_offset.html">member_offset</a></code>として返す。</p>
+<p><code>r</code>がメンバ変数を表す場合、そのメンバの所属するクラスの先頭からのオフセットを<code><a href="member_offset.html">member_offset</a></code>として返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
-<p><code>r</code>が非静的データメンバまたは基底クラス関係を表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
+<p><code>r</code>がメンバ変数または基底クラス関係を表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
 <p><div class="yata" id="b64777bbda9bc0036882334b3b40f83b4f002c27"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
