@@ -54,6 +54,8 @@ S::S(): is_constructor=true
 S::S(int): is_constructor=true
 S::S(const S&): is_constructor=true
 S::f(): is_constructor=false
+S::operator=(const S&): is_constructor=false
+S::~S(): is_constructor=false
 ```
 
 
