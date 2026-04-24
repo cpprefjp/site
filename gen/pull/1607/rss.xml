@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-24T02:55:22.522364</updated>
-  <id>ea7dc6c1-e2a1-4dc7-96ef-d10b9cdaa74b</id>
+  <updated>2026-04-24T02:59:36.221320</updated>
+  <id>dd74a682-1d1b-4b1c-ada7-d72111f795c9</id>
 
+  
+    <entry>
+      <title>subobjects_of -- subobjects_of : 出力ミスを修正</title>
+      <link href="https://cpprefjp.github.io/reference/meta/subobjects_of.html"/>
+      <id>a410a7634eaec52a3a14359ad3bac05cb7db6190:reference/meta/subobjects_of.md</id>
+      <updated>2026-04-24T11:52:17+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/subobjects_of.md b/reference/meta/subobjects_of.md
+index be0e53545..bf0f183de 100644
+--- a/reference/meta/subobjects_of.md
++++ b/reference/meta/subobjects_of.md
+@@ -49,6 +49,8 @@ int main() {
+ 
+ #### 出力例
+ ```
++Base
++d
+ ```
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>is_constructor -- is_constructor : 出力ミスを修正</title>
@@ -97,33 +124,6 @@ index 74aea5728..c9db3f3a0 100644
 --- a/reference/meta/symbol_of.md
 +++ b/reference/meta/symbol_of.md
 @@ -48,6 +48,8 @@ int main() {
- ### 出力
- ```
- 演算子: ==
-+演算子: =
-+演算子: =
- ```
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator_of -- operator_of : 出力ミスを修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/operator_of.html"/>
-      <id>3f275dcd8ef0a8a6b944af4af56b183bc686b9ac:reference/meta/operator_of.md</id>
-      <updated>2026-04-24T11:45:47+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/operator_of.md b/reference/meta/operator_of.md
-index b37613ff9..71b08757e 100644
---- a/reference/meta/operator_of.md
-+++ b/reference/meta/operator_of.md
-@@ -51,6 +51,8 @@ int main() {
  ### 出力
  ```
  演算子: ==
