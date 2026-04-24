@@ -142,7 +142,7 @@ struct S { int x; int y; };
 consteval void example() {
   S s{1, 2};
 
-  auto members = std::meta::nonstatic_data_members_of(
+  constexpr auto members = std::meta::nonstatic_data_members_of(
     ^^S, std::meta::access_context::unchecked());
 
   int a = s.[:members[0]:];  // s.x と等価。a == 1
@@ -162,7 +162,7 @@ struct Derived : Base { int d; };
 
 consteval void example() {
   Derived obj{{42}, 100};
-  auto bases = std::meta::bases_of(
+  constexpr auto bases = std::meta::bases_of(
     ^^Derived, std::meta::access_context::unchecked());
   Base& base_ref = obj.[:bases[0]:];  // 基底クラスのサブオブジェクトへの参照
 }
@@ -250,7 +250,7 @@ struct [[=Name{std::define_static_string("点")}]] Point {
 template for (constexpr auto m :
     std::define_static_array(std::meta::nonstatic_data_members_of(^^Point,
         std::meta::access_context::unchecked()))) {
-  auto annots = std::meta::annotations_of_with_type(m, ^^Name);
+  constexpr auto annots = std::meta::annotations_of_with_type(m, ^^Name);
   if constexpr (annots.size() > 0) {
     std::println("{}: {}", [:annots[0]:].value,
                            std::meta::identifier_of(m));
