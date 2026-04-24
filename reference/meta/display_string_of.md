@@ -34,6 +34,8 @@ int main() {
 
 #### 出力例
 ```
+int
+vector
 ```
 
 
