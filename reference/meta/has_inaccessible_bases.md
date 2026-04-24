@@ -24,17 +24,26 @@ namespace std::meta {
 ```cpp example
 #include <meta>
 
-class C {
-  int secret;
-public:
-  int visible;
-};
+struct Base1 {};
+struct Base2 {};
+
+// Base1はprivate継承、Base2はpublic継承
+class Derived : private Base1, public Base2 {};
+
+// すべての基底クラスがpublic
+class PublicDerived : public Base1, public Base2 {};
 
 int main() {
   constexpr auto ctx = std::meta::access_context::unprivileged();
-  static_assert(std::meta::has_inaccessible_bases(^^C, ctx));
+
+  // Derivedにはprivate基底Base1があるため、外部からはアクセス不可
+  static_assert(std::meta::has_inaccessible_bases(^^Derived, ctx));
+
+  // PublicDerivedはすべての基底クラスがpublic
+  static_assert(!std::meta::has_inaccessible_bases(^^PublicDerived, ctx));
 }
 ```
+* std::meta::has_inaccessible_bases[color ff0000]
 * std::meta::access_context[link access_context.md]
 * unprivileged[link access_context/unprivileged.md]
 
