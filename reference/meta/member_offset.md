@@ -16,7 +16,7 @@ namespace std::meta {
 ```
 
 ## 概要
-`member_offset`は、非静的データメンバのオフセットを表すクラスである。[`offset_of()`](offset_of.md)の戻り値型として使用される。
+`member_offset`は、メンバ変数のオフセットを表すクラスである。[`offset_of()`](offset_of.md)の戻り値型として使用される。
 
 ## メンバ変数
 

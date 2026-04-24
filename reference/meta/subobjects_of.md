@@ -13,11 +13,11 @@ namespace std::meta {
 * access_context[link access_context.md]
 
 ## 概要
-クラスの基底クラスと非静的データメンバを統合して取得する。
+クラスの基底クラスとメンバ変数を統合して取得する。
 
 
 ## 戻り値
-`type`が完全型のクラスを表す場合、アクセスコンテキスト`ctx`でアクセス可能な直接基底クラス関係と非静的データメンバのリフレクションを格納した[`std::vector`](/reference/vector/vector.md)オブジェクトを返す。基底クラスが非静的データメンバより先に配置される。
+`type`が完全型のクラスを表す場合、アクセスコンテキスト`ctx`でアクセス可能な直接基底クラス関係とメンバ変数のリフレクションを格納した[`std::vector`](/reference/vector/vector.md)オブジェクトを返す。基底クラスがメンバ変数より先に配置される。
 
 
 ## 例外
@@ -37,7 +37,7 @@ int main() {
       std::meta::subobjects_of(
           ^^Derived, std::meta::access_context::unchecked()));
 
-  // 基底クラスが先、非静的データメンバが後
+  // 基底クラスが先、メンバ変数が後
   template for (constexpr auto s : subs) {
     std::println("{}", std::meta::display_string_of(s));
   }

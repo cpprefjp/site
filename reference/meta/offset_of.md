@@ -12,15 +12,15 @@ namespace std::meta {
 * info[link info.md]
 
 ## 概要
-非静的データメンバのオフセットを取得する。
+メンバ変数のオフセットを取得する。
 
 
 ## 戻り値
-`r`が非静的データメンバを表す場合、そのメンバの所属するクラスの先頭からのオフセットを[`member_offset`](member_offset.md)として返す。
+`r`がメンバ変数を表す場合、そのメンバの所属するクラスの先頭からのオフセットを[`member_offset`](member_offset.md)として返す。
 
 
 ## 例外
-`r`が非静的データメンバまたは基底クラス関係を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+`r`がメンバ変数または基底クラス関係を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例
