@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-23T05:02:00.853602</updated>
-  <id>e2eabfc4-5b38-4959-867a-847e8ed686c9</id>
+  <updated>2026-04-24T02:40:15.271878</updated>
+  <id>90324fdd-1d08-4826-86ad-245596ad1d12</id>
 
+  
+    <entry>
+      <title>静的リフレクション [P2996R13] -- reflection : 不足していた閉じカッコを修正</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
+      <id>dbaaaf2595063f975d49a790439144cb2b51e5e9:lang/cpp26/reflection.md</id>
+      <updated>2026-04-24T11:35:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
+index 8dca2ec67..c05db74e9 100644
+--- a/lang/cpp26/reflection.md
++++ b/lang/cpp26/reflection.md
+@@ -33,7 +33,7 @@ template &amp;lt;typename E&amp;gt;
+   requires std::is_enum_v&amp;lt;E&amp;gt;
+ constexpr std::string_view to_string(E value) {
+   // 型Eから列挙子のリストを取得
+-  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E)) {
++  template for (constexpr auto e : std::define_static_array(std::meta::enumerators_of(^^E))) {
+     if (value == [:e:]) {
+       return std::meta::identifier_of(e); // 列挙子の名前を文字列として取得
+     }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>静的リフレクション [P2996R13] -- reflection : 非メンバ関数のオーバーロードリストは取得できないことを明記</title>
@@ -2001,64 +2028,6 @@ index a9776322f..6cabe252a 100644
      std::println(&amp;#34;{} = {}&amp;#34;, std::meta::identifier_of(p),
                              [:std::meta::variable_of(p):]);
    }
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>is_override -- is_override : overrideキーワードの有無に関係なくオーバーライド関係を判定するよう修正</title>
-      <link href="https://cpprefjp.github.io/reference/meta/is_override.html"/>
-      <id>ed104020ff3bb00e1862f290d79c8fd788d7ceae:reference/meta/is_override.md</id>
-      <updated>2026-04-13T13:50:41+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_override.md b/reference/meta/is_override.md
-index 99c175d40..50b4d28e7 100644
---- a/reference/meta/is_override.md
-+++ b/reference/meta/is_override.md
-@@ -12,11 +12,11 @@ namespace std::meta {
- * info[link info.md]
- 
- ## 概要
--`override`指定されているかを判定する。
-+基底クラスの仮想関数をオーバーライドしているメンバ関数であるかを判定する。`override`キーワードの有無に関係なく、意味的にオーバーライドしていれば`true`を返す。
- 
- 
- ## 戻り値
--`r`が`override`指定されたメンバ関数を表す場合に`true`を返す。
-+`r`が別のメンバ関数をオーバーライドしているメンバ関数を表す場合に`true`を返す。
- 
- 
- ## 例
-@@ -25,17 +25,24 @@ namespace std::meta {
- 
- struct Base {
-   virtual void f() {}
-+  virtual void g() {}
- };
- 
- struct Derived : Base {
--  void f() override {}
-+  void f() override {}  // overrideキーワードあり
-+  void g() {}           // overrideキーワードなしだが、オーバーライドしている
- };
- 
- int main() {
-+  // 基底クラスの仮想関数はオーバーライドではない
-   static_assert(!std::meta::is_override(^^Base::f));
-+
-+  // overrideキーワードの有無に関係なく、オーバーライドしていればtrue
-   static_assert(std::meta::is_override(^^Derived::f));
-+  static_assert(std::meta::is_override(^^Derived::g));
- }
- ```
-+* std::meta::is_override[color ff0000]
- 
- ### 出力
- ```
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

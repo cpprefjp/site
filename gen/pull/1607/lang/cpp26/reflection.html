@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T04:57:03">
-        2026年04月23日 04時57分03秒
+      <span itemprop="datePublished" content="2026-04-24T02:35:29">
+        2026年04月24日 02時35分29秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,7 +239,7 @@
 <span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/is_enum.html">std::is_enum_v</a></span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
 <span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// 型Eから列挙子のリストを取得</span>
-<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/meta/define_static_array.html">std::define_static_array</a></span><span class="p">(</span><span class="n"><a href="../../reference/meta/enumerators_of.html">std::meta::enumerators_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="../../reference/meta/define_static_array.html">std::define_static_array</a></span><span class="p">(</span><span class="n"><a href="../../reference/meta/enumerators_of.html">std::meta::enumerators_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/meta/identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"> </span><span class="c1">// 列挙子の名前を文字列として取得</span>
 <span class="w">    </span><span class="p">}</span>
