@@ -30,7 +30,10 @@ struct [[=Label{std::define_static_string("my struct")}, =42]] S {};
 
 int main() {
   constexpr auto annots = std::define_static_array(std::meta::annotations_of(^^S));
-  std::println("アノテーション数: {}", annots.size());
+  // annotsはconsteval-only型のため、実行時に使うにはサイズなどを
+  // 定数式としてあらかじめ取り出しておく必要がある
+  constexpr std::size_t count = annots.size();
+  std::println("アノテーション数: {}", count);
 
   template for (constexpr auto a : annots) {
     // アノテーションの型名を出力
