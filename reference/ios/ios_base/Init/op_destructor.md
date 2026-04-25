@@ -14,7 +14,7 @@
 
 ## 効果
 `Init` クラスのオブジェクトを破棄する。  
-`Init` クラスのインスタンスが他に無かった場合、[`cout`](../../../iostream/cout.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`cerr`](../../../iostream/cerr.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`clog`](../../../iostream/clog.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wcout`](../../../iostream/wcout.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wcerr`](../../../iostream/wcerr.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wclog`](../../../iostream/wclog.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()` を呼び出す。
+`Init` クラスのインスタンスが他に無かった場合、[`cout`](../../../iostream/cout.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`cerr`](../../../iostream/cerr.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`clog`](../../../iostream/clog.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wcout`](../../../iostream/wcout.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wcerr`](../../../iostream/wcerr.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wclog`](../../../iostream/wclog.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()` を呼び出す。
 
 
 ## バージョン
@@ -28,12 +28,12 @@
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 - [`Init`](op_constructor.md)
 - [`cout`](../../../iostream/cout.md)
 - [`cerr`](../../../iostream/cerr.md)
 - [`clog`](../../../iostream/clog.md)
-- [`wcout`](../../../iostream/wcout.md.nolink)
+- [`wcout`](../../../iostream/wcout.md)
 - [`wcerr`](../../../iostream/wcerr.md.nolink)
 - [`wclog`](../../../iostream/wclog.md.nolink)
 - [`basic_ostream`](../../../ostream/basic_ostream.md)`::`[`flush`](../../../ostream/basic_ostream/flush.md)
