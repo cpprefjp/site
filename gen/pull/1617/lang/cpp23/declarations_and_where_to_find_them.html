@@ -1,0 +1,435 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp23
+">
+        <meta name="title" content="スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp23/declarations_and_where_to_find_them.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++では、スコープ([basic.scope])と名前ルックアップ([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp23/declarations_and_where_to_find_them.html" />
+        <meta name="twitter:description" content="C++では、スコープ([basic.scope])と名前ルックアップ([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp23&#34;, &#34;declarations_and_where_to_find_them&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp23.html" itemprop="url">
+              
+                <span itemprop="name">C++23</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">スコープと名前ルックアップの仕様整理 [P1787R6]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-04-25T22:23:54">
+        2026年04月25日 22時23分54秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">rotarymars</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp23/declarations_and_where_to_find_them.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp23/declarations_and_where_to_find_them.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">スコープと名前ルックアップの仕様整理 [P1787R6]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++23に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++では、スコープ([basic.scope])と名前ルックアップ([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。
+用語の定義も曖昧かつ不整合な状態となっており、特にモジュール導入後は「ルックアップは同一翻訳単位内の先行宣言に限られる」という暗黙の前提が成り立たなくなり、これらの章を整理する必要性が高まっていた。</p>
+<p>P1787R6は、[basic.scope]と[basic.lookup]の章をまるごと書き直し、用語と規則を整備するための提案である。
+変更の大部分は規格書の編集上の整理 (editorial reorganization) であり、新たに導入された言語機能はない。
+ただしこの整理の過程で、長年解決されていなかった言語の不具合報告 (CWG issue) が63件、リフレクタ上で議論されていた問題が21件、まとめて解決される。
+これに伴い、いくつかの観測可能な振る舞いの変更も含まれる。</p>
+<h2>新しく導入された用語</h2>
+<p>P1787R6は、スコープと名前ルックアップを記述するための語彙を再構築している。
+主な新用語や関係のある用語と、それに対応する従来用語を以下に示す。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>新しい用語</th>
+<th>概要</th>
+<th>従来の用語との対応</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>スコープ (scope)</td>
+<td>名前を識別するための領域</td>
+<td>「declarative region」と「scope」の使い分けを廃止し、「scope」に一本化</td>
+</tr>
+<tr>
+<td>直近スコープ (immediate scope)</td>
+<td>プログラム上のある点を含む最小のスコープ</td>
+<td>暗黙的に使われていた概念を明示化</td>
+</tr>
+<tr>
+<td>親スコープ (parent scope)</td>
+<td>あるスコープを (それ自身を除いて) 含む最小のスコープ</td>
+<td>入れ子構造の記述を明確化</td>
+</tr>
+<tr>
+<td>居住する (inhabit)</td>
+<td>宣言が、自身のローカスにおける直近スコープに属すること</td>
+<td>宣言の所在の表現を明確化</td>
+</tr>
+<tr>
+<td>ターゲットスコープ (target scope)</td>
+<td>宣言が居住するスコープ</td>
+<td>暗黙的に説明されていた概念を明示化</td>
+</tr>
+<tr>
+<td>ローカス (locus)</td>
+<td>宣言がプログラム中に導入される位置</td>
+<td>「point of declaration」を置き換える</td>
+</tr>
+<tr>
+<td>結合する (bind)</td>
+<td>宣言が導入する名前を、ターゲットスコープ内でその宣言と結びつけること</td>
+<td>名前と宣言の関係を明示化</td>
+</tr>
+<tr>
+<td>先行する (precede)</td>
+<td>点Pにおいて宣言Xが「Pに先行する」という関係。XのローカスがPより前にある場合、XがクラススコープにありPから到達可能 (reachable) な場合、Xが別の翻訳単位のモジュール経由でPから到達可能な場合 (export済みの宣言、もしくは同一モジュール内で内部リンケージを持たない宣言が対象。詳細な前提条件はP1787R6本文を参照) のいずれかを含む</td>
+<td>モジュール導入後の到達可能性を含めて再定義</td>
+</tr>
+<tr>
+<td>単一探索 (single search)</td>
+<td>あるスコープSと点Pに対して、Pに先行しSに名前Nが結合されたすべての宣言を見つける基本操作</td>
+<td>散在していたルックアップ規則の最小単位として整理</td>
+</tr>
+<tr>
+<td>ルックアップ文脈 (lookup context)</td>
+<td>メンバ修飾名 (<code>.</code>/<code>-&gt;</code>の右側の名前) では、関連オブジェクト式の型。それ以外の修飾名では、先行するnested-name-specifierが指し示す型・テンプレート・名前空間</td>
+<td>修飾名ルックアップの起点を明示化</td>
+</tr>
+<tr>
+<td>構成名 (component name)</td>
+<td>unqualified-idを構成する根本の名前 (template-idの場合はそのテンプレート名)。テンプレート引数や<code>decltype</code>の中には再帰しない</td>
+<td>「型として現れる名前」という曖昧な表現を置き換える</td>
+</tr>
+<tr>
+<td>修飾名 (qualified name) / メンバ修飾名 (member-qualified name)</td>
+<td>qualified-idやusing宣言子の終端の名前を「修飾名」、<code>.</code>/<code>-&gt;</code>の右側の名前を「メンバ修飾名」と呼ぶ</td>
+<td>ルックアップの対象となる名前の種類を整理</td>
+</tr>
+<tr>
+<td>指名可能 (nominable)</td>
+<td>クラス・クラステンプレート・名前空間Eに対して、点Pにおいて宣言が「指名可能」とは: (1)宣言がPに先行し、(2)宣言がブロックスコープに居住しておらず、(3)宣言のターゲットスコープがEのスコープか、Eが名前空間のときはそのインライン名前空間集合の任意要素のスコープと一致する、こと</td>
+<td>修飾名ルックアップでの可視性を整理</td>
+</tr>
+<tr>
+<td>対応する (correspond)</td>
+<td>2つの宣言が、同じ名前を (再) 導入するか、両方ともコンストラクタを宣言するか、両方ともデストラクタを宣言する関係 (一定の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を除く)</td>
+<td>宣言マッチング規則を統一的に表現</td>
+</tr>
+<tr>
+<td>潜在的に衝突する (potentially conflict)</td>
+<td>対応する宣言が、共有された名前を異なるエンティティに対して指す可能性があること</td>
+<td>宣言間の衝突条件を明確化</td>
+</tr>
+</tbody>
+</table>
+<h2>観測可能な振る舞いの変更</h2>
+<p>P1787R6の主目的は規格の整理であるが、その過程でCWG issueの解決を兼ねた、いくつかの観測可能な変更が含まれている。</p>
+<h3><code>using</code>宣言の参照先による置換</h3>
+<p>非依存な<code>using</code>宣言は、名前ルックアップの段階で「<code>using</code>宣言そのもの」ではなく「その参照先の宣言」に置き換えられて扱われるようになった。
+これにより、<code>using</code>ディレクティブと組み合わせたときの曖昧さの判定が、規格上明確に規定される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">F</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">I</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">I</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">F</span><span class="o">::</span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">     </span><span class="c1">// エラー: 曖昧 (Aの中のF::xと、using namespace I経由で見えるI::xが衝突)</span>
+<span class="w">    </span><span class="n">A</span><span class="o">::</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK: A内の修飾ルックアップではF::xのみが見つかる</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3><code>friend</code>宣言におけるルックアップ範囲の制限 (CWG2370)</h3>
+<p><code>friend</code>宣言の宣言子IDの中に現れる名前は、まず宣言子IDが指す名前空間の直接 (immediate) のスコープのみで探索される。
+そのスコープに見つからなければ、通常の非修飾ルックアップにフォールバックする。
+直接のスコープには、内部の (inline 含む) 入れ子の名前空間で導入された名前は含まれない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">N</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">char</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">float</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">D</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">F</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">D</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直接のスコープにDはないが、非修飾ルックアップで外側のD=doubleが見つかる</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">F</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直接のスコープでF=floatが見つかる</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">C</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: CはAの内部の inline namespace Nに属しており、Aの直接のスコープには含まれない</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>デストラクタ名のルックアップ</h3>
+<p>デストラクタ呼び出しの<code>~X</code>の<code>X</code>は、注入されたクラス名 (injected-class-name) として解決される必要がある。
+他のクラスを経由する<code>typedef</code>名などは候補として考慮されない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">B</span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">b</span><span class="o">-&gt;</span><span class="n">A</span><span class="o">::~</span><span class="n">X</span><span class="p">();</span><span class="w">  </span><span class="c1">// エラー: A::X (typedef名) はデストラクタ名のルックアップで考慮されない</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>テンプレートパラメータスコープの位置づけ</h3>
+<p>テンプレートパラメータスコープの親となるのは、別のテンプレートパラメータスコープのみであると規定された。
+これにより、テンプレート定義内の非修飾ルックアップにおける探索順序が明確になる。
+ただしCWG459 (基底クラスはテンプレートパラメータより先に探索される) の振る舞いは維持される。</p>
+<h3>依存名としての修飾名の拡張</h3>
+<p>依存型を含む変換関数ID (conversion-function-id) も依存名として扱われるよう、依存名の定義が拡張された (CWG1500・CWG1936の解決)。
+これに伴い、依存ルックアップは型の置換後に行われることが明確化された。</p>
+<h3>モジュールをまたぐルックアップ</h3>
+<p>別の翻訳単位の宣言であっても、<code>export</code>された宣言や、同一モジュール内で内部リンケージを持たない宣言であってモジュール経由で到達可能なものは、ルックアップの対象となることが規格上明示された。
+これはモジュール機能の前提に合わせた整理である。</p>
+<h3>単集合に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>集合の取り扱い</h3>
+<p><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>集合は、要素が1つしかない場合 (singleton) でも一貫した規則で構築されるようになった。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>[basic.scope]および[basic.lookup]の問題は次のように整理できる：</p>
+<ul>
+<li><strong>「scope」の定義の二重性</strong>: 規格上、「scope」という語が異なる意味で2通り定義されており、暗黙のうちに名前ルックアップの規則を含んでいたが、[basic.lookup]の記述と完全には一致していなかった。</li>
+<li><strong>名前空間の取り扱いの不整合</strong>: グローバル名前空間を含む名前空間が、ある場所では1つのdeclarative regionとして、別の場所では複数のregionとして記述されていた。</li>
+<li><strong>モジュール導入による前提の崩れ</strong>: 「ルックアップは同じ翻訳単位の中の、その時点までに現れた宣言だけを対象とする」という暗黙の前提が、モジュールの導入で成り立たなくなった。</li>
+<li><strong><code>&lt;</code>トークンの曖昧性</strong>: テンプレートIDか比較演算子かを判別するための規則が、ルックアップの記述と絡み合っていた。</li>
+<li><strong>同一エンティティの判定</strong>: 同じ名前の複数の宣言が同一のエンティティを導入するか、別のエンティティを導入するかを一貫した規則で判別できなかった。</li>
+</ul>
+<p>P1787R6は、これらの問題を解決するために、新しい用語を導入したうえで、[basic.scope]と[basic.lookup]の章を全面的に書き直す。
+63件のCWG issueと21件のリフレクタ議論で報告された問題が、この整理によって一括で解決される。</p>
+<p>ユーザーが書く通常のコードに与える影響は限定的だが、規格書を直接参照するC++ユーザー、コンパイラ実装者、ライブラリ実装者にとっては、本変更でC++の名前ルックアップ規則が初めて一貫した枠組みのもとに整理されたことになる。</p>
+<h2>編集上の主な変更点</h2>
+<p>[basic.scope]と[basic.lookup]の章は全面的に書き直されている。
+編集上の主な変更点としては、以下が挙げられる：</p>
+<ul>
+<li>「declarative region」の語を廃し、「scope」に統一する。</li>
+<li>「point of declaration」の語を廃し、「locus」に置き換える。</li>
+<li>「in scope」「global function」「global object」「overloaded function」といった曖昧な表現を削除する。</li>
+<li>散在していたルックアップ規則を、単一探索 (single search) などの基本操作の組み合わせとして再定義する。</li>
+<li>ルックアップは常に「名前」に対する操作として定義し、id-expressionやtype-idに対する操作とは区別する。</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp20/modules.html">C++20 モジュール</a></li>
+<li><a href="../cpp20/adl_and_function_templates_that_are_not_visible.html">C++20 関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正</a></li>
+<li><a href="meaningful_exports.html">C++23 無意味なexport宣言を禁止する</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1787r6.html" target="_blank">P1787R6 Declarations and where to find them</a></li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue2370" target="_blank">CWG2370 friend declarations of namespace-scope functions</a></li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue1500" target="_blank">CWG1500 Name lookup of dependent conversion function</a></li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue1936" target="_blank">CWG1936 Dependent qualified-ids</a></li>
+<li>そのほか本提案で解決された計63件のCWG issue・21件のリフレクタ議論 (P1787R6本文を参照)</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
