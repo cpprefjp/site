@@ -38,6 +38,10 @@ Hello world
 ### 言語
 - C++98
 
+## 関連項目
+
+- [`wcout`](wcout.md)
+
 ## 参照
 
 - [使用できるロケール文字列](../../article/platform/locales.md)
