@@ -77,6 +77,7 @@
 | [`<charconv>`](/reference/charconv.md)       | 高速な文字列 ⇔ 数値変換     | C++17          |
 | [`<format>`](/reference/format.md)           | 文字列フォーマット           | C++20          |
 | [`<stacktrace>`](/reference/stacktrace.md)   | スタックトレース             | C++23          |
+| [`<meta>`](/reference/meta.md)               | 静的リフレクション           | C++26          |
 
 
 ## <a id="strings" href="#strings">文字列ライブラリ</a>
