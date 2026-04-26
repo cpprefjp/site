@@ -55,3 +55,4 @@ int main()
 ## 関連項目
 
 - [`wcin`](wcin.md)
+- [`cout`](cout.md)

@@ -41,6 +41,7 @@ Hello world
 ## 関連項目
 
 - [`wcout`](wcout.md)
+- [`cin`](cin.md)
 
 ## 参照
 
