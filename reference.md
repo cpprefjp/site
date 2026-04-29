@@ -229,8 +229,8 @@
 | [`<climits>`](/reference/climits.md) | 整数型の最小値、最大値を表すマクロ  |                |
 | [`<clocale>`](/reference/clocale.md) | ロケール                            |                |
 | [`<cmath>`](/reference/cmath.md)     | 数学関数                            |                |
-| `<csetjmp>`                          | ジャンプ処理                        |                |
-| [`<csignal>`](reference/csignal.md)             | シグナル                            |                |
+| [`<csetjmp>`](/reference/csetjmp.md) | ジャンプ処理                        |                |
+| [`<csignal>`](/reference/csignal.md) | シグナル                            |                |
 | `<cstdalign>`                        | アライメント操作のマクロ            | C++17で非推奨<br/> C++20で削除    |
 | `<cstdarg>`                          | 可変引数操作                        |                |
 | [`<stdbit.h>`](/reference/stdbit.h.md) | ビット操作                 | C++26 |
