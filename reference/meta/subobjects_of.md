@@ -33,7 +33,7 @@ struct Base { int b; };
 struct Derived : Base { int d; };
 
 int main() {
-  constexpr auto subs = std::define_static_array(
+  static constexpr auto subs = std::define_static_array(
       std::meta::subobjects_of(
           ^^Derived, std::meta::access_context::unchecked()));
 

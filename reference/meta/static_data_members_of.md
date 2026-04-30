@@ -36,7 +36,7 @@ struct S {
 };
 
 int main() {
-  constexpr auto statics = std::define_static_array(
+  static constexpr auto statics = std::define_static_array(
       std::meta::static_data_members_of(
           ^^S, std::meta::access_context::unchecked()));
   static_assert(statics.size() == 2);
