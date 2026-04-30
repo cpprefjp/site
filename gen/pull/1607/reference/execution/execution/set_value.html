@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-02T08:53:13">
-        2025年06月02日 08時53分13秒
+      <span itemprop="datePublished" content="2026-04-23T11:57:18">
+        2026年04月23日 11時57分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -240,6 +240,7 @@
 <li>引数<code>rcvr</code>が左辺値またはconst右辺値の場合、式<code>set_value(rcvr, vs...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
 <li>そうでなければ、<code>rcvr.set_value(vs...)</code>と等価である。</li>
 </ul>
+<p>上記の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>なとき、その型は<code>void</code>であること。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>カスタマイゼーションポイント</h2>
@@ -323,6 +324,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4143" target="_blank">LWG4143. <code>execution::set_value/set_error/set_stopped/start</code> should always return <code>void</code></a></li>
 </ul></div>
 
       </div>

@@ -224,8 +224,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-16T00:10:38">
-        2026年01月16日 00時10分38秒
+      <span itemprop="datePublished" content="2026-04-23T11:23:26">
+        2026年04月23日 11時23分26秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -259,7 +259,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
 <p><code><a href="../../../../utility/move.html">std::move</a>(err.error)</code>が、<code><a href="../../task.html">error_types</a></code>の<code><a href="../../set_error.html">set_error_t</a></code>引数型のうち正確に1つに変換可能であること。そのような型を<code>Cerr</code>とする。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p>呼び出し元コルーチンをサスペンドし、<code><a href="../../set_error.html">set_error</a>(<a href="../../../../utility/move.html">std::move</a>(RCVR(*this)), Cerr(<a href="../../../../utility/move.html">std::move</a>(err.error)))</code>を呼び出すことで<code>STATE(*this)</code>に関連付けられた非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を完了させるメンバ関数をもつ、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>な型のAwaitableオブジェクトを返す。</p>
+<p>呼び出し元コルーチンをサスペンドし、<code><a href="../state.html">STATE(*this)</a></code>に関連付けられた非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を完了させるメンバ関数をもつ、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>な型のAwaitableオブジェクトを返す。<code>st</code>を<code>STATE(*this)</code>への参照とする。非同期完了は最初に<code>st.handle.<a href="../../../../coroutine/coroutine_handle/destroy.html">destroy()</a></code>によってコルーチンフレームを破棄し、続いて<code><a href="../../set_error.html">set_error</a>(<a href="../../../../utility/move.html">std::move</a>(st.rcvr), Cerr(<a href="../../../../utility/move.html">std::move</a>(err.error)))</code>を呼び出す。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -279,6 +279,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4339" target="_blank">LWG4339. <code>task</code>'s coroutine frame may be released late</a></li>
 </ul></div>
 
       </div>

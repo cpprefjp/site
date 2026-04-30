@@ -275,9 +275,9 @@
 <li>$$ f(x) = \log_2 x $$</li>
 <li>定義域エラー、極エラーが発生した場合の挙動については、<code><a href="../cmath.html">&lt;cmath&gt;</a></code> を参照。</li>
 <li>処理系が IEC 60559 に準拠している場合（<code><a href="../limits/numeric_limits.html">std::numeric_limits</a>&lt;T&gt;::<a href="../limits/numeric_limits/is_iec559.html">is_iec559</a>() != false</code>）、以下の規定が追加される。<ul>
-<li><code>x = ±0</code> の場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code>-∞</code> となり、<code><a href="../cfenv/fe_divbyzero.html">FE_DIVBYZERO</a></code>（ゼロ除算浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>）が発生する。</li>
+<li><code>x = ±0</code> の場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code>-∞</code> となり、<code><a href="../cfenv/fe_divbyzero.html">FE_DIVBYZERO</a></code>（ゼロ除算<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>）が発生する。</li>
 <li><code>x = 1</code> の場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code>+0</code> となる。</li>
-<li><code>x &lt; 0</code> の場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は quiet NaN となり、<code><a href="../cfenv/fe_invalid.html">FE_INVALID</a></code>（無効演算浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>）が発生する。</li>
+<li><code>x &lt; 0</code> の場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は quiet NaN となり、<code><a href="../cfenv/fe_invalid.html">FE_INVALID</a></code>（無効演算<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>）が発生する。</li>
 <li><code>x = +∞</code> の場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code>+∞</code> となる。</li>
 </ul>
 </li>

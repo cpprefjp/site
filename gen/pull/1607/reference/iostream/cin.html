@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-12-20T05:17:08">
-        2024年12月20日 05時17分08秒
+      <span itemprop="datePublished" content="2026-04-26T02:51:27">
+        2026年04月26日 02時51分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">K10-K10</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -215,7 +215,6 @@
   <div class="identifier-type">variable</div><div class="header">&lt;iostream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">cin</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">extern</span><span class="w"> </span><span class="n"><a href="../istream/basic_istream.html">istream</a></span><span class="w"> </span><span class="n">cin</span><span class="p">;</span>
-<span class="w">  </span><span class="k">extern</span><span class="w"> </span><span class="n"><a href="../istream/basic_istream.html">wistream</a></span><span class="w"> </span><span class="n">wcin</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -224,7 +223,7 @@
 <p>すなわち、<code><a href="../streambuf/basic_streambuf.html">std::basic_streambuf</a></code>から派生していて<code>&lt;cstdio&gt;</code>の<code>stdin</code>オブジェクトに結びつけられているストリームバッファから入力を受ける。</p>
 <p>本オブジェクトは、初期化が完了すると <code><a href="../ios/basic_ios/tie.html">tie</a>()</code> が <code>&amp;<a href="cout.html">cout</a></code> を返すようになる。<br />
 その他の状態は、<code><a href="../ios/basic_ios.html">basic_ios</a>::<a href="../ios/basic_ios/init.html">init</a></code> の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>と同様である。</p>
-<p><code>cin</code>は<code>character input</code>を意味する。また<code>wcin</code>は<code>wide character input</code>を意味する。<sup><a href="#cite-1" id="cite_ref-1">[1]</a></sup></p>
+<p><code>cin</code>は<code>character input</code>を意味する。<sup><a href="#cite-1" id="cite_ref-1">[1]</a></sup></p>
 <h2>例</h2>
 <p><div class="yata" id="a559cb39f8d0706eaa00717d416d16c0b9b899b4"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 <span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
@@ -253,7 +252,12 @@
 <h2>出典</h2>
 <ol>
 <li><strong><a href="#cite_ref-1" id="cite-1">^</a></strong> <cite><a href="http://www.stroustrup.com/bs_faq2.html#cout" target="_blank">Stroustrup: C++ Style and Technique FAQ</a></cite>(2018-08-21 17:01 JST 閲覧)</li>
-</ol></div>
+</ol>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="wcin.html">wcin</a></code></li>
+<li><code><a href="cout.html">cout</a></code></li>
+</ul></div>
 
       </div>
     </div>

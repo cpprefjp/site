@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-04-13T03:56:56">
+        2026年04月13日 03時56分56秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">teruyamato0731</span>
       </span>
       が更新
     </small></p>
@@ -225,6 +225,15 @@
 <h2>概要</h2>
 <p><code>integer_sequence</code>は、任意の整数型のシーケンスをコンパイル時に表現するクラスである。</p>
 <p>このクラスは、<code><a href="../tuple/tuple.html">tuple</a></code>オブジェクトを展開して、引数パックとして他の関数に転送することを主目的として作られた。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li><code>T</code> は整数型であること。</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>C++17まで : テンプレートパラメータ <code>T</code> が整数型でない場合の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>。</li>
+<li>C++20から : <code>T</code> が整数型でない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となり、コンパイルエラーとなることが要求されるようになった。</li>
+</ul>
 <h2>例</h2>
 <p><div class="yata" id="38c27da54cea81f4abe96fdf76e4b04b0886965d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 <span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
@@ -265,6 +274,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html" target="_blank">N3658 Compile-time integer sequences</a></li>
+<li><a href="https://wg21.link/p1460r1" target="_blank">P1460R1 Mandating the Standard Library: Clause 20 - Utilities library</a></li>
 </ul></div>
 
       </div>

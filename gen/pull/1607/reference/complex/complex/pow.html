@@ -292,7 +292,7 @@
 <ul>
 <li>引数 <code>x</code> に対する分岐截断は負の実軸に沿っている。</li>
 <li>C99 の規格にある本関数と等価の関数群（<code>complex.h</code> ヘッダの <code>cpow</code>、<code>cpowf</code>、<code>cpowl</code> の 3 つ。それぞれ C++ の <code>pow&lt;double&gt;</code>、<code>pow&lt;float&gt;</code>、<code>pow&lt;long double&gt;</code> に相当）では、本関数が <code><a href="exp.html">exp</a>(y * <a href="log.html">log</a>(x))</code> で定義されるとの記載は無く、処理系が ISO IEC 60559 に準拠している場合でもそのように計算することが可能である旨のみの記載となっている。<br />
-    また、処理系が ISO IEC 60559 に準拠している場合、結果のパートを計算する際に適切な浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を引き起こすこと、および、偽の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を引き起こしても良いことが記載されている。</li>
+    また、処理系が ISO IEC 60559 に準拠している場合、結果のパートを計算する際に適切な<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>を引き起こすこと、および、偽の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>を引き起こしても良いことが記載されている。</li>
 <li>処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ <code>__STDC_IEC_559_COMPLEX__</code> が <code>1</code> に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。</li>
 <li>
 <p>累乗の算出については、一部の算術型、および、<code><a href="../../valarray.html">valarray</a></code> クラステンプレートに対しても、他のヘッダで定義されている。</p>

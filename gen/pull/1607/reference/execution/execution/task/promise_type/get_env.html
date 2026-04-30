@@ -224,8 +224,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-15T02:30:00">
-        2026年01月15日 02時30分00秒
+      <span itemprop="datePublished" content="2026-04-23T11:39:24">
+        2026年04月23日 11時39分24秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -259,8 +259,8 @@
 <ul>
 <li><code>env.query(<a href="../../get_scheduler.html">get_scheduler</a>)</code>は<code><a href="../../task.html">scheduler_type</a>(SCHED(*this))</code>を返す。</li>
 <li><code>env.query(<a href="../../../get_allocator.html">get_allocator</a>)</code>は<code>alloc</code>を返す。</li>
-<li><code>env.query(<a href="../../../get_stop_token.html">get_stop_token</a>)</code>は<code>token</code>を返す。</li>
-<li>上記以外の問い合わせ<code>q</code>と引数<code>a...</code>に対して、式が妥当かつ<code><a href="../../../forwarding_query.html">forwarding_query</a>(q)</code>が妥当で<code>true</code>となるとき、呼び出し<code>env.query(q, a...)</code>は<code>STATE(*this)</code>を返す。そうでなければ、<code>env.query(q, a...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+<li><code>env.query(<a href="../../../get_stop_token.html">get_stop_token</a>)</code>は<code><a href="../state.html">STATE(*this)</a>.get-stop-token()</code>を返す。</li>
+<li>上記以外の問い合わせ<code>q</code>と引数<code>a...</code>に対して、式が妥当かつ<code><a href="../../../forwarding_query.html">forwarding_query</a>(q)</code>が妥当で<code>true</code>となるとき、呼び出し<code>env.query(q, a...)</code>は<code><a href="../state.html">STATE(*this)</a>.environment.query(q, a...)</code>を返す。そうでなければ、<code>env.query(q, a...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
@@ -283,6 +283,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4347" target="_blank">LWG4347. <code>task</code>'s stop source is always created</a></li>
 </ul></div>
 
       </div>

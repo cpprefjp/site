@@ -16,23 +16,23 @@
 
         <meta charset="UTF-8">
 
-        <title>fexcept_t - cpprefjp C++日本語リファレンス</title>
+        <title>wcin - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cfenv,std,type-alias,cpp11
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,iostream,std,variable
 ">
-        <meta name="title" content="fexcept_t - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="fexcept_t - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="fexcept_t - cpprefjp C++日本語リファレンス" />
-        <meta property="og:url" content="https://cpprefjp.github.io/reference/cfenv/fexcept_t.html" />
+        <meta name="title" content="wcin - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="wcin - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="wcin - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/iostream/wcin.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="実装が持つ浮動小数点例外の状態フラグを表す型。" />
+        <meta property="og:description" content="`wcin` は、標準入力に対するワイド文字用の入力ストリームオブジェクトである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="fexcept_t - cpprefjp C++日本語リファレンス" />
-        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cfenv/fexcept_t.html" />
-        <meta name="twitter:description" content="実装が持つ浮動小数点例外の状態フラグを表す型。" />
+        <meta name="twitter:title" content="wcin - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/iostream/wcin.html" />
+        <meta name="twitter:description" content="`wcin` は、標準入力に対するワイド文字用の入力ストリームオブジェクトである。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cfenv&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0b1aa4556295780076fb82a836b9cf4876409d34&#34;, &#34;source&#34;: &#34;// \u6a19\u6e96C++\u306e\u6d6e\u52d5\u5c0f\u6570\u70b9\u4f8b\u5916\u3092\u3001\n// Visual C++\u3067\u306e\u6d6e\u52d5\u5c0f\u6570\u70b9\u4f8b\u5916\u306e\u5f62\u5f0f\u306b\u5909\u63db\u3059\u308b\n#include &lt;iostream&gt;\n#include &lt;cfenv&gt;\n\nint main()\n{\n  float a = 1.0f;\n  float b = 0.0f;\n  float result = a / b;\n\n  std::fexcept_t excepts = 0;\n  std::fegetexceptflag(&amp;excepts, FE_ALL_EXCEPT);\n\n  if (excepts &amp; _SW_ZERODIVIDE)\n  {\n    std::cout &lt;&lt; \&#34;zero divided\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cfenv&#34;, &#34;fexcept_t&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;iostream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;variable&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a026cde45ed746a7b303a643c3a3ead1db1d5552&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::wcout &lt;&lt; L\&#34;\u540d\u524d\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044: \&#34;;\n\n  std::wstring s;    // std::wcin.tie() == &amp;std::wcout \u3067\u3042\u308b\u305f\u3081\u3001\n  std::wcin &gt;&gt; s;    // std::wcout \u3092\u660e\u793a\u7684\u306b flush \u3057\u306a\u304f\u3066\u3082\n                     // \u4e0a\u8a18\u306e\u51fa\u529b\u304c flush \u3055\u308c\u308b\u3053\u3068\u304c\u4fdd\u8a3c\u3055\u308c\u3066\u3044\u308b\n\n  std::wcout &lt;&lt; L\&#34;\u3042\u306a\u305f\u306e\u540d\u524d\u306f\u300c\&#34; &lt;&lt; s &lt;&lt; L\&#34;\u300d\u3067\u3059\u306d\u3002\&#34; &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;iostream&#34;, &#34;wcin&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -158,9 +158,9 @@
       <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
         <span>
           
-            <a href="../../reference/cfenv.html" itemprop="url">
+            <a href="../../reference/iostream.html" itemprop="url">
               
-                <span itemprop="name">cfenv</span>
+                <span itemprop="name">iostream</span>
               
             </a>
           
@@ -171,7 +171,7 @@
         <span>
           
             
-              <span itemprop="name">fexcept_t</span>
+              <span itemprop="name">wcin</span>
             
           
         </span>
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T11:54:35">
-        2025年07月14日 11時54分35秒
+      <span itemprop="datePublished" content="2026-04-26T02:51:27">
+        2026年04月26日 02時51分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -200,10 +200,10 @@
   
 
         <p class="text-right">
-          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cfenv/fexcept_t.md">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/iostream/wcin.md">
             <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
           </a>
-          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cfenv/fexcept_t.md">
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/iostream/wcin.md">
             <span class="fa fa-fw fa-pencil"></span>編集
           </a>
         </p>
@@ -212,53 +212,51 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">type-alias</div><div class="header">&lt;cfenv&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">fexcept_t</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+  <div class="identifier-type">variable</div><div class="header">&lt;iostream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">wcin</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">fexcept_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="p">;</span>
+<span class="w">  </span><span class="k">extern</span><span class="w"> </span><span class="n"><a href="../istream/basic_istream.html">wistream</a></span><span class="w"> </span><span class="n">wcin</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>実装が持つ<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>の状態フラグを表す型。</p>
+<p><code>wcin</code> は、標準入力に対するワイド文字用の入力ストリームオブジェクトである。</p>
+<p>すなわち、<code><a href="../streambuf/basic_streambuf.html">std::basic_streambuf</a></code>から派生していて<code>&lt;cstdio&gt;</code>の<code>stdin</code>オブジェクトに結びつけられているストリームバッファから入力を受ける。</p>
+<p>本オブジェクトは、初期化が完了すると <code><a href="../ios/basic_ios/tie.html">tie</a>()</code> が <code>&amp;<a href="wcout.html">wcout</a></code> を返すようになる。<br />
+その他の状態は、<code><a href="../ios/basic_ios.html">basic_ios</a>::<a href="../ios/basic_ios/init.html">init</a></code> の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>と同様である。</p>
+<p><code>wcin</code>は<code>wide character input</code>を意味する。<sup><a href="#cite-1" id="cite_ref-1">[1]</a></sup></p>
 <h2>例</h2>
-<p><div class="yata" id="0b1aa4556295780076fb82a836b9cf4876409d34"><div class="codehilite"><pre><span></span><code><span class="c1">// 標準C++の浮動小数点例外を、</span>
-<span class="c1">// Visual C++での浮動小数点例外の形式に変換する</span>
-<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
-<span class="cp">#include <a href="../cfenv.html">&lt;cfenv&gt;</a></span>
+<p><div class="yata" id="a026cde45ed746a7b303a643c3a3ead1db1d5552"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">wcout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sa">L</span><span class="s">"名前を入力してください: "</span><span class="p">;</span>
 
-<span class="w">  </span><span class="n"><span style="color:#ff0000">std::fexcept_t</span></span><span class="w"> </span><span class="n">excepts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="n"><a href="fegetexceptflag.html">std::fegetexceptflag</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">excepts</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="fe_all_except.html">FE_ALL_EXCEPT</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::wstring</a></span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w">    </span><span class="c1">// <span style="color:#ff0000">std::wcin</span>.tie() == &amp;std::wcout であるため、</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::wcin</span></span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w">    </span><span class="c1">// std::wcout を明示的に flush しなくても</span>
+<span class="w">                     </span><span class="c1">// 上記の出力が flush されることが保証されている</span>
 
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">excepts</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">_SW_ZERODIVIDE</span><span class="p">)</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"zero divided"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">wcout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sa">L</span><span class="s">"あなたの名前は「"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sa">L</span><span class="s">"」ですね。"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>出力例</h3>
-<p><pre><code>zero divided
+<p><pre><code>名前を入力してください:たろう
+あなたの名前は「たろう」ですね
 </code></pre></p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
-<li>C++11</li>
+<li>C++98</li>
 </ul>
-<h3>処理系</h3>
+<h2>出典</h2>
+<ol>
+<li><strong><a href="#cite_ref-1" id="cite-1">^</a></strong> <cite><a href="http://www.stroustrup.com/bs_faq2.html#cout" target="_blank">Stroustrup: C++ Style and Technique FAQ</a></cite>(2018-08-21 17:01 JST 閲覧)</li>
+</ol>
+<h2>関連項目</h2>
 <ul>
-<li><a href="../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
-<li><a href="../../implementation.html#gcc">GCC</a>: 4.3.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
-<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
-<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span><ul>
-<li>コンパイルオプション<code>/fp:strict</code>または<code>#pragma fenv_access (on)</code>が必要。さもなくば、正しく動作しないおそれがある。</li>
-</ul>
-</li>
+<li><code><a href="cin.html">cin</a></code></li>
+<li><code><a href="wcout.html">wcout</a></code></li>
 </ul></div>
 
       </div>

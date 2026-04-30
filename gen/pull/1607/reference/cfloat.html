@@ -232,7 +232,7 @@ f_k&amp;\text{$b$ より小さい非負整数(仮数部の有効数字)}\\
 \end{array}
 $$</p>
 <p>浮動小数点型で表される値としては、ゼロと $f_1 \gt 0$ である正規化数の他に、$e = e_{\rm min}$ かつ $f_1 = 0$ である非正規化数（subnormal numbers）、$e \gt e_{\rm min}$ かつ $f_1 = 0$ である正規化されていない数（unnormalized numbers）、および、浮動小数点数ではない無限大や NaN 等が含まれているかもしれない（実装によっては含まれていないかもしれない）。<br />
-NaN とは非数（Not-a-Number）を表し、ほとんど全ての演算で浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を起こさず結果に伝播する quiet NaN（quiet：静かな）と、演算のオペランドに使用されると浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を引き起こす signaling NaN（signaling：信号を発する）がある。<br />
+NaN とは非数（Not-a-Number）を表し、ほとんど全ての演算で<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="cfenv.html">浮動小数点例外</a>を起こさず結果に伝播する quiet NaN（quiet：静かな）と、演算のオペランドに使用されると<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="cfenv.html">浮動小数点例外</a>を引き起こす signaling NaN（signaling：信号を発する）がある。<br />
 ゼロと浮動小数点数ではない値（無限大や NaN 等）には符号があるかもしれない（実装によっては無いかもしれない）。</p>
 <p>本ヘッダで提供される整数値を表すマクロは、<code><a href="cfloat/flt_rounds.html">FLT_ROUNDS</a></code> を除いて <code>#if</code> プリプロセッサディレクティブに使用可能な定数式である。</p>
 <h2>丸め</h2>

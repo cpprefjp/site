@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-04-30T09:09:00">
-        2025年04月30日 09時09分00秒
+      <span itemprop="datePublished" content="2026-04-23T12:23:31">
+        2026年04月23日 12時23分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -237,7 +237,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class run_loop">run_loop::</span><span class="token">finish</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">finish</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">finish</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -246,6 +246,8 @@
 <p>説明専用メンバ<code>state</code>は<a href="op_constructor.html">開始(starting)</a>もしくは<a href="run.html">実行中(running)</a>であること。</p>
 <h2>効果</h2>
 <p>説明専用メンバ<code>state</code>を終了中(finishing)に変更する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
 <h2><a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a></h2>
 <p>メンバ関数<code>finish</code>および説明専用メンバ関数<a href="run.html"><code>pop-front</code>, <code>push-back</code></a>は不可分(atomically)に実行される。</p>
 <p><code>finish</code>は、<code>nullptr</code>を返す<a href="run.html"><code>pop-front</code>操作</a><a class="cpprefjp-defined-word" data-desc="synchronizes with。「A は B に対して同期する」という記述は「A が B よりも前に発生する」関係を保証する">に対して同期する</a>。</p>
@@ -282,6 +284,7 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4476" target="_blank">LWG4476. <code>run_loop</code> should not have a <code>set_error</code> completion</a></li>
 </ul></div>
 
       </div>

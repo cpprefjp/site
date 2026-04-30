@@ -245,13 +245,13 @@
     なお、C99 の規格にある本関数と等価の関数群（<code>complex.h</code> ヘッダの <code>ctan</code>、<code>ctanf</code>、<code>ctanl</code> の 3 つ。それぞれ C++ の <code>tan&lt;double&gt;</code>、<code>tan&lt;float&gt;</code>、<code>tan&lt;long double&gt;</code> に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。<ul>
 <li><code>tanh(<a href="conj.html">conj</a>(x)) = <a href="conj.html">conj</a>(tanh(x))</code> で、また、<code>tanh</code> は奇関数（つまり、<code>tanh(-x) = -tanh(x)</code>）。</li>
 <li><code>tanh(complex(+0, +0))</code> は <code>complex(+0, +0)</code> を返す。</li>
-<li>有限の <code>x</code> に対して、<code>tanh(complex(x, +∞))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（<code>FE_INVALID</code>）を引き起こす。</li>
-<li>有限の <code>x</code> に対して、<code>tanh(complex(x, NaN))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（<code>FE_INVALID</code>）を引き起こす可能性がある。</li>
+<li>有限の <code>x</code> に対して、<code>tanh(complex(x, +∞))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>（<code>FE_INVALID</code>）を引き起こす。</li>
+<li>有限の <code>x</code> に対して、<code>tanh(complex(x, NaN))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>（<code>FE_INVALID</code>）を引き起こす可能性がある。</li>
 <li>有限で正の符号を持つ（<code>+0</code> を含む）<code>y</code> に対して、<code>tanh(complex(+∞, y))</code> は <code>complex(1, +0 * <a href="../../cmath/sin.html">sin</a>(2 * y))</code> を返す。</li>
 <li><code>tanh(complex(+∞, +∞))</code> は <code>complex(1, ±0)</code> を返す（結果の虚部の符号は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>）。</li>
 <li><code>tanh(complex(+∞, NaN))</code> は <code>complex(1, ±0)</code> を返す（結果の虚部の符号は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>）。</li>
 <li><code>tanh(complex(NaN, +0))</code> は <code>complex(NaN, +0)</code> を返す。</li>
-<li>あらゆる非ゼロの <code>y</code> に対して、<code>tanh(complex(NaN, y))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（<code>FE_INVALID</code>）を引き起こす可能性がある。</li>
+<li>あらゆる非ゼロの <code>y</code> に対して、<code>tanh(complex(NaN, y))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>（<code>FE_INVALID</code>）を引き起こす可能性がある。</li>
 <li><code>tanh(complex(NaN, NaN))</code> は <code>complex(NaN, NaN)</code> を返す。</li>
 </ul>
 </li>

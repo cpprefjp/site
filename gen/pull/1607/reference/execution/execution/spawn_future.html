@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-09T10:10:28">
-        2026年03月09日 10時10分28秒
+      <span itemprop="datePublished" content="2026-04-30T04:24:27">
+        2026年04月30日 04時24分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Ryoga-exe</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -264,28 +264,46 @@
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;&gt;</span>
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">spawn_future_t</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="impls-for.html">default-impls</a></span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w">      </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>impls-for&lt;spawn_future_t&gt;::start</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[](</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">consume</span><span class="p">(</span><span class="n">rcvr</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[](</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">state</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>impls-for&lt;spawn_future_t&gt;::get-state</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Sndr</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">state_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">future</span><span class="o">-</span><span class="n">operation</span><span class="o">&lt;</span><span class="n">state_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>説明専用エンティティ</h2>
+<h3>クラス<code>try-cancelable</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">try</span><span class="o">-</span><span class="n">cancelable</span><span class="w"> </span><span class="p">{</span><span class="w">                   </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="k">try</span><span class="o">-</span><span class="n">cancel</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
 <h3>クラステンプレート<code>spawn-future-state-base</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Completions</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">spawn</span><span class="o">-</span><span class="n">future</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">base</span><span class="p">;</span><span class="w">                                   </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">spawn</span><span class="o">-</span><span class="n">future</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">base</span><span class="p">;</span><span class="w">                                 </span><span class="c1">// exposition only</span>
 
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Sigs</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">spawn</span><span class="o">-</span><span class="n">future</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">base</span><span class="o">&lt;</span><span class="n"><a href="completion_signatures.html">completion_signatures</a></span><span class="o">&lt;</span><span class="n">Sigs</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">variant</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w">                                    </span><span class="c1">// exposition only</span>
-<span class="w">    </span><span class="n">variant</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w">                                               </span><span class="c1">// exposition only</span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">complete</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                           </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">spawn</span><span class="o">-</span><span class="n">future</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">base</span><span class="o">&lt;</span><span class="n"><a href="completion_signatures.html">completion_signatures</a></span><span class="o">&lt;</span><span class="n">Sigs</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="k">try</span><span class="o">-</span><span class="n">cancelable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">variant</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w">                                  </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n">variant</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w">                                             </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">complete</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                         </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -373,6 +391,11 @@
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">complete</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w">                                      </span><span class="c1">// exposition only</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">consume</span><span class="p">(</span><span class="n"><a href="receiver.html">receiver</a></span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                             </span><span class="c1">// exposition only</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">abandon</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                                                </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="k">try</span><span class="o">-</span><span class="n">cancel</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w">                                   </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n">ssource</span><span class="p">.</span><span class="n">request_stop</span><span class="p">();</span>
+<span class="w">      </span><span class="k">try</span><span class="o">-</span><span class="n">set</span><span class="o">-</span><span class="n">stopped</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="k">try</span><span class="o">-</span><span class="n">set</span><span class="o">-</span><span class="n">stopped</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                                        </span><span class="c1">// exposition only</span>
 
 <span class="w">  </span><span class="k">private</span><span class="o">:</span>
 <span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">assoc</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w">                                                         </span><span class="c1">// exposition only</span>
@@ -392,15 +415,15 @@
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p>データ競合の存在を判定する目的において、<code>complete</code>, <code>consume</code>, <code>abandon</code>はアトミック操作として振る舞う。
+<p>データ競合の存在を判定する目的において、<code>complete</code>, <code>consume</code>, <code>try-set-stopped</code>, <code>abandon</code>はアトミック操作として振る舞う。
 <code>spawn-future-state</code>の特殊化である型の単一オブジェクトに対するこれらの操作は、単一の全順序で発生するように見える。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">complete</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <ul>
 <li>効果 :<ul>
-<li><code>*this</code>に対するこの<code>complete</code>の呼び出しが<code>consume</code>もしくは<code>abandon</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>ならば、効果を持たない。</li>
-<li>そうではなく、<code>*this</code>に対する<code>consume</code>の呼び出しがこの<code>complete</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>ならば、<a href="receiver.html">Receiver</a><code>rcvr</code>が登録され、そのReceiverは<code>consume(rcvr)</code>によって完了する。</li>
+<li><code>*this</code>に対するこの<code>complete</code>の呼び出しが<code>consume</code>, <code>try-set-stopped</code>, <code>abandon</code>いずれかの呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>ならば、効果を持たない。</li>
+<li>そうではなく、<code>*this</code>に対する<code>consume</code>の呼び出しがこの<code>complete</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="よりも前に発生する。happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生し</a>、かつ<code>*this</code>に対するこの<code>complete</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a><code>try-set-stopped</code>の呼び出しが存在しなければ、<code>consume(rcvr)</code>によって登録解除と完了する登録された<a href="receiver.html">Receiver</a><code>rcvr</code>が存在する。</li>
 <li>そうではないとき、<code>destroy</code>が呼び出される。</li>
 </ul>
 </li>
@@ -410,7 +433,8 @@
 </p>
 <ul>
 <li>効果 :<ul>
-<li><code>*this</code>に対するこの<code>consume</code>の呼び出しが<code>complete</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>ならば、<code>*this</code>に対してその後<code>complete</code>が呼び出されるとき<code>rcvr</code>が完了するよう登録される。</li>
+<li><code>*this</code>に対するこの<code>consume</code>の呼び出しが<code>complete</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="よりも前に発生する。happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生し</a>、かつ<code>*this</code>に対するこの<code>consume</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a><code>try-set-stopped</code>の呼び出しが存在しなければ、<code>*this</code>に対してその後<code>complete</code>が呼び出されるとき<code>rcvr</code>が完了するよう登録される。</li>
+<li>そうではなく、<code>*this</code>に対するこの<code>consume</code>の呼び出しが<code>try-set-stopped</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="よりも後に発生する。happens after。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも後に発生し</a>、かつ<code>*this</code>に対するこの<code>consume</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a><code>complete</code>の呼び出しが存在しなければ、<code>rcvr</code>は<code><a href="set_stopped.html">set_stopped</a>(std::move(rcvr))</code>により完了する。</li>
 <li>
 <p>そうではないとき、下記のように<code>rcvr</code>が完了する :</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">result</span><span class="p">).</span><span class="n"><a href="../../variant/visit.html">visit</a></span><span class="p">(</span>
@@ -421,9 +445,20 @@
 <span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">});</span>
+<span class="n">detroy</span><span class="p">();</span>
 </code></pre></div>
 </p>
 </li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="k">try</span><span class="o">-</span><span class="n">set</span><span class="o">-</span><span class="n">stopped</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<ul>
+<li>効果 :<ul>
+<li><code>*this</code>に対する<code>consume</code>の呼び出しがこの<code>try-set-stopped</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="よりも前に発生する。happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生し</a>、かつ<code>*this</code>に対するこの<code>try-set-stopped</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a><code>complete</code>の呼び出しが存在しなければ、<code><a href="set_stopped.html">set_stopped</a>(std::move(rcvr)), destroy()</code>によって登録解除と完了する登録された<a href="receiver.html">Receiver</a><code>rcvr</code>が存在する。</li>
+<li>そうではないとき、効果を持たない。</li>
 </ul>
 </li>
 </ul>
@@ -435,7 +470,7 @@
 <p>効果 :</p>
 <ul>
 <li>
-<p><code>*this</code>に対するこの<code>abandon</code>の呼び出しが<code>complete</code>の呼び出しより前に発生するならば、下記と等価。</p>
+<p><code>*this</code>に対するこの<code>abandon</code>の呼び出しが<code>complete</code>の呼び出し<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>ならば、下記と等価。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">ssource</span><span class="p">.</span><span class="n">request_stop</span><span class="p">();</span>
 </code></pre></div>
 </p>
@@ -463,6 +498,84 @@
 </p>
 </li>
 </ul>
+<h3>クラステンプレート<code>future-operation</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">StatePtr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">future</span><span class="o">-</span><span class="n">operation</span><span class="w"> </span><span class="p">{</span><span class="w">                              </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">callback</span><span class="w"> </span><span class="p">{</span><span class="w">                                    </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="k">try</span><span class="o">-</span><span class="n">cancelable</span><span class="o">*</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w">                             </span><span class="c1">// exposition only</span>
+
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">state</span><span class="o">-&gt;</span><span class="k">try</span><span class="o">-</span><span class="n">cancel</span><span class="p">();</span>
+<span class="w">      </span><span class="p">};</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">stop</span><span class="o">-</span><span class="n">token</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w">                                 </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n"><a href="../stop_token_of_t.html">stop_token_of_t</a></span><span class="o">&lt;</span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">stop</span><span class="o">-</span><span class="n">callback</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w">                              </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n"><a href="../../stop_token/stop_callback_for_t.html">stop_callback_for_t</a></span><span class="o">&lt;</span><span class="n">stop</span><span class="o">-</span><span class="n">token</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">receiver</span><span class="w"> </span><span class="p">{</span><span class="w">                                    </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
+<span class="w">      </span><span class="n">future</span><span class="o">-</span><span class="n">operation</span><span class="o">*</span><span class="w"> </span><span class="n">op</span><span class="p">;</span><span class="w">                              </span><span class="c1">// exposition only</span>
+
+<span class="w">      </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">ts</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">op</span><span class="o">-&gt;</span><span class="n">set</span><span class="o">-</span><span class="n">complete</span><span class="o">&lt;</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">)...);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">set_error</span><span class="p">(</span><span class="n">E</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">op</span><span class="o">-&gt;</span><span class="n">set</span><span class="o">-</span><span class="n">complete</span><span class="o">&lt;</span><span class="n"><a href="set_error.html">set_error_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">set_stopped</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">op</span><span class="o">-&gt;</span><span class="n">set</span><span class="o">-</span><span class="n">complete</span><span class="o">&lt;</span><span class="n"><a href="set_stopped.html">set_stopped_t</a></span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_env</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="get_env.html">execution::get_env</a></span><span class="p">(</span><span class="n">op</span><span class="o">-&gt;</span><span class="n">rcvr</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">Rcvr</span><span class="w"> </span><span class="n">rcvr</span><span class="p">;</span><span class="w">                                       </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n">StatePtr</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w">                                  </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n">receiver</span><span class="w"> </span><span class="n">inner</span><span class="p">;</span><span class="w">                                  </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n">optional</span><span class="o">&lt;</span><span class="n">stop</span><span class="o">-</span><span class="n">callback</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stopCallback</span><span class="p">;</span><span class="w">          </span><span class="c1">// exposition only</span>
+
+
+<span class="w">    </span><span class="n">future</span><span class="o">-</span><span class="n">operation</span><span class="p">(</span><span class="n">StatePtr</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">rcvr</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)),</span><span class="w"> </span><span class="n">state</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">state</span><span class="p">)),</span><span class="w"> </span><span class="n">inner</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="n">future</span><span class="o">-</span><span class="n">operation</span><span class="p">(</span><span class="n">future</span><span class="o">-</span><span class="n">operation</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w">                              </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">nothrow</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n">stop</span><span class="o">-</span><span class="n">callback</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="o">-</span><span class="n">token</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">stopCallback</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n"><a href="../get_stop_token.html">get_stop_token</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n">callback</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">nothrow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">set_error</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../exception/current_exception.html">current_exception()</a></span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">state</span><span class="p">.</span><span class="n">release</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">consume</span><span class="p">(</span><span class="n">inner</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CPO</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set</span><span class="o">-</span><span class="n">complete</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">ts</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="c1">// exposition only</span>
+<span class="w">      </span><span class="n">stopCallback</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+<span class="w">      </span><span class="n">CPO</span><span class="p">{}(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">)...);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
 <h2>例</h2>
 <p><div class="yata" id="fc57ea79932e83908218f171207017f16157e84a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
 <span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
@@ -524,6 +637,7 @@ value=42
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html" target="_blank">P3815R1 Add <code>scope_association</code> concept to P3149</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html" target="_blank">P3914R0 Assorted NB comment resolutions for Kona 2025</a>, US 228-348</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3923r0.html" target="_blank">P3923R0 Additional NB comment resolutions for Kona 2025</a>, US 227-346, 229-347</li>
+<li><a href="https://cplusplus.github.io/LWG/issue4540" target="_blank">LWG4540. <code>future-sender</code>s returned from <code>spawn_future</code> do not forward stop requests to spawned work</a></li>
 </ul></div>
 
       </div>

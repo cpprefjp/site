@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-15T02:30:00">
-        2026年01月15日 02時30分00秒
+      <span itemprop="datePublished" content="2026-04-23T11:39:24">
+        2026年04月23日 11時39分24秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -251,12 +251,7 @@
 <p><code>task::promise_type</code>クラスの動作説明のため、以下の説明専用メンバを用いる。</p>
 <ul>
 <li><code>alloc</code> : <code><a href="../task.html">allocator_type</a></code>型のアロケータオブジェクト</li>
-<li><code>source</code> : <code><a href="../task.html">stop_source_type</a></code>型の停止ソースオブジェクト</li>
-<li><code>token</code> : <code><a href="../task.html">stop_token_type</a></code>型の停止トークンオブジェクト</li>
-<li><code>result</code> : <code><a href="../../../optional/optional.html">optional</a>&lt;T&gt;</code>型の結果値（<code>is_void_v&lt;T&gt; == false</code>の時のみ存在する）</li>
-<li><code>errors</code> : 下記<code>error-variant</code>型のエラー値</li>
 </ul>
-<p>説明専用の<code>error-variant</code>型は、<code>E...</code>を<code><a href="../task.html">error_types</a></code>で表現される<code><a href="../completion_signatures.html">execution::completion_signatures</a></code>特殊化のテンプレート引数型としたとき、<code><a href="../../../variant/variant.html">variant</a>&lt;<a href="../../../variant/monostate.html">monostate</a>, <a href="../../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;E&gt;...&gt;</code>において重複削除した型となる。</p>
 <h2>メンバ関数</h2>
 <h3>構築・破棄</h3>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
@@ -380,6 +375,8 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4415" target="_blank">LWG4415. <code>task::promise_type::uncaught_exception</code> seems to be misnamed</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4339" target="_blank">LWG4339. <code>task</code>'s coroutine frame may be released late</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4347" target="_blank">LWG4347. <code>task</code>'s stop source is always created</a></li>
 </ul></div>
 
       </div>

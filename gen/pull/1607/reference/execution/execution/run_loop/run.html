@@ -212,12 +212,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-09T08:52:14">
-        2025年07月09日 08時52分14秒
+      <span itemprop="datePublished" content="2026-04-23T12:23:31">
+        2026年04月23日 12時23分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -237,7 +237,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class run_loop">run_loop::</span><span class="token">run</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -245,7 +245,7 @@
 <p><code>run_loop</code>動作説明のため、説明専用のメンバ関数<code>pop-front</code>, <code>push-back</code>を導入する。
 <code><a href="finish.html">finish</a></code>および<code>pop-front</code>, <code>push-back</code>は不可分(atomically)に実行される。</p>
 <h3>説明専用メンバ関数 <code>pop-front</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="run-loop-opstate.html">run-loop-opstate-base</a></span><span class="o">*</span><span class="w"> </span><span class="n">pop</span><span class="o">-</span><span class="n">front</span><span class="p">();</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="run-loop-opstate.html">run-loop-opstate-base</a></span><span class="o">*</span><span class="w"> </span><span class="n">pop</span><span class="o">-</span><span class="n">front</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>効果 : 下記条件のいずれか一つが<code>true</code>になるまでブロックする。</p>
@@ -254,7 +254,7 @@
 <li><code>count &gt; 0</code>のとき、<code>count</code>を<code>1</code>減算してFIFOキューから先頭要素を削除し、同要素（ポインタ値）を返す。</li>
 </ul>
 <h3>説明専用メンバ関数 <code>push-back</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="o">-</span><span class="n">back</span><span class="p">(</span><span class="n"><a href="run-loop-opstate.html">run-loop-opstate-base</a></span><span class="o">*</span><span class="w"> </span><span class="n">item</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="o">-</span><span class="n">back</span><span class="p">(</span><span class="n"><a href="run-loop-opstate.html">run-loop-opstate-base</a></span><span class="o">*</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>効果 : FIFOキューの末尾に<code>item</code>を追加して<code>count</code>を<code>1</code>加算する。</p>
@@ -270,6 +270,8 @@
 <span class="p">}</span>
 </code></pre></div>
 </p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
 <h2><a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a></h2>
 <p><code>run</code>と<a href="op_destructor.html">デストラクタ</a>以外のメンバ関数同時呼び出しは、データ競合を引き起こさない。</p>
 <h2>例</h2>
@@ -321,6 +323,7 @@ finished
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4476" target="_blank">LWG4476. <code>run_loop</code> should not have a <code>set_error</code> completion</a></li>
 </ul></div>
 
       </div>

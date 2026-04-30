@@ -224,8 +224,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-14T15:45:13">
-        2026年01月14日 15時45分13秒
+      <span itemprop="datePublished" content="2026-04-23T11:23:26">
+        2026年04月23日 11時23分26秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -256,7 +256,7 @@
 <p>タスクコルーチンから送出された<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を処理する。
 プログラマが本関数を直接利用することは想定されていない。</p>
 <h2>効果</h2>
-<p>完了シグネチャ<code><a href="../../set_error.html">set_error_t</a>(<a href="../../../../exception/exception_ptr.html">exception_ptr</a>)</code>が<code><a href="../../task.html">error_types</a></code>の要素でないとき、<code><a href="../../../../exception/terminate.html">terminate()</a></code>を呼び出す。そうでなければ、<code>errors</code>に<code><a href="../../../../exception/current_exception.html">current_exception()</a></code>を格納する。</p>
+<p>完了シグネチャ<code><a href="../../set_error.html">set_error_t</a>(<a href="../../../../exception/exception_ptr.html">exception_ptr</a>)</code>が<code><a href="../../task.html">error_types</a></code>の要素でないとき、<code><a href="../../../../exception/terminate.html">terminate()</a></code>を呼び出す。そうでなければ、<code><a href="../state.html">STATE(*this)</a>.error</code>に<code><a href="../../../../exception/current_exception.html">current_exception()</a></code>を格納する。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -273,6 +273,7 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4415" target="_blank">LWG4415. <code>task::promise_type::uncaught_exception</code> seems to be misnamed</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4339" target="_blank">LWG4339. <code>task</code>'s coroutine frame may be released late</a></li>
 </ul></div>
 
       </div>

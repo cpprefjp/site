@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-08T09:00:28">
-        2026年02月08日 09時00分28秒
+      <span itemprop="datePublished" content="2026-04-23T12:23:31">
+        2026年04月23日 12時23分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,9 +247,9 @@
 <p>説明専用の基底クラス<code>run-loop-opstate-base</code>を下記の通り定義する。
 <code>run-loop-opstate&lt;Rcvr&gt;</code>は、<code>run-loop-opstate-base</code>から曖昧さなくprivate継承したクラスである。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">run</span><span class="o">-</span><span class="n">loop</span><span class="o">-</span><span class="n">opstate</span><span class="o">-</span><span class="n">base</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
-<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// exposition only</span>
-<span class="w">  </span><span class="n"><a href="../run_loop.html">run_loop</a></span><span class="o">*</span><span class="w"> </span><span class="n">loop</span><span class="p">;</span><span class="w">               </span><span class="c1">// exposition only</span>
-<span class="w">  </span><span class="n">run</span><span class="o">-</span><span class="n">loop</span><span class="o">-</span><span class="n">opstate</span><span class="o">-</span><span class="n">base</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n"><a href="../run_loop.html">run_loop</a></span><span class="o">*</span><span class="w"> </span><span class="n">loop</span><span class="p">;</span><span class="w">                       </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">run</span><span class="o">-</span><span class="n">loop</span><span class="o">-</span><span class="n">opstate</span><span class="o">-</span><span class="n">base</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">          </span><span class="c1">// exposition only</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -268,11 +268,7 @@
 </li>
 <li>
 <p>式<code>start(o)</code>は下記と等価 :</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">o</span><span class="p">.</span><span class="n">loop</span><span class="o">-&gt;</span><span class="n"><a href="run.html">push-back</a></span><span class="p">(</span><span class="n"><a href="../../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">o</span><span class="p">));</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n"><a href="../set_error.html">set_error</a></span><span class="p">(</span><span class="n"><a href="../../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">REC</span><span class="p">(</span><span class="n">o</span><span class="p">)),</span><span class="w"> </span><span class="n"><a href="../../../exception/current_exception.html">current_exception()</a></span><span class="p">);</span>
-<span class="p">}</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">o</span><span class="p">.</span><span class="n">loop</span><span class="o">-&gt;</span><span class="n"><a href="run.html">push-back</a></span><span class="p">(</span><span class="n"><a href="../../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">o</span><span class="p">));</span>
 </code></pre></div>
 </p>
 </li>
@@ -291,6 +287,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4476" target="_blank">LWG4476. <code>run_loop</code> should not have a <code>set_error</code> completion</a></li>
 </ul></div>
 
       </div>

@@ -224,8 +224,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-14T15:45:13">
-        2026年01月14日 15時45分13秒
+      <span itemprop="datePublished" content="2026-04-23T11:23:26">
+        2026年04月23日 11時23分26秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -256,11 +256,11 @@
 <p>タスクコルーチンの<a href="../../../../../lang/cpp20/coroutines.html">最終サスペンドポイント</a>を制御するAwaitableオブジェクトを返す。
 プログラマが本関数を直接利用することは想定されていない。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>STATE(*this)</code>に関連付けられた非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を下記呼び出しによって完了するメンバ関数を持つ、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>のAwaitableオブジェクトを返す。</p>
+<p><code><a href="../state.html">STATE(*this)</a></code>に関連付けられた非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を完了するメンバ関数を持つ、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>のAwaitableオブジェクトを返す。<code>st</code>を<code>STATE(*this)</code>への参照とする。非同期完了は最初に<code>st.handle.<a href="../../../../coroutine/coroutine_handle/destroy.html">destroy()</a></code>によってコルーチンフレームを破棄し、続いて下記を呼び出す。</p>
 <ul>
-<li><code>errors.<a href="../../../../variant/variant/index.html">index()</a></code>が<code>0</code>より大きいとき、<code>e</code>を<code>errors</code>が保持する値として<code><a href="../../set_error.html">set_error</a>(std::move(RCVR(*this)), std::move(e))</code>。そうでなければ、</li>
-<li><code><a href="../../../../type_traits/is_void.html">is_void</a>&lt;T&gt;</code>が<code>true</code>のとき、<code><a href="../../set_value.html">set_value</a>(std::move(RCVR(*this)))</code>。そうでなければ、</li>
-<li><code><a href="../../set_value.html">set_value</a>(std::move(RCVR(*this)), *result)</code></li>
+<li><code>bool(st.error)</code>が<code>true</code>のとき、<code><a href="../../set_error.html">set_error</a>(std::move(st.rcvr), std::move(st.error))</code>。そうでなければ、</li>
+<li><code><a href="../../../../type_traits/is_void.html">is_void_v</a>&lt;T&gt;</code>が<code>true</code>のとき、<code><a href="../../set_value.html">set_value</a>(std::move(st.rcvr))</code>。そうでなければ、</li>
+<li><code><a href="../../set_value.html">set_value</a>(std::move(st.rcvr), *std::move(st.result))</code></li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
@@ -279,6 +279,8 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4525" target="_blank">LWG4525. <code>task</code>'s <code>final_suspend</code> should <code>move</code> the result</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4339" target="_blank">LWG4339. <code>task</code>'s coroutine frame may be released late</a></li>
 </ul></div>
 
       </div>

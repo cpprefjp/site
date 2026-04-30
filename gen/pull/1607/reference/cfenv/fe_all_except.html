@@ -217,8 +217,8 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>全ての浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>マクロをビットORでつなぐことによって実装で定義されるマクロ。</p>
-<p>このマクロは、全ての浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>をクリアしたり、全ての浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の状態を取得するような状況で使用する。</p>
+<p>全ての<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>マクロをビットORでつなぐことによって実装で定義されるマクロ。</p>
+<p>このマクロは、全ての<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>をクリアしたり、全ての<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>の状態を取得するような状況で使用する。</p>
 <h2>例</h2>
 <p><div class="yata" id="4d5a88d7ce5fb9e4eaf1c850c6754d571b130219"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 <span class="cp">#include <a href="../cfenv.html">&lt;cfenv&gt;</a></span>

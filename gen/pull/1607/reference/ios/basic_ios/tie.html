@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-26T09:12:52">
-        2025年08月26日 09時12分52秒
+      <span itemprop="datePublished" content="2026-04-25T00:09:04">
+        2026年04月25日 00時09分04秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -257,9 +257,9 @@
     なお、この要件は「<code>tie</code> に設定した後でこのようになってはいけない」という意味であるものと思われる。（さもないと、設定したことによって無限ループが生じることを防げない）</li>
 <li>標準入出力ストリームは、以下のような設定が行われている。<ul>
 <li><code><a href="../../iostream/cin.html">cin</a>.tie() == &amp;<a href="../../iostream/cout.html">cout</a></code></li>
-<li><code><span href="https://cpprefjp.github.io/reference/iostream/wcin.md.nolink">wcin</span>.tie() == &amp;<span href="https://cpprefjp.github.io/reference/iostream/wcout.md.nolink">wcout</span></code></li>
+<li><code><a href="../../iostream/wcin.html">wcin</a>.tie() == &amp;<a href="../../iostream/wcout.html">wcout</a></code></li>
 <li><code><a href="../../iostream/cerr.html">cerr</a>.tie() == &amp;<a href="../../iostream/cout.html">cout</a></code>（C++11 から）</li>
-<li><code><span href="https://cpprefjp.github.io/reference/iostream/wcerr.md.nolink">wcerr</span>.tie() == &amp;<span href="https://cpprefjp.github.io/reference/iostream/wcout.md.nolink">wcout</span></code>（C++11 から）</li>
+<li><code><span href="https://cpprefjp.github.io/reference/iostream/wcerr.md.nolink">wcerr</span>.tie() == &amp;<a href="../../iostream/wcout.html">wcout</a></code>（C++11 から）</li>
 </ul>
 </li>
 </ul>
@@ -304,16 +304,19 @@ new
 <ul>
 <li>C++98</li>
 </ul>
-<h2>参照</h2>
+<h2>関連項目</h2>
 <ul>
 <li><code><a href="../../iostream/cin.html">cin</a></code></li>
 <li><code><a href="../../iostream/cout.html">cout</a></code></li>
 <li><code><a href="../../iostream/cerr.html">cerr</a></code></li>
-<li><code><span href="https://cpprefjp.github.io/reference/iostream/wcin.md.nolink">wcin</span></code></li>
-<li><code><span href="https://cpprefjp.github.io/reference/iostream/wcout.md.nolink">wcout</span></code></li>
+<li><code><a href="../../iostream/wcin.html">wcin</a></code></li>
+<li><code><a href="../../iostream/wcout.html">wcout</a></code></li>
 <li><code><span href="https://cpprefjp.github.io/reference/iostream/wcerr.md.nolink">wcerr</span></code></li>
 <li><code><a href="../../istream/basic_istream.html">basic_istream</a>::<a href="../../istream/basic_istream/sentry.html">sentry</a>::<a href="../../istream/basic_istream/sentry/op_constructor.html">sentry</a></code></li>
 <li><code><a href="../../ostream/basic_ostream.html">basic_ostream</a>::<a href="../../ostream/basic_ostream/sentry.html">sentry</a>::<a href="../../ostream/basic_ostream/sentry/op_constructor.html">sentry</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#60" target="_blank">60. What is a formatted input function?</a><br />
     C++03 で <code><a href="../../ostream/basic_ostream.html">basic_ostream</a>::<a href="../../ostream/basic_ostream/flush.html">flush</a>()</code> が非書式化出力ではないと明記された Defect Report</li>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#581" target="_blank">581. flush() not unformatted function</a><br />

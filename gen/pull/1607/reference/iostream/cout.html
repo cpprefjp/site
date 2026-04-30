@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/iostream/cout.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`cout`も`wcout`も、標準出力に対する出力ストリームオブジェクトである。" />
+        <meta property="og:description" content="`cout`は、標準出力に対する出力ストリームオブジェクトである。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="cout - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/iostream/cout.html" />
-        <meta name="twitter:description" content="`cout`も`wcout`も、標準出力に対する出力ストリームオブジェクトである。" />
+        <meta name="twitter:description" content="`cout`は、標準出力に対する出力ストリームオブジェクトである。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;iostream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;variable&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b7c7d36dc936251ba9ea0a3b51e70d026efed3c0&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout &lt;&lt; \&#34;Hello world\&#34; &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;887aa49d7f8a62c98cc30c1bbbdb9188eccb0ab5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::wcout.imbue(std::locale(\&#34;\&#34;));\n  //std::wcout.imbue(std::locale(\&#34;ja\&#34;));\n  //std::wcout.imbue(std::locale(\&#34;japanese\&#34;));\n  std::wcout &lt;&lt; L\&#34;\u3042\u308a\u304d\u305f\u308a\u306a\u4e16\u754c\&#34; &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;196b749503a6876d16c69b43539eb27be6f9ed5c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::ios_base::sync_with_stdio(false);\n  std::locale default_loc(\&#34;\&#34;);\n  std::locale::global(default_loc);\n  std::locale ctype_default(std::locale::classic(), default_loc, std::locale::ctype); //\u203b\n  std::wcout.imbue(ctype_default);\n  std::wcout &lt;&lt; L\&#34;\u3042\u308a\u304d\u305f\u308a\u306a\u4e16\u754c\&#34; &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;iostream&#34;, &#34;cout&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;iostream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;variable&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b7c7d36dc936251ba9ea0a3b51e70d026efed3c0&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout &lt;&lt; \&#34;Hello world\&#34; &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;iostream&#34;, &#34;cout&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2021-05-23T16:16:23">
-        2021年05月23日 16時16分23秒
+      <span itemprop="datePublished" content="2026-04-26T02:51:27">
+        2026年04月26日 02時51分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yumetodo</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -215,14 +215,13 @@
   <div class="identifier-type">variable</div><div class="header">&lt;iostream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">cout</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">extern</span><span class="w"> </span><span class="n"><a href="../ostream/basic_ostream.html">ostream</a></span><span class="w"> </span><span class="n">cout</span><span class="p">;</span>
-<span class="w">  </span><span class="k">extern</span><span class="w"> </span><span class="n"><a href="../ostream/basic_ostream.html">wostream</a></span><span class="w"> </span><span class="n">wcout</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>cout</code>も<code>wcout</code>も、標準出力に対する出力ストリームオブジェクトである。</p>
+<p><code>cout</code>は、標準出力に対する出力ストリームオブジェクトである。</p>
 <p>すなわち、<code><a href="../streambuf/basic_streambuf.html">std::basic_streambuf</a></code>から派生していて<code>&lt;cstdio&gt;</code>の<code>stdout</code>オブジェクトに結びつけられているストリームバッファに出力する。</p>
-<p><code>cout</code>は<code>character output</code>を意味する。また<code>wcout</code>は<code>wide character output</code>を意味する。<sup><a href="#cite-1" id="cite_ref-1">[1]</a></sup></p>
+<p><code>cout</code>は<code>character output</code>を意味する。</p>
 <h2>例</h2>
 <p><div class="yata" id="b7c7d36dc936251ba9ea0a3b51e70d026efed3c0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 
@@ -240,52 +239,11 @@
 <ul>
 <li>C++98</li>
 </ul>
-<h3>備考</h3>
-<p><code>wcout</code>は規格上実装しなければならないが、実装されていなかったり、期待どおりに動作しない事がある。</p>
-<h4>localeの設定</h4>
-<p>望む出力を得るためにlocaleを再設定しなければならない場合がある。</p>
-<p>例えばVisual Studioでは</p>
-<p><div class="yata" id="887aa49d7f8a62c98cc30c1bbbdb9188eccb0ab5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="n"><span style="color:#ff0000">std::wcout</span></span><span class="p">.</span><span class="n"><a href="../ios/basic_ios/imbue.html">imbue</a></span><span class="p">(</span><span class="n"><a href="../locale/locale.html">std::locale</a></span><span class="p">(</span><span class="s">""</span><span class="p">));</span>
-<span class="w">  </span><span class="c1">//<span style="color:#ff0000">std::wcout</span>.<a href="../ios/basic_ios/imbue.html">imbue</a>(<a href="../locale/locale.html">std::locale</a>("ja"));</span>
-<span class="w">  </span><span class="c1">//<span style="color:#ff0000">std::wcout</span>.<a href="../ios/basic_ios/imbue.html">imbue</a>(<a href="../locale/locale.html">std::locale</a>("japanese"));</span>
-<span class="w">  </span><span class="n"><span style="color:#ff0000">std::wcout</span></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sa">L</span><span class="s">"ありきたりな世界"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</div></p>
-<p>のようにして設定しないと何も表示されない。</p>
-<p><code>std::locale("")</code>とすると本来はOSに設定されたロケールが設定されるはずが、MinGW環境でコンパイルし実行すると、以下のようなエラーが出力されてしまう。</p>
-<p><pre><code>terminate called after throwing an instance of 'std::runtime_error'
-  what():  locale::facet::_S_create_c_locale name not valid
-</code></pre></p>
-<p>一方、以下のようなコードなら求める結果が得られる処理系もある。</p>
-<p><div class="yata" id="196b749503a6876d16c69b43539eb27be6f9ed5c"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-<span class="w">  </span><span class="n"><a href="../locale/locale.html">std::locale</a></span><span class="w"> </span><span class="n">default_loc</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
-<span class="w">  </span><span class="n"><a href="../locale/locale.html">std::locale</a></span><span class="o">::</span><span class="n">global</span><span class="p">(</span><span class="n">default_loc</span><span class="p">);</span>
-<span class="w">  </span><span class="n"><a href="../locale/locale.html">std::locale</a></span><span class="w"> </span><span class="n">ctype_default</span><span class="p">(</span><span class="n"><a href="../locale/locale.html">std::locale</a></span><span class="o">::</span><span class="n">classic</span><span class="p">(),</span><span class="w"> </span><span class="n">default_loc</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../locale/locale.html">std::locale</a></span><span class="o">::</span><span class="n">ctype</span><span class="p">);</span><span class="w"> </span><span class="c1">//※</span>
-<span class="w">  </span><span class="n"><span style="color:#ff0000">std::wcout</span></span><span class="p">.</span><span class="n"><a href="../ios/basic_ios/imbue.html">imbue</a></span><span class="p">(</span><span class="n">ctype_default</span><span class="p">);</span>
-<span class="w">  </span><span class="n"><span style="color:#ff0000">std::wcout</span></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sa">L</span><span class="s">"ありきたりな世界"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</div></p>
-<p>このように求める結果を得るためのlocaleの設定は処理系によって大きく異なる。</p>
-<h4>端末のロケールやフォントなど</h4>
-<p><code>wcout</code>を使ったとしても、結局<code>stdout</code>に出力するので、その標準出力を受け取って表示する端末のロケールやフォントなどの設定も考える必要がある。</p>
-<h5>Windows</h5>
-<p>Windowsでは<code>wchar_t</code>型といえばUTF-16でエンコードされた文字を指す。もし標準出力を受け取って表示するコンソールのロケールがUTF-8(65001)であるならばUTF-16からUTF-8への変換は一対一対応するため変換段階において問題は起きない。</p>
-<p>しかしながらデフォルトのロケールがUTF-8(65001)ではない事が多い(日本語利用者なら932になっている事が多い)ため、そのロケールで対応していないUnicodeコードポイントは当然変換できないので文字化けする。<code>chcp 65001</code>などでUTF-8にすることができる。</p>
-<p>こうしてUTF-8としてコンソールが文字列を受け取ったとしてもそれを正しく表示できるとは限らない。まずフォントが表示したい文字をすべて含んでいなければならない。またそうしたフォントを使えるようになっていなければならない。Windows10 1709より前では、ロケールをUTF-8にしたときのフォントの指定に制約があり、実質日本語を表示することは不可能だった。次に、🍣🍺のような色のついた絵文字を表示するためには、フォントの対応に加えて、それをDirectWriteなどを用いて描画されることが前提となる。例えばコマンドプロンプトはGDIで描画するため原理上不可能である。Microsoftが開発している<a href="https://github.com/microsoft/terminal" target="_blank">Windows Terminal</a>ではこうした描画側の問題を克服しようとしている。</p>
-<h2>出典</h2>
-<ol>
-<li><strong><a href="#cite_ref-1" id="cite-1">^</a></strong> <cite><a href="http://www.stroustrup.com/bs_faq2.html#cout" target="_blank">Stroustrup: C++ Style and Technique FAQ</a></cite>(2018-08-21 17:01 JST 閲覧)</li>
-</ol>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="wcout.html">wcout</a></code></li>
+<li><code><a href="cin.html">cin</a></code></li>
+</ul>
 <h2>参照</h2>
 <ul>
 <li><a href="../../article/platform/locales.html">使用できるロケール文字列</a></li>

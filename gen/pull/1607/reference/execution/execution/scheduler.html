@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-27T16:34:45">
-        2025年08月27日 16時34分45秒
+      <span itemprop="datePublished" content="2026-04-23T11:51:40">
+        2026年04月23日 11時51分40秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -232,6 +232,7 @@
 <span class="w">    </span><span class="n"><a href="../queryable.html">queryable</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
 <span class="w">    </span><span class="k">requires</span><span class="p">(</span><span class="n">Sch</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sch</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="sender.html">sender</a></span><span class="p">;</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="get_forward_progress_guarantee.html">get_forward_progress_guarantee</a></span><span class="p">(</span><span class="n">sch</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="forward_progress_guarantee.html">forward_progress_guarantee</a></span><span class="o">&gt;</span><span class="p">;</span>
 <span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="k">auto</span><span class="p">(</span><span class="n"><a href="get_completion_scheduler.html">get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span>
 <span class="w">          </span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sch</span><span class="p">)))))</span><span class="w"> </span><span class="p">}</span>
 <span class="w">            </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;&gt;</span><span class="p">;</span>
@@ -251,6 +252,7 @@
 <li><a href="../queryable.html">クエリ可能オブジェクト</a>である</li>
 <li><code>Sch</code>型の値<code>sch</code>に対して下記を満たすこと<ul>
 <li><code><a href="schedule.html">execution::schedule</a>(sch)</code>が<a href="sender.html">Sender</a>を返す</li>
+<li><code><a href="get_forward_progress_guarantee.html">execution::get_forward_progress_guarantee</a>(sch)</code>が<code><a href="forward_progress_guarantee.html">forward_progress_guarantee</a></code>列挙値を返す</li>
 <li>上記Senderの<a href="set_value.html">値完了関数</a>の<a href="get_completion_scheduler.html">完了Scheduler</a>が<code>Sch</code>に等しいこと</li>
 </ul>
 </li>
@@ -312,6 +314,7 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4354" target="_blank">LWG4354. Reconsider <code>weakly_parallel</code> as the default <code>forward_progress_guarantee</code></a></li>
 </ul></div>
 
       </div>

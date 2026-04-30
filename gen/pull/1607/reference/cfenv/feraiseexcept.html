@@ -219,14 +219,14 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>パラメータ<code>excepts</code>で指定された浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を発生させる。</p>
+<p>パラメータ<code>excepts</code>で指定された<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>を発生させる。</p>
 <h2>効果</h2>
-<p>パラメータ<code>excepts</code>で指定された浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を発生させる。<code>excepts</code>には、ビットORを使用して複数の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を指定できる。この効果は、算術演算によって発生する浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>と同様。発生する<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の順序は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
+<p>パラメータ<code>excepts</code>で指定された<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>を発生させる。<code>excepts</code>には、ビットORを使用して複数の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>を指定できる。この効果は、算術演算によって発生する<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>と同様。発生する<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の順序は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
 <p><code><a href="fe_overflow.html">FE_OVERFLOW</a></code>もしくは<code><a href="fe_underflow.html">FE_UNDERFLOW</a></code>が指定されたときに、追加で<code><a href="fe_inexact.html">FE_INEXACT</a></code>も発生させるかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <ul>
 <li><code>excepts</code>が<code>0</code>であった場合、この関数は<code>0</code>を返す</li>
-<li>指定された全ての浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を正しく発生させられた場合、この関数は<code>0</code>を返す</li>
+<li>指定された全ての<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../cfenv.html">浮動小数点例外</a>を正しく発生させられた場合、この関数は<code>0</code>を返す</li>
 <li>それ以外の場合、この関数は<code>0</code>以外を返す</li>
 </ul>
 <h2>例</h2>

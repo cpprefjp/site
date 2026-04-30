@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-08T09:20:19">
-        2026年02月08日 09時20分19秒
+      <span itemprop="datePublished" content="2026-04-23T11:39:24">
+        2026年04月23日 11時39分24秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,14 +247,20 @@
 <span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="n">state</span><span class="p">(</span><span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n"><a href="promise_type.html">promise_type</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rr</span><span class="p">);</span>
 <span class="w">    </span><span class="o">~</span><span class="n">state</span><span class="p">();</span>
+
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
+<span class="w">    </span><span class="n">stop_token_type</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">stop</span><span class="o">-</span><span class="n">token</span><span class="p">();</span><span class="w"> </span><span class="c1">// exposition only</span>
+
 <span class="w">  </span><span class="k">private</span><span class="o">:</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n"><i>own-env-t</i></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w">     </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n"><i>own-env-t</i></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span><span class="w">      </span><span class="c1">// exposition only</span>
 <span class="w">    </span><span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n"><a href="promise_type.html">promise_type</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">handle</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 <span class="w">    </span><span class="n"><a href="../../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w">              </span><span class="n">rcvr</span><span class="p">;</span><span class="w">    </span><span class="c1">// exposition only</span>
 <span class="w">    </span><span class="n"><i>own-env-t</i></span><span class="w">                      </span><span class="n">own</span><span class="o">-</span><span class="n">env</span><span class="p">;</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="../../../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n"><a href="../task.html">stop_source_type</a></span><span class="o">&gt;</span><span class="w">     </span><span class="n">source</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 <span class="w">    </span><span class="n">Environment</span><span class="w">                    </span><span class="n">environment</span><span class="p">;</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n"><a href="../../../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w">                    </span><span class="n">result</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only; is_void_v&lt;T&gt;がfalseのときのみ有効</span>
+<span class="w">    </span><span class="n"><a href="../../../exception/exception_ptr.html">exception_ptr</a></span><span class="w">                  </span><span class="n">error</span><span class="p">;</span><span class="w">   </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -299,13 +305,20 @@
 <li><code>RCVR(prom)</code> : <code>rcvr</code></li>
 <li><code>SCHED(prom)</code> : 式が有効ならば<code><a href="../task.html">scheduler_type</a>(<a href="../get_scheduler.html">get_scheduler</a>(<a href="../get_env.html">get_env</a>(rcvr)))</code>で初期化したオブジェクト、そうでなれば<code>scheduler_type()</code>。いずれの式も<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../../implementation-compliance.html#dfn-well-formed">適格</a>でなければ、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
 </ul>
-<p>説明用の<code>st</code>を<code><a href="../../get_stop_token.html">get_stop_token</a>(<a href="../get_env.html">get_env</a>(rcvr))</code>とする。<code>prom.token</code>と<code>prom.source</code>を下記のように初期化する。</p>
-<ul>
-<li><code>prom.token.<a href="../../../stop_token/stoppable_token.html">stop_requested()</a></code> : <code>st.stop_requested()</code>を返す。</li>
-<li><code>prom.token.<a href="../../../stop_token/stoppable_token.html">stop_possible()</a></code> : <code>st.stop_possible()</code>を返す。
-― 型<code>Fn</code>と型<code>Init</code>をそれぞれ<code><a href="../../../concepts/invocable.html">invocable</a>&lt;F&gt;</code>と<code><a href="../../../concepts/constructible_from.html">constructible_from</a>&lt;Fn, Init&gt;</code>のモデルとしたとき、<code><a href="../../../stop_token/stoppable_token.html">stop_token::callback_type</a>&lt;Fn&gt;</code>は<code><a href="../../../stop_token/stoppable_token.html">stoppable-callback-for</a>&lt;Fn, <a href="../task.html">stop_token_type</a>, Init&gt;</code>のモデルである。</li>
-</ul>
 <p>その後、<code>handle.<a href="../../../coroutine/coroutine_handle/resume.html">resume()</a></code>を呼び出す。</p>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n">stop_token_type</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">stop</span><span class="o">-</span><span class="n">token</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>効果 : <code><a href="../../../concepts/same_as.html">same_as</a>&lt;decltype(declval&lt;<a href="../task.html">stop_source_type</a>&gt;().get_token()), decltype(<a href="../../get_stop_token.html">get_stop_token</a>(get_env(rcvr)))&gt;</code>が<code>true</code>のとき、<code>get_stop_token(get_env(rcvr))</code>を返す。そうではなく、<code>source.<a href="../../../optional/optional/has_value.html">has_value()</a></code>が<code>false</code>のとき、下記の値で<code>source</code>を初期化する。</p>
+<ul>
+<li><code>source-&gt;stop_requested()</code>は<code>get_stop_token(get_env(rcvr))-&gt;stop_requested()</code>を返し、かつ</li>
+<li><code>source-&gt;stop_possible()</code>は<code>get_stop_token(get_env(rcvr))-&gt;stop_possible()</code>を返す。</li>
+</ul>
+<p>最後に、<code>source-&gt;get_token()</code>を返す。</p>
 </li>
 </ul>
 <h2>バージョン</h2>
@@ -320,6 +333,8 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4339" target="_blank">LWG4339. <code>task</code>'s coroutine frame may be released late</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4347" target="_blank">LWG4347. <code>task</code>'s stop source is always created</a></li>
 </ul></div>
 
       </div>

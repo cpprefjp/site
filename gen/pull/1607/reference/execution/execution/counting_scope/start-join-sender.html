@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-08T09:00:28">
-        2026年02月08日 09時00分28秒
+      <span itemprop="datePublished" content="2026-04-23T12:27:56">
+        2026年04月23日 12時27分56秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,9 +245,8 @@
 <p>合流<a href="../sender.html">Sender</a>を開始する、説明専用のメンバ関数。
 <code><a href="join.html">join</a></code>メンバ関数が返す合流Sender動作を定義する。</p>
 <h2>効果</h2>
-<p>説明用のメンバ変数<code>state</code>に応じて、</p>
+<p>説明用のメンバ変数<code>count</code>が<code>0</code>のとき、<code>state</code>を<code>joined</code>に変更して<code>true</code>を返す。そうでなければ、<code>state</code>に応じて、</p>
 <ul>
-<li><code>unused</code>, <code>unused-and-closed</code>, <code>joined</code>のとき、<code>state</code>を<code>joined</code>に変更して<code>true</code>を返す。</li>
 <li><code>open</code>, <code>open-and-joining</code>のとき、<code>state</code>を<code>open-and-joining</code>に変更し、<code>*this</code>で<code>st</code>を登録して<code>false</code>を返す。</li>
 <li><code>closed</code>, <code>closed-and-joining</code>のとき、<code>state</code>を<code>closed-and-joining</code>に変更し、<code>*this</code>で<code>st</code>を登録して<code>false</code>を返す。</li>
 </ul>
@@ -261,6 +260,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4504" target="_blank">LWG4504. Wording problem in <code>{simple_}counting_scope</code></a></li>
 </ul></div>
 
       </div>

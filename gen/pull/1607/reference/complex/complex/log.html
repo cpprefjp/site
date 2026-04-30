@@ -246,16 +246,16 @@
 <li>規格には、上記の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の記載、および、分岐截断以外の規定・説明は無い。<br />
     なお、C99 の規格にある本関数と等価の関数群（<code>complex.h</code> ヘッダの <code>clog</code>、<code>clogf</code>、<code>clogl</code>の 3 つ。それぞれ C++ の <code>log&lt;double&gt;</code>、<code>log&lt;float&gt;</code>、<code>log&lt;long double&gt;</code> に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。<ul>
 <li><code>log(<a href="conj.html">conj</a>(x)) = <a href="conj.html">conj</a>(log(x))</code>。</li>
-<li><code>log(complex(-0, +0))</code> は <code>complex(-∞, +π)</code> を返し、ゼロ除算の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（<code>FE_DIVBYZERO</code>）を引き起こす。</li>
-<li><code>log(complex(+0, +0))</code> は <code>complex(-∞, +0)</code> を返し、ゼロ除算の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（<code>FE_DIVBYZERO</code>）を引き起こす。</li>
+<li><code>log(complex(-0, +0))</code> は <code>complex(-∞, +π)</code> を返し、ゼロ除算の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>（<code>FE_DIVBYZERO</code>）を引き起こす。</li>
+<li><code>log(complex(+0, +0))</code> は <code>complex(-∞, +0)</code> を返し、ゼロ除算の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>（<code>FE_DIVBYZERO</code>）を引き起こす。</li>
 <li>有限の <code>x</code> に対して、<code>log(complex(x, +∞))</code> は <code>complex(+∞, +π/2)</code> を返す。</li>
-<li>有限の <code>x</code> に対して、<code>log(complex(x, NaN))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（<code>FE_INVALID</code>）を引き起こす可能性がある。</li>
+<li>有限の <code>x</code> に対して、<code>log(complex(x, NaN))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>（<code>FE_INVALID</code>）を引き起こす可能性がある。</li>
 <li>有限で正の符号を持つ（<code>+0</code> を含む）<code>y</code> に対して、<code>log(complex(-∞, y))</code> は <code>complex(+0, +π)</code> を返す。</li>
 <li>有限で正の符号を持つ（<code>+0</code> を含む）<code>y</code> に対して、<code>log(complex(+∞, y))</code> は <code>complex(+∞, +0)</code> を返す。</li>
 <li><code>log(complex(-∞, +∞))</code> は <code>complex(+∞, +3π/4)</code> を返す。</li>
 <li><code>log(complex(+∞, +∞))</code> は <code>complex(+∞, +π/4)</code> を返す。</li>
 <li><code>log(complex(±∞, NaN))</code> は <code>complex(+∞, NaN)</code> を返す。</li>
-<li>有限の <code>y</code> に対して、<code>log(complex(NaN, y))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（<code>FE_INVALID</code>）を引き起こす可能性がある。</li>
+<li>有限の <code>y</code> に対して、<code>log(complex(NaN, y))</code> は <code>complex(NaN, NaN)</code> を返し、無効演算の<a class="cpprefjp-defined-word" data-desc="floating-point exception。ゼロ除算やオーバーフロー等の算術的な問題が発生した際に、浮動小数点環境に設定される状態フラグのこと。C++言語機能の例外機構（try-catch）とは異なる。" href="../../cfenv.html">浮動小数点例外</a>（<code>FE_INVALID</code>）を引き起こす可能性がある。</li>
 <li><code>log(complex(NaN, +∞))</code> は <code>complex(+∞, NaN)</code> を返す。</li>
 <li><code>log(complex(NaN, NaN))</code> は <code>complex(NaN, NaN)</code> を返す。</li>
 </ul>
