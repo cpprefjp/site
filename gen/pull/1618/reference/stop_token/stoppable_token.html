@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-04-30T04:24:27">
+        2026年04月30日 04時24分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -245,8 +245,8 @@
 <p>説明用の変数<code>t</code>, <code>u</code>を、同一の停止状態を参照する別々な<code>Token</code>型オブジェクトとする。
 型<code>Token</code>が以下を満たす場合に限って、型<code>Token</code>は<code>stoppable_token</code>のモデルである。</p>
 <ul>
-<li><code>SP</code>を<code>t.stop_possible()</code>が<code>false</code>となる評価としたとき、<code>SP</code>より後に発生する<code>u.stop_possible()</code>や<code>u.stop_requested()</code>の評価は<code>false</code>であること。</li>
-<li><code>SR</code>を<code>t.stop_requested()</code>が<code>true</code>となる評価としたとき、<code>SR</code>より後に発生する<code>u.stop_possible()</code>や<code>u.stop_requested()</code>の評価は<code>true</code>であること。</li>
+<li><code>SP</code>を<code>t.stop_possible()</code>が<code>false</code>となる評価としたとき、<code>SP</code><a class="cpprefjp-defined-word" data-desc="happens after。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも後に発生する</a><code>u.stop_possible()</code>や<code>u.stop_requested()</code>の評価は<code>false</code>であること。</li>
+<li><code>SR</code>を<code>t.stop_requested()</code>が<code>true</code>となる評価としたとき、<code>SR</code><a class="cpprefjp-defined-word" data-desc="happens after。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも後に発生する</a><code>u.stop_possible()</code>や<code>u.stop_requested()</code>の評価は<code>true</code>であること。</li>
 <li><code>stoppable-callback-for&lt;CallbackFn, Token, Initialize&gt;</code>を満たす任意の型<code>CallbackFn</code>および型<code>Initialize</code>が、<code>stoppable-callback-for&lt;CallbackFn, Token, Initializer&gt;</code>のモデルであること。</li>
 <li><code>t</code>が停止状態を持たない(disengaged)とき、<code>t.stop_possible()</code>や<code>t.stop_requested()</code>の評価が<code>false</code>であること。</li>
 <li><code>t</code>と<code>u</code>が同一の停止状態を参照するか共に停止状態を持たないとき<code>t == u</code>が<code>true</code>であり、それ以外のときは<code>false</code>であること。</li>

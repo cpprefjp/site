@@ -270,7 +270,7 @@
 <p>ここで、以下のように定義する：</p>
 <ul>
 <li><code>C1</code>と<code>C2</code> : クロックの種類</li>
-<li><code>t1</code>と<code>t2</code> : <code>C1::now()</code>によって返される値。ここで、<code>t1</code>を返す<code>now()</code>呼び出しは<code>t2</code>を返す<code>now()</code>呼び出しよりも前に発生し、これらの呼び出しは両方とも<code>C1::time_point::max()</code><a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>ものとする (注: これは、<code>C1</code>が<code>t1</code>と<code>t2</code>の間でラップアラウンドしていないことを意味する)</li>
+<li><code>t1</code>と<code>t2</code> : <code>C1::now()</code>によって返される値。ここで、<code>t1</code>を返す<code>now()</code>呼び出しは<code>t2</code>を返す<code>now()</code>呼び出し<a class="cpprefjp-defined-word" data-desc="よりも前に発生する。happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生し</a>、これらの呼び出しは両方とも<code>C1::time_point::max()</code><a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>ものとする (注: これは、<code>C1</code>が<code>t1</code>と<code>t2</code>の間でラップアラウンドしていないことを意味する)</li>
 </ul>
 <p><code>is_clock</code>は、以下を満たさない限り、<code>Clock</code>要件として<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>ではない：</p>
 <ul>
