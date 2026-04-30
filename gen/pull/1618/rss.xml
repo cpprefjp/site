@@ -1,0 +1,2238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-04-30T14:08:25.734809</updated>
+  <id>d5124230-f179-44fb-9d49-0cdb63f04eba</id>
+
+  
+    <entry>
+      <title>リファレンス -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference.html"/>
+      <id>234c4f50f7b4e632552e134ff2fff92d6f96feec:reference.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;リファレンス&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;目次&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#language-support&#34;&gt;言語サポートライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#concepts&#34;&gt;コンセプトライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#diagnostics&#34;&gt;診断ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#general-utils&#34;&gt;汎用的なユーティリティライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#strings&#34;&gt;文字列ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#localization&#34;&gt;ローカライズライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#container&#34;&gt;コンテナライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#iterator&#34;&gt;イテレータライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ranges&#34;&gt;レンジライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#algorithm&#34;&gt;アルゴリズムライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#numerics&#34;&gt;数値ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#debug&#34;&gt;デバッグライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#io&#34;&gt;入出力ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#regular-expressions&#34;&gt;正規表現ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#atomic-operations&#34;&gt;アトミック操作ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#thread-support&#34;&gt;スレッドサポートライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clib-facilities&#34;&gt;C言語互換ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#exposition-only&#34;&gt;説明専用ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;a href=&#34;#language-support-library&#34; id=&#34;language-support&#34;&gt;言語サポートライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/limits.html&#34;&gt;&amp;lt;limits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装プロパティ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/version.html&#34;&gt;&amp;lt;version&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装依存のバージョン情報&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdfloat.html&#34;&gt;&amp;lt;stdfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;拡張浮動小数点数型&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/new.html&#34;&gt;&amp;lt;new&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;動的メモリ管理&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/typeinfo.html&#34;&gt;&amp;lt;typeinfo&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型情報&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/source_location.html&#34;&gt;&amp;lt;source_location&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソースコード上の位置&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/exception.html&#34;&gt;&amp;lt;exception&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外ハンドリング&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/initializer_list.html&#34;&gt;&amp;lt;initializer_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;初期化子リスト&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/compare.html&#34;&gt;&amp;lt;compare&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;比較演算&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/coroutine.html&#34;&gt;&amp;lt;coroutine&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コルーチン&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#concepts&#34; id=&#34;concepts&#34;&gt;コンセプトライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/concepts.html&#34;&gt;&amp;lt;concepts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;言語関係のコンセプト&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#diagnostics&#34; id=&#34;diagnostics&#34;&gt;診断ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdexcept.html&#34;&gt;&amp;lt;stdexcept&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外クラス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/system_error.html&#34;&gt;&amp;lt;system_error&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;システムエラーサポート&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#general-utils&#34; id=&#34;general-utils&#34;&gt;汎用的なユーティリティライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユーティリティコンポーネント&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/bitset.html&#34;&gt;&amp;lt;bitset&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビットの固定サイズシーケンス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ratio.html&#34;&gt;&amp;lt;ratio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時有理数&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/tuple.html&#34;&gt;&amp;lt;tuple&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;タプル&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/optional.html&#34;&gt;&amp;lt;optional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;任意で値を持たせられるオブジェクト&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/variant.html&#34;&gt;&amp;lt;variant&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;候補の型を切り替えながら保持できる記憶域型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/any.html&#34;&gt;&amp;lt;any&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;あらゆる型の値を保持できる記憶域型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/expected.html&#34;&gt;&amp;lt;expected&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;正常値かエラー値のどちらかを持たせられるオブジェクト&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型特性&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数オブジェクト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/scoped_allocator.html&#34;&gt;&amp;lt;scoped_allocator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スコープ付きアロケータ&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/memory_resource.html&#34;&gt;&amp;lt;memory_resource&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多相アロケータ&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/chrono.html&#34;&gt;&amp;lt;chrono&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;時間ユーティリティ&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/typeindex.html&#34;&gt;&amp;lt;typeindex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型のインデックス&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/execution.html&#34;&gt;&amp;lt;execution&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実行ポリシー、実行制御ライブラリ(C++26)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/charconv.html&#34;&gt;&amp;lt;charconv&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;高速な文字列 ⇔ 数値変換&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/format.html&#34;&gt;&amp;lt;format&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列フォーマット&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stacktrace.html&#34;&gt;&amp;lt;stacktrace&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スタックトレース&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#strings&#34; id=&#34;strings&#34;&gt;文字列ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列クラスと、文字特性&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/string_view.html&#34;&gt;&amp;lt;string_view&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;所有権を持たず文字列を参照する文字列クラス&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#localization&#34; id=&#34;localization&#34;&gt;ローカライズライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/locale.html&#34;&gt;&amp;lt;locale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/text_encoding.html&#34;&gt;&amp;lt;text_encoding&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列エンコーディングの識別&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/codecvt.html&#34;&gt;&amp;lt;codecvt&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コード変換ファセット&lt;/td&gt;
+&lt;td&gt;C++11&lt;br /&gt; C++17から非推奨&lt;br /&gt; C++26で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#container&#34; id=&#34;container&#34;&gt;コンテナライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/array.html&#34;&gt;&amp;lt;array&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/deque.html&#34;&gt;&amp;lt;deque&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;両端キュー&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/forward_list.html&#34;&gt;&amp;lt;forward_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;単方向リスト&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/list.html&#34;&gt;&amp;lt;list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;双方向リスト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/queue.html&#34;&gt;&amp;lt;queue&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;FIFOキュー&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stack.html&#34;&gt;&amp;lt;stack&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;LIFOスタック&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/vector.html&#34;&gt;&amp;lt;vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変長配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/inplace_vector.html&#34;&gt;&amp;lt;inplace_vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;容量固定の可変長配列&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/map.html&#34;&gt;&amp;lt;map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;順序付き連想配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/set.html&#34;&gt;&amp;lt;set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;順序付き集合&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/flat_map.html&#34;&gt;&amp;lt;flat_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソート済みキーによる順序付き連想配列&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/flat_set.html&#34;&gt;&amp;lt;flat_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソート済みキーによる順序付き集合&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/unordered_map.html&#34;&gt;&amp;lt;unordered_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非順序連想配列&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/unordered_set.html&#34;&gt;&amp;lt;unordered_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非順序集合&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/span.html&#34;&gt;&amp;lt;span&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;部分シーケンスの参照&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/mdspan.html&#34;&gt;&amp;lt;mdspan&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列ビュー&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#iterator&#34; id=&#34;iterator&#34;&gt;イテレータライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;イテレータの定義&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#ranges&#34; id=&#34;ranges&#34;&gt;レンジライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;レンジアルゴリズム&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/generator.html&#34;&gt;&amp;lt;generator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コルーチンによるレンジ生成&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#algorithm&#34; id=&#34;algorithm&#34;&gt;アルゴリズムライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アルゴリズム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#numerics&#34; id=&#34;numerics&#34;&gt;数値ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/complex.html&#34;&gt;&amp;lt;complex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;複素数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビット操作&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/random.html&#34;&gt;&amp;lt;random&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;乱数生成&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/valarray.html&#34;&gt;&amp;lt;valarray&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値の配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一般的な数値操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/numbers.html&#34;&gt;&amp;lt;numbers&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/linalg.html&#34;&gt;&amp;lt;linalg&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;線形代数&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#debug&#34; id=&#34;debug&#34;&gt;デバッグライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/debugging.html&#34;&gt;&amp;lt;debugging&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デバッグサポート&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/contracts.html&#34;&gt;&amp;lt;contracts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;契約プログラミング&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#io&#34; id=&#34;io&#34;&gt;入出力ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;iosfwd&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先行宣言&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iostream.html&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準&lt;code&gt;iostream&lt;/code&gt;オブジェクト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ios.html&#34;&gt;&amp;lt;ios&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;iostream&lt;/code&gt;基底クラス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/streambuf.html&#34;&gt;&amp;lt;streambuf&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームバッファ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入力ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;出力ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iomanip.html&#34;&gt;&amp;lt;iomanip&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;フォーマットとマニピュレータ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/sstream.html&#34;&gt;&amp;lt;sstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;strstream&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;古い文字列ストリーム&lt;/td&gt;
+&lt;td&gt;C++98から非推奨&lt;br /&gt; C++26で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/fstream.html&#34;&gt;&amp;lt;fstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/filesystem.html&#34;&gt;&amp;lt;filesystem&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルシステム&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/syncstream.html&#34;&gt;&amp;lt;syncstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;同期化出力ストリームラッパー&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/spanstream.html&#34;&gt;&amp;lt;spanstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリバッファの所有権をもたないストリーム&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/print.html&#34;&gt;&amp;lt;print&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式指定による出力&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#regular-expressions&#34; id=&#34;regular-expressions&#34;&gt;正規表現ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/regex.html&#34;&gt;&amp;lt;regex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;正規表現&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#atomic-operations&#34; id=&#34;atomic-operations&#34;&gt;アトミック操作ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アトミックアクセスのためのコンポーネント&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdatomic.h.html&#34;&gt;&amp;lt;stdatomic.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アトミック操作のC互換ライブラリ&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#thread-support&#34; id=&#34;thread-support&#34;&gt;スレッドサポートライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stop_token.html&#34;&gt;&amp;lt;stop_token&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;停止状態&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/thread.html&#34;&gt;&amp;lt;thread&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スレッド&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/mutex.html&#34;&gt;&amp;lt;mutex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ミューテックス&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/shared_mutex.html&#34;&gt;&amp;lt;shared_mutex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;共有ミューテックス&lt;/td&gt;
+&lt;td&gt;C++14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/condition_variable.html&#34;&gt;&amp;lt;condition_variable&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;条件変数&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/semaphore.html&#34;&gt;&amp;lt;semaphore&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;セマフォ&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/latch.html&#34;&gt;&amp;lt;latch&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ラッチ同期&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/barrier.html&#34;&gt;&amp;lt;barrier&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;バリア同期&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/future.html&#34;&gt;&amp;lt;future&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Future&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/rcu.html&#34;&gt;&amp;lt;rcu&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データの参照・更新&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/hazard_pointer.md.nolink&#34;&gt;&amp;lt;hazard_pointer&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ハザードポインタ&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/simd.md.nolink&#34;&gt;&amp;lt;simd&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データ並列&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#clib-facilities&#34; id=&#34;clib-facilities&#34;&gt;C言語互換ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cassert.html&#34;&gt;&amp;lt;cassert&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アサート&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ccomplex&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;複素数&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cctype.html&#34;&gt;&amp;lt;cctype&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字種別の判定と変換&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cerrno.html&#34;&gt;&amp;lt;cerrno&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;エラー番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cfenv.html&#34;&gt;&amp;lt;cfenv&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;浮動小数点環境へのアクセス&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cfloat.html&#34;&gt;&amp;lt;cfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;浮動小数点数の定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;固定精度整数のための書式指定マクロ&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ciso646&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;に対する別名&lt;code&gt;and&lt;/code&gt;のような、各種演算子に対するマクロを定義する。&lt;br /&gt; ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。&lt;/td&gt;
+&lt;td&gt;C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/climits.html&#34;&gt;&amp;lt;climits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;整数型の最小値、最大値を表すマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/clocale.html&#34;&gt;&amp;lt;clocale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cmath.html&#34;&gt;&amp;lt;cmath&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数学関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/csetjmp.html&#34;&gt;&amp;lt;csetjmp&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ジャンプ処理&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/csignal.html&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;シグナル&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdalign&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アライメント操作のマクロ&lt;/td&gt;
+&lt;td&gt;C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdarg&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdbit.h.html&#34;&gt;&amp;lt;stdbit.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビット操作&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdckdint.h.html&#34;&gt;&amp;lt;stdckdint.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;検査付き整数演算&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdbool&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;真理値型の定義&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstddef.html&#34;&gt;&amp;lt;cstddef&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基本的な型、値、マクロの定義&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;大きさが規定されている整数型&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdio.html&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdlib.html&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユーティリティ関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstring.html&#34;&gt;&amp;lt;cstring&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ctgmath&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ジェネリックな数学関数&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ctime.html&#34;&gt;&amp;lt;ctime&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日付・時間&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cuchar&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユニコード文字型&lt;/td&gt;
+&lt;td&gt;C++11 (C11)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cwchar&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cwctype&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字の種別と判定&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#exposition-only&#34; id=&#34;exposition-only&#34;&gt;説明専用ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/exposition-only.html&#34;&gt;exposition-only&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;説明のためのものを集めたページ (実際のライブラリではない)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2867r2.html&#34; target=&#34;_blank&#34;&gt;P2867R2 Remove Deprecated &lt;code&gt;strstream&lt;/code&gt;s From C++26&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>csetjmp -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp.html"/>
+      <id>234c4f50f7b4e632552e134ff2fff92d6f96feec:reference/csetjmp.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csetjmp&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csetjmp&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csetjmp&amp;gt;&lt;/code&gt;ヘッダでは、非ローカルジャンプのための機能を定義する。非ローカルジャンプは、関数呼び出しのスタックを遡って、特定のポイントにジャンプすることを可能にする機能である。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/jmp_buf.html&#34;&gt;jmp_buf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非ローカルジャンプのための環境を保存するための型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/setjmp.html&#34;&gt;setjmp&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;現在の環境を保存するためのマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/longjmp.html&#34;&gt;longjmp&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;setjmp()&lt;/code&gt;で保存された環境を復元し、ジャンプするための関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>jmp_buf -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html"/>
+      <id>234c4f50f7b4e632552e134ff2fff92d6f96feec:reference/csetjmp/jmp_buf.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/jmp_buf.md b/reference/csetjmp/jmp_buf.md
+new file mode 100644
+index 000000000..2a194d3ce
+--- /dev/null
++++ b/reference/csetjmp/jmp_buf.md
+@@ -0,0 +1,51 @@
++# jmp_buf
++* csetjmp[meta header]
++* type-alias[meta id-type]
++
++```cpp
++using jmp_buf = unspecified;
++```
++
++## 概要
++
++非ローカルジャンプ（関数を跨いだジャンプ）を実現するために、現在の実行環境を保存するための配列型である。
++
++`setjmp()`マクロによって現在の環境がこの型に保存され、後に`longjmp()`関数がその環境を復元するために使用される。
++
++## 例
++
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;csetjmp&amp;gt;
++
++std::jmp_buf env;
++
++void low_level_function() {
++  std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
++  std::longjmp(env, 42);
++}
++
++int main () {
++  int result = setjmp(env);
++  if (result == 0) {
++    low_level_function();
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました:&amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
++  }
++
++  return 0;
++}
++```
++* std::jmp_buf[color ff0000]
++* std::longjmp[link longjmp.md]
++* setjmp[link setjmp.md]
++
++### 出力
++```
++何らかのエラー
++エラーから復帰しました:42
++```
++
++## 関連項目
++- [`longjmp()`](longjmp.md)
++- [`setjmp()`](setjmp.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>longjmp -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/longjmp.html"/>
+      <id>234c4f50f7b4e632552e134ff2fff92d6f96feec:reference/csetjmp/longjmp.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/longjmp.md b/reference/csetjmp/longjmp.md
+new file mode 100644
+index 000000000..0d5138b47
+--- /dev/null
++++ b/reference/csetjmp/longjmp.md
+@@ -0,0 +1,68 @@
++# longjmp
++* csetjmp[meta header]
++* std[meta namespace]
++* function[meta id-type]
++
++```cpp
++namespace std {
++  [[noreturn]] void longjmp(jmp_buf env, int val);
++}
++```
++
++## 概要
++
++引数`env`に保存された実行環境を復元し、対応する`setjmp()`の呼び出し地点へプログラムの制御を移す（非ローカルジャンプ）。
++
++## 効果
++
++* `setjmp()`によってjmp_bufに保存された実行環境（スタックポインタ、プログラムカウンタ等）を復元する。
++
++* プログラムの実行地点を、対応する`setjmp()`の呼び出し地点へジャンプさせる。
++
++* ジャンプ先の`setjmp()`は、この関数の第二引数valを戻り値として返す。ただし、valが0の場合は1を返す。
++
++## 戻り値
++
++この関数は決して返らない。
++
++## 備考
++
++* ジャンプによって自動記憶域期間を持つオブジェクトのスコープを抜ける際、そのオブジェクトが非自明なデストラクタを持つ場合、動作は未定義である。
++
++## 例
++
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;csetjmp&amp;gt;
++
++std::jmp_buf env;
++
++void low_level_function() {
++  std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
++  std::longjmp(env, 0);  // valが0なので、setjmpは1を返す
++}
++
++int main () {
++  int result = setjmp(env);
++  if (result == 0) {  // 直接呼び出された場合は0を返すので、エラー処理を行う
++    low_level_function();
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました:&amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
++  }
++  return 0;
++}
++```
++* std::longjmp[color ff0000]
++* setjmp[link setjmp.md]
++* std::jmp_buf[link jmp_buf.md]
++
++### 出力
++
++```
++何らかのエラー
++エラーから復帰しました:1
++```
++
++## 関連項目
++* [`jmp_buf`](jmp_buf.md)
++* [`setjmp`](setjmp.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setjmp -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
+      <id>234c4f50f7b4e632552e134ff2fff92d6f96feec:reference/csetjmp/setjmp.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
+new file mode 100644
+index 000000000..9073f18d5
+--- /dev/null
++++ b/reference/csetjmp/setjmp.md
+@@ -0,0 +1,75 @@
++# setjmp
++* csetjmp[meta header]
++* macro[meta id-type]
++
++```cpp
++# define setjmp(env)
++```
++
++## 概要
++
++現在の環境を引数`env`に保存するマクロ。
++`env`は、`jmp_buf`型のオブジェクトでなければならない。
++
++## 事前条件
++
++このマクロは以下の文脈でのみ現れる。
++
++1. 条件式または反復式の制御式全体
++2. 関係演算子または等価演算子のオペランドの一つ(もう一つのオペランドは整数定数)
++3. ! のオペランドであり、その結果式が1を満たす場合
++4. 式文の式全体(void型へのキャストを含む)
++
++上記以外の箇所での呼び出しは未定義の動作となる。
++
++## 戻り値
++
++直接マクロが呼び出された場合、0を返す。
++それ以外(`longjmp`関数から)の呼び出しでは非0を返す。
++なお、`longjmp`関数の第二引数が0の場合は、1を返す。
++
++## 備考
++
++* 対応する`setjmp` と `longjmp` の間で、自動記憶域期間を持つ非自明なデストラクタを持つオブジェクトの生存期間が終了する場合（ジャンプによってデストラクタを飛ばす場合）、その動作は未定義である。
++* コルーチンのサスペンションコンテキスト内で呼び出された場合、動作は未定義である。
++
++
++## 例
++
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;csetjmp&amp;gt;
++
++std::jmp_buf env;
++
++void low_level_function() {
++  std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
++  std::longjmp(env, 42);
++}
++
++int main () {
++  int result = setjmp(env);
++  if (result == 0) {
++    low_level_function();
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました:&amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
++  }
++
++  return 0;
++}
++```
++* setjmp[color ff0000]
++* std::longjmp[link longjmp.md]
++* std::jmp_buf[link jmp_buf.md]
++
++
++### 出力
++
++```
++何らかのエラー
++エラーから復帰しました:42
++```
++
++## 関連項目
++- [jmp_buf](/reference/csetjmp/jmp_buf.md)
++- [longjmp](/reference/csetjmp/longjmp.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cin -- feat({,w}c{in,out}): 対応する入出力変数への相互リンクを追加</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/cin.html"/>
+      <id>c1cfd09d3259bcd6285c9925d5840cfb7eee3837:reference/iostream/cin.md</id>
+      <updated>2026-04-26T11:51:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/cin.md b/reference/iostream/cin.md
+index 2f58f8694..f30021cce 100644
+--- a/reference/iostream/cin.md
++++ b/reference/iostream/cin.md
+@@ -55,3 +55,4 @@ int main()
+ ## 関連項目
+ 
+ - [`wcin`](wcin.md)
++- [`cout`](cout.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cout -- feat({,w}c{in,out}): 対応する入出力変数への相互リンクを追加</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/cout.html"/>
+      <id>c1cfd09d3259bcd6285c9925d5840cfb7eee3837:reference/iostream/cout.md</id>
+      <updated>2026-04-26T11:51:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/cout.md b/reference/iostream/cout.md
+index ac8c24655..b953d072e 100644
+--- a/reference/iostream/cout.md
++++ b/reference/iostream/cout.md
+@@ -41,6 +41,7 @@ Hello world
+ ## 関連項目
+ 
+ - [`wcout`](wcout.md)
++- [`cin`](cin.md)
+ 
+ ## 参照
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wcin -- feat({,w}c{in,out}): 対応する入出力変数への相互リンクを追加</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/wcin.html"/>
+      <id>c1cfd09d3259bcd6285c9925d5840cfb7eee3837:reference/iostream/wcin.md</id>
+      <updated>2026-04-26T11:51:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/wcin.md b/reference/iostream/wcin.md
+index 860452ffd..7c51cd6d6 100644
+--- a/reference/iostream/wcin.md
++++ b/reference/iostream/wcin.md
+@@ -55,3 +55,4 @@ int main()
+ ## 関連項目
+ 
+ - [`cin`](cin.md)
++- [`wcout`](wcout.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wcout -- feat({,w}c{in,out}): 対応する入出力変数への相互リンクを追加</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/wcout.html"/>
+      <id>c1cfd09d3259bcd6285c9925d5840cfb7eee3837:reference/iostream/wcout.md</id>
+      <updated>2026-04-26T11:51:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/wcout.md b/reference/iostream/wcout.md
+index b3b082964..82e173ecc 100644
+--- a/reference/iostream/wcout.md
++++ b/reference/iostream/wcout.md
+@@ -108,6 +108,7 @@ Windowsでは`wchar_t`型といえばUTF-16でエンコードされた文字を
+ ## 関連項目
+ 
+ - [`cout`](cout.md)
++- [`wcin`](wcin.md)
+ 
+ ## 参照
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cin -- feat(cin,cout): 関連項目に wcin,wcout を追加</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/cin.html"/>
+      <id>013edc8365929eca2c87ab7c2425ccee614b8b14:reference/iostream/cin.md</id>
+      <updated>2026-04-26T11:45:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/cin.md b/reference/iostream/cin.md
+index 5ebb00a42..2f58f8694 100644
+--- a/reference/iostream/cin.md
++++ b/reference/iostream/cin.md
+@@ -51,3 +51,7 @@ int main()
+ ## 出典
+ 
+ 1. **&amp;lt;a id=&amp;#34;cite-1&amp;#34; href=&amp;#34;#cite_ref-1&amp;#34;&amp;gt;^&amp;lt;/a&amp;gt;** &amp;lt;cite&amp;gt;[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)&amp;lt;/cite&amp;gt;(2018-08-21 17:01 JST 閲覧)
++
++## 関連項目
++
++- [`wcin`](wcin.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cout -- feat(cin,cout): 関連項目に wcin,wcout を追加</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/cout.html"/>
+      <id>013edc8365929eca2c87ab7c2425ccee614b8b14:reference/iostream/cout.md</id>
+      <updated>2026-04-26T11:45:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/cout.md b/reference/iostream/cout.md
+index 3e0f19489..ac8c24655 100644
+--- a/reference/iostream/cout.md
++++ b/reference/iostream/cout.md
+@@ -38,6 +38,10 @@ Hello world
+ ### 言語
+ - C++98
+ 
++## 関連項目
++
++- [`wcout`](wcout.md)
++
+ ## 参照
+ 
+ - [使用できるロケール文字列](../../article/platform/locales.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>文字列リテラルとワイド文字列リテラルの結合 -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/lang/cpp11/string_literal_concatenation.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:lang/cpp11/string_literal_concatenation.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/string_literal_concatenation.md b/lang/cpp11/string_literal_concatenation.md
+index 6d76c3916..d220f213b 100644
+--- a/lang/cpp11/string_literal_concatenation.md
++++ b/lang/cpp11/string_literal_concatenation.md
+@@ -29,7 +29,7 @@ int main()
+   std::wcout &amp;lt;&amp;lt; s2 &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+-* std::wcout[link /reference/iostream/cout.md]
++* std::wcout[link /reference/iostream/wcout.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>narrow -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ios/basic_ios/narrow.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ios/basic_ios/narrow.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/basic_ios/narrow.md b/reference/ios/basic_ios/narrow.md
+index e13645a08..7da35a613 100644
+--- a/reference/ios/basic_ios/narrow.md
++++ b/reference/ios/basic_ios/narrow.md
+@@ -33,7 +33,7 @@ int main()
+ }
+ ```
+ * narrow[color ff0000]
+-* std::wcout[link ../../iostream/wcout.md.nolink]
++* std::wcout[link ../../iostream/wcout.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>tie -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ios/basic_ios/tie.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ios/basic_ios/tie.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/basic_ios/tie.md b/reference/ios/basic_ios/tie.md
+index 84a466cad..e272aba94 100644
+--- a/reference/ios/basic_ios/tie.md
++++ b/reference/ios/basic_ios/tie.md
+@@ -39,9 +39,9 @@ basic_ostream&amp;lt;CharT, Traits&amp;gt;* tie(basic_ostream&amp;lt;CharT, Traits&amp;gt;* tiestr);    // (
+     なお、この要件は「`tie` に設定した後でこのようになってはいけない」という意味であるものと思われる。（さもないと、設定したことによって無限ループが生じることを防げない）
+ - 標準入出力ストリームは、以下のような設定が行われている。
+     - [`cin`](../../iostream/cin.md)`.tie() == &amp;amp;`[`cout`](../../iostream/cout.md)
+-    - [`wcin`](../../iostream/wcin.md.nolink)`.tie() == &amp;amp;`[`wcout`](../../iostream/wcout.md.nolink)
++    - [`wcin`](../../iostream/wcin.md)`.tie() == &amp;amp;`[`wcout`](../../iostream/wcout.md)
+     - [`cerr`](../../iostream/cerr.md)`.tie() == &amp;amp;`[`cout`](../../iostream/cout.md)（C++11 から）
+-    - [`wcerr`](../../iostream/wcerr.md.nolink)`.tie() == &amp;amp;`[`wcout`](../../iostream/wcout.md.nolink)（C++11 から）
++    - [`wcerr`](../../iostream/wcerr.md.nolink)`.tie() == &amp;amp;`[`wcout`](../../iostream/wcout.md)（C++11 から）
+ 
+ 
+ ## 例
+@@ -97,15 +97,17 @@ new
+ ### 言語
+ - C++98
+ 
+-## 参照
++## 関連項目
+ - [`cin`](../../iostream/cin.md)
+ - [`cout`](../../iostream/cout.md)
+ - [`cerr`](../../iostream/cerr.md)
+-- [`wcin`](../../iostream/wcin.md.nolink)
+-- [`wcout`](../../iostream/wcout.md.nolink)
++- [`wcin`](../../iostream/wcin.md)
++- [`wcout`](../../iostream/wcout.md)
+ - [`wcerr`](../../iostream/wcerr.md.nolink)
+ - [`basic_istream`](../../istream/basic_istream.md)`::`[`sentry`](../../istream/basic_istream/sentry.md)`::`[`sentry`](../../istream/basic_istream/sentry/op_constructor.md)
+ - [`basic_ostream`](../../ostream/basic_ostream.md)`::`[`sentry`](../../ostream/basic_ostream/sentry.md)`::`[`sentry`](../../ostream/basic_ostream/sentry/op_constructor.md)
++
++## 参照
+ - [60. What is a formatted input function?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#60)  
+     C++03 で [`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力ではないと明記された Defect Report
+ - [581. flush() not unformatted function](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#581)  
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>widen -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ios/basic_ios/widen.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ios/basic_ios/widen.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/basic_ios/widen.md b/reference/ios/basic_ios/widen.md
+index a2d712f02..7960549ae 100644
+--- a/reference/ios/basic_ios/widen.md
++++ b/reference/ios/basic_ios/widen.md
+@@ -32,7 +32,7 @@ int main()
+   std::wcout &amp;lt;&amp;lt; c1 &amp;lt;&amp;lt; L&amp;#34;, &amp;#34; &amp;lt;&amp;lt; c2 &amp;lt;&amp;lt; L&amp;#39;\n&amp;#39;;
+ }
+ ```
+-* std::wcout[link ../../iostream/wcout.md.nolink]
++* std::wcout[link ../../iostream/wcout.md]
+ * widen[color ff0000]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>Init -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ios/ios_base/Init.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ios/ios_base/Init.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/ios_base/Init.md b/reference/ios/ios_base/Init.md
+index 665d24698..7fe5ff790 100644
+--- a/reference/ios/ios_base/Init.md
++++ b/reference/ios/ios_base/Init.md
+@@ -40,12 +40,12 @@ namespace std {
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
+-## 参照
++## 関連項目
+ - [`cin`](../../iostream/cin.md)
+ - [`cout`](../../iostream/cout.md)
+ - [`cerr`](../../iostream/cerr.md)
+ - [`clog`](../../iostream/clog.md)
+-- [`wcin`](../../iostream/wcin.md.nolink)
+-- [`wcout`](../../iostream/wcout.md.nolink)
++- [`wcin`](../../iostream/wcin.md)
++- [`wcout`](../../iostream/wcout.md)
+ - [`wcerr`](../../iostream/wcerr.md.nolink)
+ - [`wclog`](../../iostream/wclog.md.nolink)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ios/ios_base/Init/op_constructor.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ios/ios_base/Init/op_constructor.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/ios_base/Init/op_constructor.md b/reference/ios/ios_base/Init/op_constructor.md
+index f3d01ac9d..c2c057ae0 100644
+--- a/reference/ios/ios_base/Init/op_constructor.md
++++ b/reference/ios/ios_base/Init/op_constructor.md
+@@ -14,7 +14,7 @@ Init();
+ 
+ ## 効果
+ `Init` クラスのオブジェクトを構築する。  
+-[`cin`](../../../iostream/cin.md)、[`cout`](../../../iostream/cout.md)、[`cerr`](../../../iostream/cerr.md)、[`clog`](../../../iostream/clog.md)、[`wcin`](../../../iostream/wcin.md.nolink)、[`wcout`](../../../iostream/wcout.md.nolink)、[`wcerr`](../../../iostream/wcerr.md.nolink)、[`wclog`](../../../iostream/wclog.md.nolink) の 8 つのオブジェクトが構築・初期化されていなければ、それらの構築・初期化を行う。
++[`cin`](../../../iostream/cin.md)、[`cout`](../../../iostream/cout.md)、[`cerr`](../../../iostream/cerr.md)、[`clog`](../../../iostream/clog.md)、[`wcin`](../../../iostream/wcin.md)、[`wcout`](../../../iostream/wcout.md)、[`wcerr`](../../../iostream/wcerr.md.nolink)、[`wclog`](../../../iostream/wclog.md.nolink) の 8 つのオブジェクトが構築・初期化されていなければ、それらの構築・初期化を行う。
+ 
+ 
+ ## バージョン
+@@ -28,13 +28,13 @@ Init();
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
+-## 参照
++## 関連項目
+ - [`~Init`](op_destructor.md)
+ - [`cin`](../../../iostream/cin.md)
+ - [`cout`](../../../iostream/cout.md)
+ - [`cerr`](../../../iostream/cerr.md)
+ - [`clog`](../../../iostream/clog.md)
+-- [`wcin`](../../../iostream/wcin.md.nolink)
+-- [`wcout`](../../../iostream/wcout.md.nolink)
++- [`wcin`](../../../iostream/wcin.md)
++- [`wcout`](../../../iostream/wcout.md)
+ - [`wcerr`](../../../iostream/wcerr.md.nolink)
+ - [`wclog`](../../../iostream/wclog.md.nolink)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>デストラクタ -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ios/ios_base/Init/op_destructor.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ios/ios_base/Init/op_destructor.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/ios_base/Init/op_destructor.md b/reference/ios/ios_base/Init/op_destructor.md
+index 6df9b86e5..71344a82c 100644
+--- a/reference/ios/ios_base/Init/op_destructor.md
++++ b/reference/ios/ios_base/Init/op_destructor.md
+@@ -14,7 +14,7 @@
+ 
+ ## 効果
+ `Init` クラスのオブジェクトを破棄する。  
+-`Init` クラスのインスタンスが他に無かった場合、[`cout`](../../../iostream/cout.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`cerr`](../../../iostream/cerr.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`clog`](../../../iostream/clog.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wcout`](../../../iostream/wcout.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wcerr`](../../../iostream/wcerr.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wclog`](../../../iostream/wclog.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()` を呼び出す。
++`Init` クラスのインスタンスが他に無かった場合、[`cout`](../../../iostream/cout.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`cerr`](../../../iostream/cerr.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`clog`](../../../iostream/clog.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wcout`](../../../iostream/wcout.md)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wcerr`](../../../iostream/wcerr.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()`、[`wclog`](../../../iostream/wclog.md.nolink)`.`[`flush`](../../../ostream/basic_ostream/flush.md)`()` を呼び出す。
+ 
+ 
+ ## バージョン
+@@ -28,12 +28,12 @@
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
+-## 参照
++## 関連項目
+ - [`Init`](op_constructor.md)
+ - [`cout`](../../../iostream/cout.md)
+ - [`cerr`](../../../iostream/cerr.md)
+ - [`clog`](../../../iostream/clog.md)
+-- [`wcout`](../../../iostream/wcout.md.nolink)
++- [`wcout`](../../../iostream/wcout.md)
+ - [`wcerr`](../../../iostream/wcerr.md.nolink)
+ - [`wclog`](../../../iostream/wclog.md.nolink)
+ - [`basic_ostream`](../../../ostream/basic_ostream.md)`::`[`flush`](../../../ostream/basic_ostream/flush.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sync_with_stdio -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ios/ios_base/sync_with_stdio.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ios/ios_base/sync_with_stdio.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/ios_base/sync_with_stdio.md b/reference/ios/ios_base/sync_with_stdio.md
+index 1cd854097..4522b5fcf 100644
+--- a/reference/ios/ios_base/sync_with_stdio.md
++++ b/reference/ios/ios_base/sync_with_stdio.md
+@@ -54,14 +54,14 @@ int main()
+ ```
+ 
+ 
+-## 参照
++## 関連項目
+ - 標準ストリームオブジェクト
+     - [`cin`](../../iostream/cin.md)
+     - [`cout`](../../iostream/cout.md)
+     - [`cerr`](../../iostream/cerr.md)
+     - [`clog`](../../iostream/clog.md)
+-    - [`wcin`](../../iostream/wcin.md.nolink)
+-    - [`wcout`](../../iostream/wcout.md.nolink)
++    - [`wcin`](../../iostream/wcin.md)
++    - [`wcout`](../../iostream/wcout.md)
+     - [`wcerr`](../../iostream/wcerr.md.nolink)
+     - [`wclog`](../../iostream/wclog.md.nolink)
+ - C 言語ライブラリの標準ストリームオブジェクト
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iostream -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/iostream.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/iostream.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;iostream&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;iostream&amp;gt;&lt;/code&gt;ヘッダは、標準入出力オブジェクトを提供する。&lt;/p&gt;
+&lt;p&gt;このヘッダは、以下のヘッダをインクルードすることが規定されている。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;ios.html&#34;&gt;&amp;lt;ios&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;streambuf.html&#34;&gt;&amp;lt;streambuf&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;このため、入出力機能に関する基本的な型や関数（&lt;code&gt;&lt;a href=&#34;ostream/endl.html&#34;&gt;endl&lt;/a&gt;&lt;/code&gt;など主要なマニピュレータを含む）を使用する目的で、このヘッダをインクルードしても良いだろう。&lt;/p&gt;
+&lt;p&gt;なお、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;basic_iostream&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;iostream&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;istream/basic_iostream.html&#34;&gt;wiostream&lt;/a&gt;&lt;/code&gt;は&lt;code&gt;&lt;a href=&#34;istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;で定義されている。&lt;/p&gt;
+&lt;h2&gt;標準入出力オブジェクト&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cin.html&#34;&gt;cin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準入力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cout.html&#34;&gt;cout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/clog.html&#34;&gt;clog&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準エラー出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cerr.html&#34;&gt;cerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字による標準エラー出力（バッファリング無し）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/wcin.html&#34;&gt;wcin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準入力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/wcout.html&#34;&gt;wcout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/clog.html&#34;&gt;wclog&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準エラー出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;iostream/cerr.html&#34;&gt;wcerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字による標準エラー出力（バッファリング無し）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cin -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/cin.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/iostream/cin.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/cin.md b/reference/iostream/cin.md
+index c4f755b89..5ebb00a42 100644
+--- a/reference/iostream/cin.md
++++ b/reference/iostream/cin.md
+@@ -6,11 +6,9 @@
+ ```cpp
+ namespace std {
+   extern istream cin;
+-  extern wistream wcin;
+ }
+ ```
+ * istream[link ../istream/basic_istream.md]
+-* wistream[link ../istream/basic_istream.md]
+ 
+ ## 概要
+ `cin` は、標準入力に対する入力ストリームオブジェクトである。
+@@ -20,7 +18,7 @@ namespace std {
+ 本オブジェクトは、初期化が完了すると [`tie`](../ios/basic_ios/tie.md)`()` が `&amp;amp;`[`cout`](cout.md) を返すようになる。  
+ その他の状態は、[`basic_ios`](../ios/basic_ios.md)`::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
+ 
+-`cin`は`character input`を意味する。また`wcin`は`wide character input`を意味する。&amp;lt;sup&amp;gt;&amp;lt;a id=&amp;#34;cite_ref-1&amp;#34; href=&amp;#34;#cite-1&amp;#34;&amp;gt;[1]&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt;
++`cin`は`character input`を意味する。&amp;lt;sup&amp;gt;&amp;lt;a id=&amp;#34;cite_ref-1&amp;#34; href=&amp;#34;#cite-1&amp;#34;&amp;gt;[1]&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt;
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cout -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/cout.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/iostream/cout.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/cout.md b/reference/iostream/cout.md
+index ed878e357..3e0f19489 100644
+--- a/reference/iostream/cout.md
++++ b/reference/iostream/cout.md
+@@ -6,18 +6,17 @@
+ ```cpp
+ namespace std {
+   extern ostream cout;
+-  extern wostream wcout;
+ }
+ ```
+ * ostream[link ../ostream/basic_ostream.md]
+-* wostream[link ../ostream/basic_ostream.md]
++* ostream[link ../ostream/basic_ostream.md]
+ 
+ ## 概要
+-`cout`も`wcout`も、標準出力に対する出力ストリームオブジェクトである。
++`cout`は、標準出力に対する出力ストリームオブジェクトである。
+ 
+ すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`&amp;lt;cstdio&amp;gt;`の`stdout`オブジェクトに結びつけられているストリームバッファに出力する。
+ 
+-`cout`は`character output`を意味する。また`wcout`は`wide character output`を意味する。&amp;lt;sup&amp;gt;&amp;lt;a id=&amp;#34;cite_ref-1&amp;#34; href=&amp;#34;#cite-1&amp;#34;&amp;gt;[1]&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt;
++`cout`は`character output`を意味する。
+ 
+ ## 例
+ ```cpp example
+@@ -39,73 +38,6 @@ Hello world
+ ### 言語
+ - C++98
+ 
+-### 備考
+-
+-`wcout`は規格上実装しなければならないが、実装されていなかったり、期待どおりに動作しない事がある。
+-
+-#### localeの設定
+-望む出力を得るためにlocaleを再設定しなければならない場合がある。
+-
+-例えばVisual Studioでは
+-
+-```cpp example
+-#include &amp;lt;iostream&amp;gt;
+-
+-int main()
+-{
+-  std::wcout.imbue(std::locale(&amp;#34;&amp;#34;));
+-  //std::wcout.imbue(std::locale(&amp;#34;ja&amp;#34;));
+-  //std::wcout.imbue(std::locale(&amp;#34;japanese&amp;#34;));
+-  std::wcout &amp;lt;&amp;lt; L&amp;#34;ありきたりな世界&amp;#34; &amp;lt;&amp;lt; std::endl;
+-}
+-```
+-* std::wcout[color ff0000]
+-* imbue[link /reference/ios/basic_ios/imbue.md]
+-
+-のようにして設定しないと何も表示されない。
+-
+-`std::locale(&amp;#34;&amp;#34;)`とすると本来はOSに設定されたロケールが設定されるはずが、MinGW環境でコンパイルし実行すると、以下のようなエラーが出力されてしまう。
+-
+-```
+-terminate called after throwing an instance of &amp;#39;std::runtime_error&amp;#39;
+-  what():  locale::facet::_S_create_c_locale name not valid
+-```
+-
+-一方、以下のようなコードなら求める結果が得られる処理系もある。
+-
+-```cpp example
+-#include &amp;lt;iostream&amp;gt;
+-
+-int main()
+-{
+-  std::ios_base::sync_with_stdio(false);
+-  std::locale default_loc(&amp;#34;&amp;#34;);
+-  std::locale::global(default_loc);
+-  std::locale ctype_default(std::locale::classic(), default_loc, std::locale::ctype); //※
+-  std::wcout.imbue(ctype_default);
+-  std::wcout &amp;lt;&amp;lt; L&amp;#34;ありきたりな世界&amp;#34; &amp;lt;&amp;lt; std::endl;
+-}
+-```
+-* std::wcout[color ff0000]
+-* imbue[link /reference/ios/basic_ios/imbue.md]
+-
+-このように求める結果を得るためのlocaleの設定は処理系によって大きく異なる。
+-
+-#### 端末のロケールやフォントなど
+-
+-`wcout`を使ったとしても、結局`stdout`に出力するので、その標準出力を受け取って表示する端末のロケールやフォントなどの設定も考える必要がある。
+-
+-##### Windows
+-Windowsでは`wchar_t`型といえばUTF-16でエンコードされた文字を指す。もし標準出力を受け取って表示するコンソールのロケールがUTF-8(65001)であるならばUTF-16からUTF-8への変換は一対一対応するため変換段階において問題は起きない。
+-
+-しかしながらデフォルトのロケールがUTF-8(65001)ではない事が多い(日本語利用者なら932になっている事が多い)ため、そのロケールで対応していないUnicodeコードポイントは当然変換できないので文字化けする。`chcp 65001`などでUTF-8にすることができる。
+-
+-こうしてUTF-8としてコンソールが文字列を受け取ったとしてもそれを正しく表示できるとは限らない。まずフォントが表示したい文字をすべて含んでいなければならない。またそうしたフォントを使えるようになっていなければならない。Windows10 1709より前では、ロケールをUTF-8にしたときのフォントの指定に制約があり、実質日本語を表示することは不可能だった。次に、🍣🍺のような色のついた絵文字を表示するためには、フォントの対応に加えて、それをDirectWriteなどを用いて描画されることが前提となる。例えばコマンドプロンプトはGDIで描画するため原理上不可能である。Microsoftが開発している[Windows Terminal](https://github.com/microsoft/terminal)ではこうした描画側の問題を克服しようとしている。
+-
+-## 出典
+-
+-1. **&amp;lt;a id=&amp;#34;cite-1&amp;#34; href=&amp;#34;#cite_ref-1&amp;#34;&amp;gt;^&amp;lt;/a&amp;gt;** &amp;lt;cite&amp;gt;[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)&amp;lt;/cite&amp;gt;(2018-08-21 17:01 JST 閲覧)
+-
+ ## 参照
+ 
+ - [使用できるロケール文字列](../../article/platform/locales.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wcin -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/wcin.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/iostream/wcin.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/wcin.md b/reference/iostream/wcin.md
+new file mode 100644
+index 000000000..860452ffd
+--- /dev/null
++++ b/reference/iostream/wcin.md
+@@ -0,0 +1,57 @@
++# wcin
++* iostream[meta header]
++* std[meta namespace]
++* variable[meta id-type]
++
++```cpp
++namespace std {
++  extern wistream wcin;
++}
++```
++* wistream[link ../istream/basic_istream.md]
++
++## 概要
++`wcin` は、標準入力に対するワイド文字用の入力ストリームオブジェクトである。
++
++すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`&amp;lt;cstdio&amp;gt;`の`stdin`オブジェクトに結びつけられているストリームバッファから入力を受ける。
++
++本オブジェクトは、初期化が完了すると [`tie`](../ios/basic_ios/tie.md)`()` が `&amp;amp;`[`wcout`](wcout.md) を返すようになる。  
++その他の状態は、[`basic_ios`](../ios/basic_ios.md)`::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
++
++`wcin`は`wide character input`を意味する。&amp;lt;sup&amp;gt;&amp;lt;a id=&amp;#34;cite_ref-1&amp;#34; href=&amp;#34;#cite-1&amp;#34;&amp;gt;[1]&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt;
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;string&amp;gt;
++
++int main()
++{
++  std::wcout &amp;lt;&amp;lt; L&amp;#34;名前を入力してください: &amp;#34;;
++
++  std::wstring s;    // std::wcin.tie() == &amp;amp;std::wcout であるため、
++  std::wcin &amp;gt;&amp;gt; s;    // std::wcout を明示的に flush しなくても
++                     // 上記の出力が flush されることが保証されている
++
++  std::wcout &amp;lt;&amp;lt; L&amp;#34;あなたの名前は「&amp;#34; &amp;lt;&amp;lt; s &amp;lt;&amp;lt; L&amp;#34;」ですね。&amp;#34; &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::wcin[color ff0000]
++
++### 出力例
++```
++名前を入力してください:たろう
++あなたの名前は「たろう」ですね
++```
++
++## バージョン
++### 言語
++- C++98
++
++## 出典
++
++1. **&amp;lt;a id=&amp;#34;cite-1&amp;#34; href=&amp;#34;#cite_ref-1&amp;#34;&amp;gt;^&amp;lt;/a&amp;gt;** &amp;lt;cite&amp;gt;[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)&amp;lt;/cite&amp;gt;(2018-08-21 17:01 JST 閲覧)
++
++## 関連項目
++
++- [`cin`](cin.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wcout -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/iostream/wcout.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/iostream/wcout.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iostream/wcout.md b/reference/iostream/wcout.md
+new file mode 100644
+index 000000000..b3b082964
+--- /dev/null
++++ b/reference/iostream/wcout.md
+@@ -0,0 +1,118 @@
++# wcout
++* iostream[meta header]
++* std[meta namespace]
++* variable[meta id-type]
++
++```cpp
++namespace std {
++  extern wostream wcout;
++}
++```
++* ostream[link ../ostream/basic_ostream.md]
++* wostream[link ../ostream/basic_ostream.md]
++
++## 概要
++`wcout`は、標準出力に対するワイド文字用の出力ストリームオブジェクトである。
++
++すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`&amp;lt;cstdio&amp;gt;`の`stdout`オブジェクトに結びつけられているストリームバッファに出力する。
++
++`wcout`は`wide character output`を意味する。&amp;lt;sup&amp;gt;&amp;lt;a id=&amp;#34;cite_ref-1&amp;#34; href=&amp;#34;#cite-1&amp;#34;&amp;gt;[1]&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt;
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++
++int main()
++{
++  std::wcout &amp;lt;&amp;lt; L&amp;#34;Hello world&amp;#34; &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::wcout[color ff0000]
++
++### 出力
++```
++Hello world
++```
++
++## バージョン
++### 言語
++- C++98
++
++### 備考
++
++`wcout`は規格上実装しなければならないが、実装されていなかったり、期待どおりに動作しない事がある。
++
++#### localeの設定
++望む出力を得るためにlocaleを再設定しなければならない場合がある。
++
++例えばVisual Studioでは
++
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++
++int main()
++{
++  std::wcout.imbue(std::locale(&amp;#34;&amp;#34;));
++  //std::wcout.imbue(std::locale(&amp;#34;ja&amp;#34;));
++  //std::wcout.imbue(std::locale(&amp;#34;japanese&amp;#34;));
++  std::wcout &amp;lt;&amp;lt; L&amp;#34;ありきたりな世界&amp;#34; &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::wcout[color ff0000]
++* imbue[link /reference/ios/basic_ios/imbue.md]
++
++のようにして設定しないと何も表示されない。
++
++`std::locale(&amp;#34;&amp;#34;)`とすると本来はOSに設定されたロケールが設定されるはずが、MinGW環境でコンパイルし実行すると、以下のようなエラーが出力されてしまう。
++
++```
++terminate called after throwing an instance of &amp;#39;std::runtime_error&amp;#39;
++  what():  locale::facet::_S_create_c_locale name not valid
++```
++
++一方、以下のようなコードなら求める結果が得られる処理系もある。
++
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++
++int main()
++{
++  std::ios_base::sync_with_stdio(false);
++  std::locale default_loc(&amp;#34;&amp;#34;);
++  std::locale::global(default_loc);
++  std::locale ctype_default(std::locale::classic(), default_loc, std::locale::ctype); //※
++  std::wcout.imbue(ctype_default);
++  std::wcout &amp;lt;&amp;lt; L&amp;#34;ありきたりな世界&amp;#34; &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::wcout[color ff0000]
++* imbue[link /reference/ios/basic_ios/imbue.md]
++
++このように求める結果を得るためのlocaleの設定は処理系によって大きく異なる。
++
++#### 端末のロケールやフォントなど
++
++`wcout`を使ったとしても、結局`stdout`に出力するので、その標準出力を受け取って表示する端末のロケールやフォントなどの設定も考える必要がある。
++
++##### Windows
++Windowsでは`wchar_t`型といえばUTF-16でエンコードされた文字を指す。もし標準出力を受け取って表示するコンソールのロケールがUTF-8(65001)であるならばUTF-16からUTF-8への変換は一対一対応するため変換段階において問題は起きない。
++
++しかしながらデフォルトのロケールがUTF-8(65001)ではない事が多い(日本語利用者なら932になっている事が多い)ため、そのロケールで対応していないUnicodeコードポイントは当然変換できないので文字化けする。`chcp 65001`などでUTF-8にすることができる。
++
++こうしてUTF-8としてコンソールが文字列を受け取ったとしてもそれを正しく表示できるとは限らない。まずフォントが表示したい文字をすべて含んでいなければならない。またそうしたフォントを使えるようになっていなければならない。Windows10 1709より前では、ロケールをUTF-8にしたときのフォントの指定に制約があり、実質日本語を表示することは不可能だった。次に、🍣🍺のような色のついた絵文字を表示するためには、フォントの対応に加えて、それをDirectWriteなどを用いて描画されることが前提となる。例えばコマンドプロンプトはGDIで描画するため原理上不可能である。Microsoftが開発している[Windows Terminal](https://github.com/microsoft/terminal)ではこうした描画側の問題を克服しようとしている。
++
++## 出典
++
++1. **&amp;lt;a id=&amp;#34;cite-1&amp;#34; href=&amp;#34;#cite_ref-1&amp;#34;&amp;gt;^&amp;lt;/a&amp;gt;** &amp;lt;cite&amp;gt;[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)&amp;lt;/cite&amp;gt;(2018-08-21 17:01 JST 閲覧)
++
++## 関連項目
++
++- [`cout`](cout.md)
++
++## 参照
++
++- [使用できるロケール文字列](../../article/platform/locales.md)
++- [標準出力に書き込む | 株式会社きじねこ](https://web.archive.org/web/20191011112040/http://www.kijineko.co.jp/tech/cppsamples/stdout.html)
++- [c++で日本語の処理（ロケール周り） 7/8追記 - nullnull7の日記](http://nullnull.hatenablog.com/entry/20120629/1340935277)
++- [std::locale constructor modifies global locale via &amp;#34;setlocale()&amp;#34; | Microsoft Connect](http://web.archive.org/web/20100328154628/http://connect.microsoft.com:80/VisualStudio/feedback/details/492128/std-locale-constructor-modifies-global-locale-via-setlocale)
++- [ASCII.jp：Windows 10に“まとも”に使えるコンソール「WindowsTerminal」が登場する (2/2)](https://ascii.jp/elem/000/001/868/1868623/2/)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic_istream -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/istream/basic_istream.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/istream/basic_istream.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/istream/basic_istream.md b/reference/istream/basic_istream.md
+index 282334181..094c4a3f9 100644
+--- a/reference/istream/basic_istream.md
++++ b/reference/istream/basic_istream.md
+@@ -145,6 +145,6 @@ syncは非書式化入力関数である。
+     - [`basic_ios`](../ios/basic_ios.md)
+ - `basic_istream&amp;lt;&amp;gt;`型のオブジェクト
+     - [`cin`](../iostream/cin.md)
+-    - [`wcin`](../iostream/wcin.md.nolink)
++    - [`wcin`](../iostream/wcin.md)
+ - [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
+     - C++23からローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic_ostream -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ostream/basic_ostream.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ostream/basic_ostream.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ostream/basic_ostream.md b/reference/ostream/basic_ostream.md
+index 7aa40f28c..70a910c56 100644
+--- a/reference/ostream/basic_ostream.md
++++ b/reference/ostream/basic_ostream.md
+@@ -106,7 +106,7 @@ namespace std {
+     - [`basic_ios`](../ios/basic_ios.md)
+ - `basic_ostream&amp;lt;&amp;gt;`型のオブジェクト
+     - [`cout`](../iostream/cout.md)
+-    - [`wcout`](../iostream/wcout.md.nolink)
++    - [`wcout`](../iostream/wcout.md)
+     - [`clog`](../iostream/clog.md)
+     - [`wclog`](../iostream/wclog.md.nolink)
+     - [`cerr`](../iostream/cerr.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;&lt; (非メンバ関数) -- new: wcin.md, wcout.md (#1608)</title>
+      <link href="https://cpprefjp.github.io/reference/ostream/basic_ostream/op_ostream_free.html"/>
+      <id>ca4c2713c1d029e15b289154d209f065710b72c8:reference/ostream/basic_ostream/op_ostream_free.md</id>
+      <updated>2026-04-25T09:09:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ostream/basic_ostream/op_ostream_free.md b/reference/ostream/basic_ostream/op_ostream_free.md
+index f655a5dad..fdca09f75 100644
+--- a/reference/ostream/basic_ostream/op_ostream_free.md
++++ b/reference/ostream/basic_ostream/op_ostream_free.md
+@@ -135,7 +135,7 @@ int main()
+   std::wcout &amp;lt;&amp;lt; std::setw(10) &amp;lt;&amp;lt; &amp;#34;cpprefjp&amp;#34; &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+-* std::wcout[link ../../iostream/wcout.md.nolink]
++* std::wcout[link ../../iostream/wcout.md]
+ * std::left[link ../../ios/left.md]
+ * std::setfill[link ../../iomanip/setfill.md]
+ * std::setw[link ../../iomanip/setw.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>start-join-sender -- execution/(simple_)counting_scope: LWG4504適用</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/counting_scope/start-join-sender.html"/>
+      <id>d4a7aac362839892445673f02afadbb97c6430f4:reference/execution/execution/counting_scope/start-join-sender.md</id>
+      <updated>2026-04-23T21:27:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/counting_scope/start-join-sender.md b/reference/execution/execution/counting_scope/start-join-sender.md
+index 318420e84..c9e7d5a66 100644
+--- a/reference/execution/execution/counting_scope/start-join-sender.md
++++ b/reference/execution/execution/counting_scope/start-join-sender.md
+@@ -17,9 +17,8 @@ bool start-join-sender(State&amp;amp; st) noexcept; // exposition only
+ 
+ 
+ ## 効果
+-説明用のメンバ変数`state`に応じて、
++説明用のメンバ変数`count`が`0`のとき、`state`を`joined`に変更して`true`を返す。そうでなければ、`state`に応じて、
+ 
+-- `unused`, `unused-and-closed`, `joined`のとき、`state`を`joined`に変更して`true`を返す。
+ - `open`, `open-and-joining`のとき、`state`を`open-and-joining`に変更し、`*this`で`st`を登録して`false`を返す。
+ - `closed`, `closed-and-joining`のとき、`state`を`closed-and-joining`に変更し、`*this`で`st`を登録して`false`を返す。
+ 
+@@ -34,3 +33,4 @@ bool start-join-sender(State&amp;amp; st) noexcept; // exposition only
+ 
+ ## 参照
+ - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
++- [LWG4504. Wording problem in `{simple_}counting_scope`](https://cplusplus.github.io/LWG/issue4504)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>start-join-sender -- execution/(simple_)counting_scope: LWG4504適用</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/simple_counting_scope/start-join-sender.html"/>
+      <id>d4a7aac362839892445673f02afadbb97c6430f4:reference/execution/execution/simple_counting_scope/start-join-sender.md</id>
+      <updated>2026-04-23T21:27:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/simple_counting_scope/start-join-sender.md b/reference/execution/execution/simple_counting_scope/start-join-sender.md
+index fc83c74a0..0a01cc6a2 100644
+--- a/reference/execution/execution/simple_counting_scope/start-join-sender.md
++++ b/reference/execution/execution/simple_counting_scope/start-join-sender.md
+@@ -17,9 +17,8 @@ bool start-join-sender(State&amp;amp; st) noexcept; // exposition only
+ 
+ 
+ ## 効果
+-説明用のメンバ変数`state`に応じて、
++説明用のメンバ変数`count`が`0`のとき、`state`を`joined`に変更して`true`を返す。そうでなければ、`state`に応じて、
+ 
+-- `unused`, `unused-and-closed`, `joined`のとき、`state`を`joined`に変更して`true`を返す。
+ - `open`, `open-and-joining`のとき、`state`を`open-and-joining`に変更し、`*this`で`st`を登録して`false`を返す。
+ - `closed`, `closed-and-joining`のとき、`state`を`closed-and-joining`に変更し、`*this`で`st`を登録して`false`を返す。
+ 
+@@ -35,3 +34,4 @@ bool start-join-sender(State&amp;amp; st) noexcept; // exposition only
+ 
+ ## 参照
+ - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
++- [LWG4504. Wording problem in `{simple_}counting_scope`](https://cplusplus.github.io/LWG/issue4504)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
