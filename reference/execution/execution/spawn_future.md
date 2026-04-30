@@ -51,7 +51,8 @@ Senderアルゴリズム動作説明用のクラステンプレート[`impls-for
 namespace std::execution {
   template<>
   struct impls-for<spawn_future_t> : default-impls {
-    static constexpr auto start = see below;  // exposition only
+    static constexpr auto start = see below;      // exposition only
+    static constexpr auto get-state = see below;  // exposition only
   };
 }
 ```
@@ -61,24 +62,45 @@ namespace std::execution {
 `impls-for<spawn_future_t>::start`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
 ```cpp
-[](auto& state, auto& rcvr) noexcept -> void {
-  state->consume(rcvr);
+[](auto& state, auto&) noexcept -> void {
+  state.run();
 }
 ```
 
+`impls-for<spawn_future_t>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+
+```cpp
+[]<class Sndr, class Rcvr>(Sndr sndr, Rcvr& rcvr) noexcept {
+  auto& [_, data] = sndr;
+  using state_ptr = remove_cvref_t<decltype(data)>;
+  return future-operation<state_ptr, Rcvr>(std::move(data), std::move(rcvr));
+}
+```
+* std::move[link /reference/utility/move.md]
+
 
 ## 説明専用エンティティ
+### クラス`try-cancelable`
+```cpp
+namespace std::execution {
+  struct try-cancelable {                   // exposition only
+    virtual void try-cancel() noexcept = 0; // exposition only
+  };
+}
+```
+
 ### クラステンプレート`spawn-future-state-base`
 ```cpp
 namespace std::execution {
   template<class Completions>
-  struct spawn-future-state-base;                                   // exposition only
+  struct spawn-future-state-base;                                 // exposition only
 
   template<class... Sigs>
-  struct spawn-future-state-base<completion_signatures<Sigs...>> {  // exposition only
-    using variant-t = see below;                                    // exposition only
-    variant-t result;                                               // exposition only
-    virtual void complete() noexcept = 0;                           // exposition only
+  struct spawn-future-state-base<completion_signatures<Sigs...>>  // exposition only
+    : try-cancelable {
+    using variant-t = see below;                                  // exposition only
+    variant-t result;                                             // exposition only
+    virtual void complete() noexcept = 0;                         // exposition only
   };
 }
 ```
@@ -184,6 +206,11 @@ namespace std::execution {
     void complete() noexcept override;                                      // exposition only
     void consume(receiver auto& rcvr) noexcept;                             // exposition only
     void abandon() noexcept;                                                // exposition only
+    void try-cancel() noexcept override {                                   // exposition only
+      ssource.request_stop();
+      try-set-stopped();
+    }
+    void try-set-stopped() noexcept;                                        // exposition only
 
   private:
     using assoc-t =                                                         // exposition only
@@ -214,7 +241,7 @@ namespace std::execution {
 * set_stopped[link set_stopped.md]
 * std::move[link /reference/utility/move.md]
 
-データ競合の存在を判定する目的において、`complete`, `consume`, `abandon`はアトミック操作として振る舞う。
+データ競合の存在を判定する目的において、`complete`, `consume`, `try-set-stopped`, `abandon`はアトミック操作として振る舞う。
 `spawn-future-state`の特殊化である型の単一オブジェクトに対するこれらの操作は、単一の全順序で発生するように見える。
 
 ```cpp
@@ -222,8 +249,8 @@ void complete() noexcept;
 ```
 
 - 効果 :
-    - `*this`に対するこの`complete`の呼び出しが`consume`もしくは`abandon`の呼び出しよりも前に発生するならば、効果を持たない。
-    - そうではなく、`*this`に対する`consume`の呼び出しがこの`complete`の呼び出しよりも前に発生するならば、[Receiver](receiver.md)`rcvr`が登録され、そのReceiverは`consume(rcvr)`によって完了する。
+    - `*this`に対するこの`complete`の呼び出しが`consume`, `try-set-stopped`, `abandon`いずれかの呼び出しよりも前に発生するならば、効果を持たない。
+    - そうではなく、`*this`に対する`consume`の呼び出しがこの`complete`の呼び出しよりも前に発生し、かつ`*this`に対するこの`complete`の呼び出しよりも前に発生する`try-set-stopped`の呼び出しが存在しなければ、`consume(rcvr)`によって登録解除と完了する登録された[Receiver](receiver.md)`rcvr`が存在する。
     - そうではないとき、`destroy`が呼び出される。
 
 ```cpp
@@ -232,7 +259,8 @@ void consume(receiver auto& rcvr) noexcept;
 * receiver[link receiver.md]
 
 - 効果 :
-    - `*this`に対するこの`consume`の呼び出しが`complete`の呼び出しよりも前に発生するならば、`*this`に対してその後`complete`が呼び出されるとき`rcvr`が完了するよう登録される。
+    - `*this`に対するこの`consume`の呼び出しが`complete`の呼び出しよりも前に発生し、かつ`*this`に対するこの`consume`の呼び出しよりも前に発生する`try-set-stopped`の呼び出しが存在しなければ、`*this`に対してその後`complete`が呼び出されるとき`rcvr`が完了するよう登録される。
+    - そうではなく、`*this`に対するこの`consume`の呼び出しが`try-set-stopped`の呼び出しよりも後に発生し、かつ`*this`に対するこの`consume`の呼び出しよりも前に発生する`complete`の呼び出しが存在しなければ、`rcvr`は[`set_stopped`](set_stopped.md)`(std::move(rcvr))`により完了する。
     - そうではないとき、下記のように`rcvr`が完了する :
 
         ```cpp
@@ -244,11 +272,20 @@ void consume(receiver auto& rcvr) noexcept;
               }, std::move(tuple));
             }
           });
+        detroy();
         ```
         * visit[link /reference/variant/visit.md]
         * monostate[link /reference/variant/monostate.md]
         * apply[link /reference/tuple/apply.md]
         * std::move[link /reference/utility/move.md]
+
+```cpp
+void try-set-stopped() noexcept;
+```
+
+- 効果 :
+    - `*this`に対する`consume`の呼び出しがこの`try-set-stopped`の呼び出しよりも前に発生し、かつ`*this`に対するこの`try-set-stopped`の呼び出しよりも前に発生する`complete`の呼び出しが存在しなければ、[`set_stopped`](set_stopped.md)`(std::move(rcvr)), destroy()`によって登録解除と完了する登録された[Receiver](receiver.md)`rcvr`が存在する。
+    - そうではないとき、効果を持たない。
 
 ```cpp
 void abandon() noexcept;
@@ -282,6 +319,98 @@ void destroy() noexcept;
     * destroy[link /reference/memory/allocator_traits/destroy.md]
     * deallocate[link /reference/memory/allocator_traits/deallocate.md]
     * std::move[link /reference/utility/move.md]
+
+### クラステンプレート`future-operation`
+
+```cpp
+namespace std::execution {
+  template<class StatePtr, class Rcvr>
+  struct future-operation {                              // exposition only
+    struct callback {                                    // exposition only
+      try-cancelable* state;                             // exposition only
+      
+      void operator()() noexcept {
+        state->try-cancel();
+      };
+    };
+
+    using stop-token-t =                                 // exposition only
+      stop_token_of_t<env_of_t<Rcvr>>;
+
+    using stop-callback-t =                              // exposition only
+      stop_callback_for_t<stop-token-t, callback>;
+
+    struct receiver {                                    // exposition only
+      using receiver_concept = receiver_t;
+      future-operation* op;                              // exposition only
+
+      template<class... T>
+      void set_value(T&&... ts) && noexcept {
+        op->set-complete<set_value_t>(std::forward<T>(ts)...);
+      }
+
+      template<class E>
+      void set_error(E&& e) && noexcept {
+        op->set-complete<set_error_t>(std::forward<E>(e));
+      }
+
+      void set_stopped() && noexcept {
+        op->set-complete<set_stopped_t>();
+      }
+
+      env_of_t<Rcvr> get_env() const noexcept {
+        return execution::get_env(op->rcvr);
+      }
+    };
+
+    Rcvr rcvr;                                       // exposition only
+    StatePtr state;                                  // exposition only
+    receiver inner;                                  // exposition only
+    optional<stop-callback-t> stopCallback;          // exposition only
+
+
+    future-operation(StatePtr state, Rcvr rcvr) noexcept // exposition only
+      : rcvr(std::move(rcvr)), state(std::move(state)), inner(this)
+    {}
+
+    future-operation(future-operation&&) = delete;
+
+    void run() & noexcept {                              // exposition only
+      constexpr bool nothrow =
+        is_nothrow_constructible_v<stop-callback-t, stop-token-t, callback>;
+      try {
+	      stopCallback.emplace(get_stop_token(rcvr), callback(state.get()));
+      }
+      catch (...) {
+        if constexpr (!nothrow) {
+          set_error(std::move(rcvr), current_exception());
+          return;
+        }
+      }
+
+      state.release()->consume(inner);
+    }
+
+    template<class CPO, class... T>
+    void set-complete(T&&... ts) noexcept {              // exposition only
+      stopCallback.reset();
+      CPO{}(std::move(rcvr), std::forward<T>(ts)...);
+    }
+  };
+}
+```
+* stop_token_of_t[link ../stop_token_of_t.md]
+* env_of_t[link env_of_t.md]
+* receiver_t[link receiver.md]
+* set_value_t[link set_value.md]
+* set_error_t[link set_error.md]
+* set_stopped_t[link set_stopped.md]
+* execution::get_env[link get_env.md]
+* get_stop_token[link ../get_stop_token.md]
+* stop_callback_for_t[link /reference/stop_token/stop_callback_for_t.md]
+* is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
+* current_exception()[link /reference/exception/current_exception.md]
+* std::move[link /reference/utility/move.md]
 
 
 ## 例
@@ -359,3 +488,4 @@ value=42
 - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
 - [P3914R0 Assorted NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html), US 228-348
 - [P3923R0 Additional NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3923r0.html), US 227-346, 229-347
+- [LWG4540. `future-sender`s returned from `spawn_future` do not forward stop requests to spawned work](https://cplusplus.github.io/LWG/issue4540)
