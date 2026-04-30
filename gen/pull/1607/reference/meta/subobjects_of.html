@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4da3de41dd8a05326faf5241928c951f612e3888&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct Base { int b; };\nstruct Derived : Base { int d; };\n\nint main() {\n  constexpr auto subs = std::define_static_array(\n      std::meta::subobjects_of(\n          ^^Derived, std::meta::access_context::unchecked()));\n\n  // \u57fa\u5e95\u30af\u30e9\u30b9\u304c\u5148\u3001\u30e1\u30f3\u30d0\u5909\u6570\u304c\u5f8c\n  template for (constexpr auto s : subs) {\n    std::println(\&#34;{}\&#34;, std::meta::display_string_of(s));\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;subobjects_of&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;64770557797a413b3f43082d1c876ab10545dc01&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nstruct Base { int b; };\nstruct Derived : Base { int d; };\n\nint main() {\n  static constexpr auto subs = std::define_static_array(\n      std::meta::subobjects_of(\n          ^^Derived, std::meta::access_context::unchecked()));\n\n  // \u57fa\u5e95\u30af\u30e9\u30b9\u304c\u5148\u3001\u30e1\u30f3\u30d0\u5909\u6570\u304c\u5f8c\n  template for (constexpr auto s : subs) {\n    std::println(\&#34;{}\&#34;, std::meta::display_string_of(s));\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;subobjects_of&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-24T02:58:38">
-        2026年04月24日 02時58分38秒
+      <span itemprop="datePublished" content="2026-04-30T06:36:25">
+        2026年04月30日 06時36分25秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,14 +225,14 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code>r</code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>のクラスを表さない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>例</h2>
-<p><div class="yata" id="4da3de41dd8a05326faf5241928c951f612e3888"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="64770557797a413b3f43082d1c876ab10545dc01"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">subs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="define_static_array.html">std::define_static_array</a></span><span class="p">(</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">subs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="define_static_array.html">std::define_static_array</a></span><span class="p">(</span>
 <span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">subobjects_of</span><span class="p">(</span>
 <span class="w">          </span><span class="o">^^</span><span class="n">Derived</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">()));</span>
 
