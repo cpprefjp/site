@@ -17,6 +17,8 @@ consteval info scope() const;
 ## 戻り値
 このアクセスコンテキストが関連付けられているスコープのリフレクションを返す。
 
+[`access_context::current()`](current.md)で取得したコンテキストの場合、`current()`を呼び出した時点で囲んでいる関数や名前空間などのスコープが返される。
+
 
 ## 例
 ```cpp example
@@ -24,19 +26,30 @@ consteval info scope() const;
 #include <print>
 
 class C {
-  int secret;
 public:
-  int visible;
-
   static void inspect() {
+    // current()はinspect()関数内で呼ばれたので、スコープはinspect()関数
     constexpr auto ctx = std::meta::access_context::current();
-    // C内部からcurrent()を呼んだので、スコープはC
-    std::println("scope: {}", std::meta::display_string_of(ctx.scope()));
+    std::println("inspect()のスコープ: {}",
+                 std::meta::display_string_of(ctx.scope()));
   }
 };
 
+void free_function() {
+  // current()はfree_function()内で呼ばれたので、スコープはfree_function()
+  constexpr auto ctx = std::meta::access_context::current();
+  std::println("free_function()のスコープ: {}",
+               std::meta::display_string_of(ctx.scope()));
+}
+
 int main() {
+  // current()はmain()内で呼ばれたので、スコープはmain()
+  constexpr auto ctx = std::meta::access_context::current();
+  std::println("main()のスコープ: {}",
+               std::meta::display_string_of(ctx.scope()));
+
   C::inspect();
+  free_function();
 }
 ```
 * scope()[color ff0000]
@@ -45,7 +58,9 @@ int main() {
 
 #### 出力例
 ```
-scope: C
+main()のスコープ: int main()
+inspect()のスコープ: static void C::inspect()
+free_function()のスコープ: void free_function()
 ```
 
 ## バージョン
@@ -54,7 +69,7 @@ scope: C
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
