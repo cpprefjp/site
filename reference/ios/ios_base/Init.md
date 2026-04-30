@@ -40,12 +40,12 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 - [`cin`](../../iostream/cin.md)
 - [`cout`](../../iostream/cout.md)
 - [`cerr`](../../iostream/cerr.md)
 - [`clog`](../../iostream/clog.md)
-- [`wcin`](../../iostream/wcin.md.nolink)
-- [`wcout`](../../iostream/wcout.md.nolink)
+- [`wcin`](../../iostream/wcin.md)
+- [`wcout`](../../iostream/wcout.md)
 - [`wcerr`](../../iostream/wcerr.md.nolink)
 - [`wclog`](../../iostream/wclog.md.nolink)

@@ -113,6 +113,10 @@ ForwardIterator partition(ForwardIterator first, ForwardIterator last, Predicate
 * std::iter_swap[link iter_swap.md]
 
 
+## 関連項目
+- [`ranges::partition`](/reference/algorithm/ranges_partition.md)
+
+
 ## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
 - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)

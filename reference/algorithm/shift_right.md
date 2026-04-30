@@ -97,6 +97,7 @@ int main()
 ## 関連項目
 - [`shift_left`](shift_left.md)
 - [`rotate`](rotate.md)
+- [`ranges::shift_right`](/reference/algorithm/ranges_shift_right.md)
 
 ## 参照
 - [P1243R4 Rangify New Algorithms](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1243r4.pdf)

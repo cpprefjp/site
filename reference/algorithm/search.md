@@ -219,6 +219,9 @@ ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
 ```
 
 
+## 関連項目
+- [`ranges::search`](/reference/algorithm/ranges_search.md)
+
 ## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
 - [N3905 Extending `std::search` to use Additional Searching Algorithms (Version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3905.html)

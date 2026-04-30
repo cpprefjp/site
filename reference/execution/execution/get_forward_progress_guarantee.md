@@ -21,8 +21,7 @@ namespace std::execution {
 
 そうでなければ、呼び出し式`get_forward_progress_guarantee(sch)`は下記と等価であり、[`forward_progress_guarantee`](forward_progress_guarantee.md)列挙型の値となる。
 
-- 引数`sch`がconst修飾された`csch`を用いて、適格であるならば式`cenv.query(get_forward_progress_guarantee)`
-- そうでなければ、[`forward_progress_guarantee::weakly_parallel`](forward_progress_guarantee.md)
+- 引数`sch`がconst修飾された`csch`を用いて、式`cenv.query(get_forward_progress_guarantee)`
 
 
 ## 例外
@@ -30,7 +29,7 @@ namespace std::execution {
 
 
 ## カスタマイゼーションポイント
-const修飾[Scheduler](scheduler.md)`sch`に対して式`csch.query(get_forward_progress_guarantee)`が呼び出される。
+const修飾[Scheduler](scheduler.md)`csch`に対して式`csch.query(get_forward_progress_guarantee)`が呼び出される。
 このとき、`noexcept(csch.query(get_forward_progress_guarantee)) == true`であること。
 
 
@@ -52,3 +51,4 @@ const修飾[Scheduler](scheduler.md)`sch`に対して式`csch.query(get_forward_
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG4354. Reconsider `weakly_parallel` as the default `forward_progress_guarantee`](https://cplusplus.github.io/LWG/issue4354)

@@ -219,6 +219,10 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
 - [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
+## 関連項目
+- [`ranges::equal`](/reference/algorithm/ranges_equal.md)
+
+
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から追加された、`last2`を受け取るオーバーロードの提案文書

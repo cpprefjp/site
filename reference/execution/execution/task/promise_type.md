@@ -24,12 +24,6 @@ namespace std::execution {
 `task::promise_type`クラスの動作説明のため、以下の説明専用メンバを用いる。
 
 - `alloc` : [`allocator_type`](../task.md)型のアロケータオブジェクト
-- `source` : [`stop_source_type`](../task.md)型の停止ソースオブジェクト
-- `token` : [`stop_token_type`](../task.md)型の停止トークンオブジェクト
-- `result` : [`optional`](/reference/optional/optional.md)`<T>`型の結果値（`is_void_v<T> == false`の時のみ存在する）
-- `errors` : 下記`error-variant`型のエラー値
-
-説明専用の`error-variant`型は、`E...`を[`error_types`](../task.md)で表現される[`execution::completion_signatures`](../completion_signatures.md)特殊化のテンプレート引数型としたとき、[`variant`](/reference/variant/variant.md)`<`[`monostate`](/reference/variant/monostate.md)`,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<E>...>`において重複削除した型となる。
 
 
 ## メンバ関数
@@ -77,3 +71,5 @@ namespace std::execution {
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4415. `task::promise_type::uncaught_exception` seems to be misnamed](https://cplusplus.github.io/LWG/issue4415)
+- [LWG4339. `task`'s coroutine frame may be released late](https://cplusplus.github.io/LWG/issue4339)
+- [LWG4347. `task`'s stop source is always created](https://cplusplus.github.io/LWG/issue4347)

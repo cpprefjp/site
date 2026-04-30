@@ -174,6 +174,7 @@ OutputIterator merge(InputIterator1 first1, InputIterator1 last1,
 ## 関連項目
 - [`std::set::merge()`](/reference/set/set/merge.md)
 - [`std::set_union()`](set_union.md)
+- [`ranges::merge`](/reference/algorithm/ranges_merge.md)
 
 
 ## 参照

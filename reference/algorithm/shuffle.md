@@ -125,6 +125,9 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
 * iter_swap[link iter_swap.md]
 
 
+## 関連項目
+- [`ranges::shuffle`](/reference/algorithm/ranges_shuffle.md)
+
 ## 参照
 - [P0346R1 A `<random>` Nomenclature Tweak](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0346r1.pdf)
     - URNGをURBGに変更

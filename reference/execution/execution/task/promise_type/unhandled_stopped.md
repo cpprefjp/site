@@ -15,7 +15,7 @@ coroutine_handle<> unhandled_stopped() noexcept;
 
 
 ## 効果
-[`set_stopped`](../../set_stopped.md)`(`[`std::move`](/reference/utility/move.md)`(RCVR(*this)))`を呼び出すことで、`STATE(*this)`に関連付けられた非同期操作を完了する。
+[`STATE(*this)`](../state.md)に関連付けられた非同期操作を完了する。`st`を`STATE(*this)`への参照とする。非同期完了は最初に`st.handle.`[`destroy()`](/reference/coroutine/coroutine_handle/destroy.md)によってコルーチンフレームを破棄し、続いて[`set_stopped`](../../set_stopped.md)`(`[`std::move`](/reference/utility/move.md)`(st.rcvr))`を呼び出す。
 
 
 ## 戻り値
@@ -40,3 +40,4 @@ coroutine_handle<> unhandled_stopped() noexcept;
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4340. `task::promise_type::unhandled_stopped()` should be `noexcept`](https://cplusplus.github.io/LWG/issue4340)
+- [LWG4339. `task`'s coroutine frame may be released late](https://cplusplus.github.io/LWG/issue4339)

@@ -110,6 +110,7 @@ OutputIterator move(InputIterator first, InputIterator last, OutputIterator resu
 
 ## 関連項目
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
+- [`ranges::move`](/reference/algorithm/ranges_move.md)
 
 
 ## 参照

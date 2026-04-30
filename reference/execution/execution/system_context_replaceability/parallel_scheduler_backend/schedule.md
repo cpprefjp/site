@@ -17,7 +17,7 @@ virtual void schedule(receiver_proxy& r, span<byte> s) noexcept = 0;
 
 
 ## 事前条件
-`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。
+`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生すること。
 
 
 ## 効果

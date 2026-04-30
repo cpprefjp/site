@@ -23,6 +23,8 @@ namespace std::execution {
 - 引数`rcvr`が左辺値またはconst右辺値の場合、式`set_error(rcvr, err)`は不適格となる。
 - そうでなければ、`rcvr.set_error(err)`と等価である。
 
+上記の式が適格なとき、その型は`void`であること。
+
 
 ## 例外
 投げない
@@ -83,3 +85,4 @@ int main()
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG4143. `execution::set_value/set_error/set_stopped/start` should always return `void`](https://cplusplus.github.io/LWG/issue4143)

@@ -17,19 +17,16 @@ namespace std::execution {
     static constexpr const auto& complete = impls-for<tag-t>::complete;   // exposition only
 
     template<class... Args>
-      requires callable<decltype(complete), Index, state-t&, Rcvr&, set_value_t, Args...>
     void set_value(Args&&... args) && noexcept {
       complete(Index(), op->state, op->rcvr, set_value_t(), std::forward<Args>(args)...);
     }
 
     template<class Error>
-      requires callable<decltype(complete), Index, state-t&, Rcvr&, set_error_t, Error>
     void set_error(Error&& err) && noexcept {
       complete(Index(), op->state, op->rcvr, set_error_t(), std::forward<Error>(err));
     }
 
-    void set_stopped() && noexcept
-      requires callable<decltype(complete), Index, state-t&, Rcvr&, set_stopped_t> {
+    void set_stopped() && noexcept {
       complete(Index(), op->state, op->rcvr, set_stopped_t());
     }
 
@@ -45,7 +42,6 @@ namespace std::execution {
 * tag_of_t[link tag_of_t.md]
 * state-type[link basic-operation.md]
 * impls-for[link impls-for.md]
-* callable[link /reference/functional/callable.md]
 * set_value_t[link set_value.md]
 * set_error_t[link set_error.md]
 * set_stopped_t[link set_stopped.md]
@@ -93,3 +89,4 @@ using env-type = call-result-t<
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG4361. `awaitable-receiver::set_value` should use Mandates instead of constraints](https://cplusplus.github.io/LWG/issue4361)

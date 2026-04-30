@@ -234,6 +234,7 @@ int main() {
 
 ## 関連項目
 - [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
+- [`ranges::sort`](/reference/algorithm/ranges_sort.md)
 
 ## 参照
 - [LWG Issue 713. `sort()` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#713)

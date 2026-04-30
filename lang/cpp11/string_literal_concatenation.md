@@ -29,7 +29,7 @@ int main()
   std::wcout << s2 << std::endl;
 }
 ```
-* std::wcout[link /reference/iostream/cout.md]
+* std::wcout[link /reference/iostream/wcout.md]
 
 ### 出力
 ```

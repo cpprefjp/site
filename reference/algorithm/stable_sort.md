@@ -92,6 +92,9 @@ int main()
 ```
 
 
+## 関連項目
+- [`ranges::stable_sort`](/reference/algorithm/ranges_stable_sort.md)
+
 ## 参照
 - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
     - C++26から`constexpr`に対応した

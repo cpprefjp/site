@@ -108,6 +108,10 @@ generate_n(OutputIterator first, Size n, Generator gen) {
     - C++11への対応（戻り値の変更）は2012から。
 
 
+## 関連項目
+- [`ranges::generate_n`](/reference/algorithm/ranges_generate_n.md)
+
+
 ## 参照
 - [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
 	戻り値が追加されるきっかけとなったレポート

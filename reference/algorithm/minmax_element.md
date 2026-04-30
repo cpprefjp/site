@@ -162,6 +162,10 @@ minmax_element(ForwardIterator first, ForwardIterator last)
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
+## 関連項目
+- [`ranges::minmax_element`](/reference/algorithm/ranges_minmax_element.md)
+
+
 ## 参照
 - [N1840 C++0x Proposal: Function template `std::minmax` and / or algorithm `std::minmax_element`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1840.pdf)
 - [N1990 Proposed Text for `minmax` (N1840)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1990.htm)

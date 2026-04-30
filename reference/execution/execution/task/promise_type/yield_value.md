@@ -21,7 +21,7 @@ auto yield_value(with_error<Err> err);
 
 
 ## 戻り値
-呼び出し元コルーチンをサスペンドし、[`set_error`](../../set_error.md)`(`[`std::move`](/reference/utility/move.md)`(RCVR(*this)), Cerr(`[`std::move`](/reference/utility/move.md)`(err.error)))`を呼び出すことで`STATE(*this)`に関連付けられた非同期操作を完了させるメンバ関数をもつ、未規定な型のAwaitableオブジェクトを返す。
+呼び出し元コルーチンをサスペンドし、[`STATE(*this)`](../state.md)に関連付けられた非同期操作を完了させるメンバ関数をもつ、未規定な型のAwaitableオブジェクトを返す。`st`を`STATE(*this)`への参照とする。非同期完了は最初に`st.handle.`[`destroy()`](/reference/coroutine/coroutine_handle/destroy.md)によってコルーチンフレームを破棄し、続いて[`set_error`](../../set_error.md)`(`[`std::move`](/reference/utility/move.md)`(st.rcvr), Cerr(`[`std::move`](/reference/utility/move.md)`(err.error)))`を呼び出す。
 
 
 ## バージョン
@@ -41,3 +41,4 @@ auto yield_value(with_error<Err> err);
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+- [LWG4339. `task`'s coroutine frame may be released late](https://cplusplus.github.io/LWG/issue4339)

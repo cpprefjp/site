@@ -33,7 +33,7 @@ int main()
 }
 ```
 * narrow[color ff0000]
-* std::wcout[link ../../iostream/wcout.md.nolink]
+* std::wcout[link ../../iostream/wcout.md]
 
 ### 出力
 ```

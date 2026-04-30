@@ -145,6 +145,6 @@ syncは非書式化入力関数である。
     - [`basic_ios`](../ios/basic_ios.md)
 - `basic_istream<>`型のオブジェクト
     - [`cin`](../iostream/cin.md)
-    - [`wcin`](../iostream/wcin.md.nolink)
+    - [`wcin`](../iostream/wcin.md)
 - [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
     - C++23からローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された

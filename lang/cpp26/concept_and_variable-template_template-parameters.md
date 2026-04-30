@@ -86,7 +86,7 @@ C++23でこれらをテンプレート引数として渡すためには、`stati
 - コンセプトの簡略構文 (terse syntax) や包摂 (subsumption) の恩恵を受けられない
 - APIに不必要な複雑性を追加する
 
-この提案は、[P1985R3 Universal Template Parameters](https://open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r3.pdf)のサブセットとして、コンセプトと変数テンプレートに対するテンプレートテンプレートパラメータのサポートを先行して追加するものである。
+この提案は、[P1985R3 Universal Template Parameters](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1985r3.pdf)のサブセットとして、コンセプトと変数テンプレートに対するテンプレートテンプレートパラメータのサポートを先行して追加するものである。
 
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
