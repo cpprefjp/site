@@ -292,7 +292,7 @@ void abandon() noexcept;
 ```
 
 - 効果 :
-    - `*this`に対するこの`abandon`の呼び出しが`complete`の呼び出しより前に発生するならば、下記と等価。
+    - `*this`に対するこの`abandon`の呼び出しが`complete`の呼び出しよりも前に発生するならば、下記と等価。
 
         ```cpp
         ssource.request_stop();

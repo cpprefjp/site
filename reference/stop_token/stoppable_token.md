@@ -47,8 +47,8 @@ concept stoppable_token =
 説明用の変数`t`, `u`を、同一の停止状態を参照する別々な`Token`型オブジェクトとする。
 型`Token`が以下を満たす場合に限って、型`Token`は`stoppable_token`のモデルである。
 
-- `SP`を`t.stop_possible()`が`false`となる評価としたとき、`SP`より後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`false`であること。
-- `SR`を`t.stop_requested()`が`true`となる評価としたとき、`SR`より後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`true`であること。
+- `SP`を`t.stop_possible()`が`false`となる評価としたとき、`SP`よりも後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`false`であること。
+- `SR`を`t.stop_requested()`が`true`となる評価としたとき、`SR`よりも後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`true`であること。
 - `stoppable-callback-for<CallbackFn, Token, Initialize>`を満たす任意の型`CallbackFn`および型`Initialize`が、`stoppable-callback-for<CallbackFn, Token, Initializer>`のモデルであること。
 - `t`が停止状態を持たない(disengaged)とき、`t.stop_possible()`や`t.stop_requested()`の評価が`false`であること。
 - `t`と`u`が同一の停止状態を参照するか共に停止状態を持たないとき`t == u`が`true`であり、それ以外のときは`false`であること。
