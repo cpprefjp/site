@@ -27,8 +27,8 @@ namespace std::meta {
 ```cpp example
 #include <meta>
 
-union U {{ int i; double d; }};
-struct S {{ int x; }};
+union U { int i; double d; };
+struct S { int x; };
 
 int main() {
   static_assert(std::meta::is_union_type(^^U));
@@ -47,7 +47,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

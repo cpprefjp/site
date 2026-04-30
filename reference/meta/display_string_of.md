@@ -35,7 +35,7 @@ int main() {
 #### 出力例
 ```
 int
-vector
+template<class _Tp, class _Alloc> class std::vector
 ```
 
 
@@ -45,7 +45,7 @@ vector
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

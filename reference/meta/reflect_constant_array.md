@@ -29,6 +29,8 @@ namespace std::meta {
 #include <meta>
 #include <array>
 
+// 構造化束縛のパック展開はテンプレート文脈で使用する必要がある
+template <int>
 consteval int sum() {
   // 配列のリフレクションをスプライスし、構造化束縛でパック展開
   constexpr auto [...elems] =
@@ -37,7 +39,7 @@ consteval int sum() {
 }
 
 int main() {
-  static_assert(sum() == 6);
+  static_assert(sum<0>() == 6);
 }
 ```
 * std::meta::reflect_constant_array[color ff0000]
@@ -52,7 +54,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

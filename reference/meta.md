@@ -389,7 +389,7 @@
 | [`remove_all_extents`](meta/remove_all_extents.md) | 配列のすべての次元を除去 | C++26 |
 | [`common_type`](meta/common_type.md) | 共通型を取得 | C++26 |
 | [`common_reference`](meta/common_reference.md) | 共通参照型を取得 | C++26 |
-| [`type_underlying_type`](meta/type_underlying_type.md) | 基底型を取得 | C++26 |
+| [`underlying_type`](meta/underlying_type.md) | 基底型を取得 | C++26 |
 | [`invoke_result`](meta/invoke_result.md) | 呼び出し結果型を取得 | C++26 |
 | [`unwrap_reference`](meta/unwrap_reference.md) | `reference_wrapper`を展開 | C++26 |
 | [`unwrap_ref_decay`](meta/unwrap_ref_decay.md) | `decay`後に`reference_wrapper`を展開 | C++26 |
@@ -413,7 +413,7 @@
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

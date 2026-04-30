@@ -46,7 +46,8 @@ int main() {
   // using Err = Named<std::define_static_string("hello")>;  // エラー
 
   // reflect_constant_stringはサイズ付き配列のリフレクションを返すため推論できる
-  using Ok = Named<[:std::meta::reflect_constant_string("hello"):]>;
+  // (テンプレート引数で使うときはスプライスをカッコで囲む必要がある)
+  using Ok = Named<([:std::meta::reflect_constant_string("hello"):])>;
 }
 ```
 * std::meta::reflect_constant_string[color ff0000]
@@ -61,7 +62,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

@@ -27,7 +27,7 @@ namespace std::meta {
 ```cpp example
 #include <meta>
 
-struct S {{ int x; }};
+struct S { int x; };
 
 int main() {
   static_assert(std::meta::is_class_type(^^S));
@@ -46,7 +46,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

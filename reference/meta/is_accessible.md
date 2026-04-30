@@ -41,7 +41,7 @@ consteval bool check() {
       ^^C, std::meta::access_context::unchecked());
   auto ctx = std::meta::access_context::unprivileged();
   return !std::meta::is_accessible(members[0], ctx)  // secret: private
-      && std::meta::is_accessible(members[1], ctx);   // visible: public
+      && std::meta::is_accessible(members[1], ctx);  // visible: public
 }
 
 int main() {
@@ -64,7 +64,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

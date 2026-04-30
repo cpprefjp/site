@@ -47,9 +47,12 @@ int main() {
 
 #### 出力例
 ```
-S::operator=(const S&): is_assignment=true
-S::operator=(S&&): is_assignment=true
-S::operator=(int): is_assignment=false
+constexpr S& S::operator=(const S&): is_assignment=true
+constexpr S& S::operator=(S&&): is_assignment=true
+S& S::operator=(int): is_assignment=true
+constexpr S::S(): is_assignment=false
+constexpr S::S(const S&): is_assignment=false
+constexpr S::~S(): is_assignment=false
 ```
 
 
@@ -59,7 +62,7 @@ S::operator=(int): is_assignment=false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

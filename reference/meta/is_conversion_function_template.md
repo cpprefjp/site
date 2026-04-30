@@ -61,6 +61,9 @@ int main() {
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+### 備考
+- GCC 16では、変換関数テンプレートを含むクラスのメンバを[`std::meta::members_of()`](members_of.md)で取得して[`std::define_static_array()`](define_static_array.md)に渡す（あるいは[`template for`](/lang/cpp26/expansion_statements.md)で展開する）と、内部コンパイラエラー（ICE）が発生する
+
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)

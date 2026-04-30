@@ -1,4 +1,4 @@
-# type_underlying_type
+# underlying_type
 * meta[meta header]
 * std::meta[meta namespace]
 * function[meta id-type]
@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std::meta {
-  consteval info type_underlying_type(info type);
+  consteval info underlying_type(info type);
 }
 ```
 * info[link info.md]
@@ -30,7 +30,7 @@ namespace std::meta {
 enum Color : int { red, green, blue };
 
 int main() {
-  static_assert(std::meta::type_underlying_type(^^Color) == ^^int);
+  static_assert(std::meta::underlying_type(^^Color) == ^^int);
 }
 ```
 
@@ -45,7 +45,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 16 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
