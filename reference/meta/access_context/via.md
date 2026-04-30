@@ -21,24 +21,38 @@ consteval access_context via(info cls) const;
 
 
 ## 例
+`via()`は、protectedメンバへのアクセス可否を決める「派生クラス経由」の文脈を切り替える。protectedメンバの可視性は、スコープ（呼び出し元）が指定クラスのメンバまたは派生クラスのメンバである場合にのみ許可される。
+
 ```cpp example
 #include <meta>
 #include <print>
 
 class Base {
-protected:
-  int prot = 1;
 public:
-  int pub = 2;
+  int pub = 1;
+protected:
+  int prot = 2;
 };
 
-class Derived : public Base {};
+class Derived : public Base {
+public:
+  static void check_inside() {
+    // スコープはDerivedのメンバ関数 = Derivedの内部からのアクセス
+    // via(Derived)によりDerived経由のアクセスとして扱われ、Baseのprotにもアクセス可能
+    constexpr auto ctx = std::meta::access_context::current().via(^^Derived);
+    constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();
+    std::println("Derived内からvia(Derived): {}", count);  // pub と prot の2個
+  }
+};
 
 int main() {
-  // Derived経由でBaseのメンバにアクセス
+  // スコープはmain() = Derivedの外部からのアクセス
+  // via(Derived)してもmain()はDerivedの一員ではないため、protはアクセス不可
   constexpr auto ctx = std::meta::access_context::current().via(^^Derived);
   constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();
-  std::println("Derived経由で見えるメンバ数: {}", count);
+  std::println("main()からvia(Derived): {}", count);  // pubのみの1個
+
+  Derived::check_inside();
 }
 ```
 * via[color ff0000]
@@ -46,7 +60,8 @@ int main() {
 
 ### 出力
 ```
-Derived経由で見えるメンバ数: 2
+main()からvia(Derived): 1
+Derived内からvia(Derived): 2
 ```
 
 ## バージョン
