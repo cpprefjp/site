@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4702ea233f600b574aa0460dc44662b2a26bf23b&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;array&gt;\n\nconsteval int sum() {\n  // \u914d\u5217\u306e\u30ea\u30d5\u30ec\u30af\u30b7\u30e7\u30f3\u3092\u30b9\u30d7\u30e9\u30a4\u30b9\u3057\u3001\u69cb\u9020\u5316\u675f\u7e1b\u3067\u30d1\u30c3\u30af\u5c55\u958b\n  constexpr auto [...elems] =\n      [:std::meta::reflect_constant_array(std::array{1, 2, 3}):];\n  return (... + elems);\n}\n\nint main() {\n  static_assert(sum() == 6);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;reflect_constant_array&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;41f1b40d899bfbaef5477da1b17122d8e645a3ba&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;array&gt;\n\n// \u69cb\u9020\u5316\u675f\u7e1b\u306e\u30d1\u30c3\u30af\u5c55\u958b\u306f\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u6587\u8108\u3067\u4f7f\u7528\u3059\u308b\u5fc5\u8981\u304c\u3042\u308b\ntemplate &lt;int&gt;\nconsteval int sum() {\n  // \u914d\u5217\u306e\u30ea\u30d5\u30ec\u30af\u30b7\u30e7\u30f3\u3092\u30b9\u30d7\u30e9\u30a4\u30b9\u3057\u3001\u69cb\u9020\u5316\u675f\u7e1b\u3067\u30d1\u30c3\u30af\u5c55\u958b\n  constexpr auto [...elems] =\n      [:std::meta::reflect_constant_array(std::array{1, 2, 3}):];\n  return (... + elems);\n}\n\nint main() {\n  static_assert(sum&lt;0&gt;() == 6);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;reflect_constant_array&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-13T04:09:48">
-        2026年04月13日 04時09分48秒
+      <span itemprop="datePublished" content="2026-04-30T07:36:21">
+        2026年04月30日 07時36分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,18 +226,20 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>r</code>の要素をコピーした<code>const T[N]</code>のテンプレートパラメータオブジェクトのリフレクションを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="4702ea233f600b574aa0460dc44662b2a26bf23b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="41f1b40d899bfbaef5477da1b17122d8e645a3ba"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../array.html">&lt;array&gt;</a></span>
 
-<span class="k">consteval</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// 構造化束縛のパック展開はテンプレート文脈で使用する必要がある</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
+<span class="k">consteval</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// 配列のリフレクションをスプライスし、構造化束縛でパック展開</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">[...</span><span class="n">elems</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
 <span class="w">      </span><span class="p">[</span><span class="o">:</span><span class="n"><span style="color:#ff0000">std::meta::reflect_constant_array</span></span><span class="p">(</span><span class="n"><a href="../array/array.html">std::array</a></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">})</span><span class="o">:</span><span class="p">];</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(...</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">elems</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">sum</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">sum</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -251,7 +253,7 @@
 <h3>処理系</h3>
 <ul>
 <li><a href="../../implementation.html#clang">Clang</a>: ??</li>
-<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
 </ul>
 <h2>関連項目</h2>

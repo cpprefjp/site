@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T05:29:50">
-        2026年04月20日 05時29分50秒
+      <span itemprop="datePublished" content="2026-04-30T07:36:21">
+        2026年04月30日 07時36分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,9 +245,12 @@
 </code></pre></div>
 </div></p>
 <h4>出力例</h4>
-<p><pre><code>S::operator=(const S&amp;): is_assignment=true
-S::operator=(S&amp;&amp;): is_assignment=true
-S::operator=(int): is_assignment=false
+<p><pre><code>constexpr S&amp; S::operator=(const S&amp;): is_assignment=true
+constexpr S&amp; S::operator=(S&amp;&amp;): is_assignment=true
+S&amp; S::operator=(int): is_assignment=true
+constexpr S::S(): is_assignment=false
+constexpr S::S(const S&amp;): is_assignment=false
+constexpr S::~S(): is_assignment=false
 </code></pre></p>
 <h2>バージョン</h2>
 <h3>言語</h3>
@@ -257,7 +260,7 @@ S::operator=(int): is_assignment=false
 <h3>処理系</h3>
 <ul>
 <li><a href="../../implementation.html#clang">Clang</a>: ??</li>
-<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
 </ul>
 <h2>参照</h2>

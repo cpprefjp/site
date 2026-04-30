@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T05:29:50">
-        2026年04月20日 05時29分50秒
+      <span itemprop="datePublished" content="2026-04-30T07:36:21">
+        2026年04月30日 07時36分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -255,6 +255,10 @@
 <li><a href="../../implementation.html#clang">Clang</a>: ??</li>
 <li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h3>備考</h3>
+<ul>
+<li>GCC 16では、変換関数テンプレートを含むクラスのメンバを<code><a href="members_of.html">std::meta::members_of()</a></code>で取得して<code><a href="define_static_array.html">std::define_static_array()</a></code>に渡す（あるいは<code><a href="../../lang/cpp26/expansion_statements.html">template for</a></code>で展開する）と、内部コンパイラエラー（ICE）が発生する</li>
 </ul>
 <h2>参照</h2>
 <ul>

@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;eb2988f7f05d8b0554c5940cdf57585dd10c09e2&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;algorithm&gt;\n#include &lt;cstddef&gt;\n\ntemplate &lt;std::size_t N&gt;\nstruct FixedString {\n  char data[N] = {};\n  constexpr FixedString(const char (&amp;str)[N]) {\n    std::ranges::copy(str, str + N, data);\n  }\n};\n\ntemplate &lt;FixedString S&gt;\nstruct Named {};\n\nint main() {\n  // define_static_string\u306fconst char*\u3092\u8fd4\u3059\u305f\u3081FixedString\u306e\u30b5\u30a4\u30ba\u3092\u63a8\u8ad6\u3067\u304d\u306a\u3044\n  // using Err = Named&lt;std::define_static_string(\&#34;hello\&#34;)&gt;;  // \u30a8\u30e9\u30fc\n\n  // reflect_constant_string\u306f\u30b5\u30a4\u30ba\u4ed8\u304d\u914d\u5217\u306e\u30ea\u30d5\u30ec\u30af\u30b7\u30e7\u30f3\u3092\u8fd4\u3059\u305f\u3081\u63a8\u8ad6\u3067\u304d\u308b\n  using Ok = Named&lt;[:std::meta::reflect_constant_string(\&#34;hello\&#34;):]&gt;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;reflect_constant_string&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;fe8ac67ca8b0636020d60c68f75a6c18249bfb9e&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;algorithm&gt;\n#include &lt;cstddef&gt;\n\ntemplate &lt;std::size_t N&gt;\nstruct FixedString {\n  char data[N] = {};\n  constexpr FixedString(const char (&amp;str)[N]) {\n    std::ranges::copy(str, str + N, data);\n  }\n};\n\ntemplate &lt;FixedString S&gt;\nstruct Named {};\n\nint main() {\n  // define_static_string\u306fconst char*\u3092\u8fd4\u3059\u305f\u3081FixedString\u306e\u30b5\u30a4\u30ba\u3092\u63a8\u8ad6\u3067\u304d\u306a\u3044\n  // using Err = Named&lt;std::define_static_string(\&#34;hello\&#34;)&gt;;  // \u30a8\u30e9\u30fc\n\n  // reflect_constant_string\u306f\u30b5\u30a4\u30ba\u4ed8\u304d\u914d\u5217\u306e\u30ea\u30d5\u30ec\u30af\u30b7\u30e7\u30f3\u3092\u8fd4\u3059\u305f\u3081\u63a8\u8ad6\u3067\u304d\u308b\n  // (\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u5f15\u6570\u3067\u4f7f\u3046\u3068\u304d\u306f\u30b9\u30d7\u30e9\u30a4\u30b9\u3092\u30ab\u30c3\u30b3\u3067\u56f2\u3080\u5fc5\u8981\u304c\u3042\u308b)\n  using Ok = Named&lt;([:std::meta::reflect_constant_string(\&#34;hello\&#34;):])&gt;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;reflect_constant_string&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-13T04:09:48">
-        2026年04月13日 04時09分48秒
+      <span itemprop="datePublished" content="2026-04-30T07:36:21">
+        2026年04月30日 07時36分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,7 +226,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>r</code>の要素をコピーした<a class="cpprefjp-defined-word" data-desc="null-terminated。文字列においてヌル文字 '\0' を用いてその終端を表すこと。ヌル文字自体は文字列に含まない。広義には線形データ構造においてヌルまたは値 0 を番兵としてその終わりを示すこと">ヌル終端</a>文字配列<code>const CharT[sizeof...(V)+1]</code>のテンプレートパラメータオブジェクトのリフレクションを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="eb2988f7f05d8b0554c5940cdf57585dd10c09e2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="fe8ac67ca8b0636020d60c68f75a6c18249bfb9e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../algorithm.html">&lt;algorithm&gt;</a></span>
 <span class="cp">#include <a href="../cstddef.html">&lt;cstddef&gt;</a></span>
 
@@ -246,7 +246,8 @@
 <span class="w">  </span><span class="c1">// using Err = Named&lt;<a href="define_static_string.html">std::define_static_string</a>("hello")&gt;;  // エラー</span>
 
 <span class="w">  </span><span class="c1">// reflect_constant_stringはサイズ付き配列のリフレクションを返すため推論できる</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Named</span><span class="o">&lt;</span><span class="p">[</span><span class="o">:</span><span class="n"><span style="color:#ff0000">std::meta::reflect_constant_string</span></span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span><span class="o">:</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// (テンプレート引数で使うときはスプライスをカッコで囲む必要がある)</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Named</span><span class="o">&lt;</span><span class="p">([</span><span class="o">:</span><span class="n"><span style="color:#ff0000">std::meta::reflect_constant_string</span></span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span><span class="o">:</span><span class="p">])</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -260,7 +261,7 @@
 <h3>処理系</h3>
 <ul>
 <li><a href="../../implementation.html#clang">Clang</a>: ??</li>
-<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
 </ul>
 <h2>関連項目</h2>
