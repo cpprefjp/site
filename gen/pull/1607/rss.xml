@@ -2,9 +2,82 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-30T06:23:11.540255</updated>
-  <id>a8d307f0-427c-4efa-ae89-5da39ab3c915</id>
+  <updated>2026-04-30T06:28:18.947801</updated>
+  <id>d6544c79-9ce1-47f3-ac6a-f8721e76d08a</id>
 
+  
+    <entry>
+      <title>via -- access_context::via : 動作検証したら出力がまちがっていたのでサンプルを見直し</title>
+      <link href="https://cpprefjp.github.io/reference/meta/access_context/via.html"/>
+      <id>29fa89c3355b553dfdf3ea74b0fe754b4e38c6d8:reference/meta/access_context/via.md</id>
+      <updated>2026-04-30T15:23:39+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context/via.md b/reference/meta/access_context/via.md
+index 9debb15c0..c8036d377 100644
+--- a/reference/meta/access_context/via.md
++++ b/reference/meta/access_context/via.md
+@@ -21,24 +21,38 @@ consteval access_context via(info cls) const;
+ 
+ 
+ ## 例
++`via()`は、protectedメンバへのアクセス可否を決める「派生クラス経由」の文脈を切り替える。protectedメンバの可視性は、スコープ（呼び出し元）が指定クラスのメンバまたは派生クラスのメンバである場合にのみ許可される。
++
+ ```cpp example
+ #include &amp;lt;meta&amp;gt;
+ #include &amp;lt;print&amp;gt;
+ 
+ class Base {
+-protected:
+-  int prot = 1;
+ public:
+-  int pub = 2;
++  int pub = 1;
++protected:
++  int prot = 2;
+ };
+ 
+-class Derived : public Base {};
++class Derived : public Base {
++public:
++  static void check_inside() {
++    // スコープはDerivedのメンバ関数 = Derivedの内部からのアクセス
++    // via(Derived)によりDerived経由のアクセスとして扱われ、Baseのprotにもアクセス可能
++    constexpr auto ctx = std::meta::access_context::current().via(^^Derived);
++    constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();
++    std::println(&amp;#34;Derived内からvia(Derived): {}&amp;#34;, count);  // pub と prot の2個
++  }
++};
+ 
+ int main() {
+-  // Derived経由でBaseのメンバにアクセス
++  // スコープはmain() = Derivedの外部からのアクセス
++  // via(Derived)してもmain()はDerivedの一員ではないため、protはアクセス不可
+   constexpr auto ctx = std::meta::access_context::current().via(^^Derived);
+   constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();
+-  std::println(&amp;#34;Derived経由で見えるメンバ数: {}&amp;#34;, count);
++  std::println(&amp;#34;main()からvia(Derived): {}&amp;#34;, count);  // pubのみの1個
++
++  Derived::check_inside();
+ }
+ ```
+ * via[color ff0000]
+@@ -46,7 +60,8 @@ int main() {
+ 
+ ### 出力
+ ```
+-Derived経由で見えるメンバ数: 2
++main()からvia(Derived): 1
++Derived内からvia(Derived): 2
+ ```
+ 
+ ## バージョン
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>scope -- access_context::scope : 動作検証したら出力がまちがっていたのでサンプル見直し</title>
@@ -1991,32 +2064,6 @@ index 000000000..065d90f7d
 +
 +## 参照
 +- [P3293R3 Splicing a base class subobject](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3293r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>source_location_of -- source_location_of : 出力例が空だった</title>
-      <link href="https://cpprefjp.github.io/reference/meta/source_location_of.html"/>
-      <id>6d423169770b8ed61beb8b3cdef3f042d21373cd:reference/meta/source_location_of.md</id>
-      <updated>2026-04-24T13:22:12+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/source_location_of.md b/reference/meta/source_location_of.md
-index b56d796e7..d862a5066 100644
---- a/reference/meta/source_location_of.md
-+++ b/reference/meta/source_location_of.md
-@@ -47,6 +47,7 @@ int main() {
- 
- #### 出力例
- ```
-+main.cpp:38
- ```
- 
- 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

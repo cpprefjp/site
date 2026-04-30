@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;class&#34;: [&#34;access_context&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1dbaa570e717af2e56f11e029f277d774347b601&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass Base {\nprotected:\n  int prot = 1;\npublic:\n  int pub = 2;\n};\n\nclass Derived : public Base {};\n\nint main() {\n  // Derived\u7d4c\u7531\u3067Base\u306e\u30e1\u30f3\u30d0\u306b\u30a2\u30af\u30bb\u30b9\n  constexpr auto ctx = std::meta::access_context::current().via(^^Derived);\n  constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();\n  std::println(\&#34;Derived\u7d4c\u7531\u3067\u898b\u3048\u308b\u30e1\u30f3\u30d0\u6570: {}\&#34;, count);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;access_context&#34;, &#34;via&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;class&#34;: [&#34;access_context&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0eca1d42b22e2c1802ceacaf0608c41ccf0b6046&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass Base {\npublic:\n  int pub = 1;\nprotected:\n  int prot = 2;\n};\n\nclass Derived : public Base {\npublic:\n  static void check_inside() {\n    // \u30b9\u30b3\u30fc\u30d7\u306fDerived\u306e\u30e1\u30f3\u30d0\u95a2\u6570 = Derived\u306e\u5185\u90e8\u304b\u3089\u306e\u30a2\u30af\u30bb\u30b9\n    // via(Derived)\u306b\u3088\u308aDerived\u7d4c\u7531\u306e\u30a2\u30af\u30bb\u30b9\u3068\u3057\u3066\u6271\u308f\u308c\u3001Base\u306eprot\u306b\u3082\u30a2\u30af\u30bb\u30b9\u53ef\u80fd\n    constexpr auto ctx = std::meta::access_context::current().via(^^Derived);\n    constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();\n    std::println(\&#34;Derived\u5185\u304b\u3089via(Derived): {}\&#34;, count);  // pub \u3068 prot \u306e2\u500b\n  }\n};\n\nint main() {\n  // \u30b9\u30b3\u30fc\u30d7\u306fmain() = Derived\u306e\u5916\u90e8\u304b\u3089\u306e\u30a2\u30af\u30bb\u30b9\n  // via(Derived)\u3057\u3066\u3082main()\u306fDerived\u306e\u4e00\u54e1\u3067\u306f\u306a\u3044\u305f\u3081\u3001prot\u306f\u30a2\u30af\u30bb\u30b9\u4e0d\u53ef\n  constexpr auto ctx = std::meta::access_context::current().via(^^Derived);\n  constexpr auto count = std::meta::nonstatic_data_members_of(^^Base, ctx).size();\n  std::println(\&#34;main()\u304b\u3089via(Derived): {}\&#34;, count);  // pub\u306e\u307f\u306e1\u500b\n\n  Derived::check_inside();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;access_context&#34;, &#34;via&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T05:29:50">
-        2026年04月20日 05時29分50秒
+      <span itemprop="datePublished" content="2026-04-30T06:23:39">
+        2026年04月30日 06時23分39秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,28 +234,42 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>cls</code>が表すクラスを経由した新しい<code>access_context</code>オブジェクトを返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="1dbaa570e717af2e56f11e029f277d774347b601"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../meta.html">&lt;meta&gt;</a></span>
+<p><code>via()</code>は、protectedメンバへのアクセス可否を決める「派生クラス経由」の文脈を切り替える。protectedメンバの可視性は、スコープ（呼び出し元）が指定クラスのメンバまたは派生クラスのメンバである場合にのみ許可される。</p>
+<p><div class="yata" id="0eca1d42b22e2c1802ceacaf0608c41ccf0b6046"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="k">protected</span><span class="o">:</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">prot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">pub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">pub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">protected</span><span class="o">:</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">prot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">check_inside</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// スコープはDerivedのメンバ関数 = Derivedの内部からのアクセス</span>
+<span class="w">    </span><span class="c1">// <span style="color:#ff0000">via</span>(Derived)によりDerived経由のアクセスとして扱われ、Baseのprotにもアクセス可能</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">access_context</span><span class="o">::</span><span class="n">current</span><span class="p">().</span><span class="n"><span style="color:#ff0000">via</span></span><span class="p">(</span><span class="o">^^</span><span class="n">Derived</span><span class="p">);</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">).</span><span class="n">size</span><span class="p">();</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Derived内から<span style="color:#ff0000">via</span>(Derived): {}"</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span><span class="w">  </span><span class="c1">// pub と prot の2個</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// Derived経由でBaseのメンバにアクセス</span>
+<span class="w">  </span><span class="c1">// スコープはmain() = Derivedの外部からのアクセス</span>
+<span class="w">  </span><span class="c1">// <span style="color:#ff0000">via</span>(Derived)してもmain()はDerivedの一員ではないため、protはアクセス不可</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">access_context</span><span class="o">::</span><span class="n">current</span><span class="p">().</span><span class="n"><span style="color:#ff0000">via</span></span><span class="p">(</span><span class="o">^^</span><span class="n">Derived</span><span class="p">);</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../nonstatic_data_members_of.html">std::meta::nonstatic_data_members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">).</span><span class="n">size</span><span class="p">();</span>
-<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"Derived経由で見えるメンバ数: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"main()から<span style="color:#ff0000">via</span>(Derived): {}"</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span><span class="w">  </span><span class="c1">// pubのみの1個</span>
+
+<span class="w">  </span><span class="n">Derived</span><span class="o">::</span><span class="n">check_inside</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
-<p><pre><code>Derived経由で見えるメンバ数: 2
+<p><pre><code>main()からvia(Derived): 1
+Derived内からvia(Derived): 2
 </code></pre></p>
 <h2>バージョン</h2>
 <h3>言語</h3>
