@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/is_deleted.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`= delete`されているかを判定する。" />
+        <meta property="og:description" content="削除関数（規格上の[deleted function](https://eel.is/c++draft/dcl.fct.def.delete#def:function,deleted)）であるかを判定する。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="is_deleted - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/is_deleted.html" />
-        <meta name="twitter:description" content="`= delete`されているかを判定する。" />
+        <meta name="twitter:description" content="削除関数（規格上の[deleted function](https://eel.is/c++draft/dcl.fct.def.delete#def:function,deleted)）であるかを判定する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;25a313741929d901020accad0db7c296384e527e&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nstruct NonCopyable {\n  NonCopyable() = default;\n  NonCopyable(const NonCopyable&amp;) = delete;\n};\n\nint main() {\n  template for (constexpr auto m :\n      std::define_static_array(std::meta::members_of(^^NonCopyable, std::meta::access_context::unchecked()))) {\n    if constexpr (std::meta::is_copy_constructor(m)) {\n      static_assert(std::meta::is_deleted(m));\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_deleted&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;eaa103c0b8930515e197bc89609f51a64963a300&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nstruct B {\n  B(const B&amp;) = delete;\n  B(B&amp;&amp;) = delete;\n};\n\nstruct S : B {\n  S() = delete;     // \u660e\u793a\u7684\u306bdelete\u5ba3\u8a00\u3055\u308c\u305f\u95a2\u6570: \u524a\u9664\u95a2\u6570\n  // S(const S&amp;);   // \u6697\u9ed9\u7684\u306b\u5ba3\u8a00\u3055\u308c\u308b\u304c\u57fa\u5e95\u306edelete\u306b\u3088\u308a\u524a\u9664\u95a2\u6570\u3068\u307f\u306a\u3055\u308c\u308b\n  S(S&amp;&amp;) = default; // \u660e\u793a\u7684\u306bdefault\u5ba3\u8a00\u3060\u304c\u3001\u57fa\u5e95\u30af\u30e9\u30b9\u306edelete\u306b\u3088\u308a\u524a\u9664\u95a2\u6570\u3068\u307f\u306a\u3055\u308c\u308b\n};\n\nint main() {\n  template for (constexpr auto m :\n      std::define_static_array(std::meta::members_of(^^S,\n          std::meta::access_context::unchecked()))) {\n    // S()\u3001S(const S&amp;)\u3001S(S&amp;&amp;)\u306f\u3044\u305a\u308c\u3082\u524a\u9664\u95a2\u6570\n    if constexpr (std::meta::is_constructor(m)) {\n      static_assert(std::meta::is_deleted(m));\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_deleted&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-20T05:29:50">
-        2026年04月20日 05時29分50秒
+      <span itemprop="datePublished" content="2026-04-30T06:09:00">
+        2026年04月30日 06時09分00秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,22 +219,36 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>= delete</code>されているかを判定する。</p>
+<p>削除関数（規格上の<a href="https://eel.is/c++draft/dcl.fct.def.delete#def:function,deleted" target="_blank">deleted function</a>）であるかを判定する。</p>
+<p>削除関数には、以下が含まれる：</p>
+<ul>
+<li><code>= delete</code>を明示的に付加して宣言された関数</li>
+<li>暗黙的にdeleteされる関数（例えば、deleteされた基底クラスの特殊メンバ関数によって、派生クラスで暗黙的に対応する特殊メンバ関数がdeleteされる場合）</li>
+<li><code>= default</code>を明示的に付加して宣言されたが、結果としてdeleteされる関数（例えば、基底クラスのムーブコンストラクタがdeleteされている状態で、派生クラスで<code>= default</code>指定されたムーブコンストラクタ）</li>
+</ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>r</code>が<code>= delete</code>された関数を表す場合に<code>true</code>を返す。</p>
+<p><code>r</code>が削除関数を表す場合に<code>true</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="25a313741929d901020accad0db7c296384e527e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="eaa103c0b8930515e197bc89609f51a64963a300"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 
-<span class="k">struct</span><span class="w"> </span><span class="nc">NonCopyable</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">NonCopyable</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
-<span class="w">  </span><span class="n">NonCopyable</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">NonCopyable</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">B</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">B</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">  </span><span class="n">B</span><span class="p">(</span><span class="n">B</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">S</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">     </span><span class="c1">// 明示的にdelete宣言された関数: 削除関数</span>
+<span class="w">  </span><span class="c1">// S(const S&amp;);   // 暗黙的に宣言されるが基底のdeleteにより削除関数とみなされる</span>
+<span class="w">  </span><span class="n">S</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// 明示的にdefault宣言だが、基底クラスのdeleteにより削除関数とみなされる</span>
 <span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">:</span>
-<span class="w">      </span><span class="n"><a href="define_static_array.html">std::define_static_array</a></span><span class="p">(</span><span class="n"><a href="members_of.html">std::meta::members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">NonCopyable</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">())))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="is_copy_constructor.html">std::meta::is_copy_constructor</a></span><span class="p">(</span><span class="n">m</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_deleted</span><span class="p">(</span><span class="n">m</span><span class="p">));</span>
+<span class="w">      </span><span class="n"><a href="define_static_array.html">std::define_static_array</a></span><span class="p">(</span><span class="n"><a href="members_of.html">std::meta::members_of</a></span><span class="p">(</span><span class="o">^^</span><span class="n">S</span><span class="p">,</span>
+<span class="w">          </span><span class="n"><a href="access_context.html">std::meta::access_context</a></span><span class="o">::</span><span class="n"><a href="access_context/unchecked.html">unchecked</a></span><span class="p">())))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// S()、S(const S&amp;)、S(S&amp;&amp;)はいずれも削除関数</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="is_constructor.html">std::meta::is_constructor</a></span><span class="p">(</span><span class="n">m</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::meta::is_deleted</span></span><span class="p">(</span><span class="n">m</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -250,7 +264,7 @@
 <h3>処理系</h3>
 <ul>
 <li><a href="../../implementation.html#clang">Clang</a>: ??</li>
-<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
 </ul>
 <h2>参照</h2>
