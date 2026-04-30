@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;class&#34;: [&#34;access_context&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d04539f5ff1e16bbfb5fa6dd43232e6d5ee3ad00&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass C {\n  int secret;\npublic:\n  int visible;\n\n  static void inspect() {\n    constexpr auto ctx = std::meta::access_context::current();\n    // C\u5185\u90e8\u304b\u3089current()\u3092\u547c\u3093\u3060\u306e\u3067\u3001\u30b9\u30b3\u30fc\u30d7\u306fC\n    std::println(\&#34;scope: {}\&#34;, std::meta::display_string_of(ctx.scope()));\n  }\n};\n\nint main() {\n  C::inspect();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;access_context&#34;, &#34;scope&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;class&#34;: [&#34;access_context&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;39bf4833495399ac32f77933a69636af42b351fa&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass C {\npublic:\n  static void inspect() {\n    // current()\u306finspect()\u95a2\u6570\u5185\u3067\u547c\u3070\u308c\u305f\u306e\u3067\u3001\u30b9\u30b3\u30fc\u30d7\u306finspect()\u95a2\u6570\n    constexpr auto ctx = std::meta::access_context::current();\n    std::println(\&#34;inspect()\u306e\u30b9\u30b3\u30fc\u30d7: {}\&#34;,\n                 std::meta::display_string_of(ctx.scope()));\n  }\n};\n\nvoid free_function() {\n  // current()\u306ffree_function()\u5185\u3067\u547c\u3070\u308c\u305f\u306e\u3067\u3001\u30b9\u30b3\u30fc\u30d7\u306ffree_function()\n  constexpr auto ctx = std::meta::access_context::current();\n  std::println(\&#34;free_function()\u306e\u30b9\u30b3\u30fc\u30d7: {}\&#34;,\n               std::meta::display_string_of(ctx.scope()));\n}\n\nint main() {\n  // current()\u306fmain()\u5185\u3067\u547c\u3070\u308c\u305f\u306e\u3067\u3001\u30b9\u30b3\u30fc\u30d7\u306fmain()\n  constexpr auto ctx = std::meta::access_context::current();\n  std::println(\&#34;main()\u306e\u30b9\u30b3\u30fc\u30d7: {}\&#34;,\n               std::meta::display_string_of(ctx.scope()));\n\n  C::inspect();\n  free_function();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;access_context&#34;, &#34;scope&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-11T01:56:06">
-        2026年04月11日 01時56分06秒
+      <span itemprop="datePublished" content="2026-04-30T06:18:33">
+        2026年04月30日 06時18分33秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -232,29 +232,43 @@
 <p>アクセスコンテキストのスコープのリフレクションを返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>このアクセスコンテキストが関連付けられているスコープのリフレクションを返す。</p>
+<p><code><a href="current.html">access_context::current()</a></code>で取得したコンテキストの場合、<code>current()</code>を呼び出した時点で囲んでいる関数や名前空間などのスコープが返される。</p>
 <h2>例</h2>
-<p><div class="yata" id="d04539f5ff1e16bbfb5fa6dd43232e6d5ee3ad00"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="39bf4833495399ac32f77933a69636af42b351fa"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../meta.html">&lt;meta&gt;</a></span>
 <span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">secret</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">visible</span><span class="p">;</span>
-
-<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">inspect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">inspect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// current()はinspect()関数内で呼ばれたので、スコープはinspect()関数</span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="current.html">std::meta::access_context::current</a></span><span class="p">();</span>
-<span class="w">    </span><span class="c1">// C内部からcurrent()を呼んだので、スコープはC</span>
-<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"scope: {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../display_string_of.html">std::meta::display_string_of</a></span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n"><span style="color:#ff0000">scope()</span></span><span class="p">));</span>
+<span class="w">    </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"inspect()のスコープ: {}"</span><span class="p">,</span>
+<span class="w">                 </span><span class="n"><a href="../display_string_of.html">std::meta::display_string_of</a></span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n"><span style="color:#ff0000">scope()</span></span><span class="p">));</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
+<span class="kt">void</span><span class="w"> </span><span class="nf">free_function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// current()はfree_function()内で呼ばれたので、スコープはfree_function()</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="current.html">std::meta::access_context::current</a></span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"free_function()のスコープ: {}"</span><span class="p">,</span>
+<span class="w">               </span><span class="n"><a href="../display_string_of.html">std::meta::display_string_of</a></span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n"><span style="color:#ff0000">scope()</span></span><span class="p">));</span>
+<span class="p">}</span>
+
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// current()はmain()内で呼ばれたので、スコープはmain()</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="current.html">std::meta::access_context::current</a></span><span class="p">();</span>
+<span class="w">  </span><span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"main()のスコープ: {}"</span><span class="p">,</span>
+<span class="w">               </span><span class="n"><a href="../display_string_of.html">std::meta::display_string_of</a></span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n"><span style="color:#ff0000">scope()</span></span><span class="p">));</span>
+
 <span class="w">  </span><span class="n">C</span><span class="o">::</span><span class="n">inspect</span><span class="p">();</span>
+<span class="w">  </span><span class="n">free_function</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h4>出力例</h4>
-<p><pre><code>scope: C
+<p><pre><code>main()のスコープ: int main()
+inspect()のスコープ: static void C::inspect()
+free_function()のスコープ: void free_function()
 </code></pre></p>
 <h2>バージョン</h2>
 <h3>言語</h3>
@@ -264,7 +278,7 @@
 <h3>処理系</h3>
 <ul>
 <li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
-<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 16 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 <li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
 </ul>
 <h2>参照</h2>

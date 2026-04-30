@@ -2,9 +2,92 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-30T06:13:39.998714</updated>
-  <id>bbeb8b34-6d3f-4f94-8537-e27939e06637</id>
+  <updated>2026-04-30T06:23:11.540255</updated>
+  <id>a8d307f0-427c-4efa-ae89-5da39ab3c915</id>
 
+  
+    <entry>
+      <title>scope -- access_context::scope : 動作検証したら出力がまちがっていたのでサンプル見直し</title>
+      <link href="https://cpprefjp.github.io/reference/meta/access_context/scope.html"/>
+      <id>7de1fdedb3a2d1bad82d6db3a027c94e1b7efeac:reference/meta/access_context/scope.md</id>
+      <updated>2026-04-30T15:18:33+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/access_context/scope.md b/reference/meta/access_context/scope.md
+index 974d482d2..d29606d93 100644
+--- a/reference/meta/access_context/scope.md
++++ b/reference/meta/access_context/scope.md
+@@ -17,6 +17,8 @@ consteval info scope() const;
+ ## 戻り値
+ このアクセスコンテキストが関連付けられているスコープのリフレクションを返す。
+ 
++[`access_context::current()`](current.md)で取得したコンテキストの場合、`current()`を呼び出した時点で囲んでいる関数や名前空間などのスコープが返される。
++
+ 
+ ## 例
+ ```cpp example
+@@ -24,19 +26,30 @@ consteval info scope() const;
+ #include &amp;lt;print&amp;gt;
+ 
+ class C {
+-  int secret;
+ public:
+-  int visible;
+-
+   static void inspect() {
++    // current()はinspect()関数内で呼ばれたので、スコープはinspect()関数
+     constexpr auto ctx = std::meta::access_context::current();
+-    // C内部からcurrent()を呼んだので、スコープはC
+-    std::println(&amp;#34;scope: {}&amp;#34;, std::meta::display_string_of(ctx.scope()));
++    std::println(&amp;#34;inspect()のスコープ: {}&amp;#34;,
++                 std::meta::display_string_of(ctx.scope()));
+   }
+ };
+ 
++void free_function() {
++  // current()はfree_function()内で呼ばれたので、スコープはfree_function()
++  constexpr auto ctx = std::meta::access_context::current();
++  std::println(&amp;#34;free_function()のスコープ: {}&amp;#34;,
++               std::meta::display_string_of(ctx.scope()));
++}
++
+ int main() {
++  // current()はmain()内で呼ばれたので、スコープはmain()
++  constexpr auto ctx = std::meta::access_context::current();
++  std::println(&amp;#34;main()のスコープ: {}&amp;#34;,
++               std::meta::display_string_of(ctx.scope()));
++
+   C::inspect();
++  free_function();
+ }
+ ```
+ * scope()[color ff0000]
+@@ -45,7 +58,9 @@ int main() {
+ 
+ #### 出力例
+ ```
+-scope: C
++main()のスコープ: int main()
++inspect()のスコープ: static void C::inspect()
++free_function()のスコープ: void free_function()
+ ```
+ 
+ ## バージョン
+@@ -54,7 +69,7 @@ scope: C
+ 
+ ### 処理系
+ - [Clang](/implementation.md#clang): ??
+-- [GCC](/implementation.md#gcc): ??
++- [GCC](/implementation.md#gcc): 16 [mark verified]
+ - [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>is_defaulted -- is_defaulted, is_deleted : 対象範囲がまちがっていたのを修正</title>
@@ -1934,177 +2017,6 @@ index b56d796e7..d862a5066 100644
  ```
  
  
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>offset_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
-      <link href="https://cpprefjp.github.io/reference/meta/offset_of.html"/>
-      <id>0c344656ba62143172e8fed8087b1613957c7716:reference/meta/offset_of.md</id>
-      <updated>2026-04-24T13:16:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/offset_of.md b/reference/meta/offset_of.md
-index bc5abab92..92110ac94 100644
---- a/reference/meta/offset_of.md
-+++ b/reference/meta/offset_of.md
-@@ -12,15 +12,21 @@ namespace std::meta {
- * info[link info.md]
- 
- ## 概要
--メンバ変数のオフセットを取得する。
-+メンバ変数や基底クラスのオフセットを取得する。
-+
-+以下のいずれかを表すリフレクションを受け取れる：
-+
-+- メンバ変数
-+- 無名ビットフィールド
-+- 直接基底クラス関係（仮想基底クラスかつ派生クラスが抽象クラスである組み合わせは除く）
- 
- 
- ## 戻り値
--`r`がメンバ変数を表す場合、そのメンバの所属するクラスの先頭からのオフセットを[`member_offset`](member_offset.md)として返す。
-+`r`が上記のいずれかを表す場合、所属するクラスの先頭からのオフセットを[`member_offset`](member_offset.md)として返す。
- 
- 
- ## 例外
--`r`がメンバ変数または基底クラス関係を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
-+`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>size_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
-      <link href="https://cpprefjp.github.io/reference/meta/size_of.html"/>
-      <id>0c344656ba62143172e8fed8087b1613957c7716:reference/meta/size_of.md</id>
-      <updated>2026-04-24T13:16:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/size_of.md b/reference/meta/size_of.md
-index f7faf1c37..176e8b449 100644
---- a/reference/meta/size_of.md
-+++ b/reference/meta/size_of.md
-@@ -12,15 +12,22 @@ namespace std::meta {
- * info[link info.md]
- 
- ## 概要
--型またはデータメンバのサイズを取得する。
-+型、オブジェクト、値、変数、メンバ変数、または基底クラス関係のサイズを取得する。
- 
- 
- ## 戻り値
--`r`が型を表す場合は`sizeof`相当の値を、メンバ変数を表す場合はそのメンバのサイズを返す。
-+`r`が以下のいずれかを表す場合、そのサイズを返す：
-+
-+- 型
-+- オブジェクト
-+- 値
-+- 参照型でない変数
-+- ビットフィールドでないメンバ変数
-+- 直接基底クラス関係
- 
- 
- ## 例外
--`r`が型またはメンバ変数を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
-+`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>source_location_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
-      <link href="https://cpprefjp.github.io/reference/meta/source_location_of.html"/>
-      <id>0c344656ba62143172e8fed8087b1613957c7716:reference/meta/source_location_of.md</id>
-      <updated>2026-04-24T13:16:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/source_location_of.md b/reference/meta/source_location_of.md
-index 4ad4007dc..b56d796e7 100644
---- a/reference/meta/source_location_of.md
-+++ b/reference/meta/source_location_of.md
-@@ -14,10 +14,21 @@ namespace std::meta {
- ## 概要
- リフレクションのソース位置を取得する。
- 
-+任意のリフレクションを受け取れる。
-+
- 
- ## 戻り値
- `r`が表すエンティティが宣言されたソース位置を[`std::source_location`](/reference/source_location/source_location.md)として返す。
- 
-+ただし、以下のリフレクションに対してはデフォルト構築された`source_location`（ソース位置情報なし）を返す：
-+
-+- 値
-+- クラス型・列挙型以外の型
-+- グローバル名前空間
-+- データメンバ仕様
-+
-+それ以外のリフレクションに対する戻り値は実装定義である。
-+
- 
- ## 例
- ```cpp example
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>type_of -- offset_of, size_of, source_location_of, type_of : 対象が狭かった</title>
-      <link href="https://cpprefjp.github.io/reference/meta/type_of.html"/>
-      <id>0c344656ba62143172e8fed8087b1613957c7716:reference/meta/type_of.md</id>
-      <updated>2026-04-24T13:16:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/type_of.md b/reference/meta/type_of.md
-index c81a1da33..9db5f664c 100644
---- a/reference/meta/type_of.md
-+++ b/reference/meta/type_of.md
-@@ -14,14 +14,22 @@ namespace std::meta {
- ## 概要
- リフレクションが表すエンティティの型のリフレクションを取得する。
- 
-+以下のいずれかを表すリフレクションを受け取れる：
-+
-+- 値、オブジェクト、変数、または関数（未推論のプレースホルダ型を含まず、コンストラクタ・デストラクタでないもの）
-+- 列挙子
-+- メンバ変数
-+- 無名ビットフィールド
-+- 直接基底クラス関係
-+- データメンバ仕様
- 
--## 戻り値
--`r`が表す値、オブジェクト、変数、関数、メンバ変数、ビットフィールド、列挙子、基底クラス関係、データメンバ仕様、または関数パラメータの型のリフレクションを返す。
- 
-+## 戻り値
-+`r`が上記のいずれかを表す場合、対応する型のリフレクションを返す。列挙子の場合は列挙型のリフレクション、直接基底クラス関係の場合は基底クラスの型のリフレクションを返す。
- 
- 
- ## 例外
--`r`が型を持つエンティティを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
-+`r`が上記のいずれも表さない場合（型、名前空間、テンプレート、コンストラクタ、デストラクタ、未推論のプレースホルダ戻り値型を持つ関数など）、[`std::meta::exception`](exception.md)例外を送出する。
- 
- ## 例
- ```cpp example
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
