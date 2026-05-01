@@ -612,7 +612,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/csetjmp.html</loc>
-      <lastmod>2026-04-29T08:19:25+01:00</lastmod>
+      <lastmod>2026-05-01T13:17:02+01:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
@@ -19350,22 +19350,29 @@
     </url>
   
     <url>
+      <loc>https://cpprefjp.github.io/reference/csetjmp/stdc_version_setjmp_h.html</loc>
+      <lastmod>2026-05-01T13:17:02+01:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
       <loc>https://cpprefjp.github.io/reference/csetjmp/setjmp.html</loc>
-      <lastmod>2026-04-30T15:12:58+01:00</lastmod>
+      <lastmod>2026-05-01T11:25:13+01:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/csetjmp/longjmp.html</loc>
-      <lastmod>2026-04-29T08:19:25+01:00</lastmod>
+      <lastmod>2026-05-01T11:25:13+01:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html</loc>
-      <lastmod>2026-04-29T08:19:25+01:00</lastmod>
+      <lastmod>2026-05-01T11:25:13+01:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>

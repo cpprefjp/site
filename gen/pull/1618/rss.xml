@@ -2,14 +2,230 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-04-30T14:21:00.550171</updated>
-  <id>3dc37ae8-9fce-4455-89a1-d678fbc33f5f</id>
+  <updated>2026-05-01T12:22:01.894912</updated>
+  <id>376df8ec-2991-45f3-bb0d-177670269452</id>
 
+  
+    <entry>
+      <title>csetjmp -- `__stdc_version_setjmp_h__`リファレンスページの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp.html"/>
+      <id>026aa1d48f565b75023489899238d16a2647b564:reference/csetjmp.md</id>
+      <updated>2026-05-01T13:17:02+01:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csetjmp&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csetjmp&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csetjmp&amp;gt;&lt;/code&gt;ヘッダでは、非ローカルジャンプのための機能を定義する。非ローカルジャンプは、関数呼び出しのスタックを遡って、特定のポイントにジャンプすることを可能にする機能である。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/jmp_buf.html&#34;&gt;jmp_buf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非ローカルジャンプのための環境を保存するための型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/stdc_version_setjmp_h.html&#34;&gt;__STDC_VERSION_SETJMP_H__&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;C11以降で定義されるマクロ&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/setjmp.html&#34;&gt;setjmp&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;現在の環境を保存するためのマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/longjmp.html&#34;&gt;longjmp&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;setjmp()&lt;/code&gt;で保存された環境を復元し、ジャンプするための関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>__STDC_VERSION_SETJMP_H__ -- `__stdc_version_setjmp_h__`リファレンスページの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/stdc_version_setjmp_h.html"/>
+      <id>026aa1d48f565b75023489899238d16a2647b564:reference/csetjmp/stdc_version_setjmp_h.md</id>
+      <updated>2026-05-01T13:17:02+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/stdc_version_setjmp_h.md b/reference/csetjmp/stdc_version_setjmp_h.md
+new file mode 100644
+index 000000000..7039eeb35
+--- /dev/null
++++ b/reference/csetjmp/stdc_version_setjmp_h.md
+@@ -0,0 +1,11 @@
++# __STDC_VERSION_SETJMP_H__
++* csetjmp[meta header]
++* macro[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++#define __STDC_VERSION_SETJMP_H__  202311L
++```
++
++## 概要
++`&amp;lt;csetjmp&amp;gt;`ヘッダがC23の基準に準拠していることを示すマクロ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>jmp_buf -- 諸々の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html"/>
+      <id>3fb5cb018fcb4edd4a089def4e0d5b9d1037ef56:reference/csetjmp/jmp_buf.md</id>
+      <updated>2026-05-01T11:25:13+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/jmp_buf.md b/reference/csetjmp/jmp_buf.md
+index 2a194d3ce..9e20f0b75 100644
+--- a/reference/csetjmp/jmp_buf.md
++++ b/reference/csetjmp/jmp_buf.md
+@@ -1,14 +1,17 @@
+ # jmp_buf
++* std[meta namespace]
+ * csetjmp[meta header]
+ * type-alias[meta id-type]
+ 
+ ```cpp
+-using jmp_buf = unspecified;
++namespace std {
++  using jmp_buf = unspecified;
++}
+ ```
+ 
+ ## 概要
+ 
+-非ローカルジャンプ（関数を跨いだジャンプ）を実現するために、現在の実行環境を保存するための配列型である。
++`jmp_buf`は、非ローカルジャンプ（関数を跨いだジャンプ）を実現するために、現在の実行環境を保存するための配列型である。
+ 
+ `setjmp()`マクロによって現在の環境がこの型に保存され、後に`longjmp()`関数がその環境を復元するために使用される。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>longjmp -- 諸々の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/longjmp.html"/>
+      <id>3fb5cb018fcb4edd4a089def4e0d5b9d1037ef56:reference/csetjmp/longjmp.md</id>
+      <updated>2026-05-01T11:25:13+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/longjmp.md b/reference/csetjmp/longjmp.md
+index 0d5138b47..2b127cf92 100644
+--- a/reference/csetjmp/longjmp.md
++++ b/reference/csetjmp/longjmp.md
+@@ -15,11 +15,11 @@ namespace std {
+ 
+ ## 効果
+ 
+-* `setjmp()`によってjmp_bufに保存された実行環境（スタックポインタ、プログラムカウンタ等）を復元する。
++* `setjmp()`によって第一引数`env`に保存された実行環境（スタックポインタ、プログラムカウンタ等）を復元する。
+ 
+ * プログラムの実行地点を、対応する`setjmp()`の呼び出し地点へジャンプさせる。
+ 
+-* ジャンプ先の`setjmp()`は、この関数の第二引数valを戻り値として返す。ただし、valが0の場合は1を返す。
++* ジャンプ先の`setjmp()`は、この関数の第二引数`val`を戻り値として返す。ただし、`val`が0の場合は1を返す。
+ 
+ ## 戻り値
+ 
+@@ -28,6 +28,7 @@ namespace std {
+ ## 備考
+ 
+ * ジャンプによって自動記憶域期間を持つオブジェクトのスコープを抜ける際、そのオブジェクトが非自明なデストラクタを持つ場合、動作は未定義である。
++* コルーチンのサスペンションコンテキスト内で呼び出された場合、動作は未定義である。
+ 
+ ## 例
+ 
+@@ -44,7 +45,7 @@ void low_level_function() {
+ 
+ int main () {
+   int result = setjmp(env);
+-  if (result == 0) {  // 直接呼び出された場合は0を返すので、エラー処理を行う
++  if (result == 0) {
+     low_level_function();
+   } else {
+     std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました:&amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setjmp -- 諸々の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
+      <id>3fb5cb018fcb4edd4a089def4e0d5b9d1037ef56:reference/csetjmp/setjmp.md</id>
+      <updated>2026-05-01T11:25:13+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
+index bb8fd467e..6b8dcae36 100644
+--- a/reference/csetjmp/setjmp.md
++++ b/reference/csetjmp/setjmp.md
+@@ -17,7 +17,7 @@
+ 
+ 1. 条件式または反復式の制御式全体
+ 2. 関係演算子または等価演算子のオペランドの一つ(もう一つのオペランドは整数定数)
+-3. ! のオペランドであり、その結果式が1を満たす場合
++3. `!`のオペランドであり、その結果式が1を満たす場合
+ 4. 式文の式全体(void型へのキャストを含む)
+ 
+ 上記以外の箇所での呼び出しは未定義の動作となる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>setjmp -- 不要なスペースの削除</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
-      <id>6851a8bc9e7a7b72c194d8aef383dac96e71862c:reference/csetjmp/setjmp.md</id>
+      <id>238403f7eb55279f391db193815ff35b6efd1a09:reference/csetjmp/setjmp.md</id>
       <updated>2026-04-30T15:12:58+01:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
@@ -34,9 +250,1205 @@ index 9073f18d5..bb8fd467e 100644
     </entry>
   
     <entry>
+      <title>リファレンス -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference.html"/>
+      <id>1b9a166dd51053db7b5f864cf1f5c80512dd7342:reference.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;リファレンス&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;目次&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#language-support&#34;&gt;言語サポートライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#concepts&#34;&gt;コンセプトライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#diagnostics&#34;&gt;診断ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#general-utils&#34;&gt;汎用的なユーティリティライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#strings&#34;&gt;文字列ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#localization&#34;&gt;ローカライズライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#container&#34;&gt;コンテナライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#iterator&#34;&gt;イテレータライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ranges&#34;&gt;レンジライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#algorithm&#34;&gt;アルゴリズムライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#numerics&#34;&gt;数値ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#debug&#34;&gt;デバッグライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#io&#34;&gt;入出力ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#regular-expressions&#34;&gt;正規表現ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#atomic-operations&#34;&gt;アトミック操作ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#thread-support&#34;&gt;スレッドサポートライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clib-facilities&#34;&gt;C言語互換ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#exposition-only&#34;&gt;説明専用ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;a href=&#34;#language-support-library&#34; id=&#34;language-support&#34;&gt;言語サポートライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/limits.html&#34;&gt;&amp;lt;limits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装プロパティ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/version.html&#34;&gt;&amp;lt;version&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装依存のバージョン情報&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdfloat.html&#34;&gt;&amp;lt;stdfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;拡張浮動小数点数型&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/new.html&#34;&gt;&amp;lt;new&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;動的メモリ管理&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/typeinfo.html&#34;&gt;&amp;lt;typeinfo&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型情報&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/source_location.html&#34;&gt;&amp;lt;source_location&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソースコード上の位置&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/exception.html&#34;&gt;&amp;lt;exception&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外ハンドリング&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/initializer_list.html&#34;&gt;&amp;lt;initializer_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;初期化子リスト&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/compare.html&#34;&gt;&amp;lt;compare&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;比較演算&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/coroutine.html&#34;&gt;&amp;lt;coroutine&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コルーチン&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#concepts&#34; id=&#34;concepts&#34;&gt;コンセプトライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/concepts.html&#34;&gt;&amp;lt;concepts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;言語関係のコンセプト&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#diagnostics&#34; id=&#34;diagnostics&#34;&gt;診断ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdexcept.html&#34;&gt;&amp;lt;stdexcept&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外クラス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/system_error.html&#34;&gt;&amp;lt;system_error&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;システムエラーサポート&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#general-utils&#34; id=&#34;general-utils&#34;&gt;汎用的なユーティリティライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユーティリティコンポーネント&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/bitset.html&#34;&gt;&amp;lt;bitset&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビットの固定サイズシーケンス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ratio.html&#34;&gt;&amp;lt;ratio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時有理数&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/tuple.html&#34;&gt;&amp;lt;tuple&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;タプル&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/optional.html&#34;&gt;&amp;lt;optional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;任意で値を持たせられるオブジェクト&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/variant.html&#34;&gt;&amp;lt;variant&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;候補の型を切り替えながら保持できる記憶域型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/any.html&#34;&gt;&amp;lt;any&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;あらゆる型の値を保持できる記憶域型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/expected.html&#34;&gt;&amp;lt;expected&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;正常値かエラー値のどちらかを持たせられるオブジェクト&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型特性&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数オブジェクト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/scoped_allocator.html&#34;&gt;&amp;lt;scoped_allocator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スコープ付きアロケータ&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/memory_resource.html&#34;&gt;&amp;lt;memory_resource&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多相アロケータ&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/chrono.html&#34;&gt;&amp;lt;chrono&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;時間ユーティリティ&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/typeindex.html&#34;&gt;&amp;lt;typeindex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型のインデックス&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/execution.html&#34;&gt;&amp;lt;execution&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実行ポリシー、実行制御ライブラリ(C++26)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/charconv.html&#34;&gt;&amp;lt;charconv&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;高速な文字列 ⇔ 数値変換&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/format.html&#34;&gt;&amp;lt;format&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列フォーマット&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stacktrace.html&#34;&gt;&amp;lt;stacktrace&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スタックトレース&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#strings&#34; id=&#34;strings&#34;&gt;文字列ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列クラスと、文字特性&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/string_view.html&#34;&gt;&amp;lt;string_view&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;所有権を持たず文字列を参照する文字列クラス&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#localization&#34; id=&#34;localization&#34;&gt;ローカライズライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/locale.html&#34;&gt;&amp;lt;locale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/text_encoding.html&#34;&gt;&amp;lt;text_encoding&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列エンコーディングの識別&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/codecvt.html&#34;&gt;&amp;lt;codecvt&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コード変換ファセット&lt;/td&gt;
+&lt;td&gt;C++11&lt;br /&gt; C++17から非推奨&lt;br /&gt; C++26で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#container&#34; id=&#34;container&#34;&gt;コンテナライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/array.html&#34;&gt;&amp;lt;array&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/deque.html&#34;&gt;&amp;lt;deque&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;両端キュー&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/forward_list.html&#34;&gt;&amp;lt;forward_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;単方向リスト&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/list.html&#34;&gt;&amp;lt;list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;双方向リスト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/queue.html&#34;&gt;&amp;lt;queue&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;FIFOキュー&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stack.html&#34;&gt;&amp;lt;stack&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;LIFOスタック&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/vector.html&#34;&gt;&amp;lt;vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変長配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/inplace_vector.html&#34;&gt;&amp;lt;inplace_vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;容量固定の可変長配列&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/map.html&#34;&gt;&amp;lt;map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;順序付き連想配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/set.html&#34;&gt;&amp;lt;set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;順序付き集合&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/flat_map.html&#34;&gt;&amp;lt;flat_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソート済みキーによる順序付き連想配列&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/flat_set.html&#34;&gt;&amp;lt;flat_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソート済みキーによる順序付き集合&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/unordered_map.html&#34;&gt;&amp;lt;unordered_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非順序連想配列&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/unordered_set.html&#34;&gt;&amp;lt;unordered_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非順序集合&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/span.html&#34;&gt;&amp;lt;span&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;部分シーケンスの参照&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/mdspan.html&#34;&gt;&amp;lt;mdspan&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列ビュー&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#iterator&#34; id=&#34;iterator&#34;&gt;イテレータライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;イテレータの定義&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#ranges&#34; id=&#34;ranges&#34;&gt;レンジライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;レンジアルゴリズム&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/generator.html&#34;&gt;&amp;lt;generator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コルーチンによるレンジ生成&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#algorithm&#34; id=&#34;algorithm&#34;&gt;アルゴリズムライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アルゴリズム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#numerics&#34; id=&#34;numerics&#34;&gt;数値ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/complex.html&#34;&gt;&amp;lt;complex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;複素数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビット操作&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/random.html&#34;&gt;&amp;lt;random&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;乱数生成&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/valarray.html&#34;&gt;&amp;lt;valarray&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値の配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一般的な数値操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/numbers.html&#34;&gt;&amp;lt;numbers&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/linalg.html&#34;&gt;&amp;lt;linalg&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;線形代数&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#debug&#34; id=&#34;debug&#34;&gt;デバッグライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/debugging.html&#34;&gt;&amp;lt;debugging&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デバッグサポート&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/contracts.html&#34;&gt;&amp;lt;contracts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;契約プログラミング&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#io&#34; id=&#34;io&#34;&gt;入出力ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;iosfwd&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先行宣言&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iostream.html&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準&lt;code&gt;iostream&lt;/code&gt;オブジェクト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ios.html&#34;&gt;&amp;lt;ios&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;iostream&lt;/code&gt;基底クラス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/streambuf.html&#34;&gt;&amp;lt;streambuf&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームバッファ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入力ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;出力ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iomanip.html&#34;&gt;&amp;lt;iomanip&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;フォーマットとマニピュレータ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/sstream.html&#34;&gt;&amp;lt;sstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;strstream&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;古い文字列ストリーム&lt;/td&gt;
+&lt;td&gt;C++98から非推奨&lt;br /&gt; C++26で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/fstream.html&#34;&gt;&amp;lt;fstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/filesystem.html&#34;&gt;&amp;lt;filesystem&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルシステム&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/syncstream.html&#34;&gt;&amp;lt;syncstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;同期化出力ストリームラッパー&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/spanstream.html&#34;&gt;&amp;lt;spanstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリバッファの所有権をもたないストリーム&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/print.html&#34;&gt;&amp;lt;print&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式指定による出力&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#regular-expressions&#34; id=&#34;regular-expressions&#34;&gt;正規表現ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/regex.html&#34;&gt;&amp;lt;regex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;正規表現&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#atomic-operations&#34; id=&#34;atomic-operations&#34;&gt;アトミック操作ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アトミックアクセスのためのコンポーネント&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdatomic.h.html&#34;&gt;&amp;lt;stdatomic.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アトミック操作のC互換ライブラリ&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#thread-support&#34; id=&#34;thread-support&#34;&gt;スレッドサポートライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stop_token.html&#34;&gt;&amp;lt;stop_token&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;停止状態&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/thread.html&#34;&gt;&amp;lt;thread&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スレッド&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/mutex.html&#34;&gt;&amp;lt;mutex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ミューテックス&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/shared_mutex.html&#34;&gt;&amp;lt;shared_mutex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;共有ミューテックス&lt;/td&gt;
+&lt;td&gt;C++14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/condition_variable.html&#34;&gt;&amp;lt;condition_variable&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;条件変数&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/semaphore.html&#34;&gt;&amp;lt;semaphore&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;セマフォ&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/latch.html&#34;&gt;&amp;lt;latch&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ラッチ同期&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/barrier.html&#34;&gt;&amp;lt;barrier&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;バリア同期&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/future.html&#34;&gt;&amp;lt;future&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Future&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/rcu.html&#34;&gt;&amp;lt;rcu&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データの参照・更新&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/hazard_pointer.md.nolink&#34;&gt;&amp;lt;hazard_pointer&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ハザードポインタ&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/simd.md.nolink&#34;&gt;&amp;lt;simd&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データ並列&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#clib-facilities&#34; id=&#34;clib-facilities&#34;&gt;C言語互換ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cassert.html&#34;&gt;&amp;lt;cassert&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アサート&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ccomplex&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;複素数&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cctype.html&#34;&gt;&amp;lt;cctype&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字種別の判定と変換&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cerrno.html&#34;&gt;&amp;lt;cerrno&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;エラー番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cfenv.html&#34;&gt;&amp;lt;cfenv&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;浮動小数点環境へのアクセス&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cfloat.html&#34;&gt;&amp;lt;cfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;浮動小数点数の定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;固定精度整数のための書式指定マクロ&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ciso646&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;に対する別名&lt;code&gt;and&lt;/code&gt;のような、各種演算子に対するマクロを定義する。&lt;br /&gt; ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。&lt;/td&gt;
+&lt;td&gt;C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/climits.html&#34;&gt;&amp;lt;climits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;整数型の最小値、最大値を表すマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/clocale.html&#34;&gt;&amp;lt;clocale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cmath.html&#34;&gt;&amp;lt;cmath&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数学関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/csetjmp.html&#34;&gt;&amp;lt;csetjmp&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ジャンプ処理&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/csignal.html&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;シグナル&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdalign&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アライメント操作のマクロ&lt;/td&gt;
+&lt;td&gt;C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdarg&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdbit.h.html&#34;&gt;&amp;lt;stdbit.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビット操作&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdckdint.h.html&#34;&gt;&amp;lt;stdckdint.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;検査付き整数演算&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdbool&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;真理値型の定義&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstddef.html&#34;&gt;&amp;lt;cstddef&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基本的な型、値、マクロの定義&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;大きさが規定されている整数型&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdio.html&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdlib.html&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユーティリティ関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstring.html&#34;&gt;&amp;lt;cstring&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ctgmath&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ジェネリックな数学関数&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ctime.html&#34;&gt;&amp;lt;ctime&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日付・時間&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cuchar&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユニコード文字型&lt;/td&gt;
+&lt;td&gt;C++11 (C11)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cwchar&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cwctype&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字の種別と判定&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#exposition-only&#34; id=&#34;exposition-only&#34;&gt;説明専用ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/exposition-only.html&#34;&gt;exposition-only&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;説明のためのものを集めたページ (実際のライブラリではない)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2867r2.html&#34; target=&#34;_blank&#34;&gt;P2867R2 Remove Deprecated &lt;code&gt;strstream&lt;/code&gt;s From C++26&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>csetjmp -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp.html"/>
+      <id>1b9a166dd51053db7b5f864cf1f5c80512dd7342:reference/csetjmp.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csetjmp&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csetjmp&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csetjmp&amp;gt;&lt;/code&gt;ヘッダでは、非ローカルジャンプのための機能を定義する。非ローカルジャンプは、関数呼び出しのスタックを遡って、特定のポイントにジャンプすることを可能にする機能である。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/jmp_buf.html&#34;&gt;jmp_buf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非ローカルジャンプのための環境を保存するための型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/setjmp.html&#34;&gt;setjmp&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;現在の環境を保存するためのマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/longjmp.html&#34;&gt;longjmp&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;setjmp()&lt;/code&gt;で保存された環境を復元し、ジャンプするための関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>jmp_buf -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html"/>
+      <id>1b9a166dd51053db7b5f864cf1f5c80512dd7342:reference/csetjmp/jmp_buf.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/jmp_buf.md b/reference/csetjmp/jmp_buf.md
+new file mode 100644
+index 000000000..2a194d3ce
+--- /dev/null
++++ b/reference/csetjmp/jmp_buf.md
+@@ -0,0 +1,51 @@
++# jmp_buf
++* csetjmp[meta header]
++* type-alias[meta id-type]
++
++```cpp
++using jmp_buf = unspecified;
++```
++
++## 概要
++
++非ローカルジャンプ（関数を跨いだジャンプ）を実現するために、現在の実行環境を保存するための配列型である。
++
++`setjmp()`マクロによって現在の環境がこの型に保存され、後に`longjmp()`関数がその環境を復元するために使用される。
++
++## 例
++
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;csetjmp&amp;gt;
++
++std::jmp_buf env;
++
++void low_level_function() {
++  std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
++  std::longjmp(env, 42);
++}
++
++int main () {
++  int result = setjmp(env);
++  if (result == 0) {
++    low_level_function();
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました:&amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
++  }
++
++  return 0;
++}
++```
++* std::jmp_buf[color ff0000]
++* std::longjmp[link longjmp.md]
++* setjmp[link setjmp.md]
++
++### 出力
++```
++何らかのエラー
++エラーから復帰しました:42
++```
++
++## 関連項目
++- [`longjmp()`](longjmp.md)
++- [`setjmp()`](setjmp.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>longjmp -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/longjmp.html"/>
+      <id>1b9a166dd51053db7b5f864cf1f5c80512dd7342:reference/csetjmp/longjmp.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/longjmp.md b/reference/csetjmp/longjmp.md
+new file mode 100644
+index 000000000..0d5138b47
+--- /dev/null
++++ b/reference/csetjmp/longjmp.md
+@@ -0,0 +1,68 @@
++# longjmp
++* csetjmp[meta header]
++* std[meta namespace]
++* function[meta id-type]
++
++```cpp
++namespace std {
++  [[noreturn]] void longjmp(jmp_buf env, int val);
++}
++```
++
++## 概要
++
++引数`env`に保存された実行環境を復元し、対応する`setjmp()`の呼び出し地点へプログラムの制御を移す（非ローカルジャンプ）。
++
++## 効果
++
++* `setjmp()`によってjmp_bufに保存された実行環境（スタックポインタ、プログラムカウンタ等）を復元する。
++
++* プログラムの実行地点を、対応する`setjmp()`の呼び出し地点へジャンプさせる。
++
++* ジャンプ先の`setjmp()`は、この関数の第二引数valを戻り値として返す。ただし、valが0の場合は1を返す。
++
++## 戻り値
++
++この関数は決して返らない。
++
++## 備考
++
++* ジャンプによって自動記憶域期間を持つオブジェクトのスコープを抜ける際、そのオブジェクトが非自明なデストラクタを持つ場合、動作は未定義である。
++
++## 例
++
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;csetjmp&amp;gt;
++
++std::jmp_buf env;
++
++void low_level_function() {
++  std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
++  std::longjmp(env, 0);  // valが0なので、setjmpは1を返す
++}
++
++int main () {
++  int result = setjmp(env);
++  if (result == 0) {  // 直接呼び出された場合は0を返すので、エラー処理を行う
++    low_level_function();
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました:&amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
++  }
++  return 0;
++}
++```
++* std::longjmp[color ff0000]
++* setjmp[link setjmp.md]
++* std::jmp_buf[link jmp_buf.md]
++
++### 出力
++
++```
++何らかのエラー
++エラーから復帰しました:1
++```
++
++## 関連項目
++* [`jmp_buf`](jmp_buf.md)
++* [`setjmp`](setjmp.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setjmp -- `csetjmp`リファレンスの追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
+      <id>1b9a166dd51053db7b5f864cf1f5c80512dd7342:reference/csetjmp/setjmp.md</id>
+      <updated>2026-04-29T08:19:25+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
+new file mode 100644
+index 000000000..9073f18d5
+--- /dev/null
++++ b/reference/csetjmp/setjmp.md
+@@ -0,0 +1,75 @@
++# setjmp
++* csetjmp[meta header]
++* macro[meta id-type]
++
++```cpp
++# define setjmp(env)
++```
++
++## 概要
++
++現在の環境を引数`env`に保存するマクロ。
++`env`は、`jmp_buf`型のオブジェクトでなければならない。
++
++## 事前条件
++
++このマクロは以下の文脈でのみ現れる。
++
++1. 条件式または反復式の制御式全体
++2. 関係演算子または等価演算子のオペランドの一つ(もう一つのオペランドは整数定数)
++3. ! のオペランドであり、その結果式が1を満たす場合
++4. 式文の式全体(void型へのキャストを含む)
++
++上記以外の箇所での呼び出しは未定義の動作となる。
++
++## 戻り値
++
++直接マクロが呼び出された場合、0を返す。
++それ以外(`longjmp`関数から)の呼び出しでは非0を返す。
++なお、`longjmp`関数の第二引数が0の場合は、1を返す。
++
++## 備考
++
++* 対応する`setjmp` と `longjmp` の間で、自動記憶域期間を持つ非自明なデストラクタを持つオブジェクトの生存期間が終了する場合（ジャンプによってデストラクタを飛ばす場合）、その動作は未定義である。
++* コルーチンのサスペンションコンテキスト内で呼び出された場合、動作は未定義である。
++
++
++## 例
++
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;csetjmp&amp;gt;
++
++std::jmp_buf env;
++
++void low_level_function() {
++  std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
++  std::longjmp(env, 42);
++}
++
++int main () {
++  int result = setjmp(env);
++  if (result == 0) {
++    low_level_function();
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました:&amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
++  }
++
++  return 0;
++}
++```
++* setjmp[color ff0000]
++* std::longjmp[link longjmp.md]
++* std::jmp_buf[link jmp_buf.md]
++
++
++### 出力
++
++```
++何らかのエラー
++エラーから復帰しました:42
++```
++
++## 関連項目
++- [jmp_buf](/reference/csetjmp/jmp_buf.md)
++- [longjmp](/reference/csetjmp/longjmp.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
       <title>コンパイラの実装状況 -- コンパイラの実装状況 : GCC 16に対応</title>
       <link href="https://cpprefjp.github.io/implementation-status.html"/>
-      <id>2ad29a06cffb02715711300b86b0891f08c0af78:implementation-status.md</id>
+      <id>113d2677609673a8239539073b6eb2e89424d3ba:implementation-status.md</id>
       <updated>2026-04-30T16:42:06+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;コンパイラの実装状況&lt;/span&gt;&lt;/h1&gt;
@@ -1984,392 +3396,6 @@ index 9073f18d5..bb8fd467e 100644
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>spawn_future -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/spawn_future.html"/>
-      <id>594e626aa9875afed37a80247ab527b6e45b395a:reference/execution/execution/spawn_future.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/spawn_future.md b/reference/execution/execution/spawn_future.md
-index d3b28bda4..d0b0c6f5e 100644
---- a/reference/execution/execution/spawn_future.md
-+++ b/reference/execution/execution/spawn_future.md
-@@ -292,7 +292,7 @@ void abandon() noexcept;
- ```
- 
- - 効果 :
--    - `*this`に対するこの`abandon`の呼び出しが`complete`の呼び出しより前に発生するならば、下記と等価。
-+    - `*this`に対するこの`abandon`の呼び出しが`complete`の呼び出しよりも前に発生するならば、下記と等価。
- 
-         ```cpp
-         ssource.request_stop();
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>schedule -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.html"/>
-      <id>594e626aa9875afed37a80247ab527b6e45b395a:reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md
-index de26de4c8..67012eb8d 100644
---- a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md
-+++ b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md
-@@ -17,7 +17,7 @@ virtual void schedule(receiver_proxy&amp;amp; r, span&amp;lt;byte&amp;gt; s) noexcept = 0;
- 
- 
- ## 事前条件
--`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。
-+`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生すること。
- 
- 
- ## 効果
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>schedule_bulk_chunked -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.html"/>
-      <id>594e626aa9875afed37a80247ab527b6e45b395a:reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md
-index d5da8d4d0..2b305af65 100644
---- a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md
-+++ b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md
-@@ -19,7 +19,7 @@ virtual void schedule_bulk_chunked(size_t n,
- 
- 
- ## 事前条件
--`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。
-+`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生すること。
- 
- 
- ## 効果
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>schedule_bulk_unchunked -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.html"/>
-      <id>594e626aa9875afed37a80247ab527b6e45b395a:reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md
-index 65b572f1a..513171699 100644
---- a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md
-+++ b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md
-@@ -19,7 +19,7 @@ virtual void schedule_bulk_unchunked(size_t n,
- 
- 
- ## 事前条件
--`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。
-+`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生すること。
- 
- 
- ## 効果
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>stoppable_token -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/stop_token/stoppable_token.html"/>
-      <id>594e626aa9875afed37a80247ab527b6e45b395a:reference/stop_token/stoppable_token.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stop_token/stoppable_token.md b/reference/stop_token/stoppable_token.md
-index 6143103d2..c4d168f12 100644
---- a/reference/stop_token/stoppable_token.md
-+++ b/reference/stop_token/stoppable_token.md
-@@ -47,8 +47,8 @@ concept stoppable_token =
- 説明用の変数`t`, `u`を、同一の停止状態を参照する別々な`Token`型オブジェクトとする。
- 型`Token`が以下を満たす場合に限って、型`Token`は`stoppable_token`のモデルである。
- 
--- `SP`を`t.stop_possible()`が`false`となる評価としたとき、`SP`より後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`false`であること。
--- `SR`を`t.stop_requested()`が`true`となる評価としたとき、`SR`より後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`true`であること。
-+- `SP`を`t.stop_possible()`が`false`となる評価としたとき、`SP`よりも後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`false`であること。
-+- `SR`を`t.stop_requested()`が`true`となる評価としたとき、`SR`よりも後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`true`であること。
- - `stoppable-callback-for&amp;lt;CallbackFn, Token, Initialize&amp;gt;`を満たす任意の型`CallbackFn`および型`Initialize`が、`stoppable-callback-for&amp;lt;CallbackFn, Token, Initializer&amp;gt;`のモデルであること。
- - `t`が停止状態を持たない(disengaged)とき、`t.stop_possible()`や`t.stop_requested()`の評価が`false`であること。
- - `t`と`u`が同一の停止状態を参照するか共に停止状態を持たないとき`t == u`が`true`であり、それ以外のときは`false`であること。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>spawn_future -- execution/spawn_future: LWG4540適用</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/spawn_future.html"/>
-      <id>663f889277917306becb44b7fc8d5c601644506a:reference/execution/execution/spawn_future.md</id>
-      <updated>2026-04-30T10:56:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/spawn_future.md b/reference/execution/execution/spawn_future.md
-index f462903ff..d3b28bda4 100644
---- a/reference/execution/execution/spawn_future.md
-+++ b/reference/execution/execution/spawn_future.md
-@@ -51,7 +51,8 @@ Senderアルゴリズム動作説明用のクラステンプレート[`impls-for
- namespace std::execution {
-   template&amp;lt;&amp;gt;
-   struct impls-for&amp;lt;spawn_future_t&amp;gt; : default-impls {
--    static constexpr auto start = see below;  // exposition only
-+    static constexpr auto start = see below;      // exposition only
-+    static constexpr auto get-state = see below;  // exposition only
-   };
- }
- ```
-@@ -61,24 +62,45 @@ namespace std::execution {
- `impls-for&amp;lt;spawn_future_t&amp;gt;::start`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
- 
- ```cpp
--[](auto&amp;amp; state, auto&amp;amp; rcvr) noexcept -&amp;gt; void {
--  state-&amp;gt;consume(rcvr);
-+[](auto&amp;amp; state, auto&amp;amp;) noexcept -&amp;gt; void {
-+  state.run();
- }
- ```
- 
-+`impls-for&amp;lt;spawn_future_t&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
-+
-+```cpp
-+[]&amp;lt;class Sndr, class Rcvr&amp;gt;(Sndr sndr, Rcvr&amp;amp; rcvr) noexcept {
-+  auto&amp;amp; [_, data] = sndr;
-+  using state_ptr = remove_cvref_t&amp;lt;decltype(data)&amp;gt;;
-+  return future-operation&amp;lt;state_ptr, Rcvr&amp;gt;(std::move(data), std::move(rcvr));
-+}
-+```
-+* std::move[link /reference/utility/move.md]
-+
- 
- ## 説明専用エンティティ
-+### クラス`try-cancelable`
-+```cpp
-+namespace std::execution {
-+  struct try-cancelable {                   // exposition only
-+    virtual void try-cancel() noexcept = 0; // exposition only
-+  };
-+}
-+```
-+
- ### クラステンプレート`spawn-future-state-base`
- ```cpp
- namespace std::execution {
-   template&amp;lt;class Completions&amp;gt;
--  struct spawn-future-state-base;                                   // exposition only
-+  struct spawn-future-state-base;                                 // exposition only
- 
-   template&amp;lt;class... Sigs&amp;gt;
--  struct spawn-future-state-base&amp;lt;completion_signatures&amp;lt;Sigs...&amp;gt;&amp;gt; {  // exposition only
--    using variant-t = see below;                                    // exposition only
--    variant-t result;                                               // exposition only
--    virtual void complete() noexcept = 0;                           // exposition only
-+  struct spawn-future-state-base&amp;lt;completion_signatures&amp;lt;Sigs...&amp;gt;&amp;gt;  // exposition only
-+    : try-cancelable {
-+    using variant-t = see below;                                  // exposition only
-+    variant-t result;                                             // exposition only
-+    virtual void complete() noexcept = 0;                         // exposition only
-   };
- }
- ```
-@@ -184,6 +206,11 @@ namespace std::execution {
-     void complete() noexcept override;                                      // exposition only
-     void consume(receiver auto&amp;amp; rcvr) noexcept;                             // exposition only
-     void abandon() noexcept;                                                // exposition only
-+    void try-cancel() noexcept override {                                   // exposition only
-+      ssource.request_stop();
-+      try-set-stopped();
-+    }
-+    void try-set-stopped() noexcept;                                        // exposition only
- 
-   private:
-     using assoc-t =                                                         // exposition only
-@@ -214,7 +241,7 @@ namespace std::execution {
- * set_stopped[link set_stopped.md]
- * std::move[link /reference/utility/move.md]
- 
--データ競合の存在を判定する目的において、`complete`, `consume`, `abandon`はアトミック操作として振る舞う。
-+データ競合の存在を判定する目的において、`complete`, `consume`, `try-set-stopped`, `abandon`はアトミック操作として振る舞う。
- `spawn-future-state`の特殊化である型の単一オブジェクトに対するこれらの操作は、単一の全順序で発生するように見える。
- 
- ```cpp
-@@ -222,8 +249,8 @@ void complete() noexcept;
- ```
- 
- - 効果 :
--    - `*this`に対するこの`complete`の呼び出しが`consume`もしくは`abandon`の呼び出しよりも前に発生するならば、効果を持たない。
--    - そうではなく、`*this`に対する`consume`の呼び出しがこの`complete`の呼び出しよりも前に発生するならば、[Receiver](receiver.md)`rcvr`が登録され、そのReceiverは`consume(rcvr)`によって完了する。
-+    - `*this`に対するこの`complete`の呼び出しが`consume`, `try-set-stopped`, `abandon`いずれかの呼び出しよりも前に発生するならば、効果を持たない。
-+    - そうではなく、`*this`に対する`consume`の呼び出しがこの`complete`の呼び出しよりも前に発生し、かつ`*this`に対するこの`complete`の呼び出しよりも前に発生する`try-set-stopped`の呼び出しが存在しなければ、`consume(rcvr)`によって登録解除と完了する登録された[Receiver](receiver.md)`rcvr`が存在する。
-     - そうではないとき、`destroy`が呼び出される。
- 
- ```cpp
-@@ -232,7 +259,8 @@ void consume(receiver auto&amp;amp; rcvr) noexcept;
- * receiver[link receiver.md]
- 
- - 効果 :
--    - `*this`に対するこの`consume`の呼び出しが`complete`の呼び出しよりも前に発生するならば、`*this`に対してその後`complete`が呼び出されるとき`rcvr`が完了するよう登録される。
-+    - `*this`に対するこの`consume`の呼び出しが`complete`の呼び出しよりも前に発生し、かつ`*this`に対するこの`consume`の呼び出しよりも前に発生する`try-set-stopped`の呼び出しが存在しなければ、`*this`に対してその後`complete`が呼び出されるとき`rcvr`が完了するよう登録される。
-+    - そうではなく、`*this`に対するこの`consume`の呼び出しが`try-set-stopped`の呼び出しよりも後に発生し、かつ`*this`に対するこの`consume`の呼び出しよりも前に発生する`complete`の呼び出しが存在しなければ、`rcvr`は[`set_stopped`](set_stopped.md)`(std::move(rcvr))`により完了する。
-     - そうではないとき、下記のように`rcvr`が完了する :
- 
-         ```cpp
-@@ -244,12 +272,21 @@ void consume(receiver auto&amp;amp; rcvr) noexcept;
-               }, std::move(tuple));
-             }
-           });
-+        detroy();
-         ```
-         * visit[link /reference/variant/visit.md]
-         * monostate[link /reference/variant/monostate.md]
-         * apply[link /reference/tuple/apply.md]
-         * std::move[link /reference/utility/move.md]
- 
-+```cpp
-+void try-set-stopped() noexcept;
-+```
-+
-+- 効果 :
-+    - `*this`に対する`consume`の呼び出しがこの`try-set-stopped`の呼び出しよりも前に発生し、かつ`*this`に対するこの`try-set-stopped`の呼び出しよりも前に発生する`complete`の呼び出しが存在しなければ、[`set_stopped`](set_stopped.md)`(std::move(rcvr)), destroy()`によって登録解除と完了する登録された[Receiver](receiver.md)`rcvr`が存在する。
-+    - そうではないとき、効果を持たない。
-+
- ```cpp
- void abandon() noexcept;
- ```
-@@ -283,6 +320,98 @@ void destroy() noexcept;
-     * deallocate[link /reference/memory/allocator_traits/deallocate.md]
-     * std::move[link /reference/utility/move.md]
- 
-+### クラステンプレート`future-operation`
-+
-+```cpp
-+namespace std::execution {
-+  template&amp;lt;class StatePtr, class Rcvr&amp;gt;
-+  struct future-operation {                              // exposition only
-+    struct callback {                                    // exposition only
-+      try-cancelable* state;                             // exposition only
-+      
-+      void operator()() noexcept {
-+        state-&amp;gt;try-cancel();
-+      };
-+    };
-+
-+    using stop-token-t =                                 // exposition only
-+      stop_token_of_t&amp;lt;env_of_t&amp;lt;Rcvr&amp;gt;&amp;gt;;
-+
-+    using stop-callback-t =                              // exposition only
-+      stop_callback_for_t&amp;lt;stop-token-t, callback&amp;gt;;
-+
-+    struct receiver {                                    // exposition only
-+      using receiver_concept = receiver_t;
-+      future-operation* op;                              // exposition only
-+
-+      template&amp;lt;class... T&amp;gt;
-+      void set_value(T&amp;amp;&amp;amp;... ts) &amp;amp;&amp;amp; noexcept {
-+        op-&amp;gt;set-complete&amp;lt;set_value_t&amp;gt;(std::forward&amp;lt;T&amp;gt;(ts)...);
-+      }
-+
-+      template&amp;lt;class E&amp;gt;
-+      void set_error(E&amp;amp;&amp;amp; e) &amp;amp;&amp;amp; noexcept {
-+        op-&amp;gt;set-complete&amp;lt;set_error_t&amp;gt;(std::forward&amp;lt;E&amp;gt;(e));
-+      }
-+
-+      void set_stopped() &amp;amp;&amp;amp; noexcept {
-+        op-&amp;gt;set-complete&amp;lt;set_stopped_t&amp;gt;();
-+      }
-+
-+      env_of_t&amp;lt;Rcvr&amp;gt; get_env() const noexcept {
-+        return execution::get_env(op-&amp;gt;rcvr);
-+      }
-+    };
-+
-+    Rcvr rcvr;                                       // exposition only
-+    StatePtr state;                                  // exposition only
-+    receiver inner;                                  // exposition only
-+    optional&amp;lt;stop-callback-t&amp;gt; stopCallback;          // exposition only
-+
-+
-+    future-operation(StatePtr state, Rcvr rcvr) noexcept // exposition only
-+      : rcvr(std::move(rcvr)), state(std::move(state)), inner(this)
-+    {}
-+
-+    future-operation(future-operation&amp;amp;&amp;amp;) = delete;
-+
-+    void run() &amp;amp; noexcept {                              // exposition only
-+      constexpr bool nothrow =
-+        is_nothrow_constructible_v&amp;lt;stop-callback-t, stop-token-t, callback&amp;gt;;
-+      try {
-+	      stopCallback.emplace(get_stop_token(rcvr), callback(state.get()));
-+      }
-+      catch (...) {
-+        if constexpr (!nothrow) {
-+          set_error(std::move(rcvr), current_exception());
-+          return;
-+        }
-+      }
-+
-+      state.release()-&amp;gt;consume(inner);
-+    }
-+
-+    template&amp;lt;class CPO, class... T&amp;gt;
-+    void set-complete(T&amp;amp;&amp;amp;... ts) noexcept {              // exposition only
-+      stopCallback.reset();
-+      CPO{}(std::move(rcvr), std::forward&amp;lt;T&amp;gt;(ts)...);
-+    }
-+  };
-+}
-+```
-+* stop_token_of_t[link ../stop_token_of_t.md]
-+* env_of_t[link env_of_t.md]
-+* receiver_t[link receiver.md]
-+* set_value_t[link set_value.md]
-+* set_error_t[link set_error.md]
-+* set_stopped_t[link set_stopped.md]
-+* execution::get_env[link get_env.md]
-+* get_stop_token[link ../get_stop_token.md]
-+* stop_callback_for_t[link /reference/stop_token/stop_callback_for_t.md]
-+* is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
-+* current_exception()[link /reference/exception/current_exception.md]
-+* std::move[link /reference/utility/move.md]
-+
- 
- ## 例
- ```cpp example
-@@ -359,3 +488,4 @@ value=42
- - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
- - [P3914R0 Assorted NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html), US 228-348
- - [P3923R0 Additional NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3923r0.html), US 227-346, 229-347
-+- [LWG4540. `future-sender`s returned from `spawn_future` do not forward stop requests to spawned work](https://cplusplus.github.io/LWG/issue4540)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
       </author>
     </entry>
   

@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csetjmp&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2493ff98503220f8f7c3a42c47c89be5797d8531&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;csetjmp&gt;\n\nstd::jmp_buf env;\n\nvoid low_level_function() {\n  std::cout &lt;&lt; \&#34;\u4f55\u3089\u304b\u306e\u30a8\u30e9\u30fc\&#34; &lt;&lt; std::endl;\n  std::longjmp(env, 0);  // val\u304c0\u306a\u306e\u3067\u3001setjmp\u306f1\u3092\u8fd4\u3059\n}\n\nint main () {\n  int result = setjmp(env);\n  if (result == 0) {  // \u76f4\u63a5\u547c\u3073\u51fa\u3055\u308c\u305f\u5834\u5408\u306f0\u3092\u8fd4\u3059\u306e\u3067\u3001\u30a8\u30e9\u30fc\u51e6\u7406\u3092\u884c\u3046\n    low_level_function();\n  } else {\n    std::cout &lt;&lt; \&#34;\u30a8\u30e9\u30fc\u304b\u3089\u5fa9\u5e30\u3057\u307e\u3057\u305f:\&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csetjmp&#34;, &#34;longjmp&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csetjmp&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a25cf487b2b0e216d8053f2cf115b7e02ac2db29&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;csetjmp&gt;\n\nstd::jmp_buf env;\n\nvoid low_level_function() {\n  std::cout &lt;&lt; \&#34;\u4f55\u3089\u304b\u306e\u30a8\u30e9\u30fc\&#34; &lt;&lt; std::endl;\n  std::longjmp(env, 0);  // val\u304c0\u306a\u306e\u3067\u3001setjmp\u306f1\u3092\u8fd4\u3059\n}\n\nint main () {\n  int result = setjmp(env);\n  if (result == 0) {\n    low_level_function();\n  } else {\n    std::cout &lt;&lt; \&#34;\u30a8\u30e9\u30fc\u304b\u3089\u5fa9\u5e30\u3057\u307e\u3057\u305f:\&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csetjmp&#34;, &#34;longjmp&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-29T07:19:25">
-        2026年04月29日 07時19分25秒
+      <span itemprop="datePublished" content="2026-05-01T10:25:13">
+        2026年05月01日 10時25分13秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,13 +223,13 @@
 <h2>効果</h2>
 <ul>
 <li>
-<p><code>setjmp()</code>によってjmp_bufに保存された実行環境（スタックポインタ、プログラムカウンタ等）を復元する。</p>
+<p><code>setjmp()</code>によって第一引数<code>env</code>に保存された実行環境（スタックポインタ、プログラムカウンタ等）を復元する。</p>
 </li>
 <li>
 <p>プログラムの実行地点を、対応する<code>setjmp()</code>の呼び出し地点へジャンプさせる。</p>
 </li>
 <li>
-<p>ジャンプ先の<code>setjmp()</code>は、この関数の第二引数valを<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として返す。ただし、valが0の場合は1を返す。</p>
+<p>ジャンプ先の<code>setjmp()</code>は、この関数の第二引数<code>val</code>を<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として返す。ただし、<code>val</code>が0の場合は1を返す。</p>
 </li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
@@ -237,9 +237,10 @@
 <h2>備考</h2>
 <ul>
 <li>ジャンプによって自動記憶域期間を持つオブジェクトのスコープを抜ける際、そのオブジェクトが非自明なデストラクタを持つ場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である。</li>
+<li>コルーチンのサスペンションコンテキスト内で呼び出された場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="2493ff98503220f8f7c3a42c47c89be5797d8531"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<p><div class="yata" id="a25cf487b2b0e216d8053f2cf115b7e02ac2db29"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;csetjmp&gt;</span>
 
 <span class="n"><a href="jmp_buf.html">std::jmp_buf</a></span><span class="w"> </span><span class="n">env</span><span class="p">;</span>
@@ -251,7 +252,7 @@
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="setjmp.html">setjmp</a></span><span class="p">(</span><span class="n">env</span><span class="p">);</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 直接呼び出された場合は0を返すので、エラー処理を行う</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">low_level_function</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"エラーから復帰しました:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
