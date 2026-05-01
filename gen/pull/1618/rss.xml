@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-05-01T12:22:01.894912</updated>
-  <id>376df8ec-2991-45f3-bb0d-177670269452</id>
+  <updated>2026-05-01T12:32:14.679609</updated>
+  <id>b5db39b2-122a-41a8-b24b-ca9e506774fa</id>
 
   
     <entry>
       <title>csetjmp -- `__stdc_version_setjmp_h__`リファレンスページの追加</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp.html"/>
-      <id>026aa1d48f565b75023489899238d16a2647b564:reference/csetjmp.md</id>
+      <id>5d1185b5c681d0e9ec6f578389c4f442213b1a7f:reference/csetjmp.md</id>
       <updated>2026-05-01T13:17:02+01:00</updated>
       
         <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csetjmp&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csetjmp&lt;/span&gt;&lt;/h1&gt;
@@ -29,11 +29,6 @@
 &lt;td&gt;非ローカルジャンプのための環境を保存するための型&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/stdc_version_setjmp_h.html&#34;&gt;__STDC_VERSION_SETJMP_H__&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;C11以降で定義されるマクロ&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2&gt;マクロ&lt;/h2&gt;
@@ -50,6 +45,11 @@
 &lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/setjmp.html&#34;&gt;setjmp&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;現在の環境を保存するためのマクロ&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csetjmp/stdc_version_setjmp_h.html&#34;&gt;__STDC_VERSION_SETJMP_H__&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;C23に準拠していることを示すマクロ&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -80,7 +80,7 @@
     <entry>
       <title>__STDC_VERSION_SETJMP_H__ -- `__stdc_version_setjmp_h__`リファレンスページの追加</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp/stdc_version_setjmp_h.html"/>
-      <id>026aa1d48f565b75023489899238d16a2647b564:reference/csetjmp/stdc_version_setjmp_h.md</id>
+      <id>5d1185b5c681d0e9ec6f578389c4f442213b1a7f:reference/csetjmp/stdc_version_setjmp_h.md</id>
       <updated>2026-05-01T13:17:02+01:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/stdc_version_setjmp_h.md b/reference/csetjmp/stdc_version_setjmp_h.md
