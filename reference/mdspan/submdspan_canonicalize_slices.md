@@ -72,11 +72,11 @@ namespace std {
 `src`の各次元インデクス`k`に対して、
 
 - `SliceSpecifiers...[k]`が`IndexType`の`submdspan`スライス型であり、かつ
-- `decltype(`[`cannonical-slice`](canonical-slice.md)`<IndexType>(slices...[k]))`が[`extents`](extents.md)`<IndexType, Extents...>`のk番目次元の有効`submdspan`スライス型(valid `submdspan` slice type)であること。
+- `decltype(`[`canonical-slice`](canonical-slice.md)`<IndexType>(slices...[k]))`が[`extents`](extents.md)`<IndexType, Extents...>`のk番目次元の有効`submdspan`スライス型(valid `submdspan` slice type)であること。
 
 
 ## 事前条件
-`src`の各次元インデクス`k`に対して、[`cannonical-slice`](canonical-slice.md)`<IndexType>(slices...[k])`が`src`のk番目次元の有効`submdspan`スライス(valid `submdspan` slice)であること。
+`src`の各次元インデクス`k`に対して、[`canonical-slice`](canonical-slice.md)`<IndexType>(slices...[k])`が`src`のk番目次元の有効`submdspan`スライス(valid `submdspan` slice)であること。
 
 
 ## 戻り値

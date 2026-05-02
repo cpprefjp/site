@@ -272,7 +272,7 @@ void consume(receiver auto& rcvr) noexcept;
               }, std::move(tuple));
             }
           });
-        detroy();
+        destroy();
         ```
         * visit[link /reference/variant/visit.md]
         * monostate[link /reference/variant/monostate.md]

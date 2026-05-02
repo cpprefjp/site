@@ -21,8 +21,8 @@
 | [`layout_left`](mdspan/layout_left.md)     | 列優先(Fortran/Matlabスタイル)レイアウトマッピングポリシー (class) | C++23 |
 | [`layout_right`](mdspan/layout_right.md)   | 行優先(C/C++スタイル)レイアウトマッピングポリシー (class) | C++23 |
 | [`layout_stride`](mdspan/layout_stride.md) | ストライド幅指定レイアウトマッピングポリシー (class) | C++23 |
-| [`layout_left_padded`](mdspan/layout_left_padded.md) | パディングあり列優先レイアウトマッピングポリシー (class templte) | C++26 |
-| [`layout_right_padded`](mdspan/layout_right_padded.md) | パディングあり行優先レイアウトマッピングポリシー (class templte) | C++26 |
+| [`layout_left_padded`](mdspan/layout_left_padded.md) | パディングあり列優先レイアウトマッピングポリシー (class template) | C++26 |
+| [`layout_right_padded`](mdspan/layout_right_padded.md) | パディングあり行優先レイアウトマッピングポリシー (class template) | C++26 |
 
 
 ## 要素アクセサ
