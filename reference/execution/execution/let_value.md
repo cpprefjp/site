@@ -17,7 +17,7 @@ namespace std::execution {
 
 `let_value`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
-本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。
+本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。また`let-tag`を`let_value`／`let_error`／`let_stopped`それぞれに対して一意な空のクラスとする。
 
 | `let-cpo` | `set-cpo` |
 |----|----|
@@ -38,16 +38,33 @@ transform_sender(get-domain-early(sndr), make-sender(let-cpo, f, sndr))
 * get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 
+説明用のクラステンプレート`let-data`を下記の通り定義する。
 
-### Senderアルゴリズムタグ `let-cpo`
+```cpp
+template<class Sndr, class Fn>
+struct let-data {
+  Sndr sndr; // exposition only
+  Fn fn;     // exposition only
+};
+```
+
+式`let-cpo.transform_sender(s, es...)`は、`s`が1回だけ評価されることを除いて、下記と等価。
+
+```cpp
+make-sender(let-tag{}, let-data{s.template get<2>(), s.template get<1>()})
+```
+* make-sender[link make-sender.md]
+* let-tag[italic]
+
+### Senderアルゴリズムタグ `let-tag`
 Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
 namespace std::execution {
   template<>
-  struct impls-for<decayed-typeof<let-cpo>> : default-impls {
+  struct impls-for<let-tag> : default-impls {
     static constexpr auto get-state = see below;
-    static constexpr auto complete = see below;
+    static constexpr auto start = see below;
 
     template<class Sndr, class... Env>
     static consteval void check-types();
@@ -56,38 +73,25 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* decayed-typeof[link /reference/functional/decayed-typeof.md]
-* let-cpo[italic]
+* let-tag[italic]
 
-`impls-for<decayed-typeof<let-cpo>>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
-
-- `args_variant_t` : 入力Sender`sndr`の完了シグネチャ集合から求まる送信値リスト型情報(`variant<monostate, tuple<...>, ...>`)
-- `ops2_variant_t` : `f`が返すSenderに対応する非同期操作型情報(`variant<monostate, {OperationState型}, ...>`)
-- 戻り値`state-type`型オブジェクトを下記の通り初期化する。同オブジェクトは`complete`メンバから呼ばれる`let-bind`で利用される。
-    - `fn` : Senderアルゴリズム構築時に指定した関数呼び出し可能オブジェクト`f`
-    - `env` : 入力Sender`sndr`に関連付けられた[属性](../queryable.md)
-    - `args` : `f`呼び出し時の引数リスト格納用変数（空値`monostate`で初期化）
-    - `ops` : `f`が返すSenderに対応する非同期操作の格納用変数（空値`monostate`で初期化）
+`impls-for<let-tag>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) requires see below {
-  auto& [_, fn, child] = sndr;
+  auto& [_, data] = sndr;
+  auto& [child, fn] = data;
+  using child_t = decltype(std::forward_like<Sndr>(child));
   using fn_t = decay_t<decltype(fn)>;
-  using env_t = decltype(let-env(child));
   using args_variant_t = see below;
-  using ops2_variant_t = see below;
-
-  struct state-type {
-    fn_t fn;              // exposition only
-    env_t env;            // exposition only
-    args_variant_t args;  // exposition only
-    ops2_variant_t ops2;  // exposition only
-  };
-  return state-type{allocator-aware-forward(std::forward_like<Sndr>(fn), rcvr),
-                    let-env(child), {}, {}};
+  using ops_variant_t = see below;
+  using state_t = let-state<decayed-typeof<set-cpo>, child_t, fn_t, Rcvr,
+                            args_variant_t, ops_variant_t>;
+  return state_t(std::forward_like<Sndr>(child), std::forward_like<Sndr>(fn), rcvr);
 }
 ```
-* allocator-aware-forward[link allocator-aware-forward.md]
+* decayed-typeof[link /reference/functional/decayed-typeof.md]
+* set-cpo[italic]
 
 - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`<Rcvr>)>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
 
@@ -97,10 +101,12 @@ namespace std::execution {
     * variant[link /reference/variant/variant.md]
     * monostate[link /reference/variant/monostate.md]
 
-- 説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-sndr2<Tag(Args...)>`を[`call-result-t`](/reference/functional/call-result-t.md)`<Fn,` [`decay_t`](/reference/type_traits/decay.md)`<Args>&...>`と定義する。型`ops2_variant_t`は下記定義において重複削除した型となる。
+- 説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-sndr2<Tag(Args...)>`を[`call-result-t`](/reference/functional/call-result-t.md)`<Fn,` [`decay_t`](/reference/type_traits/decay.md)`<Args>&...>`と定義する。型`ops_variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
-    variant<monostate, connect_result_t<as-sndr2<LetSigs>, receiver2<Rcvr, env_t>>...>
+    variant<monostate,
+            connect_result_t<child_t, let-state::receiver,
+            connect_result_t<as-sndr2<LetSigs>, receiver2<Rcvr, env_t>>...>
     ```
     * variant[link /reference/variant/variant.md]
     * monostate[link /reference/variant/monostate.md]
@@ -108,27 +114,15 @@ namespace std::execution {
 
 - 型`args_variant_t`および`ops2_variant_t`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
 
-`impls-for<decayed-typeof<let-cpo>>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
-
-- 完了関数`set-cpo`の場合、Sender構築時の引数`f`に対して`f(args...)`を呼び出し、戻り値[Sender](sender.md)から入れ子非同期操作を開始する。同Senderの完了結果を接続先[Receiver](receiver.md)へ転送する。
-- それ以外の完了操作の場合、接続先[Receiver](receiver.md)の同種完了関数へ転送する。
+`impls-for<let-tag>::start`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
 ```cpp
-[]<class Tag, class... Args>
-  (auto, auto& state, auto& rcvr, Tag, Args&&... args) noexcept -> void {
-    if constexpr (same_as<Tag, decayed-typeof<set-cpo>>) {
-      TRY-EVAL(rcvr, let-bind(state, rcvr, std::forward<Args>(args)...));
-    } else {
-      Tag()(std::move(rcvr), std::forward<Args>(args)...);
-    }
-  }
+[]<class State, class Rcvr>(State& state, Rcvr&) noexcept {
+  start(get<typename State::op_t>(state.ops));
+}
 ```
-* decayed-typeof[link /reference/functional/decayed-typeof.md]
-* TRY-EVAL[link set_value.md]
-* std::move[link /reference/utility/move.md]
-* set-cpo[italic]
 
-メンバ関数`impls-for<decayed-typeof<let-cpo>>::check-types`の効果は下記の通り。
+メンバ関数`impls-for<let-tag>::check-types`の効果は下記の通り。
 
 ```cpp
 using LetFn = remove_cvref_t<data-type<Sndr>>;
@@ -149,13 +143,6 @@ cs.for-each(overload-set(fn, [](auto){}));
 * overload-set[link overload-set.md]
 * set-cpo[italic]
 
-説明用の変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
-
-- `(`[`constructible_from`](/reference/concepts/constructible_from.md)`<decay_t<Ts>, Ts> &&...)`
-- [`invocable`](/reference/concepts/invocable.md)`<LetFn, decay_t<Ts>&...>`
-- [`sender`](sender.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>>`
-- パック`env-t`を`decltype(let-cpo.transform_env(declval<Sndr>(), declval<Env>()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>, env-t...>`
-
 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let-cpo>> == false`のとき、式`let-cpo.transform_env(sndr, env)`は不適格となる。
 
 そうでなければ、式`let-cpo.transform_env(sndr, env)`は下記と等価。
@@ -169,47 +156,115 @@ return JOIN-ENV(let-env(child), FWD-ENV(env));
 
 
 ## 説明専用エンティティ
+### 式`let-env`
 説明用の式`sndr`を用いて、`let-env(sndr)`を下記リストのうち最初に適格となる式と定義する。
 
 - [`SCHED-ENV`](schedule.md)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>>(`[`get_env`](get_env.md)`(sndr)))`
 - [`MAKE-ENV`](../queryable.md)`(`[`get_domain`](get_domain.md)`,` [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr)))`
 - `(void(sndr),` [`env<>{}`](env.md)`)`
 
-説明専用の`let-bind`テンプレート関数を下記の通り定義する。
+### 変数`is-valid-let-sender`
+説明用の変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
 
-- 入力Senderの完了結果から引数リスト`state.args`を構築し、Senderアルゴリズム構築時に指定した関数呼び出し可能オブジェクト`state.fn`を呼び出す。
-- 上記呼び出しで`state.fn`から返された[Sender](sender.md)と、完了結果をSenderアルゴリズムの接続先[Receiver](receiver.md)`Rcvr`へ転送するヘルパ`receiver2`を[接続(connect)](connect.md)する。
-- 接続結果[Operation State](operation_state.md)を`state.op2`上に構築し、入れ子の非同期操作を[開始(start)](start.md)する。
+- `(`[`constructible_from`](/reference/concepts/constructible_from.md)`<decay_t<Ts>, Ts> &&...)`
+- [`invocable`](/reference/concepts/invocable.md)`<LetFn, decay_t<Ts>&...>`
+- [`sender`](sender.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>>`
+- パック`env-t`を`decltype(let-cpo.transform_env(declval<Sndr>(), declval<Env>()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>, env-t...>`
 
+### クラステンプレート`let-state`
 ```cpp
-namespace std::execution {
-  template<class State, class Rcvr, class... Args>
-  void let-bind(State& state, Rcvr& rcvr, Args&&... args);  // exposition only
-}
-```
+template<class Cpo, class Sndr, class Fn, class Rcvr, class ArgsVariant,
+         class OpsVariant>
+  struct let-state {
+    using env_t = decltype(let-env(declval<Sndr>())); // exposition only
+    Fn fn;                                            // exposition only
+    env_t env;                                        // exposition only
+    ArgsVariant args;                                 // exposition only
+    OpsVariant ops;                                   // exposition only
 
-`let-bind`テンプレート関数の効果は下記と等価。
+    template<class Tag, class... Ts>
+    constexpr void impl(Rcvr& rcvr, Tag tag, Ts&&... ts) noexcept
+    {                                                 // exposition only
+      using args_t = decayed-tuple<Ts...>;
+      using receiver_type = receiver2<Rcvr, env_t>;
+      using sender_type = apply_result_t<Fn, args_t&>;
+      if constexpr (is_same_v<Tag, Cpo>) {
+        try {
+          auto& tuple = args.template emplace<args_t>(std::forward<Ts>(ts)...);
+          ops.template emplace<monostate>();
+          auto&& sndr = apply(std::move(fn), tuple);
+          using op_t = connect_result_t<sender_type, receiver_type>;
+          auto mkop2 = [&] {
+            return connect(std::forward<sender_type>(sndr),
+                           receiver_type{rcvr, env});
+          };
+          auto& op = ops.template emplace<op_t>(emplace-from{mkop2});
+          start(op);
+        } catch (...) {
+          constexpr bool nothrow =
+            is_nothrow_constructible_v<args_t, Ts...> &&
+            is_nothrow_applicable_v<Fn, args_t&> &&
+            noexcept(
+              connect(
+                declval<sender_type>(),
+                receiver_type{rcvr, env}));
+        if constexpr (!nothrow) {
+          set_error(std::move(rcvr), current_exception());
+        }
+      }
+    } else {
+      tag(std::move(rcvr), std::forward<Ts>(ts)...);
+    }
+  }
 
-```cpp
-using args_t = decayed-tuple<Args...>;
-auto mkop2 = [&] {
-  return connect(
-    apply(std::move(state.fn),
-          state.args.template emplace<args_t>(std::forward<Args>(args)...)),
-    receiver2{rcvr, std::move(state.env)});
+  struct receiver {   // exposition only
+    let-state& state; // exposition only
+    Rcvr& rcvr;       // exposition only
+
+    using receiver_concept = receiver_t;
+
+    template<class... Args>
+    constexpr void set_value(Args&&... args) noexcept {
+      state.impl(rcvr, execution::set_value, std::forward<Args>(args)...);
+    }
+    template<class... Args>
+    constexpr void set_error(Args&&... args) noexcept {
+      state.impl(rcvr, execution::set_error, std::forward<Args>(args)...);
+    }
+    template<class... Args>
+    constexpr void set_stopped(Args&&... args) noexcept {
+      state.impl(rcvr, execution::set_stopped, std::forward<Args>(args)...);
+    }
+
+    constexpr env_of_t<const Rcvr&> get_env() const noexcept {
+      return execution::get_env(rcvr);
+    }
+  };
+
+  using op_t = connect_result_t<Sndr, receiver>;      // exposition only
+  constexpr let-state(Sndr&& sndr, Fn fn, Rcvr& rcvr) // exposition only
+    : fn(std::move(fn)), env(let-env(sndr)),
+      ops(in_place_type<op_t>, std::forward<Sndr>(sndr),
+          receiver{*this, rcvr})
+  {}
 };
-start(state.ops2.template emplace<decltype(mkop2())>(emplace-from{mkop2}));
 ```
-* decayed-tuple[link decayed-tuple.md]
+* connect_result_t[link connect_result_t.md]
 * connect[link connect.md]
 * start[link start.md]
-* emplace-from[link emplace-from.md]
-* apply[link /reference/tuple/apply.md]
-* template emplace[link /reference/variant/variant/emplace.md]
-* std::move[link /reference/utility/move.md]
+* receiver_t[link receiver.md]
+* execution::set_value[link set_value.md]
+* execution::set_error[link set_error.md]
+* execution::set_stopped[link set_stopped.md]
+* execution::get_env[link get_env.md]
+* apply_result_t[link /reference/type_traits/apply_result.md]
+* is_same_v[link /reference/type_traits/is_same.md]
+* current_exception()[link /reference/exception/current_exception.md]
+* is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
+* is_nothrow_applicable_v[link /reference/type_traits/is_nothrow_applicable.md]
+* in_place_type[link /reference/utility/in_place_type_t.md]
 
-説明専用のテンプレートクラス`receiver2`を下記の通り定義する。
-
+### クラステンプレート`receiver2`
 ```cpp
 namespace std::execution {
   template<class Rcvr, class Env>
@@ -445,3 +500,4 @@ catch 0
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4204. specification of `as-sndr2(Sig)` in [exec.let] is incomplete](https://cplusplus.github.io/LWG/issue4204)
 - [LWG 4205. `let_[*].transform_env` is specified in terms of the `let_*` sender itself instead of its child](https://cplusplus.github.io/LWG/issue4205)
+- [P3373R4 Of Operation States and Their Lifetimes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3373r4.pdf)
