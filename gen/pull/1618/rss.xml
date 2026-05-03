@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-05-03T04:23:22.709971</updated>
-  <id>5877a8c6-05da-4ea8-91f9-c3bad5f7f577</id>
+  <updated>2026-05-03T05:10:42.522175</updated>
+  <id>b267329d-b3db-4aee-bcaf-aacfe0a975c1</id>
 
+  
+    <entry>
+      <title>setjmp -- 記述の追加</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
+      <id>67ee21bd557e1fcc1673e05c3f50bda785022b6b:reference/csetjmp/setjmp.md</id>
+      <updated>2026-05-03T06:05:54+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
+index 0a949f4e4..48afb06e1 100644
+--- a/reference/csetjmp/setjmp.md
++++ b/reference/csetjmp/setjmp.md
+@@ -34,6 +34,8 @@
+ * 対応する`setjmp` と `longjmp` の間で、自動記憶域期間を持つ非トリビアルなデストラクタを持つオブジェクトの生存期間が開始し、終了しない場合（ジャンプによってデストラクタを飛ばす場合）、その動作は未定義である。
+ * コルーチンのサスペンションコンテキスト内で呼び出された場合、動作は未定義である。
+ 
++また、`volatile`修飾子のついていない`setjmp`を呼び出した関数に対してローカルな変数で、その値が`setjmp`から`longjmp`の呼び出しの間で変更されたものがある場合、その変数の値は不定となる。
++
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>jmp_buf -- 諸々の修正</title>
@@ -568,33 +595,6 @@ index bb8fd467e..6b8dcae36 100644
  4. 式文の式全体(void型へのキャストを含む)
  
  上記以外の箇所での呼び出しは未定義の動作となる。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>setjmp -- 不要なスペースの削除</title>
-      <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
-      <id>238403f7eb55279f391db193815ff35b6efd1a09:reference/csetjmp/setjmp.md</id>
-      <updated>2026-04-30T15:12:58+01:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
-index 9073f18d5..bb8fd467e 100644
---- a/reference/csetjmp/setjmp.md
-+++ b/reference/csetjmp/setjmp.md
-@@ -3,7 +3,7 @@
- * macro[meta id-type]
- 
- ```cpp
--# define setjmp(env)
-+#define setjmp(env)
- ```
- 
- ## 概要
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
