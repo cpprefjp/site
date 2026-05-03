@@ -175,39 +175,39 @@ return JOIN-ENV(let-env(child), FWD-ENV(env));
 ```cpp
 template<class Cpo, class Sndr, class Fn, class Rcvr, class ArgsVariant,
          class OpsVariant>
-  struct let-state {
-    using env_t = decltype(let-env(declval<Sndr>())); // exposition only
-    Fn fn;                                            // exposition only
-    env_t env;                                        // exposition only
-    ArgsVariant args;                                 // exposition only
-    OpsVariant ops;                                   // exposition only
+struct let-state {
+  using env_t = decltype(let-env(declval<Sndr>())); // exposition only
+  Fn fn;                                            // exposition only
+  env_t env;                                        // exposition only
+  ArgsVariant args;                                 // exposition only
+  OpsVariant ops;                                   // exposition only
 
-    template<class Tag, class... Ts>
-    constexpr void impl(Rcvr& rcvr, Tag tag, Ts&&... ts) noexcept
-    {                                                 // exposition only
-      using args_t = decayed-tuple<Ts...>;
-      using receiver_type = receiver2<Rcvr, env_t>;
-      using sender_type = apply_result_t<Fn, args_t&>;
-      if constexpr (is_same_v<Tag, Cpo>) {
-        try {
-          auto& tuple = args.template emplace<args_t>(std::forward<Ts>(ts)...);
-          ops.template emplace<monostate>();
-          auto&& sndr = apply(std::move(fn), tuple);
-          using op_t = connect_result_t<sender_type, receiver_type>;
-          auto mkop2 = [&] {
-            return connect(std::forward<sender_type>(sndr),
-                           receiver_type{rcvr, env});
-          };
-          auto& op = ops.template emplace<op_t>(emplace-from{mkop2});
-          start(op);
-        } catch (...) {
-          constexpr bool nothrow =
-            is_nothrow_constructible_v<args_t, Ts...> &&
-            is_nothrow_applicable_v<Fn, args_t&> &&
-            noexcept(
-              connect(
-                declval<sender_type>(),
-                receiver_type{rcvr, env}));
+  template<class Tag, class... Ts>
+  constexpr void impl(Rcvr& rcvr, Tag tag, Ts&&... ts) noexcept
+  {                                                 // exposition only
+    using args_t = decayed-tuple<Ts...>;
+    using receiver_type = receiver2<Rcvr, env_t>;
+    using sender_type = apply_result_t<Fn, args_t&>;
+    if constexpr (is_same_v<Tag, Cpo>) {
+      try {
+        auto& tuple = args.template emplace<args_t>(std::forward<Ts>(ts)...);
+        ops.template emplace<monostate>();
+        auto&& sndr = apply(std::move(fn), tuple);
+        using op_t = connect_result_t<sender_type, receiver_type>;
+        auto mkop2 = [&] {
+          return connect(std::forward<sender_type>(sndr),
+                          receiver_type{rcvr, env});
+        };
+        auto& op = ops.template emplace<op_t>(emplace-from{mkop2});
+        start(op);
+      } catch (...) {
+        constexpr bool nothrow =
+          is_nothrow_constructible_v<args_t, Ts...> &&
+          is_nothrow_applicable_v<Fn, args_t&> &&
+          noexcept(
+            connect(
+              declval<sender_type>(),
+              receiver_type{rcvr, env}));
         if constexpr (!nothrow) {
           set_error(std::move(rcvr), current_exception());
         }
