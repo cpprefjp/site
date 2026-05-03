@@ -752,7 +752,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/mdspan.html</loc>
-      <lastmod>2026-03-31T20:30:41+09:00</lastmod>
+      <lastmod>2026-05-02T11:17:44+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
@@ -17867,7 +17867,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/stacktrace/basic_stacktrace.html</loc>
-      <lastmod>2026-03-05T18:27:18+09:00</lastmod>
+      <lastmod>2026-05-02T11:17:44+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -34758,7 +34758,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/spawn_future.html</loc>
-      <lastmod>2026-04-30T13:24:27+09:00</lastmod>
+      <lastmod>2026-05-02T11:17:44+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -35647,7 +35647,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/mdspan/sliceable-mapping.html</loc>
-      <lastmod>2026-03-31T23:35:28+09:00</lastmod>
+      <lastmod>2026-05-02T11:17:44+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -35696,7 +35696,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/mdspan/submdspan_canonicalize_slices.html</loc>
-      <lastmod>2026-03-31T23:35:28+09:00</lastmod>
+      <lastmod>2026-05-02T11:17:44+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -36529,7 +36529,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/limits/numeric_limits/max_exponent10.html</loc>
-      <lastmod>2026-03-05T18:27:18+09:00</lastmod>
+      <lastmod>2026-05-02T21:59:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -36662,7 +36662,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/limits/numeric_limits/min_exponent10.html</loc>
-      <lastmod>2026-03-05T18:27:18+09:00</lastmod>
+      <lastmod>2026-05-02T21:59:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>

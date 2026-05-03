@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-31T14:35:28">
-        2026年03月31日 14時35分28秒
+      <span itemprop="datePublished" content="2026-05-02T02:17:44">
+        2026年05月02日 02時17分44秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -279,10 +279,10 @@
 <p><code>src</code>の各次元インデクス<code>k</code>に対して、</p>
 <ul>
 <li><code>SliceSpecifiers...[k]</code>が<code>IndexType</code>の<code>submdspan</code>スライス型であり、かつ</li>
-<li><code>decltype(<a href="canonical-slice.html">cannonical-slice</a>&lt;IndexType&gt;(slices...[k]))</code>が<code><a href="extents.html">extents</a>&lt;IndexType, Extents...&gt;</code>のk番目次元の有効<code>submdspan</code>スライス型(valid <code>submdspan</code> slice type)であること。</li>
+<li><code>decltype(<a href="canonical-slice.html">canonical-slice</a>&lt;IndexType&gt;(slices...[k]))</code>が<code><a href="extents.html">extents</a>&lt;IndexType, Extents...&gt;</code>のk番目次元の有効<code>submdspan</code>スライス型(valid <code>submdspan</code> slice type)であること。</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
-<p><code>src</code>の各次元インデクス<code>k</code>に対して、<code><a href="canonical-slice.html">cannonical-slice</a>&lt;IndexType&gt;(slices...[k])</code>が<code>src</code>のk番目次元の有効<code>submdspan</code>スライス(valid <code>submdspan</code> slice)であること。</p>
+<p><code>src</code>の各次元インデクス<code>k</code>に対して、<code><a href="canonical-slice.html">canonical-slice</a>&lt;IndexType&gt;(slices...[k])</code>が<code>src</code>のk番目次元の有効<code>submdspan</code>スライス(valid <code>submdspan</code> slice)であること。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../tuple/make_tuple.html">make_tuple</a></span><span class="p">(</span><span class="n"><a href="canonical-slice.html">canonical-slice</a></span><span class="o">&lt;</span><span class="n">IndexType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">slices</span><span class="p">)...)</span>
 </code></pre></div>

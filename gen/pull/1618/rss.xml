@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-05-03T10:38:41.515076</updated>
-  <id>be82df2c-2ffe-4fe8-a07e-2ad0bde7ff27</id>
+  <updated>2026-05-03T11:07:40.493255</updated>
+  <id>458ac376-7f26-4a97-a3c6-1783c7b94e1f</id>
 
   
     <entry>
       <title>longjmp -- new GLOBAL_DEFINED_WORDS `式文` `ヌル文`</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp/longjmp.html"/>
-      <id>b8d5b731326d547dbebdebadcf3f066a039b81c4:reference/csetjmp/longjmp.md</id>
+      <id>945c12d4b8c650257ebf7e94516adb33df1caab3:reference/csetjmp/longjmp.md</id>
       <updated>2026-05-03T11:26:15+01:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/longjmp.md b/reference/csetjmp/longjmp.md
@@ -36,7 +36,7 @@ index 90fe74822..c75519be1 100644
     <entry>
       <title>setjmp -- new GLOBAL_DEFINED_WORDS `式文` `ヌル文`</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
-      <id>b8d5b731326d547dbebdebadcf3f066a039b81c4:reference/csetjmp/setjmp.md</id>
+      <id>945c12d4b8c650257ebf7e94516adb33df1caab3:reference/csetjmp/setjmp.md</id>
       <updated>2026-05-03T11:26:15+01:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
@@ -65,7 +65,7 @@ index 2d15c6a63..9c43cb7d0 100644
     <entry>
       <title>リファレンス -- `csetjmp`リファレンスの追加</title>
       <link href="https://cpprefjp.github.io/reference.html"/>
-      <id>5b73c5469e2da45e3f1baa5a523ea8c766137a65:reference.md</id>
+      <id>3891e06baeac923670679cb7c4f2965314711026:reference.md</id>
       <updated>2026-04-29T08:19:25+01:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;リファレンス&lt;/span&gt;&lt;/h1&gt;
@@ -941,7 +941,7 @@ index 2d15c6a63..9c43cb7d0 100644
     <entry>
       <title>csetjmp -- `csetjmp`リファレンスの追加</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp.html"/>
-      <id>5b73c5469e2da45e3f1baa5a523ea8c766137a65:reference/csetjmp.md</id>
+      <id>3891e06baeac923670679cb7c4f2965314711026:reference/csetjmp.md</id>
       <updated>2026-04-29T08:19:25+01:00</updated>
       
         <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csetjmp&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csetjmp&lt;/span&gt;&lt;/h1&gt;
@@ -1012,7 +1012,7 @@ index 2d15c6a63..9c43cb7d0 100644
     <entry>
       <title>jmp_buf -- `csetjmp`リファレンスの追加</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html"/>
-      <id>5b73c5469e2da45e3f1baa5a523ea8c766137a65:reference/csetjmp/jmp_buf.md</id>
+      <id>3891e06baeac923670679cb7c4f2965314711026:reference/csetjmp/jmp_buf.md</id>
       <updated>2026-04-29T08:19:25+01:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/jmp_buf.md b/reference/csetjmp/jmp_buf.md
@@ -1086,7 +1086,7 @@ index 000000000..792945e77
     <entry>
       <title>longjmp -- `csetjmp`リファレンスの追加</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp/longjmp.html"/>
-      <id>5b73c5469e2da45e3f1baa5a523ea8c766137a65:reference/csetjmp/longjmp.md</id>
+      <id>3891e06baeac923670679cb7c4f2965314711026:reference/csetjmp/longjmp.md</id>
       <updated>2026-04-29T08:19:25+01:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/longjmp.md b/reference/csetjmp/longjmp.md
@@ -1180,7 +1180,7 @@ index 000000000..90fe74822
     <entry>
       <title>setjmp -- `csetjmp`リファレンスの追加</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
-      <id>5b73c5469e2da45e3f1baa5a523ea8c766137a65:reference/csetjmp/setjmp.md</id>
+      <id>3891e06baeac923670679cb7c4f2965314711026:reference/csetjmp/setjmp.md</id>
       <updated>2026-04-29T08:19:25+01:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
@@ -1277,7 +1277,7 @@ index 000000000..2d15c6a63
     <entry>
       <title>__STDC_VERSION_SETJMP_H__ -- `csetjmp`リファレンスの追加</title>
       <link href="https://cpprefjp.github.io/reference/csetjmp/stdc_version_setjmp_h.html"/>
-      <id>5b73c5469e2da45e3f1baa5a523ea8c766137a65:reference/csetjmp/stdc_version_setjmp_h.md</id>
+      <id>3891e06baeac923670679cb7c4f2965314711026:reference/csetjmp/stdc_version_setjmp_h.md</id>
       <updated>2026-04-29T08:19:25+01:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/stdc_version_setjmp_h.md b/reference/csetjmp/stdc_version_setjmp_h.md
@@ -1302,6 +1302,356 @@ index 000000000..486a10fb1
       <author>
         <name>K10-K10</name>
         <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_exponent10 -- min_exponent10, max_exponent10 の説明を修正</title>
+      <link href="https://cpprefjp.github.io/reference/limits/numeric_limits/max_exponent10.html"/>
+      <id>fabbc67ee2507e3def1437c4736dd7d09752856b:reference/limits/numeric_limits/max_exponent10.md</id>
+      <updated>2026-05-02T21:59:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/limits/numeric_limits/max_exponent10.md b/reference/limits/numeric_limits/max_exponent10.md
+index b9cdb1cff..9f87cb9a2 100644
+--- a/reference/limits/numeric_limits/max_exponent10.md
++++ b/reference/limits/numeric_limits/max_exponent10.md
+@@ -14,7 +14,7 @@ static constexpr int max_exponent10;
+ 
+ ## 概要
+ 浮動小数点数型において、型`T`の指数上限値を得る。  
+-基数10を`max_exponent`の値で累乗した値が、型`T`で表現可能な正規化された値となる最大の正の値。  
++基数10を`max_exponent10`の値で累乗した値が、型`T`で表現可能な正規化された値となる最大の正の値。  
+ 浮動小数点数型以外は0になる。  
+ 
+ 対応するマクロを次の表に挙げる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>min_exponent10 -- min_exponent10, max_exponent10 の説明を修正</title>
+      <link href="https://cpprefjp.github.io/reference/limits/numeric_limits/min_exponent10.html"/>
+      <id>fabbc67ee2507e3def1437c4736dd7d09752856b:reference/limits/numeric_limits/min_exponent10.md</id>
+      <updated>2026-05-02T21:59:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/limits/numeric_limits/min_exponent10.md b/reference/limits/numeric_limits/min_exponent10.md
+index 2afc2bfd8..fbfecead3 100644
+--- a/reference/limits/numeric_limits/min_exponent10.md
++++ b/reference/limits/numeric_limits/min_exponent10.md
+@@ -14,7 +14,7 @@ static constexpr int min_exponent10;
+ 
+ ## 概要
+ 浮動小数点数型において、型`T`の指数下限値を得る。  
+-基数10を`min_exponent`の値で累乗した値が、型`T`で表現可能な正規化された値となる最小の負の値。  
++基数10を`min_exponent10`の値で累乗した値が、型`T`で表現可能な正規化された値となる最小の負の値。  
+ 浮動小数点数型以外は0になる。  
+ 
+ 対応するマクロを次の表に挙げる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>spawn_future -- typo修正</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/spawn_future.html"/>
+      <id>8ecb262bf1dc7010d8889d5bd5dfeb3f94de6754:reference/execution/execution/spawn_future.md</id>
+      <updated>2026-05-02T11:17:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/spawn_future.md b/reference/execution/execution/spawn_future.md
+index d0b0c6f5e..78a60fd3d 100644
+--- a/reference/execution/execution/spawn_future.md
++++ b/reference/execution/execution/spawn_future.md
+@@ -272,7 +272,7 @@ void consume(receiver auto&amp;amp; rcvr) noexcept;
+               }, std::move(tuple));
+             }
+           });
+-        detroy();
++        destroy();
+         ```
+         * visit[link /reference/variant/visit.md]
+         * monostate[link /reference/variant/monostate.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>mdspan -- typo修正</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan.html"/>
+      <id>8ecb262bf1dc7010d8889d5bd5dfeb3f94de6754:reference/mdspan.md</id>
+      <updated>2026-05-02T11:17:44+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;mdspan&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;mdspan&lt;/span&gt;&lt;span class=&#34;cpp cpp23&#34; title=&#34;C++23で追加&#34;&gt;(C++23)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;mdspan&amp;gt;&lt;/code&gt;ヘッダでは、任意のメモリブロックに対して多次元配列のようにアクセスする機能を定義する。&lt;/p&gt;
+&lt;h2&gt;多次元配列サイズ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/extents.html&#34;&gt;extents&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列のサイズを表す値 (class template)&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/extents.html&#34;&gt;dextents&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;全次元が動的な多次元配列のサイズを表す値 (alias template)&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/extents.html&#34;&gt;dims&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;全次元が動的な多次元配列のサイズを表す値 (alias template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;レイアウトマッピング&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/layout_left.html&#34;&gt;layout_left&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;列優先(Fortran/Matlabスタイル)レイアウトマッピングポリシー (class)&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/layout_right.html&#34;&gt;layout_right&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;行優先(C/C++スタイル)レイアウトマッピングポリシー (class)&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/layout_stride.html&#34;&gt;layout_stride&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストライド幅指定レイアウトマッピングポリシー (class)&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/layout_left_padded.html&#34;&gt;layout_left_padded&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;パディングあり列優先レイアウトマッピングポリシー (class template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/layout_right_padded.html&#34;&gt;layout_right_padded&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;パディングあり行優先レイアウトマッピングポリシー (class template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;要素アクセサ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/default_accessor.html&#34;&gt;default_accessor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルト要素アクセサ (class template)&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/aligned_accessor.html&#34;&gt;aligned_accessor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アライメント保証付き要素アクセサ (class template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;多次元配列ビュー&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/mdspan.html&#34;&gt;mdspan&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列ビュー (class template)&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;多次元配列部分ビュー&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/strided_slice.html&#34;&gt;strided_slice&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定次元のストライド指定要素取り出しを指示する集成体クラステンプレート (class template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/full_extent_t.html&#34;&gt;full_extent_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定次元の全要素取り出しを指示するタグ型 (class)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/full_extent_t.html&#34;&gt;full_extent&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定次元の全要素取り出しを指示するタグ値 (variable)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/submdspan_mapping_result.html&#34;&gt;submdspan_mapping_result&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列部分ビューのレイアウトマッピング情報 (class template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/submdspan_extents.html&#34;&gt;submdspan_extents&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列部分ビューの多次元配列サイズを計算する (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/submdspan_canonicalize_slices.html&#34;&gt;submdspan_canonicalize_slices&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列部分ビュー取得時の多次元インデクスを正規化する (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;mdspan/submdspan.html&#34;&gt;submdspan&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列部分ビューを取得する (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++23&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;C++20 &lt;code&gt;&lt;a href=&#34;span.html&#34;&gt;&amp;lt;span&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;C++26 &lt;code&gt;&lt;a href=&#34;linalg.html&#34;&gt;&amp;lt;linalg&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html&#34; target=&#34;_blank&#34;&gt;P0009R18 MDSPAN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html&#34; target=&#34;_blank&#34;&gt;P2630R4 Submdspan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf&#34; target=&#34;_blank&#34;&gt;P2642R6 Padded mdspan layouts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2897r7.html&#34; target=&#34;_blank&#34;&gt;P2897R7 &lt;code&gt;aligned_accessor&lt;/code&gt;: An mdspan accessor expressing pointer over-alignment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html&#34; target=&#34;_blank&#34;&gt;P3663R3 Future-proof &lt;code&gt;submdspan_mapping&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sliceable-mapping -- typo修正</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/sliceable-mapping.html"/>
+      <id>8ecb262bf1dc7010d8889d5bd5dfeb3f94de6754:reference/mdspan/sliceable-mapping.md</id>
+      <updated>2026-05-02T11:17:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/sliceable-mapping.md b/reference/mdspan/sliceable-mapping.md
+index f086584e2..a34d43702 100644
+--- a/reference/mdspan/sliceable-mapping.md
++++ b/reference/mdspan/sliceable-mapping.md
+@@ -56,7 +56,7 @@ concept sliceable-mapping = see below;
+     - `smr.mapping.extents()`の多次元インデクス値を表す整数パック`i`に対して、下記を満たす整数パック`j`に対し`smr.mapping(i...) + smr.offset == m(j)`が`true`となる
+         - `sizeof...(j)`が`M_rank`に等しく、かつ
+         - `m.extents()`の各次元インデクス`r`に対して、`j...[r]`が下記の総和に等しい
+-            - `m.extents()`の`r`次元に対して`vaild_slices...[r]`の`submdspan`スライス範囲の下限、および
++            - `m.extents()`の`r`次元に対して`valid_slices...[r]`の`submdspan`スライス範囲の下限、および
+             - `valid_slices...[r]`の型が[縮約スライス型(collapsing slice type)](submdspan_canonicalize_slices.md)ならば値`0`、そうでなければ`i...[`[`MAP_RANK`](submdspan_canonicalize_slices.md)`(valid_slices, r)]`
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>submdspan_canonicalize_slices -- typo修正</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/submdspan_canonicalize_slices.html"/>
+      <id>8ecb262bf1dc7010d8889d5bd5dfeb3f94de6754:reference/mdspan/submdspan_canonicalize_slices.md</id>
+      <updated>2026-05-02T11:17:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/submdspan_canonicalize_slices.md b/reference/mdspan/submdspan_canonicalize_slices.md
+index f72ed0f58..2f58fada7 100644
+--- a/reference/mdspan/submdspan_canonicalize_slices.md
++++ b/reference/mdspan/submdspan_canonicalize_slices.md
+@@ -72,11 +72,11 @@ namespace std {
+ `src`の各次元インデクス`k`に対して、
+ 
+ - `SliceSpecifiers...[k]`が`IndexType`の`submdspan`スライス型であり、かつ
+-- `decltype(`[`cannonical-slice`](canonical-slice.md)`&amp;lt;IndexType&amp;gt;(slices...[k]))`が[`extents`](extents.md)`&amp;lt;IndexType, Extents...&amp;gt;`のk番目次元の有効`submdspan`スライス型(valid `submdspan` slice type)であること。
++- `decltype(`[`canonical-slice`](canonical-slice.md)`&amp;lt;IndexType&amp;gt;(slices...[k]))`が[`extents`](extents.md)`&amp;lt;IndexType, Extents...&amp;gt;`のk番目次元の有効`submdspan`スライス型(valid `submdspan` slice type)であること。
+ 
+ 
+ ## 事前条件
+-`src`の各次元インデクス`k`に対して、[`cannonical-slice`](canonical-slice.md)`&amp;lt;IndexType&amp;gt;(slices...[k])`が`src`のk番目次元の有効`submdspan`スライス(valid `submdspan` slice)であること。
++`src`の各次元インデクス`k`に対して、[`canonical-slice`](canonical-slice.md)`&amp;lt;IndexType&amp;gt;(slices...[k])`が`src`のk番目次元の有効`submdspan`スライス(valid `submdspan` slice)であること。
+ 
+ 
+ ## 戻り値
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic_stacktrace -- typo修正</title>
+      <link href="https://cpprefjp.github.io/reference/stacktrace/basic_stacktrace.html"/>
+      <id>8ecb262bf1dc7010d8889d5bd5dfeb3f94de6754:reference/stacktrace/basic_stacktrace.md</id>
+      <updated>2026-05-02T11:17:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stacktrace/basic_stacktrace.md b/reference/stacktrace/basic_stacktrace.md
+index 51abb4624..9fbd6374f 100644
+--- a/reference/stacktrace/basic_stacktrace.md
++++ b/reference/stacktrace/basic_stacktrace.md
+@@ -113,7 +113,7 @@ namespace std {
+ | `iterator`         | イテレータ型 `const_iterator` | C++23 |
+ | `reverse_iterator` | 逆順イテレータ型 [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`&amp;lt;iterator&amp;gt;` | C++23 |
+ | `const_reverse_iterator` | 読み取り専用逆順イテレータ型 [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`&amp;lt;const_iterator&amp;gt;` | C++23 |
+-| `diferrence_type`  | イテレータの差を表す型。実装定義 | C++23 |
++| `difference_type`  | イテレータの差を表す型。実装定義 | C++23 |
+ | `size_type`        | 要素数を表す型。実装定義 | C++23 |
+ | `allocator_type`   | アロケータ型 `allocator` | C++23 |
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
@@ -3256,143 +3606,6 @@ index 000000000..486a10fb1
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>spawn_future -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/spawn_future.html"/>
-      <id>9bde559d7ec9b52b0d1712e18fec5e510cfb2a8a:reference/execution/execution/spawn_future.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/spawn_future.md b/reference/execution/execution/spawn_future.md
-index d3b28bda4..d0b0c6f5e 100644
---- a/reference/execution/execution/spawn_future.md
-+++ b/reference/execution/execution/spawn_future.md
-@@ -292,7 +292,7 @@ void abandon() noexcept;
- ```
- 
- - 効果 :
--    - `*this`に対するこの`abandon`の呼び出しが`complete`の呼び出しより前に発生するならば、下記と等価。
-+    - `*this`に対するこの`abandon`の呼び出しが`complete`の呼び出しよりも前に発生するならば、下記と等価。
- 
-         ```cpp
-         ssource.request_stop();
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>schedule -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.html"/>
-      <id>9bde559d7ec9b52b0d1712e18fec5e510cfb2a8a:reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md
-index de26de4c8..67012eb8d 100644
---- a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md
-+++ b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule.md
-@@ -17,7 +17,7 @@ virtual void schedule(receiver_proxy&amp;amp; r, span&amp;lt;byte&amp;gt; s) noexcept = 0;
- 
- 
- ## 事前条件
--`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。
-+`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生すること。
- 
- 
- ## 効果
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>schedule_bulk_chunked -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.html"/>
-      <id>9bde559d7ec9b52b0d1712e18fec5e510cfb2a8a:reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md
-index d5da8d4d0..2b305af65 100644
---- a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md
-+++ b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md
-@@ -19,7 +19,7 @@ virtual void schedule_bulk_chunked(size_t n,
- 
- 
- ## 事前条件
--`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。
-+`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生すること。
- 
- 
- ## 効果
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>schedule_bulk_unchunked -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.html"/>
-      <id>9bde559d7ec9b52b0d1712e18fec5e510cfb2a8a:reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md
-index 65b572f1a..513171699 100644
---- a/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md
-+++ b/reference/execution/execution/system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md
-@@ -19,7 +19,7 @@ virtual void schedule_bulk_unchunked(size_t n,
- 
- 
- ## 事前条件
--`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。
-+`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生すること。
- 
- 
- ## 効果
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>stoppable_token -- GLOBAL_DEFINED_WORDS: よりも後に発生する(happens after) 追加</title>
-      <link href="https://cpprefjp.github.io/reference/stop_token/stoppable_token.html"/>
-      <id>9bde559d7ec9b52b0d1712e18fec5e510cfb2a8a:reference/stop_token/stoppable_token.md</id>
-      <updated>2026-04-30T13:24:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stop_token/stoppable_token.md b/reference/stop_token/stoppable_token.md
-index 6143103d2..c4d168f12 100644
---- a/reference/stop_token/stoppable_token.md
-+++ b/reference/stop_token/stoppable_token.md
-@@ -47,8 +47,8 @@ concept stoppable_token =
- 説明用の変数`t`, `u`を、同一の停止状態を参照する別々な`Token`型オブジェクトとする。
- 型`Token`が以下を満たす場合に限って、型`Token`は`stoppable_token`のモデルである。
- 
--- `SP`を`t.stop_possible()`が`false`となる評価としたとき、`SP`より後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`false`であること。
--- `SR`を`t.stop_requested()`が`true`となる評価としたとき、`SR`より後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`true`であること。
-+- `SP`を`t.stop_possible()`が`false`となる評価としたとき、`SP`よりも後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`false`であること。
-+- `SR`を`t.stop_requested()`が`true`となる評価としたとき、`SR`よりも後に発生する`u.stop_possible()`や`u.stop_requested()`の評価は`true`であること。
- - `stoppable-callback-for&amp;lt;CallbackFn, Token, Initialize&amp;gt;`を満たす任意の型`CallbackFn`および型`Initialize`が、`stoppable-callback-for&amp;lt;CallbackFn, Token, Initializer&amp;gt;`のモデルであること。
- - `t`が停止状態を持たない(disengaged)とき、`t.stop_possible()`や`t.stop_requested()`の評価が`false`であること。
- - `t`と`u`が同一の停止状態を参照するか共に停止状態を持たないとき`t == u`が`true`であり、それ以外のときは`false`であること。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
       </author>
     </entry>
   
