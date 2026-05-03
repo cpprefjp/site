@@ -96,7 +96,7 @@ int main()
 - `constexpr`関数の戻り値の型、およびパラメータの型は、[リテラル型](/reference/type_traits/is_literal_type.md)でなければならない
 - `constexpr`関数の戻り値の型、およびパラメータの型は、非`const`参照にはできない
 - `constexpr`関数の本体は、以下の要素だけを含むことができる：
-    - ヌル文
+    - 空文
     - `static_assert`宣言
     - 型の別名定義
     - using宣言と、usingディレクティブ
