@@ -25,10 +25,10 @@ const_reference prefix() const;
     また、`m.prefix().matched` は `false` となる。  
     戻り値が `false` の場合は未規定である。
 - [`regex_search`](../regex_search.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.prefix().first` は検索対象文字列の先頭となり、`m.prefix().second` は `m[0].first`（つまり、マッチした文字列の先頭）と等しくなる。  
-    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` の結果となる（つまり、`m.prefix()` が空文字であれば `false`、そうでなければ `true`）。  
+    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` の結果となる（つまり、`m.prefix()` が空文字列であれば `false`、そうでなければ `true`）。  
     戻り値が `false` の場合は未規定である。
 - [`regex_iterator`](../regex_iterator.md) を間接参照したオブジェクトの場合、当該オブジェクトを `m` とすると、`m.prefix().first` は最初のマッチでなければ直前のマッチの際の `m[0].second`（つまり直前にマッチした文字列の末尾）、最初のマッチであれば検索対象文字列の先頭となり、`m.prefix().second` は `m[0].first`（つまり、マッチした文字列の先頭）と等しくなる。  
-    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` となる（つまり、`m.prefix()` が空文字であれば `false`、そうでなければ `true`）。
+    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` となる（つまり、`m.prefix()` が空文字列であれば `false`、そうでなければ `true`）。
 
 
 ## 例
