@@ -2,9 +2,132 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-05-03T05:10:42.522175</updated>
-  <id>b267329d-b3db-4aee-bcaf-aacfe0a975c1</id>
+  <updated>2026-05-03T08:45:10.522301</updated>
+  <id>fdb8ce59-3eb2-490f-b98a-8a68b36ceec8</id>
 
+  
+    <entry>
+      <title>jmp_buf -- 諸々の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html"/>
+      <id>b487470cf9c65998df94e258da2c49181db5e887:reference/csetjmp/jmp_buf.md</id>
+      <updated>2026-05-03T09:37:42+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/jmp_buf.md b/reference/csetjmp/jmp_buf.md
+index fd825f2f6..792945e77 100644
+--- a/reference/csetjmp/jmp_buf.md
++++ b/reference/csetjmp/jmp_buf.md
+@@ -24,14 +24,14 @@ namespace std {
+ 
+ std::jmp_buf env;
+ 
+-void inner_function_function() {
++void inner_function() {
+   std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
+   std::longjmp(env, 42);
+ }
+ 
+ int main () {
+   if (setjmp(env) == 0) {
+-    inner_function_function();
++    inner_function();
+   } else {
+     std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>longjmp -- 諸々の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/longjmp.html"/>
+      <id>b487470cf9c65998df94e258da2c49181db5e887:reference/csetjmp/longjmp.md</id>
+      <updated>2026-05-03T09:37:42+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/longjmp.md b/reference/csetjmp/longjmp.md
+index c0607242e..90fe74822 100644
+--- a/reference/csetjmp/longjmp.md
++++ b/reference/csetjmp/longjmp.md
+@@ -32,7 +32,7 @@ namespace std {
+ * コルーチンのサスペンションコンテキスト内で呼び出された場合
+ * 対応する`setjmp`が存在しない場合(`env`が有効な環境を保存していない場合)
+ * `longjmp`は、対応する`setjmp`の呼び出しから同一スレッド内で呼び出されなければならない。異なるスレッドから呼び出された場合
+-* `setjmp`を実行した関数が終了している場合
++* `setjmp`を実行した関数の実行が終了している場合
+ 
+ また、`volatile`修飾子のついていない`setjmp`を呼び出した関数に対してローカルな変数で、その値が`setjmp`から`longjmp`の呼び出しの間で変更されたものがある場合、その変数の値は不定となる。
+ 
+@@ -44,14 +44,14 @@ namespace std {
+ 
+ std::jmp_buf env;
+ 
+-void low_level_function() {
++void inner_function() {
+   std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
+   std::longjmp(env, 0);  // valが0なので、setjmpは1を返す
+ }
+ 
+ int main () {
+   if (setjmp(env) == 0) {
+-    low_level_function();
++    inner_function();
+   } else {
+     std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setjmp -- 諸々の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
+      <id>b487470cf9c65998df94e258da2c49181db5e887:reference/csetjmp/setjmp.md</id>
+      <updated>2026-05-03T09:37:42+01:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
+index 48afb06e1..2d15c6a63 100644
+--- a/reference/csetjmp/setjmp.md
++++ b/reference/csetjmp/setjmp.md
+@@ -16,7 +16,7 @@
+ 
+ このマクロは以下の文脈でのみ現れる。
+ 
+-1. 1. `if`文、`switch`文やループの条件全体
++1. `if`文、`switch`文やループの条件全体
+ 2. 関係演算子または等価演算子のオペランドの一つ(もう一つのオペランドは整数定数)で、その結果式が1を満たす場合
+ 3. `!`のオペランドであり、その式が1を満たす場合
+ 4. 式文の式全体(`void`型へのキャストを含む)
+@@ -45,14 +45,14 @@
+ 
+ std::jmp_buf env;
+ 
+-void low_level_function() {
++void inner_function() {
+   std::cout &amp;lt;&amp;lt; &amp;#34;何らかのエラー&amp;#34; &amp;lt;&amp;lt; std::endl;
+   std::longjmp(env, 42);
+ }
+ 
+ int main () {
+   if (setjmp(env) == 0) {
+-    low_level_function();
++    inner_function();
+   } else {
+     std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>setjmp -- 記述の追加</title>
@@ -481,120 +604,6 @@ index 000000000..7039eeb35
 +
 +## 概要
 +`&amp;lt;csetjmp&amp;gt;`ヘッダがC23の基準に準拠していることを示すマクロ。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>jmp_buf -- 諸々の修正</title>
-      <link href="https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html"/>
-      <id>3fb5cb018fcb4edd4a089def4e0d5b9d1037ef56:reference/csetjmp/jmp_buf.md</id>
-      <updated>2026-05-01T11:25:13+01:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/jmp_buf.md b/reference/csetjmp/jmp_buf.md
-index 2a194d3ce..9e20f0b75 100644
---- a/reference/csetjmp/jmp_buf.md
-+++ b/reference/csetjmp/jmp_buf.md
-@@ -1,14 +1,17 @@
- # jmp_buf
-+* std[meta namespace]
- * csetjmp[meta header]
- * type-alias[meta id-type]
- 
- ```cpp
--using jmp_buf = unspecified;
-+namespace std {
-+  using jmp_buf = unspecified;
-+}
- ```
- 
- ## 概要
- 
--非ローカルジャンプ（関数を跨いだジャンプ）を実現するために、現在の実行環境を保存するための配列型である。
-+`jmp_buf`は、非ローカルジャンプ（関数を跨いだジャンプ）を実現するために、現在の実行環境を保存するための配列型である。
- 
- `setjmp()`マクロによって現在の環境がこの型に保存され、後に`longjmp()`関数がその環境を復元するために使用される。
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>longjmp -- 諸々の修正</title>
-      <link href="https://cpprefjp.github.io/reference/csetjmp/longjmp.html"/>
-      <id>3fb5cb018fcb4edd4a089def4e0d5b9d1037ef56:reference/csetjmp/longjmp.md</id>
-      <updated>2026-05-01T11:25:13+01:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/longjmp.md b/reference/csetjmp/longjmp.md
-index 0d5138b47..2b127cf92 100644
---- a/reference/csetjmp/longjmp.md
-+++ b/reference/csetjmp/longjmp.md
-@@ -15,11 +15,11 @@ namespace std {
- 
- ## 効果
- 
--* `setjmp()`によってjmp_bufに保存された実行環境（スタックポインタ、プログラムカウンタ等）を復元する。
-+* `setjmp()`によって第一引数`env`に保存された実行環境（スタックポインタ、プログラムカウンタ等）を復元する。
- 
- * プログラムの実行地点を、対応する`setjmp()`の呼び出し地点へジャンプさせる。
- 
--* ジャンプ先の`setjmp()`は、この関数の第二引数valを戻り値として返す。ただし、valが0の場合は1を返す。
-+* ジャンプ先の`setjmp()`は、この関数の第二引数`val`を戻り値として返す。ただし、`val`が0の場合は1を返す。
- 
- ## 戻り値
- 
-@@ -28,6 +28,7 @@ namespace std {
- ## 備考
- 
- * ジャンプによって自動記憶域期間を持つオブジェクトのスコープを抜ける際、そのオブジェクトが非自明なデストラクタを持つ場合、動作は未定義である。
-+* コルーチンのサスペンションコンテキスト内で呼び出された場合、動作は未定義である。
- 
- ## 例
- 
-@@ -44,7 +45,7 @@ void low_level_function() {
- 
- int main () {
-   int result = setjmp(env);
--  if (result == 0) {  // 直接呼び出された場合は0を返すので、エラー処理を行う
-+  if (result == 0) {
-     low_level_function();
-   } else {
-     std::cout &amp;lt;&amp;lt; &amp;#34;エラーから復帰しました:&amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>setjmp -- 諸々の修正</title>
-      <link href="https://cpprefjp.github.io/reference/csetjmp/setjmp.html"/>
-      <id>3fb5cb018fcb4edd4a089def4e0d5b9d1037ef56:reference/csetjmp/setjmp.md</id>
-      <updated>2026-05-01T11:25:13+01:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csetjmp/setjmp.md b/reference/csetjmp/setjmp.md
-index bb8fd467e..6b8dcae36 100644
---- a/reference/csetjmp/setjmp.md
-+++ b/reference/csetjmp/setjmp.md
-@@ -17,7 +17,7 @@
- 
- 1. 条件式または反復式の制御式全体
- 2. 関係演算子または等価演算子のオペランドの一つ(もう一つのオペランドは整数定数)
--3. ! のオペランドであり、その結果式が1を満たす場合
-+3. `!`のオペランドであり、その結果式が1を満たす場合
- 4. 式文の式全体(void型へのキャストを含む)
- 
- 上記以外の箇所での呼び出しは未定義の動作となる。
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
