@@ -236,8 +236,8 @@
 <h2>概要</h2>
 <p><code>basic_format_string</code>オブジェクトを構築する。</p>
 <ul>
-<li>(1) : コンパイル時の書式文字列を受け取る</li>
-<li>(2) : 実行時の書式文字列を受け取る</li>
+<li>(1) : コンパイル時の書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列を受け取る</li>
+<li>(2) : 実行時の書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列を受け取る</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <ul>
@@ -247,8 +247,8 @@
 <p>メンバ変数として<code>basic_string_view&lt;charT&gt; str;</code>が定義されるとして、<code>str(s)</code>で初期化する。</p>
 <h2>備考</h2>
 <ul>
-<li>この関数の呼び出しは、<code>str</code>が<code>args</code>の書式文字列であるような<code>Args</code>型の<code>args</code>が存在しない限り、コア定数式ではない<ul>
-<li>意味 : 書式文字列が引数列<code>args</code>と合わせて正しくなければ、定数式評価 (<code>consteval</code>) が実行できずコンパイルエラーとなる</li>
+<li>この関数の呼び出しは、<code>str</code>が<code>args</code>の書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列であるような<code>Args</code>型の<code>args</code>が存在しない限り、コア定数式ではない<ul>
+<li>意味 : 書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列が引数列<code>args</code>と合わせて正しくなければ、定数式評価 (<code>consteval</code>) が実行できずコンパイルエラーとなる</li>
 <li>以下のようなコードはコンパイルエラーとなる：
 
 <div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>

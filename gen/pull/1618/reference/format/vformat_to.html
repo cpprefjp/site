@@ -253,7 +253,7 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>書式文字列<code>fmt</code>に従ったフォーマットで<code>args</code>の文字列表現を出力イテレータ<code>out</code>に出力する。</p>
+<p>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列<code>fmt</code>に従ったフォーマットで<code>args</code>の文字列表現を出力イテレータ<code>out</code>に出力する。</p>
 <ul>
 <li>(1): マルチバイト文字列版</li>
 <li>(2): ワイド文字列版</li>
@@ -275,12 +275,12 @@
 <li>(2), (4): <code>OutputIterator&lt;const wchar_t&amp;&gt;</code></li>
 </ul>
 <h2>効果</h2>
-<p>書式文字列<code>fmt</code>に従ったフォーマットで<code>args</code>の文字列表現を出力イテレータ<code>out</code>の<code>[out, out + N)</code>の<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>に出力する。ロケール<code>loc</code>が指定された場合は、ロケール依存のフォーマットにおいて使用される。
+<p>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列<code>fmt</code>に従ったフォーマットで<code>args</code>の文字列表現を出力イテレータ<code>out</code>の<code>[out, out + N)</code>の<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>に出力する。ロケール<code>loc</code>が指定された場合は、ロケール依存のフォーマットにおいて使用される。
 (ただし、<code>N</code>=<code>formatted_size(fmt, args...)</code> または <code>formatted_size(loc, fmt, args...)</code>)</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>out + N</code> (ただし、<code>N</code>=<code>formatted_size(fmt, args...)</code> または <code>formatted_size(loc, fmt, args...)</code>)</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
-<p>書式文字列が正しくなかったり、フォーマット実行時に失敗したりした場合、<code><a href="format_error.html">format_error</a></code>を投げる。</p>
+<p>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列が正しくなかったり、フォーマット実行時に失敗したりした場合、<code><a href="format_error.html">format_error</a></code>を投げる。</p>
 <h2>実装例</h2>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ParseContext</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FormatContext</span><span class="o">&gt;</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">ArgVisitor</span><span class="w"> </span><span class="p">{</span>

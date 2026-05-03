@@ -235,7 +235,7 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>フォーマット引数の個々の型に対応する書式文字列の解析と値のフォーマットを担うクラス。</p>
+<p>フォーマット引数の個々の型に対応する書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列の解析と値のフォーマットを担うクラス。</p>
 <ul>
 <li>(1) : デフォルトのフォーマット</li>
 <li>(2) : Range用のフォーマット。実装は<code><a href="range-default-formatter.html">range-default-formatter</a></code>クラスが行う</li>
@@ -297,13 +297,13 @@
 <li><code>pc</code>を<code>PC</code>のlvalue</li>
 <li><code>fc</code>を<code>FC</code>のlvalue</li>
 </ul>
-<p>ただし、<code><a href="formatter/parse.html">parse</a></code>の呼び出し前の状態で、<code>pc.begin()</code>は書式文字列中の対応する置換フィールドのオプションの先頭を指す。</p>
+<p>ただし、<code><a href="formatter/parse.html">parse</a></code>の呼び出し前の状態で、<code>pc.begin()</code>は書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列中の対応する置換フィールドのオプションの先頭を指す。</p>
 <ul>
 <li>オプションが空でなければ、<code>*pc.begin()</code>は<code>:</code>の次の文字</li>
 <li>オプションが空なら、<code>pc.begin() == pc.end()</code>または<code>*pc.begin() == '}'</code>である</li>
 </ul>
 <p><code><a href="formattable.html">std::formattable</a></code>コンセプトも参照。</p>
-<p>フォーマッターは、書式文字列中に置換フィールドが見つかるたびに次のコードと近い形で呼び出される。</p>
+<p>フォーマッターは、書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列中に置換フィールドが見つかるたびに次のコードと近い形で呼び出される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">typename</span><span class="w"> </span><span class="nc">FC</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">formatter_type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <span class="n"><a href="basic_format_parse_context/advance_to.html">pc.advance_to</a></span><span class="p">(</span><span class="n"><a href="formatter/parse.html">f.parse</a></span><span class="p">(</span><span class="n">pc</span><span class="p">));</span><span class="w">      </span><span class="c1">// オプションを解析し状態を保存する</span>
 <span class="n"><a href="basic_format_context/advance_to.html">fc.advance_to</a></span><span class="p">(</span><span class="n"><a href="formatter/format.html">f.format</a></span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">fc</span><span class="p">));</span><span class="w">  </span><span class="c1">// 状態をもとにフォーマットを行う</span>

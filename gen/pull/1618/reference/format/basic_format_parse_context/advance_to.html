@@ -230,7 +230,7 @@
 </p>
 <h2>概要</h2>
 <p>指定したイテレータを先頭イテレータとして設定する。</p>
-<p>この関数は、書式文字列の全体を解析する処理において、<code><a href="../formatter.html">formatter</a>::<a href="../formatter/parse.html">parse()</a></code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>から、次の解析を始めるために使用する。</p>
+<p>この関数は、書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列の全体を解析する処理において、<code><a href="../formatter.html">formatter</a>::<a href="../formatter/parse.html">parse()</a></code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>から、次の解析を始めるために使用する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="err">…</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n"><a href="../formatter/parse.html">parse</a></span><span class="p">(</span><span class="n">parse_ctx</span><span class="p">);</span>
 
@@ -245,7 +245,7 @@
 <li><code>it</code>は<code><a href="end.html">end()</a></code>に到達可能であること</li>
 </ul>
 <h2>効果</h2>
-<p>メンバ変数として保持している、書式文字列の先頭を指すイテレータ<code>begin_</code>があるとして、以下と等価：</p>
+<p>メンバ変数として保持している、書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列の先頭を指すイテレータ<code>begin_</code>があるとして、以下と等価：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">begin_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">;</span>
 </code></pre></div>
 </p>

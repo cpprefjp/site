@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-03T08:37:42">
-        2026年05月03日 08時37分42秒
+      <span itemprop="datePublished" content="2026-05-03T10:26:15">
+        2026年05月03日 10時26分15秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -241,7 +241,7 @@
 <li>コルーチンのサスペンションコンテキスト内で呼び出された場合</li>
 <li>対応する<code>setjmp</code>が存在しない場合(<code>env</code>が有効な環境を保存していない場合)</li>
 <li><code>longjmp</code>は、対応する<code>setjmp</code>の呼び出しから同一スレッド内で呼び出されなければならない。異なるスレッドから呼び出された場合</li>
-<li><code>setjmp</code>を実行した関数の実行が終了している場合</li>
+<li><code>setjmp</code>を呼び出した関数の実行が終了している場合</li>
 </ul>
 <p>また、<code>volatile</code>修飾子のついていない<code>setjmp</code>を呼び出した関数に対してローカルな変数で、その値が<code>setjmp</code>から<code>longjmp</code>の呼び出しの間で変更されたものがある場合、その変数の値は不定となる。</p>
 <h2>例</h2>

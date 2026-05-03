@@ -246,7 +246,7 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>*this</code> を書式文字列に従って出力する。</p>
+<p><code>*this</code> を書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列に従って出力する。</p>
 <h2>要件</h2>
 <ul>
 <li><code><a href="ready.html">ready</a>() == true</code> であること。</li>
@@ -254,9 +254,9 @@
 </ul>
 <h2>効果</h2>
 <ul>
-<li>(1) 書式文字列 <code>[fmt_first, fmt_last)</code> を出力イテレータ <code>out</code> にコピーする。
-    コピーされる書式文字列内のエスケープシーケンスや書式指定子は、対応する文字や <code>*this</code> 内の対応する文字列に置換される。<br />
-    書式文字列の形式は、ビットマスク <code>flags</code> で指定する。</li>
+<li>(1) 書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列 <code>[fmt_first, fmt_last)</code> を出力イテレータ <code>out</code> にコピーする。
+    コピーされる書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列内のエスケープシーケンスや書式指定子は、対応する文字や <code>*this</code> 内の対応する文字列に置換される。<br />
+    書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列の形式は、ビットマスク <code>flags</code> で指定する。</li>
 <li>(2) <code>return format(out, fmt.<a href="../../string/basic_string/data.html">data</a>(), fmt.<a href="../../string/basic_string/data.html">data</a>() + fmt.<a href="../../string/basic_string/size.html">size</a>(), flags)</code> と等価。</li>
 <li>(3) <code><a href="../../string/basic_string.html">basic_string</a>&lt;char_type, ST, SA&gt;</code> 型の空の文字列変数 <code>result</code> を構築し、<code>format(<a href="../../iterator/back_inserter.html">back_inserter</a>(result), fmt, flags)</code> を呼び出す。</li>
 <li>(4) <code>string_type</code> 型の空の文字列変数 <code>result</code> を構築し、<code>format(<a href="../../iterator/back_inserter.html">back_inserter</a>(result), fmt, fmt + <a href="../../string/char_traits.html">char_traits</a>&lt;char_type&gt;::<a href="../../string/char_traits/length.html">length</a>(fmt), flags)</code> を呼び出す。</li>

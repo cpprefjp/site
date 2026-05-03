@@ -219,7 +219,7 @@
 <p></p>
 <h2>概要</h2>
 <p>いかなる呼び出しにおいても定数式実行できない<code>constexpr</code>関数が存在しても、プログラムが<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>にならないようにする。</p>
-<p>ただし、このような関数の存在までは許容するというだけで、定数式実行できない<code>constexpr</code>関数を定数式文脈で呼び出すと従来通りエラーとなる。</p>
+<p>ただし、このような関数の存在までは許容するというだけで、定数式実行できない<code>constexpr</code>関数を定数<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>脈で呼び出すと従来通りエラーとなる。</p>
 <h2>この機能が必要になった背景・経緯</h2>
 <p>これまでは、いかなる実引数での呼び出しでも定数式実行できない<code>constexpr</code>関数が存在するだけでプログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>になっていた。</p>
 <p>例えば以下のような場合である。</p>

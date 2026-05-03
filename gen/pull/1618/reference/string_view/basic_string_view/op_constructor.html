@@ -247,7 +247,7 @@
 <ul>
 <li>(1) : デフォルトコンストラクタ。空の<code>basic_string_view</code>オブジェクトを構築する</li>
 <li>(2) : コピーコンストラクタ。コピー元と同じ文字列を参照する</li>
-<li>(3) : 文字配列を受けとって、その文字配列の全体(ただしヌル文字を含む場合はそこまで)を参照する</li>
+<li>(3) : 文字配列を受けとって、その文字配列の全体(ただし<a class="cpprefjp-defined-word" data-desc="null-statement。セミコロンだけの式文。ループの本体を空にしたいときなどに使う">ヌル文</a>字を含む場合はそこまで)を参照する</li>
 <li>(5) : 文字配列と長さを受けとって、文字配列<code>str</code>の先頭<code>len</code>文字を参照する</li>
 <li>(6) : 文字の<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[begin, end)</code>を参照する</li>
 <li>(7) : 文字のレンジ<code>R</code>を参照する</li>
@@ -308,7 +308,7 @@
 </code></pre></div>
 </div></p>
 <ul>
-<li>ヌル文字を含む文字列リテラル全体から<code>basic_string_view</code>を構築したい場合は<code><a href="op_sv.html">std::string_view_literals::svリテラル</a></code>を用いる。</li>
+<li><a class="cpprefjp-defined-word" data-desc="null-statement。セミコロンだけの式文。ループの本体を空にしたいときなどに使う">ヌル文</a>字を含む文字列リテラル全体から<code>basic_string_view</code>を構築したい場合は<code><a href="op_sv.html">std::string_view_literals::svリテラル</a></code>を用いる。</li>
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="9c39a16cb8fcaa6529b74eaa25f172f0324c10b0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>

@@ -241,7 +241,7 @@
 <p>受け取ったRangeオブジェクト<code>R</code>を書式化する。</p>
 <h2>効果</h2>
 <ul>
-<li><code><a href="parse.html">parse()</a></code>メンバ関数で解析した書式文字列の指定に基づいて、<code>r</code>の値を文字列に変換し、以下を<code><a href="../basic_format_context/out.html">ctx.out()</a></code>に出力する：<ul>
+<li><code><a href="parse.html">parse()</a></code>メンバ関数で解析した書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列の指定に基づいて、<code>r</code>の値を文字列に変換し、以下を<code><a href="../basic_format_context/out.html">ctx.out()</a></code>に出力する：<ul>
 <li>Range書式として<a href="../format.html#range-format-options"><code>s</code> (文字列として出力)</a>が指定された場合、<code><a href="../../string/basic_string.html">basic_string</a>&lt;charT&gt;(<a href="../../ranges/from_range_t.html">from_range</a>, r)</code>を出力する</li>
 <li>そうでなく、Range書式として<a href="../format.html#range-format-options"><code>?s</code> (デバッグ文字列として出力)</a>が指定された場合、<code><a href="../../string/basic_string.html">basic_string</a>&lt;charT&gt;(<a href="../../ranges/from_range_t.html">from_range</a>, r)</code>に引用符を付け、エスケープシーケンスをエスケープして出力する</li>
 <li>そうでなければ、<ul>

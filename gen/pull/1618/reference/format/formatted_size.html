@@ -247,7 +247,7 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>書式文字列<code>fmt</code>に従ったフォーマットで<code>args...</code>の文字列表現を格納するために必要な文字数を返す。</p>
+<p>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列<code>fmt</code>に従ったフォーマットで<code>args...</code>の文字列表現を格納するために必要な文字数を返す。</p>
 <ul>
 <li>(1): マルチバイト文字列版</li>
 <li>(2): ワイド文字列版</li>
@@ -259,10 +259,10 @@
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
 <ul>
-<li>書式文字列は定数式であり、<code><a href="../string_view/basic_string_view.html">string_view</a></code>(ワイド文字列版は<code><a href="../string_view/basic_string_view.html">wstring_view</a></code>)に暗黙変換できること。</li>
-<li>書式文字列にエラーがないこと。例えば、<ul>
+<li>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列は定数式であり、<code><a href="../string_view/basic_string_view.html">string_view</a></code>(ワイド文字列版は<code><a href="../string_view/basic_string_view.html">wstring_view</a></code>)に暗黙変換できること。</li>
+<li>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列にエラーがないこと。例えば、<ul>
 <li>閉じていないカッコなどの構文エラーがないこと。</li>
-<li>実際に渡している引数の型が書式文字列中の置換フィールドが要求する型に合うこと。</li>
+<li>実際に渡している引数の型が書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列中の置換フィールドが要求する型に合うこと。</li>
 </ul>
 </li>
 </ul>
@@ -272,9 +272,9 @@
 <li><code>Args</code>のそれぞれの引数<code>Ti</code>に対応するフォーマッター<code>formatter&lt;remove_cvref_t&lt;Ti&gt;, charT&gt;</code>が<code>BasicFormatter</code>要件を満たす。</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p>書式文字列<code>fmt</code>に従ったフォーマットで<code>args...</code>の文字列表現を格納するために必要な文字数。</p>
+<p>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列<code>fmt</code>に従ったフォーマットで<code>args...</code>の文字列表現を格納するために必要な文字数。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
-<p>書式文字列が正しくなかったり、フォーマット実行時に失敗したりした場合、<code><a href="format_error.html">format_error</a></code>を投げる。</p>
+<p>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列が正しくなかったり、フォーマット実行時に失敗したりした場合、<code><a href="format_error.html">format_error</a></code>を投げる。</p>
 <h2>備考</h2>
 <p>マルチバイト文字列、ワイド文字列の区別は、可変長引数部分で受け取れる文字列の型にも適用される。</p>
 <h2>例</h2>

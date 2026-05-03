@@ -226,16 +226,16 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>basic_format_string</code>クラスは、コンパイル時の書式文字列を表すクラスである。</p>
+<p><code>basic_format_string</code>クラスは、コンパイル時の書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列を表すクラスである。</p>
 <p>C++20までは説明専用クラス<code>basic-format-string</code>として定義されていたが、C++23からはユーザーが利用できる正式な機能として定義される。</p>
-<p>このクラスは、書式文字列のコンパイル時チェックを行う。</p>
+<p>このクラスは、書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列のコンパイル時チェックを行う。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span><span class="w"> </span><span class="s">"I am not a number"</span><span class="p">);</span><span class="w"> </span><span class="c1">// コンパイルエラー！</span>
 <span class="w">                                                     </span><span class="c1">// 書式文字列は「d」で整数を要求しているが、引数として文字列が渡された</span>
 </code></pre></div>
 </p>
-<p>このクラスのコンストラクタは、パラメータの書式文字列と、クラステンプレートパラメータの<code>Args...</code>を照合し、</p>
+<p>このクラスのコンストラクタは、パラメータの書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列と、クラステンプレートパラメータの<code>Args...</code>を照合し、</p>
 <ul>
-<li>書式文字列の型チェック</li>
+<li>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列の型チェック</li>
 <li>開きカッコと閉じカッコの一致</li>
 <li>その他、型ごとに許可されたオプションが正しいか</li>
 </ul>
@@ -266,7 +266,7 @@
 </tr>
 <tr>
 <td><code><a href="basic_format_string/get.html">get</a></code></td>
-<td>書式文字列を取得する</td>
+<td>書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列を取得する</td>
 <td>C++23</td>
 </tr>
 </tbody>

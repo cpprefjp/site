@@ -259,8 +259,8 @@
 </ul>
 <h2>備考</h2>
 <ul>
-<li>中間にヌル文字を含む文字列リテラルから<code>basic_string_view</code>オブジェクトを構築する場合、コンストラクタを使用するよりもこちらの関数を使用したほうがよい。<ul>
-<li><code>const char*</code>をとるコンストラクタは<code><a href="../../string/char_traits.html">std::char_traits</a>::<a href="../../string/char_traits/length.html">length()</a></code>関数を使用して文字列長を計算するため、<a class="cpprefjp-defined-word" data-desc="null-terminated。文字列においてヌル文字 '\0' を用いてその終端を表すこと。ヌル文字自体は文字列に含まない。広義には線形データ構造においてヌルまたは値 0 を番兵としてその終わりを示すこと">ヌル終端</a>までの長さとなる。そのコンストラクタでは文字列の途中にヌル文字がある場合、文字列の終端まで扱われないので注意が必要となる</li>
+<li>中間に<a class="cpprefjp-defined-word" data-desc="null-statement。セミコロンだけの式文。ループの本体を空にしたいときなどに使う">ヌル文</a>字を含む文字列リテラルから<code>basic_string_view</code>オブジェクトを構築する場合、コンストラクタを使用するよりもこちらの関数を使用したほうがよい。<ul>
+<li><code>const char*</code>をとるコンストラクタは<code><a href="../../string/char_traits.html">std::char_traits</a>::<a href="../../string/char_traits/length.html">length()</a></code>関数を使用して文字列長を計算するため、<a class="cpprefjp-defined-word" data-desc="null-terminated。文字列においてヌル文字 '\0' を用いてその終端を表すこと。ヌル文字自体は文字列に含まない。広義には線形データ構造においてヌルまたは値 0 を番兵としてその終わりを示すこと">ヌル終端</a>までの長さとなる。そのコンストラクタでは文字列の途中に<a class="cpprefjp-defined-word" data-desc="null-statement。セミコロンだけの式文。ループの本体を空にしたいときなどに使う">ヌル文</a>字がある場合、文字列の終端まで扱われないので注意が必要となる</li>
 <li>こちらの関数は文字列リテラルの長さを直接扱うため、文字列全体を参照する<code>basic_string_view</code>オブジェクトを構築できる
 
 <div class="codehilite"><pre><span></span><code><span class="c1">// コンストラクタは、ヌル文字までの長さ</span>

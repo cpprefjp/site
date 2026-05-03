@@ -231,8 +231,8 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>runtime-format-string</code>クラスは、実行時の書式文字列を表す説明用のクラスであり、ユーザーは使用できない。</p>
-<p>このクラスは、<code><a href="../string/basic_string.html">std::string</a></code>や<code><a href="../string_view/basic_string_view.html">std::string_view</a></code>の文字列を、書式文字列として<code><a href="format.html">std::format()</a></code>関数に指定するためにある。</p>
+<p><code>runtime-format-string</code>クラスは、実行時の書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列を表す説明用のクラスであり、ユーザーは使用できない。</p>
+<p>このクラスは、<code><a href="../string/basic_string.html">std::string</a></code>や<code><a href="../string_view/basic_string_view.html">std::string_view</a></code>の文字列を、書<a class="cpprefjp-defined-word" data-desc="expression-statement。式の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価されることが多いが、値は破棄される。">式文</a>字列として<code><a href="format.html">std::format()</a></code>関数に指定するためにある。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"{}"</span><span class="p">;</span>
 <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="n"><a href="runtime_format.html">std::runtime_format</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">),</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span>
 </code></pre></div>
