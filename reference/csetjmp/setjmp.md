@@ -72,6 +72,10 @@ int main () {
 エラーから復帰しました
 ```
 
+## 参照
+
+[MSC22-C. setjmp()、longjmp() の機能を安全に使用する](https://www.jpcert.or.jp/sc-rules/c-msc22-c.html#:~:text=%E4%BB%A3%E5%85%A5%E6%96%87%E3%81%A7%20setjmp()%20%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%A6%E3%81%8A%E3%82%8A%E3%80%81%E7%B5%90%E6%9E%9C%E3%81%A8%E3%81%97%E3%81%A6%E6%9C%AA%E5%AE%9A%E7%BE%A9%E3%81%AE%E5%8B%95%E4%BD%9C%E3%81%8C%E5%BC%95%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%95%E3%82%8C%E3%82%8B)
+
 ## 関連項目
 - [jmp_buf](/reference/csetjmp/jmp_buf.md)
 - [longjmp](/reference/csetjmp/longjmp.md)
