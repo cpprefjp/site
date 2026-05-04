@@ -27,7 +27,7 @@ constexpr void assign(initializer_list<T> il); // (3) C++20
 
 
 ## 要件
-- (1) : 型`T`は`*first`から`X`に対してEmplaceConstructibleでなければならない。イテレータがForward iterators の要件を満たさない場合、型`T`は`X`に対してMoveInsertableでなければならない。`[first, last)`の範囲のそれぞれのイテレータは１回だけ間接参照される。`first`, `last`は自身のイテレータであってはならない。
+- (1) : 型`T`が`*first`から`vector`コンテナへの`EmplaceConstructible`であること。`InputIterator`が前方向イテレータの要件を満たさない場合、型`T`は`vector`コンテナに対してMoveInsertableであること。`[first, last)`の範囲のそれぞれのイテレータは１回だけ間接参照される。`first`, `last`は自身のイテレータであってはならない。
 - (2) : `t`は`*this`の要素への参照であってはならない。
 
 
