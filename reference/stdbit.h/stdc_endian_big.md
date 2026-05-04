@@ -1,4 +1,4 @@
-# __STDC_ENDIAN_BIG__
+# \__STDC_ENDIAN_BIG__
 * stdbit.h[meta header]
 * macro[meta id-type]
 * cpp26[meta cpp]
