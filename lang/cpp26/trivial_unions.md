@@ -81,7 +81,7 @@ union U6 { std::string s; int n = 0; };
 
 ```cpp example
 #include <cassert>
-#include <new>
+#include <memory> // std::construct_at()
 
 constexpr int f() {
   union { int s[4]; };
