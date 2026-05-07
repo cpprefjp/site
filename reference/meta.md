@@ -141,7 +141,7 @@
 | [`return_type_of`](meta/return_type_of.md) | 関数の戻り値型のリフレクションを取得 | C++26 |
 | [`variable_of`](meta/variable_of.md) | パラメータ変数のリフレクションを取得 | C++26 |
 | [`has_default_argument`](meta/has_default_argument.md) | デフォルト引数を持つか | C++26 |
-| [`has_ellipsis_parameter`](meta/has_ellipsis_parameter.md) | 可変長引数を持つか | C++26 |
+| [`is_vararg_function`](meta/is_vararg_function.md) | 可変長引数を持つか | C++26 |
 | [`is_explicit_object_parameter`](meta/is_explicit_object_parameter.md) | 明示的オブジェクトパラメータであるか | C++26 |
 
 
