@@ -342,7 +342,6 @@
 | [`is_nothrow_swappable_with_type`](meta/is_nothrow_swappable_with_type.md) | 例外を送出せずに指定型とswap可能型か | C++26 |
 | [`is_nothrow_swappable_type`](meta/is_nothrow_swappable_type.md) | 例外を送出せずにswap可能型か | C++26 |
 | [`is_nothrow_destructible_type`](meta/is_nothrow_destructible_type.md) | 例外を送出せずに破棄可能型か | C++26 |
-| [`is_consteval_only_type`](meta/is_consteval_only_type.md) | consteval-only型か | C++26 |
 | [`is_structural_type`](meta/is_structural_type.md) | 構造的型か | C++26 |
 | [`is_implicit_lifetime_type`](meta/is_implicit_lifetime_type.md) | 暗黙の生存期間型か | C++26 |
 | [`has_virtual_destructor`](meta/has_virtual_destructor.md) | 仮想デストラクタを持つか | C++26 |
@@ -444,3 +443,5 @@
 - [P3560R2 Error Handling in Reflection](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html)
 - [P3920R0 Wording for NB comment resolution on trivial relocation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3920r0.html)
     - C++26策定中に、trivially relocatable関係が一旦削除された
+- [LWG Issue 4555. Remove `is_consteval_only`](https://cplusplus.github.io/LWG/issue4555)
+    - C++26で入る予定だった`is_consteval_only_type`の追加が取り消された

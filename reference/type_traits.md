@@ -70,7 +70,6 @@
 | [`is_final`](type_traits/is_final.md)       | 型に`final`が付いているかを調べる (class template) | C++14 |
 | [`is_aggregate`](type_traits/is_aggregate.md) | 型が集成体かを調べる (class template) | C++17 |
 | [`is_implicit_lifetime`](type_traits/is_implicit_lifetime.md) | 型が暗黙的に構築されるかを調べる (class template) | C++23 |
-| [`is_consteval_only`](type_traits/is_consteval_only.md) | 型がconsteval-only型か調べる (class template) | C++26 |
 | [`is_structural`](type_traits/is_structural.md) | 型が構造的型か調べる (class template) | C++26 |
 | [`is_signed`](type_traits/is_signed.md)     | 型が符号付き算術型か調べる (class template) | C++11 |
 | [`is_unsigned`](type_traits/is_unsigned.md) | 型が符号無し算術型か調べる (class template) | C++11 |
@@ -253,3 +252,5 @@
 - [LWG Issue 2581. Specialization of `<type_traits>` variable templates should be prohibited](https://wg21.cmeerw.net/lwg/issue2581)
     - C++14までは`<type_traits>`で定義されるクラステンプレートの特殊化を禁止していたが、C++17で定義される変数テンプレートも特殊化の禁止対象とされた
 - [P1413R3 Deprecate `std::aligned_storage` and `std::aligned_union`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1413r3.pdf)
+- [LWG Issue 4555. Remove `is_consteval_only`](https://cplusplus.github.io/LWG/issue4555)
+    - C++26で入る予定だった`is_consteval_only`の追加が取り消された
