@@ -71,6 +71,7 @@
 | [`is_aggregate`](type_traits/is_aggregate.md) | 型が集成体かを調べる (class template) | C++17 |
 | [`is_implicit_lifetime`](type_traits/is_implicit_lifetime.md) | 型が暗黙的に構築されるかを調べる (class template) | C++23 |
 | [`is_consteval_only`](type_traits/is_consteval_only.md) | 型がconsteval-only型か調べる (class template) | C++26 |
+| [`is_structural`](type_traits/is_structural.md) | 型が構造的型か調べる (class template) | C++26 |
 | [`is_signed`](type_traits/is_signed.md)     | 型が符号付き算術型か調べる (class template) | C++11 |
 | [`is_unsigned`](type_traits/is_unsigned.md) | 型が符号無し算術型か調べる (class template) | C++11 |
 | [`is_bounded_array`](type_traits/is_bounded_array.md) | 型が要素数の判明している配列型かを調べる (class template) | C++20 |

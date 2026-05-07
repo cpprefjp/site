@@ -112,6 +112,7 @@
 |`__cpp_lib_indirect`|`202502L`|[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md.nolink)と[`std::polymorphic`](/reference/memory/polymorphic.md.nolink)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_inplace_vector`|`202406L`|容量固定の可変長配列のライブラリ[`<inplace_vector>`](/reference/inplace_vector.md)を追加|[`<inplace_vector>`](/reference/inplace_vector.md)|
 |`__cpp_lib_is_sufficiently_aligned`|`202411L`|[`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_is_structural`|`202603L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_structural`](/reference/type_traits/is_structural.md)を追加|[`<type_traits>`](/reference/type_traits.md), [`<meta>`](/reference/meta.md)|
 |`__cpp_lib_is_virtual_base_of`|`202406L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_is_within_lifetime`|`202306L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_linalg`|`202412L`|線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加|[`<linalg>`](/reference/linalg.md)|

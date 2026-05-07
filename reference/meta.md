@@ -343,6 +343,7 @@
 | [`is_nothrow_swappable_type`](meta/is_nothrow_swappable_type.md) | 例外を送出せずにswap可能型か | C++26 |
 | [`is_nothrow_destructible_type`](meta/is_nothrow_destructible_type.md) | 例外を送出せずに破棄可能型か | C++26 |
 | [`is_consteval_only_type`](meta/is_consteval_only_type.md) | consteval-only型か | C++26 |
+| [`is_structural_type`](meta/is_structural_type.md) | 構造的型か | C++26 |
 | [`is_implicit_lifetime_type`](meta/is_implicit_lifetime_type.md) | 暗黙の生存期間型か | C++26 |
 | [`has_virtual_destructor`](meta/has_virtual_destructor.md) | 仮想デストラクタを持つか | C++26 |
 | [`has_unique_object_representations`](meta/has_unique_object_representations.md) | 一意なオブジェクト表現を持つか | C++26 |
