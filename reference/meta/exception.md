@@ -8,11 +8,22 @@
 namespace std::meta {
   class exception : public std::exception {
   public:
-    exception(u8string_view msg, info from, std::source_location where = std::source_location::current());
-    const char* what() const noexcept override;
-    const char8_t* u8what() const noexcept;
-    consteval info from() const;
-    consteval std::source_location where() const;
+    consteval exception(std::u8string_view what, info from,
+                        std::source_location where = std::source_location::current()) noexcept;
+
+    consteval exception(std::string_view what, info from,
+                        std::source_location where = std::source_location::current()) noexcept;
+
+    exception(const exception&) = default;
+    exception(exception&&) = default;
+
+    exception& operator=(const exception&) = default;
+    exception& operator=(exception&&) = default;
+
+    consteval const char* what() const noexcept override;
+    consteval std::u8string_view u8what() const noexcept;
+    consteval info from() const noexcept;
+    consteval std::source_location where() const noexcept;
   };
 }
 ```
@@ -22,14 +33,15 @@ namespace std::meta {
 ## 概要
 `exception`は、リフレクションのメタ関数がエラーを報告するために送出する例外クラスである。[`std::exception`](/reference/exception/exception.md)から派生する。
 
-定数評価中にのみ送出・捕捉されるため、実行時のオーバーヘッドはない。
+定数評価中にのみ送出・捕捉されるため、実行時のオーバーヘッドはない。consteval-only型であり、実行時には存在できない。
 
 ## メンバ関数
 
 | 名前 | 説明 |
 |------|------|
+| `(constructor)` | `u8string_view`または`string_view`のメッセージ、送出元のリフレクション、ソース位置からオブジェクトを構築する |
 | `what()` | エラーメッセージを通常のエンコーディングで取得 |
-| `u8what()` | エラーメッセージをUTF-8で取得 |
+| `u8what()` | エラーメッセージをUTF-8（[`u8string_view`](/reference/string_view/basic_string_view.md)）で取得 |
 | `from()` | 送出元のメタ関数のリフレクションを取得 |
 | `where()` | エラーが発生したソース位置を取得 |
 
@@ -51,3 +63,4 @@ namespace std::meta {
 
 ## 参照
 - [P3560R2 Error Handling in Reflection](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html)
+- [LWG Issue 4513. `meta::exception::what()` should be `consteval`](https://cplusplus.github.io/LWG/issue4513)
