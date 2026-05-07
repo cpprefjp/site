@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <ranges::input_range R>
-  consteval std::span<const ranges::range_value_t<R>> define_static_array(R&& r);
+  consteval std::span<const ranges::range_value_t<R>, see below> define_static_array(R&& r);
 }
 ```
 
@@ -16,7 +16,12 @@ namespace std {
 
 
 ## 戻り値
-`r`の要素をコピーした静的ストレージ上の配列を参照する`std::span<const T>`を返す。
+`r`の要素をコピーした静的ストレージ上の配列を参照する`std::span<const T, Extent>`を返す。
+
+戻り値の[`std::span`](/reference/span/span.md)の第2テンプレート引数`Extent`は以下のように決まる：
+
+- `ranges::size(r)`が定数式であれば、`static_cast<std::size_t>(ranges::size(r))`（静的長）
+- そうでなければ、[`std::dynamic_extent`](/reference/span/dynamic_extent.md)（動的長）
 
 
 ## 例
@@ -60,3 +65,4 @@ int main() {
 
 ## 参照
 - [P3491R3 `define_static_{string,object,array}`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html)
+- [LWG Issue 4537. Improve `define_static_array`](https://cplusplus.github.io/LWG/issue4537)
