@@ -76,13 +76,14 @@ public:
 #### 事後条件(post)
 関数の実行後に満たされているべき条件を指定する。
 ```cpp
-int increment(int x)
+int increment(const int x)
     post(r: r == x + 1)
 {
     return x + 1;
 }
 ```
 ここでは、`increment`関数の戻り値が`x + 1`であることを事後条件として指定している。
+事後条件に関数引数を使用する場合、使用する引数は参照型か、`const`修飾型でなければならない。
 
 `post`では、戻り値を`r`としてバインドし、条件式内で利用している。ここには、任意の変数名が使用できる。変数は定数(`const`)な左辺値参照である。
 
@@ -443,9 +444,9 @@ C++26では、契約プログラミングをサポートするために`<contrac
 ```cpp
 namespace std::contracts {
     enum class assertion_kind {
-        precondition,   // 事前条件アサーション
-        postcondition,  // 事後条件アサーション
-        assertion       // アサーション文
+        pre,    // 事前条件アサーション
+        post,   // 事後条件アサーション
+        assert  // アサーション文
     };
 }
 ```
@@ -485,9 +486,9 @@ namespace std::contracts {
     public:
         assertion_kind kind() const noexcept;
         evaluation_semantic semantic() const noexcept;
-        detection_mode detection() const noexcept;
+        contracts::detection_mode detection_mode() const noexcept;
         source_location location() const noexcept;
-        string_view comment() const noexcept;
+        const char* comment() const noexcept;
         bool is_terminating() const noexcept;
         exception_ptr evaluation_exception() const noexcept;
     };
@@ -497,7 +498,7 @@ namespace std::contracts {
 主なメンバ関数：
 - `kind()`: 違反した契約アサーションの種類を返す
 - `semantic()`: 使用された評価セマンティクスを返す
-- `detection()`: 違反の検出方法を返す
+- `detection_mode()`: 違反の検出方法を返す
 - `location()`: 契約アサーションのソースロケーションを返す
 - `comment()`: ベンダー固有のコメント文字列を返す
 - `is_terminating()`: 違反後にプログラムが終了するかどうかを返す
@@ -559,7 +560,7 @@ void f(int x) pre(might_throw(x));  // 例外発生時は契約違反
 #include <iostream>
 
 // 事前条件と事後条件を持つ関数
-int safe_division(int numerator, int denominator)
+int safe_division(const int numerator, const int denominator)
     pre(denominator != 0)
     post(result: result * denominator == numerator)
 {
@@ -595,7 +596,7 @@ public:
 };
 
 // ラムダ式での使用
-auto lambda_with_contract = [](int x)
+auto lambda_with_contract = [](const int x)
     pre(x > 0)
     post(r: r > x)
 {
@@ -633,13 +634,13 @@ void handle_contract_violation(const std::contracts::contract_violation& v) {
     std::cerr << "契約違反が発生しました:\n";
     std::cerr << "  種類: ";
     switch (v.kind()) {
-        case std::contracts::assertion_kind::precondition:
+        case std::contracts::assertion_kind::pre:
             std::cerr << "事前条件\n";
             break;
-        case std::contracts::assertion_kind::postcondition:
+        case std::contracts::assertion_kind::post:
             std::cerr << "事後条件\n";
             break;
-        case std::contracts::assertion_kind::assertion:
+        case std::contracts::assertion_kind::assert:
             std::cerr << "アサーション\n";
             break;
     }
@@ -656,7 +657,7 @@ void handle_contract_violation(const std::contracts::contract_violation& v) {
     std::contracts::invoke_default_contract_violation_handler(v);
 }
 
-int process(int x)
+int process(const int x)
     pre(x > 0)
     post(r: r > x)
 {
@@ -679,7 +680,7 @@ int main() {
 #include <vector>
 
 template<std::integral T>
-T increment(T value)
+T increment(const T value)
     pre(value < std::numeric_limits<T>::max())
     post(result: result == value + 1)
 {

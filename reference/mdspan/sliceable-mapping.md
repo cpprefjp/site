@@ -56,7 +56,7 @@ concept sliceable-mapping = see below;
     - `smr.mapping.extents()`の多次元インデクス値を表す整数パック`i`に対して、下記を満たす整数パック`j`に対し`smr.mapping(i...) + smr.offset == m(j)`が`true`となる
         - `sizeof...(j)`が`M_rank`に等しく、かつ
         - `m.extents()`の各次元インデクス`r`に対して、`j...[r]`が下記の総和に等しい
-            - `m.extents()`の`r`次元に対して`vaild_slices...[r]`の`submdspan`スライス範囲の下限、および
+            - `m.extents()`の`r`次元に対して`valid_slices...[r]`の`submdspan`スライス範囲の下限、および
             - `valid_slices...[r]`の型が[縮約スライス型(collapsing slice type)](submdspan_canonicalize_slices.md)ならば値`0`、そうでなければ`i...[`[`MAP_RANK`](submdspan_canonicalize_slices.md)`(valid_slices, r)]`
 
 
