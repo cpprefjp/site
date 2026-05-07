@@ -8,10 +8,11 @@
 namespace std::meta {
   struct data_member_options {
     struct name-type;       // 説明専用
-    optional<name-type> name;
-    optional<int> alignment;
-    optional<int> bit_width;
+    std::optional<name-type> name;
+    std::optional<int> alignment;
+    std::optional<int> bit_width;
     bool no_unique_address = false;
+    std::vector<info> annotations;
   };
 }
 ```
@@ -29,6 +30,7 @@ consteval-only型であり、実行時には存在できない。
 | `alignment` | アライメントの指定 |
 | `bit_width` | ビットフィールドのビット幅 |
 | `no_unique_address` | `[[no_unique_address]]`属性を付加するか |
+| `annotations` | メンバに付加するアノテーションのリフレクションのリスト |
 
 
 ## バージョン

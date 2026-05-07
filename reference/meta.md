@@ -50,6 +50,15 @@
 | [`source_location_of`](meta/source_location_of.md) | ソース位置を取得 | C++26 |
 
 
+## 現在のスコープ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|-------|
+| [`current_function`](meta/current_function.md) | 呼び出し時点で囲んでいる関数のリフレクションを取得 | C++26 |
+| [`current_class`](meta/current_class.md) | 呼び出し時点で囲んでいるクラスのリフレクションを取得 | C++26 |
+| [`current_namespace`](meta/current_namespace.md) | 呼び出し時点で囲んでいる名前空間のリフレクションを取得 | C++26 |
+
+
 ## エンティティの性質
 
 | 名前 | 説明 | 対応バージョン |
@@ -365,6 +374,8 @@
 | [`is_invocable_r_type`](meta/is_invocable_r_type.md) | 指定戻り値型で呼び出し可能か | C++26 |
 | [`is_nothrow_invocable_type`](meta/is_nothrow_invocable_type.md) | 例外を送出せずに呼び出し可能か | C++26 |
 | [`is_nothrow_invocable_r_type`](meta/is_nothrow_invocable_r_type.md) | 例外を送出せずに指定戻り値型で呼び出し可能か | C++26 |
+| [`is_applicable_type`](meta/is_applicable_type.md) | tuple-like型の各要素を引数として呼び出し可能か | C++26 |
+| [`is_nothrow_applicable_type`](meta/is_nothrow_applicable_type.md) | tuple-like型の各要素を引数として例外を送出せずに呼び出し可能か | C++26 |
 
 ## 型変換
 
@@ -391,6 +402,7 @@
 | [`common_reference`](meta/common_reference.md) | 共通参照型を取得 | C++26 |
 | [`underlying_type`](meta/underlying_type.md) | 基底型を取得 | C++26 |
 | [`invoke_result`](meta/invoke_result.md) | 呼び出し結果型を取得 | C++26 |
+| [`apply_result`](meta/apply_result.md) | tuple-like型を引数として適用したときの結果型を取得 | C++26 |
 | [`unwrap_reference`](meta/unwrap_reference.md) | `reference_wrapper`を展開 | C++26 |
 | [`unwrap_ref_decay`](meta/unwrap_ref_decay.md) | `decay`後に`reference_wrapper`を展開 | C++26 |
 | [`tuple_size`](meta/tuple_size.md) | tuple-like型の要素数を取得 | C++26 |
