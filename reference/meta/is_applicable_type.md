@@ -55,7 +55,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 16 [mark noimpl]
+- [GCC](/implementation.md#gcc): 16 (`-freflection` オプション指定) [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

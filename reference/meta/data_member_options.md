@@ -39,7 +39,7 @@ consteval-only型であり、実行時には存在できない。
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 16 [mark verified]
+- [GCC](/implementation.md#gcc): 16 (`-freflection` オプション指定) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
