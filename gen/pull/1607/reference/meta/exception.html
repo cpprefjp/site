@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-07T03:33:06">
-        2026年05月07日 03時33分06秒
+      <span itemprop="datePublished" content="2026-05-07T06:47:06">
+        2026年05月07日 06時47分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,18 +216,29 @@
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">meta</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">exception</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">exception</span><span class="p">(</span><span class="n">u8<a href="../string_view/basic_string_view.html">string_view</a></span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="info.html">info</a></span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../source_location/source_location.html">std::source_location</a></span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../source_location/source_location.html">std::source_location</a></span><span class="o">::</span><span class="n"><a href="../source_location/source_location/current.html">current()</a></span><span class="p">);</span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">what</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char8_t</span><span class="o">*</span><span class="w"> </span><span class="nf">u8what</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="n"><a href="info.html">info</a></span><span class="w"> </span><span class="nf">from</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="n"><a href="../source_location/source_location.html">std::source_location</a></span><span class="w"> </span><span class="nf">where</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="n">exception</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">u8<a href="../string_view/basic_string_view.html">string_view</a></span><span class="w"> </span><span class="n">what</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="info.html">info</a></span><span class="w"> </span><span class="n">from</span><span class="p">,</span>
+<span class="w">                        </span><span class="n"><a href="../source_location/source_location.html">std::source_location</a></span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../source_location/source_location.html">std::source_location</a></span><span class="o">::</span><span class="n"><a href="../source_location/source_location/current.html">current()</a></span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="n">exception</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span><span class="w"> </span><span class="n">what</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="info.html">info</a></span><span class="w"> </span><span class="n">from</span><span class="p">,</span>
+<span class="w">                        </span><span class="n"><a href="../source_location/source_location.html">std::source_location</a></span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../source_location/source_location.html">std::source_location</a></span><span class="o">::</span><span class="n"><a href="../source_location/source_location/current.html">current()</a></span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">exception</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">exception</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">    </span><span class="n">exception</span><span class="p">(</span><span class="n">exception</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">exception</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">    </span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">exception</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">what</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">u8<a href="../string_view/basic_string_view.html">string_view</a></span><span class="w"> </span><span class="nf">u8what</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="n"><a href="info.html">info</a></span><span class="w"> </span><span class="nf">from</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">    </span><span class="k">consteval</span><span class="w"> </span><span class="n"><a href="../source_location/source_location.html">std::source_location</a></span><span class="w"> </span><span class="nf">where</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code>exception</code>は、リフレクションのメタ関数がエラーを報告するために送出する<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>クラスである。<code><a href="../exception/exception.html">std::exception</a></code>から派生する。</p>
-<p>定数評価中にのみ送出・捕捉されるため、実行時のオーバーヘッドはない。</p>
+<p>定数評価中にのみ送出・捕捉されるため、実行時のオーバーヘッドはない。consteval-only型であり、実行時には存在できない。</p>
 <h2>メンバ関数</h2>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
@@ -238,12 +249,16 @@
 </thead>
 <tbody>
 <tr>
+<td><code>(constructor)</code></td>
+<td><code>u8string_view</code>または<code>string_view</code>のメッセージ、送出元のリフレクション、ソース位置からオブジェクトを構築する</td>
+</tr>
+<tr>
 <td><code>what()</code></td>
 <td>エラーメッセージを通常のエンコーディングで取得</td>
 </tr>
 <tr>
 <td><code>u8what()</code></td>
-<td>エラーメッセージをUTF-8で取得</td>
+<td>エラーメッセージをUTF-8（<code><a href="../string_view/basic_string_view.html">u8string_view</a></code>）で取得</td>
 </tr>
 <tr>
 <td><code>from()</code></td>
@@ -274,6 +289,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html" target="_blank">P3560R2 Error Handling in Reflection</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4513" target="_blank">LWG Issue 4513. <code>meta::exception::what()</code> should be <code>consteval</code></a></li>
 </ul></div>
 
       </div>
