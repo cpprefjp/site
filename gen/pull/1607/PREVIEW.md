@@ -1,10 +1,10 @@
 # PR [\#1607](https://github.com/cpprefjp/site/pull/1607) プレビュー
-- &#x231a; 更新時刻: 2026-04-30 16:50:22 JST
+- &#x231a; 更新時刻: 2026-05-07 11:46:02 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1607)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26_reflection)
-- **&#x2AEF;** ソースの変更: [`113d267..0c0e1f8`](https://github.com/cpprefjp/site/compare/113d2677609673a8239539073b6eb2e89424d3ba..0c0e1f8fd6eb617af6687d735778493f4c973934)
+- **&#x2AEF;** ソースの変更: [`113d267..65bcfa9`](https://github.com/cpprefjp/site/compare/113d2677609673a8239539073b6eb2e89424d3ba..65bcfa98698a72e39c699b6c908773dda5f4da0b)
 
-## 変更記事一覧 (259件)
+## 変更記事一覧 (265件)
 
 - &#x1f4dd; [`implementation-status`](https://cpprefjp.github.io/site/gen/pull/1607/implementation-status.html)
 - &#x1f4dd; [`lang/cpp11/attributes`](https://cpprefjp.github.io/site/gen/pull/1607/lang/cpp11/attributes.html)
@@ -32,12 +32,16 @@
 - &#x1f4dd; [`reference/meta/alignment_of`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/alignment_of.html) &#x2728;
 - &#x1f4dd; [`reference/meta/annotations_of`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/annotations_of.html) &#x2728;
 - &#x1f4dd; [`reference/meta/annotations_of_with_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/annotations_of_with_type.html) &#x2728;
+- &#x1f4dd; [`reference/meta/apply_result`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/apply_result.html) &#x2728;
 - &#x1f4dd; [`reference/meta/bases_of`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/bases_of.html) &#x2728;
 - &#x1f4dd; [`reference/meta/bit_size_of`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/bit_size_of.html) &#x2728;
 - &#x1f4dd; [`reference/meta/can_substitute`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/can_substitute.html) &#x2728;
 - &#x1f4dd; [`reference/meta/common_reference`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/common_reference.html) &#x2728;
 - &#x1f4dd; [`reference/meta/common_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/common_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/constant_of`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/constant_of.html) &#x2728;
+- &#x1f4dd; [`reference/meta/current_class`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/current_class.html) &#x2728;
+- &#x1f4dd; [`reference/meta/current_function`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/current_function.html) &#x2728;
+- &#x1f4dd; [`reference/meta/current_namespace`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/current_namespace.html) &#x2728;
 - &#x1f4dd; [`reference/meta/data_member_options`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/data_member_options.html) &#x2728;
 - &#x1f4dd; [`reference/meta/data_member_spec`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/data_member_spec.html) &#x2728;
 - &#x1f4dd; [`reference/meta/dealias`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/dealias.html) &#x2728;
@@ -55,7 +59,6 @@
 - &#x1f4dd; [`reference/meta/has_c_language_linkage`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_c_language_linkage.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_default_argument`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_default_argument.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_default_member_initializer`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_default_member_initializer.html) &#x2728;
-- &#x1f4dd; [`reference/meta/has_ellipsis_parameter`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_ellipsis_parameter.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_external_linkage`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_external_linkage.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_identifier`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_identifier.html) &#x2728;
 - &#x1f4dd; [`reference/meta/has_inaccessible_bases`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/has_inaccessible_bases.html) &#x2728;
@@ -78,6 +81,7 @@
 - &#x1f4dd; [`reference/meta/is_aggregate_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_aggregate_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_alias_template`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_alias_template.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_annotation`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_annotation.html) &#x2728;
+- &#x1f4dd; [`reference/meta/is_applicable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_applicable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_arithmetic_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_arithmetic_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_array_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_array_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_assignable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_assignable_type.html) &#x2728;
@@ -94,7 +98,6 @@
 - &#x1f4dd; [`reference/meta/is_concept`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_concept.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_const`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_const.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_const_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_const_type.html) &#x2728;
-- &#x1f4dd; [`reference/meta/is_consteval_only_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_consteval_only_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_constructible_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_constructible_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_constructor`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_constructor.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_constructor_template`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_constructor_template.html) &#x2728;
@@ -148,6 +151,7 @@
 - &#x1f4dd; [`reference/meta/is_namespace_member`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_namespace_member.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_noexcept`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_noexcept.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_nonstatic_data_member`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nonstatic_data_member.html) &#x2728;
+- &#x1f4dd; [`reference/meta/is_nothrow_applicable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_applicable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_nothrow_assignable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_assignable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_nothrow_constructible_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_constructible_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_nothrow_convertible_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_nothrow_convertible_type.html) &#x2728;
@@ -186,6 +190,7 @@
 - &#x1f4dd; [`reference/meta/is_standard_layout_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_standard_layout_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_static_member`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_static_member.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_string_literal`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_string_literal.html) &#x2728;
+- &#x1f4dd; [`reference/meta/is_structural_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_structural_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_structured_binding`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_structured_binding.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_swappable_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_swappable_type.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_swappable_with_type`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_swappable_with_type.html) &#x2728;
@@ -207,6 +212,7 @@
 - &#x1f4dd; [`reference/meta/is_user_declared`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_user_declared.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_user_provided`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_user_provided.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_value`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_value.html) &#x2728;
+- &#x1f4dd; [`reference/meta/is_vararg_function`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_vararg_function.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_variable`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_variable.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_variable_template`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_variable_template.html) &#x2728;
 - &#x1f4dd; [`reference/meta/is_virtual`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/is_virtual.html) &#x2728;
@@ -263,5 +269,5 @@
 - &#x1f4dd; [`reference/meta/variant_size`](https://cpprefjp.github.io/site/gen/pull/1607/reference/meta/variant_size.html) &#x2728;
 - &#x1f4dd; [`reference/type_traits`](https://cpprefjp.github.io/site/gen/pull/1607/reference/type_traits.html)
 - &#x1f4dd; [`reference/type_traits/aligned_storage`](https://cpprefjp.github.io/site/gen/pull/1607/reference/type_traits/aligned_storage.html)
-- &#x1f4dd; [`reference/type_traits/is_consteval_only`](https://cpprefjp.github.io/site/gen/pull/1607/reference/type_traits/is_consteval_only.html) &#x2728;
 - &#x1f4dd; [`reference/type_traits/is_reflection`](https://cpprefjp.github.io/site/gen/pull/1607/reference/type_traits/is_reflection.html) &#x2728;
+- &#x1f4dd; [`reference/type_traits/is_structural`](https://cpprefjp.github.io/site/gen/pull/1607/reference/type_traits/is_structural.html) &#x2728;

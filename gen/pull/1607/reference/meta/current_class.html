@@ -16,23 +16,23 @@
 
         <meta charset="UTF-8">
 
-        <title>data_member_options - cpprefjp C++日本語リファレンス</title>
+        <title>current_class - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,meta,std::meta,class,cpp26
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,meta,std::meta,function,cpp26
 ">
-        <meta name="title" content="data_member_options - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="data_member_options - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="data_member_options - cpprefjp C++日本語リファレンス" />
-        <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/data_member_options.html" />
+        <meta name="title" content="current_class - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="current_class - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="current_class - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/current_class.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`data_member_options`は、[`data_member_spec()`](data_member_spec.md)でデータメンバの仕様を作成する際に、メンバの名前やアライメント、ビット幅などのオプションを指定するためのクラスである。" />
+        <meta property="og:description" content="`current_class()`を呼び出した時点で直接囲んでいるクラス（またはメンバ関数の所属するクラス）のリフレクションを返す。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="data_member_options - cpprefjp C++日本語リファレンス" />
-        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/data_member_options.html" />
-        <meta name="twitter:description" content="`data_member_options`は、[`data_member_spec()`](data_member_spec.md)でデータメンバの仕様を作成する際に、メンバの名前やアライメント、ビット幅などのオプションを指定するためのクラスである。" />
+        <meta name="twitter:title" content="current_class - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/current_class.html" />
+        <meta name="twitter:description" content="`current_class()`を呼び出した時点で直接囲んでいるクラス（またはメンバ関数の所属するクラス）のリフレクションを返す。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;data_member_options&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;af60b6b76452fb3684137f8c01d9c5465813c4a0&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n#include &lt;print&gt;\n\nclass MyClass {\npublic:\n  static void info() {\n    constexpr auto cls = std::meta::current_class();\n    std::println(\&#34;\u30af\u30e9\u30b9\u540d: {}\&#34;, std::meta::identifier_of(cls));\n  }\n};\n\nint main() {\n  MyClass::info();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;current_class&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -171,7 +171,7 @@
         <span>
           
             
-              <span itemprop="name">data_member_options</span>
+              <span itemprop="name">current_class</span>
             
           
         </span>
@@ -200,10 +200,10 @@
   
 
         <p class="text-right">
-          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/meta/data_member_options.md">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/meta/current_class.md">
             <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
           </a>
-          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/meta/data_member_options.md">
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/meta/current_class.md">
             <span class="fa fa-fw fa-pencil"></span>編集
           </a>
         </p>
@@ -212,53 +212,38 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">class</div><div class="header">&lt;meta&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::meta">std::meta::</span><span class="token">data_member_options</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+  <div class="identifier-type">function</div><div class="header">&lt;meta&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::meta">std::meta::</span><span class="token">current_class</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">meta</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">data_member_options</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">name</span><span class="o">-</span><span class="n">type</span><span class="p">;</span><span class="w">       </span><span class="c1">// 説明専用</span>
-<span class="w">    </span><span class="n"><a href="../optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n">name</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<span class="w">    </span><span class="n"><a href="../optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alignment</span><span class="p">;</span>
-<span class="w">    </span><span class="n"><a href="../optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bit_width</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">no_unique_address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w">    </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">info</span><span class="o">&gt;</span><span class="w"> </span><span class="n">annotations</span><span class="p">;</span>
-<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="k">consteval</span><span class="w"> </span><span class="n"><a href="info.html">info</a></span><span class="w"> </span><span class="nf">current_class</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>data_member_options</code>は、<code><a href="data_member_spec.html">data_member_spec()</a></code>でデータメンバの仕様を作成する際に、メンバの名前やアライメント、ビット幅などのオプションを指定するためのクラスである。</p>
-<p>consteval-only型であり、実行時には存在できない。</p>
-<h2>メンバ変数</h2>
-<table border="1" bordercolor="#888" style="border-collapse:collapse">
-<thead>
-<tr>
-<th>名前</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td>メンバの名前。<code>string_view</code>または<code>u8string_view</code>を受け取る</td>
-</tr>
-<tr>
-<td><code>alignment</code></td>
-<td>アライメントの指定</td>
-</tr>
-<tr>
-<td><code>bit_width</code></td>
-<td>ビットフィールドのビット幅</td>
-</tr>
-<tr>
-<td><code>no_unique_address</code></td>
-<td><code>[[no_unique_address]]</code>属性を付加するか</td>
-</tr>
-<tr>
-<td><code>annotations</code></td>
-<td>メンバに付加するアノテーションのリフレクションのリスト</td>
-</tr>
-</tbody>
-</table>
+<p><code>current_class()</code>を呼び出した時点で直接囲んでいるクラス（またはメンバ関数の所属するクラス）のリフレクションを返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>呼び出し位置を囲んでいるクラスのリフレクションを返す。メンバ関数内から呼ばれた場合は、そのメンバ関数が所属するクラスのリフレクションを返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>クラス（またはメンバ関数）の文脈で呼ばれていない場合、<code><a href="exception.html">std::meta::exception</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
+<h2>例</h2>
+<p><div class="yata" id="af60b6b76452fb3684137f8c01d9c5465813c4a0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">info</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">cls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::meta::current_class</span></span><span class="p">();</span>
+<span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"クラス名: {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="identifier_of.html">std::meta::identifier_of</a></span><span class="p">(</span><span class="n">cls</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">MyClass</span><span class="o">::</span><span class="n">info</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>クラス名: MyClass
+</code></pre></p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -272,12 +257,12 @@
 </ul>
 <h2>関連項目</h2>
 <ul>
-<li><code><a href="data_member_spec.html">data_member_spec</a></code></li>
-<li><code><a href="define_aggregate.html">define_aggregate</a></code></li>
+<li><code><a href="current_function.html">current_function</a></code></li>
+<li><code><a href="current_namespace.html">current_namespace</a></code></li>
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html" target="_blank">P2996R13 Reflection for C++26</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3795r2.html" target="_blank">P3795R2 Miscellaneous Reflection Cleanup</a></li>
 </ul></div>
 
       </div>

@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-30T07:36:21">
-        2026年04月30日 07時36分21秒
+      <span itemprop="datePublished" content="2026-05-07T02:41:29">
+        2026年05月07日 02時41分29秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -324,6 +324,33 @@
 <tr>
 <td><code><a href="meta/source_location_of.html">source_location_of</a></code></td>
 <td>ソース位置を取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>現在のスコープ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="meta/current_function.html">current_function</a></code></td>
+<td>呼び出し時点で囲んでいる関数のリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/current_class.html">current_class</a></code></td>
+<td>呼び出し時点で囲んでいるクラスのリフレクションを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/current_namespace.html">current_namespace</a></code></td>
+<td>呼び出し時点で囲んでいる名前空間のリフレクションを取得</td>
 <td>C++26</td>
 </tr>
 </tbody>
@@ -702,7 +729,7 @@
 <td>C++26</td>
 </tr>
 <tr>
-<td><code><a href="meta/has_ellipsis_parameter.html">has_ellipsis_parameter</a></code></td>
+<td><code><a href="meta/is_vararg_function.html">is_vararg_function</a></code></td>
 <td>可変長引数を持つか</td>
 <td>C++26</td>
 </tr>
@@ -1437,8 +1464,8 @@
 <td>C++26</td>
 </tr>
 <tr>
-<td><code><a href="meta/is_consteval_only_type.html">is_consteval_only_type</a></code></td>
-<td>consteval-only型か</td>
+<td><code><a href="meta/is_structural_type.html">is_structural_type</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="structural type。定数テンプレートパラメータとして使用できる型の条件。スカラ型、左辺値参照型、すべての基底クラスとメンバ変数がpublicかつmutableでなく構造的型であるリテラルクラス型、および同様の条件を満たす配列型が該当する">構造的型</a>か</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -1553,6 +1580,16 @@
 <tr>
 <td><code><a href="meta/is_nothrow_invocable_r_type.html">is_nothrow_invocable_r_type</a></code></td>
 <td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに指定<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型で呼び出し可能か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_applicable_type.html">is_applicable_type</a></code></td>
+<td>tuple-like型の各要素を引数として呼び出し可能か</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="meta/is_nothrow_applicable_type.html">is_nothrow_applicable_type</a></code></td>
+<td>tuple-like型の各要素を引数として<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出せずに呼び出し可能か</td>
 <td>C++26</td>
 </tr>
 </tbody>
@@ -1673,6 +1710,11 @@
 <td>C++26</td>
 </tr>
 <tr>
+<td><code><a href="meta/apply_result.html">apply_result</a></code></td>
+<td>tuple-like型を引数として適用したときの結果型を取得</td>
+<td>C++26</td>
+</tr>
+<tr>
 <td><code><a href="meta/unwrap_reference.html">unwrap_reference</a></code></td>
 <td><code>reference_wrapper</code>を展開</td>
 <td>C++26</td>
@@ -1752,6 +1794,10 @@
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html" target="_blank">P3560R2 Error Handling in Reflection</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3920r0.html" target="_blank">P3920R0 Wording for NB comment resolution on trivial relocation</a><ul>
 <li>C++26策定中に、trivially relocatable関係が一旦削除された</li>
+</ul>
+</li>
+<li><a href="https://cplusplus.github.io/LWG/issue4555" target="_blank">LWG Issue 4555. Remove <code>is_consteval_only</code></a><ul>
+<li>C++26で入る予定だった<code>is_consteval_only_type</code>の追加が取り消された</li>
 </ul>
 </li>
 </ul></div>
