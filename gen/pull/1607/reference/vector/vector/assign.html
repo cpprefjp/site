@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2023-12-29T16:05:52">
-        2023年12月29日 16時05分52秒
+      <span itemprop="datePublished" content="2026-05-04T02:24:57">
+        2026年05月04日 02時24分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -246,7 +246,7 @@
 </ul>
 <h2>要件</h2>
 <ul>
-<li>(1) : 型<code>T</code>は<code>*first</code>から<code>X</code>に対してEmplaceConstructibleでなければならない。イテレータがForward iterators の要件を満たさない場合、型<code>T</code>は<code>X</code>に対してMoveInsertableでなければならない。<code>[first, last)</code>の範囲のそれぞれのイテレータは１回だけ間接参照される。<code>first</code>, <code>last</code>は自身のイテレータであってはならない。</li>
+<li>(1) : 型<code>T</code>が<code>*first</code>から<code>vector</code>コンテナへの<code>EmplaceConstructible</code>であること。<code>InputIterator</code>が前方向イテレータの要件を満たさない場合、型<code>T</code>は<code>vector</code>コンテナに対してMoveInsertableであること。<code>[first, last)</code>の範囲のそれぞれのイテレータは１回だけ間接参照される。<code>first</code>, <code>last</code>は自身のイテレータであってはならない。</li>
 <li>(2) : <code>t</code>は<code>*this</code>の要素への参照であってはならない。</li>
 </ul>
 <h2>効果</h2>

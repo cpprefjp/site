@@ -231,8 +231,8 @@
 <h2>概要</h2>
 <p>エンコーディング名を取得する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>name_[0] != '\0'</code>の場合は<code>name_</code>を返す。そうでなければ空文字列へのポインタを返す。</p>
-<p><code>name()</code>が空文字列でない場合、返される値は<a class="cpprefjp-defined-word" data-desc="null-terminated。文字列においてヌル文字 '\0' を用いてその終端を表すこと。ヌル文字自体は文字列に含まない。広義には線形データ構造においてヌルまたは値 0 を番兵としてその終わりを示すこと">ヌル終端</a>バイト文字列（NTBS）である。</p>
+<p><code>name_[0] != '\0'</code>の場合は<code>name_</code>を返す。そうでなければ<a class="cpprefjp-defined-word" data-desc="empty string。長さゼロの文字列">空文字列</a>へのポインタを返す。</p>
+<p><code>name()</code>が<a class="cpprefjp-defined-word" data-desc="empty string。長さゼロの文字列">空文字列</a>でない場合、返される値は<a class="cpprefjp-defined-word" data-desc="null-terminated。文字列においてヌル文字 '\0' を用いてその終端を表すこと。ヌル文字自体は文字列に含まない。広義には線形データ構造においてヌルまたは値 0 を番兵としてその終わりを示すこと">ヌル終端</a>バイト文字列（NTBS）である。</p>
 <ul>
 <li><code><a href="../../string_view/basic_string_view.html">string_view</a></code>コンストラクタで構築された場合、コンストラクタに渡された名前がそのまま返される</li>
 <li><code><a href="id.html">id</a></code>から構築された場合、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>のエイリアス一覧に含まれる名前が返される</li>
@@ -240,7 +240,7 @@
 </ul>
 <h2>備考</h2>
 <ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2862r1.html" target="_blank">P2862R1</a>の適用により、この関数は<code>nullptr</code>を返さない。<code><a href="id.html">id::unknown</a></code>や<code><a href="id.html">id::other</a></code>のMIBを持つ<code>text_encoding</code>オブジェクトに対しては空文字列を返す。<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2862r1.html" target="_blank">P2862R1</a>の適用により、この関数は<code>nullptr</code>を返さない。<code><a href="id.html">id::unknown</a></code>や<code><a href="id.html">id::other</a></code>のMIBを持つ<code>text_encoding</code>オブジェクトに対しては<a class="cpprefjp-defined-word" data-desc="empty string。長さゼロの文字列">空文字列</a>を返す。<ul>
 <li>これにより、<code>std::cout &lt;&lt; te.name()</code>や<code>std::format()</code>への直接渡し、<code>std::string_view</code>の構築が常に安全に行える。</li>
 </ul>
 </li>

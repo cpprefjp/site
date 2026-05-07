@@ -16,23 +16,23 @@
 
         <meta charset="UTF-8">
 
-        <title>__STDC_ENDIAN_LITTLE__ - cpprefjp C++日本語リファレンス</title>
+        <title>jmp_buf - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,stdbit.h,macro,cpp26
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,std,csetjmp,type-alias
 ">
-        <meta name="title" content="__STDC_ENDIAN_LITTLE__ - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="__STDC_ENDIAN_LITTLE__ - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="__STDC_ENDIAN_LITTLE__ - cpprefjp C++日本語リファレンス" />
-        <meta property="og:url" content="https://cpprefjp.github.io/reference/stdbit.h/stdc_endian_little.html" />
+        <meta name="title" content="jmp_buf - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="jmp_buf - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="jmp_buf - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="リトルエンディアンを表す定数マクロ。" />
+        <meta property="og:description" content="" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="__STDC_ENDIAN_LITTLE__ - cpprefjp C++日本語リファレンス" />
-        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/stdbit.h/stdc_endian_little.html" />
-        <meta name="twitter:description" content="リトルエンディアンを表す定数マクロ。" />
+        <meta name="twitter:title" content="jmp_buf - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/csetjmp/jmp_buf.html" />
+        <meta name="twitter:description" content="" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;stdbit.h&#34;], &#34;id-type&#34;: [&#34;macro&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;stdbit.h&#34;, &#34;stdc_endian_little&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;namespace&#34;: [&#34;std&#34;], &#34;header&#34;: [&#34;csetjmp&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a40ec363cd6ba94ffbda7dfeca53c427a277b4a5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;csetjmp&gt;\n\nstd::jmp_buf env;\n\nvoid inner_function() {\n  std::cout &lt;&lt; \&#34;\u4f55\u3089\u304b\u306e\u30a8\u30e9\u30fc\&#34; &lt;&lt; std::endl;\n  std::longjmp(env, 42);\n}\n\nint main () {\n  if (setjmp(env) == 0) {\n    inner_function();\n  } else {\n    std::cout &lt;&lt; \&#34;\u30a8\u30e9\u30fc\u304b\u3089\u5fa9\u5e30\u3057\u307e\u3057\u305f\&#34; &lt;&lt; std::endl;\n  }\n\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csetjmp&#34;, &#34;jmp_buf&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -158,9 +158,9 @@
       <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
         <span>
           
-            <a href="../../reference/stdbit.h.html" itemprop="url">
+            <a href="../../reference/csetjmp.html" itemprop="url">
               
-                <span itemprop="name">stdbit.h</span>
+                <span itemprop="name">csetjmp</span>
               
             </a>
           
@@ -171,7 +171,7 @@
         <span>
           
             
-              <span itemprop="name">__STDC_ENDIAN_LITTLE__</span>
+              <span itemprop="name">jmp_buf</span>
             
           
         </span>
@@ -188,22 +188,22 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-04T01:52:27">
-        2026年05月04日 01時52分27秒
+      <span itemprop="datePublished" content="2026-04-29T07:19:25">
+        2026年04月29日 07時19分25秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">K10-K10</span>
       </span>
       が更新
     </small></p>
   
 
         <p class="text-right">
-          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/stdbit.h/stdc_endian_little.md">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/csetjmp/jmp_buf.md">
             <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
           </a>
-          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/stdbit.h/stdc_endian_little.md">
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/csetjmp/jmp_buf.md">
             <span class="fa fa-fw fa-pencil"></span>編集
           </a>
         </p>
@@ -212,34 +212,45 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">macro</div><div class="header">&lt;stdbit.h&gt;</div><h1 itemprop="name"><span class="token">__STDC_ENDIAN_LITTLE__</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><h2>概要</h2>
-<p>リトルエンディアンを表す定数マクロ。</p>
-<p>C言語の<code>&lt;stdbit.h&gt;</code>で定義される定数であり、C++においてはC互換性のために提供される。</p>
-<h2>備考</h2>
-<ul>
-<li>C言語では<code>&lt;stdbit.h&gt;</code>で定義される定数マクロである</li>
-<li>C++では、<code><a href="../bit/endian.html">std::endian::little</a></code>が対応する機能である</li>
-</ul>
-<h2>バージョン</h2>
-<h3>言語</h3>
-<ul>
-<li>C++26</li>
-</ul>
-<h3>処理系</h3>
-<ul>
-<li><a href="../../implementation.html#clang">Clang</a>: 21 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
-<li><a href="../../implementation.html#gcc">GCC</a>: 15 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
-<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
-</ul>
+  <div class="identifier-type">type-alias</div><div class="header">&lt;csetjmp&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">jmp_buf</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="kt">jmp_buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>jmp_buf</code>は、非ローカルジャンプ（関数を跨いだジャンプ）を実現するために、現在の実行環境を保存するための配列型である。</p>
+<p><code><a href="setjmp.html">setjmp()</a></code>マクロによって現在の環境がこの型に保存され、後に<code><a href="longjmp.html">longjmp()</a></code>関数がその環境を復元するために使用される。</p>
+<h2>例</h2>
+<p><div class="yata" id="a40ec363cd6ba94ffbda7dfeca53c427a277b4a5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;csetjmp&gt;</span>
+
+<span class="n"><span style="color:#ff0000">std::jmp_buf</span></span><span class="w"> </span><span class="n">env</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">inner_function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"何らかのエラー"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="longjmp.html">std::longjmp</a></span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="setjmp.html">setjmp</a></span><span class="p">(</span><span class="n">env</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">inner_function</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"エラーから復帰しました"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>何らかのエラー
+エラーから復帰しました
+</code></pre></p>
 <h2>関連項目</h2>
 <ul>
-<li><code><a href="../bit/endian.html">std::endian</a></code> - C++標準のエンディアン列挙型</li>
-</ul>
-<h2>参照</h2>
-<ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3022.htm" target="_blank">N3022 Modern Bit Utilities</a></li>
-<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3370r1.html" target="_blank">P3370R1 Add new C headers as C++ headers</a></li>
+<li><code><a href="longjmp.html">longjmp()</a></code></li>
+<li><code><a href="setjmp.html">setjmp()</a></code></li>
 </ul></div>
 
       </div>

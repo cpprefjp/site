@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-13T03:12:09">
-        2025年08月13日 03時12分09秒
+      <span itemprop="datePublished" content="2026-05-03T11:37:18">
+        2026年05月03日 11時37分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -221,7 +221,7 @@
 <p>あるコード地点において実行時に満たすべき仮定(assumption)を、C++コンパイラへ最適化ヒントとして与える属性である。
 <code>assume</code>属性を適切に用いると、C++コンパイラはより高速に動作し、サイズの小さいプログラムを生成する可能性がある。</p>
 <h2>仕様</h2>
-<p><code>[[assume(expr)]]</code>属性は、空文(null statement)に対して指定できる。</p>
+<p><code>[[assume(expr)]]</code>属性は、<a class="cpprefjp-defined-word" data-desc="null statement。セミコロンだけの式文。ループの本体を空にしたいときなどに使う">空文</a>に対して指定できる。</p>
 <p>式<code>expr</code>の評価結果は<code>bool</code>型に変換され、その結果が<code>true</code>であるとみなされるが、<code>assume</code>属性中の式は効果を持たない。
 式<code>expr</code>が<code>false</code>になる場合は、<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義の動作</a>を引き起こす。</p>
 <p>式<code>expr</code>には、構文要素 <em>conditional-expression</em> を指定する。
@@ -232,7 +232,7 @@
 <span class="p">[[</span><span class="n">assume</span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">))]];</span><span class="w"> </span><span class="c1">// OK（効果を持たない）</span>
 </code></pre></div>
 </p>
-<p>式<code>expr</code>が<code>true</code>に評価される場合、<code>[[assume(expr)]]</code>属性を指定した空文をコア定数式とみなせる。</p>
+<p>式<code>expr</code>が<code>true</code>に評価される場合、<code>[[assume(expr)]]</code>属性を指定した<a class="cpprefjp-defined-word" data-desc="null statement。セミコロンだけの式文。ループの本体を空にしたいときなどに使う">空文</a>をコア定数式とみなせる。</p>
 <h2>例</h2>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">divide_by_32</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>

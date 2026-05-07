@@ -232,7 +232,7 @@
 <h2>概要</h2>
 <p>与えられた文字範囲<code>[first, last)</code>を、並べ替えのキーとして使用する、大文字・小文字を区別しない文字のシーケンスに変換する。結果のシーケンスは、ロケールごとの照合順序となる。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>typeid(use_facet&lt;collate&lt;char_type&gt;&gt;) == typeid(collate_byname&lt;char_type&gt;)</code>であり、<code>collate_byname&lt;char_type&gt;::transform(first, last)</code>が優先順位付きキーに変換できる場合はそのキーを返し、そうでない場合は空文字列を返す。</p>
+<p><code>typeid(use_facet&lt;collate&lt;char_type&gt;&gt;) == typeid(collate_byname&lt;char_type&gt;)</code>であり、<code>collate_byname&lt;char_type&gt;::transform(first, last)</code>が優先順位付きキーに変換できる場合はそのキーを返し、そうでない場合は<a class="cpprefjp-defined-word" data-desc="empty string。長さゼロの文字列">空文字列</a>を返す。</p>
 <h2>例</h2>
 <p><div class="yata" id="4dea2eb209e049d7a23e542a6ea7839ab1958d8f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../regex.html">&lt;regex&gt;</a></span>
 <span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
