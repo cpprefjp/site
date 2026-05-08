@@ -57,7 +57,7 @@ int main() {
 ### 出力
 ```
 アノテーション数: 2
-  型: Label
+  型: const Label
   値: my struct
   型: int
   値: 42
