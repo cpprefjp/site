@@ -180,6 +180,8 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 - [C++23 コード内容の仮定をコンパイラに伝える`assume`属性](/lang/cpp23/portable_assumptions.md)
 - [C++26 構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md)
 - [C++26 未初期化変数の読み取りをエラー性動作とする (`[[indeterminate]]`属性)](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md)
+- [C++26 静的リフレクション](/lang/cpp26/reflection.md)
+    - 属性と同じ`[[`...`]]`構文を用いたアノテーション機能`[[=expr]]`が導入される。属性はコンパイラへのヒントだが、アノテーションはリフレクションで取得可能なユーザー定義のメタデータである
 
 
 ## 参照

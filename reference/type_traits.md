@@ -36,6 +36,7 @@
 | [`is_union`](type_traits/is_union.md)                       | 型が共用型か調べる (class template) | C++11 |
 | [`is_class`](type_traits/is_class.md)                       | 型がクラス型か調べる (class template) | C++11 |
 | [`is_function`](type_traits/is_function.md)                 | 型が関数型か調べる (class template) | C++11 |
+| [`is_reflection`](type_traits/is_reflection.md)             | 型がリフレクション型か調べる (class template) | C++26 |
 
 
 ## 組み合わせた型
@@ -69,6 +70,7 @@
 | [`is_final`](type_traits/is_final.md)       | 型に`final`が付いているかを調べる (class template) | C++14 |
 | [`is_aggregate`](type_traits/is_aggregate.md) | 型が集成体かを調べる (class template) | C++17 |
 | [`is_implicit_lifetime`](type_traits/is_implicit_lifetime.md) | 型が暗黙的に構築されるかを調べる (class template) | C++23 |
+| [`is_structural`](type_traits/is_structural.md) | 型が構造的型か調べる (class template) | C++26 |
 | [`is_signed`](type_traits/is_signed.md)     | 型が符号付き算術型か調べる (class template) | C++11 |
 | [`is_unsigned`](type_traits/is_unsigned.md) | 型が符号無し算術型か調べる (class template) | C++11 |
 | [`is_bounded_array`](type_traits/is_bounded_array.md) | 型が要素数の判明している配列型かを調べる (class template) | C++20 |
@@ -250,3 +252,5 @@
 - [LWG Issue 2581. Specialization of `<type_traits>` variable templates should be prohibited](https://wg21.cmeerw.net/lwg/issue2581)
     - C++14までは`<type_traits>`で定義されるクラステンプレートの特殊化を禁止していたが、C++17で定義される変数テンプレートも特殊化の禁止対象とされた
 - [P1413R3 Deprecate `std::aligned_storage` and `std::aligned_union`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1413r3.pdf)
+- [LWG Issue 4555. Remove `is_consteval_only`](https://cplusplus.github.io/LWG/issue4555)
+    - C++26で入る予定だった`is_consteval_only`の追加が取り消された
