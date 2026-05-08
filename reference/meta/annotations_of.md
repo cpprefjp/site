@@ -42,7 +42,7 @@ int main() {
     // 型ごとに値を取り出して出力
     // アノテーションは値のリフレクションではないため、
     // constant_of()で値を取り出してからスプライスする
-    if constexpr (std::meta::type_of(a) == ^^Label) {
+    if constexpr (std::meta::type_of(a) == ^^const Label) {
       std::println("  値: {}", [:std::meta::constant_of(a):].text);
     } else if constexpr (std::meta::type_of(a) == ^^int) {
       std::println("  値: {}", [:std::meta::constant_of(a):]);
