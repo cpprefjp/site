@@ -7,7 +7,7 @@
 ```cpp
 namespace std::meta {
   template <class T>
-  consteval info reflect_constant(const T& value);
+  consteval info reflect_constant(T value);
 }
 ```
 * info[link info.md]
@@ -58,3 +58,4 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [Mismatch in reflect_constant declaration · Issue #8244 · cplusplus/draft](https://github.com/cplusplus/draft/issues/8244)
