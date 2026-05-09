@@ -25,7 +25,7 @@ namespace std {
 | [`operator=`](stop_source/op_assign.md)          | 代入演算子 | C++20 |
 | [`swap`](stop_source/swap.md)                    | 別の`stop_source`と交換する | C++20 |
 | [`get_token`](stop_source/get_token.md)          | 自身と停止状態を共有する[`stop_token`](stop_token.md)を返す | C++20 |
-| [`stop_possible`](stop_source/stop_possible.md)  | 停止要求を作成可能どうかを取得する | C++20 |
+| [`stop_possible`](stop_source/stop_possible.md)  | 停止要求を作成可能かどうかを取得する | C++20 |
 | [`stop_requested`](stop_source/stop_requested.md)| 停止要求を作成したかどうかを取得する | C++20 |
 | [`request_stop`](stop_source/request_stop.md)    | 停止要求を作成する | C++20 |
 

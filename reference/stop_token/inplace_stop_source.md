@@ -31,7 +31,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`stop_possible`](inplace_stop_source/stop_possible.md) | 停止要求を作成可能どうかを取得する | C++26 |
+| [`stop_possible`](inplace_stop_source/stop_possible.md) | 停止要求を作成可能かどうかを取得する | C++26 |
 
 
 ## 例
