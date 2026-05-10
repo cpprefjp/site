@@ -65,6 +65,7 @@ namespace std::execution {
 |------|------|----------------|
 | [`execution::receiver`](execution/receiver.md) | Receiver型 (concept) | C++26 |
 | [`execution::receiver_of`](execution/receiver_of.md) | 指定完了シグネチャ集合に適合するReceiver (concept) | C++26 |
+| [`execution::inlinable_receiver`](execution/inlinable_receiver.md) | インライン化可能なReceiver (concept) | C++26 |
 | [`execution::set_value`](execution/set_value.md) | 値完了関数 (customization point object) | C++26 |
 | [`execution::set_error`](execution/set_error.md) | エラー完了関数 (customization point object) | C++26 |
 | [`execution::set_stopped`](execution/set_stopped.md) | 停止完了関数 (customization point object) | C++26 |
@@ -202,3 +203,4 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 - [P3570R2 optional variants in sender/receiver](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html)
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)
 - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
+- [P3986R1 A Wording Strategy for Inlinable Receivers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3986r1.pdf)
