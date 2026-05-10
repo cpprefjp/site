@@ -18,7 +18,6 @@ namespace std::execution::system_context_replaceability {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `virtual ~receiver_proxy() = default;` | デストラクタ | C++26 |
 | `virtual void set_value() noexcept = 0;` | 値完了ハンドラ | C++26 |
 | `virtual void set_error(exception_ptr) noexcept = 0;` | エラー完了ハンドラ | C++26 |
 | `virtual void set_stopped() noexcept = 0;` | 停止完了ハンドラ | C++26 |
@@ -42,3 +41,4 @@ namespace std::execution::system_context_replaceability {
 
 ## 参照
 - [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
+- [P3804R2 Iterating on `parallel_scheduler`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3804r2.html)

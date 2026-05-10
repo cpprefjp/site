@@ -42,11 +42,38 @@ namespace std::execution {
 
 プロキシ`r`に対する事前確保バックエンドストレージ(preallocated backend storage)は、[`span`](/reference/span/span.md)`<`[`byte`](/reference/cstddef/byte.md)`>`型のオブジェクト`s`であり、`r`に対して[`set_value`](set_value.md)／[`set_error`](set_error.md)／[`set_stopped`](set_stopped.md)いずれかが呼び出されるまで範囲`s`は有効かつ上書き可能である。
 
-呼び出し可能オブジェクト`f`と引数`arg`を持つ`rcvr`のバルクチャンク化プロキシ(bulk chunked proxy)は、基底
-[`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md)を持つ`rcvr`のプロキシ`r`であり、インデクス`i`, `j`に対する`r.execute(i, j)`は`f(i, j, args...)`と同じ効果を持つ。
+式[`get_domain`](get_domain.md)`(sch)`は、下記と等価な説明専用の型`parallel-scheduler-domain`の式を返す。
 
-呼び出し可能オブジェクト`f`と引数`arg`を持つ`rcvr`のバルク非チャンク化プロキシ(bulk unchunked proxy)は、基底
-[`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md)を持つ`rcvr`のプロキシ`r`であり、インデクス`i`に対する`r.execute(i, i + 1)`は`f(i, args...)`と同じ効果を持つ。
+```cpp
+struct parallel-scheduler-domain {
+  template<sender-for<bulk_chunked_t> Sndr, queryable Env>
+  static constexpr decltype(auto)
+    transform_sender(set_value_t, Sndr&& sndr, const Env& env) const noexcept {
+      return see below;
+    }
+  template<sender-for<bulk_unchunked_t> Sndr, queryable Env>
+  static constexpr decltype(auto)
+    transform_sender(set_value_t, Sndr&& sndr, const Env& env) const noexcept {
+      return see below;
+    }
+};
+```
+* sender-for[link sender-for.md]
+* queryable[link ../queryable.md]
+* set_value_t[link set_value.md]
+
+上記`transform_sender`の引数`sndr`に対して、説明用の変数`child`, `pol`, `shape`, `f`を下記の通り宣言する。
+
+```cpp
+auto& [_, data, child] = sndr;
+auto& [pol, shape, f] = data;
+```
+
+説明用の`p`を下記とする。
+
+- 式`pol`の型がCV修飾された[`parallel_policy`](execution_policy.md)または[`parallel_unsequenced_policy`](execution_policy.md)のとき、`true`。
+- `pol`が処理系定義の[実行ポリシー](execution_policy.md)のとき、処理系定義の値。
+- そうでなければ、`false`。
 
 
 ### `schedule`アルゴリズム
@@ -59,19 +86,19 @@ namespace std::execution {
 
 
 ### `bulk_chunked`アルゴリズム
-`parallel_scheduler`は[`bulk_chunked`](bulk_chunked.md)アルゴリズムのカスタマイズ実装を提供する。[Receiver](receiver.md)`rcvr`が`bulk_chunked(sndr, pol, shape, f)`が返す[Sender](sender.md)に[接続(connect)](connect.md)され、結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、
+タグ`bulk_chunked`と[Sender](sender.md)を受け付ける`transform_sender`オーバーロードは、[Receiver](receiver.md)`rcvr`と[接続(connect)](connect.md)され結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、下記動作を行うSenderを返す。
 
-- `sndr`が値`vals`で値完了するならば、`args`を`vals`を指す左辺値式のパックとして、[`b.schedule_bulk_chunked`](system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md)`(shape, r, s)`が呼ばれる。このとき、
-    - `r`は呼び出し可能オブジェクト`f`と引数`arg`を持つ`rcvr`のバルクチャンク化プロキシであり、かつ
+- `child`が値`vals`で値完了するならば、`args`を`vals`を指す左辺値式のパックとして、[`b.schedule_bulk_chunked`](system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md)`(p ? shape : 1, r, s)`が呼ばれる。このとき、
+    - `r`は基底クラス[`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md)を持つ`rcvr`のプロキシであり、インデックス`i`, `j`に対して`r.execute(i, j)`は`p`が`true`のとき`f(i, j, args...)`、そうでないときは`f(0, shape, args...)`と等価な効果を持つ。かつ
     - `s`は`r`に対する事前確保バックエンドストレージである。
 - 他の全ての完了操作は、変更なしに転送される。
 
 
 ### `bulk_unchunked`アルゴリズム
-`parallel_scheduler`は[`bulk_unchunked`](bulk_unchunked.md)アルゴリズムのカスタマイズ実装を提供する。[Receiver](receiver.md)`rcvr`が`bulk_unchunked(sndr, pol, shape, f)`が返す[Sender](sender.md)に[接続(connect)](connect.md)され、結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、
+タグ`bulk_unchunked`と[Sender](sender.md)を受け付ける`transform_sender`オーバーロードは、[Receiver](receiver.md)`rcvr`と[接続(connect)](connect.md)され結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、下記動作を行うSenderを返す。
 
-- `sndr`が値`vals`で値完了するならば、`args`を`vals`を指す左辺値式のパックとして、[`b.schedule_bulk_unchunked`](system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md)`(shape, r, s)`が呼ばれる。このとき、
-    - `r`は呼び出し可能オブジェクト`f`と引数`arg`を持つ`rcvr`のバルク非チャンク化プロキシであり、かつ
+- `child`が値`vals`で値完了するならば、`args`を`vals`を指す左辺値式のパックとして、[`b.schedule_bulk_unchunked`](system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md)`(p ? shape : 1, r, s)`が呼ばれる。このとき、
+    - `r`は基底クラス[`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md)を持つ`rcvr`のプロキシであり、インデックス`i`に対して`r.execute(i, i + 1)`は`p`が`true`のとき`f(i, args...)`、そうでないときは`for (decltype(shape) i = 0; i < shape; i++) { f(i, args...); }`と等価な効果を持つ。かつ
     - `s`は`r`に対する事前確保バックエンドストレージである。
 - 他の全ての完了操作は、変更なしに転送される。
 
@@ -116,3 +143,4 @@ int main()
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
+- [P3804R2 Iterating on `parallel_scheduler`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3804r2.html)

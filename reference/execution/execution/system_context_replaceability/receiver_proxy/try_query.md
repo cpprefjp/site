@@ -7,7 +7,7 @@
 
 ```cpp
 template<class P, class-type Query>
-optional<P> try_query(Query q) noexcept;
+optional<P> try_query(Query q) const noexcept;
 ```
 * class-type[link ../../../class-type.md]
 * optional[link /reference/optional/optional.md]
@@ -22,11 +22,13 @@ optional<P> try_query(Query q) noexcept;
 
 ## 戻り値
 説明用の`env`を`*this`が表現する[Receiver](../../receiver.md)の環境とする。
-下記を満たす場合は[`nullopt`](/reference/optional/nullopt_t.md)を返す。そうでなければ、`q(env)`を返す。
+下記を満たす場合は[`nullopt`](/reference/optional/nullopt_t.md)を返す。
 
 - `Query`が実装定義でサポートされるクエリ集合のメンバではない、または
 - `P`が実装定義でサポートされる`Query`の結果型集合のメンバではない、または
-- 式`q(env)`が適格でないか、cv修飾された`P`型を持たない。
+- 式`q(env)`が適格でない。
+
+そうではなく、`q(env)`がCV修飾された`P`型を持つときは`q(env)`を返す。そうでなければ、[`optional`](/reference/optional/optional.md)`<P>`型の実装定義の値を返す。
 
 
 ## 例外
@@ -34,7 +36,9 @@ optional<P> try_query(Query q) noexcept;
 
 
 ## 備考
-[`get_stop_token_t`](../../../get_stop_token.md)は実装定義でサポートるクエリ集合に含まれ、[`inplace_stop_token`](/reference/stop_token/inplace_stop_token.md)は`get_stop_token_t`の実装定義でサポートされる結果型集合のメンバである。
+[`get_stop_token_t`](../../../get_stop_token.md)は実装定義でサポートするクエリ集合に含まれ、[`inplace_stop_token`](/reference/stop_token/inplace_stop_token.md)は`get_stop_token_t`の実装定義でサポートされる結果型集合のメンバである。
+
+推奨実装：`P`が[`inplace_stop_token`](/reference/stop_token/inplace_stop_token.md)であり型`T`が[`stoppable_token`](/reference/stop_token/stoppable_token.md)をモデル化する`inplace_stop_token`以外の型である場合、`try_query`は、`*this`に対して`set_value`／`set_error`／`set_stopped`のいずれかが呼び出されるまで全ての`try_query`呼び出しが`inplace_stop_token`オブジェクトと等価なオブジェクトを返す、`inplace_stop_token`型のオブジェクトを返すべき。
 
 
 ## バージョン
@@ -55,3 +59,4 @@ optional<P> try_query(Query q) noexcept;
 
 ## 参照
 - [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
+- [P3804R2 Iterating on `parallel_scheduler`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3804r2.html)
