@@ -35,6 +35,13 @@
 | [`common_comparison_category`](compare/common_comparison_category.md) | 指定された全ての型の共通比較カテゴリ型を求める | C++20          |
 | [`compare_three_way_result`](compare/compare_three_way_result.md)     | 指定された型の間での`<=>`による比較結果の型を求める          | C++20          |
 
+
+## 型の順序
+
+| 名前                                  | 説明                                              | 対応バージョン |
+| ------------------------------------- | ------------------------------------------------- | -------------- |
+| [`type_order`](compare/type_order.md) | 2つの型の間の実装定義の全順序を取得する (class template) | C++26          |
+
 ## コンセプト
 
 | 名前                                                                        | 説明                                                                                        | 対応バージョン |

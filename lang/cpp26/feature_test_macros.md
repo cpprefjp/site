@@ -158,7 +158,7 @@
 |`__cpp_lib_to_string`|`202306L`|[`std::to_string`](/reference/string/to_string.md)の変換結果を`sprintf()`ベースから`std::format()`ベースに変更|[`<string>`](/reference/string.md)|
 |`__cpp_lib_trivially_relocatable`|`202502L`|トリビアルな再配置|[`<memory>`](/reference/memory.md), [`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_tuple_like`|`202311L`|[`std::complex`](/reference/complex/complex.md)にタプルインタフェースの特殊化を追加|[`<utility>`](/reference/utility.md), [`<tuple>`](/reference/tuple.md), [`<map>`](/reference/map.md), [`<unordered_map>`](/reference/unordered_map.md)|
-|`__cpp_lib_type_order`|`202506L`|[`std::type_info::before`](/reference/typeinfo/type_info/before.md)のconstexpr化|[`<compare>`](/reference/compare.md)|
+|`__cpp_lib_type_order`|`202506L`|[`std::type_order`](/reference/compare/type_order.md)を追加|[`<compare>`](/reference/compare.md)|
 |`__cpp_lib_variant`|`202306L`|[`std::variant`](/reference/variant/variant.md)クラスに、メンバ関数版の[`visit()`](/reference/variant/variant/visit.md)を追加|[`<variant>`](/reference/variant.md)|
 
 実装依存のマクロ。
