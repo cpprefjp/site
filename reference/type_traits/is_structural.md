@@ -78,4 +78,4 @@ int main() {
 
 
 ## 参照
-- [P3856R8 New reflection metafunction - is_structural_type (US NB comment 49)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3856r8.html)
+- [P3856R8 New reflection metafunction - is_structural_type (US NB comment 49)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3856r8.pdf)
