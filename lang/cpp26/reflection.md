@@ -134,6 +134,8 @@ constexpr std::meta::info rv = ^^value;
 | テンプレートスプライス | `template[:r:]` | リフレクション`r`が表すテンプレートを挿入 |
 | 名前空間スプライス | `namespace[:r:]` | リフレクション`r`が表す名前空間を挿入 |
 
+変数を表すリフレクションに対する式スプライスは、対応する式と同じ振る舞いをする。たとえば事前条件式 (`pre`) や事後条件式 (`post`) の中の式は自動的に`const`修飾されるが、式スプライス`[:r:]`の結果も同様に`const`修飾される。
+
 メンバアクセスにもスプライスを使用できる。`obj.[:r:]`の形式で、リフレクション`r`が表すメンバ変数や基底クラスにアクセスする：
 
 ```cpp
@@ -513,3 +515,5 @@ hash(o1) == hash(o3): false
     - コンパイル時に計算した値を静的ストレージに配置するための`define_static_string()`、`define_static_array()`、`define_static_object()`を追加する。
 - [P3560R2 Error Handling in Reflection](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html)
     - リフレクションのメタ関数のエラー処理として`std::meta::exception`例外クラスを導入する。コンパイル時例外として動作する。
+- [P3598R0 CWG 3158 — `const`-ification of Splice Expressions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3598r0.pdf)
+    - 変数のリフレクションに対するスプライス式に対して、対応する*id-expression*と同様の文脈依存な型調整（`const`化など）を適用するよう仕様を修正する。
