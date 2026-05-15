@@ -1,7 +1,7 @@
 # size
 * ranges[meta header]
 * std::ranges[meta namespace]
-* to_input_view[meta class]
+* as_input_view[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
@@ -33,7 +33,7 @@ return ranges::size(base_);
 int main() {
   std::vector<int> v = {1, 2, 3, 4, 5};
   
-  std::ranges::to_input_view view{v};
+  std::ranges::as_input_view view{v};
   
   std::cout << view.size() << std::endl;
 }

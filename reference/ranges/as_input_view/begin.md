@@ -1,7 +1,7 @@
 # begin
 * ranges[meta header]
 * std::ranges[meta namespace]
-* to_input_view[meta class]
+* as_input_view[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
@@ -20,7 +20,7 @@ constexpr auto begin() const
 - (1): `return iterator<false>(ranges::begin(base_));`
 - (2): `return iterator<true>(ranges::begin(base_));`
 
-ここで、`iterator`は`to_input_view`の内部で定義される説明専用のイテレータクラスである。
+ここで、`iterator`は`as_input_view`の内部で定義される説明専用のイテレータクラスである。
 
 ## 備考
 - このイテレータは`input_iterator`コンセプトを満たし、`forward_iterator`コンセプトを満たさない。
@@ -35,7 +35,7 @@ constexpr auto begin() const
 int main() {
   std::vector<int> v = {1, 2, 3, 4, 5};
   
-  std::ranges::to_input_view view{v};
+  std::ranges::as_input_view view{v};
   
   auto it = view.begin();
   std::cout << *it << std::endl;

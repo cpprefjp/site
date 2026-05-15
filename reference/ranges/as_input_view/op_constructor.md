@@ -1,20 +1,20 @@
 # コンストラクタ
 * ranges[meta header]
 * std::ranges[meta namespace]
-* to_input_view[meta class]
+* as_input_view[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
 ```cpp
-to_input_view()
+as_input_view()
   requires default_initializable<V> = default;  // (1) C++26
 
 constexpr explicit
-to_input_view(V base);                          // (2) C++26
+as_input_view(V base);                          // (2) C++26
 ```
 
 ## 概要
-`to_input_view`オブジェクトを構築する。
+`as_input_view`オブジェクトを構築する。
 
 - (1): デフォルトコンストラクタ
 - (2): ベースとなるRangeを受け取るコンストラクタ
@@ -32,10 +32,10 @@ int main() {
   std::vector<int> v = {1, 2, 3};
   
   // (1) デフォルトコンストラクタ
-  std::ranges::to_input_view<std::views::all_t<std::vector<int>>> view1{};
+  std::ranges::as_input_view<std::views::all_t<std::vector<int>>> view1{};
   
   // (2) ベースRangeを受け取るコンストラクタ
-  std::ranges::to_input_view view2{v};
+  std::ranges::as_input_view view2{v};
 }
 ```
 

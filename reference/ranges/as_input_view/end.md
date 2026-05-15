@@ -1,7 +1,7 @@
 # end
 * ranges[meta header]
 * std::ranges[meta namespace]
-* to_input_view[meta class]
+* as_input_view[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
@@ -24,7 +24,7 @@ return ranges::end(base_);
 ```
 
 ## 備考
-- `to_input_view`は[`common_range`](/reference/ranges/common_range.md)コンセプトを満たさないため、イテレータ型と番兵型は異なる型となる
+- `as_input_view`は[`common_range`](/reference/ranges/common_range.md)コンセプトを満たさないため、イテレータ型と番兵型は異なる型となる
 
 
 ## 例
@@ -36,7 +36,7 @@ return ranges::end(base_);
 int main() {
   std::vector<int> v = {1, 2, 3, 4, 5};
   
-  std::ranges::to_input_view view{v};
+  std::ranges::as_input_view view{v};
   
   auto it = view.begin();
   auto sentinel = view.end();

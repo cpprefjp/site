@@ -1,4 +1,4 @@
-# to_input_view
+# as_input_view
 * ranges[meta header]
 * std::ranges[meta namespace]
 * class template[meta id-type]
@@ -8,23 +8,23 @@
 namespace std::ranges {
   template<input_range V>
     requires view<V>
-  class to_input_view : public view_interface<to_input_view<V>> { …… }; // (1)
+  class as_input_view : public view_interface<as_input_view<V>> { …… }; // (1)
 
   namespace views {
-    inline constexpr /*unspecified*/ to_input = /*unspecified*/;          // (2)
+    inline constexpr /*unspecified*/ as_input = /*unspecified*/;          // (2)
   }
 }
 ```
 
 ## 概要
 - (1): [`input_range`](/reference/ranges/input_range.md)として振る舞う[`view`](view.md)
-- (2): `to_input_view`を生成するRangeアダプタオブジェクト
+- (2): `as_input_view`を生成するRangeアダプタオブジェクト
 
 この`view`は、Rangeを`input_range`に変換し、非[`common_range`](common_range.md)にする (イテレータと番兵の型を別にする)。
 
 この`view`は、パフォーマンス向上のために使用する。以下に例示する：
 
-- [`views::join`](join_view.md)`(r)`は、`r`が[`common_range`](common_range.md) (イテレータと番兵の型が同じRange) である場合、イテレータと番兵の比較のために外側と内側の2種類のイテレータを順番に比較することになり比較コストが高くなる。`to_input`を使用することで、番兵との比較が一回で済むためにイテレータの比較コストが小さくなり、パフォーマンス向上が見込める
+- [`views::join`](join_view.md)`(r)`は、`r`が[`common_range`](common_range.md) (イテレータと番兵の型が同じRange) である場合、イテレータと番兵の比較のために外側と内側の2種類のイテレータを順番に比較することになり比較コストが高くなる。`as_input`を使用することで、番兵との比較が一回で済むためにイテレータの比較コストが小さくなり、パフォーマンス向上が見込める
 - [`views::chunk`](chunk_view.md)の場合、`r | views::chunk(n)`は`r`が[`forward_range`](forward_range.md)以上である場合に各要素が[`views::take`](take_view.md)`(n)`となり、各要素を2回ずつイテレートすることになる。[`input_range`](input_range.md)に変換することで、各要素を1回ずつイテレートすることになり、パフォーマンス向上が見込める
 
 
@@ -38,19 +38,19 @@ namespace std::ranges {
 
 ## 効果
 
-- (2): 式`views::to_input(E)`の効果は次のいずれか（`T = decltype((E))`、`U = remove_cvref_t<T>`とする）
+- (2): 式`views::as_input(E)`の効果は次のいずれか（`T = decltype((E))`、`U = remove_cvref_t<T>`とする）
     - `T`が[`input_range`](input_range.md)のモデルであり、[`common_range`](common_range.md)を満たさず、[`forward_range`](forward_range.md)も満たさない場合 : `views::all(E)`
-    -  それ以外の場合 : `to_input_view(E)`
+    -  それ以外の場合 : `as_input_view(E)`
 
 ## メンバ関数
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](to_input_view/op_constructor.md) | コンストラクタ                   | C++26          |
-| [`base`](to_input_view/base.md)                    | `V`の参照を取得する              | C++26          |
-| [`begin`](to_input_view/begin.md)                  | 先頭を指すイテレータを取得する   | C++26          |
-| [`end`](to_input_view/end.md)                      | 番兵を取得する                   | C++26          |
-| [`size`](to_input_view/size.md)                    | 要素数を取得する                 | C++26          |
+| [`(constructor)`](as_input_view/op_constructor.md) | コンストラクタ                   | C++26          |
+| [`base`](as_input_view/base.md)                    | `V`の参照を取得する              | C++26          |
+| [`begin`](as_input_view/begin.md)                  | 先頭を指すイテレータを取得する   | C++26          |
+| [`end`](as_input_view/end.md)                      | 番兵を取得する                   | C++26          |
+| [`size`](as_input_view/size.md)                    | 要素数を取得する                 | C++26          |
 
 ## 継承しているメンバ関数
 
@@ -68,7 +68,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](to_input_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++26          |
+| [`(deduction_guide)`](as_input_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++26          |
 
 ## 例
 ### 基本的な使い方
@@ -80,12 +80,12 @@ namespace std::ranges {
 int main() {
   std::vector<int> v = {1, 2, 3, 4};
 
-  for (auto i : v | std::views::to_input) {
+  for (auto i : v | std::views::as_input) {
     std::cout << i << ' ';
   }
 }
 ```
-* views::to_input[color ff0000]
+* views::as_input[color ff0000]
 
 #### 出力
 ```
@@ -103,14 +103,14 @@ int main() {
 
  // `v1 | std::views::join`と比較して、イテレータと番兵の比較コストが低くなり、
  // パフォーマンスが向上する
-  for (auto i : v1 | std::views::to_input | std::views::join) {
+  for (auto i : v1 | std::views::as_input | std::views::join) {
     std::cout << i << ' ';
   }
 
   // `v2 | std::views::chunk(3)`と比較して、各要素が1回ずつイテレートで済むため、
   // パフォーマンスが向上する
   std::vector v2 = {1, 2, 3, 4, 5, 6};
-  for (const auto& v : v2 | std::views::to_input | std::views::chunk(3)) {
+  for (const auto& v : v2 | std::views::as_input | std::views::chunk(3)) {
     for (const auto& i : v) {
       std::cout << i << ' ';
     }
@@ -118,7 +118,7 @@ int main() {
   }
 }
 ```
-* views::to_input[color ff0000]
+* views::as_input[color ff0000]
 * std::views::join[link join_view.md]
 * std::views::chunk[link chunk_view.md]
 
@@ -139,3 +139,5 @@ int main() {
 
 ## 参照
 - [P3137R3 `views::to_input`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3137r3.html)
+- [P3828R1 Rename the `to_input` view to `as_input`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3828r1.pdf)
+    - `as_*`シリーズと一貫した命名にするため、`as_input`という名前に変更された
