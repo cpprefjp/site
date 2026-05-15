@@ -52,7 +52,7 @@ namespace std {
 
 [`std::format()`](format.md)のような関数を自作する場合にこの関数を使って実装すると便利であるほか、実行時文字列でフォーマット引数を構築したい場合にも利用できる。
 
-C++26以降は、実行時文字列のフォーマット引数を使用したい場合は、[`std::runtime_format()`](runtime_format.md)関数を使用できる。
+C++26以降は、実行時文字列のフォーマット引数を使用したい場合は、[`std::dynamic_format()`](dynamic_format.md)関数を使用できる。
 
 
 ## 戻り値

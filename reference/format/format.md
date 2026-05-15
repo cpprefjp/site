@@ -656,12 +656,12 @@ int main()
 int main()
 {
   std::string fmt = "{}";
-  std::string s = std::format(std::runtime_format(fmt), "Hello");
+  std::string s = std::format(std::dynamic_format(fmt), "Hello");
 
   std::cout << s << std::endl;
 }
 ```
-* std::runtime_format[link runtime_format.md]
+* std::dynamic_format[link dynamic_format.md]
 
 #### 出力
 ```
@@ -723,7 +723,7 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 - [`<ostream>`](/reference/ostream.md)
     - [`std::print()`](/reference/ostream/print.md)
     - [`std::println()`](/reference/ostream/println.md)
-- [`std::runtime_format()`](runtime_format.md)
+- [`std::dynamic_format()`](dynamic_format.md)
 
 
 ## 参照

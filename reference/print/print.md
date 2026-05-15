@@ -158,10 +158,10 @@ Hello 42 World
 int main()
 {
   std::string fmt = "{}\n";
-  std::print(std::runtime_format(fmt), "Hello");
+  std::print(std::dynamic_format(fmt), "Hello");
 }
 ```
-* std::runtime_format[link /reference/format/runtime_format.md]
+* std::dynamic_format[link /reference/format/dynamic_format.md]
 
 #### 出力
 ```
@@ -181,7 +181,7 @@ Hello
 
 ## 関連項目
 - [`std::format()`](/reference/format/format.md)
-- [`std::runtime_format()`](/reference/format/runtime_format.md)
+- [`std::dynamic_format()`](/reference/format/dynamic_format.md)
 - [`std::println()`](println.md)
 
 

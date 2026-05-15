@@ -11,9 +11,9 @@ consteval
 basic_format_string(const T& s); // (1) C++23
 
 constexpr
-basic_format_string(runtime-format-string<charT> s) noexcept; // (2) C++26
+basic_format_string(dynamic-format-string<charT> s) noexcept; // (2) C++26
 ```
-* runtime-format-string[link /reference/format/runtime-format-string.md]
+* dynamic-format-string[link /reference/format/dynamic-format-string.md]
 
 ## 概要
 `basic_format_string`オブジェクトを構築する。
