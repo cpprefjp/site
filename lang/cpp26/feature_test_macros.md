@@ -60,7 +60,7 @@
 |`__cpp_lib_constexpr_flat_map`|`202502L`|[`std::flat_map`](/reference/flat_map/flat_map.md) / [`std::flat_multimap`](/reference/flat_map/flat_multimap.md)を`constexpr`対応|[`<flat_map>`](/reference/flat_map.md)|
 |`__cpp_lib_constexpr_flat_set`|`202502L`|[`std::flat_set`](/reference/flat_set/flat_set.md) / [`std::flat_multiset`](/reference/flat_set/flat_multiset.md)を`constexpr`対応|[`<flat_set>`](/reference/flat_set.md)|
 |`__cpp_lib_constexpr_forward_list`|`202502L`|[`std::forward_list`](/reference/forward_list/forward_list.md)を`constexpr`対応|[`<forward_list>`](/reference/forward_list.md)|
-|`__cpp_lib_constexpr_inplace_vector`|`202502L`|[`std::inplace_vector`](/reference/inplace_vector/inplace_vector.md)を`constexpr`対応|[`<inplace_vector>`](/reference/inplace_vector.md)|
+|`__cpp_lib_constexpr_inplace_vector`|`202603L`|[`std::inplace_vector`](/reference/inplace_vector/inplace_vector.md)を`constexpr`対応|[`<inplace_vector>`](/reference/inplace_vector.md)|
 |`__cpp_lib_constexpr_list`|`202502L`|[`std::list`](/reference/list/list.md)を`constexpr`対応|[`<list>`](/reference/list.md)|
 |`__cpp_lib_constexpr_map`|`202502L`|[`std::map`](/reference/map/map.md) / [`std::multimap`](/reference/map/multimap.md)を`constexpr`対応|[`<map>`](/reference/map.md)|
 |`__cpp_lib_constexpr_memory`|`202506L`|[`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスとその関連機能を`constexpr`対応|[`<memory>`](/reference/memory.md)|
