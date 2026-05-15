@@ -92,3 +92,4 @@ int main() {
 ## 参照
 - [P2830R10 Constexpr Type Ordering](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2830r10.html)
 - [P3778R0 Fix for `type_order` template definition](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3778r0.html)
+- [P4140R0 Proposed resolution for US70-126: allow incomplete types in `type_order`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4140r0.html)
