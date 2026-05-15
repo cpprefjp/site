@@ -1,4 +1,4 @@
-# sub_sat
+# saturating_cast
 * numeric[meta header]
 * function template[meta id-type]
 * std[meta namespace]
@@ -6,13 +6,13 @@
 
 ```cpp
 namespace std {
-  template<class T>
-    constexpr T sub_sat(T x, T y) noexcept;
+  template<class R, class T>
+    constexpr R saturating_cast(T x) noexcept;
 }
 ```
 
 ## 概要
-飽和減算 `x - y` を計算する。
+値`x`を変換先の型`R`で表現可能な値へ丸める。
 
 
 ## テンプレートパラメータ制約
@@ -20,8 +20,8 @@ namespace std {
 
 
 ## 戻り値
-- 無限の範囲で計算した値`x - y`が型`T`で表現可能ならば、`x - y`を返す
-- そうでないとき、型`T`で表現可能な最大値または最小値のうち`x - y`に近い方の値を返す
+- 値`x`が型`T`で表現可能ならば、`x`を返す
+- そうでないとき、型`T`で表現可能な最大値または最小値のうち`x`に近い方の値を返す
 
 
 ## 例外
@@ -36,23 +36,17 @@ namespace std {
 
 int main()
 {
-  // 3 - 1 = 2
-  std::println("{}", std::sub_sat(3, 1));
-
-  // 1 - 3 = -2 -> 0
-  std::println("{}", std::sub_sat(1u, 3u));
-
-  // -100 - 50 = -150 -> -128(-2**7)
-  std::int8_t x = -100, y = 50;
-  std::println("{}", std::sub_sat(x, y));
+  std::println("{}", std::saturating_cast<std::int8_t>( 100));
+  std::println("{}", std::saturating_cast<std::int8_t>( 200));
+  std::println("{}", std::saturating_cast<std::int8_t>(-200));
 }
 ```
-* std::sub_sat[color ff0000]
+* std::saturating_cast[color ff0000]
 
 ### 出力
 ```
-2
-0
+100
+127
 -128
 ```
 
@@ -70,3 +64,4 @@ int main()
 
 ## 参照
 - [P0543R3 Saturation arithmetic](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0543r3.html)
+- [P4052R0 Renaming saturation arithmetic functions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4052r0.html)

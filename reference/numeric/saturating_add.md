@@ -1,4 +1,4 @@
-# mul_sat
+# saturating_add
 * numeric[meta header]
 * function template[meta id-type]
 * std[meta namespace]
@@ -7,12 +7,12 @@
 ```cpp
 namespace std {
   template<class T>
-    constexpr T mul_sat(T x, T y) noexcept;
+    constexpr T saturating_add(T x, T y) noexcept;
 }
 ```
 
 ## 概要
-飽和乗算 `x * y` を計算する。
+飽和加算 `x + y` を計算する。
 
 
 ## テンプレートパラメータ制約
@@ -20,8 +20,8 @@ namespace std {
 
 
 ## 戻り値
-- 無限の範囲で計算した値`x * y`が型`T`で表現可能ならば、`x * y`を返す
-- そうでないとき、型`T`で表現可能な最大値または最小値のうち`x * y`に近い方の値を返す
+- 無限の範囲で計算した値`x + y`が型`T`で表現可能ならば、`x + y`を返す
+- そうでないとき、型`T`で表現可能な最大値または最小値のうち`x + y`に近い方の値を返す
 
 
 ## 例外
@@ -36,25 +36,25 @@ namespace std {
 
 int main()
 {
-  // 2 * 3 = 6
-  std::println("{}", std::mul_sat(2, 3));
+  // 1 + 2 = 3
+  std::println("{}", std::saturating_add(1, 2));
 
-  // 20 * 20 = 400 -> 255(2**8-1)
-  std::uint8_t n = 20;
-  std::println("{}", std::mul_sat(n, n));
+  // 200 + 200 = 400 -> 255(2**8-1)
+  std::uint8_t x = 200;
+  std::println("{}", std::saturating_add(x, x));
 
-  // -128 * -1 = 128 -> 127(2**7-1)
-  std::int8_t x = -128, y = -1;
-  std::println("{}", std::mul_sat(x, y));
+  // -100 + -100 = -200 -> -128(-2**7)
+  std::int8_t y = -100;
+  std::println("{}", std::saturating_add(y, y));
 }
 ```
-* std::mul_sat[color ff0000]
+* std::saturating_add[color ff0000]
 
 ### 出力
 ```
-6
+3
 255
-127
+-128
 ```
 
 
@@ -71,3 +71,4 @@ int main()
 
 ## 参照
 - [P0543R3 Saturation arithmetic](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0543r3.html)
+- [P4052R0 Renaming saturation arithmetic functions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4052r0.html)

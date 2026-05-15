@@ -140,7 +140,7 @@
 |`__cpp_lib_rcu`|`202306L`|RCU (Read Copy Update) のライブラリとして[`<rcu>`](/reference/rcu.md)を追加|[`<rcu>`](/reference/rcu.md)|
 |`__cpp_lib_reference_wrapper`|`202403L`|[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)に、比較演算子[`==`](/reference/functional/reference_wrapper/op_equal.md)と[`<=>`](/reference/functional/reference_wrapper/op_compare_3way.md)を追加|[`<functional>`](/reference/functional.md)|
 |`__cpp_lib_reflection`|`202506L`|[静的リフレクション](/lang/cpp26/reflection.md)のライブラリ機能|[`<meta>`](/reference/meta.md)|
-|`__cpp_lib_saturation_arithmetic`|`202311L`|[`<numeric>`](/reference/numeric.md)に飽和演算 (Saturation Arithmetic) として[`std::add_sat()`](/reference/numeric/add_sat.md)などの関数を追加|[`<numeric>`](/reference/numeric.md)|
+|`__cpp_lib_saturation_arithmetic`|`202603L`|[`<numeric>`](/reference/numeric.md)に飽和演算 (Saturation Arithmetic) として[`std::saturating_add()`](/reference/numeric/saturating_add.md)などの関数を追加|[`<numeric>`](/reference/numeric.md)|
 |`__cpp_lib_senders`|`202506L`||[`<execution>`](/reference/execution.md)|
 |`__cpp_lib_simd`|`202506L`|データ並列ライブラリとして、[`<simd>`](/reference/simd.md.nolink)を追加|[`<simd>`](/reference/simd.md.nolink)|
 |`__cpp_lib_simd_complex`|`202502L`|[`<simd>`](/reference/simd.md.nolink)が[`std::complex`](/reference/complex/complex.md)をサポートする|[`<simd>`](/reference/simd.md.nolink)|

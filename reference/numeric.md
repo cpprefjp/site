@@ -59,11 +59,11 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`add_sat`](numeric/add_sat.md) | 飽和加算`x + y` | C++26 |
-| [`sub_sat`](numeric/sub_sat.md) | 飽和減算`x - y` | C++26 |
-| [`mul_sat`](numeric/mul_sat.md) | 飽和乗算`x * y` | C++26 |
-| [`div_sat`](numeric/div_sat.md) | 飽和除算`x / y` | C++26 |
-| [`saturate_cast`](numeric/saturate_cast.md) | 飽和演算あり型キャスト | C++26 |
+| [`saturating_add`](numeric/saturating_add.md) | 飽和加算`x + y` | C++26 |
+| [`saturating_sub`](numeric/saturating_sub.md) | 飽和減算`x - y` | C++26 |
+| [`saturating_mul`](numeric/saturating_mul.md) | 飽和乗算`x * y` | C++26 |
+| [`saturating_div`](numeric/saturating_div.md) | 飽和除算`x / y` | C++26 |
+| [`saturating_cast`](numeric/saturating_cast.md) | 飽和演算あり型キャスト | C++26 |
 
 
 ## 関連項目

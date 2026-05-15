@@ -1,4 +1,4 @@
-# div_sat
+# saturating_div
 * numeric[meta header]
 * function template[meta id-type]
 * std[meta namespace]
@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template<class T>
-    constexpr T div_sat(T x, T y) noexcept;
+    constexpr T saturating_div(T x, T y) noexcept;
 }
 ```
 
@@ -45,14 +45,14 @@ namespace std {
 int main()
 {
   // 10 / 3 = 3
-  std::println("{}", std::div_sat(10, 3));
+  std::println("{}", std::saturating_div(10, 3));
 
   // -128 * -1 = 128 -> 127(2**7-1)
   std::int8_t x = -128, y = -1;
-  std::println("{}", std::div_sat(x, y));
+  std::println("{}", std::saturating_div(x, y));
 }
 ```
-* std::div_sat[color ff0000]
+* std::saturating_div[color ff0000]
 
 ### 出力
 ```
@@ -74,3 +74,4 @@ int main()
 
 ## 参照
 - [P0543R3 Saturation arithmetic](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0543r3.html)
+- [P4052R0 Renaming saturation arithmetic functions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4052r0.html)
