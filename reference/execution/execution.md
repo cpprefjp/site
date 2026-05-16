@@ -45,6 +45,7 @@ namespace std::execution {
 | [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md) | 前方進行保証 (enum) | C++26 |
 | [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md) | 前方進行保証取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_completion_domain`](execution/get_completion_domain.md) | 完了ドメイン取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_await_completion_adaptor`](execution/get_await_completion_adaptor.md) | Awaitable完了アダプタ取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_env`](execution/get_env.md) | 環境取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::env_of_t`](execution/env_of_t.md) | 指定型から環境型を取得 (alias template) | C++26 |
@@ -81,6 +82,7 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
+| [`execution::indeterminate_domain`](execution/indeterminate_domain.md) | 未確定の実行ドメイン (class template) | C++26 |
 | [`execution::default_domain`](execution/default_domain.md) | デフォルト実行ドメイン (class) | C++26 |
 | [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
 | [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
@@ -91,7 +93,6 @@ namespace std::execution {
 | [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
 | [`execution::tag_of_t`](execution/tag_of_t.md) | Senderアルゴリズムタグ型を取得 (alias template) | C++26 |
 | [`execution::transform_sender`](execution/transform_sender.md) | Senderを変換 (function template) | C++26 |
-| [`execution::transform_env`](execution/transform_env.md) | 環境を変換 (function template) | C++26 |
 | [`execution::apply_sender`](execution/apply_sender.md) | Senderアルゴリズムを適用 (function template) | C++26 |
 | [`execution::connect`](execution/connect.md) | SenderとReceiverを接続 (customization point object) | C++26 |
 | [`execution::connect_result_t`](execution/connect_result_t.md) | [`connect`](execution/connect.md)結果型を取得 (alias template) | C++26 |
@@ -204,3 +205,4 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)
 - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
 - [P3986R1 A Wording Strategy for Inlinable Receivers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3986r1.pdf)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

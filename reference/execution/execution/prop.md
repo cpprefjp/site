@@ -11,7 +11,7 @@ namespace std::execution {
     QueryTag query_;   // exposition only
     ValueType value_;  // exposition only
 
-    constexpr const ValueType& query(QueryTag) const noexcept {
+    constexpr const ValueType& query(QueryTag, auto&&...) const noexcept {
       return value_;
     }
   };
@@ -74,3 +74,4 @@ int main()
 
 ## 参照
 - [P3325R5 A Utility for Creating Execution Environments](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3325r5.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

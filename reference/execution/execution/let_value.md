@@ -29,13 +29,11 @@ namespace std::execution {
 ## 効果
 説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`let-cpo(sndr, f)`は不適格となる。
 
-そうでなければ、呼び出し式`let-cpo(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`let-cpo(sndr, f)`は下記と等価。
 
 ```cpp
-transform_sender(get-domain-early(sndr), make-sender(let-cpo, f, sndr))
+make-sender(let-cpo, f, sndr)
 ```
-* transform_sender[link transform_sender.md]
-* get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 
 説明用のクラステンプレート`let-data`を下記の通り定義する。
@@ -143,24 +141,13 @@ cs.for-each(overload-set(fn, [](auto){}));
 * overload-set[link overload-set.md]
 * set-cpo[italic]
 
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let-cpo>> == false`のとき、式`let-cpo.transform_env(sndr, env)`は不適格となる。
-
-そうでなければ、式`let-cpo.transform_env(sndr, env)`は下記と等価。
-
-```cpp
-auto& [_, _, child] = sndr;
-return JOIN-ENV(let-env(child), FWD-ENV(env));
-```
-* JOIN-ENV[link ../queryable.md]
-* FWD-ENV[link ../forwarding_query.md]
-
 
 ## 説明専用エンティティ
 ### 式`let-env`
-説明用の式`sndr`を用いて、`let-env(sndr)`を下記リストのうち最初に適格となる式と定義する。
+説明用の式`sndr`と`env`を用いて、`let-env(sndr, env)`を下記リストのうち最初に適格となる式と定義する。
 
-- [`SCHED-ENV`](schedule.md)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>>(`[`get_env`](get_env.md)`(sndr)))`
-- [`MAKE-ENV`](../queryable.md)`(`[`get_domain`](get_domain.md)`,` [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr)))`
+- [`SCHED-ENV`](schedule.md)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>>(`[`get_env`](get_env.md)`(sndr),` [`FWD-ENV`](../forwarding_query.md)`(env)))`
+- [`MAKE-ENV`](../queryable.md)`(`[`get_domain`](get_domain.md)`,` [`get_completion_domain`](get_completion_domain.md)`<decayed-typeof<set-cpo>>(`[`get_env`](get_env.md)`(sndr),` [`FWD-ENV`](../forwarding_query.md)`(env)))`
 - `(void(sndr),` [`env<>{}`](env.md)`)`
 
 ### 変数`is-valid-let-sender`
@@ -169,14 +156,14 @@ return JOIN-ENV(let-env(child), FWD-ENV(env));
 - `(`[`constructible_from`](/reference/concepts/constructible_from.md)`<decay_t<Ts>, Ts> &&...)`
 - [`invocable`](/reference/concepts/invocable.md)`<LetFn, decay_t<Ts>&...>`
 - [`sender`](sender.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>>`
-- パック`env-t`を`decltype(let-cpo.transform_env(declval<Sndr>(), declval<Env>()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>, env-t...>`
+- パック`env-t`を`decltype(`[`JOIN-ENV`](../queryable.md)`(let-env<child-type<sndr>>(), declval<Env>(),` [`FWD-ENV`](../forwarding_query.md)`(declval<Env>())))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>, env-t...>`
 
 ### クラステンプレート`let-state`
 ```cpp
 template<class Cpo, class Sndr, class Fn, class Rcvr, class ArgsVariant,
          class OpsVariant>
 struct let-state {
-  using env_t = decltype(let-env(declval<Sndr>())); // exposition only
+  using env_t = decltype(let-env(declval<Sndr>(), get_env(declval<Rcvr&>()))); // exposition only
   Fn fn;                                            // exposition only
   env_t env;                                        // exposition only
   ArgsVariant args;                                 // exposition only
@@ -243,7 +230,7 @@ struct let-state {
 
   using op_t = connect_result_t<Sndr, receiver>;      // exposition only
   constexpr let-state(Sndr&& sndr, Fn fn, Rcvr& rcvr) // exposition only
-    : fn(std::move(fn)), env(let-env(sndr)),
+    : fn(std::move(fn)), env(let-env(sndr, get_env(rcvr))),
       ops(in_place_type<op_t>, std::forward<Sndr>(sndr),
           receiver{*this, rcvr})
   {}
@@ -303,11 +290,11 @@ namespace std::execution {
 メンバ関数`receiver2::get_env`の呼び出しは、下記を満たすオブジェクト`e`を返す。
 
 - 型`decltype(e)`が[`queryable`](../queryable.md)のモデルであり、かつ
-- 与えられた[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は式`env.query(q)`が有効ならばその式と等価。そうではなく、`q`の型が[`forwarding-query`](../forwarding-query.md)を満たすならば式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。そうでなければ、式`e.query(q)`は不適格となる。
+- 与えられた[クエリオブジェクト](../queryable.md)`q`と部分式のパック`args`に対して、式`e.query(q, args...)`は式`env.query(q, args...)`が有効ならばその式と等価。そうではなく、`q`の型が[`forwarding-query`](../forwarding-query.md)を満たすならば式`e.query(q, args...)`は[`get_env`](get_env.md)`(rcvr).query(q, args...)`と等価。そうでなければ、式`e.query(q, args...)`は不適格となる。
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
 説明用の式`out_sndr`を`let-cpo(sndr, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
@@ -492,7 +479,6 @@ catch 0
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
 - [P3433R1 Allocator Support for Operation States](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3433r1.pdf)
@@ -501,3 +487,4 @@ catch 0
 - [LWG 4204. specification of `as-sndr2(Sig)` in [exec.let] is incomplete](https://cplusplus.github.io/LWG/issue4204)
 - [LWG 4205. `let_[*].transform_env` is specified in terms of the `let_*` sender itself instead of its child](https://cplusplus.github.io/LWG/issue4205)
 - [P3373R4 Of Operation States and Their Lifetimes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3373r4.pdf)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

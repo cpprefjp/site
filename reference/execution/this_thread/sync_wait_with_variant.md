@@ -25,13 +25,12 @@ namespace std::this_thread {
 ## 効果
 説明用の`sndr`を`decltype(`[`into_variant`](../execution/into_variant.md)`(sndr))`が`Sndr`型となる式とする。
 
-呼び出し式`this_thread::sync_wait_with_variant(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+型`Domain`を[`get_completion_domain`](../execution/get_completion_domain.md)`<`[`set_value_t`](../execution/set_value.md)`>(`[`get_env`](../execution/get_env.md)`(sndr),` [`sync-wait-env{}`](sync-wait-env.md)`)`として、呼び出し式`this_thread::sync_wait_with_variant(sndr)`は下記と等価。
 
 ```cpp
-apply_sender(get-domain-early(sndr), sync_wait_with_variant, sndr)
+apply_sender(Domain(), sync_wait_with_variant, sndr)
 ```
 * apply_sender[link ../execution/apply_sender.md]
-* get-domain-early[link ../execution/get-domain-early.md]
 
 - [`sender_in`](../execution/sender_in.md)`<Sndr,` [`sync-wait-env`](sync-wait-env.md)`> == true`であること。
 - 型`sync-wait-with-variant-result-type<Sndr>`が適格であること。
@@ -74,7 +73,7 @@ return result_type(nullopt);
 
 
 ## カスタマイゼーションポイント
-入力[Sender](../execution/sender.md)`sndr`に[関連付けられた実行ドメイン](../execution/get-domain-early.md)`dom`に対して、
+入力[Sender](../execution/sender.md)`sndr`の[完了ドメイン](../execution/get_completion_domain.md)`dom`に対して、
 [`execution::apply_sender`](../execution/apply_sender.md)経由で`dom.apply_sender(sync_wait_with_variant, sndr)`が呼ばれる。
 
 [デフォルト実行ドメイン](../execution/default_domain.md)では、`sync_wait_with_variant.apply_sender(sndr)`が呼ばれる。
@@ -136,3 +135,4 @@ result=(100, 'X')
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

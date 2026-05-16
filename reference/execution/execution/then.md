@@ -29,13 +29,11 @@ namespace std::execution {
 ## 効果
 説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`then-cpo(sndr, f)`は不適格となる。
 
-そうでなければ、呼び出し式`then-cpo(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`then-cpo(sndr, f)`は下記と等価。
 
 ```cpp
-transform_sender(get-domain-early(sndr), make-sender(then-cpo, f, sndr))
+make-sender(then-cpo, f, sndr)
 ```
-* transform_sender[link transform_sender.md]
-* get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 
 
@@ -92,7 +90,7 @@ cs.for-each(overload-set{fn, [](auto){}});
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
 戻り値の[Sender](sender.md)`out_sndr`が下記を満たさない場合、呼び出し式`then-cpo(sndr, f)`の動作は未定義となる。
@@ -159,7 +157,7 @@ C++
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG4369 `check-types` function for `upon_error` and `upon_stopped` is wrong](https://cplusplus.github.io/LWG/issue4369)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

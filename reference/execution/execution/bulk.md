@@ -31,15 +31,11 @@ namespace std::execution {
 - `Shape`が[`integral`](/reference/concepts/integral.md)を満たさない、もしくは
 - `Func`が[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルでないとき。
 
-そうでなければ、呼び出し式`bulk(sndr, policy, shape, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`bulk(sndr, policy, shape, f)`は下記と等価。
 
 ```cpp
-transform_sender(
-  get-domain-early(sndr),
-  make-sender(bulk, product-type<see below, Shape, Func>{policy, shape, f}, sndr))
+make-sender(bulk, product-type<see below, Shape, Func>{policy, shape, f}, sndr))
 ```
-* transform_sender[link transform_sender.md]
-* get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 * product-type[link product-type.md]
 
@@ -65,11 +61,8 @@ return bulk_chunked(std::move(child), policy, shape, std::move(new_f));
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時に、[Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では無変換。
-
-[Receiver](receiver.md)との[接続(connect)](connect.md)時に、[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では`bulk.transform_sender(out_sndr, env)`が呼ばれ、[`bulk_chunked`](bulk_chunked.md)Senderへと変換される。
+[Receiver](receiver.md)との[接続(connect)](connect.md)時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[デフォルト実行ドメイン](default_domain.md)では`bulk.transform_sender(`[`set_value`](set_value.md)`, out_sndr, env)`が呼ばれ、[`bulk_chunked`](bulk_chunked.md)Senderへと変換される。
 
 説明用の式`out_sndr`を`bulk(sndr, policy, shape, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
 
@@ -135,6 +128,6 @@ int main()
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

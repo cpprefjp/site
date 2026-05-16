@@ -13,9 +13,6 @@ namespace std::execution {
     requires(Sch&& sch) {
       { schedule(std::forward<Sch>(sch)) } -> sender;
       { get_forward_progress_guarantee(sch) } -> same_as<forward_progress_guarantee>;
-      { auto(get_completion_scheduler<set_value_t>(
-          get_env(schedule(std::forward<Sch>(sch))))) }
-            -> same_as<remove_cvref_t<Sch>>;
     } &&
     equality_comparable<remove_cvref_t<Sch>> &&
     copyable<remove_cvref_t<Sch>>;
@@ -29,9 +26,6 @@ namespace std::execution {
 * schedule[link schedule.md]
 * get_forward_progress_guarantee[link get_forward_progress_guarantee.md]
 * forward_progress_guarantee[link forward_progress_guarantee.md]
-* get_completion_scheduler[link get_completion_scheduler.md]
-* set_value_t[link set_value.md]
-* get_env[link get_env.md]
 * copyable[link /reference/concepts/copyable.md]
 
 ## 概要
@@ -44,7 +38,6 @@ namespace std::execution {
 - `Sch`型の値`sch`に対して下記を満たすこと
     - [`execution::schedule`](schedule.md)`(sch)`が[Sender](sender.md)を返す
     - [`execution::get_forward_progress_guarantee`](get_forward_progress_guarantee.md)`(sch)`が[`forward_progress_guarantee`](forward_progress_guarantee.md)列挙値を返す
-    - 上記Senderの[値完了関数](set_value.md)の[完了Scheduler](get_completion_scheduler.md)が`Sch`に等しいこと
 - コピー可能かつ同値比較可能
 
 
@@ -56,25 +49,27 @@ namespace std::execution {
 
 あるScheduler型`Sch`の2つの値`sch1`と`sch2`に対して、`sch1`と`sch2`が同じ実行リソースを共有する場合に限って、`sch1 == sch2`は`true`となる。
 
-あるScheduler`sch`に対して、式[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`が`sch`と等しいこと。
+あるScheduler`sch`に対して、式[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`が適格なとき、`sch`と等しいこと。
 
-あるScheduler`sch`に対して式[`get_domain`](get_domain.md)`(sch)`が適格であるとき、式[`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`も適格であり、かつ同じ型を持つ。
+あるScheduler`sch`、型`T`、部分式のパック`envs`に対して、下記の式がいずれも不適格となる、もしくはともに適格かつ同じ型を持つこと。
+
+- [`get_completion_domain`](get_completion_domain.md)`<T>(sch, envs...)`
+- [`get_completion_domain`](get_completion_domain.md)`<T>(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)), envs...)`
+
+同様に、下記の式がいずれも不適格となる、もしくはともに適格かつ同じ型と値を持つこと。
+
+- [`get_completion_scheduler`](get_completion_scheduler.md)`<T>(sch, envs...)`
+- [`get_completion_scheduler`](get_completion_scheduler.md)`<T>(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)), envs...)`
 
 Scheduler型のデストラクタは、[`schedule`](schedule.md)が返すSenderオブジェクトに接続されたReceiverの完了を待機してブロックしてはならない。
 
 
 ## 説明専用エンティティ
-### 式`SCHED-ATTRS`
-説明用のScheduler`sch`に対して、式`SCHED-ATTRS(sch)`は[`queryable`](../queryable.md)を満たす型の式`o1`となり、下記を満たす。
-
-- 型`Tag`が[`set_value_t`](set_value.md)もしくは[`set_stopped_t`](set_stopped.md)のとき、式`o1.query(`[`get_completion_scheduler`](get_completion_scheduler.md)`<Tag>)`の型および値が`sch`と等しい。
-- 式`o1.query(`[`get_domain`](get_domain.md)`)`は`sch.query(`[`get_domain`](get_domain.md)`)`と等価。
-
 ### 式`SCHED-ENV`
-説明用のScheduler`sch`に対して、式`SCHED-ENV(sch)`は[`queryable`](../queryable.md)を満たす型の式`o2`となり、下記を満たす。
+説明用のScheduler`sch`に対して、式`SCHED-ENV(sch)`は[`queryable`](../queryable.md)を満たす型の式`o`となり、下記を満たす。
 
-- 式`o2.query(`[`get_scheduler`](get_scheduler.md)`)`は、型および値が`sch`と等しい右辺値。
-- 式`o2.query(`[`get_domain`](get_domain.md)`)`は`sch.query(`[`get_domain`](get_domain.md)`)`と等価。
+- 式`o.query(`[`get_scheduler`](get_scheduler.md)`)`は、型および値が`sch`と等しい右辺値。
+- 式`o.query(`[`get_domain`](get_domain.md)`)`は`sch.query(`[`get_domain`](get_domain.md)`)`と等価。
 
 
 ## 例
@@ -118,3 +113,4 @@ int main()
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
 - [LWG4354. Reconsider `weakly_parallel` as the default `forward_progress_guarantee`](https://cplusplus.github.io/LWG/issue4354)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

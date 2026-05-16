@@ -25,8 +25,6 @@ namespace std::execution {
 ## 効果
 呼び出し式`schedule(sch)`は式`sch.schedule()`と等価であり、式の型は[`sender`](sender.md)を満たすこと。
 
-式[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(sch.schedule())) == sch`が不適格もしくは`false`となる場合、呼び出し式`schedule(sch)`の動作は未定義となる。
-
 
 ## カスタマイゼーションポイント
 [Scheduler](scheduler.md)`sch`に対して、式`sch.schedule()`が呼び出される。
@@ -103,3 +101,4 @@ val=42
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

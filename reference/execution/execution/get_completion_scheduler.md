@@ -17,7 +17,6 @@ namespace std::execution {
 
 ## 概要
 `get_completion_scheduler<completion-tag>`は、[Sender](sender.md)の[属性](get_env.md)から指定完了タグに関連付けられた完了Schedulerを取得する[クエリオブジェクト](../queryable.md)である。
-完了タグ`completion-tag`には、[`set_value_t`](set_value.md), [`set_error_t`](set_error.md), [`set_stopped_t`](set_stopped.md)のいずれかを指定する。
 
 コア定数式[`forwarding_query`](../forwarding_query.md)`(get_completion_scheduler<completion-tag>)`は`true`値を返す。
 
@@ -33,10 +32,24 @@ namespace std::execution {
 
 
 ## 効果
-呼び出し式`get_completion_scheduler<completion-tag>(q)`は下記と等価であり、式が適格ならば[`scheduler`](scheduler.md)を満たす型の値となる。
+`completion-fn`を完了関数、`completion-tag`を完了関数に関連付けられた完了タグ、`args`と`envs`を部分式のパック、式`sndr`を[`sender`](sender.md)`<decltype((sndr))>`が`true`かつ`get_completion_scheduler<completion-tag>(`[`get_env`](get_env.md)`(sndr), envs...)`となる式、`sch`を[Scheduler](scheduler.md)とする。
 
-- 引数`q`がconst修飾された`cq`を用いて、式`cq.query(get_completion_scheduler<completion-tag>)`が適格であればその値。
-- そうでなければ、呼び出し式は不適格となる。
+式`sch1`とパック`envs`に対して、式`sch2`を`TRY-QUERY(sch, get_completion_scheduler<completion-tag>, envs...)`とする。`sch2`が不適格もしくは`sch1`と`sch2`が同一型かつ等しいとき、式`RECURSE-QUERY(sch1, envs...)`を`sch1`と等価な式とする。そうでなければ、式`RECURSE-QUERY(sch2, envs...)`と透過な式とする。
+
+式`q`とパック`envs`に対して、完了タグ`completion-tag`が[`set_value_t`](set_value.md)／[`set_error_t`](set_error.md)／ [`set_stopped_t`](set_stopped.md)のいずれでもなければ、呼び出し式`get_completion_scheduler<completion-tag>(q, envs...)`は不適格となる。
+そうでなければ、呼び出し式は下記と等価である。
+
+- `envs...`が1回だけ評価されることを除いて、適格ならば下記の式
+
+    ```cpp
+    MANDATE-NOTHROW(RECURSE-QUERY(
+      TRY-QUERY(q, get_completion_scheduler<completion-tag>, envs...), envs...))
+    ```
+
+- そうではなく、`envs...`が1回だけ評価されることを除いて、型`q`が[`schedeuler`](scheduler.md)を満たしかつ`envs`が空のパックでないとき、`auto(q)`
+- そうでなければ、呼び出し式`get_completion_scheduler<completion-tag>(q, envs...)`は不適格となる。
+
+`get_completion_scheduler<completion-tag>(q, envs...)`が適格ならば、その型は[Scheduler](scheduler.md)を満たすべき。
 
 
 ## 例外
@@ -46,6 +59,10 @@ namespace std::execution {
 ## カスタマイゼーションポイント
 const修飾[クエリ可能オブジェクト](../queryable.md)`cq`に対して式`cq.query(get_completion_scheduler<completion-tag>)`が呼び出される。
 このとき、`noexcept(cq.query(get_completion_scheduler<completion-tag>)) == true`であること。
+
+型`Tag`、式`sndr`、パック`envs`に対して、`CS`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<decltype((sndr))>, decltype((envs))...>`とする。`get_completion_scheduler<Tag>(`[`get_env`](get_env.md)`(sndr), envs...)`と`CS`が両者とも適格、かつ`CS().`[`count-of`](completion_signatures.md)`(Tag()) == 0`が`true`のとき、プログラムは不適格となる。
+
+`sndr`と[Receiver](receiver.md)`rcvr`を接続して作成された非同期操作が完了関数`completion-fn(rcvr, args...)`を評価するとき、その評価が`sch`と関連付けられた実行リソースの実行エージェント上で行われない場合、動作は未定義となる。
 
 
 ## 例
@@ -110,3 +127,4 @@ int main()
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

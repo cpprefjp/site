@@ -19,7 +19,7 @@ class run-loop-scheduler;  // exposition only
 - `run-loop-scheduler`インスタンスは、同インスタンスを取得した[`run_loop`](../run_loop.md)インスタンスの生存期間(lifetime)終了まで有効。
 - 2個の`run-loop-scheduler`インスタンスは、同一[`run_loop`](../run_loop.md)インスタンスから取得された場合に限って等しい。
 - 説明用の式`sch`の型が`run-loop-scheduler`であるとき、式[`schedule`](../schedule.md)`(sch)`は型[`run-loop-sender`](run-loop-sender.md)となり、式`sch`が潜在的に例外送出しない(not potentially-throwing)ならばそれに従う。
-
+- [`set_error_t`](../set_error.md)ではない型`set-tag`に対して、式[`get_completion_scheduler`](../get_completion_scheduler.md)`<set-tag>(`[`get_env`](../get_env.md)`(`[`schedule`](../schedule.md)`(sch))) == sch`は`true`である。
 
 ## バージョン
 ### 言語
@@ -33,3 +33,4 @@ class run-loop-scheduler;  // exposition only
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

@@ -24,7 +24,7 @@ namespace std::execution {
 
 
 ## 効果
-説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`<decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...>`とする。型`CD`が適格ならば型`CD2`を`CD`とし、そうでなければ[`default_domain`](default_domain.md)とする。
+説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`とする。
 
 下記いずれかが`true`となるとき、呼び出し式`when_all(sndrs...)`は不適格となる。
 
@@ -34,9 +34,8 @@ namespace std::execution {
 そうでなければ、呼び出し式`when_all(sndrs...)`は下記と等価。
 
 ```cpp
-transform_sender(CD2(), make-sender(when_all, {}, sndrs...))
+make-sender(when_all, {}, sndrs...)
 ```
-* transform_sender[link transform_sender.md]
 * make-sender[link make-sender.md]
 
 
@@ -47,7 +46,6 @@ Senderアルゴリズム動作説明用のクラステンプレート[`impls-for
 namespace std::execution {
   template<>
   struct impls-for<when_all_t> : default-impls {
-    static constexpr auto get-attrs = see below;
     static constexpr auto get-env = see below;
     static constexpr auto get-state = see below;
     static constexpr auto start = see below;
@@ -60,22 +58,6 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-
-`impls-for<when_all_t>::get-attrs`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
-
-```cpp
-[](auto&&, auto&&... child) noexcept {
-  if constexpr (same_as<CD, default_domain>) {
-    return env<>();
-  } else {
-    return MAKE-ENV(get_domain, CD());
-  }
-}
-```
-* default_domain[link default_domain.md]
-* env<>[link env.md]
-* MAKE-ENV[link ../queryable.md]
-* get_domain[link get_domain.md]
 
 `impls-for<when_all_t>::get-env`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -197,8 +179,6 @@ auto fn = []<class Child>() {
 * unspecified-exception[link unspecified-exception.md]
 * decay-copyable-result-datums[link decay-copyable-result-datums.md]
 * child-type[link child-type.md]
-
-型`CD`が不適格な場合、[`unspecified-exception`](unspecified-exception.md)型の例外を送出する。
 
 
 ## 説明専用エンティティ
@@ -339,7 +319,7 @@ variant<none-such, copy-fail, Es...>
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
 
@@ -501,7 +481,6 @@ error=-2
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
@@ -509,3 +488,4 @@ error=-2
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)
 - [LWG 4438. Bad expression in [exec.when.all]](https://cplusplus.github.io/LWG/issue4438)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

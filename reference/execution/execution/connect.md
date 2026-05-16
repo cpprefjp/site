@@ -25,10 +25,9 @@ namespace std::execution {
 説明用の型`Sndr`を`decltype((sndr))`、型`Rcvr`を`decltype((rcvr))`とし、式`new_sndr`を次の通りとする。
 
 ```cpp
-transform_sender(decltype(get-domain-late(sndr, get_env(rcvr))){}, sndr, get_env(rcvr))
+transform_sender(sndr, get_env(rcvr))
 ```
 * transform_sender[link transform_sender.md]
-* get-domain-late[link get-domain-late.md]
 * get_env[link get_env.md]
 
 式`connect(sndr, rcvr)`は`rcvr`が1回だけ評価されることを除いて、下記と等価。式の型は[`operation_state`](operation_state.md)を満たす。
@@ -255,3 +254,4 @@ int main()
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3388R3 When Do You Know connect Doesn't Throw?](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3388r3.pdf)
 - [LWG 4208. Wording needs to ensure that in `connect(sndr, rcvr)` that `rcvr` expression is only evaluated once](https://cplusplus.github.io/LWG/issue4208)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

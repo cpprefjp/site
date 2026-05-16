@@ -19,58 +19,38 @@ namespace std::execution {
 ## 効果
 説明用の式`sch`と`sndr`に対して、`decltype((sch))`が[`scheduler`](scheduler.md)を満たさない、もしくは`decltype((sndr))`が[`sender`](sender.md)を満たさないとき、呼び出し式`starts_on(sch, sndr)`は不適格となる。
 
-そうでなければ、呼び出し式`starts_on(sch, sndr)`は`sch`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`starts_on(sch, sndr)`は下記と等価。
 
 ```cpp
-transform_sender(
-  query-with-default(get_domain, sch, default_domain()),
-  make-sender(starts_on, sch, sndr))
+make-sender(starts_on, sch, sndr)
 ```
-* transform_sender[link transform_sender.md]
-* query-with-default[link query-with-default.md]
-* get_domain[link get_domain.md]
-* default_domain()[link default_domain.md]
 * make-sender[link make-sender.md]
 
 
 ### Senderアルゴリズムタグ `starts_on`
-説明用の式`out_sndr`と`env`に対して、型`OutSndr`を`decltype((out_sndr))`とする。[`sender-for`](sender-for.md)`<OutSndr, starts_on_t> == false`のとき、式`starts_on.transform_env(out_sndr, env)`および式`starts_on.transform_sender(out_sndr, env)`はいずれも不適格となる。
+説明用の式`out_sndr`と`env`に対して、型`OutSndr`を`decltype((out_sndr))`とする。[`sender-for`](sender-for.md)`<OutSndr, starts_on_t> == false`のとき、式`starts_on.transform_sender(`[`set_value`](set_value.md)`, out_sndr, env)`は不適格となる。
 
-そうでなければ、下記の通り。
+そうでなければ、式`starts_on.transform_sender(`[`set_value`](set_value.md)`, out_sndr, env)`は下記と等価。
 
-- 式`starts_on.transform_env(out_sndr, env)`は下記と等価。
-
-    ```cpp
-    auto&& [_, sch, _] = out_sndr;
-    return JOIN-ENV(SCHED-ENV(sch), FWD-ENV(env));
-    ```
-    * JOIN-ENV[link ../queryable.md]
-    * SCHED-ENV[link scheduler.md]
-    * FWD-ENV[link ../forwarding_query.md]
-
-- 式`starts_on.transform_sender(out_sndr, env)`は下記と等価。
-
-    ```cpp
-    auto&& [_, sch, sndr] = out_sndr;
-    return let_value(
-      schedule(sch),
-      [sndr = std::forward_like<OutSndr>(sndr)]() mutable
-        noexcept(is_nothrow_move_constructible_v<decay_t<OutSndr>>) {
-        return std::move(sndr);
-      });
-    ```
-    * let_value[link let_value.md]
-    * schedule[link schedule.md]
-    * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
-    * std::move[link /reference/utility/move.md]
+```cpp
+auto&& [_, sch, sndr] = out_sndr;
+return let_value(
+  continues_on(just(), sch),
+  [sndr = std::forward_like<OutSndr>(sndr)]() mutable
+    noexcept(is_nothrow_move_constructible_v<decay_t<OutSndr>>) {
+    return std::move(sndr);
+  });
+```
+* let_value[link let_value.md]
+* continues_on[link continues_on.md]
+* just()[link just.md]
+* is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
+* std::move[link /reference/utility/move.md]
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時に、[Scheduler](scheduler.md)`sch`に[関連付けられた実行ドメイン](query-with-default.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では無変換。
-
-[Receiver](receiver.md)との[接続(connect)](connect.md)時に、[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では`starts_on.transform_sender(out_sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
+[Receiver](receiver.md)との[接続(connect)](connect.md)時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[デフォルト実行ドメイン](default_domain.md)では`starts_on.transform_sender(`[`set_value`](set_value.md)`, out_sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
 
 説明用の式`out_sndr`を`starts_on(sch, sndr)`の戻り値[Sender](sender.md)とし、型`OutSndr`を`decltype((out_sndr))`とする。式`out_rcvr`を[`sender_in`](sender_in.md)`<OutSndr, Env> == true`となる[環境](../queryable.md)`Env`に関連付けられた[Receiver](receiver.md)とする。`out_sndr`と`out_rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)への左辺値参照を`op`としたとき、
 
@@ -151,5 +131,5 @@ val=42
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
