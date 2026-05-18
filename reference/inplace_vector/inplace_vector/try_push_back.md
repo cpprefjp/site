@@ -6,12 +6,12 @@
 * cpp26[meta cpp]
 
 ```cpp
-constexpr pointer try_push_back(const T& x); // (1) C++26
-constexpr pointer try_push_back(T&& x);      // (2) C++26
+constexpr std::optional<reference> try_push_back(const T& x); // (1) C++26
+constexpr std::optional<reference> try_push_back(T&& x);      // (2) C++26
 ```
 
 ## 概要
-末尾へ要素追加を試みる。容量超過時は例外を送出せず、`nullptr`を返す。
+末尾へ要素追加を試みる。容量超過時は例外を送出せず、[`std::nullopt`](/reference/optional/nullopt_t.md)を返す。
 
 - (1) : `x`をコピーして末尾への追加を試みる。
 - (2) : `x`をムーブして末尾への追加を試みる。
@@ -22,7 +22,7 @@ constexpr pointer try_push_back(T&& x);      // (2) C++26
 
 
 ## 戻り値
-要素が追加された場合は追加された要素へのポインタ、追加できなかった場合は`nullptr`を返す。
+要素が追加された場合は追加された要素への参照を保持した[`std::optional`](/reference/optional/optional.md)、追加できなかった場合は[`std::nullopt`](/reference/optional/nullopt_t.md)を返す。
 
 
 ## 例外
@@ -42,13 +42,13 @@ int main()
 {
   std::inplace_vector<int, 3> iv = {1, 2, 3};
 
-  int* p1 = iv.try_push_back(4);
-  std::println("push_back(4): {}", (p1 ? "success" : "failed"));
+  auto r1 = iv.try_push_back(4);
+  std::println("push_back(4): {}", (r1 ? "success" : "failed"));
 
   iv.pop_back();
-  int* p2 = iv.try_push_back(4);
-  std::println("push_back(4): {}", (p2 ? "success" : "failed"));
-  std::println("value: {}", *p2);
+  auto r2 = iv.try_push_back(4);
+  std::println("push_back(4): {}", (r2 ? "success" : "failed"));
+  std::println("value: {}", *r2);
 }
 ```
 * try_push_back[color ff0000]
@@ -72,3 +72,5 @@ value: 4
 
 ## 参照
 - [P0843R14 `inplace_vector`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0843r14.html)
+- [P3981R2 Better return types in `std::inplace_vector` and `std::exception_ptr_cast`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3981r2.html)
+    - 戻り値型を`pointer`から[`std::optional`](/reference/optional/optional.md)`<reference>`に変更

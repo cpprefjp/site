@@ -76,7 +76,7 @@
 |`__cpp_lib_counting_scope`|`202506L`|[`<execution>`](/reference/execution.md)に[`std::execution::spawn`](/reference/execution/execution/spawn.md)、[`std::execution::scope_token`](/reference/execution/execution/scope_token.md)などを追加|[`<execution>`](/reference/execution.md)|
 |`__cpp_lib_debugging`|`202403L`|デバッグサポートのライブラリとして[`<debugging>`](/reference/debugging.md)を追加|[`<debugging>`](/reference/debugging.md)|
 |`__cpp_lib_define_static`|`202506L`||[`<meta>`](/reference/meta.md)|
-|`__cpp_lib_exception_ptr_cast`|`202506L`|[`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md)関数を追加|[`<exception>`](/reference/exception.md)|
+|`__cpp_lib_exception_ptr_cast`|`202603L`|[`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md)関数を追加|[`<exception>`](/reference/exception.md)|
 |`__cpp_lib_format`|`202603L`| [`std::dynamic_format`](/reference/format/dynamic_format.md) | [`<format>`](/reference/format.md)|
 |`__cpp_lib_format_path`|`202506L`|[`std::filesystem::path`](/reference/filesystem/path.md)クラスに、文字列フォーマットのサポートを追加<br/>[`std::filesystem::path`](/reference/filesystem/path.md)クラスに、出力用の文字列を取得するためのメンバ関数を追加|[`<filesystem>`](/reference/filesystem.md)|
 |`__cpp_lib_format_uchar`|`202311L`|[`std::format`](/reference/format/format.md)が`char`を数値出力する際は符号なしとして扱う|[`<format>`](/reference/format.md)|
@@ -110,7 +110,7 @@
 |`__cpp_lib_hazard_pointer`|`202306L`|ハザードポインタのライブラリ[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)|
 |`__cpp_lib_hive`|`202502L`|シーケンスコンテナのライブラリ[`<hive>`](/reference/hive.md.nolink)を追加|[`<hive>`](/reference/hive.md.nolink)|
 |`__cpp_lib_indirect`|`202502L`|[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md.nolink)と[`std::polymorphic`](/reference/memory/polymorphic.md.nolink)を追加|[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_inplace_vector`|`202406L`|容量固定の可変長配列のライブラリ[`<inplace_vector>`](/reference/inplace_vector.md)を追加|[`<inplace_vector>`](/reference/inplace_vector.md)|
+|`__cpp_lib_inplace_vector`|`202603L`|容量固定の可変長配列のライブラリ[`<inplace_vector>`](/reference/inplace_vector.md)を追加|[`<inplace_vector>`](/reference/inplace_vector.md)|
 |`__cpp_lib_is_sufficiently_aligned`|`202411L`|[`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_is_structural`|`202603L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_structural`](/reference/type_traits/is_structural.md)を追加|[`<type_traits>`](/reference/type_traits.md), [`<meta>`](/reference/meta.md)|
 |`__cpp_lib_is_virtual_base_of`|`202406L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加|[`<type_traits>`](/reference/type_traits.md)|

@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class E>
-  constexpr const E*
+  constexpr std::optional<const E&>
     exception_ptr_cast(const exception_ptr& p) noexcept; // (1) C++26
 
   template <class E>
@@ -22,7 +22,7 @@ namespace std {
 
 この関数は、[`std::exception_ptr`](exception_ptr.md)オブジェクトに格納されている実際の例外型を取り出すために使用できる。[`std::rethrow_exception()`](rethrow_exception.md)関数でも同様のことはできるが、こちらの方が高速である可能性がある。
 
-- (1): [`std::exception_ptr`](exception_ptr.md)オブジェクトを、指定された例外型`E`へのポインタに変換して返す
+- (1): [`std::exception_ptr`](exception_ptr.md)オブジェクトを、指定された例外型`E`への参照を保持した[`std::optional`](/reference/optional/optional.md)に変換して返す
 - (2): 右辺値の[`std::exception_ptr`](exception_ptr.md)オブジェクトを引数にするのは禁止されている
 
 
@@ -33,11 +33,11 @@ namespace std {
 - 型`E`はポインタ型またはメンバポインタ型ではないこと
     - 注: 型`E`がポインタ型またはメンバポインタを許可してしまう場合、以下のような問題が起きる
     - 多重継承した派生型のポインタを例外送出して基底クラスのポインタ型で捕捉するような場合、`catch`節に渡ってくるのは送出された直接のポインタ値ではなく、基底クラスがどれなのかを算出するために調整されたポインタ値となり、元の例外送出された値には束縛されていないという状況になる
-    - この関数は、元となる例外オブジェクトそのものへのポインタを返すことを設計目的にしているため、上記のような問題を避けるために、ポインタ型およびメンバポインタ型は許可されていない
+    - この関数は、元となる例外オブジェクトそのものへの参照を返すことを設計目的にしているため、上記のような問題を避けるために、ポインタ型およびメンバポインタ型は許可されていない
 
 
 ## 戻り値
-`p`がnullではなく、かつ型`const E&`のハンドラがその例外オブジェクトに対するマッチ条件を満たす場合、`p`が指す例外オブジェクトへのポインタを返す。そうでない場合は、`nullptr`を返す。
+`p`がnullではなく、かつ型`const E&`のハンドラがその例外オブジェクトに対するマッチ条件を満たす場合、`p`が指す例外オブジェクトへの参照を保持した[`std::optional`](/reference/optional/optional.md)を返す。そうでない場合は、[`std::nullopt`](/reference/optional/nullopt_t.md)を返す。
 
 
 ## 例外
@@ -62,7 +62,7 @@ int main()
     ep = std::current_exception(); // 処理中の例外ポインタを取得
   }
 
-  if (const std::runtime_error* e = std::exception_ptr_cast<std::runtime_error>(ep)) {
+  if (auto e = std::exception_ptr_cast<std::runtime_error>(ep)) {
     std::println("exception: {}", e->what());
   }
 }
@@ -91,3 +91,5 @@ exception: error!
 ## 参照
 - [P2927R3 Inspecting `exception_ptr`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2927r3.html)
 - [P3748R0 Inspecting `exception_ptr` should be `constexpr`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3748r0.html)
+- [P3981R2 Better return types in `std::inplace_vector` and `std::exception_ptr_cast`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3981r2.html)
+    - 戻り値型を`const E*`から[`std::optional`](/reference/optional/optional.md)`<const E&>`に変更
