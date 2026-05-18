@@ -6,8 +6,7 @@
 
 ```cpp
 namespace std {
-  int uncaught_exceptions() noexcept;           // (1) C++17
-  constexpr int uncaught_exceptions() noexcept; // (1) C++26
+  int uncaught_exceptions() noexcept; // (1) C++17
 }
 ```
 
@@ -96,3 +95,5 @@ catch exception 2
 - [N4152 `uncaught_exceptions`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4152.pdf)
 - [N4259 Wording for `std::uncaught_exceptions`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4259.pdf)
 - [CWG 2098 Is `uncaught_exceptions()` per-thread?](https://wg21.cmeerw.net/cwg/issue2098)
+- [P3842R2 A conservative fix for constexpr `uncaught_exceptions()` and `current_exception()`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3842r2.pdf)
+    - C++26の策定中に`constexpr`が追加されたが、本提案文書により巻き戻された (C++29で再検討予定)

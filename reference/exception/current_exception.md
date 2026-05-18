@@ -6,8 +6,7 @@
 
 ```cpp
 namespace std {
-  exception_ptr current_exception() noexcept;           // (1) C++11
-  constexpr exception_ptr current_exception() noexcept; // (1) C++26
+  exception_ptr current_exception() noexcept; // (1) C++11
 }
 ```
 * exception_ptr[link exception_ptr.md]
@@ -94,3 +93,5 @@ terminate called after throwing an instance of 'std::runtime_error'
 ## 参照
 - [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
 - [Can I use `std::current_exception` during stack unwinding? - StackOverflow](http://stackoverflow.com/questions/28267484/can-i-use-stdcurrent-exception-during-stack-unwinding)
+- [P3842R2 A conservative fix for constexpr `uncaught_exceptions()` and `current_exception()`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3842r2.pdf)
+    - C++26の策定中に`constexpr`が追加されたが、本提案文書により巻き戻された (C++29で再検討予定)
