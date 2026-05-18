@@ -19,7 +19,7 @@ namespace std {
 テンプレートパラメータは、以下を意味する：
 
 - `W` : 生成させる整数のビット数
-- `UIntType` : 生成させる符号なし整数型
+- `UIntType` : 生成させる符号なし整数型。標準もしくは拡張の符号なし整数型 (ビット幅が`short`以上`long long`以下) 、または処理系定義のサブセットの符号なし整数型でなければならない。
 
 
 ## 要件
@@ -121,3 +121,8 @@ int main()
 - [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
+
+
+## 参照
+- [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
+    - `UIntType`テンプレートパラメータの要件が明文化された（拡張符号なし整数型および処理系定義のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある

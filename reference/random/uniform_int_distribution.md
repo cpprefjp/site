@@ -24,7 +24,7 @@ namespace std {
 
 テンプレートパラメータは、以下を意味する：
 
-- `IntType` : 生成する整数の型。
+- `IntType` : 生成する整数の型。標準の符号付き／符号なし整数型 (`signed char`、`unsigned char`を含む) 、拡張整数型 (ビット幅が`char`以上`long long`以下) 、または処理系定義のサブセットの整数型でなければならない。
 
 
 ## メンバ関数
@@ -125,3 +125,5 @@ int main()
 
 ## 参照
 - [Doubling the speed of `std::uniform_int_distribution` in the GNU C++ library - Daniel Lemire's blog](https://lemire.me/blog/2019/09/28/doubling-the-speed-of-stduniform_int_distribution-in-the-gnu-c-library/)
+- [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
+    - `IntType`テンプレートパラメータに`signed char`／`unsigned char`を指定できるようになった。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある

@@ -31,7 +31,7 @@ namespace std {
 
 テンプレートパラメータは、以下を意味する：
 
-* `UIntType` : 生成する符号なし整数の型。
+* `UIntType` : 生成する符号なし整数の型。標準もしくは拡張の符号なし整数型 (ビット幅が`short`以上`long long`以下) 、または処理系定義のサブセットの符号なし整数型でなければならない。
 * `w` : ワードサイズ。状態シーケンス内での各ワードのビット数。[`numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)以下にするのがよい。
 * `n` : 状態のサイズ。状態シーケンスの要素数。生成される値が再発する程度を調整するための値。
 * `m` : シフトサイズ。各ひねり(twist)時にシーケンスから選択する他の値が、`m`要素離れるようにする。`n`より小さくするのがよい。
@@ -175,3 +175,5 @@ int main()
 * [Mersenne Twister Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html)
 * [メルセンヌ・ツイスタ - Wikipedia](https://ja.wikipedia.org/wiki/メルセンヌ・ツイスタ)
 * GCC(libstdc++) 4.8以降では、`<ext/random>`ヘッダに、SSE最適化されたメルセンヌ・ツイスターである`simd_fast_mersenne_twister_engine`クラスが実装されている
+- [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
+    - `UIntType`テンプレートパラメータの要件が明文化された（拡張符号なし整数型および処理系定義のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある

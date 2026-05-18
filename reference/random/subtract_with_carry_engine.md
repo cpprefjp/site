@@ -25,7 +25,7 @@ namespace std {
 
 テンプレートパラメータの意味は以下の通り:
 
-* `UIntType`: 生成する符号なし整数の型。
+* `UIntType`: 生成する符号なし整数の型。標準もしくは拡張の符号なし整数型 (ビット幅が`short`以上`long long`以下) 、または処理系定義のサブセットの符号なし整数型でなければならない。
 * `w`: ワードサイズ。`0 < w <=` [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md) でなければならない。
 * `s`: 短いラグ。`0 < s < r` でなければならない。
 * `r`: 長いラグ。
@@ -152,3 +152,5 @@ int main()
 - [A New Class of Random Number Generators](http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoap/1177005878), George Marsaglia and Arif Zaman, The Annals of Applied Probability, Vol. 1, No. 3, 1991
 - [M. Matsumoto, et al., Common Defects in Initialization of Pseudorandom Number Generators, *ACM Trans. Model. Comput. Simul.* **17**, 15 (2007)](https://doi.org/10.1145/1276927.1276928)
 - [LWG Issue 3809. Is `std::subtract_with_carry_engine<uint16_t>` supposed to work?](https://cplusplus.github.io/LWG/issue3809)
+- [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
+    - `UIntType`テンプレートパラメータの要件が明文化された（拡張符号なし整数型および処理系定義のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある

@@ -82,7 +82,7 @@ Philox法は、以下のような特徴を持つ：
 
 
 ### テンプレートパラメータ
-- `UIntType` : 生成する符号なし整数の型。
+- `UIntType` : 生成する符号なし整数の型。標準もしくは拡張の符号なし整数型 (ビット幅が`short`以上`long long`以下) 、または処理系定義のサブセットの符号なし整数型でなければならない。
 - `w` : ワードサイズ。状態シーケンス内での各ワードのビット数
 - `n` : ワード数
 - `r` : ラウンド数
@@ -267,3 +267,5 @@ int main()
     - C++にPhilox乱数生成器が最初に提案された文書
 - [Parallel Random Numbers: As Easy as 1, 2, 3](https://www.thesalmons.org/john/random123/papers/random123sc11.pdf)
     - 2011年に発表されたこの論文でPhilox乱数生成器が考案された
+- [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
+    - `UIntType`テンプレートパラメータの要件が明文化された（拡張符号なし整数型および処理系定義のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある

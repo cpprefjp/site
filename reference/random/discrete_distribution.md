@@ -18,7 +18,7 @@ namespace std {
 
 テンプレートパラメータは、以下を意味する。
 
-* `IntType` : 分布結果として返される、0から始まるインデックス値の整数型。負の値が返されることはないため、符号なし整数型を指定してもよい。デフォルトは`int`。
+* `IntType` : 分布結果として返される、0から始まるインデックス値の整数型。負の値が返されることはないため、符号なし整数型を指定してもよい。デフォルトは`int`。標準の符号付き／符号なし整数型 (`signed char`、`unsigned char`を含む) 、拡張整数型 (ビット幅が`char`以上`long long`以下) 、または処理系定義のサブセットの整数型でなければならない。
 
 
 ## メンバ関数
@@ -138,3 +138,5 @@ int main()
 - [Pseudo-random number sampling - Wikipedia](https://en.wikipedia.org/wiki/Pseudo-random_number_sampling)
 - [Alias Method - Wikipedia](https://en.wikipedia.org/wiki/Alias_method)
 - [一般の離散分布の従う乱数の発生させる方法 - arupaka-_-arupakaの日記](http://d.hatena.ne.jp/arupaka-_-arupaka/20100508/1273319666)
+- [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
+    - `IntType`テンプレートパラメータに`signed char`／`unsigned char`を指定できるようになった。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある

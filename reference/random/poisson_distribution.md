@@ -31,7 +31,7 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^x}{x!} $$
 
 テンプレートパラメータは、以下を意味する：
 
-- `IntType` : 生成する整数型。
+- `IntType` : 生成する整数型。標準の符号付き／符号なし整数型 (`signed char`、`unsigned char`を含む) 、拡張整数型 (ビット幅が`char`以上`long long`以下) 、または処理系定義のサブセットの整数型でなければならない。
 
 
 ## メンバ関数
@@ -169,3 +169,8 @@ Month 12: 1 earthquake(s)
 - [ポアソン分布 - 統計・データ解析](https://okumuralab.org/~okumura/stat/poisson.html)
 - [ポアソン分布 - NtRand](http://www.ntrand.com/jp/poisson-distribution/)
 - [［データ分析］ポアソン分布 ～ 100年に1人の天才は何人現れる？：やさしい確率分布 - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/2407/11/news002.html)
+
+
+## 参照
+- [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
+    - `IntType`テンプレートパラメータに`signed char`／`unsigned char`を指定できるようになった。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある
