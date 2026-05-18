@@ -39,7 +39,7 @@
 
 | マクロ名 | 値 | 機能 | ヘッダ |
 |----------|----|------|--------|
-|`__cpp_lib_algorithm_default_value_type`|`202403L`|一部アルゴリズムに、値を波カッコ初期化で渡せるよう制約を追加|[`<algorithm>`](/reference/algorithm.md), [`<ranges>`](/reference/ranges.md), [`<string>`](/reference/string.md), [`<deque>`](/reference/deque.md), [`<list>`](/reference/list.md), [`<forward_list>`](/reference/forward_list.md), [`<vector>`](/reference/vector.md)|
+|`__cpp_lib_algorithm_default_value_type`|`202603L`|一部アルゴリズムに、値を波カッコ初期化で渡せるよう制約を追加 (P3787R2で[`uninitialized_fill`](/reference/memory/uninitialized_fill.md)/[`uninitialized_fill_n`](/reference/memory/uninitialized_fill_n.md)を追加)|[`<algorithm>`](/reference/algorithm.md), [`<ranges>`](/reference/ranges.md), [`<string>`](/reference/string.md), [`<deque>`](/reference/deque.md), [`<list>`](/reference/list.md), [`<forward_list>`](/reference/forward_list.md), [`<vector>`](/reference/vector.md), [`<memory>`](/reference/memory.md)|
 |`__cpp_lib_aligned_accessor`|`202411L`|[`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加|[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_associative_heterogeneous_insertion`|`202306L`|連想コンテナの一部メンバ関数に、一時オブジェクト生成のコストを抑える拡張を追加|[`<map>`](/reference/map.md), [`<set>`](/reference/set.md), [`<unordered_map>`](/reference/unordered_map.md), [`<unordered_set>`](/reference/unordered_set.md)|
 |`__cpp_lib_apply`|`202506L`| [`std::apply`](/reference/tuple/apply.md)の戻り値型推論をやめて、戻り値型用の[`std::apply_result`](/reference/tuple/apply_result.md.nolink)クラスを追加|[`<tuple>`](/reference/tuple.md), [`<type_traits>`](/reference/type_traits.md)|

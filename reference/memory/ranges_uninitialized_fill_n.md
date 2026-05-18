@@ -12,7 +12,8 @@ namespace std::ranges {
     uninitialized_fill_n(I first,
                          iter_difference_t<I> n,
                          const T& x);            // (1) C++20
-  template <no-throw-forward-iterator I, class T>
+  template <no-throw-forward-iterator I,
+            class T = iter_value_t<I>>
     requires constructible_from<iter_value_t<I>, const T&>
   constexpr I
     uninitialized_fill_n(I first,
@@ -20,7 +21,8 @@ namespace std::ranges {
                          const T& x);            // (1) C++26
 
   template <execution-policy Ep,
-            random_access_iterator I, class T>
+            random_access_iterator I,
+            class T = iter_value_t<I>>
     requires constructible_from<iter_value_t<I>, const T&>
   I
     uninitialized_fill_n(Ep&& exec,
@@ -60,6 +62,11 @@ return uninitialized_fill(counted_iterator(first, n), default_sentinel, x).base(
 ## 例外
 
 呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+
+
+## 備考
+- C++26では、テンプレートパラメータ`T`にデフォルトテンプレート引数 (`iter_value_t<I>`) を指定するオーバーロードが追加された。これにより、波カッコ初期化リスト (`{...}`) を入力値`x`として渡せるようになる。波カッコ初期化リストは型を持たないため、`T`がデフォルト引数として要素型から推論されることで、この関数に波カッコ初期化リストを直接渡せる。
+
 
 ## 例
 ### 基本的な使い方
@@ -102,6 +109,44 @@ int main()
 2
 2
 2
+```
+
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+
+struct Point {
+  int x;
+  int y;
+};
+
+int main()
+{
+  std::allocator<Point> alloc;
+  const std::size_t size = 3;
+  Point* p = alloc.allocate(size);
+
+  // 波カッコ初期化リストでPoint{1, 2}を直接渡せる
+  std::ranges::uninitialized_fill_n(p, size, {1, 2});
+
+  for (std::size_t i = 0; i < size; ++i) {
+    std::cout << '(' << p[i].x << ", " << p[i].y << ')' << std::endl;
+  }
+
+  std::ranges::destroy_n(p, size);
+  alloc.deallocate(p, size);
+}
+```
+* std::ranges::uninitialized_fill_n[color ff0000]
+* std::ranges::destroy_n[link ranges_destroy_n.md]
+
+#### 出力
+```
+(1, 2)
+(1, 2)
+(1, 2)
 ```
 
 
@@ -153,3 +198,5 @@ int main() {
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [P3787R2 Adjoints to "Enabling list-initialization for algorithms": `uninitialized_fill`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3787r2.html)
+    - C++26から波カッコ初期化リストを入力として使用できるよう、要素型をデフォルトテンプレート引数とするオーバーロードが追加された

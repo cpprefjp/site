@@ -10,10 +10,11 @@ namespace std {
     uninitialized_fill(ForwardIterator first,
                        ForwardIterator last,
                        const T& x);           // (1) C++03
-  template <class ForwardIterator, class T>
+  template <class NoThrowForwardIterator,
+            class T = typename iterator_traits<NoThrowForwardIterator>::value_type>
   constexpr void
-    uninitialized_fill(ForwardIterator first,
-                       ForwardIterator last,
+    uninitialized_fill(NoThrowForwardIterator first,
+                       NoThrowForwardIterator last,
                        const T& x);           // (1) C++26
 
   template <class ExecutionPolicy, class ForwardIterator, class T>
@@ -22,6 +23,14 @@ namespace std {
                        ForwardIterator first,
                        ForwardIterator last,
                        const T& x);           // (2) C++17
+  template <class ExecutionPolicy,
+            class NoThrowForwardIterator,
+            class T = typename iterator_traits<NoThrowForwardIterator>::value_type>
+  void
+    uninitialized_fill(ExecutionPolicy&& exec,
+                       NoThrowForwardIterator first,
+                       NoThrowForwardIterator last,
+                       const T& x);           // (2) C++26
 }
 ```
 
@@ -54,7 +63,16 @@ namespace std {
 
 呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
 
-### 例
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::uninitialized_fill(p, p + size, {a, b});
+        ```
+
+
+## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -91,11 +109,53 @@ int main()
 * alloc.destroy[link allocator/destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
-### 出力
+#### 出力
 ```
 2
 2
 2
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+
+struct Point {
+  int x;
+  int y;
+};
+
+int main()
+{
+  std::allocator<Point> alloc;
+
+  const std::size_t size = 3;
+  Point* p = alloc.allocate(size);
+
+  // 波カッコ初期化を直接渡せる
+  std::uninitialized_fill(p, p + size, {1, 2});
+
+  for (std::size_t i = 0; i < size; ++i) {
+    std::cout << p[i].x << "," << p[i].y << std::endl;
+  }
+
+  for (std::size_t i = 0; i < size; ++i) {
+    std::destroy_at(p + i);
+  }
+  alloc.deallocate(p, size);
+}
+```
+* std::uninitialized_fill[color ff0000]
+* std::destroy_at[link destroy_at.md]
+* alloc.allocate[link allocator/allocate.md]
+* alloc.deallocate[link allocator/deallocate.md]
+
+#### 出力
+```
+1,2
+1,2
+1,2
 ```
 
 
@@ -107,3 +167,5 @@ int main()
 - [LWG Issue 2433 `uninitialized_copy()`/etc. should tolerate overloaded `operator&`](https://wg21.cmeerw.net/lwg/issue2433)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [P3787R2 Adjoints to "Enabling list-initialization for algorithms": uninitialized_fill](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3787r2.html)
+    - C++26で値型をイテレータから推論するよう拡張され、波カッコ初期化を直接渡せるようになった
