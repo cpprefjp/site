@@ -286,7 +286,7 @@ int main()
 - [P1976R2 Fixed-size `span` construction from dynamic range](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1976r2.html)
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
 - [P2447R6 `std::span` over an initializer list](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2447r6.html)
-    - [P4144R1 Remove `span`’s `initializer_list` constructor for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p4144r1.html)
+    - [P4144R1 Remove `span`’s `initializer_list` constructor for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4144r1.html)
     - C++26の策定中に一時期、初期化子リストをとるコンストラクタが追加されたが、その後削除された
 - [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
