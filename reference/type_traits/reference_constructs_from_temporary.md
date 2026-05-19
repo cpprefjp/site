@@ -149,6 +149,11 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ???
 
 
+## 備考
+- [Bug 63604 - [C++11] A direct-initialization of a reference should use explicit conversion functions](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63604)
+    - GCCでは参照の直接初期化に `explicit` な変換関数が使われないバグがあり、上の例がコンパイルエラーになる。
+
+
 ## 関連項目
 - [`reference_converts_from_temporary`](reference_converts_from_temporary.md)
 
