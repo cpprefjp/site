@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-19T03:03:20">
-        2026年01月19日 03時03分20秒
+      <span itemprop="datePublished" content="2026-05-19T11:17:51">
+        2026年05月19日 11時17分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -241,7 +241,7 @@
 </ul>
 <h2>効果</h2>
 <p>説明用の型<code>Sndr</code>を<code>decltype((sndr))</code>、型<code>Rcvr</code>を<code>decltype((rcvr))</code>とし、式<code>new_sndr</code>を次の通りとする。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="get-domain-late.html">get-domain-late</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">))){},</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">))</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">))</span>
 </code></pre></div>
 </p>
 <p>式<code>connect(sndr, rcvr)</code>は<code>rcvr</code>が1回だけ評価されることを除いて、下記と等価。式の型は<code><a href="operation_state.html">operation_state</a></code>を満たす。</p>
@@ -416,6 +416,7 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3388r3.pdf" target="_blank">P3388R3 When Do You Know connect Doesn't Throw?</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4208" target="_blank">LWG 4208. Wording needs to ensure that in <code>connect(sndr, rcvr)</code> that <code>rcvr</code> expression is only evaluated once</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

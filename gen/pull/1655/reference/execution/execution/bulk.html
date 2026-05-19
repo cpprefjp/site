@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-28T12:20:27">
-        2025年08月28日 12時20分27秒
+      <span itemprop="datePublished" content="2026-05-19T11:17:51">
+        2026年05月19日 11時17分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -247,10 +247,8 @@
 <li><code>Shape</code>が<code><a href="../../concepts/integral.html">integral</a></code>を満たさない、もしくは</li>
 <li><code>Func</code>が<code><a href="../../concepts/copy_constructible.html">copy_constructible</a></code>のモデルでないとき。</li>
 </ul>
-<p>そうでなければ、呼び出し式<code>bulk(sndr, policy, shape, f)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span>
-<span class="w">  </span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span>
-<span class="w">  </span><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">bulk</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="product-type.html">product-type</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="p">,</span><span class="w"> </span><span class="n">Shape</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&gt;</span><span class="p">{</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">},</span><span class="w"> </span><span class="n">sndr</span><span class="p">))</span>
+<p>そうでなければ、呼び出し式<code>bulk(sndr, policy, shape, f)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">bulk</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="product-type.html">product-type</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="p">,</span><span class="w"> </span><span class="n">Shape</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&gt;</span><span class="p">{</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">},</span><span class="w"> </span><span class="n">sndr</span><span class="p">))</span>
 </code></pre></div>
 </p>
 <p><code>product-type</code>の第1テンプレート引数は、<code>Policy</code>が<code><a href="../../concepts/copy_constructible.html">copy_constructible</a></code>のモデルであるとき<code>Policy</code>となる。そうでなければ、<code>const Policy&amp;</code>となる。</p>
@@ -267,10 +265,8 @@
 </code></pre></div>
 </p>
 <h2>カスタマイゼーションポイント</h2>
-<p>Senderアルゴリズム構築時に、<a href="sender.html">Sender</a><code>sndr</code>に<a href="get-domain-early.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
-<a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
-<p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、<a href="get-domain-late.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
-<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>bulk.transform_sender(out_sndr, env)</code>が呼ばれ、<code><a href="bulk_chunked.html">bulk_chunked</a></code>Senderへと変換される。</p>
+<p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>bulk.transform_sender(set_value, out_sndr, env)</code>が呼ばれ、<code><a href="bulk_chunked.html">bulk_chunked</a></code>Senderへと変換される。</p>
 <p>説明用の式<code>out_sndr</code>を<code>bulk(sndr, policy, shape, f)</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><a href="sender.html">Sender</a>とし、式<code>rcvr</code>を式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる<a href="receiver.html">Receiver</a>とする。式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>は<a href="start.html">開始(start)</a>時に下記を満たす非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を生成しない場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
 <ul>
 <li>説明用の<code>args</code>を<code>sndr</code>の値完了結果を参照する左辺値式のパック、または<code><a href="../../concepts/copy_constructible.html">copy_constructible</a></code>のモデルであるならばそれらの値のdecayコピーのパックとする。<code>sndr</code>が値完了したとき、<ul>
@@ -329,9 +325,9 @@
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html" target="_blank">P3481R5 <code>std::execution::bulk()</code> issues</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

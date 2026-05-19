@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-16T15:17:02">
-        2026年05月16日 15時17分02秒
+      <span itemprop="datePublished" content="2026-05-19T11:17:51">
+        2026年05月19日 11時17分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,6 +236,8 @@
 <p><a href="default_domain.html">実行ドメイン</a>に応じて<a href="sender.html">Sender</a>を変換する。
 Senderと<a href="receiver.html">Receiver</a>間<a href="connect.html">接続(connect)</a>時のカスタマイゼーションポイントとして機能する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>式<code>s</code>に対して、<code>start-domain</code>を<code>D()</code>とする。ここで<code>D</code>を<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば式<code><a href="get_domain.html">get_domain</a>(env)</code>のdecay型、そうでなければ<code><a href="default_domain.html">default_domain</a></code>とする。</p>
+<p>また<code>completion-domain(s)</code>を<code>D()</code>とする。ここで<code>D</code>を<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば式<code><a href="get_completion_domain.html">get_completion_domain&lt;&gt;</a>(<a href="get_env.html">get_env</a>(s), env)</code>のdecay型、そうでなければ<code><a href="default_domain.html">default_domain</a></code>とする。</p>
 <p>説明用の式<code>transformed-sndr(dom, tag, s)</code>を次の通りとする。</p>
 <ul>
 <li><a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば、式<code>dom.transform_sender(tag, s, env)</code></li>
@@ -250,8 +252,7 @@ Senderと<a href="receiver.html">Receiver</a>間<a href="connect.html">接続(co
 <p>説明用の式<code>tmp-sndr</code>を<code>transform-recurse(completion-domain(sndr), <a href="set_value.html">set_value</a>, sndr)</code>、式<code>final-sndr</code>を<code>transform-recurse(start-domain, <a href="start.html">start</a>, tmp-sndr)</code>とする。</p>
 <p><code>final-sndr</code>を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
-<p><code>noexcept(final-sndr) == true</code>ならば、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げない。
-そうでなければ、Sender変換過程で送出される<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</p>
+<p><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定は<code>noexcept(final-sndr)</code>に等しい。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>

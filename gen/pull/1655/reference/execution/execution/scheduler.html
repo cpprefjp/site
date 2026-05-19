@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-16T15:17:02">
-        2026年05月16日 15時17分02秒
+      <span itemprop="datePublished" content="2026-05-19T11:17:51">
+        2026年05月19日 11時17分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -272,17 +272,11 @@
 </ul>
 <p>Scheduler型のデストラクタは、<code><a href="schedule.html">schedule</a></code>が返すSenderオブジェクトに接続されたReceiverの完了を待機してブロックしてはならない。</p>
 <h2>説明専用エンティティ</h2>
-<h3>式<code>SCHED-ATTRS</code></h3>
-<p>説明用のScheduler<code>sch</code>に対して、式<code>SCHED-ATTRS(sch)</code>は<code><a href="../queryable.html">queryable</a></code>を満たす型の式<code>o1</code>となり、下記を満たす。</p>
-<ul>
-<li>型<code>Tag</code>が<code><a href="set_value.html">set_value_t</a></code>もしくは<code><a href="set_stopped.html">set_stopped_t</a></code>のとき、式<code>o1.query(<a href="get_completion_scheduler.html">get_completion_scheduler</a>&lt;Tag&gt;)</code>の型および値が<code>sch</code>と等しい。</li>
-<li>式<code>o1.query(<a href="get_domain.html">get_domain</a>)</code>は<code>sch.query(<a href="get_domain.html">get_domain</a>)</code>と等価。</li>
-</ul>
 <h3>式<code>SCHED-ENV</code></h3>
-<p>説明用のScheduler<code>sch</code>に対して、式<code>SCHED-ENV(sch)</code>は<code><a href="../queryable.html">queryable</a></code>を満たす型の式<code>o2</code>となり、下記を満たす。</p>
+<p>説明用のScheduler<code>sch</code>に対して、式<code>SCHED-ENV(sch)</code>は<code><a href="../queryable.html">queryable</a></code>を満たす型の式<code>o</code>となり、下記を満たす。</p>
 <ul>
-<li>式<code>o2.query(<a href="get_scheduler.html">get_scheduler</a>)</code>は、型および値が<code>sch</code>と等しい右辺値。</li>
-<li>式<code>o2.query(<a href="get_domain.html">get_domain</a>)</code>は<code>sch.query(<a href="get_domain.html">get_domain</a>)</code>と等価。</li>
+<li>式<code>o.query(<a href="get_scheduler.html">get_scheduler</a>)</code>は、型および値が<code>sch</code>と等しい右辺値。</li>
+<li>式<code>o.query(<a href="get_domain.html">get_domain</a>)</code>は<code>sch.query(<a href="get_domain.html">get_domain</a>)</code>と等価。</li>
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="ffa0b39ad40caa8669517508a07b4044e1c84bc6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>

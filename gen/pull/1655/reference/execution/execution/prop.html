@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-29T09:44:42">
-        2025年05月29日 09時44分42秒
+      <span itemprop="datePublished" content="2026-05-19T11:17:51">
+        2026年05月19日 11時17分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -231,7 +231,7 @@
 <span class="w">    </span><span class="n">QueryTag</span><span class="w"> </span><span class="n">query_</span><span class="p">;</span><span class="w">   </span><span class="c1">// exposition only</span>
 <span class="w">    </span><span class="n">ValueType</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 
-<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="n">QueryTag</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="n">QueryTag</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">};</span>
@@ -283,6 +283,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3325r5.html" target="_blank">P3325R5 A Utility for Creating Execution Environments</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-03T13:31:25">
-        2026年05月03日 13時31分25秒
+      <span itemprop="datePublished" content="2026-05-19T11:17:51">
+        2026年05月19日 11時17分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -259,8 +259,8 @@
 </table>
 <h2>効果</h2>
 <p>説明用の式<code>sndr</code>と<code>f</code>に対して、<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは<code>decltype((f))</code>が<code><a href="../movable-value.html">movable-value</a></code>を満たさないとき、呼び出し式<code>let-cpo(sndr, f)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、呼び出し式<code>let-cpo(sndr, f)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">cpo</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">))</span>
+<p>そうでなければ、呼び出し式<code>let-cpo(sndr, f)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">cpo</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">)</span>
 </code></pre></div>
 </p>
 <p>説明用のクラステンプレート<code>let-data</code>を下記の通り定義する。</p>
@@ -338,18 +338,12 @@
 <span class="n">cs</span><span class="p">.</span><span class="n"><a href="completion_signatures.html">for-each</a></span><span class="p">(</span><span class="n"><a href="overload-set.html">overload-set</a></span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="p">){}));</span>
 </code></pre></div>
 </p>
-<p>説明用の式<code>sndr</code>と<code>env</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>とする。<code><a href="sender-for.html">sender-for</a>&lt;Sndr, <a href="../../functional/decayed-typeof.html">decayed-typeof</a>&lt;let-cpo&gt;&gt; == false</code>のとき、式<code>let-cpo.transform_env(sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、式<code>let-cpo.transform_env(sndr, env)</code>は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
-<span class="k">return</span><span class="w"> </span><span class="n"><a href="../queryable.html">JOIN-ENV</a></span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n">child</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../forwarding_query.html">FWD-ENV</a></span><span class="p">(</span><span class="n">env</span><span class="p">));</span>
-</code></pre></div>
-</p>
 <h2>説明専用エンティティ</h2>
 <h3>式<code>let-env</code></h3>
-<p>説明用の式<code>sndr</code>を用いて、<code>let-env(sndr)</code>を下記リストのうち最初に<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる式と定義する。</p>
+<p>説明用の式<code>sndr</code>と<code>env</code>を用いて、<code>let-env(sndr, env)</code>を下記リストのうち最初に<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる式と定義する。</p>
 <ul>
-<li><code><a href="schedule.html">SCHED-ENV</a>(<a href="get_completion_scheduler.html">get_completion_scheduler</a>&lt;<a href="../../functional/decayed-typeof.html">decayed-typeof</a>&lt;set-cpo&gt;&gt;(<a href="get_env.html">get_env</a>(sndr)))</code></li>
-<li><code><a href="../queryable.html">MAKE-ENV</a>(<a href="get_domain.html">get_domain</a>, <a href="get_domain.html">get_domain</a>(<a href="get_env.html">get_env</a>(sndr)))</code></li>
+<li><code><a href="schedule.html">SCHED-ENV</a>(<a href="get_completion_scheduler.html">get_completion_scheduler</a>&lt;<a href="../../functional/decayed-typeof.html">decayed-typeof</a>&lt;set-cpo&gt;&gt;(<a href="get_env.html">get_env</a>(sndr), <a href="../forwarding_query.html">FWD-ENV</a>(env)))</code></li>
+<li><code><a href="../queryable.html">MAKE-ENV</a>(<a href="get_domain.html">get_domain</a>, <a href="get_completion_domain.html">get_completion_domain</a>&lt;decayed-typeof&lt;set-cpo&gt;&gt;(<a href="get_env.html">get_env</a>(sndr), <a href="../forwarding_query.html">FWD-ENV</a>(env)))</code></li>
 <li><code>(void(sndr), <a href="env.html">env&lt;&gt;{}</a>)</code></li>
 </ul>
 <h3>変数<code>is-valid-let-sender</code></h3>
@@ -358,13 +352,13 @@
 <li><code>(<a href="../../concepts/constructible_from.html">constructible_from</a>&lt;decay_t&lt;Ts&gt;, Ts&gt; &amp;&amp;...)</code></li>
 <li><code><a href="../../concepts/invocable.html">invocable</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;</code></li>
 <li><code><a href="sender.html">sender</a>&lt;<a href="../../type_traits/invoke_result.html">invoke_result_t</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;&gt;</code></li>
-<li>パック<code>env-t</code>を<code>decltype(let-cpo.transform_env(declval&lt;Sndr&gt;(), declval&lt;Env&gt;()))</code>としたとき、<code>sizeof...(Env) == 0 || <a href="sender_in.html">sender_in</a>&lt;<a href="../../type_traits/invoke_result.html">invoke_result_t</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;, env-t...&gt;</code></li>
+<li>パック<code>env-t</code>を<code>decltype(<a href="../queryable.html">JOIN-ENV</a>(let-env&lt;child-type&lt;sndr&gt;&gt;(), declval&lt;Env&gt;(), <a href="../forwarding_query.html">FWD-ENV</a>(declval&lt;Env&gt;())))</code>としたとき、<code>sizeof...(Env) == 0 || <a href="sender_in.html">sender_in</a>&lt;<a href="../../type_traits/invoke_result.html">invoke_result_t</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;, env-t...&gt;</code></li>
 </ul>
 <h3>クラステンプレート<code>let-state</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Cpo</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Fn</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ArgsVariant</span><span class="p">,</span>
 <span class="w">         </span><span class="k">class</span><span class="w"> </span><span class="nc">OpsVariant</span><span class="o">&gt;</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">let</span><span class="o">-</span><span class="n">state</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">env_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">()));</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">env_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">get_env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">())));</span><span class="w"> </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="n">Fn</span><span class="w"> </span><span class="n">fn</span><span class="p">;</span><span class="w">                                            </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="n">env_t</span><span class="w"> </span><span class="n">env</span><span class="p">;</span><span class="w">                                        </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="n">ArgsVariant</span><span class="w"> </span><span class="n">args</span><span class="p">;</span><span class="w">                                 </span><span class="c1">// exposition only</span>
@@ -431,7 +425,7 @@
 
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">op_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">receiver</span><span class="o">&gt;</span><span class="p">;</span><span class="w">      </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">let</span><span class="o">-</span><span class="n">state</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Fn</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="c1">// exposition only</span>
-<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fn</span><span class="p">)),</span><span class="w"> </span><span class="n">env</span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n">sndr</span><span class="p">)),</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fn</span><span class="p">)),</span><span class="w"> </span><span class="n">env</span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">get_env</span><span class="p">(</span><span class="n">rcvr</span><span class="p">))),</span>
 <span class="w">      </span><span class="n">ops</span><span class="p">(</span><span class="n"><a href="../../utility/in_place_type_t.html">in_place_type</a></span><span class="o">&lt;</span><span class="n">op_t</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span>
 <span class="w">          </span><span class="n">receiver</span><span class="p">{</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">rcvr</span><span class="p">})</span>
 <span class="w">  </span><span class="p">{}</span>
@@ -471,10 +465,10 @@
 <p>メンバ関数<code>receiver2::get_env</code>の呼び出しは、下記を満たすオブジェクト<code>e</code>を返す。</p>
 <ul>
 <li>型<code>decltype(e)</code>が<code><a href="../queryable.html">queryable</a></code>のモデルであり、かつ</li>
-<li>与えられた<a href="../queryable.html">クエリオブジェクト</a><code>q</code>に対して、式<code>e.query(q)</code>は式<code>env.query(q)</code>が有効ならばその式と等価。そうではなく、<code>q</code>の型が<code><a href="../forwarding-query.html">forwarding-query</a></code>を満たすならば式<code>e.query(q)</code>は<code><a href="get_env.html">get_env</a>(rcvr).query(q)</code>と等価。そうでなければ、式<code>e.query(q)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+<li>与えられた<a href="../queryable.html">クエリオブジェクト</a><code>q</code>と部分式のパック<code>args</code>に対して、式<code>e.query(q, args...)</code>は式<code>env.query(q, args...)</code>が有効ならばその式と等価。そうではなく、<code>q</code>の型が<code><a href="../forwarding-query.html">forwarding-query</a></code>を満たすならば式<code>e.query(q, args...)</code>は<code><a href="get_env.html">get_env</a>(rcvr).query(q, args...)</code>と等価。そうでなければ、式<code>e.query(q, args...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
 </ul>
 <h2>カスタマイゼーションポイント</h2>
-<p>Senderアルゴリズム構築時および<a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<p><a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
 <a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
 <p>説明用の式<code>out_sndr</code>を<code>let-cpo(sndr, f)</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><a href="sender.html">Sender</a>とし、式<code>rcvr</code>を式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる<a href="receiver.html">Receiver</a>とする。式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>は<a href="start.html">開始(start)</a>時に下記を満たす非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を生成しない場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
 <ul>
@@ -634,7 +628,6 @@
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3433r1.pdf" target="_blank">P3433R1 Allocator Support for Operation States</a></li>
@@ -643,6 +636,7 @@
 <li><a href="https://cplusplus.github.io/LWG/issue4204" target="_blank">LWG 4204. specification of <code>as-sndr2(Sig)</code> in [exec.let] is incomplete</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4205" target="_blank">LWG 4205. <code>let_[*].transform_env</code> is specified in terms of the <code>let_*</code> sender itself instead of its child</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3373r4.pdf" target="_blank">P3373R4 Of Operation States and Their Lifetimes</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

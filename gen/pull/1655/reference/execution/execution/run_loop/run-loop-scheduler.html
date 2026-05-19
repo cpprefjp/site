@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-08T09:00:28">
-        2026年02月08日 09時00分28秒
+      <span itemprop="datePublished" content="2026-05-19T11:17:51">
+        2026年05月19日 11時17分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -248,6 +248,7 @@
 <li><code>run-loop-scheduler</code>インスタンスは、同インスタンスを取得した<code><a href="../run_loop.html">run_loop</a></code>インスタンスの生存期間(lifetime)終了まで有効。</li>
 <li>2個の<code>run-loop-scheduler</code>インスタンスは、同一<code><a href="../run_loop.html">run_loop</a></code>インスタンスから取得された場合に限って等しい。</li>
 <li>説明用の式<code>sch</code>の型が<code>run-loop-scheduler</code>であるとき、式<code><a href="../schedule.html">schedule</a>(sch)</code>は型<code><a href="run-loop-sender.html">run-loop-sender</a></code>となり、式<code>sch</code>が潜在的に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出しない(not potentially-throwing)ならばそれに従う。</li>
+<li><code><a href="../set_error.html">set_error_t</a></code>ではない型<code>set-tag</code>に対して、式<code><a href="../get_completion_scheduler.html">get_completion_scheduler</a>&lt;set-tag&gt;(<a href="../get_env.html">get_env</a>(<a href="../schedule.html">schedule</a>(sch))) == sch</code>は<code>true</code>である。</li>
 </ul>
 <h2>バージョン</h2>
 <h3>言語</h3>
@@ -262,6 +263,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>
