@@ -111,6 +111,7 @@
 |`__cpp_lib_hive`|`202502L`|シーケンスコンテナのライブラリ[`<hive>`](/reference/hive.md.nolink)を追加|[`<hive>`](/reference/hive.md.nolink)|
 |`__cpp_lib_indirect`|`202502L`|[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md.nolink)と[`std::polymorphic`](/reference/memory/polymorphic.md.nolink)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_inplace_vector`|`202603L`|容量固定の可変長配列のライブラリ[`<inplace_vector>`](/reference/inplace_vector.md)を追加|[`<inplace_vector>`](/reference/inplace_vector.md)|
+|`__cpp_lib_integer_sequence`|`202511L`|[`std::integer_sequence`](/reference/utility/integer_sequence.md)を[構造化束縛](/lang/cpp17/structured_bindings.md)と[`template for`文](/lang/cpp26/expansion_statements.md)で使用できるよう、タプルインタフェースの特殊化を追加|[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_is_sufficiently_aligned`|`202411L`|[`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_is_structural`|`202603L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_structural`](/reference/type_traits/is_structural.md)を追加|[`<type_traits>`](/reference/type_traits.md), [`<meta>`](/reference/meta.md)|
 |`__cpp_lib_is_virtual_base_of`|`202406L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
