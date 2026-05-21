@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-19T11:17:51">
-        2026年05月19日 11時17分51秒
+      <span itemprop="datePublished" content="2026-05-16T15:17:02">
+        2026年05月16日 15時17分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -252,15 +252,15 @@
 </code></pre></div>
 </p>
 <h3>Senderアルゴリズムタグ <code>when_all_with_variant</code></h3>
-<p>説明用の式<code>sndr</code>と<code>env</code>に対して、<code><a href="sender-for.html">sender-for</a>&lt;decltype((sndr)), when_all_with_variant_t&gt; == false</code>のとき、式<code>when_all_with_variant.transform_sender(set_value, sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、式<code>when_all_with_variant.transform_sender(set_value, sndr, env)</code>は下記と等価。</p>
+<p>説明用の式<code>sndr</code>と<code>env</code>に対して、<code><a href="sender-for.html">sender-for</a>&lt;decltype((sndr)), when_all_with_variant_t&gt; == false</code>のとき、式<code>when_all_with_variant.transform_sender(<a href="set_value.html">set_value</a>, sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、式<code>when_all_with_variant.transform_sender(<a href="set_value.html">set_value</a>, sndr, env)</code>は下記と等価。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
 <span class="k">return</span><span class="w"> </span><span class="n"><a href="when_all.html">when_all</a></span><span class="p">(</span><span class="n"><a href="into_variant.html">into_variant</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">((</span><span class="n">sndr</span><span class="p">))</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child</span><span class="p">))...);</span>
 </code></pre></div>
 </p>
 <h2>カスタマイゼーションポイント</h2>
 <p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
-<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>when_all_with_variant.transform_sender(set_value, sndr, env)</code>が呼ばれ、前述仕様通りのSenderへと変換される。</p>
+<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>when_all_with_variant.transform_sender(<a href="set_value.html">set_value</a>, sndr, env)</code>が呼ばれ、前述仕様通りのSenderへと変換される。</p>
 <h2>例</h2>
 <p><div class="yata" id="63919f7db959508a043c0d61ed2605671ed2c5f5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../print.html">&lt;print&gt;</a></span>
 <span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>

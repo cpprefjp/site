@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-31T10:06:36">
-        2025年08月31日 10時06分36秒
+      <span itemprop="datePublished" content="2026-05-21T06:03:06">
+        2026年05月21日 06時03分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -260,17 +260,35 @@
 </ul>
 </li>
 <li><code><a href="../concepts/constructible_from.html">constructible_from</a>&lt;C, Args...&gt;</code>が<code>true</code>で、<code>container-insertable&lt;C, <a href="range_reference_t.html">range_reference_t</a>&lt;R&gt;&gt;</code>が<code>true</code>である場合<ul>
-<li>以下のコードで初期化する</li>
-</ul>
-</li>
-</ol>
-<p><div class="codehilite"><pre><span></span><code><span class="n">C</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<li>
+<p>以下のコードで初期化する</p>
+<ul>
+<li>
+<p>C++23:
+
+<div class="codehilite"><pre><span></span><code><span class="n">C</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 <span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">reservable</span><span class="o">-</span><span class="n">container</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">c</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="range_size_t.html">range_size_t</a></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n"><a href="size.html">ranges::size</a></span><span class="p">(</span><span class="n">r</span><span class="p">)));</span>
 <span class="p">}</span>
 <span class="n"><a href="../algorithm/ranges_copy.html">ranges::copy</a></span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">container</span><span class="o">-</span><span class="n">inserter</span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
 </code></pre></div>
 </p>
+</li>
+<li>
+<p>C++26</p>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n">C</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="approximately_sized_range.html">approximately_sized_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">reservable</span><span class="o">-</span><span class="n">container</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">c</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="range_size_t.html">range_size_t</a></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n"><a href="reserve_hint.html">ranges::reserve_hint</a></span><span class="p">(</span><span class="n">r</span><span class="p">)));</span>
+<span class="p">}</span>
+<span class="n"><a href="../algorithm/ranges_copy.html">ranges::copy</a></span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">container</span><span class="o">-</span><span class="n">inserter</span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+</li>
+</ol>
 <p><code><a href="input_range.html">input_range</a>&lt;<a href="range_reference_t.html">range_reference_t</a>&lt;R&gt;&gt;</code>である場合:</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">to</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="transform_view.html">views::transform</a></span><span class="p">([](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">elem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">to</span><span class="o">&lt;</span><span class="n"><a href="range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">elem</span><span class="p">));</span>
@@ -394,6 +412,10 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4950/range.utility.conv.to" target="_blank">26.5.7.2 ranges::to</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf" target="_blank">P2846R6 <code>reserve_hint</code>: Eagerly reserving memory for not-quite-sized lazy ranges</a><ul>
+<li>C++26で要素数の事前確保に<code><a href="size.html">ranges::size</a></code>の代わりに<code><a href="reserve_hint.html">ranges::reserve_hint</a></code>を使用するよう変更</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

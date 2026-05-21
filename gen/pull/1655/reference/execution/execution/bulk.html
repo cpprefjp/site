@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-19T11:17:51">
-        2026年05月19日 11時17分51秒
+      <span itemprop="datePublished" content="2026-05-16T15:17:02">
+        2026年05月16日 15時17分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -266,7 +266,7 @@
 </p>
 <h2>カスタマイゼーションポイント</h2>
 <p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
-<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>bulk.transform_sender(set_value, out_sndr, env)</code>が呼ばれ、<code><a href="bulk_chunked.html">bulk_chunked</a></code>Senderへと変換される。</p>
+<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>bulk.transform_sender(<a href="set_value.html">set_value</a>, out_sndr, env)</code>が呼ばれ、<code><a href="bulk_chunked.html">bulk_chunked</a></code>Senderへと変換される。</p>
 <p>説明用の式<code>out_sndr</code>を<code>bulk(sndr, policy, shape, f)</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><a href="sender.html">Sender</a>とし、式<code>rcvr</code>を式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる<a href="receiver.html">Receiver</a>とする。式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>は<a href="start.html">開始(start)</a>時に下記を満たす非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を生成しない場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
 <ul>
 <li>説明用の<code>args</code>を<code>sndr</code>の値完了結果を参照する左辺値式のパック、または<code><a href="../../concepts/copy_constructible.html">copy_constructible</a></code>のモデルであるならばそれらの値のdecayコピーのパックとする。<code>sndr</code>が値完了したとき、<ul>

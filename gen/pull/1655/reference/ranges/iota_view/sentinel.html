@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-18T12:06:08">
-        2025年08月18日 12時06分08秒
+      <span itemprop="datePublished" content="2026-05-21T07:00:02">
+        2026年05月21日 07時00分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -238,10 +238,10 @@
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="../iota_view.html">iota_view</a></span><span class="o">&lt;</span><span class="n">W</span><span class="p">,</span><span class="w"> </span><span class="n">Bound</span><span class="o">&gt;::</span><span class="n">sentinel</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">private</span><span class="o">:</span>
 <span class="w">    </span><span class="n">Bound</span><span class="w"> </span><span class="n">bound_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bound</span><span class="p">();</span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">sentinel</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">sentinel</span><span class="p">(</span><span class="n">Bound</span><span class="w"> </span><span class="n">bound</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">bound_</span><span class="p">{</span><span class="n">bound</span><span class="p">}</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">sentinel</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="iterator.html">iterator</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">sentinel</span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">value_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">bound_</span><span class="p">;</span>
@@ -274,6 +274,10 @@
 <ul>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4861/ranges" target="_blank">N4861 24 Ranges library</a></li>
 <li><a href="https://techbookfest.org/product/5134506308665344" target="_blank">C++20 ranges</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3059r2.html" target="_blank">P3059R2 Making user-defined constructors of view iterators/sentinels private</a><ul>
+<li>C++26で、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のコンストラクタを<code>public</code>から<code>private</code>に移動</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

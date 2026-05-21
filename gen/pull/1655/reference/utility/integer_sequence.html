@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp14&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;38c27da54cea81f4abe96fdf76e4b04b0886965d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n\nvoid g(int a, int b, int c)\n{\n  std::cout &lt;&lt; a &lt;&lt; \&#34;, \&#34; &lt;&lt; b &lt;&lt; \&#34;, \&#34; &lt;&lt; c &lt;&lt; std::endl;\n}\n\ntemplate &lt;class T, T... Seq&gt;\nvoid f(std::integer_sequence&lt;T, Seq...&gt;)\n{\n  // \u5b9a\u6570\u306e\u30b7\u30fc\u30b1\u30f3\u30b9{0, 1, 2}\u3092\u53d6\u308a\u51fa\u3057\u3066\u3001\u95a2\u6570g()\u306e\u5f15\u6570\u3068\u3057\u3066\u8ee2\u9001\n  g(Seq...);\n}\n\nint main()\n{\n  f(std::integer_sequence&lt;int, 0, 1, 2&gt;());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;integer_sequence&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp14&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;38c27da54cea81f4abe96fdf76e4b04b0886965d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n\nvoid g(int a, int b, int c)\n{\n  std::cout &lt;&lt; a &lt;&lt; \&#34;, \&#34; &lt;&lt; b &lt;&lt; \&#34;, \&#34; &lt;&lt; c &lt;&lt; std::endl;\n}\n\ntemplate &lt;class T, T... Seq&gt;\nvoid f(std::integer_sequence&lt;T, Seq...&gt;)\n{\n  // \u5b9a\u6570\u306e\u30b7\u30fc\u30b1\u30f3\u30b9{0, 1, 2}\u3092\u53d6\u308a\u51fa\u3057\u3066\u3001\u95a2\u6570g()\u306e\u5f15\u6570\u3068\u3057\u3066\u8ee2\u9001\n  g(Seq...);\n}\n\nint main()\n{\n  f(std::integer_sequence&lt;int, 0, 1, 2&gt;());\n}\n&#34;}, {&#34;id&#34;: &#34;6e56bab9bf4d1006778fe5bbc56f51d052fe8276&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n\nint main()\n{\n  // \u69cb\u9020\u5316\u675f\u7e1b\u3067\u6574\u6570\u30b7\u30fc\u30b1\u30f3\u30b9\u3092\u30d1\u30c3\u30af\u3068\u3057\u3066\u53d6\u308a\u51fa\u3059\n  constexpr auto [...Index] = std::make_index_sequence&lt;3&gt;();\n  ((std::cout &lt;&lt; Index &lt;&lt; &#39; &#39;), ...);\n  std::cout &lt;&lt; std::endl;\n\n  // template for\u6587\u3067\u6574\u6570\u30b7\u30fc\u30b1\u30f3\u30b9\u3092\u76f4\u63a5\u30a4\u30c6\u30ec\u30fc\u30c8\u3059\u308b\n  template for (constexpr std::size_t I : std::make_index_sequence&lt;3&gt;()) {\n    std::cout &lt;&lt; I &lt;&lt; &#39; &#39;;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;integer_sequence&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-13T03:56:56">
-        2026年04月13日 03時56分56秒
+      <span itemprop="datePublished" content="2026-05-20T09:07:22">
+        2026年05月20日 09時07分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">teruyamato0731</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -229,12 +229,52 @@
 <ul>
 <li><code>T</code> は整数型であること。</li>
 </ul>
+<h2>タプルインタフェース</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="integer_sequence/tuple_size.html">tuple_size</a></code></td>
+<td>静的な要素数取得(class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="integer_sequence/tuple_element.html">tuple_element</a></code></td>
+<td>静的な要素の型取得(class template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="integer_sequence/get.html">get</a></code></td>
+<td>指定したインデックスの整数値を取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
 <h2>備考</h2>
 <ul>
 <li>C++17まで : テンプレートパラメータ <code>T</code> が整数型でない場合の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>。</li>
 <li>C++20から : <code>T</code> が整数型でない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となり、コンパイルエラーとなることが要求されるようになった。</li>
 </ul>
 <h2>例</h2>
+<h3>基本的な使い方</h3>
 <p><div class="yata" id="38c27da54cea81f4abe96fdf76e4b04b0886965d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 <span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
 
@@ -256,8 +296,31 @@
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<h2>出力</h2>
+<h4>出力</h4>
 <p><pre><code>0, 1, 2
+</code></pre></p>
+<h3>構造化束縛と<code>template for</code>文で使用する (C++26)</h3>
+<p><div class="yata" id="6e56bab9bf4d1006778fe5bbc56f51d052fe8276"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// 構造化束縛で整数シーケンスをパックとして取り出す</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">[...</span><span class="n">Index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="make_index_sequence.html">std::make_index_sequence</a></span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="p">((</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Index</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">' '</span><span class="p">),</span><span class="w"> </span><span class="p">...);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// template for文で整数シーケンスを直接イテレートする</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="make_index_sequence.html">std::make_index_sequence</a></span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">' '</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>0 1 2 
+0 1 2 
 </code></pre></p>
 <h2>バージョン</h2>
 <h3>言語</h3>
@@ -275,6 +338,10 @@
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html" target="_blank">N3658 Compile-time integer sequences</a></li>
 <li><a href="https://wg21.link/p1460r1" target="_blank">P1460R1 Mandating the Standard Library: Clause 20 - Utilities library</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1789r3.pdf" target="_blank">P1789R3 Library Support for Expansion Statements</a><ul>
+<li>C++26で<a href="../../lang/cpp17/structured_bindings.html">構造化束縛</a>と<a href="../../lang/cpp26/expansion_statements.html"><code>template for</code>文</a>で使用できるよう、<code>tuple_size</code> / <code>tuple_element</code> / <code>get</code>の特殊化を追加</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

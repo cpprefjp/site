@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-15T04:53:21">
-        2026年05月15日 04時53分21秒
+      <span itemprop="datePublished" content="2026-05-21T06:03:06">
+        2026年05月21日 06時03分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -291,6 +291,11 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 <td>C++20</td>
 </tr>
 <tr>
+<td><code><a href="ranges/reserve_hint.html">reserve_hint</a></code></td>
+<td>Rangeの要素数の近似値を取得する (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
 <td><code><a href="ranges/empty.html">empty</a></code></td>
 <td>Rangeが空かどうかを判定する (customization point object)</td>
 <td>C++20</td>
@@ -393,6 +398,11 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 <td><code><a href="ranges/sized_range.html">sized_range</a></code></td>
 <td>サイズを償却定数時間で求められるRange (concept)</td>
 <td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="ranges/approximately_sized_range.html">approximately_sized_range</a></code></td>
+<td>サイズの近似値を償却定数時間で求められるRange (concept)</td>
+<td>C++26</td>
 </tr>
 <tr>
 <td><code><a href="ranges/view.html">view</a></code></td>
@@ -632,6 +642,11 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 <td><code><a href="ranges/iota_view.html">views::iota</a></code></td>
 <td><code>iota_view</code>を生成する (customization point object)</td>
 <td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="ranges/indices.html">views::indices</a></code></td>
+<td>0から始まる整数列のRangeを生成する (customization point object)</td>
+<td>C++26</td>
 </tr>
 </tbody>
 </table>
@@ -1405,6 +1420,28 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 <tr>
 <td><code><a href="ranges/as_input_view.html">views::as_input</a></code></td>
 <td><code>as_input_view</code>を生成する (customization point object)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>cache latest view</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="ranges/cache_latest.html">cache_latest_view</a></code></td>
+<td>最後にアクセスした要素をキャッシュするビュー (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="ranges/cache_latest.html">views::cache_latest</a></code></td>
+<td><code>cache_latest_view</code>を生成する (customization point object)</td>
 <td>C++26</td>
 </tr>
 </tbody>

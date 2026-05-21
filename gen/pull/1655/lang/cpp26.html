@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-18T09:47:33">
-        2026年05月18日 09時47分33秒
+      <span itemprop="datePublished" content="2026-05-21T06:03:06">
+        2026年05月21日 06時03分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -587,15 +587,15 @@
 </li>
 <li><code><a href="../reference/span/span.html">std::span</a></code>と<code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>の推論補助を改善</li>
 <li><code><a href="../reference/ranges/concat_view.html">std::views::concat</a></code>を追加</li>
-<li><code><span href="https://cpprefjp.github.io/reference/ranges/cache_latest.md.nolink">std::views::cache_latest</span></code>を追加</li>
+<li><code><a href="../reference/ranges/cache_latest.html">std::views::cache_latest</a></code>を追加</li>
 <li><code><a href="../reference/ranges/as_input_view.html">std::views::as_input</a></code>を追加。これはパフォーマンス向上のために、Rangeを入力Rangeかつ非<code><a href="../reference/ranges/common_range.html">common_range</a></code> (イテレータと番兵の型を別する) に変換する</li>
 <li>Range関係の、償却定数時間での要素追加を行う機能を追加<ul>
 <li>各viewクラスに<code>reserve_hint()</code>メンバ関数を追加</li>
-<li><code><span href="https://cpprefjp.github.io/reference/ranges/reserve_hint.md.nolink">std::ranges::reserve_hint()</span></code>関数を追加</li>
-<li><code><span href="https://cpprefjp.github.io/reference/ranges/approximately_sized_range.md.nolink">std::ranges::approximately_sized_range</span></code>コンセプトを追加</li>
+<li><code><a href="../reference/ranges/reserve_hint.html">std::ranges::reserve_hint()</a></code>関数を追加</li>
+<li><code><a href="../reference/ranges/approximately_sized_range.html">std::ranges::approximately_sized_range</a></code>コンセプトを追加</li>
 </ul>
 </li>
-<li>インデックス列を生成する<code><span href="https://cpprefjp.github.io/reference/ranges/indices.md.nolink">std::views::indices</span></code>を追加</li>
+<li>インデックス列を生成する<code><a href="../reference/ranges/indices.html">std::views::indices</a></code>を追加</li>
 <li>連続イテレータのコンセプト<code><a href="../reference/iterator/contiguous_iterator.html">contiguous_iterator</a></code>に、ポインタに変換できることを要件として追加</li>
 <li><code><a href="../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>クラスを以下のように変更<ul>
 <li>独自に定義されていた<code><a href="../reference/initializer_list/initializer_list/begin_free.html">std::begin()</a></code> / <code><a href="../reference/initializer_list/initializer_list/end_free.html">std::end()</a></code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を削除 (<code>std::cbegin()</code>や<code>std::rend()</code>のような<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>がなかったため、ほかとの不整合があった)</li>
@@ -1011,7 +1011,7 @@
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、共用体の指定されたメンバがアクティブかを定数式で判定するための関数として<code><a href="../reference/type_traits/is_within_lifetime.html">std::is_within_lifetime()</a></code>を追加</li>
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、仮想継承の関係を判定する<code><a href="../reference/type_traits/is_virtual_base_of.html">std::is_virtual_base_of</a></code>を追加</li>
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、<code><a href="../reference/type_traits/integral_constant.html">std::integral_constant</a></code>クラスを置き換える定数ラッパーとして<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">std::constant_wrapper</span></code>クラスを追加</li>
-<li><code><a href="../reference/utility/index_sequence.html">std::index_sequence</a></code>クラスを<a href="cpp17/structured_bindings.html">構造化束縛</a>と<a href="cpp26/expansion_statements.html">template for文</a>で使用できるようにするため、タプルインタフェースの特殊化を追加</li>
+<li><code><a href="../reference/utility/integer_sequence.html">std::integer_sequence</a></code>クラスを<a href="cpp17/structured_bindings.html">構造化束縛</a>と<a href="cpp26/expansion_statements.html">template for文</a>で使用できるようにするため、タプルインタフェースの特殊化を追加</li>
 </ul>
 <h3>制約</h3>
 <ul>

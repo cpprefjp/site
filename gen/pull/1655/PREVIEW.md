@@ -1,10 +1,10 @@
 # PR [\#1655](https://github.com/cpprefjp/site/pull/1655) プレビュー
-- &#x231a; 更新時刻: 2026-05-19 20:27:40 JST
+- &#x231a; 更新時刻: 2026-05-22 01:45:59 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1655)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26-p3826r5)
-- **&#x2AEF;** ソースの変更: [`07133f4..788cb2f`](https://github.com/cpprefjp/site/compare/07133f4c68e89f0a4da1afaa36f2d5841bcf6f07..788cb2fdb442c7991a3785a8089884cd80e8d0c0)
+- **&#x2AEF;** ソースの変更: [`eb379c3..8686bee`](https://github.com/cpprefjp/site/compare/eb379c363b23b4a7a3c685d106a615c7e8bf145e..8686bee5f681c1198f5dfa3c15ea8b1628969b21)
 
-## 変更記事一覧 (39件)
+## 変更記事一覧 (41件)
 
 - &#x1f4dd; [`reference/execution/execution`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution.html)
 - &#x1f4dd; [`reference/execution/execution/affine_on`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/affine_on.html)
@@ -12,6 +12,7 @@
 - &#x1f4dd; [`reference/execution/execution/bulk`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/bulk.html)
 - &#x1f4dd; [`reference/execution/execution/bulk_chunked`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/bulk_chunked.html)
 - &#x1f4dd; [`reference/execution/execution/bulk_unchunked`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/bulk_unchunked.html)
+- &#x1f4dd; [`reference/execution/execution/call-with-default`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/call-with-default.html) &#x2728;
 - &#x1f4dd; [`reference/execution/execution/connect`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/connect.html)
 - &#x1f4dd; [`reference/execution/execution/continues_on`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/continues_on.html)
 - &#x1f4dd; [`reference/execution/execution/default_domain`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/default_domain.html)
@@ -27,6 +28,7 @@
 - &#x1f4dd; [`reference/execution/execution/just_error`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/just_error.html)
 - &#x1f4dd; [`reference/execution/execution/just_stopped`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/just_stopped.html)
 - &#x1f4dd; [`reference/execution/execution/let_value`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/let_value.html)
+- &#x1f4dd; [`reference/execution/execution/not-a-scheduler`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/not-a-scheduler.html) &#x2728;
 - &#x1f4dd; [`reference/execution/execution/on`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/on.html)
 - &#x1f4dd; [`reference/execution/execution/prop`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/prop.html)
 - &#x1f4dd; [`reference/execution/execution/run_loop/run-loop-scheduler`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/run_loop/run-loop-scheduler.html)

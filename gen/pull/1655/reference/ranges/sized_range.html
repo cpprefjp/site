@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-05-21T06:03:06">
+        2026年05月21日 06時03分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,7 +215,10 @@
   <div class="identifier-type">concept</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">sized_range</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc"><a href="">sized_range</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="size.html">ranges::size</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc"><a href="">sized_range</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="size.html">ranges::size</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="p">};</span><span class="w">               </span><span class="c1">// C++20</span>
+
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc"><a href="">sized_range</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="approximately_sized_range.html">approximately_sized_range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="size.html">ranges::size</a></span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -225,6 +228,7 @@
 <p><code>sized_range</code>ではないRangeとしては、<code><a href="iota_view.html">iota_view</a></code>のように無限長のもの、
 <code><a href="../forward_list/forward_list.html">forward_list</a></code>のように大きさは決まっているが償却定数時間で求められないもの、
 <code><a href="basic_istream_view.html">basic_istream_view</a></code>のように事前に求められないものなどがある。</p>
+<p>C++26では、要素数の概算値が求まる<code><a href="approximately_sized_range.html">approximately_sized_range</a></code>コンセプトが導入され、<code>sized_range</code>はそれを継承するようになった。</p>
 <h2>モデル</h2>
 <p>型が<code><a href="../type_traits/remove_reference.html">remove_reference_t</a>&lt;T&gt;</code>であるようなlvalue<code>t</code>があるとする。<code>T</code>が<code>sized_range</code>のモデルとなるのは、以下の条件をすべて満たす場合である。</p>
 <ol>
@@ -270,6 +274,10 @@
 <ul>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4861/ranges" target="_blank">N4861 24 Ranges library</a></li>
 <li><a href="https://techbookfest.org/product/5134506308665344" target="_blank">C++20 ranges</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf" target="_blank">P2846R6 <code>reserve_hint</code>: Eagerly reserving memory for not-quite-sized lazy ranges</a><ul>
+<li>C++26から<code><a href="approximately_sized_range.html">approximately_sized_range</a></code>を継承するようになった</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

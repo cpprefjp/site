@@ -1,0 +1,484 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::ranges::cache_latest_view - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp26
+">
+        <meta name="title" content="std::ranges::cache_latest_view - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::ranges::cache_latest_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::ranges::cache_latest_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/cache_latest.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1): 元のRangeの最後にアクセスした要素 (間接参照結果) をキャッシュする[`view`](view.md)" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::ranges::cache_latest_view - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/cache_latest.html" />
+        <meta name="twitter:description" content="- (1): 元のRangeの最後にアクセスした要素 (間接参照結果) をキャッシュする[`view`](view.md)" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c74032853580cef9c438c922590b756c64134c2b&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;print&gt;\n#include &lt;vector&gt;\n\nint main()\n{\n  std::vector v = {1, 2, 3, 4, 5};\n\n  for (auto x : v | std::views::cache_latest) {\n    std::println(\&#34;{}\&#34;, x);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;dbd13d26abedf6da077f01a41d66e79c6cdd14d2&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;print&gt;\n#include &lt;vector&gt;\n\nint main()\n{\n  std::vector v = {1, 2, 3, 4, 5};\n\n  int call_count = 0;\n  auto square = [&amp;](int x) { ++call_count; return x * x; };\n\n  for (auto x : v | std::views::transform(square)\n                  | std::views::cache_latest\n                  | std::views::filter([](int n) { return n &gt; 5; })) {\n    std::println(\&#34;{}\&#34;, x);\n  }\n  std::println(\&#34;call_count: {}\&#34;, call_count);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;cache_latest&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/ranges.html" itemprop="url">
+              
+                <span itemprop="name">ranges</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">cache_latest_view</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-05-21T03:03:23">
+        2026年05月21日 03時03分23秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ranges/cache_latest.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ranges/cache_latest.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">cache_latest_view</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">ranges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="input_range.html">input_range</a></span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">cache_latest_view</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">cache_latest_view</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">……</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// (1)</span>
+
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">views</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="cm">/*unspecified*/</span><span class="w"> </span><span class="n">cache_latest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/*unspecified*/</span><span class="p">;</span><span class="w">             </span><span class="c1">// (2)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1): 元のRangeの最後にアクセスした要素 (間接参照結果) をキャッシュする<code><a href="view.html">view</a></code></li>
+<li>(2): <code>cache_latest_view</code>を生成するRangeアダプタオブジェクト</li>
+</ul>
+<p><code><a href="transform_view.html">views::transform</a></code>と<code><a href="filter_view.html">views::filter</a></code>を組み合わせた場合、<code>filter</code>が条件判定のために要素を間接参照し、さらに<code>for</code>文の本体で同じ要素を参照することにより、変換関数が2回呼び出される。<code>cache_latest</code>を間に挟むことで、間接参照の結果をキャッシュし、変換関数の重複呼び出しを回避できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">v</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">expensive</span><span class="p">)</span><span class="w"> </span><span class="c1">// 重い変換関数</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n">cache_latest</span><span class="w">         </span><span class="c1">// 変換結果をキャッシュ</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n">filter</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>キャッシュ戦略は、元のRangeの参照型が参照型である場合はポインタを、非参照型 (prvalue) である場合は値そのものを保持する。</p>
+<h3>Rangeコンセプト</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="center">borrowed</th>
+<th align="center">sized</th>
+<th align="center">output</th>
+<th align="center">input</th>
+<th align="center">forward</th>
+<th align="center">bidirectional</th>
+<th align="center">random_access</th>
+<th align="center">contiguous</th>
+<th align="center">common</th>
+<th align="center">viewable</th>
+<th align="center">view</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+<td align="center">※</td>
+<td align="center"></td>
+<td align="center">○</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">○</td>
+<td align="center">○</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>※: <code>V</code>が<code><a href="sized_range.html">sized_range</a></code>のとき</li>
+<li>イテレータと番兵の型が異なるため<code><a href="common_range.html">common_range</a></code>ではない</li>
+<li>内部状態としてキャッシュを持つため<code><a href="forward_range.html">forward_range</a></code>以上にはならない</li>
+<li>キャッシュへのポインタを保持するため<code><a href="borrowed_range.html">borrowed_range</a></code>ではない</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li><code><a href="input_range.html">input_range</a>&lt;V&gt;</code></li>
+<li><code><a href="view.html">view</a>&lt;V&gt;</code></li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(2): 式<code>views::cache_latest(E)</code>の効果は<code>cache_latest_view(E)</code>と等しい</li>
+</ul>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cache_latest_view/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cache_latest_view/base.html">base</a></code></td>
+<td><code>V</code>の参照を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cache_latest_view/begin.html">begin</a></code></td>
+<td>先頭を指すイテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cache_latest_view/end.html">end</a></code></td>
+<td>番兵を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cache_latest_view/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>継承しているメンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="view_interface/empty.html">empty</a></code></td>
+<td>Rangeが空かどうかを判定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/op_bool.html">operator bool</a></code></td>
+<td>Rangeが空でないかどうかを判定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/front.html">front</a></code></td>
+<td>先頭要素への参照を取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/ranges/cache_latest_view/iterator.md.nolink">iterator</span></code></td>
+<td>イテレータ型(説明専用)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/ranges/cache_latest_view/sentinel.md.nolink">sentinel</span></code></td>
+<td>番兵型(説明専用)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cache_latest_view/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="c74032853580cef9c438c922590b756c64134c2b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">views::cache_latest</span></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+2
+3
+4
+5
+</code></pre></p>
+<h3>変換関数の重複呼び出しを抑える</h3>
+<p><code><a href="transform_view.html">views::transform</a></code>で重い変換を行い、<code><a href="filter_view.html">views::filter</a></code>で絞り込む場合、<code>filter</code>が条件判定で要素を間接参照し、その後の処理で再度間接参照されるため、変換関数が要素ごとに複数回呼び出される。間に<code>cache_latest</code>を挟むことで、変換関数の呼び出しを各要素1回に抑えられる。</p>
+<p><div class="yata" id="dbd13d26abedf6da077f01a41d66e79c6cdd14d2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+<span class="cp">#include <a href="../vector.html">&lt;vector&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">call_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">square</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">call_count</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="transform_view.html">std::views::transform</a></span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
+<span class="w">                  </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">views::cache_latest</span></span>
+<span class="w">                  </span><span class="o">|</span><span class="w"> </span><span class="n"><a href="filter_view.html">std::views::filter</a></span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="p">}))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"call_count: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">call_count</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>9
+16
+25
+call_count: 5
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 21 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 15.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="transform_view.html">std::views::transform</a></code></li>
+<li><code><a href="filter_view.html">std::views::filter</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3138r5.html" target="_blank">P3138R5 <code>views::cache_latest</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

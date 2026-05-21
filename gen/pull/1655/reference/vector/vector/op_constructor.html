@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-21T14:12:53">
-        2026年03月21日 14時12分53秒
+      <span itemprop="datePublished" content="2026-05-21T06:03:06">
+        2026年05月21日 06時03分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -318,7 +318,10 @@
 <li>(8) : <code>x.<a href="size.html">size</a>()</code> に対して線形時間</li>
 <li>(9) : 定数時間。ただし、<code>a == x.<a href="get_allocator.html">get_allocator</a>()</code> でなければ <code>x.<a href="size.html">size</a>()</code> に対して線形時間。</li>
 <li>(10) : <code>il.<a href="../../initializer_list/initializer_list/size.html">size</a>()</code> に対して線形時間</li>
-<li>(11) : <code><a href="../../iterator/ranges_distance.html">ranges::distance</a>(rg)</code> に対して線形時間。<code>R</code> のモデルが <code><a href="../../ranges/forward_range.html">ranges::forward_range</a></code> でも <code><a href="../../ranges/sized_range.html">ranges::sized_range</a></code> でもなければ、あらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。</li>
+<li>(11) : <code><a href="../../iterator/ranges_distance.html">ranges::distance</a>(rg)</code> に対して線形時間。<code>R</code> のモデルが <code><a href="../../ranges/forward_range.html">ranges::forward_range</a></code> でも <code><a href="../../ranges/sized_range.html">ranges::sized_range</a></code> でもなければ、あらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。<ul>
+<li>C++26 : <code>R</code>が<code><a href="../../ranges/approximately_sized_range.html">ranges::approximately_sized_range</a></code>であり、<code>ranges::distance(rg) &lt;= ranges::reserve_hint(rg)</code>が<code>true</code>の場合、再確保は行われない</li>
+</ul>
+</li>
 </ul>
 <h2>備考</h2>
 <ul>
@@ -421,6 +424,10 @@ sixth : {1 2 3 }
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf" target="_blank">P1004R2 Making <code>std::vector</code> constexpr</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html" target="_blank">P1518R2 Stop Overconstraining Allocators in Container Deduction Guides</a><ul>
 <li>C++23でのアロケータ引数を<code>type_identity_t</code>で包む変更</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf" target="_blank">P2846R6 <code>reserve_hint</code>: Eagerly reserving memory for not-quite-sized lazy ranges</a><ul>
+<li>C++26で、(11) Range版コンストラクタが<code><a href="../../ranges/approximately_sized_range.html">ranges::approximately_sized_range</a></code>の要素数近似値を利用して再確保を回避するよう変更</li>
 </ul>
 </li>
 </ul></div>
