@@ -154,6 +154,7 @@ Rangeファクトリは、Rangeではないオブジェクトから[`view`](rang
 |-------------------------------------------|-----------------------------------------------------|----------------|
 | [`iota_view`](ranges/iota_view.md)        | 単調増加列であるRange (class template)              | C++20          |
 | [`views::iota`](ranges/iota_view.md)      | `iota_view`を生成する (customization point object)  | C++20          |
+| [`views::indices`](ranges/indices.md)     | 0から始まる整数列のRangeを生成する (customization point object) | C++26 |
 
 ### repeat view
 
