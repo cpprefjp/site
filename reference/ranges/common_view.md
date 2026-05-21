@@ -53,6 +53,7 @@ namespace std::ranges {
 | [`begin`](common_view/begin.md)                   | 先頭を指すイテレータを取得する    | C++20          |
 | [`end`](common_view/end.md)                       | 番兵を取得する                    | C++20          |
 | [`size`](common_view/size.md)                     | 要素数を取得する                  | C++20          |
+| [`reserve_hint`](common_view/reserve_hint.md) | 要素数の近似値を取得する        | C++26          |
 
 `r`を参照先のRangeとする。`size`は、[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
 

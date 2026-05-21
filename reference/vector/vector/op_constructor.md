@@ -102,6 +102,7 @@ constexpr vector(std::from_range_t, R&& rg,
 - (9) : 定数時間。ただし、`a == x.`[`get_allocator`](get_allocator.md)`()` でなければ `x.`[`size`](size.md)`()` に対して線形時間。
 - (10) : `il.`[`size`](/reference/initializer_list/initializer_list/size.md)`()` に対して線形時間
 - (11) : [`ranges::distance`](../../iterator/ranges_distance.md)`(rg)` に対して線形時間。`R` のモデルが [`ranges::forward_range`](../../ranges/forward_range.md) でも [`ranges::sized_range`](../../ranges/sized_range.md) でもなければ、あらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。
+    - C++26 : `R`が[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)であり、`ranges::distance(rg) <= ranges::reserve_hint(rg)`が`true`の場合、再確保は行われない
 
 
 ## 備考
@@ -204,3 +205,5 @@ sixth : {1 2 3 }
 - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
+- [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
+    - C++26で、(11) Range版コンストラクタが[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)の要素数近似値を利用して再確保を回避するよう変更

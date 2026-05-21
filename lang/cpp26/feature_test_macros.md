@@ -134,7 +134,7 @@
 |`__cpp_lib_ranges_concat`|`202403L`|[`std::views::concat`](/reference/ranges/concat_view.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_generate_random`|`202403L`|[`<random>`](/reference/random.md)に、乱数列を生成する[`std::ranges::generate_random()`](/reference/random/generate_random.md)関数を追加|[`<random>`](/reference/random.md)|
 |`__cpp_lib_ranges_indices`|`202506L`|インデックス列を生成する[`std::views::indices`](/reference/ranges/indices.md)を追加|[`<ranges>`](/reference/ranges.md)|
-|`__cpp_lib_ranges_reserve_hint`|`202502L`|各viewクラスに`reserve_hint()`メンバ関数を追加<br/>[`std::ranges::reserve_hint()`](/reference/ranges/reserve_hint.md.nolink)関数を追加<br/>[`std::ranges::approximately_sized_range`](/reference/ranges/approximately_sized_range.md.nolink)コンセプトを追加|[`<ranges>`](/reference/ranges.md)|
+|`__cpp_lib_ranges_reserve_hint`|`202502L`|各viewクラスに`reserve_hint()`メンバ関数を追加<br/>[`std::ranges::reserve_hint()`](/reference/ranges/reserve_hint.md)関数を追加<br/>[`std::ranges::approximately_sized_range`](/reference/ranges/approximately_sized_range.md)コンセプトを追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_as_input`|`202502L`|[`std::views::as_input`](/reference/ranges/as_input_view.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ratio`|`202306L`|[`<ratio>`](/reference/ratio.md)に、新たなSI接頭辞を追加|[`<ratio>`](/reference/ratio.md)|
 |`__cpp_lib_raw_memory_algorithms`|`202411L`|[`std::uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md)などの未初期化領域に対する操作を`constexpr`対応|[`<memory>`](/reference/memory.md)|

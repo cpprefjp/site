@@ -55,6 +55,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`crend`](ranges/crend.md)     | Rangeの先頭の前を指す読み取り専用逆イテレータもしくは番兵を取得する (customization point object)  | C++20          |
 | [`size`](ranges/size.md)       | Rangeの要素数を取得する (customization point object)                                              | C++20          |
 | [`ssize`](ranges/ssize.md)     | Rangeの要素数を、符号付き整数型で取得する (customization point object)                            | C++20          |
+| [`reserve_hint`](ranges/reserve_hint.md) | Rangeの要素数の近似値を取得する (customization point object)                            | C++26          |
 | [`empty`](ranges/empty.md)     | Rangeが空かどうかを判定する (customization point object)                                          | C++20          |
 | [`data`](ranges/data.md)       | Rangeの要素配列へのポインタを取得する (customization point object)                                | C++20          |
 | [`cdata`](ranges/cdata.md)     | Rangeの要素配列への読み取り専用ポインタを取得する (customization point object)                    | C++20          |
@@ -81,6 +82,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`range`](ranges/range.md)                             | Rangeを定義するコンセプト (concept)                         | C++20          |
 | [`borrowed_range`](ranges/borrowed_range.md)           | 所有権を持たないRange (concept)                             | C++20          |
 | [`sized_range`](ranges/sized_range.md)                 | サイズを償却定数時間で求められるRange (concept)             | C++20          |
+| [`approximately_sized_range`](ranges/approximately_sized_range.md) | サイズの近似値を償却定数時間で求められるRange (concept) | C++26 |
 | [`view`](ranges/view.md)                               | ビューであるRange (concept)                                 | C++20          |
 | [`output_range`](ranges/output_range.md)               | イテレータが出力イテレータであるRange (concept)             | C++20          |
 | [`input_range`](ranges/input_range.md)                 | イテレータが入力イテレータであるRange (concept)             | C++20          |

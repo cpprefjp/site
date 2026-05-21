@@ -45,6 +45,7 @@ namespace std::ranges {
 | [`begin`](stride_view/begin.md)                  | 先頭を指すイテレータを取得する   | C++23          |
 | [`end`](stride_view/end.md)                      | 番兵を取得する                   | C++23          |
 | [`size`](stride_view/size.md)                    | 要素数を取得する                 | C++23          |
+| [`reserve_hint`](stride_view/reserve_hint.md) | 要素数の近似値を取得する     | C++26          |
 
 ## 継承しているメンバ関数
 

@@ -59,6 +59,7 @@ std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
 | [`begin`](as_rvalue_view/begin.md)                  | 先頭を指すイテレータを取得する | C++23          |
 | [`end`](as_rvalue_view/end.md)                      | 番兵を取得する                 | C++23          |
 | [`size`](as_rvalue_view/size.md)                    | 要素数を取得する               | C++23          |
+| [`reserve_hint`](as_rvalue_view/reserve_hint.md) | 要素数の近似値を取得する   | C++26          |
 
 `r`を参照先のRangeとする。`size`は、[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
 

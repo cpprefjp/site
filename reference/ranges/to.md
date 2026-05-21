@@ -52,15 +52,27 @@ Rangeの各要素を要素とするコンテナを構築する。
     - `C(`[`ranges::begin(r)`](begin.md)`,` [`ranges::end(r)`](end.md)`,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
 4. [`constructible_from`](/reference/concepts/constructible_from.md)`<C, Args...>`が`true`で、`container-insertable<C,` [`range_reference_t`](range_reference_t.md)`<R>>`が`true`である場合
     - 以下のコードで初期化する
+        - C++23:
+        ```cpp
+        C c(std::forward<Args>(args)...);
+        if constexpr (sized_range<R> && reservable-container<C>) {
+          c.reserve(static_cast<range_size_t<C>>(ranges::size(r)));
+        }
+        ranges::copy(r, container-inserter<range_reference_t<R>>(c));
+        ```
+        * ranges::copy[link /reference/algorithm/ranges_copy.md]
 
-```cpp
-C c(std::forward<Args>(args)...);
-if constexpr (sized_range<R> && reservable-container<C>) {
-  c.reserve(static_cast<range_size_t<C>>(ranges::size(r)));
-}
-ranges::copy(r, container-inserter<range_reference_t<R>>(c));
-```
-* ranges::copy[link /reference/algorithm/ranges_copy.md]
+        - C++26
+        ```cpp
+        C c(std::forward<Args>(args)...);
+        if constexpr (approximately_sized_range<R> && reservable-container<C>) {
+          c.reserve(static_cast<range_size_t<C>>(ranges::reserve_hint(r)));
+        }
+        ranges::copy(r, container-inserter<range_reference_t<R>>(c));
+        ```
+        * ranges::copy[link /reference/algorithm/ranges_copy.md]
+        * approximately_sized_range[link approximately_sized_range.md]
+        * ranges::reserve_hint[link reserve_hint.md]
 
 [`input_range`](input_range.md)`<`[`range_reference_t`](range_reference_t.md)`<R>>`である場合:
 
@@ -215,3 +227,5 @@ int main() {
 ## 参照
 
 - [26.5.7.2 ranges::to](https://timsong-cpp.github.io/cppwp/n4950/range.utility.conv.to)
+- [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
+    - C++26で要素数の事前確保に[`ranges::size`](size.md)の代わりに[`ranges::reserve_hint`](reserve_hint.md)を使用するよう変更

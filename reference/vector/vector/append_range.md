@@ -29,6 +29,8 @@ Range`rg`の各要素を、末尾に追加する。
 ## 計算量
 要素を追加した後の[`size()`](size.md)が要素を追加する前の[`capacity()`](capacity.md)よりも大きい場合は領域の再確保が生じ、要素を追加した後の[`size()`](size.md)に比例する。領域の再確保が発生しない場合は、[`ranges::distance`](../../iterator/ranges_distance.md)`(rg)`に比例する。
 
+C++26 : `R`が[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)であり、`ranges::distance(rg) <= ranges::reserve_hint(rg)`が`true`の場合、再確保は高々1回しか行われない。`R`が[`ranges::forward_range`](../../ranges/forward_range.md)で、かつ[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)ではない場合も同様である。
+
 
 ## 例
 ```cpp example
@@ -63,3 +65,8 @@ int main()
 |-------------------------------------------|----------------------|
 | [`push_back`](push_back.md)               | 末尾へ要素追加         |
 | [`emplace_back`](emplace_back.md)         | 末尾へ直接構築         |
+
+
+## 参照
+- [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
+    - C++26で、[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)の要素数近似値を利用して再確保が高々1回に抑えられるよう計算量保証を追加

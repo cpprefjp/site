@@ -94,6 +94,7 @@ concept has-tuple-element =
 | [`begin`](elements_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++20          |
 | [`end`](elements_view/end.md)                       | 番兵を取得する                   | C++20          |
 | [`size`](elements_view/size.md)                     | 要素数を取得する                 | C++20          |
+| [`reserve_hint`](elements_view/reserve_hint.md) | 要素数の近似値を取得する      | C++26          |
 
 `r`を元のRangeとする。`size`は[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
 

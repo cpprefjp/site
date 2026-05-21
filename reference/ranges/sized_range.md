@@ -7,9 +7,13 @@
 ```cpp
 namespace std::ranges {
   template<class T>
-  concept sized_range = range<T> && requires(T& t) { ranges::size(t); };
+  concept sized_range = range<T> && requires(T& t) { ranges::size(t); };               // C++20
+
+  template<class T>
+  concept sized_range = approximately_sized_range<T> && requires(T& t) { ranges::size(t); }; // C++26
 }
 ```
+* approximately_sized_range[link approximately_sized_range.md]
 
 ## 概要
 `sized_range`は、大きさを償却定数時間で求めることができるRangeを表すコンセプトである。
@@ -19,6 +23,8 @@ namespace std::ranges {
 `sized_range`ではないRangeとしては、[`iota_view`](iota_view.md)のように無限長のもの、
 [`forward_list`](/reference/forward_list/forward_list.md)のように大きさは決まっているが償却定数時間で求められないもの、
 [`basic_istream_view`](basic_istream_view.md)のように事前に求められないものなどがある。
+
+C++26では、要素数の概算値が求まる[`approximately_sized_range`](approximately_sized_range.md)コンセプトが導入され、`sized_range`はそれを継承するようになった。
 
 ## モデル
 型が[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<T>`であるようなlvalue`t`があるとする。`T`が`sized_range`のモデルとなるのは、以下の条件をすべて満たす場合である。
@@ -68,3 +74,5 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
+    - C++26から[`approximately_sized_range`](approximately_sized_range.md)を継承するようになった

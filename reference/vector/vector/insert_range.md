@@ -26,6 +26,12 @@ Range`rg`の各要素を、`pos`の直前に挿入する。
 挿入されたRange`rg`の最初の要素を指すイテレータ。`rg`が空の場合は`pos`。
 
 
+## 計算量
+再確保が発生する場合は要素を挿入した後のvectorの要素数に比例し、それ以外の場合は挿入された要素数 + `pos`からvector末尾までの距離に比例する。
+
+C++26 : `R`が[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)であり、`ranges::distance(rg) <= ranges::reserve_hint(rg)`が`true`の場合、再確保は高々1回しか行われない。`R`が[`ranges::forward_range`](../../ranges/forward_range.md)で、かつ[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)ではない場合も同様である。
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -60,3 +66,8 @@ int main()
 |-------------------------------------------|----------------------|
 | [`insert`](insert.md)                     | 要素の挿入             |
 | [`emplace`](emplace.md)                   | 要素の直接構築による挿入 |
+
+
+## 参照
+- [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
+    - C++26で、[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)の要素数近似値を利用して再確保が高々1回に抑えられるよう計算量保証を追加
