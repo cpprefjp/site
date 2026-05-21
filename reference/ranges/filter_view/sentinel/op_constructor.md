@@ -6,13 +6,20 @@
 * cpp20[meta cpp]
 
 ```cpp
-sentinel() = default;                             // (1)
-constexpr explicit sentinel(filter_view& parent); // (2)
+public:
+  sentinel() = default;                             // (1)
+
+private:
+  constexpr explicit sentinel(filter_view& parent); // (2) 説明専用
 ```
 
 ## 概要
 
 [`filter_view::sentinel`](../sentinel.md)オブジェクトを構築する。
+
+- (1) : デフォルトコンストラクタ
+- (2) : `private`な説明専用コンストラクタ。[`filter_view`](../../filter_view.md)の[`end()`](../end.md)から呼び出される
+
 
 ## 効果
 
@@ -35,3 +42,5 @@ constexpr explicit sentinel(filter_view& parent); // (2)
 ## 参照
 - [N4861 24.7.4 Filter view](https://timsong-cpp.github.io/cppwp/n4861/range.filter)
 - [N4950 26.7.8 Filter view](https://timsong-cpp.github.io/cppwp/n4950/range.filter)
+- [P3059R2 Making user-defined constructors of view iterators/sentinels private](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3059r2.html)
+    - C++26で、(2)のユーザー定義コンストラクタを`public`から`private`に移動

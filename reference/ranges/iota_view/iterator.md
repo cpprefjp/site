@@ -60,6 +60,8 @@ namespace std::ranges {
   struct iota_view<W, Bound>::iterator {
   private:
     W value_ = W();
+    constexpr explicit iterator(W value) : value_(value) {
+    }
   public:
     using iterator_concept = decltype(get_iota_view_iterator_concept());
     using iterator_category = input_iterator_tag;
@@ -67,8 +69,6 @@ namespace std::ranges {
     using difference_type = iota_diff_t<W>;
 
     iterator() = default;
-    constexpr explicit iterator(W value) : value_(value) {
-    }
 
     constexpr W operator*() const noexcept(is_nothrow_copy_constructible_v<W>) {
       return value_;
@@ -205,3 +205,5 @@ namespace std::ranges {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P3059R2 Making user-defined constructors of view iterators/sentinels private](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3059r2.html)
+    - C++26で、ユーザー定義のコンストラクタを`public`から`private`に移動

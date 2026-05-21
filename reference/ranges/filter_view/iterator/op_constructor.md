@@ -6,14 +6,20 @@
 * cpp20[meta cpp]
 
 ```cpp
-iterator() requires default_initializable<iterator_t<V>> = default;    // (1)
+public:
+  iterator() requires default_initializable<iterator_t<V>> = default;  // (1)
 
-constexpr iterator(filter_view& parent, iterator_t<V> current);        // (2)
+private:
+  constexpr iterator(filter_view& parent, iterator_t<V> current);      // (2) 説明専用
 ```
 
 ## 概要
 
 [`filter_view::iterator`](../iterator.md)オブジェクトを構築する。
+
+- (1) : デフォルトコンストラクタ
+- (2) : `private`な説明専用コンストラクタ。[`filter_view`](../../filter_view.md)の[`begin()`](../begin.md)から呼び出される
+
 
 ## 効果
 
@@ -27,14 +33,12 @@ constexpr iterator(filter_view& parent, iterator_t<V> current);        // (2)
 #include <iostream>
 
 int main() {
-  using std::ranges::filter_view;
-  using std::ranges::iterator_t;
-
   std::vector<int> vec = {0, 1, 2, 3, 4, 5};
 
-  filter_view fv{vec, [](int x){ return x % 2 == 0; }};
+  std::ranges::filter_view fv{vec, [](int x){ return x % 2 == 0; }};
 
-  iterator_t<decltype(fv)> i(fv, vec.begin());
+  // begin()を経由してイテレータを取得する
+  auto i = fv.begin();
 
   std::cout << *i << '\n';
   i++;
@@ -43,7 +47,7 @@ int main() {
   std::cout << *i << '\n';
 }
 ```
-* iterator_t<decltype(fv)>[color ff0000]
+* fv.begin()[link ../begin.md]
 
 ### 出力
 ```
@@ -65,3 +69,5 @@ int main() {
 ## 参照
 - [N4861 24.7.4 Filter view](https://timsong-cpp.github.io/cppwp/n4861/range.filter)
 - [N4950 26.7.8 Filter view](https://timsong-cpp.github.io/cppwp/n4950/range.filter)
+- [P3059R2 Making user-defined constructors of view iterators/sentinels private](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3059r2.html)
+    - C++26で、(2)のユーザー定義コンストラクタを`public`から`private`に移動

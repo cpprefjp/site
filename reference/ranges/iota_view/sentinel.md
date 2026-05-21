@@ -26,10 +26,10 @@ namespace std::ranges {
   struct iota_view<W, Bound>::sentinel {
   private:
     Bound bound_ = Bound();
-  public:
-    sentinel() = default;
     constexpr explicit sentinel(Bound bound): bound_{bound} {
     }
+  public:
+    sentinel() = default;
 
     friend constexpr bool operator==(const iterator& x, const sentinel& y) {
       return x.value_ == y.bound_;
@@ -65,3 +65,5 @@ namespace std::ranges {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P3059R2 Making user-defined constructors of view iterators/sentinels private](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3059r2.html)
+    - C++26で、ユーザー定義のコンストラクタを`public`から`private`に移動
