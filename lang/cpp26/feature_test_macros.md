@@ -132,6 +132,7 @@
 |`__cpp_lib_ranges_as_const`|`202311L`|[`std::basic_const_iterator`](/reference/iterator/basic_const_iterator.md)を元の要素へのキャストを可能にする|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_cache_latest`|`202411L`|[`std::views::cache_latest`](/reference/ranges/cache_latest.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_concat`|`202403L`|[`std::views::concat`](/reference/ranges/concat_view.md)を追加|[`<ranges>`](/reference/ranges.md)|
+|`__cpp_lib_ranges_filter`|`202603L`|[`std::ranges::filter_view`](/reference/ranges/filter_view.md)に、入力Rangeに対する`const`版の[`begin()`](/reference/ranges/filter_view/begin.md)/[`end()`](/reference/ranges/filter_view/end.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_generate_random`|`202403L`|[`<random>`](/reference/random.md)に、乱数列を生成する[`std::ranges::generate_random()`](/reference/random/generate_random.md)関数を追加|[`<random>`](/reference/random.md)|
 |`__cpp_lib_ranges_indices`|`202506L`|インデックス列を生成する[`std::views::indices`](/reference/ranges/indices.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_reserve_hint`|`202502L`|各viewクラスに`reserve_hint()`メンバ関数を追加<br/>[`std::ranges::reserve_hint()`](/reference/ranges/reserve_hint.md)関数を追加<br/>[`std::ranges::approximately_sized_range`](/reference/ranges/approximately_sized_range.md)コンセプトを追加|[`<ranges>`](/reference/ranges.md)|

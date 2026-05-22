@@ -26,7 +26,10 @@ namespace std::ranges {
     - 探索は [`ranges::find_if`](/reference/algorithm/ranges_find_if.md) と同様に行われる。
 - [`begin`](filter_view/begin.md)は償却定数時間で実行できなければならないため、[`begin`](filter_view/begin.md)の値はキャッシュされる。
 
-`filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作を引き起こす。
+`filter_view`の要素を書き換えてもよいが、書き換えた結果`Pred`を満たさない場合は未定義動作を引き起こす可能性がある。具体的な条件は言語バージョンによって異なる：
+
+- C++20 : 書き換えた後の要素が`Pred`を満たさない場合は未定義動作
+- C++26 : 元のRangeが[`forward_range`](forward_range.md)であり、書き換えた後の要素が次に`Pred`の評価を受けた際に `Pred`を満たさない場合に限り未定義動作 (要素が再評価されない限り問題なし、と緩和された)
 
 ### Rangeコンセプト
 
@@ -133,3 +136,5 @@ int main() {
 - [N4861 24.7.4 Filter view](https://timsong-cpp.github.io/cppwp/n4861/range.filter)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)
+- [P3725R3 Filter View Extensions for Safer Use](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3725r3.pdf)
+    - C++26で、入力Range (非forward) に対する`const`版の[`begin()`](filter_view/begin.md)と[`end()`](filter_view/end.md)を追加。また、要素書き換えによる未定義動作の文言を緩和

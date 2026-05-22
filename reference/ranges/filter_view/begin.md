@@ -6,23 +6,39 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr iterator begin();
+constexpr iterator begin();                     // (1) C++20
+constexpr iterator<false> begin();              // (1) C++26
+
+constexpr iterator<true> begin() const
+  requires (input_range<const V> && !forward_range<const V> &&
+            indirect_unary_predicate<const Pred, iterator_t<const V>>); // (2) C++26
 ```
 * iterator[link iterator.md]
+* input_range[link /reference/ranges/input_range.md]
+* forward_range[link /reference/ranges/forward_range.md]
+* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
 
 ## 概要
 
 `view`の先頭要素を指すイテレータを取得する。
 
+- (1) : 非`const`版
+- (2) : `const`版。元のRangeが[`input_range`](/reference/ranges/input_range.md)であり、かつ[`forward_range`](/reference/ranges/forward_range.md)ではない場合に限り提供される
+
+
 ## 事前条件
 
 `pred_.`[`has_value`](/reference/optional/optional/has_value.md)`()`が`true`であること。
+
 
 ## 戻り値
 
 `{*this,` [`ranges::find_if`](/reference/algorithm/ranges_find_if.md)`(base_,` [`ref`](/reference/functional/ref.md)`(*pred_))}`
 
-[`range`](../range.md)のモデルとなるためにはこの関数が償却定数時間で実行できなければならないため、値はキャッシュされる。
+
+## 備考
+- (1) : [`range`](../range.md)のモデルとなるためにはこの関数が償却定数時間で実行できなければならないため、値はキャッシュされる
+- (2) : この関数は値をキャッシュしない
 
 ## 例
 
@@ -63,3 +79,5 @@ int main() {
 ## 参照
 - [N4861 24.7.4 Filter view](https://timsong-cpp.github.io/cppwp/n4861/range.filter)
 - [N4950 26.7.8 Filter view](https://timsong-cpp.github.io/cppwp/n4950/range.filter)
+- [P3725R3 Filter View Extensions for Safer Use](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3725r3.pdf)
+    - C++26で、(2)の`const`版オーバーロードを追加 (入力Rangeの場合の`const`イテレーションをサポート)
