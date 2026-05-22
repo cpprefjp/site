@@ -33,6 +33,7 @@ namespace std::ranges {
 - (2): 式`views::as_const(E)`の効果は次のいずれか（`T = decltype((E))`、`U = remove_cvref_t<T>`とする）
     - `views::all_t<T>`が`constant_range`のモデルとなる場合 : `views::all(E)`
     - 任意の型`X`に対して、`U`が`empty_view<X>`である場合 : `auto(views::empty<const X>)`
+    - C++26 : 任意の型`X`に対して、`U`が[`optional`](/reference/optional/optional.md)`<X&>`である場合 : [`optional`](/reference/optional/optional.md)`<const X&>(E)`
     - 任意の型`X`と整数値`Extent`に対して、`U`が`span<X, Extent>`である場合 : `span<const X, Extent>(E)`
     - 任意の型`X`に対して、`U`が`ref_view<X>`であり、`const X`が`constant_range`のモデルとなる場合 : `ref_view(static_cast<const X&>(E.base()))`
     - `E`が左辺値であり、`const U`が`constant_range`のモデルとなり、かつ`U`は`view`のモデルとならない場合 : `ref_view(static_cast<const U&>(E))`
@@ -103,3 +104,5 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [P3913R1 Optimize for `std::optional` in range adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3913r1.pdf)
+    - C++26で、入力が[`optional`](/reference/optional/optional.md)`<X&>`の場合の特殊化を追加

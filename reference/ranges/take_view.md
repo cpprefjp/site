@@ -38,6 +38,7 @@ namespace std::ranges {
 - (2): `E`および`F`を式、型`T`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`decltype`](/lang/cpp11/decltype.md)`((E))>`、型`D`を[`range_difference_t`](range_difference_t.md)`<`[`decltype`](/lang/cpp11/decltype.md)`((E))>`とする。式`views::take(E, F)`の効果は以下の通り
     - [`decltype`](/lang/cpp11/decltype.md)`((F))`が[`convertible_to`](/reference/concepts/convertible_to.md)`<D>`のモデルでなければ、呼び出しは不適格
     - `T`が[`ranges::empty_view`](empty_view.md)の特殊化であれば、`((void) F,` [`decay-copy`](/reference/exposition-only/decay-copy.md)`(E))`と等しい。ただし、`E`と`F`の評価順序は不定順で序列化(indeterminately sequenced)される
+    - C++26 : `T`が[`std::optional`](/reference/optional/optional.md)の特殊化で[`view`](view.md)のモデルであれば、`F`が0と等しいとき空の`T()`、そうでないとき[`decay-copy`](/reference/exposition-only/decay-copy.md)`(E)`と等しい
     - `T`が[`random_access_range`](random_access_range.md)および[`sized_range`](sized_range.md)のモデルであり、かつ次のいずれかの特殊化であるとき、`T(`[`ranges::begin`](begin.md)`(E),` [`ranges::begin`](begin.md)`(E) +` [`min`](/reference/algorithm/min.md)`<D>(`[`ranges::size`](size.md)`(E), F))`と等しい。ただし、`E`は1度だけ評価される
         - [`span`](/reference/span/span.md) (ただし、`T::extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)であること)
         - [`basic_string_view`](/reference/string_view/basic_string_view.md)
@@ -181,3 +182,5 @@ int main() {
 - [P2393R1 Cleaning up integer-class types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2393r1.html)
 - [P2406R2 Add `lazy_counted_iterator`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2406r2.html)
 - [P2017R1 Conditionally borrowed ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2017r1.html)
+- [P3913R1 Optimize for `std::optional` in range adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3913r1.pdf)
+    - C++26で、入力が[`std::optional`](/reference/optional/optional.md)の場合の特殊化を追加

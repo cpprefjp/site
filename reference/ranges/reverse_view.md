@@ -37,6 +37,7 @@ namespace std::ranges {
 
 - (2): 式`views::reverse(E)`の効果は次の通り
     - `E`の型が`reverse_view`の特殊化であれば、`E.base()`と等しい (CV修飾されている場合を含む)
+    - C++26 : `E`の型が[`std::optional`](/reference/optional/optional.md)の特殊化で[`view`](view.md)のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(E)`と等しい (要素数が0または1のため反転の必要がない)
     - イテレータ型`I`、[`subrange_kind`](subrange_kind.md)の値`K`に対し、`E`の型がCV修飾された[`subrange`](subrange.md)`<`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<I>,` [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<I>, K>`であるとする。このとき、`E`は一度しか評価されないとして、
         - `K`が[`subrange_kind::sized`](subrange_kind.md)であれば、[`subrange`](subrange.md)`<I, I, K>(E.end().base(), E.begin().base(), E.size())`と等しい
         - それ以外のとき、[`subrange`](subrange.md)`<I, I, K>(E.end().base(), E.begin().base())`と等しい
@@ -172,3 +173,5 @@ namespace std::ranges {
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2017R1 Conditionally borrowed ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2017r1.html)
+- [P3913R1 Optimize for `std::optional` in range adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3913r1.pdf)
+    - C++26で、入力が[`std::optional`](/reference/optional/optional.md)の場合の特殊化を追加
