@@ -29,12 +29,31 @@ void f() {
 }
 ```
 
-構造化束縛で導入された名前はラムダ式でキャプチャできない、と明記された。しかしその後、「[構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)」の仕様でそれが可能となったため、この仕様変更は打ち消された。
+本提案では一旦、構造化束縛で導入された名前はラムダ式でキャプチャできない、と明記された。その後、「[構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)」の仕様でそれが可能となったため、この部分は打ち消された。
 
+## 仕様
+
+odr-usable(=ある名前の定義がその場所で見つかるか)という用語を導入して、lamda式でキャプチャできるものの増加に対して、規格文面の整理が行われた。
+
+ローカル変数のように、ローカルでodr-usedされる時に、その場所ではodr-usableでないとき、そのプログラムは適格ではない。
+
+```cpp
+void f(int n) {
+  [] { n = 1; };                // error: nが使われようとしているのはlambda式の中なので、odr-usableではない
+  struct A {
+    void f() { n = 2; }         // error: nが使われようとしているのは関数定義スコープの中なので、odr-usableではない
+  };
+  void g(int = n);              // error: nが使われようとしているのはlambda式以外の関数引数スコープの中なので、odr-usableではない
+  [=](int k = n) {};            // error: n is not odr-usable due to being
+                                // outside the block scope of the lambda-expression
+  [&] { [n]{ return n; }; };    // OK
+}
+```
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
 - [C++20 構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)
+- [C++20 構造化束縛した変数の参照キャプチャを許可](reference_capture_of_structured_bindings.md)
 
 ## 参照
 - [P0588R1 Simplifying implicit lambda capture](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0588r1.html)
