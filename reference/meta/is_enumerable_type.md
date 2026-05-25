@@ -12,22 +12,38 @@ namespace std::meta {
 * info[link info.md]
 
 ## 概要
-型が列挙可能型であるかを判定する。列挙可能型とは、[`enumerators_of()`](enumerators_of.md)で列挙子を取得できる列挙型である。
+型が列挙可能型であるかを判定する。
+
+列挙可能型とは、次のいずれかを満たす型である：
+
+- クラス型であり、完全型である
+- 列挙型であり、その宣言に到達可能である（[`enumerators_of()`](enumerators_of.md)で列挙子を取得できる）
+    - ただし、その列挙型の宣言内では列挙可能型にならない
 
 
 ## 戻り値
-`r`が列挙可能な列挙型を表す場合に`true`を返す。
+`r`が列挙可能型を表す場合に`true`を返す。
 
 
 ## 例
 ```cpp example
 #include <meta>
 
-enum Color { red, green, blue };
+enum class Color;
+static_assert(!std::meta::is_enumerable_type(^^Color));
+enum class Color { red, green, blue };
+static_assert( std::meta::is_enumerable_type(^^Color));
 
-int main() {
-  static_assert(std::meta::is_enumerable_type(^^Color));
-}
+class S {};
+static_assert( std::meta::is_enumerable_type(^^S));  // 完全なクラス型も列挙可能型
+
+enum class E {
+  FALSE, TRUE,
+  A = std::meta::is_enumerable_type(^^E) ? TRUE : FALSE
+};
+static_assert(E::A == E::FALSE);  // 列挙型自身の宣言内では、列挙可能型にならない
+
+int main() {}
 ```
 
 ### 出力
