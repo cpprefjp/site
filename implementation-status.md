@@ -139,9 +139,9 @@
 | P0137R1: [参照メンバをもつクラスの置き換え](/lang/cpp17/replacement_of_class_objects_containing_reference_members.md) | 参照型メンバや`const`メンバ変数を含むクラスについてこれまで未定義動作とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする | 7 | 6.0 | No | 2017 Update 7 |
 | P0003R5: [非推奨だった例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md) | `noexcept`が入ったことによって非推奨になった`throw`キーワードによる例外仕様を削除 | 7 | 4 | 19.0 | 2017 Update 5 |
 | P0195R2: [using宣言でのパック展開](/lang/cpp17/pack_expansions_in_using.md) | パラメータパックの型を基底クラスとして指定した場合に、`using`宣言に基底クラスのパラメータパックを指定できるようにする | 7 | 4 | 19.0 | 2017 Update 7 |
-| P0512R0: [クラステンプレート引数の推論仕様を調整][P0512R0] | | 8 | 5.0 | No | 2017 Update 7 |
+| P0512R0: [クラステンプレート引数の推論仕様を調整][P0512R0] | | 8 | 5.0 | - | 2017 Update 7 |
 | P0490R0: [Committee Draftに対するNational Body Commentへの対応][P0490R0] | | - | - | - | - |
-| P0522R0: [テンプレートテンプレート引数のマッチングにおいて、互換性のあるテンプレートを除外][P0522R0] | | 7 | 4 (partial) | 19.1 | 2017 Update 5 |
+| P0522R0: [テンプレートテンプレート引数のマッチングにおいて、互換性のあるテンプレートを除外][P0522R0] | | 7 | 4 (partial)<br/>19 | 19.1 | 2017 Update 5 |
 
 
 [P0136R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0136r1.html
@@ -167,21 +167,21 @@
 |----------|------|-----|-------|-----|------|
 | P0683R1: [ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する | 8 | 6.0 | 2021.4 | 2019 Update 5 |
 | P0409R2: [ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする | 8 | 6.0 | 2021.4 | 2019 Update 2 |
-| P0806R2: [`[=]`による`this`の暗黙のキャプチャを非推奨化](/lang/cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする | 9 | | | 2019 Update 2 |
+| P0806R2: [`[=]`による`this`の暗黙のキャプチャを非推奨化](/lang/cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする | 9 | - | No | 2019 Update 2 |
 | P0428R2: [ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする | 8 | 9.0 | 2021.4 | 2019 Update 2 |
 | P0704R1: [`const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する | 8 | 6.0 | 2021.4 | 2015 |
-| P0306R4: [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | 2021.4 | 2019 Update 5 |
+| P0306R4: [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート)<br/>10 (partial, placemarker token のハンドリング変更なし)<br/>12 | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | 2021.4 | 2019 Update 5 |
 | P0329R4: [指示付き初期化](/lang/cpp20/designated_initialization.md) | 波カッコによる集成体初期化でメンバ名を指定して初期化できるようにする | 8 | 6.0 (partial)<br/>10 | 2021.4 | 2019 Update 1 |
 | P0734R0: [コンセプト](/lang/cpp20/concepts.md) | テンプレートパラメータに対する制約を行う | 10 | 10 | 2021.6 | 2019 Update 3 |
 | P0614R1: [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | 2021.7 | 2019 Update 5 |
 | P0588R1: [暗黙のラムダキャプチャを簡略化](/lang/cpp20/simplifying_implicit_lambda_capture.md) | ラムダ式のキャプチャに関する仕様整理 | 8 | No | 2021.4 | 2019 Update 4 |
 | P0846R0: [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/lang/cpp20/adl_and_function_templates_that_are_not_visible.md) | 名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正 | 9 | 9.0 | 2021.4 | 2019 Update 1 |
 | P0641R2: [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](/lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md) | 非`const`なオブジェクトをとるコンストラクタを定義すると、そのクラスをラップしたクラスのコピーコンストラクタが不適格になってしまう問題を修正 | 9 | 8.0 | 2021.4 | 2015 |
-| P0859R0: [評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](/lang/cpp20/less_eager_instantiation_of_constexpr_functions.md) | `sizeof`や`decltype`などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定 | 9 | 8 | | Partial in 2019 Update 7 |
+| P0859R0: [評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](/lang/cpp20/less_eager_instantiation_of_constexpr_functions.md) | `sizeof`や`decltype`などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定 | 9 | 8 | No | 2019 Update 7 (partial)<br/>2022 Update 1 |
 | P0515R3: [`<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする | 10 | 8.0 (partial)<br/>10 | 2021.4 | 2019 |
 | P0692R1: [特殊化のアクセスチェック](/lang/cpp20/access_checking_on_specializations.md) | | Yes | 14 | 2021.4 | 2019 Update 6 |
 | P0624R2: [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする | 9 | 8.0 | 2021.4 | 2019 Update 2 |
-| P0767R1: [PODを非推奨化](/lang/cpp20/deprecate_pod.md) | PODという用語を非推奨化する | | | 2021.4 | 2019 Update 5 |
+| P0767R1: [PODを非推奨化](/lang/cpp20/deprecate_pod.md) | PODという用語を非推奨化する | 10.1 | 21 | 2021.4 | 2019 Update 5 |
 | P0315R4: [評価されない文脈でのラムダ式](/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする | 9 | 17 | 2024.0 | 2019 Update 8 |
 | P0840R2: [空オブジェクトを言語サポート](/lang/cpp20/language_support_for_empty_objects.md) | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | 9 | 9.0 | 2021.4 | 2019 Update 9 <sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup> |
 | P0962R1: [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく | 8 | 8 | 2021.4 | 2019 Update 5 |
@@ -190,7 +190,7 @@
 | P0634R3: [型の文脈で`typename`の省略を許可](/lang/cpp20/down_with_typename.md) | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | 9 | 16 | 2023.1 | 2019 Update 9 |
 | P0780R2: [ラムダ式の初期化キャプチャでのパック展開を許可](/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 | 9<br/>10 | 9.0 | 2021.7 | 2019 Update 2 |
 | P0479R5: [確率が高い分岐と低い分岐を伝える属性 `[[likely]]`, `[[unlikely]]`](/lang/cpp20/likely_and_unlikely_attributes.md) | 条件分岐の最適化ヒントを与える属性 | 9 (partial, `switch` 文のみ可能)<br/> 10 | 12.0 | 2021.7 | 2019 Update 6 |
-| P0929R2: [抽象型のチェック](/lang/cpp20/checking_for_abstract_class_types.md) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | 11 | | | 2019 Update 5 |
+| P0929R2: [抽象型のチェック](/lang/cpp20/checking_for_abstract_class_types.md) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | 11 | - | No | 2019 Update 5 |
 | P0732R2: [非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md) | 定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする | 9 | 12 | 2022.2 Partial | 2019 Update 6 |
 | P0722R3: [可変長データを扱うクラスの効率的な`delete`](/lang/cpp20/efficient_sized_delete_for_variable_sized_classes.md) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | 2023.0 | 2019 Update 7 |
 | P1064R0: [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | 2021.4 | 2019 Update 9 |
@@ -201,28 +201,28 @@
 | P1008R1: [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止](/lang/cpp20/prohibit_aggregates_with_user-declared_constructors.md) | コンストラクタが`delete`／`default`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | 8.0 | 2021.4 | 2019 |
 | P0892R2: [関数を条件付きで`explicit`にする構文を追加](/lang/cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | 9.0 | 2021.4 | 2019 Update 2 |
 | P1236R1: [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | 9.0 | 2023.0 | 2022 Update 14 |
-| P0482R6: [UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md) | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | 9 | 7 (`-fchar8_t`オプションが必要) | 2021.4 | 2019 Update 2 |
+| P0482R6: [UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md) | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | 9 | 7 (`-fchar8_t`オプションが必要)<br/>8 (`-std=c++20`で有効化) | 2021.4 | 2019 Update 2 |
 | P1094R2: [入れ子名前空間定義でのインライン名前空間](/lang/cpp20/nested_inline_mamespaces.md) | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | 8.0 | 2021.4 | 2019 Update 7 |
-| P1091R3: [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial) | 2021.4 | 2019 Update 4 |
-| P1381R1: [構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md) | 構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する | 8 | 8.0 (partial) | 2021.4 | 2017 Update 3 |
-| P0960R3: [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | 10 | No | 2021.4 | 2019 Update 8 |
+| P1091R3: [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial)<br/>16 | 2021.4 | 2019 Update 4 |
+| P1381R1: [構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md) | 構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する | 8 | 8.0 (partial)<br/>16 | 2021.4 | 2017 Update 3 |
+| P0960R3: [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | 10 | 16 | 2021.4 | 2019 Update 8 |
 | P1009R2: [`new`式での配列要素数の推論](/lang/cpp20/array_size_deduction_in_new-expressions.md) | `double* p = new double[]{1,2,3};`を許可 | 11 | 9 | 2021.4 | 2019 Update 7 |
 | P1041R4: [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](/lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.md) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する | 10 | Yes | 2023.0 | 2015 |
-| P1103R3: [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | 11 (`-fmodules-ts`が必要) | 15<br/>8.0 partial (`-fmodules`, `-fmodules-ts`が必要) | 2023.1 (Partial) | 2019 Update 8 |
-| P0912R5: [コルーチン](/lang/cpp20/coroutines.md) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | 10 (`-fcoroutines`が必要) | 8.0 (partial) | 2021.4| 2019 Update 8 |
+| P1103R3: [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | 11 (`-fmodules-ts`が必要) | 8.0 partial (`-fmodules`, `-fmodules-ts`が必要)<br/>15 | 2023.1 (partial) | 2019 Update 8 |
+| P0912R5: [コルーチン](/lang/cpp20/coroutines.md) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | 10 (`-fcoroutines`が必要)<br/>11 (`-std=c++20`で有効化) | 8.0 (partial) | 2021.4| 2019 Update 8 |
 | P1161R3: [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | 10 | 9.0 | 2021.6 | 2019 Update 5 |
 | P1331R2: [constexpr関数内でのトリビアルなデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | 10 | 10.0 | 2022.3 | 2019 Update 7 |
-| P0848R3: [条件付きで特殊メンバ関数をトリビアルに定義するように](/lang/cpp20/conditionally_trivial_special_member_functions.md) | 制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数をオーバーロードできるようにする | 10 | 16 Partial (consepts 未実装部あり) | 2022.3 | 2019 Update 8 |
+| P0848R3: [条件付きで特殊メンバ関数をトリビアルに定義するように](/lang/cpp20/conditionally_trivial_special_member_functions.md) | 制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数をオーバーロードできるようにする | 10 | 16 (partial)<br/>19 | 2022.3 | 2019 Update 8 |
 | P1301R4: [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](/lang/cpp20/nodiscard_should_have_a_reason.md) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | 10 | 9.0 | 2021.6 | 2019 Update 5 |
 | P1099R5: [スコープ付き列挙型のusing宣言](/lang/cpp20/using_enum.md) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする | 11 | 13 | 2023.0 | 2019 Update 4 |
-| P1816R0: [集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | 10 | No | 2024.0 | 2019 Update 7 |
+| P1816R0: [集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | 10 | 17 | 2024.0 | 2019 Update 7 |
 | P1668R1: [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 | 10 | 10.0 | 2022.3 | 2019 Update 9 |
 | P0388R4: [要素数不明の配列への変換を許可](/lang/cpp20/permit_conversions_to_arrays_of_unknown_bound.md) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 | 10 | 14 | 2021.6 | 2019 Update 7 |
 | P1143R2: [コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md) | 初期化のみコンパイル時におわらせたい場合に使用する | 10 | 10.0 | 2022.3 | 2019 Update 10 |
 | P1152R4: [ほとんどの`volatile`を非推奨化](/lang/cpp20/deprecating_volatile.md) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する | 10 | 10.0 | 2021.6 | 2019 Update 7 |
-| P1814R0: [エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | 10 | No | | 2019 Update 7 |
+| P1814R0: [エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | 10 | 19 (partial) | No | 2019 Update 7 |
 | P0784R7: [可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | 10 | 10.0 | 2021.6 | 2019 Update 9 |
-| P1957R2: [ポインタから`bool`への変換を縮小変換とする](/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md) | ポインタから`bool`値への変換を縮小変換と規定することで、意図しない変換を防止する | 10 | 11.0 | | 2019 Update 7 |
+| P1957R2: [ポインタから`bool`への変換を縮小変換とする](/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md) | ポインタから`bool`値への変換を縮小変換と規定することで、意図しない変換を防止する | 10 | 11.0 | - | 2019 Update 7 |
 
 - <a href="#note_ref-t1-1" id="note-t1-1">**^**</a> 不明な属性として無視されなくなっただけで期待する効果は得られない。完全に実装されるまでは、代わりに[`[[msvc::no_unique_address]]`](https://devblogs.microsoft.com/cppblog/msvc-cpp20-and-the-std-cpp20-switch/#msvc-extensions-and-abi)を使用できる。
 
@@ -245,34 +245,34 @@
 | P0330R8: [(符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする | 11 | 13 | 2022.2 | 2022 Update 13 |
 | P2290R3: [エスケープシーケンスの区切り](/lang/cpp23/delimited_escape_sequences.md) | エスケープシーケンスの範囲を明確にする構文を追加する | 13 | 15 | 2023.2 | 2026 |
 | P2266R3: [暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 | 13 | 13 | 2022.2 | 2026 |
-| P1787R6: [スコープと名前ルックアップの仕様整理](/lang/cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する | - | - | - | - |
-| P2615R1: [無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md) | いくつかの不必要な宣言に対するモジュールexportを禁止する | - | - | - | - |
+| P1787R6: [スコープと名前ルックアップの仕様整理](/lang/cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する | No | - | - | Yes |
+| P2615R1: [無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md) | いくつかの不必要な宣言に対するモジュールexportを禁止する | 15 | 17 | - | 2026 |
 | P2360R0: [初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md) | `for (using T = int; T e : v) {}`を許可 | 12 | 14 | 2022.2 | 2026 |
-| P2718R0: [範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](lang/cpp23/lifetime_extension_in_range_based_for_loop.md) | 範囲初期化子内で生じた一時オブジェクトは範囲for文の終わりまで延命される | - | 20 | - | - |
-| P2324R2: [複合文の末尾へのラベルを許可](/lang/cpp23/labels_at_the_end_of_compound_statements.md) | C互換のため、複合文の末尾でのgoto文のラベルを許可する | 13 | 16 | 2023.2 | - |
-| P0847R7: [自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする | - | 18 | - | 2022 Update 2 (partial) |
+| P2718R0: [範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](lang/cpp23/lifetime_extension_in_range_based_for_loop.md) | 範囲初期化子内で生じた一時オブジェクトは範囲for文の終わりまで延命される | 15 | 20 | - | - |
+| P2324R2: [複合文の末尾へのラベルを許可](/lang/cpp23/labels_at_the_end_of_compound_statements.md) | C互換のため、複合文の末尾でのgoto文のラベルを許可する | 13 | 16 | 2023.2 | No |
+| P0847R7: [自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする | 14 | 18 | No | 2022 Update 2 (partial)<br/>2022 Update 13 |
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md) | アクセス制御の異なるメンバ変数のレイアウトは並び替えを許可されていたが宣言順に規定する | Yes | Yes | - | 2022 |
 | P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.md) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | 2022.2 | 2022 Update 12 |
 | P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md) | 状態をもたないいくつかの演算子を`static`として宣言できるようにする | 13 | 16 | 2023.2 | 2022 Update 14 |
 | P2201R1: [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルの連結を禁止する | Yes | Yes | 2022.2 | Yes |
-| P2029R4: [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | - |
-| P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | 2023.2 | - |
-| P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | 2023.2 | - |
+| P2029R4: [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | No |
+| P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | 2023.2 | No |
+| P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | 2023.2 | No |
 | P2096R2: [変数テンプレートの部分特殊化を許可](/lang/cpp23/generalized_wording_for_partial_specializations.md) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 | - | - | - | - |
-| P2582R1: [継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md) | 継承コンストラクタからもクラステンプレート引数を推論できるようにする | - | - | - | - |
+| P2582R1: [継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md) | 継承コンストラクタからもクラステンプレート引数を推論できるようにする | 14 | No | No | No |
 | P1938R3: [`if consteval`](/lang/cpp23/if_consteval.md) | コンパイル時の文脈かどうかで分岐させる | 12 | 14 | - | 2022 Update 14 |
 | P1401R5: [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | 2022.2 | 2022 Update 14 |
 | P2242R3: [定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する](/lang/cpp23/non_literal_variables_in_constexpr_functions.md) | コンパイル時に評価されない限り、定数式内に静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する | 12 | 15 | 2022.2 | 2022 Update 13 |
-| P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | 16 | yes | 2022.2 | 2022 |
-| P2448R2: [`constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md) | | 13 | 17 (partial) | 2024.0 (partial) | - |
-| P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md) | `constexpr`関数のローカルで定数を定義できるようにする | 13 | 16 | 2023.2 | - |
-| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md) | `consteval`呼び出しを含む`constexpr`関数を条件付きで`consteval`関数とみなすようにする | - | 17 | 2024.0 | - |
+| P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | 16 | Yes | 2022.2 | 2022 |
+| P2448R2: [`constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md) | | 13 | 17 (partial)<br/>19 | 2024.0 (partial) | No |
+| P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md) | `constexpr`関数のローカルで定数を定義できるようにする | 13 | 16 | 2023.2 | 2026 Update 6 |
+| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md) | `consteval`呼び出しを含む`constexpr`関数を条件付きで`consteval`関数とみなすようにする | 14 | 17 | 2024.0 | - |
 | P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md) | 修飾や戻り値型をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | 2022.2 | 2022 Update 14 |
 | P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | 2022.2 | 2022 Update 14 |
-| P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | 19 | - | - |
-| P2316R2: [文字リテラルエンコーディングを一貫させる](/lang/cpp23/consistent_character_literal_encoding.md) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする | yes | yes | 2022.2 | 2022 |
+| P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | 19 | No | No |
+| P2316R2: [文字リテラルエンコーディングを一貫させる](/lang/cpp23/consistent_character_literal_encoding.md) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする | Yes | Yes | 2022.2 | 2022 |
 | P2334R1: [`elif`/`elifdef`/`elifndef`のサポートを追加](/lang/cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する | 12 | 13 | 2022.2 | 2022 Update 10 |
-| P2437R1: [`#warning`のサポートを追加](/lang/cpp23/warning.md) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート | yes | yes | 2023.2 | 2026 |
+| P2437R1: [`#warning`のサポートを追加](/lang/cpp23/warning.md) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート | Yes | Yes | 2023.2 | 2026 |
 | P2295R6: [汎用的なソースコードのエンコーディングとしてUTF-8をサポート](/lang/cpp23/support_for_utf8_as_a_portable_source_file_encoding.md) | すべてのコンパイラはUTF-8文字コードのソースコードをサポートしなければならない | 13 | 15 | 2023.2 | 2019 Update 2 |
 | P2223R2: [行末スペースを無視するよう規定](/lang/cpp23/trimming_whitespaces_before_line_splicing.md) | 行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定 | Yes | Yes | 2022.2 | 2026 |
 
@@ -287,6 +287,7 @@
     - [C++ Language Updates in MSVC in Visual Studio 2022 17.13](https://devblogs.microsoft.com/cppblog/msvc-compiler-updates-in-visual-studio-2022-version-17-13/)
     - [MSVC Compiler Language Updates in Visual Studio 2022 version 17.12](https://devblogs.microsoft.com/cppblog/msvc-compiler-language-updates-in-visual-studio-2022-version-17-12/)
     - [C++ Language Updates in MSVC in Visual Studio 2022 17.14](https://devblogs.microsoft.com/cppblog/c-language-updates-in-msvc-in-visual-studio-2022-17-14/)
+    - [C/C++ Conformance improvements, behavior changes, and bug fixes in Microsoft C++ (MSVC) Build Tools](https://learn.microsoft.com/en-us/cpp/overview/msvc-conformance-improvements)
 - ICX: [C++23 Features Supported by Intel® C++ Compiler](https://www.intel.com/content/www/us/en/developer/articles/technical/c23-features-supported-by-intel-c-compiler.html)
 
 
