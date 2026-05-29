@@ -93,7 +93,7 @@ int main()
 * now()[link system_clock/now.md]
 * to_time_t[link system_clock/to_time_t.md]
 * std::time_t[link /reference/ctime/time_t.md]
-* std::ctime[link /reference/ctime/ctime.md.nolink]
+* std::ctime[link /reference/ctime/ctime.md]
 
 ### 出力例
 ```

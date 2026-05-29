@@ -30,9 +30,11 @@
 | [`SEEK_CUR`](/reference/cstdio/seek_cur.md.nolink) | ファイルの現在位置を指定するための整数定数 | |
 | [`SEEK_END`](/reference/cstdio/seek_end.md.nolink) | ファイルの終端を指定するための整数定数 | |
 | [`TMP_MAX`](/reference/cstdio/tmp_max.md.nolink)  | `tmpnam()`関数によって生成できる一時ファイル名の、実装が保証する最低限の数を表す整数定数 | |
+| [`_PRINTF_NAN_LEN_MAX`](/reference/cstdio/printf_nan_len_max.md) | `printf`系関数がNaNを出力する際の最大文字数を表す整数定数 | C++26 |
 | [`stderr`](/reference/cstdio/stderr.md)   | 標準エラーを表す`FILE*`型の式 |
 | [`stdin`](/reference/cstdio/stdin.md)    | 標準入力を表す`FILE*`型の式 |
 | [`stdout`](/reference/cstdio/stdout.md)   | 標準出力を表す`FILE*`型の式 |
+| `__STDC_VERSION_STDIO_H__` | `<cstdio>`が提供するC標準ライブラリ機能のバージョン (`202311L`) | C++26 |
 
 
 ## ファイル操作
@@ -106,3 +108,5 @@
 ## 参照
 - [P0063R3 C++17 should refer to C11 instead of C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html)
 - [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+    - C++26がC23を参照するようになり、`_PRINTF_NAN_LEN_MAX`と`__STDC_VERSION_STDIO_H__`が追加された

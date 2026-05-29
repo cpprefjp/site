@@ -2,11 +2,15 @@
 * cfloat[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
+* cpp26deprecated[meta cpp]
 * [mathjax enable]
 
 ```cpp
 #define DECIMAL_DIG implementation-defined
 ```
+
+このマクロは、C++26で非推奨となった。型ごとの桁数を示す[`FLT_DECIMAL_DIG`](flt_decimal_dig.md)・[`DBL_DECIMAL_DIG`](dbl_decimal_dig.md)・[`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md)を使用すること。
+
 
 ## 概要
 精度が一番高い浮動小数点型の数値を10進数で正確に表すのに必要な有効数字の桁数を表すマクロ。  
@@ -35,6 +39,16 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
     - [`DBL_DECIMAL_DIG`](dbl_decimal_dig.md)
     - [`FLT_DECIMAL_DIG`](flt_decimal_dig.md)
     - [`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md)
+
+
+## 非推奨・削除の詳細
+C言語側で対応するマクロが非推奨となったため、C++側でも非推奨とする。
+
+このマクロは、精度が一番高い浮動小数点型のみを対象とする値であり、実質的に[`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md)と同じものであった。型ごとに必要な桁数は異なるため、すべての浮動小数点型に対して単一の値を使用するこのマクロよりも、型ごとの桁数を表す以下のマクロを使用するほうが正確である：
+
+- [`FLT_DECIMAL_DIG`](flt_decimal_dig.md) (`float`用)
+- [`DBL_DECIMAL_DIG`](dbl_decimal_dig.md) (`double`用)
+- [`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md) (`long double`用)
 
 
 ## 例
@@ -81,3 +95,8 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
 	- 2013は、正しく実装されていない。C++11での最低値である10と定義されている。しかし、`double`および`long double`がIEEE 754倍精度で実装されているため、少なくとも17以上でなければならない。
 	- 2015は、正しく17と定義されている。
+
+
+## 参照
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+    - C++26がC23を参照するようになり、このマクロが非推奨となった

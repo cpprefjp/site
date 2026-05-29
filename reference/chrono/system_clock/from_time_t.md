@@ -48,7 +48,7 @@ int main()
 * to_time_t[link to_time_t.md]
 * std::time_t[link /reference/ctime/time_t.md]
 * std::time[link /reference/ctime/time.md.nolink]
-* std::ctime[link /reference/ctime/ctime.md.nolink]
+* std::ctime[link /reference/ctime/ctime.md]
 
 ### 出力例
 ```

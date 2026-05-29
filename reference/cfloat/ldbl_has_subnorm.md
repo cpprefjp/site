@@ -2,10 +2,14 @@
 * cfloat[meta header]
 * macro[meta id-type]
 * cpp17[meta cpp]
+* cpp26deprecated[meta cpp]
 
 ```cpp
 #define LDBL_HAS_SUBNORM implementation-defined
 ```
+
+このマクロは、C++26で廃止予定 (obsolescent) となった。
+
 
 ## 概要
 `LDBL_HAS_SUBNORM` は、`long double`型における非正規化数のサポート状況を表すマクロである。
@@ -25,6 +29,15 @@
 
 ## 備考
 - このマクロは、非正規化数を表現できる場合の、浮動小数点数の正の最小値を表す[`LDBL_TRUE_MIN`](ldbl_true_min.md)のために定義された
+
+
+## 非推奨・削除の詳細
+このマクロはコンパイル時定数として非正規化数のサポート状況を取得するものであったが、これは必ずしもコンパイル時に確定する値ではなく、有用でないため廃止予定 (obsolescent) となった：
+
+- ハードウェアによっては非正規化数をソフトウェアエミュレーションでサポートする場合があり、サポート状況が判定できず`-1` (indeterminable) となることがある
+- ハードウェアサポートがある場合でも、実行時のフラグ切り替えによって非正規化数をゼロにフラッシュ (flush-to-zero) するよう設定できるため、サポート状況がコンパイル時に確定しない場合がある
+
+C++23では、対応する[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`has_denorm`](/reference/limits/numeric_limits/has_denorm.md)が同じ理由ですでに非推奨となっている。
 
 
 ## 例
@@ -64,3 +77,5 @@ int main()
 - [WG14/N1378 `xxx_TRUE_MIN` macros for `<float.h>`](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1378.htm)
 - [P0063R3 C++17 should refer to C11 instead of C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html)
 - [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+    - C++26がC23を参照するようになり、このマクロが廃止予定 (obsolescent) となった

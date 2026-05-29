@@ -44,7 +44,7 @@ int main()
 * system_clock::to_time_t(p)[color ff0000]
 * now()[link now.md]
 * std::time_t[link /reference/ctime/time_t.md]
-* std::ctime[link /reference/ctime/ctime.md.nolink]
+* std::ctime[link /reference/ctime/ctime.md]
 
 ### 出力例
 ```

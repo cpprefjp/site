@@ -34,9 +34,34 @@
 | [`LLONG_MAX`](climits/llong_max.md)   | `long long` の最大値 | C++11 |
 
 
+## 幅
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------|------------------------------------|-------|
+| [`BOOL_WIDTH`](climits/bool_width.md)     | `bool` の幅 (値ビット数)              | C++26 |
+| [`CHAR_WIDTH`](climits/char_width.md)     | `char` の幅 (値ビット数)             | C++26 |
+| [`SCHAR_WIDTH`](climits/schar_width.md)   | `signed char` の幅 (値ビット数)      | C++26 |
+| [`UCHAR_WIDTH`](climits/uchar_width.md)   | `unsigned char` の幅 (値ビット数)    | C++26 |
+| [`SHRT_WIDTH`](climits/shrt_width.md)     | `short` の幅 (値ビット数)            | C++26 |
+| [`USHRT_WIDTH`](climits/ushrt_width.md)   | `unsigned short` の幅 (値ビット数)   | C++26 |
+| [`INT_WIDTH`](climits/int_width.md)       | `int` の幅 (値ビット数)              | C++26 |
+| [`UINT_WIDTH`](climits/uint_width.md)     | `unsigned int` の幅 (値ビット数)     | C++26 |
+| [`LONG_WIDTH`](climits/long_width.md)     | `long` の幅 (値ビット数)             | C++26 |
+| [`ULONG_WIDTH`](climits/ulong_width.md)   | `unsigned long` の幅 (値ビット数)    | C++26 |
+| [`LLONG_WIDTH`](climits/llong_width.md)   | `long long` の幅 (値ビット数)        | C++26 |
+| [`ULLONG_WIDTH`](climits/ullong_width.md) | `unsigned long long` の幅 (値ビット数) | C++26 |
+
+
 ## その他
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|----------------------------|-------|
 | [`CHAR_BIT`](climits/char_bit.md)     | 1バイトのビット数          | |
 | [`MB_LEN_MAX`](climits/mb_len_max.md) | マルチバイト文字のバイト数 | |
+
+なお、ビット精度整数型の最大幅を表す`BITINT_MAXWIDTH`は、C++では定義されない。
+
+
+## 参照
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+    - C++26がC23を参照するようになり、各整数型の幅を表すマクロが追加された

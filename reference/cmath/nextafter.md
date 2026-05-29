@@ -111,6 +111,12 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`nextup`](nextup.md): 正の無限大方向への次の表現可能な値を取得する
+- [`nextdown`](nextdown.md): 負の無限大方向への次の表現可能な値を取得する
+- [`nexttoward`](nexttoward.md): 指定方向への次の表現可能な値を取得する
+
+
 ## 参照
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
     - C++23での、一部関数の`constexpr`対応

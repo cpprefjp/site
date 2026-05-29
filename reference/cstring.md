@@ -23,9 +23,12 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `memcpy`  | メモリデータをコピーする | |
+| [`memccpy`](cstring/memccpy.md) | メモリデータを指定した文字が現れるまでコピーする | C++26 |
 | `memmove` | メモリデータをコピーする（領域重複可） | |
 | `strcpy`  | 文字列をコピーする | |
 | `strncpy` | 文字列をコピーする（上限サイズ指定） | |
+| [`strdup`](cstring/strdup.md)  | 文字列を複製する | C++26 |
+| [`strndup`](cstring/strndup.md) | 文字列を複製する（上限サイズ指定） | C++26 |
 
 
 ## 結合関数
@@ -65,10 +68,13 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `memset`   | メモリデータを指定した値で埋める | |
-| `strerror` | エラーの内容を文字列で取得する | |
-| `strlen`   | 文字列の長さを取得する | |
+| `memset`          | メモリデータを指定した値で埋める | |
+| [`memset_explicit`](cstring/memset_explicit.md) | メモリデータを指定した値で埋める（最適化によって除去されない） | C++26 |
+| `strerror`        | エラーの内容を文字列で取得する | |
+| `strlen`          | 文字列の長さを取得する | |
 
 
 ## 参照
 - [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+    - C++26がC23を参照するようになり、`memccpy`・`strdup`・`strndup`・`memset_explicit`が追加された
