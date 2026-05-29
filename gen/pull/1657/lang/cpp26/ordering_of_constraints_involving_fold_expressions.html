@@ -1,0 +1,311 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>制約式内での畳み込み式の順序付け [P2963R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp26
+">
+        <meta name="title" content="制約式内での畳み込み式の順序付け [P2963R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="制約式内での畳み込み式の順序付け [P2963R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="制約式内での畳み込み式の順序付け [P2963R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26/ordering_of_constraints_involving_fold_expressions.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++26では、制約式 (constraint) 内で使用される畳み込み式 (fold expression) に対して、包摂関係 (subsumption) の規則を導入する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="制約式内での畳み込み式の順序付け [P2963R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26/ordering_of_constraints_involving_fold_expressions.html" />
+        <meta name="twitter:description" content="C++26では、制約式 (constraint) 内で使用される畳み込み式 (fold expression) に対して、包摂関係 (subsumption) の規則を導入する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;ordering_of_constraints_involving_fold_expressions&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp26.html" itemprop="url">
+              
+                <span itemprop="name">C++26</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">制約式内での畳み込み式の順序付け [P2963R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-04-08T09:25:22">
+        2026年04月08日 09時25分22秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">制約式内での畳み込み式の順序付け [P2963R3]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++26では、制約式 (constraint) 内で使用される畳み込み式 (fold expression) に対して、包摂関係 (subsumption) の規則を導入する。</p>
+<p>C++23では、<code>(C&lt;T&gt; &amp;&amp; ...)</code>のような畳み込み式は制約の順序付けにおいて単一の原子制約 (atomic constraint) として扱われていた。そのため、概念的には一方がもう一方をより強く制約しているにもかかわらず、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>で曖昧になるケースがあった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/is_move_constructible.html">std::is_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/is_copy_constructible.html">std::is_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">B</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">...)</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="p">...);</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">...)</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="p">...);</span>
+
+<span class="c1">// C++23: g()の呼び出しが曖昧 (AとCの包摂関係が認識されない)</span>
+<span class="c1">// C++26: C&lt;T&gt;はA&lt;T&gt;を包摂するため、2番目のオーバーロードが選択される</span>
+<span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">});</span>
+</code></pre></div>
+</p>
+<p>C++26では、制約の種類として新たに「折りたたみ展開制約 (fold expanded constraint)」が導入され、畳み込み式を含む制約の間で包摂関係が認識されるようになる。</p>
+<h2>仕様</h2>
+<h3>折りたたみ展開制約 (fold expanded constraint)</h3>
+<p>C++26では、制約の種類として連言 (conjunction)、選言 (disjunction)、原子制約 (atomic constraint) に加え、「折りたたみ展開制約 (fold expanded constraint)」(P2963R3) および「コンセプト依存制約 (concept-dependent constraint)」(P2841R7) が新たに導入される。ここでは折りたたみ展開制約について説明する。</p>
+<p>畳み込み式 <code>(E &amp;&amp; ...)</code> や <code>(E || ...)</code> が制約の正規化において処理される際、通常は折りたたみ展開制約として正規化される。折りたたみ展開制約は、制約<code>E</code>の正規形と畳み込み演算子 (<code>&amp;&amp;</code>または<code>||</code>) の組から構成される。</p>
+<p>ただし、<code>E</code>が展開されていないコンセプトテンプレートパラメータパック (unexpanded concept template parameter pack) を含む場合は、そのパックの要素数<code>N</code>に基づいて<code>E_0 Op ... Op E_{N-1}</code>の形に展開され、連言または選言にまで分解される。これはP2841R7 (コンセプトテンプレートパラメータ) との連携による動作である。</p>
+<h3>包摂の規則</h3>
+<p>折りたたみ展開制約<code>A</code>がもうひとつの折りたたみ展開制約<code>B</code>を包摂するのは、以下の条件をすべて満たす場合である：</p>
+<ul>
+<li><code>A</code>と<code>B</code>が包摂の互換性 (compatible for subsumption) をもつこと。すなわち、それぞれの制約が同等の展開されていないパックを含むこと</li>
+<li><code>A</code>と<code>B</code>が同じ畳み込み演算子 (<code>&amp;&amp;</code>または<code>||</code>) をもつこと</li>
+<li><code>A</code>の制約が<code>B</code>の制約を包摂すること</li>
+</ul>
+<p>異なる畳み込み演算子間の包摂は行われない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* ... */</span><span class="p">;</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">...);</span><span class="w"> </span><span class="c1">// #1</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">...);</span><span class="w"> </span><span class="c1">// #2</span>
+
+<span class="c1">// &amp;&amp;と||は異なる演算子なので、#2が#1を包摂するとはみなされない</span>
+<span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// 曖昧</span>
+</code></pre></div>
+</p>
+<h3>短絡評価</h3>
+<p>折りたたみ展開制約の充足 (satisfaction) は、通常の連言／選言と同様に短絡評価される。<code>&amp;&amp;</code>の場合は充足されない最初の要素で、<code>||</code>の場合は充足される最初の要素で評価が停止する。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>コンセプトと畳み込み式は、可変引数テンプレートの制約を簡潔に記述するために組み合わせて使われることが多い。しかし、C++23では畳み込み式が原子制約として扱われるため、概念的に明らかな包摂関係が認識されず、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が曖昧になる問題があった。</p>
+<p>たとえば、<code><a href="../../reference/ranges/bidirectional_range.html">std::ranges::bidirectional_range</a></code>と<code><a href="../../reference/ranges/random_access_range.html">std::ranges::random_access_range</a></code>は非可変引数テンプレートでは正しく順序付けられるが、可変引数テンプレートで畳み込み式を使用すると順序付けが失われていた。この提案はその問題を解決する。</p>
+<p>この提案はP2841R0から派生したもので、折りたたみ展開制約の導入と包摂規則を定める。畳み込み式のパターンにコンセプトテンプレートパラメータパック (P2841で導入) が含まれる場合は、連言／選言にまで完全に分解される。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp17/folding_expressions.html">C++17 畳み込み式</a></li>
+<li><a href="../cpp20/concepts.html">C++20 コンセプト</a></li>
+<li><a href="concept_and_variable-template_template-parameters.html">C++26 コンセプトと変数テンプレートをテンプレート引数として渡せるようにする</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2963r3.pdf" target="_blank">P2963R3 Ordering of constraints involving fold expressions</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+# PR [\#1657](https://github.com/cpprefjp/site/pull/1657) プレビュー
+- &#x231a; 更新時刻: 2026-05-29 16:27:16 JST
+- &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1657)
+- &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Ac23_lib)
+- **&#x2AEF;** ソースの変更: [`af718aa..0be1e02`](https://github.com/cpprefjp/site/compare/af718aae58f5b1a242d9b6061f4885c2243de757..0be1e026071f84240dd9737e3492b621ccbd2f2e)
+
+## 変更記事一覧 (101件)
+
+- &#x1f4dd; [`lang/cpp26`](https://cpprefjp.github.io/site/gen/pull/1657/lang/cpp26.html)
+- &#x1f4dd; [`reference`](https://cpprefjp.github.io/site/gen/pull/1657/reference.html)
+- &#x1f4dd; [`reference/cfloat`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cfloat.html)
+- &#x1f4dd; [`reference/cfloat/dbl_has_subnorm`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cfloat/dbl_has_subnorm.html)
+- &#x1f4dd; [`reference/cfloat/dbl_snan`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cfloat/dbl_snan.html) &#x2728;
+- &#x1f4dd; [`reference/cfloat/decimal_dig`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cfloat/decimal_dig.html)
+- &#x1f4dd; [`reference/cfloat/flt_has_subnorm`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cfloat/flt_has_subnorm.html)
+- &#x1f4dd; [`reference/cfloat/flt_snan`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cfloat/flt_snan.html) &#x2728;
+- &#x1f4dd; [`reference/cfloat/ldbl_has_subnorm`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cfloat/ldbl_has_subnorm.html)
+- &#x1f4dd; [`reference/cfloat/ldbl_snan`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cfloat/ldbl_snan.html) &#x2728;
+- &#x1f4dd; [`reference/chrono/system_clock`](https://cpprefjp.github.io/site/gen/pull/1657/reference/chrono/system_clock.html)
+- &#x1f4dd; [`reference/chrono/system_clock/from_time_t`](https://cpprefjp.github.io/site/gen/pull/1657/reference/chrono/system_clock/from_time_t.html)
+- &#x1f4dd; [`reference/chrono/system_clock/now`](https://cpprefjp.github.io/site/gen/pull/1657/reference/chrono/system_clock/now.html)
+- &#x1f4dd; [`reference/chrono/system_clock/to_time_t`](https://cpprefjp.github.io/site/gen/pull/1657/reference/chrono/system_clock/to_time_t.html)
+- &#x1f4dd; [`reference/cinttypes`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cinttypes.html) &#x2728;
+- &#x1f4dd; [`reference/cinttypes/prib`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cinttypes/prib.html) &#x2728;
+- &#x1f4dd; [`reference/cinttypes/scnb`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cinttypes/scnb.html) &#x2728;
+- &#x1f4dd; [`reference/climits`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits.html)
+- &#x1f4dd; [`reference/climits/bool_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/bool_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/char_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/char_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/int_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/int_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/llong_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/llong_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/long_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/long_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/schar_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/schar_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/shrt_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/shrt_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/uchar_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/uchar_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/uint_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/uint_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/ullong_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/ullong_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/ulong_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/ulong_width.html) &#x2728;
+- &#x1f4dd; [`reference/climits/ushrt_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/climits/ushrt_width.html) &#x2728;
+- &#x1f4dd; [`reference/cmath`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cmath.html)
+- &#x1f4dd; [`reference/cmath/infinity`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cmath/infinity.html)
+- &#x1f4dd; [`reference/cmath/nan`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cmath/nan.html)
+- &#x1f4dd; [`reference/cmath/nextafter`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cmath/nextafter.html)
+- &#x1f4dd; [`reference/cmath/nextdown`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cmath/nextdown.html) &#x2728;
+- &#x1f4dd; [`reference/cmath/nextup`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cmath/nextup.html) &#x2728;
+- &#x1f4dd; [`reference/cstddef`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstddef.html)
+- &#x1f4dd; [`reference/cstdint`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint.html)
+- &#x1f4dd; [`reference/cstdint/int16_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int16_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int32_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int32_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int64_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int64_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int8_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int8_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int_fast16_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int_fast16_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int_fast32_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int_fast32_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int_fast64_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int_fast64_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int_fast8_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int_fast8_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int_least16_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int_least16_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int_least32_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int_least32_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int_least64_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int_least64_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/int_least8_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/int_least8_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/intmax_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/intmax_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/intptr_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/intptr_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/ptrdiff_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/ptrdiff_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/sig_atomic_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/sig_atomic_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/size_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/size_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint16_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint16_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint32_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint32_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint64_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint64_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint8_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint8_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint_fast16_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint_fast16_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint_fast32_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint_fast32_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint_fast64_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint_fast64_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint_fast8_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint_fast8_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint_least16_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint_least16_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint_least32_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint_least32_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint_least64_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint_least64_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uint_least8_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uint_least8_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uintmax_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uintmax_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/uintptr_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/uintptr_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/wchar_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/wchar_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdint/wint_width`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdint/wint_width.html) &#x2728;
+- &#x1f4dd; [`reference/cstdio`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdio.html)
+- &#x1f4dd; [`reference/cstdio/printf_nan_len_max`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdio/printf_nan_len_max.html) &#x2728;
+- &#x1f4dd; [`reference/cstdlib`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib.html)
+- &#x1f4dd; [`reference/cstdlib/bsearch`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib/bsearch.html) &#x2728;
+- &#x1f4dd; [`reference/cstdlib/free_aligned_sized`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib/free_aligned_sized.html) &#x2728;
+- &#x1f4dd; [`reference/cstdlib/free_sized`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib/free_sized.html) &#x2728;
+- &#x1f4dd; [`reference/cstdlib/memalignment`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib/memalignment.html) &#x2728;
+- &#x1f4dd; [`reference/cstdlib/realloc`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib/realloc.html)
+- &#x1f4dd; [`reference/cstdlib/strfromd`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib/strfromd.html) &#x2728;
+- &#x1f4dd; [`reference/cstdlib/strfromf`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib/strfromf.html) &#x2728;
+- &#x1f4dd; [`reference/cstdlib/strfroml`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstdlib/strfroml.html) &#x2728;
+- &#x1f4dd; [`reference/cstring`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstring.html)
+- &#x1f4dd; [`reference/cstring/memccpy`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstring/memccpy.html) &#x2728;
+- &#x1f4dd; [`reference/cstring/memset_explicit`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstring/memset_explicit.html) &#x2728;
+- &#x1f4dd; [`reference/cstring/strdup`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstring/strdup.html) &#x2728;
+- &#x1f4dd; [`reference/cstring/strndup`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cstring/strndup.html) &#x2728;
+- &#x1f4dd; [`reference/ctime`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime.html)
+- &#x1f4dd; [`reference/ctime/asctime`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/asctime.html) &#x2728;
+- &#x1f4dd; [`reference/ctime/ctime`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/ctime.html) &#x2728;
+- &#x1f4dd; [`reference/ctime/gmtime_r`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/gmtime_r.html) &#x2728;
+- &#x1f4dd; [`reference/ctime/localtime_r`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/localtime_r.html) &#x2728;
+- &#x1f4dd; [`reference/ctime/time_active`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/time_active.html) &#x2728;
+- &#x1f4dd; [`reference/ctime/time_monotonic`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/time_monotonic.html) &#x2728;
+- &#x1f4dd; [`reference/ctime/time_t`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/time_t.html)
+- &#x1f4dd; [`reference/ctime/time_thread_active`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/time_thread_active.html) &#x2728;
+- &#x1f4dd; [`reference/ctime/timegm`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/timegm.html) &#x2728;
+- &#x1f4dd; [`reference/ctime/timespec_getres`](https://cpprefjp.github.io/site/gen/pull/1657/reference/ctime/timespec_getres.html) &#x2728;
+- &#x1f4dd; [`reference/cuchar`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cuchar.html) &#x2728;
+- &#x1f4dd; [`reference/cuchar/c8rtomb`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cuchar/c8rtomb.html) &#x2728;
+- &#x1f4dd; [`reference/cuchar/mbrtoc8`](https://cpprefjp.github.io/site/gen/pull/1657/reference/cuchar/mbrtoc8.html) &#x2728;
