@@ -4,6 +4,7 @@
 * path[meta class]
 * function[meta id-type]
 * cpp17[meta cpp]
+* cpp26deprecated[meta cpp]
 
 ```cpp
 template <class EcharT,
@@ -14,6 +15,9 @@ std::basic_string<EcharT, traits, Allocator>
 
 std::string string() const;                       // (2)
 ```
+
+(2)は、C++26で非推奨となった。システム依存エンコーディングへの変換であることを明確にした[`system_encoded_string()`](system_encoded_string.md)、もしくは表示に適した[`display_string()`](display_string.md)を使用すること。
+
 
 ## 概要
 - (1) : 指定された文字型に対応する文字コードで、パス文字列を取得する
@@ -35,6 +39,15 @@ std::string string() const;                       // (2)
     - `ECharT`が`char32_t`の場合、UTF-32エンコーディングとなる
 - (2) :
     - POSIXベースシステムではUTF-8、Windowsの日本語環境ではCP932文字コードとなる
+
+
+## 非推奨の詳細 (C++26)
+(2)が返すシステム依存のパス名エンコーディングは、[iostream](/reference/iostream.md)・[`std::format()`](/reference/format/format.md)・[`std::print()`](/reference/print/print.md)を含むほぼすべての標準のテキスト処理・入出力機能と互換性がなく、文字化けやデータ損失の原因になりやすい。C++26ではこの問題を避けるために(2)が非推奨となり、用途に応じて以下の代替関数が追加された：
+
+- レガシーなシステムAPIにパスを渡す場合 : [`system_encoded_string()`](system_encoded_string.md) ((2)と同じ動作)
+- 表示・フォーマットする場合 : [`display_string()`](display_string.md)、[`std::format()`](/reference/format/format.md)、[`std::print()`](/reference/print/print.md)
+
+なお、テンプレート版である(1)は非推奨となっていない。
 
 
 ## 例
@@ -121,3 +134,14 @@ foo/bar
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]
+
+
+## 関連項目
+- [`system_encoded_string()`](system_encoded_string.md) (システム依存エンコーディングで取得する。(2)の代替)
+- [`display_string()`](display_string.md) (表示用のリテラルエンコーディングで取得する)
+- [`native()`](native.md) (システムの文字コードでパス文字列を取得する)
+
+
+## 参照
+- [P2319R5 Prevent path presentation problems](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2319r5.html)
+    - 非テンプレート版の(2)がC++26で非推奨となり、[`system_encoded_string()`](system_encoded_string.md)・[`display_string()`](display_string.md)が代替として追加された
