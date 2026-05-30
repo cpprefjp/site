@@ -9,21 +9,26 @@ namespace std {
   template <class charT>
   using fmt-iter-for = unspecified;
 
+  template <class T, class Context, class Formatter = typename Context::template formatter_type<remove_const_t<T>>>>
+  concept formattable-with = // 説明専用
+    semiregular<Formatter> &&
+    requires(Formatter& f,
+             const Formatter& cf,
+             T&& t,
+             Context fc,
+             basic_format_parse_context<charT> pc) {
+      { f.parse(pc) } -> same_as<typename decltype(pc)::iterator>;
+      { cf.format(t, fc) } -> same_as<typename Context::iterator>;
+    };
+
   template <class T, class charT>
   concept formattable =
-    semiregular<formatter<remove_cvref_t<T>, charT>> &&
-    requires(formatter<remove_cvref_t<T>, charT> f,
-             const formatter<remove_cvref_t<T>, charT> cf,
-             T t,
-             basic_format_context<fmt-iter-for<charT>, charT> fc,
-             basic_format_parse_context<charT> pc) {
-      { f.parse(pc) } -> same_as<basic_format_parse_context<charT>::iterator>;
-      { cf.format(t, fc) } -> same_as<fmt-iter-for<charT>>;
-    };
+    formattable-with<remove_reference_t<T>, basic_format_context<fmt-iter-for<charT>>>;
 }
 ```
 * fmt-iter-for[italic]
 * unspecified[italic]
+* formattable-with[italic]
 * formatter[link formatter.md]
 * semiregular[link /reference/concepts/semiregular.md]
 * basic_format_context[link basic_format_context.md]
@@ -73,3 +78,4 @@ hello
 
 ## 参照
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
+- [N4950 22.14.6.2 Concept formattable](https://timsong-cpp.github.io/cppwp/n4950/format.formattable#concept:formattable-with)
