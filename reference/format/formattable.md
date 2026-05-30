@@ -16,7 +16,7 @@ namespace std {
              const Formatter& cf,
              T&& t,
              Context fc,
-             basic_format_parse_context<charT> pc) {
+             basic_format_parse_context<typename Context::char_type> pc) {
       { f.parse(pc) } -> same_as<typename decltype(pc)::iterator>;
       { cf.format(t, fc) } -> same_as<typename Context::iterator>;
     };
