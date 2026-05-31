@@ -35,7 +35,7 @@ namespace std {
 
     template<class T> explicit handle(const T& val) noexcept
       :ptr_(addressof(val))
-      ,format_function(
+      ,format_(
         [](basic_format_parse_context<charT>& parse_ctx, Context& format_ctx, const void* ptr) {
           typename Context::template formatter_type<T> f;
           parse_ctx.advance_to(f.parse(parse_ctx));
