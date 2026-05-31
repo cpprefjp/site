@@ -45,7 +45,8 @@ namespace std {
 ## テンプレートパラメーター制約
 
 - (2):
-    - `T`はフォーマットできる型であること
+    - (C++20) `T`はフォーマットできる型であること
+    - (C++23) `T`は [`formattable-with`](../formattable.md)`<Context>`を満たすこと
 
 ## 事前条件
 
