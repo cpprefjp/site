@@ -133,7 +133,10 @@ namespace std::ranges {
 
 ## 例
 ```cpp example
-import std;
+#include <vector>
+#include <array>
+#include <ranges>
+#include <print>
 
 int main() {
   std::vector<int> v1{1, 2, 3}, v2{4, 5}, v3{};
@@ -155,7 +158,7 @@ int main() {
 - C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): 20 [mark noimpl]
+- [Clang](/implementation.md#clang): 23 [mark verified]
 - [GCC](/implementation.md#gcc): 15 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2022 Update 14 [mark noimpl]
 

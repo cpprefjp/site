@@ -54,6 +54,6 @@ int main() {
 - C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): 20 [mark noimpl]
+- [Clang](/implementation.md#clang): 23 [mark verified]
 - [GCC](/implementation.md#gcc): 15 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2022 Update 14 [mark noimpl]
