@@ -257,12 +257,12 @@
 <span class="w">  </span><span class="n">CallbackFunc</span><span class="p">(</span><span class="n">CallbackFuncStatus</span><span class="o">*</span><span class="w"> </span><span class="n">cfs</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cfs_</span><span class="p">(</span><span class="n">cfs</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="w">  </span><span class="n">CallbackFunc</span><span class="p">(</span><span class="n">CallbackFunc</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="p">;</span>
-<span class="w">    </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="n">CallbackFunc</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">CallbackFunc</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="p">;</span>
-<span class="w">    </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 
@@ -277,7 +277,7 @@
 <span class="w">  </span><span class="p">}</span>
 
 <span class="k">private</span><span class="o">:</span>
-<span class="w">  </span><span class="n">CallbackFuncStatus</span><span class="o">*</span><span class="w"> </span><span class="n">cfs_</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n">CallbackFuncStatus</span><span class="o">*</span><span class="w"> </span><span class="n">cfs_</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="p">};</span>
 <span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -325,7 +325,7 @@
 <span class="w">    </span><span class="c1">// デストラクタの実行はブロックされない。</span>
 <span class="w">    </span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span>
 
-<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cb</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cb</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

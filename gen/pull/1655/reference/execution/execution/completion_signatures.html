@@ -233,7 +233,7 @@
 
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="k">for</span><span class="o">-</span><span class="n">each</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
-<span class="w">      </span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Fns</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)),</span><span class="w"> </span><span class="p">...);</span>
+<span class="w">      </span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Fns</span><span class="o">*&gt;</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)),</span><span class="w"> </span><span class="p">...);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>

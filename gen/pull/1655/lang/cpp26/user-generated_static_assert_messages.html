@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">static_assertの診断メッセージにユーザーが生成した文字列の指定を許可 [P2741R3]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++26では、<code><a href="../cpp11/static_assert.html">static_assert</a></code>に指定する表明失敗時の<a class="cpprefjp-defined-word" data-desc="診断情報。コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="../../implementation-compliance.html#dfn-diagnostic-message">診断メッセージ</a>として、文字列リテラルだけでなく<a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>の文字列オブジェクトも指定できるようになる。</p>
 <p>例えば、将来的に<code><a href="../../reference/format/format.html">std::format()</a></code>関数が<code>constexpr</code>対応した場合、それによって作られた<code><a href="../../reference/string/basic_string.html">std::string</a></code>オブジェクトを<a class="cpprefjp-defined-word" data-desc="診断情報。コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="../../implementation-compliance.html#dfn-diagnostic-message">診断メッセージ</a>として使用できる。</p>

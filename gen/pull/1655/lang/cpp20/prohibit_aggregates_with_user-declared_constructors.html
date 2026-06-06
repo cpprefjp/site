@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止 [P1008R1]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++20に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>ユーザー宣言されたコンストラクタをもつクラスを、集成体初期化によってコンストラクタを回避してオブジェクト構築できてしまっていた技法を禁止する。</p>
 <p>C++17まで、集成体初期化ができる型として、「<code>delete</code>／<code>default</code>宣言されたコンストラクタを持つ型」が許可されてしまっていたが、これを禁止する。これによって一部、以前のバージョンからの互換性がなくなる。</p>

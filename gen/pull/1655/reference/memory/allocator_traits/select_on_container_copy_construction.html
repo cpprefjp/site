@@ -246,7 +246,7 @@
 <span class="w">  </span><span class="n">Alloc</span><span class="w"> </span><span class="n">alloc_</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">  </span><span class="n">MyVector</span><span class="p">()</span>
-<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">data_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span><span class="w"> </span><span class="n">size_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">data_</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">),</span><span class="w"> </span><span class="n">size_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="w">  </span><span class="n">MyVector</span><span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
 <span class="w">  </span><span class="p">{</span>
@@ -303,7 +303,7 @@
 <span class="w">    </span><span class="n"><a href="deallocate.html">traits::deallocate</a></span><span class="p">(</span><span class="n">alloc_</span><span class="p">,</span><span class="w"> </span><span class="n">data_</span><span class="p">,</span><span class="w"> </span><span class="n">size_</span><span class="p">);</span>
 
 <span class="w">    </span><span class="n">size_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">data_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">data_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 

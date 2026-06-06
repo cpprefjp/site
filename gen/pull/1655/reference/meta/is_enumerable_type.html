@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/meta/is_enumerable_type.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="型が列挙可能型であるかを判定する。列挙可能型とは、[`enumerators_of()`](enumerators_of.md)で列挙子を取得できる列挙型である。" />
+        <meta property="og:description" content="型が列挙可能型であるかを判定する。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="std::meta::is_enumerable_type - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/meta/is_enumerable_type.html" />
-        <meta name="twitter:description" content="型が列挙可能型であるかを判定する。列挙可能型とは、[`enumerators_of()`](enumerators_of.md)で列挙子を取得できる列挙型である。" />
+        <meta name="twitter:description" content="型が列挙可能型であるかを判定する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c71cbab9eb542ae683adcead59c8e52fb6b7daae&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nenum Color { red, green, blue };\n\nint main() {\n  static_assert(std::meta::is_enumerable_type(^^Color));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_enumerable_type&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;meta&#34;], &#34;namespace&#34;: [&#34;std::meta&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;029203b30e5c31b7bd9db6bfa2e2fded24ba9cb4&#34;, &#34;source&#34;: &#34;#include &lt;meta&gt;\n\nenum class Color;\nstatic_assert(!std::meta::is_enumerable_type(^^Color));\nenum class Color { red, green, blue };\nstatic_assert( std::meta::is_enumerable_type(^^Color));\n\nclass S {};\nstatic_assert( std::meta::is_enumerable_type(^^S));  // \u5b8c\u5168\u306a\u30af\u30e9\u30b9\u578b\u3082\u5217\u6319\u53ef\u80fd\u578b\n\nenum class E {\n  FALSE, TRUE,\n  A = std::meta::is_enumerable_type(^^E) ? TRUE : FALSE\n};\nstatic_assert(E::A == E::FALSE);  // \u5217\u6319\u578b\u81ea\u8eab\u306e\u5ba3\u8a00\u5185\u3067\u306f\u3001\u5217\u6319\u53ef\u80fd\u578b\u306b\u306a\u3089\u306a\u3044\n\nint main() {}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;meta&#34;, &#34;is_enumerable_type&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-07T03:33:06">
-        2026年05月07日 03時33分06秒
+      <span itemprop="datePublished" content="2026-05-25T07:34:33">
+        2026年05月25日 07時34分33秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -219,17 +219,35 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>型が列挙可能型であるかを判定する。列挙可能型とは、<code><a href="enumerators_of.html">enumerators_of()</a></code>で列挙子を取得できる列挙型である。</p>
+<p>型が列挙可能型であるかを判定する。</p>
+<p>列挙可能型とは、次のいずれかを満たす型である：</p>
+<ul>
+<li>クラス型であり、<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>である</li>
+<li>列挙型であり、その宣言に到達可能である（<code><a href="enumerators_of.html">enumerators_of()</a></code>で列挙子を取得できる）<ul>
+<li>ただし、その列挙型の宣言内では列挙可能型にならない</li>
+</ul>
+</li>
+</ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>r</code>が列挙可能な列挙型を表す場合に<code>true</code>を返す。</p>
+<p><code>r</code>が列挙可能型を表す場合に<code>true</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="c71cbab9eb542ae683adcead59c8e52fb6b7daae"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
+<p><div class="yata" id="029203b30e5c31b7bd9db6bfa2e2fded24ba9cb4"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../meta.html">&lt;meta&gt;</a></span>
 
-<span class="k">enum</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="w"> </span><span class="p">};</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">;</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_enumerable_type</span><span class="p">(</span><span class="o">^^</span><span class="n">Color</span><span class="p">));</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="w"> </span><span class="p">};</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_enumerable_type</span><span class="p">(</span><span class="o">^^</span><span class="n">Color</span><span class="p">));</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_enumerable_type</span><span class="p">(</span><span class="o">^^</span><span class="n">Color</span><span class="p">));</span>
-<span class="p">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_enumerable_type</span><span class="p">(</span><span class="o">^^</span><span class="n">S</span><span class="p">));</span><span class="w">  </span><span class="c1">// 完全なクラス型も列挙可能型</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">TRUE</span><span class="p">,</span>
+<span class="w">  </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">is_enumerable_type</span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">TRUE</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">FALSE</span>
+<span class="p">};</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">E</span><span class="o">::</span><span class="n">A</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">E</span><span class="o">::</span><span class="n">FALSE</span><span class="p">);</span><span class="w">  </span><span class="c1">// 列挙型自身の宣言内では、列挙可能型にならない</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>

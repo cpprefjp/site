@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-21T06:03:06">
-        2026年05月21日 06時03分06秒
+      <span itemprop="datePublished" content="2026-05-22T02:42:20">
+        2026年05月22日 02時42分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,32 +233,32 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="center">borrowed</th>
-<th align="center">sized</th>
-<th align="center">output</th>
-<th align="center">input</th>
-<th align="center">forward</th>
-<th align="center">bidirectional</th>
-<th align="center">random_access</th>
-<th align="center">contiguous</th>
-<th align="center">common</th>
-<th align="center">viewable</th>
-<th align="center">view</th>
+<th style="text-align: center;">borrowed</th>
+<th style="text-align: center;">sized</th>
+<th style="text-align: center;">output</th>
+<th style="text-align: center;">input</th>
+<th style="text-align: center;">forward</th>
+<th style="text-align: center;">bidirectional</th>
+<th style="text-align: center;">random_access</th>
+<th style="text-align: center;">contiguous</th>
+<th style="text-align: center;">common</th>
+<th style="text-align: center;">viewable</th>
+<th style="text-align: center;">view</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center"></td>
-<td align="center">○</td>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center">○</td>
-<td align="center">○</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
 </tr>
 </tbody>
 </table>
@@ -270,6 +270,7 @@
 <li>(2): 式<code>views::as_const(E)</code>の効果は次のいずれか（<code>T = decltype((E))</code>、<code>U = remove_cvref_t&lt;T&gt;</code>とする）<ul>
 <li><code>views::all_t&lt;T&gt;</code>が<code>constant_range</code>のモデルとなる場合 : <code>views::all(E)</code></li>
 <li>任意の型<code>X</code>に対して、<code>U</code>が<code>empty_view&lt;X&gt;</code>である場合 : <code>auto(views::empty&lt;const X&gt;)</code></li>
+<li>C++26 : 任意の型<code>X</code>に対して、<code>U</code>が<code><a href="../optional/optional.html">optional</a>&lt;X&amp;&gt;</code>である場合 : <code><a href="../optional/optional.html">optional</a>&lt;const X&amp;&gt;(E)</code></li>
 <li>任意の型<code>X</code>と整数値<code>Extent</code>に対して、<code>U</code>が<code>span&lt;X, Extent&gt;</code>である場合 : <code>span&lt;const X, Extent&gt;(E)</code></li>
 <li>任意の型<code>X</code>に対して、<code>U</code>が<code>ref_view&lt;X&gt;</code>であり、<code>const X</code>が<code>constant_range</code>のモデルとなる場合 : <code>ref_view(static_cast&lt;const X&amp;&gt;(E.base()))</code></li>
 <li><code>E</code>が左辺値であり、<code>const U</code>が<code>constant_range</code>のモデルとなり、かつ<code>U</code>は<code>view</code>のモデルとならない場合 : <code>ref_view(static_cast&lt;const U&amp;&gt;(E))</code></li>
@@ -417,6 +418,10 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html" target="_blank">P2278R4 <code>cbegin</code> should always return a constant iterator</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3913r1.pdf" target="_blank">P3913R1 Optimize for <code>std::optional</code> in range adaptors</a><ul>
+<li>C++26で、入力が<code><a href="../optional/optional.html">optional</a>&lt;X&amp;&gt;</code>の場合の特殊化を追加</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

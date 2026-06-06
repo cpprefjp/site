@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">ラムダ式での*thisのコピーキャプチャ [P0018R3]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++17に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++14までラムダ式で<code>[this]</code>のようにキャプチャをすると、<code>this</code>ポインタがコピーされていた。その場合、非同期処理のような状況で、ラムダ式の関数オブジェクトが呼び出されたときに、<code>this</code>ポインタが指すオブジェクトの寿命が尽きている場合がある。</p>
 <p>C++17では<code>[*this]</code>のようにキャプチャすることで、キャプチャ時点での<code>*this</code>オブジェクトをコピーできるようになった。</p>

@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化 [P1668R1]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++20に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p><code>asm</code>宣言によるインラインアセンブリは<code>constexpr</code>関数内に現れる事が禁止されていたため、<code>constexpr</code>関数内に書く事は出来なかった。C++20からはコンパイル時に評価されない限り、<code>asm</code>宣言を<code>constexpr</code>関数内に書く事ができるようになる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>

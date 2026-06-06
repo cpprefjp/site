@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">共用体の特殊メンバ関数のトリビアル化 [P3074R7]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++26では、共用体 (<code>union</code>) のデフォルトコンストラクタとデストラクタの規則を変更し、より多くの場合にトリビアル (trivial) となるようにする。</p>
 <p>これにより、非トリビアルな型のメンバをもつ共用体を未初期化のストレージとして<code>constexpr</code>の文脈で使用できるようになる。</p>

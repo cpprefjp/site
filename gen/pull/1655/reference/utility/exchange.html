@@ -320,7 +320,7 @@ before : 1
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 
 <span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
@@ -328,7 +328,7 @@ before : 1
 <span class="w">  </span><span class="c1">// ムーブ構築しただけでは、標準範囲のオブジェクトは「有効だが未規定の状態」になる</span>
 <span class="w">  </span><span class="n">X</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span>
 <span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::exchange</span></span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="p">{})),</span>
-<span class="w">      </span><span class="n">p</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::exchange</span></span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">))</span>
+<span class="w">      </span><span class="n">p</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::exchange</span></span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">))</span>
 <span class="w">  </span><span class="p">{}</span>
 <span class="w">  </span><span class="c1">// 以下と等価:</span>
 <span class="w">  </span><span class="c1">// str{<a href="move.html">std::move</a>(other.str)};</span>
@@ -340,7 +340,7 @@ before : 1
 <span class="w">  </span><span class="c1">// ムーブ代入も同様</span>
 <span class="w">  </span><span class="n">X</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::exchange</span></span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
-<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::exchange</span></span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::exchange</span></span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>

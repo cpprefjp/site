@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">符号付き整数型が2の補数表現であることを規定 [P1236R1]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++20に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++20では、符号付き整数型のビット表現を「2の補数 (Two's Complement)」に規定する。</p>
 <p>これによって、2の補数を前提としたビット演算ができるようになる。また、2の補数には値<code>-0</code>を表すビット値が存在しないため、「ビット値が異なる値<code>0</code>と値<code>-0</code>を等値であるとする」ということが起こらなくなる (1の補数や絶対値表現には<code>-0</code>を表すビット値がある)。これにより、符号付き整数型に対するハッシュ値が一意に定まり、全順序の要件を満たすようになる (<code>-0 &lt; 0</code>が成り立たなかったが、<code>-0</code>がなくなった)。</p>

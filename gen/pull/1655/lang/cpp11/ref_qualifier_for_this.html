@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">メンバ関数の左辺値／右辺値修飾 [N2439]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++11に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>メンバ関数の<code>CV</code>修飾は、<code>*this</code>が<code>const</code>／<code>volatile</code>である場合とそうでない場合でメンバ関数を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>できる。</p>
 <p>同じように、メンバ関数に対して<code>&amp;</code>もしくは<code>&amp;&amp;</code>の参照修飾子を付加することで、<code>*this</code>が左辺値である場合に呼び出されるメンバ関数の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>、<code>*this</code>が右辺値である場合に呼び出されるメンバ関数の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を定義できる。</p>

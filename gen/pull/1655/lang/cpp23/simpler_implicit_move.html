@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">暗黙的なムーブを簡略化 [P2266R3]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++23に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++20の暗黙ムーブ仕様においては、暗黙ムーブ可能なもの（関数ローカルのオブジェクト/右辺値参照）が<code>return</code>文においてコピーされる場合に、可能ならば暗黙的にムーブして<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を構築するものだった。しかし、暗黙ムーブ可能なものを返しており<code>return</code>文でコピーが起こらない場合で、暗黙ムーブを行うことが適切な場合がまだ存在していた。</p>
 <p>C++23ではその様なものを暗黙ムーブの対象に含めるために暗黙ムーブ仕様の調整が行われた。</p>
@@ -362,82 +364,82 @@
 <thead>
 <tr>
 <th>関数宣言と<code>return</code>文</th>
-<th align="center">C++20まで</th>
-<th align="center">C++23から</th>
+<th style="text-align: center;">C++20まで</th>
+<th style="text-align: center;">C++23から</th>
 <th>備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>auto f(T x) -&gt; decltype(x) { return x; }</code></td>
-<td align="center"><code>T</code> : 〇</td>
-<td align="center">―</td>
+<td style="text-align: center;"><code>T</code> : 〇</td>
+<td style="text-align: center;">―</td>
 <td></td>
 </tr>
 <tr>
 <td><code>auto f(T x) -&gt; decltype((x)) { return (x); }</code></td>
-<td align="center"><code>T&amp;</code> : 〇</td>
-<td align="center"><code>T&amp;</code> : <strong>×</strong></td>
+<td style="text-align: center;"><code>T&amp;</code> : 〇</td>
+<td style="text-align: center;"><code>T&amp;</code> : <strong>×</strong></td>
 <td>ローカル参照を返していた</td>
 </tr>
 <tr>
 <td><code>auto f(T x) -&gt; decltype(auto) { return x; }</code></td>
-<td align="center"><code>T</code> : 〇</td>
-<td align="center">―</td>
+<td style="text-align: center;"><code>T</code> : 〇</td>
+<td style="text-align: center;">―</td>
 <td></td>
 </tr>
 <tr>
 <td><code>auto f(T x) -&gt; decltype(auto) { return (x); }</code></td>
-<td align="center"><code>T&amp;</code> : 〇</td>
-<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td style="text-align: center;"><code>T&amp;</code> : 〇</td>
+<td style="text-align: center;"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
 <td>ローカル参照を返す</td>
 </tr>
 <tr>
 <td><code>auto f(T&amp;&amp; x) -&gt; decltype(x) { return x; }</code></td>
-<td align="center"><code>T&amp;&amp;</code> : ×</td>
-<td align="center"><code>T&amp;&amp;</code> : <strong>〇</strong></td>
+<td style="text-align: center;"><code>T&amp;&amp;</code> : ×</td>
+<td style="text-align: center;"><code>T&amp;&amp;</code> : <strong>〇</strong></td>
 <td></td>
 </tr>
 <tr>
 <td><code>auto f(T&amp;&amp; x) -&gt; decltype((x)) { return (x); }</code></td>
-<td align="center"><code>T&amp;</code> : 〇</td>
-<td align="center"><code>T&amp;</code> : <strong>×</strong></td>
+<td style="text-align: center;"><code>T&amp;</code> : 〇</td>
+<td style="text-align: center;"><code>T&amp;</code> : <strong>×</strong></td>
 <td></td>
 </tr>
 <tr>
 <td><code>auto f(T&amp;&amp; x) -&gt; decltype(auto) { return x; }</code></td>
-<td align="center"><code>T&amp;&amp;</code> : ×</td>
-<td align="center"><code>T&amp;&amp;</code> : <strong>〇</strong></td>
+<td style="text-align: center;"><code>T&amp;&amp;</code> : ×</td>
+<td style="text-align: center;"><code>T&amp;&amp;</code> : <strong>〇</strong></td>
 <td><code>x</code>がローカル変数の場合ローカル参照を返すようになる</td>
 </tr>
 <tr>
 <td><code>auto f(T&amp;&amp; x) -&gt; decltype(auto) { return (x); }</code></td>
-<td align="center"><code>T&amp;</code> : 〇</td>
-<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td style="text-align: center;"><code>T&amp;</code> : 〇</td>
+<td style="text-align: center;"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
 <td><code>x</code>がローカル変数の場合ローカル参照を返す</td>
 </tr>
 <tr>
 <td><code>auto f(T x) -&gt; auto&amp;&amp; { return x; }</code></td>
-<td align="center"><code>T&amp;</code> : 〇</td>
-<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td style="text-align: center;"><code>T&amp;</code> : 〇</td>
+<td style="text-align: center;"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
 <td>ローカル参照を返す</td>
 </tr>
 <tr>
 <td><code>auto f(T x) -&gt; auto&amp;&amp; { return (x); }</code></td>
-<td align="center"><code>T&amp;</code> : 〇</td>
-<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td style="text-align: center;"><code>T&amp;</code> : 〇</td>
+<td style="text-align: center;"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
 <td>ローカル参照を返す</td>
 </tr>
 <tr>
 <td><code>auto f(T&amp;&amp; x) -&gt; auto&amp;&amp; { return x; }</code></td>
-<td align="center"><code>T&amp;</code> : 〇</td>
-<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td style="text-align: center;"><code>T&amp;</code> : 〇</td>
+<td style="text-align: center;"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
 <td><code>x</code>がローカル変数の場合ローカル参照を返す</td>
 </tr>
 <tr>
 <td><code>auto f(T&amp;&amp; x) -&gt; auto&amp;&amp; { return (x); }</code></td>
-<td align="center"><code>T&amp;</code> : 〇</td>
-<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td style="text-align: center;"><code>T&amp;</code> : 〇</td>
+<td style="text-align: center;"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
 <td><code>x</code>がローカル変数の場合ローカル参照を返す</td>
 </tr>
 </tbody>

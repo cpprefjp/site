@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-12T12:36:59">
-        2026年01月12日 12時36分59秒
+      <span itemprop="datePublished" content="2026-05-16T15:17:02">
+        2026年05月16日 15時17分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -243,19 +243,24 @@
 <h2>概要</h2>
 <p><code>inline_scheduler</code>は、インラインでタスクを実行する<a href="scheduler.html">Scheduler</a>である。</p>
 <p><code><a href="schedule.html">schedule</a></code>操作により得られる<a href="sender.html">Sender</a>と<a href="receiver.html">Receiver</a>を<a href="connect.html">接続(connect)</a>した<a href="operation_state.html">OperationState</a>は、<a href="start.html">開始(start)</a>したスレッド上で即座に<a href="set_value.html">値完了</a>する。</p>
-<p><code>inline_scheduler</code>型の全オブジェクトは等しい。</p>
 <h2>クラス仕様</h2>
-<p>説明専用のクラス<code>inline-sender</code>は<code><a href="sender.html">sender</a></code>を満たす。<code><a href="completion_signatures_of_t.html">completion_signatures_of_t</a>&lt;inline-sender&gt;</code>は、<code><a href="completion_signatures.html">completion_signatures</a>&lt;<a href="set_value.html">set_value_t</a>()&gt;</code>となる。</p>
-<p>説明用の<code>sndr</code>を<code>inline-sender</code>型の式とする。<code>CS</code>を<code><a href="completion_signatures.html">completion_signatures</a>&lt;<a href="set_value.html">set_value_t</a>()&gt;</code>としたとき、<code>rcvr</code>を<code><a href="receiver_of.html">receiver_of</a>&lt;decltype((rcvr)), CS&gt;</code>が<code>true</code>となる式とする。</p>
-<ul>
-<li>式<code><a href="connect.html">connect</a>(sndr, rcvr)</code>の型は<code>inline-state&lt;<a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype((rcvr))&gt;&gt;</code>であり、式<code>((void)sndr, auto(rcvr))</code>が潜在的に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出(potentially-throwing)するときに限って潜在的に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出する。</li>
-<li>式<code><a href="get_completion_scheduler.html">get_completion_scheduler</a>&lt;<a href="set_value.html">set_value_t</a>&gt;(<a href="get_env.html">get_env</a>(sndr))</code>の型は<code>inline_scheduler</code>であり、式<code><a href="get_env.html">get_env</a>(sndr)</code>が潜在的に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出(potentially-throwing)するときに限って潜在的に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出する。</li>
-</ul>
+<p><code>inline_scheduler</code>型の全オブジェクトは等しい。<code>inline_scheduler</code>型の部分式<code>sch</code>、<a href="../queryable.html">クエリオブジェクト</a><code>q</code>、部分式のパック<code>args</code>としたとき、式<code>sch.query(q, args...)</code>は<code>inline-attrs&lt;<a href="set_value.html">set_value_t</a>&gt;.query(q, args...)</code>と等価な式となる。</p>
+<p>説明専用のクラス<code>inline-sender</code>を<code><a href="sender.html">sender</a></code>を満たす型とする。<code><a href="completion_signatures_of_t.html">completion_signatures_of_t</a>&lt;inline-sender&gt;</code>は、<code><a href="completion_signatures.html">completion_signatures</a>&lt;<a href="set_value.html">set_value_t</a>()&gt;</code>となる。</p>
+<p>説明用の<code>sndr</code>を<code>inline-sender</code>型の式とする。<code>CS</code>を<code><a href="completion_signatures.html">completion_signatures</a>&lt;<a href="set_value.html">set_value_t</a>()&gt;</code>としたとき、<code>rcvr</code>を<code><a href="receiver_of.html">receiver_of</a>&lt;decltype((rcvr)), CS&gt;</code>が<code>true</code>となる式とする。式<code><a href="connect.html">connect</a>(sndr, rcvr)</code>の型は<code>inline-state&lt;<a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype((rcvr))&gt;&gt;</code>であり、式<code>((void)sndr, auto(rcvr))</code>が潜在的に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出(potentially-throwing)するときに限って潜在的に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出する。</p>
 <p>説明用の<code>o</code>を<code>inline-state&lt;Rcvr&gt;</code>型の非const左辺値とし、<code>REC(o)</code>を<code>o</code>を返す<a href="connect.html">接続(connect)</a>呼び出しへ渡した式<code>rcvr</code>で初期化された<code>Rcvr</code>型の非const左辺値参照とする。</p>
 <ul>
 <li><code>REC(o)</code>が参照するオブジェクトは、<code>o</code>が参照するオブジェクトの生存期間(lifetime)で有効である。</li>
 <li>式<code><a href="start.html">start</a>(o)</code>は、<code><a href="set_value.html">set_value</a>(<a href="../../utility/move.html">std::move</a>(REC(o)))</code>と等価。</li>
 </ul>
+<h3>説明専用クラステンプレート<code>inline-attrs</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Tag</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">inline</span><span class="o">-</span><span class="n">attrs</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><i>see below</i></span>
+<span class="p">};</span>
+</code></pre></div>
+
+部分式<code>env</code>としたとき、<code>inline-attrs&lt;Tag&gt;{}.query(<a href="get_completion_scheduler.html">get_completion_scheduler</a>&lt;Tag&gt;, env)</code>は<code><a href="get_scheduler.html">get_scheduler</a>(env)</code>と等価な式となる。</p>
+<p>部分式<code>env</code>としたとき、<code>inline-attrs&lt;Tag&gt;{}.query(<a href="get_completion_domain.html">get_completion_domain</a>&lt;Tag&gt;, env)</code>は<code><a href="get_domain.html">get_domain</a>(env)</code>と等価な式となる。</p>
 <h2>メンバ関数</h2>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
@@ -338,6 +343,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 <li>C++now 2025, <a href="https://schedule.cppnow.org/wp-content/uploads/2025/03/Getting_The_Lazy_Task_Done.pdf" target="_blank">Getting The Lazy Task Done</a></li>
 </ul></div>
 

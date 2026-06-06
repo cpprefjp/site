@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">可変引数が空でない場合のトークン置換 [P0306R4]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++20に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>新たなプリプロセスマクロ<code>__VA_OPT__</code>を追加する。このマクロは、マクロのパラメータとして受け取った可変引数が空でない場合に置換するトークンを指定する機能を持つ。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="cp">#define F(X, ...) f(10, X __VA_OPT__(,) __VA_ARGS__)</span>

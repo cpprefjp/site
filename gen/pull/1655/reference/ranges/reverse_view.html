@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-21T06:03:06">
-        2026年05月21日 06時03分06秒
+      <span itemprop="datePublished" content="2026-05-22T02:42:20">
+        2026年05月22日 02時42分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -272,6 +272,7 @@
 <ul>
 <li>(2): 式<code>views::reverse(E)</code>の効果は次の通り<ul>
 <li><code>E</code>の型が<code>reverse_view</code>の特殊化であれば、<code>E.base()</code>と等しい (<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されている場合を含む)</li>
+<li>C++26 : <code>E</code>の型が<code><a href="../optional/optional.html">std::optional</a></code>の特殊化で<code><a href="view.html">view</a></code>のモデルであれば、<code><a href="../exposition-only/decay-copy.html">decay-copy</a>(E)</code>と等しい (要素数が0または1のため反転の必要がない)</li>
 <li>イテレータ型<code>I</code>、<code><a href="subrange_kind.html">subrange_kind</a></code>の値<code>K</code>に対し、<code>E</code>の型が<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された<code><a href="subrange.html">subrange</a>&lt;<a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;I&gt;, <a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;I&gt;, K&gt;</code>であるとする。このとき、<code>E</code>は一度しか評価されないとして、<ul>
 <li><code>K</code>が<code><a href="subrange_kind.html">subrange_kind::sized</a></code>であれば、<code><a href="subrange.html">subrange</a>&lt;I, I, K&gt;(E.end().base(), E.begin().base(), E.size())</code>と等しい</li>
 <li>それ以外のとき、<code><a href="subrange.html">subrange</a>&lt;I, I, K&gt;(E.end().base(), E.begin().base())</code>と等しい</li>
@@ -484,6 +485,10 @@
 <li><a href="https://timsong-cpp.github.io/cppwp/n4861/ranges" target="_blank">N4861 24 Ranges library</a></li>
 <li><a href="https://techbookfest.org/product/5134506308665344" target="_blank">C++20 ranges</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2017r1.html" target="_blank">P2017R1 Conditionally borrowed ranges</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3913r1.pdf" target="_blank">P3913R1 Optimize for <code>std::optional</code> in range adaptors</a><ul>
+<li>C++26で、入力が<code><a href="../optional/optional.html">std::optional</a></code>の場合の特殊化を追加</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

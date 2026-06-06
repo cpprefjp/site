@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">契約プログラミング [P2900R14]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++26では、関数の正確な動作を明示的に指定でき、プログラムの正当性を高めるために「契約プログラミング」機能が導入される。</p>
 <p>これにより、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>(preconditions)、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>(postconditions)、及びアサーション(assertions)をコード内で明示的に記述できるようになる。</p>
@@ -227,20 +229,20 @@
 <ul>
 <li><code>pre</code>と<code>post</code>は変数名や関数名として使用可能
 <br />
-<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK: 変数名として使用</span>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="k">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK: 変数名として使用</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">post</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// OK: 関数名として使用</span>
 </code></pre></div>
 </li>
 <li>契約指定の文脈でのみ特別な意味を持つ
 <br />
 <div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
-<span class="w">  </span><span class="n">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w">   </span><span class="c1">// ここでは契約指定として機能</span>
+<span class="w">  </span><span class="k">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w">   </span><span class="c1">// ここでは契約指定として機能</span>
 </code></pre></div>
 </li>
 <li><code>contract_assert</code>は既存の<code>assert</code>マクロとの衝突を避けるための完全なキーワード
 <br />
 <div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">contract_assert</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// アサーション文</span>
+<span class="w">  </span><span class="k">contract_assert</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// アサーション文</span>
 <span class="p">}</span>
 </code></pre></div>
 </li>
@@ -255,7 +257,7 @@
 <h4><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>(pre)</h4>
 <p>関数が呼び出される前に満たされているべき条件を指定する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">safe_division</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span>
-<span class="w">    </span><span class="n">pre</span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">pre</span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
 <span class="p">}</span>
@@ -268,7 +270,7 @@
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">use</span><span class="p">()</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="n">is_available</span><span class="p">)</span><span class="w">  </span><span class="c1">// 引数を使用していない事前条件</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="n">is_available</span><span class="p">)</span><span class="w">  </span><span class="c1">// 引数を使用していない事前条件</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// リソースを使用</span>
 <span class="w">    </span><span class="p">}</span>
@@ -282,7 +284,7 @@
 <h4><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>(post)</h4>
 <p>関数の実行後に満たされているべき条件を指定する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
@@ -296,7 +298,7 @@
 <span class="w">    </span><span class="c1">// ...</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">clear</span><span class="p">()</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">empty</span><span class="p">())</span><span class="w">  </span><span class="c1">// 結果名導入子を省略した事後条件</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">empty</span><span class="p">())</span><span class="w">  </span><span class="c1">// 結果名導入子を省略した事後条件</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// コンテナの内容をクリア</span>
 <span class="w">    </span><span class="p">}</span>
@@ -312,7 +314,7 @@
 <p>関数の実行中に満たされているべき条件を指定する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">return_negative</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">contract_assert</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">contract_assert</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -321,8 +323,8 @@
 <p><code>contract_assert</code>は、関数の本体内で使用される。</p>
 <p>また、これらの全ては、<code>[[ likely ]]</code>や<code>[[ unlikely ]]</code>、 <code>[[ maybe_unused ]]</code>属性を使用することができる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">return_negative</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
-<span class="w">  </span><span class="n">pre</span><span class="w"> </span><span class="p">[[</span><span class="n">likely</span><span class="p">]]</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">  </span><span class="n">post</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="k">pre</span><span class="w"> </span><span class="p">[[</span><span class="n">likely</span><span class="p">]]</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="k">post</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">  </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">value</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
@@ -332,9 +334,9 @@
 <p>契約プログラミングには、いくつかの構文上の制約がある。</p>
 <h4>複数の宣言</h4>
 <p>関数に複数の宣言がある場合、それらすべてに同じ契約指定子の並びを指定することも、一部の宣言にのみ指定することもできる。契約指定子の並びが指定されていない宣言は、他の宣言から契約アサーションを継承する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// 宣言</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// 宣言</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">             </span><span class="c1">// OK: 契約アサーションを継承</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// OK: 定義でも同じ契約を指定</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// OK: 定義でも同じ契約を指定</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -343,29 +345,29 @@
 <p>仮想関数に<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>または<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>の指定子を付けることは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>（ill-formed）である。仮想関数への<code>pre</code>と<code>post</code>のサポートは、将来の拡張として提案される予定である。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// エラー：仮想関数に契約指定子を適用できない</span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <h4>デフォルト化・削除された関数</h4>
 <p>最初の宣言でデフォルト化（<code>= default</code>）された関数に<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>または<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>指定子を付けることは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>（ill-formed）である。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">           </span><span class="c1">// エラー: 最初の宣言でdefault化</span>
-<span class="w">    </span><span class="n">X</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">   </span><span class="c1">// エラー: 最初の宣言でdefault化</span>
+<span class="w">    </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">           </span><span class="c1">// エラー: 最初の宣言でdefault化</span>
+<span class="w">    </span><span class="n">X</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">   </span><span class="c1">// エラー: 最初の宣言でdefault化</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
 <p>ただし、最初の宣言ではない宣言でデフォルト化する場合は契約指定子を付けることができる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Y</span><span class="p">()</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w">                      </span><span class="c1">// 最初の宣言に契約指定子</span>
+<span class="w">    </span><span class="n">Y</span><span class="p">()</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w">                      </span><span class="c1">// 最初の宣言に契約指定子</span>
 <span class="p">};</span>
-<span class="n">Y</span><span class="o">::</span><span class="n">Y</span><span class="p">()</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">             </span><span class="c1">// OK: 最初の宣言ではない（pre(true)は省略可能）</span>
+<span class="n">Y</span><span class="o">::</span><span class="n">Y</span><span class="p">()</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">             </span><span class="c1">// OK: 最初の宣言ではない（pre(true)は省略可能）</span>
 </code></pre></div>
 </p>
 <p>また、明示的に削除（<code>= delete</code>）された関数に<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>または<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>指定子を付けることは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Z</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Z</span><span class="p">()</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">             </span><span class="c1">// エラー: 削除された関数</span>
-<span class="w">    </span><span class="n">Z</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Z</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"> </span><span class="c1">// エラー: 削除された関数</span>
+<span class="w">    </span><span class="n">Z</span><span class="p">()</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w">             </span><span class="c1">// エラー: 削除された関数</span>
+<span class="w">    </span><span class="n">Z</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Z</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"> </span><span class="c1">// エラー: 削除された関数</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -376,16 +378,16 @@
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span>
 
 <span class="w">    </span><span class="n">X</span><span class="p">()</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">              </span><span class="c1">// エラー: thisなしでメンバ参照</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="n">f</span><span class="p">())</span><span class="w">                 </span><span class="c1">// エラー: thisなしでメンバ関数呼び出し</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">        </span><span class="c1">// OK: thisを明示的に使用</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">f</span><span class="p">())</span><span class="w">           </span><span class="c1">// OK</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">              </span><span class="c1">// エラー: thisなしでメンバ参照</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="n">f</span><span class="p">())</span><span class="w">                 </span><span class="c1">// エラー: thisなしでメンバ関数呼び出し</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">        </span><span class="c1">// OK: thisを明示的に使用</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">f</span><span class="p">())</span><span class="w">           </span><span class="c1">// OK</span>
 <span class="w">    </span><span class="p">{}</span>
 
 <span class="w">    </span><span class="o">~</span><span class="n">X</span><span class="p">()</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">              </span><span class="c1">// OK: デストラクタの事前条件</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">             </span><span class="c1">// エラー: デストラクタの事後条件でメンバ参照</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">       </span><span class="c1">// OK</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">              </span><span class="c1">// OK: デストラクタの事前条件</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">             </span><span class="c1">// エラー: デストラクタの事後条件でメンバ参照</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">       </span><span class="c1">// OK</span>
 <span class="w">    </span><span class="p">{}</span>
 <span class="p">};</span>
 </code></pre></div>
@@ -393,36 +395,36 @@
 <h4>await式とyield式</h4>
 <p>コルーチン内の契約アサーションの<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>に、そのコルーチンの中断コンテキスト内にある<code>await</code>式または<code>yield</code>式が含まれている場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">generator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">contract_assert</span><span class="p">(((</span><span class="k">co_yield</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="p">));</span><span class="w">  </span><span class="c1">// エラー</span>
+<span class="w">    </span><span class="k">contract_assert</span><span class="p">(((</span><span class="k">co_yield</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="p">));</span><span class="w">  </span><span class="c1">// エラー</span>
 <span class="p">}</span>
 
 <span class="n">stdex</span><span class="o">::</span><span class="n">task</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">contract_assert</span><span class="p">((</span><span class="k">co_await</span><span class="w"> </span><span class="n">query_database</span><span class="p">())</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー</span>
+<span class="w">    </span><span class="k">contract_assert</span><span class="p">((</span><span class="k">co_await</span><span class="w"> </span><span class="n">query_database</span><span class="p">())</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h4>関数へのポインタとメンバ関数へのポインタ</h4>
 <p>関数へのポインタやメンバ関数へのポインタに契約指定子を適用することはできない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fpt</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fpt</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w">       </span><span class="c1">// エラー</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w">       </span><span class="c1">// エラー</span>
 </code></pre></div>
 </p>
 <p>ただし、契約アサーションは関数の型の一部ではないため、契約付きの関数のアドレスを通常の関数ポインタに代入できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK</span>
 </code></pre></div>
 </p>
 <p>関数ポインタを通して関数を呼び出す場合でも、その関数の契約アサーションは通常通り評価される必要がある。</p>
 <h4>関数型エイリアス</h4>
 <p>関数型エイリアスに契約指定子を適用することはできない。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">ft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">ft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー</span>
 </code></pre></div>
 </p>
 <p>ただし、関数型エイリアスを使用する関数宣言には契約指定子を適用できる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">ft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
-<span class="n">ft</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="n">ft</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
 </code></pre></div>
 </p>
 <h4>C言語の可変長引数パラメータの使用</h4>
@@ -438,18 +440,18 @@
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">                    </span><span class="c1">// OK</span>
-<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="n">y</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">      </span><span class="c1">// OK</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">                    </span><span class="c1">// OK</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">Y</span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="n">y</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">      </span><span class="c1">// OK</span>
 <span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">h</span><span class="p">()</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">::</span><span class="n">r</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: 結果バインディングのrは外側のrを隠す</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">h</span><span class="p">()</span><span class="w"> </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">::</span><span class="n">r</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: 結果バインディングのrは外側のrを隠す</span>
 </code></pre></div>
 </p>
 <h4>暗黙のconst性</h4>
 <p>契約チェックは、プログラムの状態を変更するのではなく観察するものである。これを促進するために、契約<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>内で参照される変数には暗黙的に<code>const</code>修飾が適用される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">contract_assert</span><span class="p">(</span><span class="o">++</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: xは暗黙的にconstとして扱われる</span>
+<span class="w">    </span><span class="k">contract_assert</span><span class="p">(</span><span class="o">++</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: xは暗黙的にconstとして扱われる</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -457,21 +459,21 @@
 <h4>結果バインディング</h4>
 <p><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>の結果バインディングは、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>オブジェクトを参照する。結果バインディングによって導入される変数は、定数（<code>const</code>）な左辺値参照である。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">  </span><span class="c1">// resultは戻り値への定数参照</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">  </span><span class="c1">// resultは戻り値への定数参照</span>
 </code></pre></div>
 </p>
 <p>結果バインディングには、<code>[[maybe_unused]]</code>などの属性を適用できる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="o">:</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="o">:</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
 </code></pre></div>
 </p>
 <h4><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>における関数パラメータ</h4>
 <p><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>アサーションの<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>内で関数パラメータを使用できる。ただし、配列パラメータをODR使用（One Definition Rule use）することは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: 配列パラメータを使用していない</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: 配列パラメータを使用していない</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: 配列パラメータをODR使用</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: 配列パラメータをODR使用</span>
 </code></pre></div>
 </p>
 <h3>評価の順番</h3>
@@ -486,10 +488,10 @@
 <h4>複数の契約指定子の評価順序</h4>
 <p>関数契約アサーションのシーケンス内に複数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>または<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>アサーションがある場合、それらは宣言された順序で評価される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
-<span class="w">    </span><span class="n">pre</span><span class="p">(</span><span class="n">a</span><span class="p">())</span>
-<span class="w">    </span><span class="n">pre</span><span class="p">(</span><span class="n">b</span><span class="p">())</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">c</span><span class="p">())</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">d</span><span class="p">())</span>
+<span class="w">    </span><span class="k">pre</span><span class="p">(</span><span class="n">a</span><span class="p">())</span>
+<span class="w">    </span><span class="k">pre</span><span class="p">(</span><span class="n">b</span><span class="p">())</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">c</span><span class="p">())</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">d</span><span class="p">())</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// 事前条件の評価順: a(), b()</span>
 <span class="w">    </span><span class="c1">// 事後条件の評価順: c(), d()</span>
@@ -500,8 +502,8 @@
 <p>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型がレジスタで渡される資格がある場合、コンパイラは<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>オブジェクトの追加のトリビアルなコピーを作成することが許可されており、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>アサーションはそれらのコピーを参照する可能性がある。ただし、これらのコピーは<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>アサーションの評価と順序付けられて行われなければならない。</p>
 <p>したがって、すべての契約アサーションがチェックセマンティクスで正確に1回評価されるようにプログラムがビルドされている場合、以下の例では、<code>r</code>が同じオブジェクトを参照するかどうかに関わらず、両方の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>アサーションはtrueと評価されなければならない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="o">++</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="o">++</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="o">++</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="o">++</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -575,8 +577,8 @@
 <p>契約アサーションの種類を表す列挙型：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">contracts</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">assertion_kind</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">,</span><span class="w">    </span><span class="c1">// 事前条件アサーション</span>
-<span class="w">        </span><span class="n">post</span><span class="p">,</span><span class="w">   </span><span class="c1">// 事後条件アサーション</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">,</span><span class="w">    </span><span class="c1">// 事前条件アサーション</span>
+<span class="w">        </span><span class="k">post</span><span class="p">,</span><span class="w">   </span><span class="c1">// 事後条件アサーション</span>
 <span class="w">        </span><span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="w">  </span><span class="c1">// アサーション文</span>
 <span class="w">    </span><span class="p">};</span>
 <span class="p">}</span>
@@ -645,17 +647,17 @@
 <p>契約<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>内で副作用を持つ式を記述することは可能だが、推奨されない。破壊的な副作用（グローバル変数の変更、<code>volatile</code>変数への参照など）は避けるべきである。ただし、ロギングなどの非破壊的な副作用は許可される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 推奨されない例</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">global_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="o">++</span><span class="n">global_counter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// 副作用あり</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="o">++</span><span class="n">global_counter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// 副作用あり</span>
 
 <span class="c1">// 許容される例（デバッグ目的）</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="n">log_value</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// ロギングは許容</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="n">log_value</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// ロギングは許容</span>
 </code></pre></div>
 </p>
 <h4><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h4>
 <p>契約<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>内で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出されると、契約違反として扱われる。<code>observe</code>または<code>enforce</code>セマンティクスの場合、契約違反ハンドラが呼び出され、その後の動作はセマンティクスに依存する。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">might_throw</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">pre</span><span class="p">(</span><span class="n">might_throw</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w">  </span><span class="c1">// 例外発生時は契約違反</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">pre</span><span class="p">(</span><span class="n">might_throw</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w">  </span><span class="c1">// 例外発生時は契約違反</span>
 </code></pre></div>
 </p>
 <h4>特殊メンバ関数</h4>
@@ -675,8 +677,8 @@
 
 <span class="c1">// 事前条件と事後条件を持つ関数</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">safe_division</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span>
-<span class="w">    </span><span class="n">pre</span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">numerator</span><span class="p">)</span>
+<span class="w">    </span><span class="k">pre</span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">numerator</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
 <span class="p">}</span>
@@ -687,23 +689,23 @@
 
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">deposit</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">old_balance</span><span class="p">)</span><span class="w">  </span><span class="c1">// 注: old値の参照はC++26では未サポート</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">old_balance</span><span class="p">)</span><span class="w">  </span><span class="c1">// 注: old値の参照はC++26では未サポート</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">balance</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">amount</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">withdraw</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="n">amount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">balance</span><span class="p">)</span><span class="w">  </span><span class="c1">// 複数の事前条件</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="n">amount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">balance</span><span class="p">)</span><span class="w">  </span><span class="c1">// 複数の事前条件</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">contract_assert</span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span><span class="w">  </span><span class="c1">// アサーション文</span>
+<span class="w">        </span><span class="k">contract_assert</span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span><span class="w">  </span><span class="c1">// アサーション文</span>
 <span class="w">        </span><span class="n">balance</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">amount</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">get_balance</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">balance</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
@@ -711,8 +713,8 @@
 
 <span class="c1">// ラムダ式での使用</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">lambda_with_contract</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<span class="w">    </span><span class="n">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="k">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">};</span>
@@ -770,8 +772,8 @@
 <span class="p">}</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<span class="w">    </span><span class="n">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="k">pre</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
@@ -791,8 +793,8 @@
 
 <span class="k">template</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">integral</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
 <span class="n">T</span><span class="w"> </span><span class="n">increment</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
-<span class="w">    </span><span class="n">pre</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">())</span>
-<span class="w">    </span><span class="n">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">pre</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">())</span>
+<span class="w">    </span><span class="k">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
@@ -803,14 +805,14 @@
 
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="p">)</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">old_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c1">// 注: old値の参照はC++26では未サポート</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">old_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c1">// 注: old値の参照はC++26では未サポート</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">data</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">pop</span><span class="p">()</span>
-<span class="w">        </span><span class="n">pre</span><span class="p">(</span><span class="o">!</span><span class="n">empty</span><span class="p">())</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">old_size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c1">// 注: old値の参照はC++26では未サポート</span>
+<span class="w">        </span><span class="k">pre</span><span class="p">(</span><span class="o">!</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">old_size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c1">// 注: old値の参照はC++26では未サポート</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
 <span class="w">        </span><span class="n">data</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
@@ -818,13 +820,13 @@
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<span class="w">        </span><span class="n">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">capacity</span><span class="p">())</span>
+<span class="w">        </span><span class="k">post</span><span class="p">(</span><span class="n">result</span><span class="o">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">capacity</span><span class="p">())</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>

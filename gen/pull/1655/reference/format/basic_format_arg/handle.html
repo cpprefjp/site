@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2019-11-06T19:48:56">
-        2019年11月06日 19時48分56秒
+      <span itemprop="datePublished" content="2026-05-31T18:20:27">
+        2026年05月31日 18時20分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">MATSUMURA Tetsuro</span>
+        <span itemprop="name">Tetsuro Matsumura</span>
       </span>
       が更新
     </small></p>
@@ -262,7 +262,7 @@
 
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
 <span class="w">      </span><span class="o">:</span><span class="n">ptr_</span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
-<span class="w">      </span><span class="p">,</span><span class="n">format_function</span><span class="p">(</span>
+<span class="w">      </span><span class="p">,</span><span class="n">format_</span><span class="p">(</span>
 <span class="w">        </span><span class="p">[](</span><span class="n"><a href="../basic_format_parse_context.html">basic_format_parse_context</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">parse_ctx</span><span class="p">,</span><span class="w"> </span><span class="n">Context</span><span class="o">&amp;</span><span class="w"> </span><span class="n">format_ctx</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="k">typename</span><span class="w"> </span><span class="nc">Context</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">formatter_type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <span class="w">          </span><span class="n">parse_ctx</span><span class="p">.</span><span class="n">advance_to</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">parse_ctx</span><span class="p">));</span>

@@ -313,22 +313,22 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">type</th>
-<th align="left">意味</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">意味</th>
 <th>効果</th>
 <th>対応バージョン</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">s</td>
-<td align="left">文字列</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">文字列</td>
 <td>文字列をそのまま出力</td>
 <td>C++20</td>
 </tr>
 <tr>
-<td align="left">?</td>
-<td align="left">デバッグ出力</td>
+<td style="text-align: left;">?</td>
+<td style="text-align: left;">デバッグ出力</td>
 <td>文字・文字列を引用符で囲み、エスケープシーケンスをエスケープして出力 (例:<code>"\n"</code>は<code>"\"\n\""</code>となる)</td>
 <td>C++23</td>
 </tr>
@@ -339,23 +339,23 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">type</th>
-<th align="left">意味</th>
-<th align="left">効果</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">意味</th>
+<th style="text-align: left;">効果</th>
 <th>対応バージョン</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">c</td>
-<td align="left">文字として出力</td>
-<td align="left"><code>static_cast&lt;charT&gt;(value)</code> (収まらないときは<code>format_error</code>)</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">文字として出力</td>
+<td style="text-align: left;"><code>static_cast&lt;charT&gt;(value)</code> (収まらないときは<code>format_error</code>)</td>
 <td>C++20</td>
 </tr>
 <tr>
-<td align="left">?</td>
-<td align="left">デバッグ出力</td>
-<td align="left">文字・文字列を引用符で囲み、エスケープシーケンスをエスケープして出力 (例:<code>"\n"</code>は<code>"\"\\n\""</code>となる)</td>
+<td style="text-align: left;">?</td>
+<td style="text-align: left;">デバッグ出力</td>
+<td style="text-align: left;">文字・文字列を引用符で囲み、エスケープシーケンスをエスケープして出力 (例:<code>"\n"</code>は<code>"\"\\n\""</code>となる)</td>
 <td>C++23</td>
 </tr>
 </tbody>
@@ -373,41 +373,41 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">type</th>
-<th align="left">意味</th>
-<th align="left">効果</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">意味</th>
+<th style="text-align: left;">効果</th>
 <th>対応バージョン</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">b, B</td>
-<td align="left">2進数</td>
-<td align="left"><code>to_chars(first, last, value, 2)</code> (代替表現の接頭辞 <code>0b</code>)</td>
+<td style="text-align: left;">b, B</td>
+<td style="text-align: left;">2進数</td>
+<td style="text-align: left;"><code>to_chars(first, last, value, 2)</code> (代替表現の接頭辞 <code>0b</code>)</td>
 <td>C++20</td>
 </tr>
 <tr>
-<td align="left">d</td>
-<td align="left">10進数</td>
-<td align="left"><code>to_chars(first, last, value)</code></td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">10進数</td>
+<td style="text-align: left;"><code>to_chars(first, last, value)</code></td>
 <td>C++20</td>
 </tr>
 <tr>
-<td align="left">o</td>
-<td align="left">8進数</td>
-<td align="left"><code>to_chars(first, last, value, 8)</code> (代替表現の接頭辞 <code>0</code>、ただし値が0のときは接頭辞なし)</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;">8進数</td>
+<td style="text-align: left;"><code>to_chars(first, last, value, 8)</code> (代替表現の接頭辞 <code>0</code>、ただし値が0のときは接頭辞なし)</td>
 <td>C++20</td>
 </tr>
 <tr>
-<td align="left">x, X</td>
-<td align="left">16進数</td>
-<td align="left"><code>to_chars(first, last, value, 16)</code> (代替表現の接頭辞 <code>0x</code>)</td>
+<td style="text-align: left;">x, X</td>
+<td style="text-align: left;">16進数</td>
+<td style="text-align: left;"><code>to_chars(first, last, value, 16)</code> (代替表現の接頭辞 <code>0x</code>)</td>
 <td>C++20</td>
 </tr>
 <tr>
-<td align="left">c</td>
-<td align="left">文字として出力</td>
-<td align="left"><code>static_cast&lt;charT&gt;(value)</code> した値を文字として出力 (収まらないときは<code>format_error</code>)</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">文字として出力</td>
+<td style="text-align: left;"><code>static_cast&lt;charT&gt;(value)</code> した値を文字として出力 (収まらないときは<code>format_error</code>)</td>
 <td>C++20</td>
 </tr>
 </tbody>
@@ -418,31 +418,31 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">type</th>
-<th align="left">意味</th>
-<th align="left">効果</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">意味</th>
+<th style="text-align: left;">効果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">f, F</td>
-<td align="left">指数表記しない</td>
-<td align="left"><code>to_chars(first, last, value, chars_format::fixed, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::fixed, 6)</code> (それ以外)</td>
+<td style="text-align: left;">f, F</td>
+<td style="text-align: left;">指数表記しない</td>
+<td style="text-align: left;"><code>to_chars(first, last, value, chars_format::fixed, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::fixed, 6)</code> (それ以外)</td>
 </tr>
 <tr>
-<td align="left">e, E</td>
-<td align="left">指数表記する</td>
-<td align="left"><code>to_chars(first, last, value, chars_format::scientific, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::scientific, 6)</code> (それ以外)</td>
+<td style="text-align: left;">e, E</td>
+<td style="text-align: left;">指数表記する</td>
+<td style="text-align: left;"><code>to_chars(first, last, value, chars_format::scientific, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::scientific, 6)</code> (それ以外)</td>
 </tr>
 <tr>
-<td align="left">a, A</td>
-<td align="left">16進数で指数表記する</td>
-<td align="left"><code>to_chars(first, last, value, chars_format::hex, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::hex)</code> (それ以外)</td>
+<td style="text-align: left;">a, A</td>
+<td style="text-align: left;">16進数で指数表記する</td>
+<td style="text-align: left;"><code>to_chars(first, last, value, chars_format::hex, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::hex)</code> (それ以外)</td>
 </tr>
 <tr>
-<td align="left">g, G</td>
-<td align="left">値に応じて指数表記を使う</td>
-<td align="left"><code>to_chars(first, last, value, chars_format::general, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::general, 6)</code> (それ以外)</td>
+<td style="text-align: left;">g, G</td>
+<td style="text-align: left;">値に応じて指数表記を使う</td>
+<td style="text-align: left;"><code>to_chars(first, last, value, chars_format::general, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::general, 6)</code> (それ以外)</td>
 </tr>
 </tbody>
 </table>
@@ -454,23 +454,23 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">type</th>
-<th align="left">意味</th>
-<th align="left">効果</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">意味</th>
+<th style="text-align: left;">効果</th>
 <th>対応バージョン</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">p</td>
-<td align="left">アドレスを出力する</td>
-<td align="left"><code>0x</code> につづいて、<code>to_chars(first, last, reinterpret_cast&lt;uintptr_t&gt;(value), 16)</code> の結果を出力する</td>
+<td style="text-align: left;">p</td>
+<td style="text-align: left;">アドレスを出力する</td>
+<td style="text-align: left;"><code>0x</code> につづいて、<code>to_chars(first, last, reinterpret_cast&lt;uintptr_t&gt;(value), 16)</code> の結果を出力する</td>
 <td>C++20</td>
 </tr>
 <tr>
-<td align="left">P</td>
-<td align="left">アドレスを出力する</td>
-<td align="left">pと基本的に同じだが、9を超える桁を大文字(A～F)にし、先頭に<code>0X</code>をつける</td>
+<td style="text-align: left;">P</td>
+<td style="text-align: left;">アドレスを出力する</td>
+<td style="text-align: left;">pと基本的に同じだが、9を超える桁を大文字(A～F)にし、先頭に<code>0X</code>をつける</td>
 <td>C++26</td>
 </tr>
 </tbody>

@@ -1,10 +1,10 @@
 # PR [\#1655](https://github.com/cpprefjp/site/pull/1655) プレビュー
-- &#x231a; 更新時刻: 2026-05-22 01:45:59 JST
+- &#x231a; 更新時刻: 2026-06-06 20:25:09 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1655)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26-p3826r5)
-- **&#x2AEF;** ソースの変更: [`eb379c3..8686bee`](https://github.com/cpprefjp/site/compare/eb379c363b23b4a7a3c685d106a615c7e8bf145e..8686bee5f681c1198f5dfa3c15ea8b1628969b21)
+- **&#x2AEF;** ソースの変更: [`c41fb93..abaf19a`](https://github.com/cpprefjp/site/compare/c41fb937271566602f01b35d4f6c34931f9c44ad..abaf19a9371303dc58c3a1610a39f441f332d6b8)
 
-## 変更記事一覧 (41件)
+## 変更記事一覧 (44件)
 
 - &#x1f4dd; [`reference/execution/execution`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution.html)
 - &#x1f4dd; [`reference/execution/execution/affine_on`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/affine_on.html)
@@ -23,6 +23,9 @@
 - &#x1f4dd; [`reference/execution/execution/get_completion_signatures`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_completion_signatures.html)
 - &#x1f4dd; [`reference/execution/execution/get_domain`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_domain.html)
 - &#x1f4dd; [`reference/execution/execution/get_scheduler`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_scheduler.html)
+- &#x1f4dd; [`reference/execution/execution/indeterminate_domain`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/indeterminate_domain.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/indeterminate_domain/transform_sender`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/indeterminate_domain/transform_sender.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/inline_scheduler`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/inline_scheduler.html)
 - &#x1f4dd; [`reference/execution/execution/into_variant`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/into_variant.html)
 - &#x1f4dd; [`reference/execution/execution/just`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/just.html)
 - &#x1f4dd; [`reference/execution/execution/just_error`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/just_error.html)

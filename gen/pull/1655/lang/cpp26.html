@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-21T06:03:06">
-        2026年05月21日 06時03分06秒
+      <span itemprop="datePublished" content="2026-05-29T03:47:38">
+        2026年05月29日 03時47分38秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -732,10 +732,10 @@
 </li>
 <li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>クラスに、文字列フォーマットのサポートを追加</li>
 <li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>クラスに、出力用の文字列を取得するための、以下のメンバ関数を追加<ul>
-<li><code><span href="https://cpprefjp.github.io/reference/filesystem/path/display_string.md.nolink">display_string()</span></code></li>
-<li><code><span href="https://cpprefjp.github.io/reference/filesystem/path/system_encoded_string.md.nolink">system_encoded_string()</span></code></li>
-<li><code><span href="https://cpprefjp.github.io/reference/filesystem/path/generic_display_string.md.nolink">generic_display_string()</span></code></li>
-<li><code><span href="https://cpprefjp.github.io/reference/filesystem/path/generic_system_encoded_string.md.nolink">generic_system_encoded_string()</span></code></li>
+<li><code><a href="../reference/filesystem/path/display_string.html">display_string()</a></code></li>
+<li><code><a href="../reference/filesystem/path/system_encoded_string.html">system_encoded_string()</a></code></li>
+<li><code><a href="../reference/filesystem/path/generic_display_string.html">generic_display_string()</a></code></li>
+<li><code><a href="../reference/filesystem/path/generic_system_encoded_string.html">generic_system_encoded_string()</a></code></li>
 </ul>
 </li>
 </ul>
@@ -1032,9 +1032,12 @@
 </ul>
 </li>
 <li><code><a href="../reference/atomic/memory_order.html">std::memory_order::consume</a></code>と、それに関連して<code><a href="../reference/atomic/kill_dependency.html">std::kill_dependency()</a></code>を非推奨化し、<code><a href="cpp11/attributes.html">[[carries_dependency]]</a></code>属性を削除</li>
-<li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>クラスの以下のメンバ関数を非推奨化<ul>
+<li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>クラスの、以下の非テンプレート版メンバ関数を非推奨化<ul>
 <li><code><a href="../reference/filesystem/path/string.html">string()</a></code></li>
 <li><code><a href="../reference/filesystem/path/generic_string.html">generic_string()</a></code></li>
+<li>これらはOS依存のパス名エンコーディングへ変換するため、<a href="../reference/iostream.html">iostream</a>・<code><a href="../reference/format/format.html">std::format()</a></code>・<code><a href="../reference/print/print.html">std::print()</a></code>を含むほぼすべての標準のテキスト処理・入出力機能と互換性がなく、文字化けやデータ損失の原因になりやすい</li>
+<li>レガシーなシステムAPIにパスを渡す用途では、システム依存エンコーディングへの変換であることを明確にした<code><a href="../reference/filesystem/path/system_encoded_string.html">system_encoded_string()</a></code>・<code><a href="../reference/filesystem/path/generic_system_encoded_string.html">generic_system_encoded_string()</a></code>を使用する</li>
+<li>表示・フォーマットの用途では、<code><a href="../reference/filesystem/path/display_string.html">display_string()</a></code>・<code><a href="../reference/filesystem/path/generic_display_string.html">generic_display_string()</a></code>、もしくは<code><a href="../reference/format/format.html">std::format()</a></code>・<code><a href="../reference/print/print.html">std::print()</a></code>を使用する</li>
 </ul>
 </li>
 </ul>

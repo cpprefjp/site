@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-13T04:11:37">
-        2025年07月13日 04時11分37秒
+      <span itemprop="datePublished" content="2026-05-30T12:10:14">
+        2026年05月30日 12時10分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Tetsuro Matsumura</span>
       </span>
       が更新
     </small></p>
@@ -217,17 +217,21 @@
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n"><i>fmt-iter-for</i></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>unspecified</i></span><span class="p">;</span>
 
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Context</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Formatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Context</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">formatter_type</span><span class="o">&lt;</span><span class="n">remove_const_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc"><i>formattable-with</i></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// 説明専用</span>
+<span class="w">    </span><span class="n"><a href="../concepts/semiregular.html">semiregular</a></span><span class="o">&lt;</span><span class="n">Formatter</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="k">requires</span><span class="p">(</span><span class="n">Formatter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+<span class="w">             </span><span class="k">const</span><span class="w"> </span><span class="n">Formatter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cf</span><span class="p">,</span>
+<span class="w">             </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
+<span class="w">             </span><span class="n">Context</span><span class="w"> </span><span class="n">fc</span><span class="p">,</span>
+<span class="w">             </span><span class="n"><a href="basic_format_parse_context.html">basic_format_parse_context</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Context</span><span class="o">::</span><span class="n">char_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">decltype</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">cf</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">fc</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Context</span><span class="o">::</span><span class="n">iterator</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">formattable</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n"><a href="../concepts/semiregular.html">semiregular</a></span><span class="o">&lt;</span><span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="w">    </span><span class="k">requires</span><span class="p">(</span><span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
-<span class="w">             </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="formatter.html">formatter</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cf</span><span class="p">,</span>
-<span class="w">             </span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
-<span class="w">             </span><span class="n"><a href="basic_format_context.html">basic_format_context</a></span><span class="o">&lt;</span><span class="n"><i>fmt-iter-for</i></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fc</span><span class="p">,</span>
-<span class="w">             </span><span class="n"><a href="basic_format_parse_context.html">basic_format_parse_context</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="basic_format_parse_context.html">basic_format_parse_context</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">cf</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">fc</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><i>fmt-iter-for</i></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&gt;</span><span class="p">;</span>
-<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="n"><i>formattable-with</i></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="basic_format_context.html">basic_format_context</a></span><span class="o">&lt;</span><span class="n"><i>fmt-iter-for</i></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -270,6 +274,7 @@ hello
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html" target="_blank">P2286R8 Formatting Ranges</a></li>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4950/format.formattable#concept:formattable-with" target="_blank">N4950 22.14.6.2 Concept formattable</a></li>
 </ul></div>
 
       </div>

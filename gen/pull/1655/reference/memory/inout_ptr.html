@@ -254,7 +254,7 @@
 <span class="p">};</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n"><a href="unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">resource_deleter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resource</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">resource_deleter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resource</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
 <span class="w">  </span><span class="n">error_num</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_api_re_create_handle</span><span class="p">(</span>
 <span class="w">    </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::inout_ptr</span></span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
 <span class="w">  </span><span class="p">);</span>

@@ -366,7 +366,7 @@
 <span class="w">  </span><span class="c1">// ヌルポインタを受け取るコンストラクタ</span>
 <span class="w">  </span><span class="c1">// デフォルトコンストラクタと同様、空のfunctionオブジェクトを作る</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 <span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 
@@ -439,7 +439,7 @@
 <span class="w">  </span><span class="c1">// (7)</span>
 <span class="w">  </span><span class="c1">// アロケータとヌルポインタを受け取って、空のfunctionオブジェクトを構築</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">std::allocator_arg</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">std::allocator_arg</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">);</span>
 <span class="w">    </span><span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 

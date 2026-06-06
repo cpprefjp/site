@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">定数式での<code>dynamic_cast</code>、多態的な<code>typeid</code>を許可 [P1327R1]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++20に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++20より、<code>constexpr</code>関数内（定数式）で<code>dynamic_cast</code>および多態的な型に対する<code>typeid</code>を使用することができるようになる。</p>
 <p>ただし、定数式での<code>dynamic_cast/typeid</code>の実行が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる場合は定数式で実行可能ではない。そのコンテキストが定数式で実行されなければならない所（<code>constexpr</code>変数の初期化式など）ではない場合、その実行は実行時まで延期される。</p>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-05-22T03:23:59">
+        2026年05月22日 03時23分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,16 +225,31 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class filter_view">filter_view::</span><span class="token">end</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                            </span><span class="c1">// (1) C++20</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../common_range.html">common_range</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="iterator.html">iterator</a></span><span class="p">{</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../end.html">ranges::end</a></span><span class="p">(</span><span class="n">base_</span><span class="p">)};</span>
 <span class="w">  </span><span class="k">else</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="sentinel.html">sentinel</a></span><span class="p">{</span><span class="o">*</span><span class="k">this</span><span class="p">};</span>
 <span class="p">}</span>
+
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                            </span><span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../common_range.html">common_range</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="iterator.html">iterator</a></span><span class="o">&lt;</span><span class="nb">false</span><span class="o">&gt;</span><span class="p">{</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../end.html">ranges::end</a></span><span class="p">(</span><span class="n">base_</span><span class="p">)};</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="sentinel.html">sentinel</a></span><span class="o">&lt;</span><span class="nb">false</span><span class="o">&gt;</span><span class="p">{</span><span class="o">*</span><span class="k">this</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="sentinel.html">sentinel</a></span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="w"> </span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../input_range.html">input_range</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n"><a href="../forward_range.html">forward_range</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">            </span><span class="n"><a href="../../iterator/indirect_unary_predicate.html">indirect_unary_predicate</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Pred</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;&gt;</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>番兵を取得する。</p>
+<ul>
+<li>(1) : 非<code>const</code>版</li>
+<li>(2) : <code>const</code>版。元のRangeが<code><a href="../input_range.html">input_range</a></code>であり、かつ<code><a href="../forward_range.html">forward_range</a></code>ではない場合に限り提供される</li>
+</ul>
 <h2>例</h2>
 <p><div class="yata" id="a90b935747756abc15131610f13697e39a7dd217"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../ranges.html">&lt;ranges&gt;</a></span>
 <span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
@@ -272,6 +287,10 @@
 <ul>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4861/range.filter" target="_blank">N4861 24.7.4 Filter view</a></li>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4950/range.filter" target="_blank">N4950 26.7.8 Filter view</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3725r3.pdf" target="_blank">P3725R3 Filter View Extensions for Safer Use</a><ul>
+<li>C++26で、(2)の<code>const</code>版<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加 (入力Rangeの場合の<code>const</code>イテレーションをサポート)</li>
+</ul>
+</li>
 </ul></div>
 
       </div>
