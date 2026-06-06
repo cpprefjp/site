@@ -62,7 +62,7 @@ make-sender(on, product-type{sch, closure}, sndr)
 auto&& [_, data, child] = out_sndr;
 if constexpr (scheduler<decltype(data)>) {
   auto orig_sch =
-    call-with-default(get_scheduler, not-a-scheduler(), env);
+    call-with-default(get_start_scheduler, not-a-scheduler(), env);
   return continues_on(
     starts_on(std::forward_like<OutSndr>(data), std::forward_like<OutSndr>(child)),
     std::move(orig_sch));
@@ -77,7 +77,7 @@ if constexpr (scheduler<decltype(data)>) {
 ```
 * scheduler[link scheduler.md]
 * call-with-default[link call-with-default.md]
-* get_scheduler[link get_scheduler.md]
+* get_start_scheduler[link get_start_scheduler.md]
 * not-a-scheduler()[link not-a-scheduler.md]
 * continues_on[link continues_on.md]
 * starts_on[link starts_on.md]
@@ -96,7 +96,7 @@ if constexpr (scheduler<decltype(data)>) {
 ### 呼び出し式 `on(sch, sndr)`
 説明用の式`out_sndr`を`on(sch, sndr)`の戻り値[Sender](sender.md)とし、型`OutSndr`を`decltype((out_sndr))`とする。式`out_rcvr`を[`sender_in`](sender_in.md)`<OutSndr, Env> == true`となる[環境](../queryable.md)`Env`に関連付けられた[Receiver](receiver.md)とする。`out_sndr`と`out_rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)への左辺値参照を`op`としたとき、[`start`](start.md)`(op)`呼び出しは下記を満たすべき。
 
-- 現在のScheduler[`get_scheduler`](get_scheduler.md)`(`[`get_env`](get_env.md)`(rcvr))`を記憶する。
+- [`get_start_scheduler`](get_start_scheduler.md)`(`[`get_env`](get_env.md)`(rcvr))`で取得した現在の[Scheduler](scheduler.md)を記憶する。
 - [Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェント上で`sndr`を開始する。
 - `sndr`の完了後に、手順1で記憶したSchedulerに関連付けられた実行リソースに実行制御を戻す。
 - `sndr`の非同期操作の結果を`out_rcvr`へ転送する。
@@ -261,3 +261,4 @@ val=42
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)

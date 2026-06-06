@@ -14,6 +14,10 @@ namespace std::this_thread {
       return loop->get_scheduler();
     }
 
+    auto query(execution::get_start_scheduler_t) const noexcept {
+      return loop->get_scheduler();
+    }
+
     auto query(execution::get_delegation_scheduler_t) const noexcept {
       return loop->get_scheduler();
     }
@@ -22,6 +26,7 @@ namespace std::this_thread {
 ```
 * execution::run_loop[link ../execution/run_loop.md]
 * execution::get_scheduler_t[link ../execution/get_scheduler.md]
+* execution::get_start_scheduler_t[link ../execution/get_start_scheduler.md]
 * execution::get_delegation_scheduler_t[link ../execution/get_delegation_scheduler.md]
 * get_scheduler()[link ../execution/run_loop/get_scheduler.md]
 
@@ -44,3 +49,4 @@ Senderコンシューマ[`sync_wait`](sync_wait.md)、[`sync_wait_with_variant`]
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)

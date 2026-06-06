@@ -19,8 +19,9 @@ task_scheduler(const task_scheduler&) = default;  // (2)
 - (1) : [Scheduler](../scheduler.md)`sch`とアロケータ`alloc`を保持する`task_scheduler`オブジェクトを構築する。
 - (2) : ムーブコンストラクタ
 
-## テンプレートパラメータ制約
-(1) : `Sch`は`task_scheduler`ではなく、[`scheduler`](../scheduler.md)を満たす。
+
+## 適格要件
+`Sch`は[`infallible-scheduler](../infallible-scheduler.md)<`[`env<>`](../env.md)`>`を満たす。
 
 
 ## 効果
@@ -28,7 +29,7 @@ task_scheduler(const task_scheduler&) = default;  // (2)
 
 
 ## 備考
-(1) 処理系は小さなSchedulerオブジェクトに対して動的メモリ確保を避けることが推奨される。
+処理系（標準ライブラリ実装）は、小さなSchedulerオブジェクトに対して動的メモリ確保を避けることが推奨される。
 
 `*this`上の呼び出しによってえられる[`ts-sender`や`state`オブジェクト](schedule.md)の構築では、`alloc`のコピーを用いてメモリ確保が行われる。
 
@@ -51,3 +52,4 @@ task_scheduler(const task_scheduler&) = default;  // (2)
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4445. `sch_` must not be in moved-from state](https://cplusplus.github.io/LWG/issue4445)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)

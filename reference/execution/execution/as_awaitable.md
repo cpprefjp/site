@@ -19,7 +19,6 @@ Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitab
 
 - 式`expr.as_awaitable(p)`が有効ならば、同式が返すAwaitableオブジェクトに対してAwait式を実行する。
 - `expr`が[Sender型](sender.md)かつ[`get_await_completion_adaptor`](get_await_completion_adaptor.md)問い合わせに対応する場合、同問い合わせが返すSenderアダプタを`expr`に適用した結果を`adapted-expr`とする。
-
 - `expr`（または上記ステップの`adapted-expr`）が[単一の値を送信するSender](single-sender.md)であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。
     - Senderを[接続(connect)](connect.md)し、結果[Operation State](operation_state.md)をAwaitableオブジェクトに格納する。
     - コルーチンを中断し、Operation Stateを[開始(start)](start.md)する。
@@ -37,13 +36,29 @@ Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitab
 
 - 適格であるならば、式`expr.as_awaitable(p)`
     - 適格要件 : 同式の型を`A`としたとき、[`is-awaitable`](../is-awaitable.md)`<A, Promise> == true`であるべき。
+- そうではなく、下記の式が適格であり[`sender_in`](sender_in.md)`<Expr,` [`env_of_t`](env_of_t.md)`<Promise>>`が`true`、かつ[`single-sender-value-type`](single-sender-value-type.md)`<Expr,` [`env_of_t`](env_of_t.md)`<Promise>>`が適格ならば、`p`が1回だけ評価されることを除いて下記と等価。
+    ```cpp
+    adapt-for-await-completion(transform_sender(expr, get_env(p))).as_awaitable(p)
+    ```
+    * transform_sender[link transform_sender.md]
+    * get_env[link get_env.md]
 - そうではなく、`decltype(`[`GET-AWAITER`](../is-awaitable.md)`(expr))`が[`is-awaiter`](../is-awaitable.md)`<Promise>`を満たすならば、式`(void(p), expr)`
-- そうではなく、説明用の式`adapted-expr`を`expr`が1回だけ評価されることを除いて[`get_await_completion_adaptor`](get_await_completion_adaptor.md)`(`[`get_env`](get_env.md)`(expr))(expr)`としたとき、`has-queryable-await-completion-adaptor<Expr>`と`awaitable-sender<decltype((adapted-expr)), Promise>`が共に満たされるならば、式`sender-awaitable{adapted-expr, p}`
-- そうではなく、`awaitable-sender<Expr, Promise>`ならば、式`sender-awaitable{expr, p}`
+- そうではなく、下記の式が適格であり[`sender_in`](sender_in.md)`<Expr,` [`env_of_t`](env_of_t.md)`<Promise>>`が`true`、かつ[`single-sender-value-type`](single-sender-value-type.md)`<Expr,` [`env_of_t`](env_of_t.md)`<Promise>>`が適格ならば、`p`が1回だけ評価されることを除いて下記と等価。
+    ```cpp
+    sender-awaitable{adapt-for-await-completion(transform_sender(expr, get_env(p))), p}
+    ```
+    * transform_sender[link transform_sender.md]
+    * get_env[link get_env.md]
 - そうでなければ、式`(void(p), expr)`
 
 
 ## 説明専用エンティティ
+### 式`adapt-for-await-completion`
+式`adapt-for-await-completion(s)`は下記と等しい。
+
+- 式が適格であるならば、`s`が1回だけ評価されることを除いて、[`get_await_completion_adaptor`](get_await_completion_adaptor.md)`(`[`get_env`](get_env.md)`(s))(s)`
+- そうでなければ、`s`
+
 ### コンセプト`awaitable-sender`
 ```cpp
 namespace std::execution {
@@ -246,3 +261,4 @@ value-type await_resume();
 - [LWG4360 `awaitable-sender` concept should qualify use of `awaitable-receiver` type](https://cplusplus.github.io/LWG/issue4360)
 - [LWG4133 `awaitable-receiver`'s members are potentially throwing](https://cplusplus.github.io/LWG/issue4133)
 - [LWG4361 `awaitable-receiver::set_value` should use Mandates instead of constraints](https://cplusplus.github.io/LWG/issue4361)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)

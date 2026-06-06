@@ -94,7 +94,7 @@ namespace std::execution {
       };
 
       using sched-sender =                  // exposition only
-        decltype(schedule(get_scheduler(get_env(declval<Rcvr&>()))));
+        decltype(schedule(get_start_scheduler(get_env(declval<Rcvr&>()))));
       using op-t =                          // exposition only
         connect_result_t<sched-sender, rcvr-t>;
 
@@ -106,7 +106,7 @@ namespace std::execution {
         noexcept(nothrow-callable<connect_t, sched-sender, rcvr-t>)
         : scope(scope),
           receiver(rcvr),
-          op(connect(schedule(get_scheduler(get_env(rcvr))), rcvr-t(rcvr))) {}
+          op(connect(schedule(get_start_scheduler(get_env(rcvr))), rcvr-t(rcvr))) {}
 
       void complete() noexcept {            // exposition only
         start(op);
@@ -140,7 +140,7 @@ namespace std::execution {
 * execution::set_stopped[link set_stopped.md]
 * execution::get_env[link get_env.md]
 * schedule[link schedule.md]
-* get_scheduler[link get_scheduler.md]
+* get_start_scheduler[link get_start_scheduler.md]
 * connect_result_t[link connect_result_t.md]
 * connect_t[link connect.md]
 * connect[link connect.md]
@@ -202,3 +202,4 @@ namespace std::execution {
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
 - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)

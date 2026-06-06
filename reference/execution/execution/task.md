@@ -29,7 +29,7 @@ namespace std::execution {
 `task`テンプレート特殊化のネストした型は、`Environment`パラメータに基づいて決定される :
 
 - `allocator_type` : `Environment::allocator_type`が有効な型ならばその型、そうでなければ[`allocator`](/reference/memory/allocator.md)`<byte>`
-- `scheduler_type` : `Environment::scheduler_type`が有効な型ならばその型、そうでなければ[`task_scheduler`](task_scheduler.md)
+- `start_scheduler_type` : `Environment::start_scheduler_type`が有効な型ならばその型、そうでなければ[`task_scheduler`](task_scheduler.md)
 - `stop_source_type` : `Environment::stop_source_type`が有効な型ならばその型、そうでなければ[`inplace_stop_source`](/reference/stop_token/inplace_stop_source.md)
 - `stop_token_type` : `decltype(`[`declval`](/reference/utility/declval.md)`<stop_source_type>().`[`get_token()`](/reference/stop_token/stoppable-source.md)`)`
 - `error_types` : `Environment::error_types`が有効な型ならばその型、そうでなければ[`completion_signatures`](completion_signatures.md)`<`[`set_error_t`](set_error.md)`(`[`exception_ptr`](/reference/exception/exception_ptr.md)`)>`
@@ -65,7 +65,7 @@ static consteval auto get_completion_signatures();
 |------|------|----------------|
 | `sender_concept` | [`sender_t`](sender.md) | C++26 |
 | `allocator_type` | コルーチンのアロケータ型 | C++26 |
-| `scheduler_type` | コルーチンのScheduler型 | C++26 |
+| `start_scheduler_type` | コルーチンの開始Scheduler型 | C++26 |
 | `stop_source_type` | コルーチンの停止ソース型 | C++26 |
 | `stop_token_type` | コルーチンの停止トークン型 | C++26 |
 | `error_types` | コルーチンの[エラー完了](set_error.md)の結果型 | C++26 |
@@ -123,7 +123,6 @@ int main()
 
 ## 関連項目
 - [`execution::with_error`](with_error.md)
-- [`execution::change_coroutine_scheduler`](change_coroutine_scheduler.md)
 - [`execution::task_scheduler`](task_scheduler.md)
 
 
@@ -131,4 +130,5 @@ int main()
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4343. Missing default template arguments for `task`](https://cplusplus.github.io/LWG/issue4343)
 - [LWG4528. `task` needs `get_completion_signatures()`](https://cplusplus.github.io/LWG/issue4528)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
 - C++now 2025, [Getting The Lazy Task Done](https://schedule.cppnow.org/wp-content/uploads/2025/03/Getting_The_Lazy_Task_Done.pdf)

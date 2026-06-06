@@ -83,7 +83,7 @@ void start() & noexcept;
 - 効果 : 説明用の`prom`を`handle.`[`promise()`](/reference/coroutine/coroutine_handle/promise.md)オブジェクトとする。`*this`と関連する`STATE(prom)`、`RCVR(prom)`、`SCHED(prom)`を下記とする。
     - `STATE(prom)` : `*this`
     - `RCVR(prom)` : `rcvr`
-    - `SCHED(prom)` : 式が有効ならば[`scheduler_type`](../task.md)`(`[`get_scheduler`](../get_scheduler.md)`(`[`get_env`](../get_env.md)`(rcvr)))`で初期化したオブジェクト、そうでなれば`scheduler_type()`。いずれの式も適格でなければ、プログラムは不適格となる。
+    - `SCHED(prom)` : 式が有効ならば[`start_scheduler_type`](../task.md)`(`[`get_start_scheduler`](../get_start_scheduler.md)`(`[`get_env`](../get_env.md)`(rcvr)))`で初期化したオブジェクト、そうでなれば`start_scheduler_type()`。いずれの式も適格でなければ、プログラムは不適格となる。
 
     その後、`handle.`[`resume()`](/reference/coroutine/coroutine_handle/resume.md)を呼び出す。
 
@@ -112,3 +112,4 @@ stop_token_type get-stop-token();
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4339. `task`'s coroutine frame may be released late](https://cplusplus.github.io/LWG/issue4339)
 - [LWG4347. `task`'s stop source is always created](https://cplusplus.github.io/LWG/issue4347)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)

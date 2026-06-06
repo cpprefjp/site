@@ -41,6 +41,7 @@ namespace std::execution {
 | [`stop_token_of_t`](stop_token_of_t.md) | 指定型から停止トークン型を取得 (alias template) | C++26 |
 | [`execution::get_domain`](execution/get_domain.md) | 実行ドメイン取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_scheduler`](execution/get_scheduler.md) | Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_start_scheduler`](execution/get_start_scheduler.md) | 開始Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md) | 委任Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md) | 前方進行保証 (enum) | C++26 |
 | [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md) | 前方進行保証取得のクエリオブジェクト (customization point object) | C++26 |
@@ -166,7 +167,6 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 | [`execution::inline_scheduler`](execution/inline_scheduler.md) | インラインScheduler (class) | C++26 |
 | [`execution::task_scheduler`](execution/task_scheduler.md) | 任意Scheduler型を保持するScheduler (class) | C++26 |
 | [`execution::with_error`](execution/with_error.md) | タスクコルーチンからのエラー完了 (class template) | C++26 |
-| [`execution::change_coroutine_scheduler`](execution/change_coroutine_scheduler.md) | タスクコルーチンのScheduler変更 (class template) | C++26 |
 | [`execution::task`](execution/task.md) | タスクコルーチン戻り値型 (class template) | C++26 |
 
 ### 実行スコープユーティリティ
@@ -206,3 +206,4 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
 - [P3986R1 A Wording Strategy for Inlinable Receivers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3986r1.pdf)
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)

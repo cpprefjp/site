@@ -35,21 +35,10 @@ public:
 * receiver[link ../receiver.md]
 * state[italic]
 
-`ts-sender`は[`sender`](../sender.md)のモデルであり、[`completion_signatures_of_t`](../completion_signatures_of_t.md)`<ts-sender>`は下記となる :
+`ts-sender`は[`sender`](../sender.md)のモデルであり、[`completion_signatures_of_t`](../completion_signatures_of_t.md)`<ts-sender, E>`は下記となる :
 
-```cpp
-completion_signatures<
-  set_value_t(),
-  set_error_t(error_code),
-  set_error_t(exception_ptr),
-  set_stopped_t()>
-```
-* completion_signatures[link ../completion_signatures.md]
-* set_value_t[link ../set_value.md]
-* set_error_t[link ../set_error.md]
-* set_stopped_t[link ../set_stopped.md]
-* error_code[link /reference/system_error/error_code.md]
-* exception_ptr[link /reference/exception/exception_ptr.md]
+- [`unstoppable_token`](/reference/stop_token/unstoppable_token.md)`<`[`stop_token_of_t`](../../stop_token_of_t.md)`<E>>`が`true`のとき、[`completion_signatures`](../completion_signatures.md)`<`[`set_value_t`](../set_value.md)`()>`
+- そうでなければ、[`completion_signatures`](../completion_signatures.md)`<`[`set_value_t`](../set_value.md)`()、`[`set_stopped_t`](../set_stopped.md)`()>`
 
 説明用の`sch`を`task_sender`型のオブジェクト、`sndr`を[`schedule`](../schedule.md)`(sch)`により得られる`ts-sender`型のオブジェクトとする。[`get_completion_scheduler`](../get_completion_scheduler.md)`<`[`set_value_t`](../set_value.md)`>(`[`get_env`](../get_env.md)`(sndr)) == sch`は`true`となる。オブジェクト`SENDER(sndr)`は、`sndr`または同オブジェクトからムーブ構築された[Sender](../sender.md)オブジェクトとする。
 
@@ -105,3 +94,4 @@ void start() & noexcept;
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [4342. Missing rvalue reference qualification for `task_scheduler::ts-sender::connect()`](https://cplusplus.github.io/LWG/issue4342)
+- [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)

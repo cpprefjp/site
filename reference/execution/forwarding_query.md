@@ -47,6 +47,7 @@ namespace std {
 - [`get_stop_token`](get_stop_token.md)
 - [`execution::get_domain`](execution/get_domain.md)
 - [`execution::get_scheduler`](execution/get_scheduler.md)
+- [`execution::get_start_scheduler`](execution/get_start_scheduler.md)
 - [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md)
 - [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md)
 - [`execution::get_completion_domain`](execution/get_completion_domain.md)
