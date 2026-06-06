@@ -19,9 +19,10 @@ namespace std {
 
 
 ## 効果
-呼び出し式`get_stop_token(env)`は下記と等価であり、[`stoppable_token`](/reference/stop_token/stoppable_token.md)を満たす型の値となる。
+呼び出し式`get_stop_token(env)`は下記と等価。
 
-- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_stop_token)`が適格であればその値。
+- 式が適格であるならば、[`MANDATE-NOTHROW`](execution/MANDATE-NOTHROW.md)`(`[`AS-CONST`](execution/AS-CONST.md)`(env).query(get_stop_token))`
+    - 上記の式の型は[`stoppable_token`](/reference/stop_token/stoppable_token.md)を満たすこと。
 - そうでなければ、[`never_stop_token{}`](/reference/stop_token/never_stop_token.md)
 
 

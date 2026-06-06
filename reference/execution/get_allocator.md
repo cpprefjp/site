@@ -19,9 +19,9 @@ namespace std {
 
 
 ## 効果
-呼び出し式`get_allocator(env)`は下記と等価であり、適格であれば説明専用コンセプト`simple-allocator`を満たす型の値となる。
+呼び出し式`get_allocator(env)`は、[`MANDATE-NOTHROW`](execution/MANDATE-NOTHROW.md)`(`[`AS-CONST`](execution/AS-CONST.md)`(env).query(get_allocator))`と等価である。
 
-- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_allocator)`
+上記の式が適格なとき、その型は説明専用コンセプト`simple-allocator`を満たすこと。
 
 ```cpp
 template<class Alloc>

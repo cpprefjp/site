@@ -46,6 +46,13 @@ concept queryable = destructible<T>;
 
 
 ## 説明専用エンティティ
+
+### 式`TRY-QUERY`
+説明用の部分式`q`, `tag`、パック`args`に対して、式`TRY-QUERY(q, tag, args...)`は適格であるならば[`AS-CONST`](execution/AS-CONST.md)`(q).query(tag, args...)`と等価な式である。そうでなければ、`args...`が評価されることを除いて[`AS-CONST`](execution/AS-CONST.md)`(q).query(tag)`と等価な式である。
+
+### 式`HIDE-SCHED`
+説明用の部分式`q`, `tag`、パック`args`に対して、`tag`のdecayed型が[`get_scheduler_t`](execution/get_scheduler.md)または[`get_domain_t`](execution/get_domain.md)のとき、式`HIDE-SCHED(q)`は`o.query(tag, args...)`が不適格となるオブジェクト`o`とする。そうでなければ、`q.query(tag, args...)`とする。
+
 ### 式`MAKE-ENV`
 説明用のクエリオブジェクト`q`、部分式`v`、部分式のパック`args`に対して、式`MAKE-ENV(q, v)`は`queryable`を満たす型の式`env`となり、下記を満たす。
 

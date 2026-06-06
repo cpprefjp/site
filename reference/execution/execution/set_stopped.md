@@ -21,7 +21,7 @@ namespace std::execution {
 
 ## 効果
 - 引数`rcvr`が左辺値またはconst右辺値の場合、式`set_stopped(rcvr)`は不適格となる。
-- そうでなければ、`rcvr.set_stopped()`と等価である。
+- そうでなければ、[`MANDATE-NOTHROW`](MANDATE-NOTHROW.md)`(rcvr.set_stopped())`と等価な式。
 
 上記の式が適格なとき、その型は`void`であること。
 

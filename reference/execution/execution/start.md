@@ -17,7 +17,7 @@ namespace std::execution {
 
 ## 効果
 式`start(op)`は、`op`が右辺値の場合は不適格となる。
-そうでなければ、`op.start()`と等価。
+そうでなければ、[`MANDATE-NOTHROW`](MANDATE-NOTHROW.md)`(op.start())`と等価な式。
 
 上記の式が適格なとき、その型は`void`であること。
 

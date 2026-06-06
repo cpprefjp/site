@@ -19,9 +19,19 @@ namespace std::execution {
 ## 効果
 説明用の変数`sch`に対して、型`Sch`を`decltype((sch))`とする。`Sch`が[`scheduler`](scheduler.md)を満たさないとき、`get_forward_progress_guarantee`は不適格となる。
 
-そうでなければ、呼び出し式`get_forward_progress_guarantee(sch)`は下記と等価であり、[`forward_progress_guarantee`](forward_progress_guarantee.md)列挙型の値となる。
+そうでなければ、呼び出し式`get_forward_progress_guarantee(sch)`は下記と等価。
 
-- 引数`sch`がconst修飾された`csch`を用いて、式`cenv.query(get_forward_progress_guarantee)`
+```cpp
+MANDATE-NOTHROW(AS-CONST(sch).query(get_forward_progress_guarantee))
+```
+* MANDATE-NOTHROW[link MANDATE-NOTHROW.md]
+* AS-CONST[link AS-CONST.md]
+
+上記の式の型は、[`forward_progress_guarantee`](forward_progress_guarantee.md)であること。
+
+ある[Scheduler](scheduler.md)`sch`に対して、式`get_forward_progress_guarantee(sch)`が[`forward_progress_guarantee::concurrent`](forward_progress_guarantee.md)を返すとき、そのScheudlerに関連付けられた実行リソースにより作成される全ての実行エージェントは、並行前方進行保証(concurrent forward progress guarantee)を提供する必要がある。
+[`forward_progress_guarantee::parallel`](forward_progress_guarantee.md)を返す場合は、全ての実行エージェントは少なくとも並列前方進行保証
+(parallel forward progress guarantee)を提供する必要がある。
 
 
 ## 例外

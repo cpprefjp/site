@@ -28,7 +28,7 @@ namespace std {
 ## 効果
 説明用の式`q`を`Q`型の[クエリオブジェクト](queryable.md)としたとき、呼び出し式`forwarding_query(q)`は下記と等価であり、`bool`型の値となる。
 
-- 式`q.query(forwarding_query)`が適格であれば、同式の`bool`値。
+- 式[`MANDATE-NOTHROW`](execution/MANDATE-NOTHROW.md)`(q.query(forwarding_query))`が適格であれば、同式の`bool`値。
     - `q`がコア定数式ならば、`q.query(forwarding_query)`もコア定数式となる。
 - そうではなく、[`derived_from`](/reference/concepts/derived_from.md)`<Q, forwarding_query_t> == true`ならば`true`
 - そうでなければ、`false`
@@ -49,6 +49,7 @@ namespace std {
 - [`execution::get_scheduler`](execution/get_scheduler.md)
 - [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md)
 - [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md)
+- [`execution::get_completion_domain`](execution/get_completion_domain.md)
 - [`execution::get_await_completion_adaptor`](execution/get_await_completion_adaptor.md)
 
 下記[クエリオブジェクト](queryable.md)に対する問い合わせは、`FWD-ENV`経由で転送されない。

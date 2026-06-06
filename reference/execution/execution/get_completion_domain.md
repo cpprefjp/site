@@ -23,9 +23,9 @@ namespace std::execution {
 
 ## 効果
 式`attrs`とパック`envs`に対して、完了タグ`completion-tag`が[`set_value_t`](set_value.md)／[`set_error_t`](set_error.md)／ [`set_stopped_t`](set_stopped.md)のいずれでもなければ、呼び出し式`get_completion_domain<completion-tag>(attrs, envs...)`は不適格となる。
-そうでなければ、型`D`を下記の通りとして、呼び出し式は`MANDATE-NOTHROW(D())`と等価である。
+そうでなければ、型`D`を下記の通りとして、呼び出し式は[`MANDATE-NOTHROW`](MANDATE-NOTHROW.md)`(D())`と等価である。
 
-- 式が適格ならば`TRY-QUERY(attrs, get_completion_domain<completion-tag>, envs...)`の型。
+- 式が適格ならば[`TRY-QUERY`](../queryable.md)`(attrs, get_completion_domain<completion-tag>, envs...)`の型。
 - そうではなく、`completion-tag`が`void`のとき、式`get_completion_domain<set_value_t>(attrs, envs...)`の型。
 - そうではなく、下記の式が適格ならばその型。
 
@@ -33,6 +33,7 @@ namespace std::execution {
     TRY-QUERY(get_completion_scheduler<completion-tag>(attrs, envs...),
               get_completion_domain<set_value_t>, envs...)
     ```
+    * TRY-QUERY[link ../queryable.md]
     * get_completion_scheduler[link get_completion_scheduler.md]
     * set_value_t[link set_value.md]
 
@@ -45,7 +46,7 @@ namespace std::execution {
 
 
 ## カスタマイゼーションポイント
-[クエリ可能オブジェクト](../queryable.md)`q`を`attrs`としたとき、式`AS-CONST(q).query(get_completion_domain<completion-tag>, envs...)`が適格ならば呼び出される。
+[クエリ可能オブジェクト](../queryable.md)`q`を`attrs`としたとき、式[`AS-CONST`](AS-CONST.md)`(q).query(get_completion_domain<completion-tag>, envs...)`が適格ならば呼び出される。
 そうでなければ、`q`を[`get_completion_scheduler`](get_completion_scheduler.md)で取得される[完了Scheduler](scheduler.md)として、同様に式が適格ならば呼び出す。
 
 型`Tag`、式`sndr`、パック`envs`に対して、`CS`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<decltype((sndr))>, decltype((envs))...>`とする。`get_completion_domain<Tag>(`[`get_env`](get_env.md)`(sndr), envs...)`と`CS`が両者とも適格、かつ`CS().`[`count-of`](completion_signatures.md)`(Tag()) == 0`が`true`のとき、プログラムは不適格となる。

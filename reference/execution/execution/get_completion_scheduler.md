@@ -34,10 +34,10 @@ namespace std::execution {
 ## 効果
 `completion-fn`を完了関数、`completion-tag`を完了関数に関連付けられた完了タグ、`args`と`envs`を部分式のパック、式`sndr`を[`sender`](sender.md)`<decltype((sndr))>`が`true`かつ`get_completion_scheduler<completion-tag>(`[`get_env`](get_env.md)`(sndr), envs...)`となる式、`sch`を[Scheduler](scheduler.md)とする。
 
-式`sch1`とパック`envs`に対して、式`sch2`を`TRY-QUERY(sch, get_completion_scheduler<completion-tag>, envs...)`とする。`sch2`が不適格もしくは`sch1`と`sch2`が同一型かつ等しいとき、式`RECURSE-QUERY(sch1, envs...)`を`sch1`と等価な式とする。そうでなければ、式`RECURSE-QUERY(sch2, envs...)`と透過な式とする。
+式`sch1`とパック`envs`に対して、式`sch2`を[`TRY-QUERY`](../queryable.md)`(sch, get_completion_scheduler<completion-tag>, envs...)`とする。`sch2`が不適格もしくは`sch1`と`sch2`が同一型かつ等しいとき、式`RECURSE-QUERY(sch1, envs...)`を`sch1`と等価な式とする。そうでなければ、式`RECURSE-QUERY(sch2, envs...)`と透過な式とする。
 
 式`q`とパック`envs`に対して、完了タグ`completion-tag`が[`set_value_t`](set_value.md)／[`set_error_t`](set_error.md)／ [`set_stopped_t`](set_stopped.md)のいずれでもなければ、呼び出し式`get_completion_scheduler<completion-tag>(q, envs...)`は不適格となる。
-そうでなければ、呼び出し式は下記と等価である。
+そうでなければ、呼び出し式は下記と等価。
 
 - `envs...`が1回だけ評価されることを除いて、適格ならば下記の式
 
@@ -45,6 +45,8 @@ namespace std::execution {
     MANDATE-NOTHROW(RECURSE-QUERY(
       TRY-QUERY(q, get_completion_scheduler<completion-tag>, envs...), envs...))
     ```
+    * MANDATE-NOTHROW[link MANDATE-NOTHROW.md]
+    * TRY-QUERY[link ../queryable.md]
 
 - そうではなく、`envs...`が1回だけ評価されることを除いて、型`q`が[`schedeuler`](scheduler.md)を満たしかつ`envs`が空のパックでないとき、`auto(q)`
 - そうでなければ、呼び出し式`get_completion_scheduler<completion-tag>(q, envs...)`は不適格となる。

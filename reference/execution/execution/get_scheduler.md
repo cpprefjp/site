@@ -19,14 +19,18 @@ namespace std::execution {
 
 
 ## 効果
-呼び出し式`get_scheduler(env)`は下記と等価であり、適格であれば[`scheduler`](scheduler.md)を満たす型の値となる。
+呼び出し式`get_scheduler(env)`は下記と等価。
 
 ```cpp
 get_completion_scheduler<set_value_t>(MANDATE-NOTHROW(AS-CONST(env).query(get_scheduler)), HIDE-SCHED(env))
 ```
 * get_completion_scheduler[link get_completion_scheduler.md]]
 * set_value_t[link set_value.md]
+* MANDATE-NOTHROW[link MANDATE-NOTHROW.md]
+* AS-CONST[link AS-CONST.md]
+* HIDE-SCHED[link ../queryable.md]
 
+上記の式が適格なとき、その型は[`scheduler`](scheduler.md)を満たすこと。
 
 ## 例外
 投げない
