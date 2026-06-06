@@ -59,7 +59,7 @@ if constexpr (requires { std::forward_like<Sndr>(child).affine_on(); }) {
 [Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
-説明用の式`out_sndr`を`affine_on(sndr)`の戻り値[Sender](sender.md)とし、型`OutSndr`を`decltype((out_sndr))`とする。式`out_rcvr`を[環境](../queryable.md)`Env`に関連付けられた[Receiver](receiver.md)とする。[`get_start_scheduler`](get_start_scheduler.md)`(`[`get_env`](get_env.md)`(out_rcvr))`が不適格もしくは[`infallible-scheduler](infallible-scheduler.md)`<Env>`を満たさないとき、式[`get_completion_signatures`](get_completion_signatures.md)`<OutSndr, Env>()`の評価は例外で終了する。`out_sndr`と`out_rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)への左辺値参照を`op`としたとき、
+説明用の式`out_sndr`を`affine_on(sndr)`の戻り値[Sender](sender.md)とし、型`OutSndr`を`decltype((out_sndr))`とする。式`out_rcvr`を[環境](../queryable.md)`Env`に関連付けられた[Receiver](receiver.md)とする。[`get_start_scheduler`](get_start_scheduler.md)`(`[`get_env`](get_env.md)`(out_rcvr))`が不適格もしくは[`infallible-scheduler`](infallible-scheduler.md)`<Env>`を満たさないとき、式[`get_completion_signatures`](get_completion_signatures.md)`<OutSndr, Env>()`の評価は例外で終了する。`out_sndr`と`out_rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)への左辺値参照を`op`としたとき、
 
 - 呼び出し[`start`](start.md)`(op)`は、現在の実行エージェント上で入力[Sender](sender.md)`sndr`を開始し、[Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェント上で`out_rcvr`の完了操作が実行される。
 - 現在の実行リソースが`sch`に関連付けられた実行リソースと同一のとき、[`start`](start.md)`(op)`の完了よりも前に`out_rcvr`の完了操作が呼ばれる可能性がある。
