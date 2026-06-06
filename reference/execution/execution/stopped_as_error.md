@@ -21,20 +21,18 @@ namespace std::execution {
 ## 効果
 説明用の式`sndr`と`err`に対して、型`Sndr`を`decltype((sndr))`、型`Err`を`decltype((err))`とする。`Sndr`が[`sender`](sender.md)を満たさない、もしくは`Err`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`stopped_as_error(sndr, err)`は不適格となる。
 
-そうでなければ、呼び出し式`stopped_as_error(sndr, err)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`stopped_as_error(sndr, err)`は下記と等価。
 
 ```cpp
-transform_sender(get-domain-early(sndr), make-sender(stopped_as_error, err, sndr))
+make-sender(stopped_as_error, err, sndr)
 ```
-* transform_sender[link transform_sender.md]
-* get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 
 
 ### Senderアルゴリズムタグ `stopped_as_error`
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_error_t> == false`のとき、式`stopped_as_error.transform_sender(sndr, env)`は不適格となる。
+説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_error_t> == false`のとき、式`stopped_as_error.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`は不適格となる。
 
-そうでなければ、式`stopped_as_error.transform_sender(sndr, env)`は下記と等価。
+そうでなければ、式`stopped_as_error.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`は下記と等価。
 
 ```cpp
 auto&& [_, err, child] = sndr;
@@ -52,11 +50,8 @@ return let_stopped(
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時に、[Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では無変換。
-
-[Receiver](receiver.md)との[接続(connect)](connect.md)時に、[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では`stopped_as_error.transform_sender(sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
+[Receiver](receiver.md)との[接続(connect)](connect.md)時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[デフォルト実行ドメイン](default_domain.md)では`stopped_as_error.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
 
 
 ## 例
@@ -169,5 +164,5 @@ stopped
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

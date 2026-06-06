@@ -24,7 +24,7 @@ namespace std::execution {
 
 
 ## 効果
-説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`<decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...>`とする。型`CD`が適格ならば型`CD2`を`CD`とし、そうでなければ[`default_domain`](default_domain.md)とする。
+説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`とする。
 
 下記いずれかが`true`となるとき、呼び出し式`when_all_with_variant(sndrs...)`は不適格となる。
 
@@ -34,16 +34,15 @@ namespace std::execution {
 そうでなければ、呼び出し式`when_all_with_variant(sndrs...)`は下記と等価。
 
 ```cpp
-transform_sender(CD2(), make-sender(when_all_with_variant, {}, sndrs...))
+make-sender(when_all_with_variant, {}, sndrs...)
 ```
-* transform_sender[link transform_sender.md]
 * make-sender[link make-sender.md]
 
 
 ### Senderアルゴリズムタグ `when_all_with_variant`
-説明用の式`sndr`と`env`に対して、[`sender-for`](sender-for.md)`<decltype((sndr)), when_all_with_variant_t> == false`のとき、式`when_all_with_variant.transform_sender(sndr, env)`は不適格となる。
+説明用の式`sndr`と`env`に対して、[`sender-for`](sender-for.md)`<decltype((sndr)), when_all_with_variant_t> == false`のとき、式`when_all_with_variant.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`は不適格となる。
 
-そうでなければ、式`when_all_with_variant.transform_sender(sndr, env)`は下記と等価。
+そうでなければ、式`when_all_with_variant.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`は下記と等価。
 
 ```cpp
 auto&& [_, _, ...child] = sndr;
@@ -54,11 +53,8 @@ return when_all(into_variant(std::forward_like<decltype((sndr))>(child))...);
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時に、全入力Senderに関連付けられた共通の実行ドメイン`CD`に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では無変換。
-
-[Receiver](receiver.md)との[接続(connect)](connect.md)時に、[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では`when_all_with_variant.transform_sender(sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
+[Receiver](receiver.md)との[接続(connect)](connect.md)時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[デフォルト実行ドメイン](default_domain.md)では`when_all_with_variant.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
 
 
 ## 例
@@ -187,6 +183,6 @@ int main()
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

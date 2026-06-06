@@ -21,7 +21,11 @@ namespace std::execution {
 ## 効果
 呼び出し式`get_await_completion_adaptor(env)`は下記と等価。
 
-- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_await_completion_adaptor)`
+```cpp
+MANDATE-NOTHROW(AS-CONST(env).query(get_await_completion_adaptor))
+```
+* MANDATE-NOTHROW[link MANDATE-NOTHROW.md]
+* AS-CONST[link AS-CONST.md]
 
 
 ## 例外

@@ -46,11 +46,18 @@ concept queryable = destructible<T>;
 
 
 ## 説明専用エンティティ
-### 式`MAKE-ENV`
-説明用のクエリオブジェクト`q`と式`v`に対して、式`MAKE-ENV(q, v)`は`queryable`を満たす型の式`env`となり、下記を満たす。
 
-- `env.query(q)`の結果が`v`と等しい。
-- 明に規定されない限り、`env`が有効の間は`env.query(q)`のオブジェクトも有効である。
+### 式`TRY-QUERY`
+説明用の部分式`q`, `tag`、パック`args`に対して、式`TRY-QUERY(q, tag, args...)`は適格であるならば[`AS-CONST`](execution/AS-CONST.md)`(q).query(tag, args...)`と等価な式である。そうでなければ、`args...`が評価されることを除いて[`AS-CONST`](execution/AS-CONST.md)`(q).query(tag)`と等価な式である。
+
+### 式`HIDE-SCHED`
+説明用の部分式`q`, `tag`、パック`args`に対して、`tag`のdecayed型が[`get_scheduler_t`](execution/get_scheduler.md)または[`get_domain_t`](execution/get_domain.md)のとき、式`HIDE-SCHED(q)`は`o.query(tag, args...)`が不適格となるオブジェクト`o`とする。そうでなければ、`q.query(tag, args...)`とする。
+
+### 式`MAKE-ENV`
+説明用のクエリオブジェクト`q`、部分式`v`、部分式のパック`args`に対して、式`MAKE-ENV(q, v)`は`queryable`を満たす型の式`env`となり、下記を満たす。
+
+- `env.query(q, args...)`の結果が`v`と等しい。
+- 明に規定されない限り、`env`が有効の間は`env.query(q, args...)`のオブジェクトも有効である。
 
 ### 式`JOIN-ENV`
 説明用のクエリ可能オブジェクト`env1`, `env2`、クエリオブジェクト`q`、パック式`as`に対して、式`JOIN-ENV(env1, env2)`は`queryable`を満たす型の式`env3`となり、式`env3.query(q, as...)`は下記と等価である。
@@ -77,3 +84,4 @@ concept queryable = destructible<T>;
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

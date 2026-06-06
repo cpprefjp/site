@@ -19,13 +19,11 @@ namespace std::execution {
 
 
 ## 効果
-説明用の式`sndr`に対して、型`Sndr`を`decltype((sndr))`とする。呼び出し式`stopped_as_optional(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+説明用の式`sndr`に対して、型`Sndr`を`decltype((sndr))`とする。呼び出し式`stopped_as_optional(sndr)`は下記と等価。
 
 ```cpp
-transform_sender(get-domain-early(sndr), make-sender(stopped_as_optional, {}, sndr))
+make-sender(stopped_as_optional, {}, sndr)
 ```
-* transform_sender[link transform_sender.md]
-* get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 
 
@@ -53,11 +51,11 @@ namespace std::execution {
 * FWD-ENV-T[link ../forwarding_query.md]
 * unspecified-exception[link unspecified-exception.md]
 
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_optional_t> == false`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
+説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_optional_t> == false`のとき、式`stopped_as_optional.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`は不適格となる。
 
-そうではなく、[`sender_in`](sender_in.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(Env)> == false`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は[`not-a-sender()`](not-a-sender.md)と等価。
+そうではなく、[`sender_in`](sender_in.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(Env)> == false`のとき、式`stopped_as_optional.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`は[`not-a-sender()`](not-a-sender.md)と等価。
 
-そうでなければ、式`stopped_as_optional.transform_sender(sndr, env)`は下記と等価。
+そうでなければ、式`stopped_as_optional.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`は下記と等価。
 
 ```cpp
 auto&& [_, _, child] = sndr;
@@ -80,11 +78,8 @@ return let_stopped(
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時に、[Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では無変換。
-
-[Receiver](receiver.md)との[接続(connect)](connect.md)時に、[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では`stopped_as_optional.transform_sender(sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
+[Receiver](receiver.md)との[接続(connect)](connect.md)時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[デフォルト実行ドメイン](default_domain.md)では`stopped_as_optional.transform_sender(`[`set_value`](set_value.md)`, sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
 
 
 ## 例
@@ -195,7 +190,7 @@ stopped
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

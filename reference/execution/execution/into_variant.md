@@ -21,13 +21,11 @@ namespace std::execution {
 ## 効果
 説明用の式`sndr`に対して`decltype((sndr))`が[`sender`](sender.md)を満たさないとき、呼び出し式`into_variant(sndr)`は不適格となる。
 
-そうでなければ、呼び出し式`into_variant(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`into_variant(sndr)`は下記と等価。
 
 ```cpp
-transform_sender(get-domain-early(sndr), make-sender(into_variant, {}, sndr))
+make-sender(into_variant, {}, sndr)
 ```
-* transform_sender[link transform_sender.md]
-* get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 
 
@@ -96,7 +94,7 @@ namespace std::execution {
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
 
@@ -219,7 +217,7 @@ int main()
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

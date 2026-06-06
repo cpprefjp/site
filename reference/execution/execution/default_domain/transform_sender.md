@@ -6,9 +6,8 @@
 * cpp26[meta cpp]
 
 ```cpp
-template<sender Sndr, queryable... Env>
-  requires (sizeof...(Env) <= 1)
-constexpr sender decltype(auto) transform_sender(Sndr&& sndr, const Env&... env)
+template<class Tag, sender Sndr, queryable Env>
+constexpr decltype(auto) transform_sender(Tag, Sndr&& sndr, const Env& env)
   noexcept(see below);
 ```
 * sender[link ../sender.md]
@@ -25,8 +24,8 @@ Sender変換のデフォルト動作。
 ## 効果
 説明用の式`e`を次の通りとしたとき、`e`を返す。
 
-- 適格であるならば、式[`tag_of_t`](../tag_of_t.md)`<Sndr>().transform_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), env...)`
-- そうでなければ、[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr)`
+- 適格であるならば、式[`tag_of_t`](../tag_of_t.md)`<Sndr>().transform_sender(Tag(),` [`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), env)`
+- そうでなければ、`static_cast<Sndr>(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr))`
 
 
 ## 例外
@@ -50,5 +49,5 @@ Sender変換のデフォルト動作。
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

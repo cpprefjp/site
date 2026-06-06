@@ -39,12 +39,10 @@ namespace std::execution {
 
 ```cpp
 transform_sender(
-  get-domain-late(declval<Sndr>(), declval<Env>()...),
   declval<Sndr>(),
   declval<Env>()...)
 ```
 * transform_sender[link transform_sender.md]
-* get-domain-late[link get-domain-late.md]
 
 下記の通り定義される式`e`を用いて、`return e;`と等価。
 
@@ -69,6 +67,8 @@ transform_sender(
 - そうではなく、`sizeof...(Env) == 0`ならば、`(throw dependent-sender-error(),` [`completion_signatures()`](completion_signatures.md)`)`
     - 型`dependent-sender-error`は、[`dependent_sender_error`](dependent_sender_error.md)もしくは`dependent_sender_error`から曖昧さなく公開派生された未規定の型とする。
 - そうでなければ、`(throw except,` [`completion_signatures()`](completion_signatures.md)`)`
+
+型`Env`に対して、[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr>`と[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr, Env>`ともに適格ならば、エラー完了ないし停止完了操作に関して、前者は後者のスーパーセットであること。
 
 説明用の式`rcvr`を[`receiver`](receiver.md)のモデルである型`Rcvr`の右辺値、型`Sndr`を[`sender_in`](sender_in.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>> == true`となる型とする。
 `Sigs...`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。
@@ -132,3 +132,4 @@ int main()
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

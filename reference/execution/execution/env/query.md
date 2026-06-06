@@ -6,8 +6,8 @@
 * cpp26[meta cpp]
 
 ```cpp
-template<class QueryTag>
-constexpr decltype(auto) query(QueryTag q) const noexcept(see below);
+template<class QueryTag, class... Args>
+constexpr decltype(auto) query(QueryTag q, Args&&... args) const noexcept(see below);
 ```
 
 ## 概要
@@ -15,28 +15,28 @@ constexpr decltype(auto) query(QueryTag q) const noexcept(see below);
 
 
 ## テンプレートパラメータ制約
-説明専用のコンセプト`has-query`を次のように定義したとき、`(has-query<Envs, QueryTag> || ...)`が`true`であること。
+説明専用のコンセプト`has-query`を次のように定義したとき、`(has-query<Envs, QueryTag, Args...> || ...)`が`true`であること。
 
 ```cpp
-template<class Env, class QueryTag>
+template<class Env, class QueryTag, class... Args>
 concept has-query =
-  requires (const Env& env) {
-    env.query(QueryTag());
+  requires (const Env& env, Args&&... args) {
+    env.query(QueryTag(), std::forward<Args>(args)...);
   };
 ```
 
 
 ## 効果
-説明用の`fe`を、`env`クラステンプレートの説明専用メンバ変数`envs0_`, ..., `envsN_`のうち最初に式`fe.query(q)`が適格となる要素としたとき、下記と等価。
+説明用の`fe`を、`env`クラステンプレートの説明専用メンバ変数`envs0_`, ..., `envsN_`のうち最初に式`fe.query(q, std::forward<Args>(args)...)`が適格となる要素としたとき、下記と等価。
 
 ```cpp
-return fe.query(q);
+return fe.query(q, std::forward<Args>(args)...);
 ```
 
 
 ## 例外
-式`noexcept(fe.query(q))`が`true`のとき、例外送出しない。
-それ以外の場合、式`fe.query(q)`から送出される例外。
+式`noexcept(fe.query(q, std::forward<Args>(args)...))`が`true`のとき、例外送出しない。
+それ以外の場合、式`fe.query(q, std::forward<Args>(args)...)`から送出される例外。
 
 
 ## 例
@@ -91,3 +91,4 @@ int main()
 
 ## 参照
 - [P3325R5 A Utility for Creating Execution Environments](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3325r5.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)

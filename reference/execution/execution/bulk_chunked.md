@@ -31,15 +31,11 @@ namespace std::execution {
 - `Shape`が[`integral`](/reference/concepts/integral.md)を満たさない、もしくは
 - `Func`が[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルでないとき。
 
-そうでなければ、呼び出し式`bulk_chunked(sndr, policy, shape, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`bulk_chunked(sndr, policy, shape, f)`は下記と等価。
 
 ```cpp
-transform_sender(
-  get-domain-early(sndr),
-  make-sender(bulk_chunked, product-type<see below, Shape, Func>{policy, shape, f}, sndr))
+make-sender(bulk_chunked, product-type<see below, Shape, Func>{policy, shape, f}, sndr))
 ```
-* transform_sender[link transform_sender.md]
-* get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 * product-type[link product-type.md]
 
@@ -108,7 +104,7 @@ cs.for-each(overload-set{fn, [](auto){}});
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
 説明用の式`out_sndr`を`bulk_chunked(sndr, policy, shape, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
@@ -176,8 +172,8 @@ int main()
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
