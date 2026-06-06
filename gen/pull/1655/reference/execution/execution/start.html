@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T11:57:18">
-        2026年04月23日 11時57分18秒
+      <span itemprop="datePublished" content="2026-06-06T13:00:57">
+        2026年06月06日 13時00分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -235,7 +235,7 @@
 <p><code>start</code>は、<a href="operation_state.html">Operation State</a>関連付けられた非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>(asynchronous operation)を開始する<a class="cpprefjp-defined-word" data-desc="プログラム定義型に対するオーバーロードが許されている標準関数名について、中でいい感じにオーバーロード解決して呼び出してくれる関数オブジェクト">カスタマイゼーションポイントオブジェクト</a>である。</p>
 <h2>効果</h2>
 <p>式<code>start(op)</code>は、<code>op</code>が右辺値の場合は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。
-そうでなければ、<code>op.start()</code>と等価。</p>
+そうでなければ、<code><a href="MANDATE-NOTHROW.html">MANDATE-NOTHROW</a>(op.start())</code>と等価な式。</p>
 <p>上記の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>なとき、その型は<code>void</code>であること。</p>
 <h2>カスタマイゼーションポイント</h2>
 <p><a href="operation_state.html">Operation State</a><code>op</code>に対して式<code>op.start()</code>が呼び出される。

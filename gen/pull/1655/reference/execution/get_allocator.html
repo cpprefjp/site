@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-01T08:08:40">
-        2025年06月01日 08時08分40秒
+      <span itemprop="datePublished" content="2026-06-06T13:00:57">
+        2026年06月06日 13時00分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,10 +223,8 @@
 <p><code>get_allocator</code>は、<a href="queryable.html">クエリ可能オブジェクト</a>からアロケータを取得する<a href="queryable.html">クエリオブジェクト</a>である。</p>
 <p>コア定数式<code><a href="forwarding_query.html">forwarding_query</a>(get_allocator)</code>は<code>true</code>値を返す。</p>
 <h2>効果</h2>
-<p>呼び出し式<code>get_allocator(env)</code>は下記と等価であり、<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>であれば説明専用コンセプト<code>simple-allocator</code>を満たす型の値となる。</p>
-<ul>
-<li>引数<code>env</code>がconst修飾された<code>cenv</code>を用いて、式<code>cenv.query(get_allocator)</code></li>
-</ul>
+<p>呼び出し式<code>get_allocator(env)</code>は、<code><a href="execution/MANDATE-NOTHROW.html">MANDATE-NOTHROW</a>(<a href="execution/AS-CONST.html">AS-CONST</a>(env).query(get_allocator))</code>と等価である。</p>
+<p>上記の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>なとき、その型は説明専用コンセプト<code>simple-allocator</code>を満たすこと。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="o">&gt;</span>
 <span class="k">concept</span><span class="w"> </span><span class="nc">simple</span><span class="o">-</span><span class="n">allocator</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="k">requires</span><span class="p">(</span><span class="n">Alloc</span><span class="w"> </span><span class="n">alloc</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>

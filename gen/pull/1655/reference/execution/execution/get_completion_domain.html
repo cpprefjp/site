@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-16T15:17:02">
-        2026年05月16日 15時17分02秒
+      <span itemprop="datePublished" content="2026-06-06T13:00:57">
+        2026年06月06日 13時00分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,13 +239,13 @@
 <p>コア定数式<code><a href="../forwarding_query.html">forwarding_query</a>(get_completion_domain&lt;completion-tag&gt;)</code>は<code>true</code>値を返す。</p>
 <h2>効果</h2>
 <p>式<code>attrs</code>とパック<code>envs</code>に対して、完了タグ<code>completion-tag</code>が<code><a href="set_value.html">set_value_t</a></code>／<code><a href="set_error.html">set_error_t</a></code>／ <code><a href="set_stopped.html">set_stopped_t</a></code>のいずれでもなければ、呼び出し式<code>get_completion_domain&lt;completion-tag&gt;(attrs, envs...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。
-そうでなければ、型<code>D</code>を下記の通りとして、呼び出し式は<code>MANDATE-NOTHROW(D())</code>と等価である。</p>
+そうでなければ、型<code>D</code>を下記の通りとして、呼び出し式は<code><a href="MANDATE-NOTHROW.html">MANDATE-NOTHROW</a>(D())</code>と等価である。</p>
 <ul>
-<li>式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば<code>TRY-QUERY(attrs, get_completion_domain&lt;completion-tag&gt;, envs...)</code>の型。</li>
+<li>式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば<code><a href="../queryable.html">TRY-QUERY</a>(attrs, get_completion_domain&lt;completion-tag&gt;, envs...)</code>の型。</li>
 <li>そうではなく、<code>completion-tag</code>が<code>void</code>のとき、式<code>get_completion_domain&lt;set_value_t&gt;(attrs, envs...)</code>の型。</li>
 <li>
 <p>そうではなく、下記の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならばその型。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n">TRY</span><span class="o">-</span><span class="n">QUERY</span><span class="p">(</span><span class="n"><a href="get_completion_scheduler.html">get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n">completion</span><span class="o">-</span><span class="n">tag</span><span class="o">&gt;</span><span class="p">(</span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="n">envs</span><span class="p">...),</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../queryable.html">TRY-QUERY</a></span><span class="p">(</span><span class="n"><a href="get_completion_scheduler.html">get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n">completion</span><span class="o">-</span><span class="n">tag</span><span class="o">&gt;</span><span class="p">(</span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="n">envs</span><span class="p">...),</span>
 <span class="w">          </span><span class="n">get_completion_domain</span><span class="o">&lt;</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">envs</span><span class="p">...)</span>
 </code></pre></div>
 </p>
@@ -258,7 +258,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>カスタマイゼーションポイント</h2>
-<p><a href="../queryable.html">クエリ可能オブジェクト</a><code>q</code>を<code>attrs</code>としたとき、式<code>AS-CONST(q).query(get_completion_domain&lt;completion-tag&gt;, envs...)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば呼び出される。
+<p><a href="../queryable.html">クエリ可能オブジェクト</a><code>q</code>を<code>attrs</code>としたとき、式<code><a href="AS-CONST.html">AS-CONST</a>(q).query(get_completion_domain&lt;completion-tag&gt;, envs...)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば呼び出される。
 そうでなければ、<code>q</code>を<code><a href="get_completion_scheduler.html">get_completion_scheduler</a></code>で取得される<a href="scheduler.html">完了Scheduler</a>として、同様に式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば呼び出す。</p>
 <p>型<code>Tag</code>、式<code>sndr</code>、パック<code>envs</code>に対して、<code>CS</code>を<code><a href="completion_signatures_of_t.html">completion_signatures_of_t</a>&lt;<a href="../../type_traits/decay.html">decay_t</a>&lt;decltype((sndr))&gt;, decltype((envs))...&gt;</code>とする。<code>get_completion_domain&lt;Tag&gt;(<a href="get_env.html">get_env</a>(sndr), envs...)</code>と<code>CS</code>が両者とも<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>、かつ<code>CS().<a href="completion_signatures.html">count-of</a>(Tag()) == 0</code>が<code>true</code>のとき、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <p><code>completion-fn</code>を完了関数、<code>completion-tag</code>を完了関数に関連付けられた完了タグ、<code>args</code>と<code>envs</code>を部分式のパック、式<code>sndr</code>を<code><a href="sender.html">sender</a>&lt;decltype((sndr))&gt;</code>が<code>true</code>かつ<code>get_completion_domain&lt;completion-tag&gt;(<a href="get_env.html">get_env</a>(sndr), envs...)</code>となる式、<code>D</code>をドメインタグとする。<code>sndr</code>と<a href="receiver.html">Receiver</a><code>rcvr</code>を接続して作成された非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>が完了関数<code>completion-fn(rcvr, args...)</code>を評価するとき、その評価が実行ドメインタグ<code>D</code>に関連付けられた実行リソースの実行エージェント上で行われない場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>

@@ -5505,7 +5505,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/forwarding_query.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -5533,7 +5533,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/get_stop_token.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -5547,14 +5547,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/queryable.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/get_allocator.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -5638,7 +5638,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_scheduler.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -5694,7 +5694,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_delegation_scheduler.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -5702,6 +5702,13 @@
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/emplace-from.html</loc>
       <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.6</priority>
+    </url>
+  
+    <url>
+      <loc>https://cpprefjp.github.io/reference/execution/execution/AS-CONST.html</loc>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -5757,7 +5764,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_completion_scheduler.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -5771,7 +5778,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_completion_domain.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -5883,7 +5890,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/start.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -5967,14 +5974,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_forward_progress_guarantee.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_env.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -6036,15 +6043,22 @@
     </url>
   
     <url>
+      <loc>https://cpprefjp.github.io/reference/execution/execution/MANDATE-NOTHROW.html</loc>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.6</priority>
+    </url>
+  
+    <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_domain.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_await_completion_adaptor.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -6142,14 +6156,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/set_stopped.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/set_value.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -6170,7 +6184,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/set_error.html</loc>
-      <lastmod>2026-06-05T16:59:27+09:00</lastmod>
+      <lastmod>2026-06-06T22:00:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>

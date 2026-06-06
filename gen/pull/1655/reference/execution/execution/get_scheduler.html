@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-16T15:17:02">
-        2026年05月16日 15時17分02秒
+      <span itemprop="datePublished" content="2026-06-06T13:00:57">
+        2026年06月06日 13時00分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -235,10 +235,11 @@
 <p><code>get_scheduler</code>は、<a href="../queryable.html">クエリ可能オブジェクト</a>から関連する<a href="scheduler.html">Scheduler</a>を取得する<a href="../queryable.html">クエリオブジェクト</a>である。</p>
 <p>コア定数式<code><a href="../forwarding_query.html">forwarding_query</a>(get_scheduler)</code>は<code>true</code>値を返す。</p>
 <h2>効果</h2>
-<p>呼び出し式<code>get_scheduler(env)</code>は下記と等価であり、<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であれば<code><a href="scheduler.html">scheduler</a></code>を満たす型の値となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="get_completion_scheduler.html">get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">MANDATE</span><span class="o">-</span><span class="n">NOTHROW</span><span class="p">(</span><span class="n">AS</span><span class="o">-</span><span class="n">CONST</span><span class="p">(</span><span class="n">env</span><span class="p">).</span><span class="n">query</span><span class="p">(</span><span class="n">get_scheduler</span><span class="p">)),</span><span class="w"> </span><span class="n">HIDE</span><span class="o">-</span><span class="n">SCHED</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<p>呼び出し式<code>get_scheduler(env)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="get_completion_scheduler.html">get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="MANDATE-NOTHROW.html">MANDATE-NOTHROW</a></span><span class="p">(</span><span class="n"><a href="AS-CONST.html">AS-CONST</a></span><span class="p">(</span><span class="n">env</span><span class="p">).</span><span class="n">query</span><span class="p">(</span><span class="n">get_scheduler</span><span class="p">)),</span><span class="w"> </span><span class="n"><a href="../queryable.html">HIDE-SCHED</a></span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
 </code></pre></div>
 </p>
+<p>上記の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>なとき、その型は<code><a href="scheduler.html">scheduler</a></code>を満たすこと。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>カスタマイゼーションポイント</h2>

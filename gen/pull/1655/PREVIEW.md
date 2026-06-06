@@ -1,12 +1,14 @@
 # PR [\#1655](https://github.com/cpprefjp/site/pull/1655) プレビュー
-- &#x231a; 更新時刻: 2026-06-06 20:25:09 JST
+- &#x231a; 更新時刻: 2026-06-06 22:07:24 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1655)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26-p3826r5)
-- **&#x2AEF;** ソースの変更: [`c41fb93..abaf19a`](https://github.com/cpprefjp/site/compare/c41fb937271566602f01b35d4f6c34931f9c44ad..abaf19a9371303dc58c3a1610a39f441f332d6b8)
+- **&#x2AEF;** ソースの変更: [`c41fb93..6b219a1`](https://github.com/cpprefjp/site/compare/c41fb937271566602f01b35d4f6c34931f9c44ad..6b219a1c933b1534c5c0e8317d55a76e72a3c5a2)
 
-## 変更記事一覧 (44件)
+## 変更記事一覧 (57件)
 
 - &#x1f4dd; [`reference/execution/execution`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution.html)
+- &#x1f4dd; [`reference/execution/execution/AS-CONST`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/AS-CONST.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/MANDATE-NOTHROW`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/MANDATE-NOTHROW.html) &#x2728;
 - &#x1f4dd; [`reference/execution/execution/affine_on`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/affine_on.html)
 - &#x1f4dd; [`reference/execution/execution/associate`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/associate.html)
 - &#x1f4dd; [`reference/execution/execution/bulk`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/bulk.html)
@@ -18,10 +20,14 @@
 - &#x1f4dd; [`reference/execution/execution/default_domain`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/default_domain.html)
 - &#x1f4dd; [`reference/execution/execution/default_domain/transform_sender`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/default_domain/transform_sender.html)
 - &#x1f4dd; [`reference/execution/execution/env/query`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/env/query.html)
+- &#x1f4dd; [`reference/execution/execution/get_await_completion_adaptor`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_await_completion_adaptor.html)
 - &#x1f4dd; [`reference/execution/execution/get_completion_domain`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_completion_domain.html) &#x2728;
 - &#x1f4dd; [`reference/execution/execution/get_completion_scheduler`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_completion_scheduler.html)
 - &#x1f4dd; [`reference/execution/execution/get_completion_signatures`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_completion_signatures.html)
+- &#x1f4dd; [`reference/execution/execution/get_delegation_scheduler`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_delegation_scheduler.html)
 - &#x1f4dd; [`reference/execution/execution/get_domain`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_domain.html)
+- &#x1f4dd; [`reference/execution/execution/get_env`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_env.html)
+- &#x1f4dd; [`reference/execution/execution/get_forward_progress_guarantee`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_forward_progress_guarantee.html)
 - &#x1f4dd; [`reference/execution/execution/get_scheduler`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/get_scheduler.html)
 - &#x1f4dd; [`reference/execution/execution/indeterminate_domain`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/indeterminate_domain.html) &#x2728;
 - &#x1f4dd; [`reference/execution/execution/indeterminate_domain/transform_sender`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/indeterminate_domain/transform_sender.html) &#x2728;
@@ -38,6 +44,10 @@
 - &#x1f4dd; [`reference/execution/execution/schedule`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/schedule.html)
 - &#x1f4dd; [`reference/execution/execution/schedule_from`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/schedule_from.html)
 - &#x1f4dd; [`reference/execution/execution/scheduler`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/scheduler.html)
+- &#x1f4dd; [`reference/execution/execution/set_error`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/set_error.html)
+- &#x1f4dd; [`reference/execution/execution/set_stopped`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/set_stopped.html)
+- &#x1f4dd; [`reference/execution/execution/set_value`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/set_value.html)
+- &#x1f4dd; [`reference/execution/execution/start`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/start.html)
 - &#x1f4dd; [`reference/execution/execution/starts_on`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/starts_on.html)
 - &#x1f4dd; [`reference/execution/execution/stopped_as_error`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/stopped_as_error.html)
 - &#x1f4dd; [`reference/execution/execution/stopped_as_optional`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/stopped_as_optional.html)
@@ -47,6 +57,9 @@
 - &#x1f4dd; [`reference/execution/execution/upon_stopped`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/upon_stopped.html)
 - &#x1f4dd; [`reference/execution/execution/when_all`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/when_all.html)
 - &#x1f4dd; [`reference/execution/execution/when_all_with_variant`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/execution/when_all_with_variant.html)
+- &#x1f4dd; [`reference/execution/forwarding_query`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/forwarding_query.html)
+- &#x1f4dd; [`reference/execution/get_allocator`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/get_allocator.html)
+- &#x1f4dd; [`reference/execution/get_stop_token`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/get_stop_token.html)
 - &#x1f4dd; [`reference/execution/queryable`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/queryable.html)
 - &#x1f4dd; [`reference/execution/this_thread/sync_wait`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/this_thread/sync_wait.html)
 - &#x1f4dd; [`reference/execution/this_thread/sync_wait_with_variant`](https://cpprefjp.github.io/site/gen/pull/1655/reference/execution/this_thread/sync_wait_with_variant.html)

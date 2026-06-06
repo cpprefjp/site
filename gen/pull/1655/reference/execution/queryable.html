@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-05-16T15:17:02">
-        2026年05月16日 15時17分02秒
+      <span itemprop="datePublished" content="2026-06-06T13:00:57">
+        2026年06月06日 13時00分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,6 +245,10 @@
 <p>説明用の<code>env</code>を<code>Env</code>型のオブジェクトとする。
 呼び出し可能オブジェクト<code>q</code>と部分式パック<code>args</code>に対して、<code>requires { q(env, args...) }</code>が<code>true</code>であれば、<code>q(env, args...)</code>が<code>q</code>に課されるセマンティック要件を満たす場合に、<code>Env</code>は<code>queryable</code>のモデルである。</p>
 <h2>説明専用エンティティ</h2>
+<h3>式<code>TRY-QUERY</code></h3>
+<p>説明用の部分式<code>q</code>, <code>tag</code>、パック<code>args</code>に対して、式<code>TRY-QUERY(q, tag, args...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば<code><a href="execution/AS-CONST.html">AS-CONST</a>(q).query(tag, args...)</code>と等価な式である。そうでなければ、<code>args...</code>が評価されることを除いて<code><a href="execution/AS-CONST.html">AS-CONST</a>(q).query(tag)</code>と等価な式である。</p>
+<h3>式<code>HIDE-SCHED</code></h3>
+<p>説明用の部分式<code>q</code>, <code>tag</code>、パック<code>args</code>に対して、<code>tag</code>のdecayed型が<code><a href="execution/get_scheduler.html">get_scheduler_t</a></code>または<code><a href="execution/get_domain.html">get_domain_t</a></code>のとき、式<code>HIDE-SCHED(q)</code>は<code>o.query(tag, args...)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となるオブジェクト<code>o</code>とする。そうでなければ、<code>q.query(tag, args...)</code>とする。</p>
 <h3>式<code>MAKE-ENV</code></h3>
 <p>説明用のクエリオブジェクト<code>q</code>、部分式<code>v</code>、部分式のパック<code>args</code>に対して、式<code>MAKE-ENV(q, v)</code>は<code>queryable</code>を満たす型の式<code>env</code>となり、下記を満たす。</p>
 <ul>

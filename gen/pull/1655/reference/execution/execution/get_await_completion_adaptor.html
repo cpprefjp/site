@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-23T06:06:34">
-        2025年08月23日 06時06分34秒
+      <span itemprop="datePublished" content="2026-06-06T13:00:57">
+        2026年06月06日 13時00分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,9 +236,9 @@
 <p>コア定数式<code><a href="../forwarding_query.html">forwarding_query</a>(get_await_completion_adaptor)</code>は<code>true</code>値を返す。</p>
 <h2>効果</h2>
 <p>呼び出し式<code>get_await_completion_adaptor(env)</code>は下記と等価。</p>
-<ul>
-<li>引数<code>env</code>がconst修飾された<code>cenv</code>を用いて、式<code>cenv.query(get_await_completion_adaptor)</code></li>
-</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="MANDATE-NOTHROW.html">MANDATE-NOTHROW</a></span><span class="p">(</span><span class="n"><a href="AS-CONST.html">AS-CONST</a></span><span class="p">(</span><span class="n">env</span><span class="p">).</span><span class="n">query</span><span class="p">(</span><span class="n">get_await_completion_adaptor</span><span class="p">))</span>
+</code></pre></div>
+</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>カスタマイゼーションポイント</h2>
