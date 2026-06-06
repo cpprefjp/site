@@ -6,31 +6,34 @@
 * cpp26[meta cpp]
 
 ```cpp
+void* operator new(size_t size);  // (1)
+
 template<class... Args>
-void* operator new(size_t size, const Args&... args);
+void* operator new(size_t size, const Args&... args);  // (2)
+
+template<class This, class Alloc, class... Args>
+void* operator new(size_t size, const This&, allocator_arg_t, Alloc alloc, Args&&...);  // (3)
 ```
 
 ## 概要
 [`task::promise_type`](../promise_type.md)クラスのnew演算子オーバーロード。
 
-[`allocator_arg_t`](/reference/memory/allocator_arg_t.md)型のパラメータがなければ、`alloc`を[`allocator_type`](../../task.md)`()`で初期化する。そうでなければ、`arg_next`を最初の`allocator_arg_t`パラメータに続くパラメータとし、`alloc`を`allocator_type(arg_next)`とする。
-
-`U`型をサイズおよびアライメントが[`__STDCPP_DEFAULT_NEW_ALIGNMENT__`](/lang/cpp17/predefined_macros.md)である未規定の型としたとき、説明用の`PAlloc`を[`allocator_traits`](/reference/memory/allocator_traits.md)`<PAlloc>::template rebind_alloc<U>`とする。
+`U`型をサイズおよびアライメントが[`__STDCPP_DEFAULT_NEW_ALIGNMENT__`](/lang/cpp17/predefined_macros.md)である未規定の型としたとき、説明用の`PAlloc`を[`allocator_traits`](/reference/memory/allocator_traits.md)`<Alloc>::template rebind_alloc<U>`とする。
 
 
 ## 適格要件
-- （もしあれば）最初の[`allocator_arg_t`](/reference/memory/allocator_arg_t.md)型パラメータが最後のパラメータではない。
-- [`allocator_arg_t`](/reference/memory/allocator_arg_t.md)型のパラメータが存在するとき、[`allocator_type`](../../task.md)`(arg_next)`が妥当な式である。
-- [`allocator_traits`](/reference/memory/allocator_traits.md)`<PAlloc>::pointer`がポインタ型である。
+[`allocator_traits`](/reference/memory/allocator_traits.md)`<PAlloc>::pointer`がポインタ型である。
 
 
 ## 効果
-`PAlloc`型のアロケータ`palloc`を`alloc`で初期化する。
-サイズ`size`のコルーチンステートに十分なストレージとなる`U`の最小配列ストレージ、および[`operator delete`](op_delete.md)が後で`palloc`と等しいアロケータでこのメモリブロックを解放するのに必要となる未規定の追加ストレージの確保に`palloc`を用いる。
+- (2), (3) :
+    - `PAlloc`型のアロケータ`palloc`を`alloc`で初期化する。
+    - サイズ`size`のコルーチンステートに十分なストレージとなる`U`の最小配列ストレージ、および[`operator delete`](op_delete.md)が後で`palloc`と等しいアロケータでこのメモリブロックを解放するのに必要となる未規定の追加ストレージの確保に`palloc`を用いる。
 
 
 ## 戻り値
-確保したストレージへのポインタ
+- (1) : `operator new(size,` [`allocator_arg`](/reference/memory/allocator_arg_t.md)`, allocator_type())`
+- (2), (3) : 確保したストレージへのポインタ
 
 
 ## バージョン
@@ -45,9 +48,9 @@ void* operator new(size_t size, const Args&... args);
 
 
 ## 関連項目
-- [`(constructor)`](op_constructor.md)
 - [`operator delete`](op_delete.md)
 
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+- [P3980R1 Task's Allocator Use](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3980r1.html)

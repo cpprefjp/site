@@ -21,17 +21,12 @@ namespace std::execution {
 ## クラス仕様
 説明用の`prom`を`promise_type`型のオブジェクト、`tsk`を`prom.`[`get_return_object()`](promise_type/get_return_object.md)で作成される[`task`](../task.md)型のオブジェクトとする。説明では[Receiver](../receiver.md)`Rcvr`に対して、`task::`[`state<Rcvr>::start`](state.md)の評価中に`tsk`と関連付けられる`STATE(prom)`, `RCVR(prom)`, `SCHED(prom)`を用いる。
 
-`task::promise_type`クラスの動作説明のため、以下の説明専用メンバを用いる。
-
-- `alloc` : [`allocator_type`](../task.md)型のアロケータオブジェクト
-
 
 ## メンバ関数
 ### 構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](promise_type/op_constructor.md) | コンストラクタ | C++26 |
 | `(destructor)` | デストラクタ | C++26 |
 
 ### コルーチン制御
@@ -73,3 +68,4 @@ namespace std::execution {
 - [LWG4415. `task::promise_type::uncaught_exception` seems to be misnamed](https://cplusplus.github.io/LWG/issue4415)
 - [LWG4339. `task`'s coroutine frame may be released late](https://cplusplus.github.io/LWG/issue4339)
 - [LWG4347. `task`'s stop source is always created](https://cplusplus.github.io/LWG/issue4347)
+- [P3980R1 Task's Allocator Use](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3980r1.html)

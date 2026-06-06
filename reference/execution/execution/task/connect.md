@@ -16,6 +16,10 @@ state<Rcvr> connect(Rcvr&& recv) &&;
 [Receiver](../receiver.md)と接続する。
 
 
+## 適格要件
+式`allocator_type(`[`get_allocator`](../../get_allocator.md)`(`[`get_env`](../get_env.md)`(rcvr)))`または式`allocator_type()`のうち、少なくとも一つが適格であること。
+
+
 ## 事前条件
 [`bool`](/reference/coroutine/coroutine_handle/op_bool.md)`(handle) == true`
 
@@ -48,3 +52,4 @@ return state<Rcvr>(exchange(handle, {}), std::forward<Rcvr>(recv));
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4341. Missing rvalue reference qualification for `task::connect()`](https://cplusplus.github.io/LWG/issue4341)
+- [P3980R1 Task's Allocator Use](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3980r1.html)
