@@ -29,7 +29,7 @@ basic_ostream& operator<<(double f);                 // (14) C++03
 basic_ostream& operator<<(long double f);            // (15) C++03
 basic_ostream& operator<<(extended-floating-point-type f); // (16) C++23
 basic_ostream& operator<<(const void* p);            // (17) C++03
-basic_ostream& operator<<(const volatile void* val); // (18) C++26
+basic_ostream& operator<<(const volatile void* val); // (18) C++23
 basic_ostream& operator<<(nullptr_t);                // (19) C++17
 
 // ストリームバッファの非書式化出力
@@ -170,4 +170,4 @@ int main() {
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型の`ostream`出力がサポートされた
 - [P1147R1 Printing `volatile` Pointers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1147r1.html)
-    - C++26で`const volatile void*`のオーバーロードが追加された
+    - C++23で`const volatile void*`のオーバーロードが追加された
