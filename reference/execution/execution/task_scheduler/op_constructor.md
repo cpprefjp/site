@@ -21,17 +21,17 @@ task_scheduler(const task_scheduler&) = default;  // (2)
 
 
 ## 適格要件
-`Sch`は[`infallible-scheduler](../infallible-scheduler.md)<`[`env<>`](../env.md)`>`を満たす。
+`Sch`は[`infallible-scheduler`](../infallible-scheduler.md)`<`[`env<>`](../env.md)`>`を満たす。
 
 
 ## 効果
-(1) 説明専用のメンバ変数`sch_`を[`allocate_shared`](/reference/memory/allocate_shared.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Sch>>(alloc,` [`std::forward`](/reference/utility/forward.md)`<Sch>(sch))`で初期化する。
+(1) 説明専用のメンバ変数`sch_`を[`allocate_shared`](/reference/memory/allocate_shared.md)`<`[`backend-for`](schedule.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Sch>>>(alloc,` [`std::forward`](/reference/utility/forward.md)`<Sch>(sch))`で初期化する。
 
 
 ## 備考
 処理系（標準ライブラリ実装）は、小さなSchedulerオブジェクトに対して動的メモリ確保を避けることが推奨される。
 
-`*this`上の呼び出しによってえられる[`ts-sender`や`state`オブジェクト](schedule.md)の構築では、`alloc`のコピーを用いてメモリ確保が行われる。
+`*this`上の任意の呼び出しによるメモリ確保では、`alloc`のコピーが用いられる。
 
 
 ## バージョン
@@ -53,3 +53,4 @@ task_scheduler(const task_scheduler&) = default;  // (2)
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4445. `sch_` must not be in moved-from state](https://cplusplus.github.io/LWG/issue4445)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
+- [P3927R2 `task_scheduler` support for parallel `bulk` execution](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3927r2.html)

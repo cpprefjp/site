@@ -15,15 +15,13 @@ namespace std::execution {
 
 実行制御ライブラリのタスクコルーチン戻り値型[`task<T, E>`](task.md)において、環境`E`のデフォルトScheduler型として利用される。
 
-`task_scheduler`は[`scheduler`](scheduler.md)のモデルである。
-
 
 ## クラス仕様
+`task_scheduler`は[`scheduler`](scheduler.md)のモデルである。`task_scheduler`型のオブジェクト`s`に対して、`SCHED(s)`を`s.sch_`が所有するポインタが指すオブジェクトとする。式[`get_forward_progress_guarantee`](get_forward_progress_guarantee.md)`(s)`は`get_forward_progress_guarantee(SCHED(s))`と等価。式[`get_completion_domain`](get_completion_domain.md)`<`[`set_value_t`](set_value.md)`>(s)`は`task_scheduler::`[`ts-domain()`](task_scheduler/schedule.md)と等価。
+
 `task_scheduler`クラスは、下記の説明専用メンバ変数を持つ。
 
-- `sch_` : [`shared_ptr`](/reference/memory/shared_ptr.md)`<void>`型
-
-`task_scheduler`型のオブジェクト`s`に対して、`SCHED(s)`を`s.sch_`が所有するポインタが指すオブジェクトとする。
+- `sch_` : [`shared_ptr`](/reference/memory/shared_ptr.md)`<`[`system_context_replaceability::parallel_scheduler_backend`](system_context_replaceability/parallel_scheduler_backend.md)`>`型
 
 
 ## メンバ関数
@@ -91,3 +89,4 @@ int main()
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4446. Bad phrasing for `SCHED(s)`](https://cplusplus.github.io/LWG/issue4446)
+- [P3927R2 `task_scheduler` support for parallel `bulk` execution](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3927r2.html)
