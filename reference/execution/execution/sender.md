@@ -107,7 +107,6 @@ int main()
 
 ## 関連項目
 - [`execution::sender_in`](sender_in.md)
-- [`execution::sender-to`](sender-to.md)
 - [コルーチン](/lang/cpp20/coroutines.md)
 
 
