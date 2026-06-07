@@ -10,7 +10,7 @@
 <!-- last lang caution -->
 
 ## 概要
-C++23では、`consteval`呼び出しを含む`constexpr`関数を、条件付きで`consteval`関数と見なすようになる。そうすることで、定数式の文脈での`consteval`関数の使用がよりかんたんになる。
+C++23では、`consteval`呼び出しを含む`constexpr`関数を、条件付きで`consteval`関数と見なすようになる。そうすることで、定数式の文脈での`consteval`関数の使用がより簡単になる。
 
 ```cpp example
 #include <algorithm>

@@ -48,7 +48,7 @@ namespace std {
 
 ## 備考
 - (5) : この特殊化は規格上、標準ライブラリ内では使用されないが ([`formatter`](formatter.md)`<`[`string`](/reference/string/basic_string.md)`, charT>`がすでにある)、以下のような用途が考えられる
-    - ユーザー定義の文字列クラスを定義する場合に、[`format_kind`](format_kind.md)で値として[`range_format::string`](range_format.md)もしくは[`range_format::debug_string`](range_format.md)をもつよう特殊化するか ([`formatter`](formatter.md)`<`[`string`](/reference/string/basic_string.md)`, charT>`をラップする方がかんたんではある)
+    - ユーザー定義の文字列クラスを定義する場合に、[`format_kind`](format_kind.md)で値として[`range_format::string`](range_format.md)もしくは[`range_format::debug_string`](range_format.md)をもつよう特殊化するか ([`formatter`](formatter.md)`<`[`string`](/reference/string/basic_string.md)`, charT>`をラップする方が簡単ではある)
     - [`std::vector<char>`](/reference/vector/vector.md)のような文字を要素とするシーケンスコンテナで、文字列形式で出力する書式オプション ([`s`や`?s`](format.md#range-format-options)) を指定した際に`range-default-formatter<range_format::sequence, R, charT>`の内部で使用される
 
 
