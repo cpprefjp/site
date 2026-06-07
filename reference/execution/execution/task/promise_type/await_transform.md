@@ -18,7 +18,7 @@ auto await_transform(Sender&& sndr); // (1)
 
 ## 効果
 [`same_as`](/reference/concepts/same_as.md)`<`[`inline_scheduler`](../../inline_scheduler.md)`,` [`start_scheduler_type`](../../task.md)`> == true`ならば、[`as_awaitable`](../../as_awaitable.md)`(std::forward<Sender>(sndr), *this)`を返す。
-そうでなければ、[`as_awaitable`](../../as_awaitable.md)`(`[`affine_on`](../../affine_on.md)`(std::forward<Sender>(sndr)), *this)`を返す。
+そうでなければ、[`as_awaitable`](../../as_awaitable.md)`(`[`affine`](../../affine.md)`(std::forward<Sender>(sndr)), *this)`を返す。
 
 
 ## バージョン
@@ -34,10 +34,11 @@ auto await_transform(Sender&& sndr); // (1)
 
 ## 関連項目
 - [`execution::as_awaitable`](../../as_awaitable.md)
-- [`execution::affine_on`](../../affine_on.md)
+- [`execution::affine`](../../affine.md)
 - [`execution::inline_scheduler`](../../inline_scheduler.md)
 
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
+- [P4151R1 Rename `affine_on`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4151r1.pdf)

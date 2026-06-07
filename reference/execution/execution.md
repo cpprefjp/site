@@ -163,7 +163,7 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 |------|------|----------------|
 | [`execution::as_awaitable`](execution/as_awaitable.md) | Senderを[Awaitable型](/lang/cpp20/coroutines.md)へ変換 (customization point object) | C++26 |
 | [`execution::with_awaitable_senders`](execution/with_awaitable_senders.md) | [Promise型](/lang/cpp20/coroutines.md)の基底クラス (class template) | C++26 |
-| [`execution::affine_on`](execution/affine_on.md) | タスクコルーチンのScheduler Affinityを実現 (customization point object) | C++26 |
+| [`execution::affine`](execution/affine.md) | タスクコルーチンのScheduler Affinityを実現 (customization point object) | C++26 |
 | [`execution::inline_scheduler`](execution/inline_scheduler.md) | インラインScheduler (class) | C++26 |
 | [`execution::task_scheduler`](execution/task_scheduler.md) | 任意Scheduler型を保持するScheduler (class) | C++26 |
 | [`execution::with_error`](execution/with_error.md) | タスクコルーチンからのエラー完了 (class template) | C++26 |
@@ -207,3 +207,4 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 - [P3986R1 A Wording Strategy for Inlinable Receivers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3986r1.pdf)
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
+- [P4151R1 Rename `affine_on`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4151r1.pdf)
