@@ -38,7 +38,7 @@ transform_sender(sndr, get_env(rcvr))
 このとき下記が全て`true`であること。
 
 - [`sender_in`](sender_in.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>>`
-- [`receiver_of`](receiver_of.md)`<Rcvr,` [`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>>>`
+- [`receiver-of`](receiver-of.md)`<Rcvr,` [`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>>>`
 
 下記を満たす右辺値式`rcvr2`が存在するとき、プログラムは不適格(診断不要)となる。
 
@@ -156,7 +156,7 @@ namespace std::execution {
     return awaiter{fn};
   }
 
-  operation-state-task connect-awaitable(DS sndr, DR rcvr) requires receiver_of<DR, Sigs> {
+  operation-state-task connect-awaitable(DS sndr, DR rcvr) requires receiver-of<DR, Sigs> {
     exception_ptr ep;
     try {
       if constexpr (same_as<V, void>) {
@@ -174,7 +174,7 @@ namespace std::execution {
 ```
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 * unreachable()[link /reference/utility/unreachable.md]
-* receiver_of[link receiver_of.md]
+* receiver-of[link receiver-of.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * set_value[link set_value.md]
 * set_error[link set_error.md]
@@ -255,3 +255,4 @@ int main()
 - [P3388R3 When Do You Know connect Doesn't Throw?](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3388r3.pdf)
 - [LWG 4208. Wording needs to ensure that in `connect(sndr, rcvr)` that `rcvr` expression is only evaluated once](https://cplusplus.github.io/LWG/issue4208)
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
+- [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)

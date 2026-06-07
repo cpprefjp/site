@@ -75,10 +75,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 関連項目
-- [`execution::receiver_of`](receiver_of.md)
-
-
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3388R3 When Do You Know connect Doesn't Throw?](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3388r3.pdf)

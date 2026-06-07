@@ -35,7 +35,7 @@ namespace std::execution {
 
 説明専用のクラス`inline-sender`を[`sender`](sender.md)を満たす型とする。[`completion_signatures_of_t`](completion_signatures_of_t.md)`<inline-sender>`は、[`completion_signatures`](completion_signatures.md)`<`[`set_value_t`](set_value.md)`()>`となる。
 
-説明用の`sndr`を`inline-sender`型の式とする。`CS`を[`completion_signatures`](completion_signatures.md)`<`[`set_value_t`](set_value.md)`()>`としたとき、`rcvr`を[`receiver_of`](receiver_of.md)`<decltype((rcvr)), CS>`が`true`となる式とする。式[`connect`](connect.md)`(sndr, rcvr)`の型は`inline-state<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((rcvr))>>`であり、式`((void)sndr, auto(rcvr))`が潜在的に例外送出(potentially-throwing)するときに限って潜在的に例外送出する。
+説明用の`sndr`を`inline-sender`型の式とする。`CS`を[`completion_signatures`](completion_signatures.md)`<`[`set_value_t`](set_value.md)`()>`としたとき、`rcvr`を[`receiver-of`](receiver-of.md)`<decltype((rcvr)), CS>`が`true`となる式とする。式[`connect`](connect.md)`(sndr, rcvr)`の型は`inline-state<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((rcvr))>>`であり、式`((void)sndr, auto(rcvr))`が潜在的に例外送出(potentially-throwing)するときに限って潜在的に例外送出する。
 
 説明用の`o`を`inline-state<Rcvr>`型の非const左辺値とし、`REC(o)`を`o`を返す[接続(connect)](connect.md)呼び出しへ渡した式`rcvr`で初期化された`Rcvr`型の非const左辺値参照とする。
 
@@ -115,4 +115,5 @@ task
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
+- [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)
 - C++now 2025, [Getting The Lazy Task Done](https://schedule.cppnow.org/wp-content/uploads/2025/03/Getting_The_Lazy_Task_Done.pdf)

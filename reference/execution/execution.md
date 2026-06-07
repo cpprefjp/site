@@ -66,7 +66,6 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::receiver`](execution/receiver.md) | Receiver型 (concept) | C++26 |
-| [`execution::receiver_of`](execution/receiver_of.md) | 指定完了シグネチャ集合に適合するReceiver (concept) | C++26 |
 | [`execution::inlinable_receiver`](execution/inlinable_receiver.md) | インライン化可能なReceiver (concept) | C++26 |
 | [`execution::set_value`](execution/set_value.md) | 値完了関数 (customization point object) | C++26 |
 | [`execution::set_error`](execution/set_error.md) | エラー完了関数 (customization point object) | C++26 |
@@ -88,7 +87,6 @@ namespace std::execution {
 | [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
 | [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
 | [`execution::dependent_sender`](execution/dependent_sender.md) | 依存Sender (concept) | C++26 |
-| [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
 | [`execution::value_types_of_t`](execution/value_types_of_t.md) | Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::error_types_of_t`](execution/error_types_of_t.md) | Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
@@ -208,3 +206,4 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
 - [P4151R1 Rename `affine_on`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4151r1.pdf)
+- [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)

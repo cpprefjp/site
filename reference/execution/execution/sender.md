@@ -107,10 +107,11 @@ int main()
 
 ## 関連項目
 - [`execution::sender_in`](sender_in.md)
-- [`execution::sender_to`](sender_to.md)
+- [`execution::sender-to`](sender-to.md)
 - [コルーチン](/lang/cpp20/coroutines.md)
 
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [LWG 4202. enable-sender should be a variable template](https://cplusplus.github.io/LWG/issue4202)
+- [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)

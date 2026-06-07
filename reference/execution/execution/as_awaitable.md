@@ -65,7 +65,7 @@ namespace std::execution {
   template<class Sndr, class Promise>
   concept awaitable-sender =
     single-sender<Sndr, env_of_t<Promise>> &&
-    sender_to<Sndr, typename sender-awaitable<Sndr, Promise>::awaitable-receiver> &&  // see below
+    sender-to<Sndr, typename sender-awaitable<Sndr, Promise>::awaitable-receiver> &&  // see below
     requires (Promise& p) {
       { p.unhandled_stopped() } -> convertible_to<coroutine_handle<>>;
     };
@@ -73,7 +73,7 @@ namespace std::execution {
 ```
 * single-sender[link single-sender.md]
 * env_of_t[link env_of_t.md]
-* sender_to[link sender_to.md]
+* sender-to[link sender-to.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 
 ### コンセプト`has-queryable-await-completion-adaptor`
@@ -262,3 +262,4 @@ value-type await_resume();
 - [LWG4133 `awaitable-receiver`'s members are potentially throwing](https://cplusplus.github.io/LWG/issue4133)
 - [LWG4361 `awaitable-receiver::set_value` should use Mandates instead of constraints](https://cplusplus.github.io/LWG/issue4361)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
+- [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)

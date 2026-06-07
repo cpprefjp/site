@@ -58,7 +58,7 @@ namespace std::this_thread {
 ### Senderアルゴリズムタグ `sync_wait`
 説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式とする。
 
-[`sender_to`](../execution/sender_to.md)`<Sndr,` [`sync-wait-receiver`](sync-wait-receiver.md)`<Sndr>> == false`のとき、式`sync_wait.apply_sender(sndr)`は不適格となる。
+[`sender-to`](../execution/sender-to.md)`<Sndr,` [`sync-wait-receiver`](sync-wait-receiver.md)`<Sndr>> == false`のとき、式`sync_wait.apply_sender(sndr)`は不適格となる。
 
 そうでなければ、式`sync_wait.apply_sender(sndr)`は下記と等価。
 
@@ -145,3 +145,4 @@ result=(100, X)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
+- [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)
