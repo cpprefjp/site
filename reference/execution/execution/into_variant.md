@@ -108,7 +108,7 @@ namespace std::execution {
 namespace ex = std::execution;
 
 struct FizzBuzzSender {
-  using sender_concept = ex::sender_t;
+  using sender_concept = ex::sender_tag;
 
   // FizzBuzzSenderは2種類の値完了シグネチャを持つ
   using completion_signatures = ex::completion_signatures<
@@ -124,7 +124,7 @@ struct FizzBuzzSender {
   // Operation State型
   template <typename Rcvr>
   struct State {
-    using operation_state_concept = ex::operation_state_t;
+    using operation_state_concept = ex::operation_state_tag;
 
     State(Rcvr rcvr, int val)
       : rcvr_{std::move(rcvr)}, val_{val} {}
@@ -182,12 +182,12 @@ int main()
 }
 ```
 * ex::into_variant[color ff0000]
-* ex::sender_t[link sender.md]
+* ex::sender_tag[link sender.md]
 * ex::sender[link sender.md]
 * ex::completion_signatures[link completion_signatures.md]
 * ex::set_value_t[link set_value.md]
 * ex::set_value[link set_value.md]
-* ex::operation_state_t[link operation_state.md]
+* ex::operation_state_tag[link operation_state.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 * value()[link /reference/optional/optional/value.md]
 * std::move[link /reference/utility/move.md]

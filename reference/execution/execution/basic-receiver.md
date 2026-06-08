@@ -10,7 +10,7 @@ namespace std::execution {
   template<class Sndr, class Rcvr, class Index>
     requires valid-specialization<env-type, Index, Sndr, Rcvr>
   struct basic-receiver {                    // exposition only
-    using receiver_concept = receiver_t;
+    using receiver_concept = receiver_tag;
 
     using tag-t = tag_of_t<Sndr>;            // exposition only
     using state-t = state-type<Sndr, Rcvr>;  // exposition only
@@ -38,7 +38,7 @@ namespace std::execution {
   };
 }
 ```
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * tag_of_t[link tag_of_t.md]
 * state-type[link basic-operation.md]
 * impls-for[link impls-for.md]

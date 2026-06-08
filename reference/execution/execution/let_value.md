@@ -208,7 +208,7 @@ struct let-state {
     let-state& state; // exposition only
     Rcvr& rcvr;       // exposition only
 
-    using receiver_concept = receiver_t;
+    using receiver_concept = receiver_tag;
 
     template<class... Args>
     constexpr void set_value(Args&&... args) noexcept {
@@ -239,7 +239,7 @@ struct let-state {
 * connect_result_t[link connect_result_t.md]
 * connect[link connect.md]
 * start[link start.md]
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * execution::set_value[link set_value.md]
 * execution::set_error[link set_error.md]
 * execution::set_stopped[link set_stopped.md]
@@ -256,7 +256,7 @@ struct let-state {
 namespace std::execution {
   template<class Rcvr, class Env>
   struct receiver2 {
-    using receiver_concept = receiver_t;
+    using receiver_concept = receiver_tag;
 
     template<class... Args>
     void set_value(Args&&... args) && noexcept {
@@ -281,7 +281,7 @@ namespace std::execution {
   };
 }
 ```
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * execution::set_value[link set_value.md]
 * execution::set_error[link set_error.md]
 * execution::set_stopped[link set_stopped.md]
@@ -359,7 +359,7 @@ namespace ex = std::execution;
 //   値完了     set_value(int), set_value(string)
 //   エラー完了 set_error(int)
 struct MySender {
-  using sender_concept = ex::sender_t;
+  using sender_concept = ex::sender_tag;
   using completion_signatures = ex::completion_signatures<
     ex::set_value_t(int),
     ex::set_value_t(std::string),
@@ -368,7 +368,7 @@ struct MySender {
 
   template <typename Rcvr>
   struct state {
-    using operation_state_concept = ex::operation_state_t;
+    using operation_state_concept = ex::operation_state_tag;
 
     state(Rcvr rcvr, int val)
       : rcvr_{std::move(rcvr)}, val_{val} {}
@@ -441,7 +441,7 @@ int main()
 }
 ```
 * ex::let_value[color ff0000]
-* ex::sender_t[link sender.md]
+* ex::sender_tag[link sender.md]
 * ex::sender[link sender.md]
 * ex::completion_signatures[link completion_signatures.md]
 * ex::set_value_t[link set_value.md]
@@ -450,7 +450,7 @@ int main()
 * ex::set_error[link set_error.md]
 * ex::just[link just.md]
 * ex::just_stopped[link just_stopped.md]
-* ex::operation_state_t[link operation_state.md]
+* ex::operation_state_tag[link operation_state.md]
 * std::this_thread::sync_wait_with_variant[link ../this_thread/sync_wait_with_variant.md]
 * std::move[link /reference/utility/move.md]
 

@@ -64,7 +64,7 @@ namespace ex = std::execution;
 //   値完了   set_value(int)
 //   停止完了 set_stopped()
 struct MySender {
-  using sender_concept = ex::sender_t;
+  using sender_concept = ex::sender_tag;
 
   using completion_signatures = ex::completion_signatures<
     ex::set_value_t(int),
@@ -78,7 +78,7 @@ struct MySender {
 
   template <typename Rcvr>
   struct state {
-    using operation_state_concept = ex::operation_state_t;
+    using operation_state_concept = ex::operation_state_tag;
 
     state(Rcvr rcvr, int val)
       : rcvr_{std::move(rcvr)}, val_{val} {}
@@ -130,14 +130,14 @@ int main()
 }
 ```
 * ex::stopped_as_error[color ff0000]
-* ex::sender_t[link sender.md]
+* ex::sender_tag[link sender.md]
 * ex::sender[link sender.md]
 * ex::completion_signatures[link completion_signatures.md]
 * ex::set_value_t[link set_value.md]
 * ex::set_value[link set_value.md]
 * ex::set_stopped_t[link set_stopped.md]
 * ex::set_stopped[link set_stopped.md]
-* ex::operation_state_t[link operation_state.md]
+* ex::operation_state_tag[link operation_state.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 * std::move[link /reference/utility/move.md]
 

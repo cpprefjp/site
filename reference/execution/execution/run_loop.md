@@ -49,7 +49,7 @@ namespace std::execution {
 namespace ex = std::execution;
 
 struct MyReceiver {
-  using receiver_concept = ex::receiver_t;
+  using receiver_concept = ex::receiver_tag;
 
   void set_value() noexcept
     { std::println("success"); }
@@ -89,7 +89,7 @@ int main()
 * ex::sender[link sender.md]
 * ex::schedule[link schedule.md]
 * ex::receiver[link receiver.md]
-* ex::receiver_t[link receiver.md]
+* ex::receiver_tag[link receiver.md]
 * ex::connect[link connect.md]
 * ex::start[link start.md]
 * get_scheduler()[link run_loop/get_scheduler.md]

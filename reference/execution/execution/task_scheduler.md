@@ -38,7 +38,7 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `scheduler_concept` | [`scheduler_t`](scheduler.md) | C++26 |
+| `scheduler_concept` | [`scheduler_tag`](scheduler.md) | C++26 |
 
 ### 比較演算子
 

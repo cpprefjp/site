@@ -63,7 +63,7 @@ static consteval auto get_completion_signatures();
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `sender_concept` | [`sender_t`](sender.md) | C++26 |
+| `sender_concept` | [`sender_tag`](sender.md) | C++26 |
 | `allocator_type` | コルーチンのアロケータ型 | C++26 |
 | `start_scheduler_type` | コルーチンの開始Scheduler型 | C++26 |
 | `stop_source_type` | コルーチンの停止ソース型 | C++26 |

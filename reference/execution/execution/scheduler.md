@@ -8,7 +8,7 @@
 namespace std::execution {
   template<class Sch>
   concept scheduler =
-    derived_from<typename remove_cvref_t<Sch>::scheduler_concept, scheduler_t> &&
+    derived_from<typename remove_cvref_t<Sch>::scheduler_concept, scheduler_tag> &&
     queryable<Sch> &&
     requires(Sch&& sch) {
       { schedule(std::forward<Sch>(sch)) } -> sender;
@@ -17,7 +17,7 @@ namespace std::execution {
     equality_comparable<remove_cvref_t<Sch>> &&
     copyable<remove_cvref_t<Sch>>;
 
-  struct scheduler_t {};  // タグ型
+  struct scheduler_tag {};  // タグ型
 }
 ```
 * derived_from[link /reference/concepts/derived_from.md]
@@ -33,7 +33,7 @@ namespace std::execution {
 
 下記をみたすクラス型はSchedulerとみなせる。
 
-- `scheduler_t`をメンバ型`Sch::scheduler_concept`として定義する
+- `scheduler_tag`をメンバ型`Sch::scheduler_concept`として定義する
 - [クエリ可能オブジェクト](../queryable.md)である
 - `Sch`型の値`sch`に対して下記を満たすこと
     - [`execution::schedule`](schedule.md)`(sch)`が[Sender](sender.md)を返す
@@ -115,3 +115,4 @@ int main()
 - [LWG4354. Reconsider `weakly_parallel` as the default `forward_progress_guarantee`](https://cplusplus.github.io/LWG/issue4354)
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
+- [P4154R0 Renaming various execution things](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4154r0.html)

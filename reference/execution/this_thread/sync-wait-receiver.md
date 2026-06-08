@@ -9,7 +9,7 @@
 namespace std::this_thread {
   template<class Sndr>
   struct sync-wait-receiver {      // exposition only
-    using receiver_concept = execution::receiver_t;
+    using receiver_concept = execution::receiver_tag;
     sync-wait-state<Sndr>* state;  // exposition only
 
     template<class... Args>
@@ -31,7 +31,7 @@ namespace std::this_thread {
   };
 }
 ```
-* execution::receiver_t[link ../execution/receiver.md]
+* execution::receiver_tag[link ../execution/receiver.md]
 * sync-wait-env[link sync-wait-env.md]
 * execution::run_loop[link ../execution/run_loop.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]

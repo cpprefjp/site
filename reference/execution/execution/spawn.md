@@ -52,7 +52,7 @@ namespace std::execution {
 ```cpp
 namespace std::execution {
   struct spawn-receiver {                  // exposition only
-    using receiver_concept = receiver_t;
+    using receiver_concept = receiver_tag;
 
     spawn-state-base* state;               // exposition only
     void set_value() && noexcept { state->complete(); }
@@ -60,7 +60,7 @@ namespace std::execution {
   };
 }
 ```
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * spawn-state-base[italic]
 
 ### クラステンプレート`spawn-state`

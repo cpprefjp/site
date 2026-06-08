@@ -116,7 +116,7 @@ namespace std::execution {
 namespace std::execution {
   template<class Completions>
   struct spawn-future-receiver {                  // exposition only
-    using receiver_concept = receiver_t;
+    using receiver_concept = receiver_tag;
 
     spawn-future-state-base<Completions>* state;  // exposition only
 
@@ -153,7 +153,7 @@ namespace std::execution {
   };
 }
 ```
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * set_value_t[link set_value.md]
 * set_error_t[link set_error.md]
 * set_stopped_t[link set_stopped.md]
@@ -341,7 +341,7 @@ namespace std::execution {
       stop_callback_for_t<stop-token-t, callback>;
 
     struct receiver {                                    // exposition only
-      using receiver_concept = receiver_t;
+      using receiver_concept = receiver_tag;
       future-operation* op;                              // exposition only
 
       template<class... T>
@@ -401,7 +401,7 @@ namespace std::execution {
 ```
 * stop_token_of_t[link ../stop_token_of_t.md]
 * env_of_t[link env_of_t.md]
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * set_value_t[link set_value.md]
 * set_error_t[link set_error.md]
 * set_stopped_t[link set_stopped.md]

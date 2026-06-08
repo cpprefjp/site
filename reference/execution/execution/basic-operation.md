@@ -11,7 +11,7 @@ namespace std::execution {
     requires valid-specialization<state-type, Sndr, Rcvr> &&
              valid-specialization<connect-all-result, Sndr, Rcvr>
   struct basic-operation : basic-state<Sndr, Rcvr> {  // exposition only
-    using operation_state_concept = operation_state_t;
+    using operation_state_concept = operation_state_tag;
     using tag-t = tag_of_t<Sndr>;                     // exposition only
 
     connect-all-result<Sndr, Rcvr> inner-ops;         // exposition only
@@ -38,7 +38,7 @@ namespace std::execution {
   };
 }
 ```
-* operation_state_t[link operation_state.md]
+* operation_state_tag[link operation_state.md]
 * tag_of_t[link tag_of_t.md]
 * indices-for[link basic-sender.md]
 * impls-for[link impls-for.md]

@@ -9,7 +9,7 @@
 namespace std::execution {
   template<class Tag, class Data, class... Child>
   struct basic-sender : product-type<Tag, Data, Child...> {  // exposition only
-    using sender_concept = sender_t;
+    using sender_concept = sender_tag;
     using indices-for = index_sequence_for<Child...>;        // exposition only
 
     decltype(auto) get_env() const noexcept {
@@ -29,7 +29,7 @@ namespace std::execution {
 }
 ```
 * product-type[link product-type.md]
-* sender_t[link sender.md]
+* sender_tag[link sender.md]
 * index_sequence_for[link /reference/utility/index_sequence_for.md]
 * impls-for[link impls-for.md]
 * decays-to[link ../decays-to.md]

@@ -71,7 +71,7 @@ namespace std::execution {
     template<class Scope, class Rcvr>
     struct state {                          // exposition only
       struct rcvr-t {                       // exposition only
-        using receiver_concept = receiver_t;
+        using receiver_concept = receiver_tag;
 
         Rcvr& rcvr;                         // exposition only
 
@@ -134,7 +134,7 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * execution::set_value[link set_value.md]
 * execution::set_error[link set_error.md]
 * execution::set_stopped[link set_stopped.md]

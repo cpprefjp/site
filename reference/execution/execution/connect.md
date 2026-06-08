@@ -99,7 +99,7 @@ namespace std::execution {
 ```cpp
 namespace std::execution {
   struct operation-state-task {  // exposition only
-    using operation_state_concept = operation_state_t;
+    using operation_state_concept = operation_state_tag;
     using promise_type = connect-awaitable-promise;
 
     explicit operation-state-task(coroutine_handle<> h) noexcept : coro(h) {}
@@ -115,7 +115,7 @@ namespace std::execution {
   };
 }
 ```
-* operation_state_t[link operation_state.md]
+* operation_state_tag[link operation_state.md]
 * promise_type[link /lang/cpp20/coroutines.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 * destroy()[link /reference/coroutine/coroutine_handle/destroy.md]
@@ -197,7 +197,7 @@ Sender`sndr`[変換後](transform_sender.md)の`new_sndr`に対して、式`new_
 namespace ex = std::execution;
 
 struct ValueReceiver {
-  using receiver_concept = ex::receiver_t;
+  using receiver_concept = ex::receiver_tag;
 
   void set_value(int v) && noexcept
   {
@@ -219,7 +219,7 @@ int main()
 }
 ```
 * ex::connect[color ff0000]
-* ex::receiver_t[link receiver.md]
+* ex::receiver_tag[link receiver.md]
 * ex::sender[link sender.md]
 * ex::just[link just.md]
 * ex::operation_state[link operation_state.md]

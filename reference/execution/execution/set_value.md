@@ -84,7 +84,7 @@ TRY-EVAL(rcvr, SET-VALUE(rcvr, expr))
 namespace ex = std::execution;
 
 struct ValueReceiver {
-  using receiver_concept = ex::receiver_t;
+  using receiver_concept = ex::receiver_tag;
 
   // 値完了シグネチャ set_value_t(int, int)
   void set_value(int, int) && noexcept {}
@@ -97,7 +97,7 @@ int main()
 }
 ```
 * ex::set_value[color ff0000]
-* ex::receiver_t[link receiver.md]
+* ex::receiver_tag[link receiver.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

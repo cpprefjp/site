@@ -40,7 +40,7 @@ namespace std::execution {
 namespace ex = std::execution;
 
 struct ValueReceiver {
-  using receiver_concept = ex::receiver_t;
+  using receiver_concept = ex::receiver_tag;
 
   void set_value(int v) && noexcept
   {
@@ -62,7 +62,7 @@ int main()
 }
 ```
 * ex::start[color ff0000]
-* ex::receiver_t[link receiver.md]
+* ex::receiver_tag[link receiver.md]
 * ex::sender[link sender.md]
 * ex::just[link just.md]
 * ex::operation_state[link operation_state.md]

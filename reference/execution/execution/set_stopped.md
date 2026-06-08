@@ -45,7 +45,7 @@ namespace std::execution {
 namespace ex = std::execution;
 
 struct StoppedReceiver {
-  using receiver_concept = ex::receiver_t;
+  using receiver_concept = ex::receiver_tag;
 
   // 停止完了シグネチャ set_stopped_t()
   void set_stopped() && noexcept {}
@@ -58,7 +58,7 @@ int main()
 }
 ```
 * ex::set_stopped[color ff0000]
-* ex::receiver_t[link receiver.md]
+* ex::receiver_tag[link receiver.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

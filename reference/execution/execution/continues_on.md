@@ -55,9 +55,9 @@ namespace std::execution {
 
   using sched_t = decltype(auto(sch));
   using variant_t = see below;
-  using receiver_t = see below;
-  using operation_t = connect_result_t<schedule_result_t<sched_t>, receiver_t>;
-  constexpr bool nothrow = noexcept(connect(schedule(sch), receiver_t{nullptr}));
+  using receiver_tag = see below;
+  using operation_t = connect_result_t<schedule_result_t<sched_t>, receiver_tag>;
+  constexpr bool nothrow = noexcept(connect(schedule(sch), receiver_tag{nullptr}));
 
   struct state-type {
     Rcvr& rcvr;                 // exposition only
@@ -65,7 +65,7 @@ namespace std::execution {
     operation_t op-state;       // exposition only
 
     explicit state-type(sched_t sch, Rcvr& rcvr) noexcept(nothrow)
-      : rcvr(rcvr), op-state(connect(schedule(sch), receiver_t{this})) {}
+      : rcvr(rcvr), op-state(connect(schedule(sch), receiver_tag{this})) {}
   };
 
   return state-type{sch, rcvr};
@@ -89,7 +89,7 @@ namespace std::execution {
     * variant[link /reference/variant/variant.md]
     * monostate[link /reference/variant/monostate.md]
 
-- `receiver_t`は説明専用クラス`receiver-type`のエイリアスとする。
+- `receiver_tag`は説明専用クラス`receiver-type`のエイリアスとする。
 
 `impls-for<continues_on_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -137,7 +137,7 @@ decay-copyable-result-datums(cs);
 ```cpp
 namespace std::execution {
   struct receiver-type {
-    using receiver_concept = receiver_t;
+    using receiver_concept = receiver_tag;
     state-type* state;  // exposition only
 
     void set_value() && noexcept {
@@ -166,7 +166,7 @@ namespace std::execution {
   };
 }
 ```
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * execution::set_error[link set_error.md]
 * execution::set_stopped[link set_stopped.md]
 * execution::get_env[link get_env.md]

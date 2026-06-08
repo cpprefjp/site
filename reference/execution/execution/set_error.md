@@ -45,7 +45,7 @@ namespace std::execution {
 namespace ex = std::execution;
 
 struct ErrorReceiver {
-  using receiver_concept = ex::receiver_t;
+  using receiver_concept = ex::receiver_tag;
 
   // エラー完了シグネチャ set_error_t(int)
   void set_error(int) && noexcept {}
@@ -58,7 +58,7 @@ int main()
 }
 ```
 * ex::set_error[color ff0000]
-* ex::receiver_t[link receiver.md]
+* ex::receiver_tag[link receiver.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

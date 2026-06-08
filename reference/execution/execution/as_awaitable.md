@@ -137,13 +137,13 @@ namespace std::execution {
 
 ```cpp
 struct awaitable-receiver {
-  using receiver_concept = receiver_t;
+  using receiver_concept = receiver_tag;
   variant<monostate, result-type, exception_ptr>* result-ptr;  // exposition only
   coroutine_handle<Promise> continuation;                      // exposition only
   // see below
 };
 ```
-* receiver_t[link receiver.md]
+* receiver_tag[link receiver.md]
 * variant[link /reference/variant/variant.md]
 * monostate[link /reference/variant/monostate.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]

@@ -12,14 +12,14 @@ namespace std::execution {
     class inline-state;  // exposition only
 
   public:
-    using scheduler_concept = scheduler_t;
+    using scheduler_concept = scheduler_tag;
 
     constexpr inline-sender schedule() noexcept { return {}; }
     constexpr bool operator==(const inline_scheduler&) const noexcept = default;
   };
 }
 ```
-* scheduler_t[link scheduler.md]
+* scheduler_tag[link scheduler.md]
 * receiver[link receiver.md]
 * inline-sender[italic]
 * inline-state[italic]
@@ -66,7 +66,7 @@ struct inline-attrs {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `scheduler_concept` | [`scheduler_t`](scheduler.md) | C++26 |
+| `scheduler_concept` | [`scheduler_tag`](scheduler.md) | C++26 |
 
 
 ## 例

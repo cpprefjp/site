@@ -9,7 +9,7 @@ namespace std::execution {
   template <class Sndr>
   concept sender;
 
-  struct sender_t {};  // タグ型
+  struct sender_tag {};  // タグ型
 
   template<class Sndr>
   inline constexpr bool enable_sender = see below;
@@ -22,7 +22,7 @@ namespace std::execution {
 下記をみたすクラス型はSenderとみなせる。
 
 - 下記いずれかを満たす
-    - `sender_t`をメンバ型`Sndr::sender_concept`として定義する
+    - `sender_tag`をメンバ型`Sndr::sender_concept`として定義する
     - `enable_sender`変数テンプレートを`true`で特殊化する
     - [コルーチンのAwaitable型](/lang/cpp20/coroutines.md)
 - [`get_env`](get_env.md)で[属性](../queryable.md)を取得できる
@@ -35,7 +35,7 @@ namespace std::execution {
 ```cpp
 template<class Sndr>
 concept is-sender =
-  derived_from<typename Sndr::sender_concept, sender_t>;
+  derived_from<typename Sndr::sender_concept, sender_tag>;
 
 template<class Sndr>
 concept enable-sender =
@@ -114,3 +114,4 @@ int main()
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [LWG 4202. enable-sender should be a variable template](https://cplusplus.github.io/LWG/issue4202)
 - [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)
+- [P4154R0 Renaming various execution things](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4154r0.html)

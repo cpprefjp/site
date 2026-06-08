@@ -8,7 +8,7 @@
 namespace std::execution {
   template<class Rcvr>
   concept receiver =
-    derived_from<typename remove_cvref_t<Rcvr>::receiver_concept, receiver_t> &&
+    derived_from<typename remove_cvref_t<Rcvr>::receiver_concept, receiver_tag> &&
     requires(const remove_cvref_t<Rcvr>& rcvr) {
       { get_env(rcvr) } -> queryable;
     } &&
@@ -16,7 +16,7 @@ namespace std::execution {
     constructible_from<remove_cvref_t<Rcvr>, Rcvr> &&
     is_nothrow_move_constructible_v<remove_cvref_t<Rcvr>>;
 
-  struct receiver_t {};  // タグ型
+  struct receiver_tag {};  // タグ型
 }
 ```
 * get_env[link get_env.md]
@@ -30,7 +30,7 @@ namespace std::execution {
 
 下記をみたすクラス型はReceiverとみなせる。
 
-- `receiver_t`をメンバ型`Rcvr::receiver_concept`として定義する
+- `receiver_tag`をメンバ型`Rcvr::receiver_concept`として定義する
 - [`get_env`](get_env.md)で[環境](../queryable.md)を取得できる
 - 例外送出せずにムーブ構築可能
 
@@ -45,7 +45,7 @@ namespace std::execution {
 namespace ex = std::execution;
 
 struct SinkReceiver {
-  using receiver_concept = ex::receiver_t;
+  using receiver_concept = ex::receiver_tag;
 
   void set_value(auto&&...) noexcept {}
   void set_error(auto&&) noexcept {}
@@ -78,3 +78,4 @@ int main()
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3388R3 When Do You Know connect Doesn't Throw?](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3388r3.pdf)
+- [P4154R0 Renaming various execution things](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4154r0.html)

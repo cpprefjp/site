@@ -7,14 +7,14 @@
 
 ```cpp
 struct not-a-scheduler {
-  using scheduler_concept = scheduler_t;
+  using scheduler_concept = scheduler_tag;
 
   constexpr auto schedule() const noexcept {
     return not-a-sender();
   }
 };
 ```
-* scheduler_t[link scheduler.md]
+* scheduler_tag[link scheduler.md]
 * not-a-sender[link not-a-sender.md]
 
 ## 概要

@@ -7,7 +7,7 @@
 
 ```cpp
 struct not-a-sender {
-  using sender_concept = sender_t;
+  using sender_concept = sender_tag;
 
   template<class Sndr>
     static consteval auto get_completion_signatures() -> completion_signatures<> {
@@ -15,7 +15,7 @@ struct not-a-sender {
   }
 };
 ```
-* sender_t[link sender.md]
+* sender_tag[link sender.md]
 * get_completion_signatures[link get_completion_signatures.md]
 * completion_signatures[link completion_signatures.md]
 * unspecified-exception[link unspecified-exception.md]

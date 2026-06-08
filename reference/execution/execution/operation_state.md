@@ -8,12 +8,12 @@
 namespace std::execution {
   template<class O>
   concept operation_state =
-    derived_from<typename O::operation_state_concept, operation_state_t> &&
+    derived_from<typename O::operation_state_concept, operation_state_tag> &&
     requires (O& o) {
       start(o);
     };
 
-  struct operation_state_t {};  // タグ型
+  struct operation_state_tag {};  // タグ型
 }
 ```
 * derived_from[link /reference/concepts/derived_from.md]
@@ -24,7 +24,7 @@ namespace std::execution {
 
 下記をみたすクラス型はOperation Stateとみなせる。
 
-- `operation_state_t`をメンバ型`O::operation_state_concept`として定義する
+- `operation_state_tag`をメンバ型`O::operation_state_concept`として定義する
 - `O`型の左辺値`o`に対して[`execution::start`](start.md)`(o)`が有効な式
 
 非同期操作の生存期間中に`operation_state`オブジェクトが破棄されると、未定義の動作を引き起こす。
@@ -37,7 +37,7 @@ namespace std::execution {
 namespace ex = std::execution;
 
 struct ValueReceiver {
-  using receiver_concept = ex::receiver_t;
+  using receiver_concept = ex::receiver_tag;
 
   void set_value(int v) && noexcept
   {
@@ -59,7 +59,7 @@ int main()
 }
 ```
 * ex::operation_state[color ff0000]
-* ex::receiver_t[link receiver.md]
+* ex::receiver_tag[link receiver.md]
 * ex::sender[link sender.md]
 * ex::just[link just.md]
 * ex::connect[link connect.md]
@@ -89,3 +89,4 @@ int main()
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [LWG 4200. The `operation_state` concept can be simplified](https://cplusplus.github.io/LWG/issue4200)
+- [P4154R0 Renaming various execution things](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4154r0.html)

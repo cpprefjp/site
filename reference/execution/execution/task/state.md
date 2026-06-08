@@ -12,7 +12,7 @@ namespace std::execution {
     template <receiver R>
   class task<T, Environment>::state { // exposition only
   public:
-    using operation_state_concept = operation_state_t;
+    using operation_state_concept = operation_state_tag;
 
     template <class Rcvr>
     state(coroutine_handle<promise_type> h, Rcvr&& rr);
@@ -36,7 +36,7 @@ namespace std::execution {
 ```
 * receiver[link ../receiver.md]
 * task[link ../task.md]
-* operation_state_t[link ../operation_state.md]
+* operation_state_tag[link ../operation_state.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * promise_type[link promise_type.md]
 * optional[link /reference/optional/optional.md]
