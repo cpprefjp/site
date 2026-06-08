@@ -1,6 +1,6 @@
 # try_query
 * execution[meta header]
-* std::execution::system_context_replaceability[meta namespace]
+* std::execution::parallel_scheduler_replacement[meta namespace]
 * receiver_proxy[meta class]
 * function template[meta id-type]
 * cpp26[meta cpp]
@@ -54,7 +54,7 @@ optional<P> try_query(Query q) const noexcept;
 
 ## 関連項目
 - [`execution::parallel_scheduler`](../../parallel_scheduler.md)
-- [`execution::system_context_replaceability::parallel_scheduler_backend`](../parallel_scheduler_backend.md)
+- [`execution::parallel_scheduler_replacement::parallel_scheduler_backend`](../parallel_scheduler_backend.md)
 
 
 ## 参照

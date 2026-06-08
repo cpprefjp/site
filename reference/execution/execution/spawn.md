@@ -145,7 +145,7 @@ namespace ex = std::execution;
 
 int main()
 {
-  // システムスレッドプール上の実行タスクを定義
+  // スレッドプール上の実行タスクを定義
   ex::scheduler auto sch = ex::get_parallel_scheduler();
   ex::sender auto sndr =
     ex::schedule(sch)

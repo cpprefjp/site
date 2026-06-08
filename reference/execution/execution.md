@@ -182,7 +182,7 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 |------|------|----------------|
 | [`execution::parallel_scheduler`](execution/parallel_scheduler.md) | 並列Scheduler (class) | C++26 |
 | [`execution::get_parallel_scheduler`](execution/get_parallel_scheduler.md) | 並列Schedulerを取得 (function) | C++26 |
-| [`execution::system_context_replaceability`](execution/system_context_replaceability.md) | `parallel_scheduler`動作カスタマイズ用の名前空間 (namespace) | C++26 |
+| [`execution::parallel_scheduler_replacement`](execution/parallel_scheduler_replacement.md) | `parallel_scheduler`動作カスタマイズ用の名前空間 (namespace) | C++26 |
 
 
 ## バージョン
@@ -207,3 +207,4 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
 - [P4151R1 Rename `affine_on`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4151r1.pdf)
 - [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)
+- [P4154R0 Renaming various execution things](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4154r0.html)

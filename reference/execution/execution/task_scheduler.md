@@ -21,7 +21,7 @@ namespace std::execution {
 
 `task_scheduler`クラスは、下記の説明専用メンバ変数を持つ。
 
-- `sch_` : [`shared_ptr`](/reference/memory/shared_ptr.md)`<`[`system_context_replaceability::parallel_scheduler_backend`](system_context_replaceability/parallel_scheduler_backend.md)`>`型
+- `sch_` : [`shared_ptr`](/reference/memory/shared_ptr.md)`<`[`parallel_scheduler_replacement::parallel_scheduler_backend`](parallel_scheduler_replacement/parallel_scheduler_backend.md)`>`型
 
 
 ## メンバ関数

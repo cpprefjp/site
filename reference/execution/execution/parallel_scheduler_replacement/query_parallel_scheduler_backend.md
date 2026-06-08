@@ -1,11 +1,11 @@
 # query_parallel_scheduler_backend
 * execution[meta header]
 * function[meta id-type]
-* std::execution::system_context_replaceability[meta namespace]
+* std::execution::parallel_scheduler_replacement[meta namespace]
 * cpp26[meta cpp]
 
 ```cpp
-namespace std::execution::system_context_replaceability {
+namespace std::execution::parallel_scheduler_replacement {
   shared_ptr<parallel_scheduler_backend> query_parallel_scheduler_backend();
 }
 ```
@@ -37,7 +37,7 @@ namespace std::execution::system_context_replaceability {
 
 ## 関連項目
 - [`execution::parallel_scheduler`](../parallel_scheduler.md)
-- [`execution::system_context_replaceability::parallel_scheduler_backend`](parallel_scheduler_backend.md)
+- [`execution::parallel_scheduler_replacement::parallel_scheduler_backend`](parallel_scheduler_backend.md)
 
 
 ## 参照

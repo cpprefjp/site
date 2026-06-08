@@ -1,11 +1,11 @@
 # receiver_proxy
 * execution[meta header]
 * class[meta id-type]
-* std::execution::system_context_replaceability[meta namespace]
+* std::execution::parallel_scheduler_replacement[meta namespace]
 * cpp26[meta cpp]
 
 ```cpp
-namespace std::execution::system_context_replaceability {
+namespace std::execution::parallel_scheduler_replacement {
   struct receiver_proxy;
 }
 ```

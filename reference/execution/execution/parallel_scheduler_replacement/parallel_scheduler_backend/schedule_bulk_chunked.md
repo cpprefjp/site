@@ -1,6 +1,6 @@
 # schedule_bulk_chunked
 * execution[meta header]
-* std::execution::system_context_replaceability[meta namespace]
+* std::execution::parallel_scheduler_replacement[meta namespace]
 * parallel_scheduler_backend[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]

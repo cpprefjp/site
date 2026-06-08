@@ -12,11 +12,11 @@ namespace std::execution {
 * parallel_scheduler[link parallel_scheduler.md]
 
 ## 概要
-システムの[並列Scheduler](parallel_scheduler.md)を取得する。
+[並列Scheduler](parallel_scheduler.md)を取得する。
 
 
 ## 効果
-説明用の`eb`を[`system_context_replaceability::query_parallel_scheduler_backend()`](system_context_replaceability/query_parallel_scheduler_backend.md)の結果とする。
+説明用の`eb`を[`parallel_scheduler_replacement::query_parallel_scheduler_backend()`](parallel_scheduler_replacement/query_parallel_scheduler_backend.md)の結果とする。
 
 もし`eb == nullptr`ならば、[`terminate`](/reference/exception/terminate.md)を呼び出す。そうでなければ、`eb`に関連付けられた[`parallel_scheduler`](parallel_scheduler.md)オブジェクトを返す。
 
@@ -52,7 +52,7 @@ int main()
 
 ## 関連項目
 - [`execution::parallel_scheduler`](parallel_scheduler.md)
-- [`execution::system_context_replaceability`](system_context_replaceability.md)
+- [`execution::parallel_scheduler_replacement`](parallel_scheduler_replacement.md)
 
 
 ## 参照
