@@ -31,3 +31,13 @@
 
 
 C言語においては、このヘッダは`wchar_t`型（ワイド文字型）の宣言もインクルードする。C++において`wchar_t`型は組み込み型であるため、いかなるヘッダもインクルードする必要がない。
+
+
+## 備考
+- C23の`<stddef.h>`が定義する`unreachable`マクロは、`<cstddef>`では定義されない。C++では[`std::unreachable()`](/reference/utility/unreachable.md)を使用する
+- C23の`<stddef.h>`が定義するバージョンマクロ`__STDC_VERSION_STDDEF_H__`は、`<cstddef>`では意図的に定義されない
+
+
+## 参照
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+    - C++26がC23を参照するようになった際、`<cstddef>`では`unreachable`マクロおよび`__STDC_VERSION_STDDEF_H__`を定義しないことが明記された

@@ -35,7 +35,9 @@ namespace std {
 
 
 ## 備考
-- `new_size`が0の場合の動作は未規定。
+- `new_size`が0の場合の動作は以下となる。
+    - C++23まで : 未規定
+    - C++26 : [エラー性動作 (erroneous behavior)](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md)となる。その効果は処理系定義であり、POSIXの動作も許容される
 - 確保された領域はメモリリークを避けるため、`free`、`realloc`で解放する必要がある。
 
 
@@ -75,3 +77,8 @@ int main() {
 - [`calloc`](calloc.md): メモリを確保する
 - [`malloc`](malloc.md): メモリを確保し、領域をゼロ初期化する
 - [`free`](free.md): 確保したメモリを解放する
+
+
+## 参照
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+    - C++26がC23を参照するようになり、`new_size`が0の場合がエラー性動作となった

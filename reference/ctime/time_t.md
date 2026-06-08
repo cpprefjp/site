@@ -46,7 +46,7 @@ int main()
 ```
 * std::time_t[color ff0000]
 * std::time[link time.md.nolink]
-* std::ctime[link ctime.md.nolink]
+* std::ctime[link ctime.md]
 
 ### 出力例
 ```

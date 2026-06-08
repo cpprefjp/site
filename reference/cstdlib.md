@@ -24,6 +24,9 @@
 | `strtof`   | 文字列を、`float`型に変換する (function) | |
 | `strtod`   | 文字列を、`double`型に変換する (function) | |
 | `strtold`  | 文字列を、`long double`型に変換する (function) | C++11 |
+| [`strfromf`](cstdlib/strfromf.md) | `float`型を文字列に変換する (function) | C++26 |
+| [`strfromd`](cstdlib/strfromd.md) | `double`型を文字列に変換する (function) | C++26 |
+| [`strfroml`](cstdlib/strfroml.md) | `long double`型を文字列に変換する (function) | C++26 |
 
 
 ## 擬似乱数
@@ -44,6 +47,9 @@
 | [`calloc`](cstdlib/calloc.md) | メモリを確保し、領域をゼロ初期化する (function) | |
 | [`realloc`](cstdlib/realloc.md) | メモリを再確保する (function) | |
 | [`free`](cstdlib/free.md)    | 確保したメモリを解放する (function) | |
+| [`free_sized`](cstdlib/free_sized.md) | 確保時のサイズを指定して、確保したメモリを解放する (function) | C++26 |
+| [`free_aligned_sized`](cstdlib/free_aligned_sized.md) | アライメントと確保時のサイズを指定して、確保したメモリを解放する (function) | C++26 |
+| [`memalignment`](cstdlib/memalignment.md) | ポインタのアライメントを取得する (function) | C++26 |
 
 
 ## プログラムの開始と終了
@@ -72,7 +78,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `bsearch` | 二分探索を行う (function) | |
+| [`bsearch`](cstdlib/bsearch.md) | 二分探索を行う (function) | C++26で`const`版オーバーロードを追加 |
 | `qsort`   | 範囲の並べ替えを行う (function) | |
 
 
