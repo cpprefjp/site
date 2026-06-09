@@ -29,6 +29,8 @@ namespace std::execution {
 
 [`schedule`](schedule.md)操作により得られる[Sender](sender.md)と[Receiver](receiver.md)を[接続(connect)](connect.md)した[OperationState](operation_state.md)は、[開始(start)](start.md)したスレッド上で即座に[値完了](set_value.md)する。
 
+戻り値型[`task<T, E>`](task.md)を持つタスクコルーチンのScheduler型として利用すると、コルーチン内で[`co_await`式](/lang/cpp20/coroutines.md)から再開(resume)時のスケジューリング操作を回避できる（動作詳細は[`await_transform`](task/promise_type/await_transform.md)を参照）。
+
 
 ## クラス仕様
 `inline_scheduler`型の全オブジェクトは等しい。`inline_scheduler`型の部分式`sch`、[クエリオブジェクト](../queryable.md)`q`、部分式のパック`args`としたとき、式`sch.query(q, args...)`は`inline-attrs<`[`set_value_t`](set_value.md)`>.query(q, args...)`と等価な式となる。
@@ -110,6 +112,7 @@ task
 
 ## 関連項目
 - [`execution::scheduler`](scheduler.md)
+- [`execution::task`](task.md)
 
 
 ## 参照

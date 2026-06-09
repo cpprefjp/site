@@ -7,7 +7,7 @@
 
 ```cpp
 template<sender Sender>
-auto await_transform(Sender&& sndr); // (1)
+auto await_transform(Sender&& sndr);
 ```
 * sender[link ../../sender.md]
 
@@ -17,8 +17,8 @@ auto await_transform(Sender&& sndr); // (1)
 
 
 ## 効果
-[`same_as`](/reference/concepts/same_as.md)`<`[`inline_scheduler`](../../inline_scheduler.md)`,` [`start_scheduler_type`](../../task.md)`> == true`ならば、[`as_awaitable`](../../as_awaitable.md)`(std::forward<Sender>(sndr), *this)`を返す。
-そうでなければ、[`as_awaitable`](../../as_awaitable.md)`(`[`affine`](../../affine.md)`(std::forward<Sender>(sndr)), *this)`を返す。
+[`same_as`](/reference/concepts/same_as.md)`<`[`inline_scheduler`](../../inline_scheduler.md)`,` [`start_scheduler_type`](../../task.md)`> == true`ならば、[`as_awaitable`](../../as_awaitable.md)`(`[`std::forward`](/reference/utility/forward.md)`<Sender>(sndr), *this)`を返す。
+そうでなければ、[`as_awaitable`](../../as_awaitable.md)`(`[`affine`](../../affine.md)`(`[`std::forward`](/reference/utility/forward.md)`<Sender>(sndr)), *this)`を返す。
 
 
 ## バージョン

@@ -14,6 +14,7 @@ void* operator new(size_t size, const Args&... args);  // (2)
 template<class This, class Alloc, class... Args>
 void* operator new(size_t size, const This&, allocator_arg_t, Alloc alloc, Args&&...);  // (3)
 ```
+* allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ## 概要
 [`task::promise_type`](../promise_type.md)クラスのnew演算子オーバーロード。
@@ -26,14 +27,20 @@ void* operator new(size_t size, const This&, allocator_arg_t, Alloc alloc, Args&
 
 
 ## 効果
+- (1) : 下記と等価
+
+    ```cpp
+    return operator new(size, allocator_arg, allocator_type());
+    ```
+    * allocator_arg[link /reference/memory/allocator_arg_t.md]
+
 - (2), (3) :
     - `PAlloc`型のアロケータ`palloc`を`alloc`で初期化する。
     - サイズ`size`のコルーチンステートに十分なストレージとなる`U`の最小配列ストレージ、および[`operator delete`](op_delete.md)が後で`palloc`と等しいアロケータでこのメモリブロックを解放するのに必要となる未規定の追加ストレージの確保に`palloc`を用いる。
 
 
 ## 戻り値
-- (1) : `operator new(size,` [`allocator_arg`](/reference/memory/allocator_arg_t.md)`, allocator_type())`
-- (2), (3) : 確保したストレージへのポインタ
+確保したストレージへのポインタ
 
 
 ## バージョン

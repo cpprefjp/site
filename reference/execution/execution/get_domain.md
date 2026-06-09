@@ -22,7 +22,7 @@ namespace std::execution {
 部分式`env`に対して、型`D`を下記のうち最初に適格な式の型としたとき、呼び出し式`get_domain(env)`は[`MANDATE-NOTHROW`](MANDATE-NOTHROW.md)`(D())`と等価。
 
 - `auto(`[`AS-CONST`](AS-CONST.md)`(env).query(get_domain))`
-- [`get_completion_domain`](get_completion_domain.md)`<`[`set_value_t`](set_value.md)`>(`[`get_scheduler`](get_scheduler.md)`(env), `[`HIDE-SCHED`](../queryable.md)`(env))`
+- [`get_completion_domain`](get_completion_domain.md)`<`[`set_value_t`](set_value.md)`>(`[`get_scheduler`](get_scheduler.md)`(env),` [`HIDE-SCHED`](../queryable.md)`(env))`
 - `env`が評価されることを除いて、[`default_domain()`](default_domain.md)
 
 

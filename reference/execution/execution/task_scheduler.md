@@ -17,7 +17,9 @@ namespace std::execution {
 
 
 ## クラス仕様
-`task_scheduler`は[`scheduler`](scheduler.md)のモデルである。`task_scheduler`型のオブジェクト`s`に対して、`SCHED(s)`を`s.sch_`が所有するポインタが指すオブジェクトとする。式[`get_forward_progress_guarantee`](get_forward_progress_guarantee.md)`(s)`は`get_forward_progress_guarantee(SCHED(s))`と等価。式[`get_completion_domain`](get_completion_domain.md)`<`[`set_value_t`](set_value.md)`>(s)`は`task_scheduler::`[`ts-domain()`](task_scheduler/schedule.md)と等価。
+`task_scheduler`は[`scheduler`](scheduler.md)のモデルである。
+
+`task_scheduler`型のオブジェクト`s`に対して、`SCHED(s)`を`s.sch_`が所有するポインタが指すオブジェクトとする。式[`get_forward_progress_guarantee`](get_forward_progress_guarantee.md)`(s)`は`get_forward_progress_guarantee(SCHED(s))`と等価。式[`get_completion_domain`](get_completion_domain.md)`<`[`set_value_t`](set_value.md)`>(s)`は`task_scheduler::`[`ts-domain()`](task_scheduler/schedule.md)と等価。
 
 `task_scheduler`クラスは、下記の説明専用メンバ変数を持つ。
 

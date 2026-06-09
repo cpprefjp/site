@@ -14,13 +14,13 @@ see below schedule();
 
 
 ## 戻り値
-その型が[`sender`](../sender.md)のモデルであり、下記を満たす`ts-sndr`の右辺値。
+その型が[`sender`](../sender.md)のモデルであり、下記を満たす右辺値`ts-sndr`。
 
 - [`get_completion_scheduler`](../get_completion_scheduler.md)`<`[`set_value_t`](../set_value.md)`>(`[`get_env`](../get_env.md)`(ts-sndr))`が`*this`と等しい。
-- [`get_completion_domain`](../get_completion_domain.md)`<`[`set_value_t`](../set_value.md)`>(`[`get_env`](../get_env.md)`(ts-sndr))`が`ts-domain()`と等価な式。
-- [Receiver](../receiver.md)`rcvr`が`ts-sndr`に接続され、結果の[Opearation State](../operation_state.md)が開始されるとき、次の値で`sch_->schedule(r, s)`を呼び出す。
-    - `r`は基底[`parallel_scheduler_replacement::receiver_proxy`](../parallel_scheduler_replacement/receiver_proxy.md)を持つ`rcvr`のプロキシであり、かつ
-    - `s`は`r`に対する事前確保バックエンドストレージである。
+- [`get_completion_domain`](../get_completion_domain.md)`<`[`set_value_t`](../set_value.md)`>(`[`get_env`](../get_env.md)`(ts-sndr))`が`ts-domain()`と等価な式である。
+- [Receiver](../receiver.md)`rcvr`が`ts-sndr`に接続され、結果の[Opearation State](../operation_state.md)が開始されるとき、次の値で`sch_->`[`schedule`](../parallel_scheduler_replacement/parallel_scheduler_backend/schedule.md)`(r, s)`を呼び出す。
+    - `r`は基底クラス[`parallel_scheduler_replacement::receiver_proxy`](../parallel_scheduler_replacement/receiver_proxy.md)を持つ`rcvr`のプロキシであり、かつ
+    - `s`は`r`に対する[事前確保バックエンドストレージ](../parallel_scheduler.md)である。
 - 任意の型`E`に対して、[`unstoppable_token`](/reference/stop_token/unstoppable_token.md)`<`[`stop_token_of_t`](../../stop_token_of_t.md)`<E>>`が`true`のとき、[`completion_signatures_of_t`](../completion_signatures_of_t.md)`<decltype(ts-sndr)>, E>`は[`completion_signatures`](../completion_signatures.md)`<`[`set_value_t`](../set_value.md)`()>`を表す。そうでなければ、[`completion_signatures`](../completion_signatures.md)`<`[`set_value_t`](../set_value.md)`(),` [`set_stopped_t`](../set_stopped.md)`()>`を表す。
 
 
@@ -52,6 +52,9 @@ namespace std::execution {
 * parallel_scheduler_replacement::parallel_scheduler_backend[link ../parallel_scheduler_replacement/parallel_scheduler_backend.md]
 * receiver_proxy[link ../parallel_scheduler_replacement/receiver_proxy.md]
 * bulk_item_receiver_proxy[link ../parallel_scheduler_replacement/bulk_item_receiver_proxy.md]
+* span[link /reference/span/span.md]
+* byte[link /reference/cstddef/byte.md]
+* std::move[link /reference/utility/move.md]
 
 `env`を部分式のパックとしたとき、値完了シグネチャ[`set_value_t`](../set_value.md)`()`のみを持ち式[`get_completion_scheduler`](../get_completion_scheduler.md)`<set_value_t>(`[`get_env`](../get_env.md)`(just-sndr-like), env...)`が[`get_completion_scheduler`](../get_completion_scheduler.md)`<set_value_t>(sched_, env...)`と等価な式であるような[`Sender`](../sender.md)を`just-sndr-like`とする。
 
@@ -67,6 +70,8 @@ void schedule_bulk_chunked(size_t shape, bulk_item_receiver_proxy& r,
                            span<byte> s) noexcept override;
 ```
 * bulk_item_receiver_proxy[link ../parallel_scheduler_replacement/bulk_item_receiver_proxy.md]
+* span[link /reference/span/span.md]
+* byte[link /reference/cstddef/byte.md]
 
 - 効果 : 説明用の`chunk_size`を`shape`以下の整数、`chunk_num`を`(shape + chunk_size - 1) / chunk_size`、`m`を`(i + 1) * chunk_size`と`shape`のうち小さい方として、整数`i`に対して`fn(i)`が`r.execute(i * chunk_sie, m)`を呼び出す関数オブジェクト`fn`とする。下記の式によって[Operation State](../operation_state.md)`os`を構築し、[`start`](../start.md)`(os)`を呼び出す。
 
@@ -82,6 +87,8 @@ void schedule_bulk_unchunked(size_t shape, bulk_item_receiver_proxy& r,
                              span<byte> s) noexcept override;
 ```
 * bulk_item_receiver_proxy[link ../parallel_scheduler_replacement/bulk_item_receiver_proxy.md]
+* span[link /reference/span/span.md]
+* byte[link /reference/cstddef/byte.md]
 
 - 効果 : 整数`i`に対して`fn(i)`が`r.execute(i, i + 1)`を呼び出す関数オブジェクト`fn`とする。下記の式によって[Operation State](../operation_state.md)`os`を構築し、[`start`](../start.md)`(os)`を呼び出す。
 
@@ -119,8 +126,8 @@ static constexpr auto transform_sender(BulkSndr&& bulk_sndr, const Env& env)
     - [`sender_in`](../sender_in.md)`<BulkSndr, Env>`が`true`
     - 式`auto(`[`std::forward`](/reference/utility/forward.md)`<BulkSndr>(bulk_sndr))`が適格
     - 下記のいずれかが`true`
-        - `sender-for<BulkSndr,` [`bulk_chunked_t`](../bulk_chunked.md)`>`
-        - `sender-for<BulkSndr,` [`bulk_unchunked_t`](../bulk_unchunked.md)`>`
+        - [`sender-for`](../sender-for.md)`<BulkSndr,` [`bulk_chunked_t`](../bulk_chunked.md)`>`
+        - [`sender-for`](../sender-for.md)`<BulkSndr,` [`bulk_unchunked_t`](../bulk_unchunked.md)`>`
 - 効果 : 下記と等価
     ```cpp
     auto& [_, data, child] = bulk_sndr;
@@ -140,8 +147,8 @@ static constexpr auto transform_sender(BulkSndr&& bulk_sndr, const Env& env)
 
     `child`が[エラー完了](../set_error.md)もしくは[停止完了](../set_stopped.md)するとき、完了操作は変更されずに`rcvr`に転送される。そうでなければ、値完了結果からdecayコピーされたオブジェクトを指す左辺値式のパック`args`として、
 
-    - `bulk_sndr`が[`bulk_chunked`](../bulk_chunked.md)`(child, policy, shape, fn)`と等価な式またはそのコピーの評価の結果であるとき、`r`を呼び出し可能オブジェクト`fn`と引数`args`を持つ`rcvr`に対するbulk chunkedプロキシ、`s`を`r`の事前確保バックエンドストレージとして、`sch_->`[`schedule_bulk_chunked`](../parallel_scheduler_replacement/parallel_scheduler_backend/schedule_bulk_chunked.md)`(shape, r, s)`が呼び出される。
-    - そうでなければ、`r`を呼び出し可能オブジェクト`fn`と引数`args`を持つ`rcvr`に対するbulk unchunkedプロキシ、`s`を`r`の事前確保バックエンドストレージとして、`sch_->`[`schedule_bulk_unchunked`](../parallel_scheduler_replacement/parallel_scheduler_backend/schedule_bulk_unchunked.md)`(shape, r, s)`が呼び出される。
+    - `bulk_sndr`が[`bulk_chunked`](../bulk_chunked.md)`(child, policy, shape, fn)`と等価な式またはそのコピーの評価の結果であるとき、`r`を呼び出し可能オブジェクト`fn`と引数`args`を持つ`rcvr`に対するbulk chunkedプロキシ、`s`を`r`の[事前確保バックエンドストレージ](../parallel_scheduler.md)として、`sch_->`[`schedule_bulk_chunked`](../parallel_scheduler_replacement/parallel_scheduler_backend/schedule_bulk_chunked.md)`(shape, r, s)`が呼び出される。
+    - そうでなければ、`r`を呼び出し可能オブジェクト`fn`と引数`args`を持つ`rcvr`に対するbulk unchunkedプロキシ、`s`を`r`の[事前確保バックエンドストレージ](../parallel_scheduler.md)として、`sch_->`[`schedule_bulk_unchunked`](../parallel_scheduler_replacement/parallel_scheduler_backend/schedule_bulk_unchunked.md)`(shape, r, s)`が呼び出される。
    
 
 ## バージョン

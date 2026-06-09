@@ -91,7 +91,7 @@ void start() & noexcept;
 stop_token_type get-stop-token();
 ```
 
-- 効果 : [`same_as`](/reference/concepts/same_as.md)`<decltype(declval<`[`stop_source_type`](../task.md)`>().get_token()), decltype(`[`get_stop_token`](../../get_stop_token.md)`(get_env(rcvr)))>`が`true`のとき、`get_stop_token(get_env(rcvr))`を返す。そうではなく、`source.`[`has_value()`](/reference/optional/optional/has_value.md)が`false`のとき、下記の値で`source`を初期化する。
+- 効果 : [`same_as`](/reference/concepts/same_as.md)`<decltype(declval<`[`stop_source_type`](../task.md)`>().get_token()), decltype(`[`get_stop_token`](../../get_stop_token.md)`(`[`get_env`](../get_env.md)`(rcvr)))>`が`true`のとき、`get_stop_token(get_env(rcvr))`を返す。そうではなく、`source.`[`has_value()`](/reference/optional/optional/has_value.md)が`false`のとき、下記の値で`source`を初期化する。
 
     - `source->stop_requested()`は`get_stop_token(get_env(rcvr))->stop_requested()`を返し、かつ
     - `source->stop_possible()`は`get_stop_token(get_env(rcvr))->stop_possible()`を返す。

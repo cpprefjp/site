@@ -14,6 +14,7 @@ task_scheduler(const task_scheduler&) = default;  // (2)
 ```
 * task_scheduler[link ../task_scheduler.md]
 * scheduler[link ../scheduler.md]
+* allocator[link /reference/memory/allocator.md]
 
 ## 概要
 - (1) : [Scheduler](../scheduler.md)`sch`とアロケータ`alloc`を保持する`task_scheduler`オブジェクトを構築する。
@@ -43,10 +44,6 @@ task_scheduler(const task_scheduler&) = default;  // (2)
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 関連項目
-- [`execution::scheduler`](../scheduler.md)
 
 
 ## 参照

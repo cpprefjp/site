@@ -36,6 +36,7 @@ concept infallible-scheduler =
 
 ## 関連項目
 - [`execution::scheduler`](scheduler.md)
+- [`execution::affine`](affine.md)
 
 
 ## 参照
