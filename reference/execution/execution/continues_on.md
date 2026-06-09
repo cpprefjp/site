@@ -55,9 +55,9 @@ namespace std::execution {
 
   using sched_t = decltype(auto(sch));
   using variant_t = see below;
-  using receiver_tag = see below;
-  using operation_t = connect_result_t<schedule_result_t<sched_t>, receiver_tag>;
-  constexpr bool nothrow = noexcept(connect(schedule(sch), receiver_tag{nullptr}));
+  using receiver_t = see below;
+  using operation_t = connect_result_t<schedule_result_t<sched_t>, receiver_t>;
+  constexpr bool nothrow = noexcept(connect(schedule(sch), receiver_t{nullptr}));
 
   struct state-type {
     Rcvr& rcvr;                 // exposition only
@@ -65,7 +65,7 @@ namespace std::execution {
     operation_t op-state;       // exposition only
 
     explicit state-type(sched_t sch, Rcvr& rcvr) noexcept(nothrow)
-      : rcvr(rcvr), op-state(connect(schedule(sch), receiver_tag{this})) {}
+      : rcvr(rcvr), op-state(connect(schedule(sch), receiver_t{this})) {}
   };
 
   return state-type{sch, rcvr};
@@ -89,7 +89,7 @@ namespace std::execution {
     * variant[link /reference/variant/variant.md]
     * monostate[link /reference/variant/monostate.md]
 
-- `receiver_tag`は説明専用クラス`receiver-type`のエイリアスとする。
+- `receiver_t`は説明専用クラス`receiver-type`のエイリアスとする。
 
 `impls-for<continues_on_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
