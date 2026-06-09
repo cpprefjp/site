@@ -6,11 +6,14 @@
 * cpp26[meta cpp]
 
 ```cpp
-constexpr T* address() const noexcept;
+constexpr address-return-type address() const noexcept;
 ```
+* address-return-type[italic]
 
 ## 概要
 参照しているオブジェクトのアドレスを取得する。
+
+戻り値型`address-return-type`は説明専用の型エイリアスであり、`COPYCV(T, void)*`と定義される。`COPYCV(T, void)`は、`T`の最上位のCV修飾を`void`に付加した型である。たとえば`atomic_ref<int>`では`void*`、`atomic_ref<const int>`では`const void*`を返す。
 
 ### この関数を必要とする状況
 #### データ構造の要素へのアトミックアクセス
@@ -29,7 +32,7 @@ int fetch_add_idx(std::atomic<int>* base, size_t i, int value) {
 
 ```cpp
 int fetch_add_idx(std::atomic_ref<int> base, size_t i, int value) {
-  int* p = base.address();
+  int* p = static_cast<int*>(base.address());
   return std::atomic_ref{*(p+i)}.fetch_add(value);
 }
 ```
@@ -41,7 +44,7 @@ int fetch_add_idx(std::atomic_ref<int> base, size_t i, int value) {
 ```cpp
 void thread(atomic_ref<int>* data, atomic_ref<int> counter, int nthreads) {
   data->fetch_add(42, memory_order_relaxed);
-  int* d = data->address();       // dataへの生ポインタを取得
+  int* d = static_cast<int*>(data->address()); // dataへの生ポインタを取得
   data->~atomic_ref();            // このスレッドのデータへのatomic_refを破棄する
   int pos = counter.fetch_add(1); // データの破棄が完了したことを伝える
   if (pos != (nthreads - 1))
@@ -55,11 +58,24 @@ void thread(atomic_ref<int>* data, atomic_ref<int> counter, int nthreads) {
 
 
 ## 戻り値
-`*this`が参照するオブジェクトをアドレス値を返す
+`*this`が参照するオブジェクトを指すポインタを、`T`のCV修飾を引き継いだ`void`へのポインタとして返す
 
 
 ## 例外
 投げない
+
+
+## 備考
+- 戻り値を`void`へのポインタとしているのは、参照先オブジェクトへの不用意なアクセスという誤用を防ぐためである
+    - この関数の主な用途は、ポインタ値そのもの（ハッシュ化や比較、配列のインデックス計算など）を使うことである。一方、参照先のオブジェクトを直接読み書きすると、同じオブジェクトを参照するほかの`atomic_ref`が生存している状況ではデータ競合となる
+    - 仮に戻り値が`T*`であれば、以下のように参照先を何気なく読み書きでき、アトミック性を壊すアクセスに気付きにくいという問題が起きる：
+    ```cpp
+    int x = 0;
+    std::atomic_ref ar{x};
+
+    int* p = ar.address(); // 戻り値型がT*であった場合、
+    int value = *p;        // 非アトミックな間接参照が容易にできてしまう
+    ```
 
 
 ## 例
@@ -69,8 +85,8 @@ void thread(atomic_ref<int>* data, atomic_ref<int> counter, int nthreads) {
 #include <thread>
 
 void f(std::atomic_ref<int> ar, int i) {
-  int* p = ar.address();
-  std::atomic_ref{p + i}.fetch_add(1);
+  int* p = static_cast<int*>(ar.address());
+  std::atomic_ref{*(p + i)}.fetch_add(1);
 }
 
 int main()
@@ -109,3 +125,5 @@ int main()
 
 ## 参照
 - [P2835R7 Expose `std::atomic_ref` 's object address](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2835r7.html)
+- [P3936R1 Safer `atomic_ref::address` (FR-030-310)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3936r1.pdf)
+    - C++26で、誤用を防ぐために戻り値型を`T*`から`COPYCV(T, void)*`（`T`のCV修飾を引き継いだ`void`へのポインタ）に変更した
