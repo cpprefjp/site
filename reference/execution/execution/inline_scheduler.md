@@ -74,28 +74,83 @@ struct inline-attrs {
 ## 例
 ```cpp example
 #include <execution>
+#include <thread>
 #include <print>
 namespace ex = std::execution;
 
+// ex::task用のカスタム環境
+struct TaskEnv {
+  using start_scheduler_type = ex::inline_scheduler;
+};
+
+ex::task<void> f(ex::scheduler auto sch)
+{
+  std::println("step1 main#{}", std::this_thread::get_id());
+
+  // スケジューラを変更してサブタスクを実行
+  co_await (ex::schedule(sch) | ex::then([]{
+    std::println("step2 worker#{}", std::this_thread::get_id());
+  }));
+
+  // デフォルト(task_scheduler)タスクコルーチンのco_await式では、
+  // Scheduler Affinity動作により元のスケジューラ上で処理が継続する。
+  std::println("step3 main#{}", std::this_thread::get_id());
+}
+
+ex::task<void, TaskEnv> g(ex::scheduler auto sch)
+{
+  std::println("step1 main#{}", std::this_thread::get_id());
+
+  // スケジューラを変更してサブタスクを実行
+  co_await (ex::schedule(sch) | ex::then([]{
+    std::println("step2 worker#{}", std::this_thread::get_id());
+  }));
+
+  // inline_schedulerを持つタスクコルーチンのco_await式では、
+  // コルーチンの再開(resume)時に再スケジューリングが行われない。
+  // このためco_await式内で変更したスケジューラが引き継がれる。
+  std::println("step3 worker#{}", std::this_thread::get_id());
+}
+
 int main()
 {
-  ex::scheduler auto sch = ex::inline_scheduler{};
+  // ワーカースレッドを開始
+  ex::run_loop loop;
+  std::jthread worker{[&]{
+    loop.run();
+  }};
+  auto sch = loop.get_scheduler();
 
-  std::this_thread::sync_wait(
-    ex::schedule(sch)
-    | ex::then([]{ std::println("task"); })
-  );
+  std::println("task_scheduler(default)");
+  std::this_thread::sync_wait( f(sch) );
+
+  std::println("inline_scheduler");
+  std::this_thread::sync_wait( g(sch) );
+
+  loop.finish();
 }
 ```
 * ex::inline_scheduler[color ff0000]
+* ex::task[link task.md]
 * ex::scheduler[link scheduler.md]
 * ex::schedule[link schedule.md]
 * ex::then[link then.md]
+* ex::run_loop[link run_loop.md]
+* run()[link run_loop/run.md]
+* get_scheduler()[link run_loop/get_scheduler.md]
+* finish()[link run_loop/finish.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 
-### 出力
+### 出力例
 ```
-task
+task_scheduler(default)
+step1 main#124468393588544
+step2 worker#124468391311040
+step3 main#124468393588544
+inline_scheduler
+step1 main#124468393588544
+step2 worker#124468391311040
+step3 worker#124468391311040
 ```
 
 
