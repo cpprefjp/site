@@ -181,6 +181,8 @@ namespace std {
 
 C++23には`vector<bool>::iterator`が出力イテレータとなるために、`vector<bool>::reference`が`const`修飾を持つ`bool`からの代入演算子が追加され、[`indirectly_writable<vector<bool>::iterator,` `bool>`](/reference/iterator/indirectly_writable.md)がモデルを満たすようになった。
 
+C++26では、ADLで見つかる非メンバ`swap`関数が追加され、[`bitset<N>::reference`](/reference/bitset/bitset/reference.md)とインタフェースが統一された。これにあわせて、従来の`static`メンバ関数版の`swap`は非推奨となった。
+
 ```cpp
 class vector<bool>::reference {
   friend class vector;
@@ -193,6 +195,12 @@ public:
   constexpr reference& operator=(const reference& x) noexcept; // vector<bool>のビットからの代入
   constexpr const reference& operator=(bool x) const noexcept; // *thisがconst時のboolからの代入（C++23）
   constexpr void flip() noexcept;                              // ビットの反転
+
+  friend constexpr void swap(reference x, reference y) noexcept; // 2つのビットの交換（C++26）
+  friend constexpr void swap(reference x, bool& y) noexcept;     // ビットとboolの交換（C++26）
+  friend constexpr void swap(bool& x, reference y) noexcept;     // boolとビットの交換（C++26）
+
+  static constexpr void swap(reference x, reference y) noexcept; // ビットの交換（C++26から非推奨）
 };
 ```
 
@@ -447,3 +455,5 @@ int main()
 - [N4510 Minimal incomplete type support for standard containers, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html)
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
+- [P3612R1 Harmonize proxy-reference operations (LWG 3638 and 4187)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3612r1.html)
+    - C++26で、`vector<bool>::reference`にADLで見つかる非メンバ`swap`関数が追加され、従来の`static`メンバ関数版`swap`が非推奨となった
