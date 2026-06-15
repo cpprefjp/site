@@ -43,5 +43,5 @@
 
 ## 参照
 - [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)
-- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
     - C++26がC23を参照するようになり、`mbrtoc8`・`c8rtomb`・`__STDC_VERSION_UCHAR_H__`が追加された

@@ -71,5 +71,5 @@
 
 ## 参照
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
-- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
     - C++26がC23を参照するようになり、2進数用の書式指定マクロ (`PRIb`*N*・`PRIB`*N*・`SCNb`*N*等) と`__STDC_VERSION_INTTYPES_H__`が追加された

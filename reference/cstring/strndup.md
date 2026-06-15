@@ -69,5 +69,5 @@ hello
 
 
 ## 参照
-- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.html)
+- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
     - C++26がC23を参照するようになり、この関数が`<cstring>`に追加された
