@@ -2,9 +2,90 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-06-18T08:13:31.908552</updated>
-  <id>eb5277d9-7e72-426d-9e31-c8a0e9a7a4fe</id>
+  <updated>2026-06-18T10:45:14.608447</updated>
+  <id>42676c71-f4e6-4ff3-9581-5f9658656b5b</id>
 
+  
+    <entry>
+      <title>constant_wrapper -- constant_wrapper : `||`演算子の表示崩れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper.html"/>
+      <id>cdc572316c53c4e88097e3caa463c137e0666f7e:reference/utility/constant_wrapper.md</id>
+      <updated>2026-06-18T19:40:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper.md b/reference/utility/constant_wrapper.md
+index c736b2cef..af91577b6 100644
+--- a/reference/utility/constant_wrapper.md
++++ b/reference/utility/constant_wrapper.md
+@@ -117,7 +117,7 @@ static_assert(result == 55);                 // resultが定数式でなくて
+ | [&amp;lt;code&amp;gt;operator&amp;amp;#x7C;&amp;lt;/code&amp;gt;](constant_wrapper/op_or.md) | ビット論理和 | C++26 |
+ | [`operator^`](constant_wrapper/op_xor.md) | ビット排他的論理和 | C++26 |
+ | [`operator&amp;amp;&amp;amp;`](constant_wrapper/op_logical_and.md) | 論理積 | C++26 |
+-| [`operator\|\|`](constant_wrapper/op_logical_or.md) | 論理和 | C++26 |
++| [&amp;lt;code&amp;gt;operator&amp;amp;#x7C;&amp;amp;#x7C;&amp;lt;/code&amp;gt;](constant_wrapper/op_logical_or.md) | 論理和 | C++26 |
+ | [`operator&amp;lt;=&amp;gt;`](constant_wrapper/op_compare_3way.md) | 三方比較 | C++26 |
+ | [`operator&amp;lt;`](constant_wrapper/op_less.md) | 左辺が右辺より小さいかの判定 | C++26 |
+ | [`operator&amp;lt;=`](constant_wrapper/op_less_equal.md) | 左辺が右辺以下かの判定 | C++26 |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>constant_wrapper -- constant_wrapper : `|`演算子の表示崩れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper.html"/>
+      <id>5a3486af1c8a97c5f80e54d6214e56f0ae863daa:reference/utility/constant_wrapper.md</id>
+      <updated>2026-06-18T19:39:55+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper.md b/reference/utility/constant_wrapper.md
+index 9f28352c0..c736b2cef 100644
+--- a/reference/utility/constant_wrapper.md
++++ b/reference/utility/constant_wrapper.md
+@@ -114,7 +114,7 @@ static_assert(result == 55);                 // resultが定数式でなくて
+ | [`operator&amp;lt;&amp;lt;`](constant_wrapper/op_left_shift.md) | 左シフト | C++26 |
+ | [`operator&amp;gt;&amp;gt;`](constant_wrapper/op_right_shift.md) | 右シフト | C++26 |
+ | [`operator&amp;amp;`](constant_wrapper/op_and.md) | ビット論理積 | C++26 |
+-| [`operator\|`](constant_wrapper/op_or.md) | ビット論理和 | C++26 |
++| [&amp;lt;code&amp;gt;operator&amp;amp;#x7C;&amp;lt;/code&amp;gt;](constant_wrapper/op_or.md) | ビット論理和 | C++26 |
+ | [`operator^`](constant_wrapper/op_xor.md) | ビット排他的論理和 | C++26 |
+ | [`operator&amp;amp;&amp;amp;`](constant_wrapper/op_logical_and.md) | 論理積 | C++26 |
+ | [`operator\|\|`](constant_wrapper/op_logical_or.md) | 論理和 | C++26 |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>constant_wrapper -- constant_wrapper : `|=`演算子の表示崩れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper.html"/>
+      <id>ba790938da6195048ead87b169316be5544fc089:reference/utility/constant_wrapper.md</id>
+      <updated>2026-06-18T19:39:42+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper.md b/reference/utility/constant_wrapper.md
+index 9ce5828c7..9f28352c0 100644
+--- a/reference/utility/constant_wrapper.md
++++ b/reference/utility/constant_wrapper.md
+@@ -68,7 +68,7 @@ static_assert(result == 55);                 // resultが定数式でなくて
+ | [`operator/=`](constant_wrapper/op_divide_assign.md) | 除算の複合代入 | C++26 |
+ | [`operator%=`](constant_wrapper/op_modulo_assign.md) | 剰余の複合代入 | C++26 |
+ | [`operator&amp;amp;=`](constant_wrapper/op_and_assign.md) | ビット論理積の複合代入 | C++26 |
+-| [`operator\|=`](constant_wrapper/op_or_assign.md) | ビット論理和の複合代入 | C++26 |
++| [&amp;lt;code&amp;gt;operator&amp;amp;#x7C;=&amp;lt;/code&amp;gt;](constant_wrapper/op_or_assign.md) | ビット論理和の複合代入 | C++26 |
+ | [`operator^=`](constant_wrapper/op_xor_assign.md) | ビット排他的論理和の複合代入 | C++26 |
+ | [`operator&amp;lt;&amp;lt;=`](constant_wrapper/op_left_shift_assign.md) | 左シフトの複合代入 | C++26 |
+ | [`operator&amp;gt;&amp;gt;=`](constant_wrapper/op_right_shift_assign.md) | 右シフトの複合代入 | C++26 |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>機能テストマクロ -- C++26対応としてconstant_wrapperを追加 #1519</title>
@@ -10035,213 +10116,6 @@ index 558f85a94..989b93a4c 100644
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>transform_sender -- execution/transform_sender: 動作概略を追記</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_sender.html"/>
-      <id>b96428b1bcc313f140d88b3590726fa296cd057d:reference/execution/execution/transform_sender.md</id>
-      <updated>2026-06-12T16:31:19+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_sender.md b/reference/execution/execution/transform_sender.md
-index dfc416f6b..1618d0c6a 100644
---- a/reference/execution/execution/transform_sender.md
-+++ b/reference/execution/execution/transform_sender.md
-@@ -16,7 +16,13 @@ namespace std::execution {
- 
- ## 概要
- [実行ドメイン](default_domain.md)に応じて[Sender](sender.md)を変換する。
--Senderと[Receiver](receiver.md)間[接続(connect)](connect.md)時のカスタマイゼーションポイントとして機能する。
-+Senderと[Receiver](receiver.md)との[接続(connect)](connect.md)時のカスタマイゼーションポイントとして機能する。
-+
-+下記手順によってSender変換が行われる。
-+
-+- Receiverの環境`evn`に[開始ドメイン](get_domain.md)を、Sender`sndr`に[完了ドメイン](get_completion_domain.md)をそれぞれ問い合わせる。
-+- 開始ドメインの上で、恒等変化となるまで（Sender型が変化しなくなるまで）再起的にSender変換を適用する。
-+- 完了ドメインの上で再起的にSender変換を適用する。同過程でSender型が変化したときは完了ドメインを再度問い合わせる。
- 
- 
- ## 戻り値
-@@ -31,7 +37,7 @@ Senderと[Receiver](receiver.md)間[接続(connect)](connect.md)時のカスタ
- 
- 説明用の式`transform-recurse(dom, tag, s)`を次の通りとする。
- 
--- `transformed-sndr(dom, tag, s)`と`s`の型がCV修飾を無視して同一ならば、式`transformed-recurse(dom, tag, s)`
-+- `transformed-sndr(dom, tag, s)`と`s`の型がCV修飾を無視して同一ならば、式`transformed-sndr(dom, tag, s)`
- - そうではなく`tag`が[`start`](start.md)のとき、`s2`を`transformed-sndr(dom, tag, s)`、`dom2`を`start-domain`として式`transform-recurse(dom2, tag, s2)`
- - そうでなければ、式`completion-domain(s2)`
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>reference -- vector / bitset : C++26でのswap関係の仕様変更に対応 (close #1571)</title>
-      <link href="https://cpprefjp.github.io/reference/bitset/bitset/reference.html"/>
-      <id>2846b08f1ab1ee81105ef1152ed2236ae6a63243:reference/bitset/bitset/reference.md</id>
-      <updated>2026-06-10T16:27:25+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/bitset/bitset/reference.md b/reference/bitset/bitset/reference.md
-index 13ff26a29..41f452bcc 100644
---- a/reference/bitset/bitset/reference.md
-+++ b/reference/bitset/bitset/reference.md
-@@ -16,9 +16,14 @@ namespace std {
-       CONSTEXPR ~reference() noexcept;
-       CONSTEXPR reference&amp;amp; operator=(bool x) noexcept;
-       CONSTEXPR reference&amp;amp; operator=(const reference&amp;amp;) noexcept;
-+      constexpr const reference&amp;amp; operator=(bool x) const noexcept;   // C++26
-       CONSTEXPR bool operator~() const noexcept;
-       CONSTEXPR operator bool() const noexcept;
-       CONSTEXPR reference&amp;amp; flip() noexcept;
-+
-+      friend constexpr void swap(reference x, reference y) noexcept;  // C++26
-+      friend constexpr void swap(reference x, bool&amp;amp; y) noexcept;      // C++26
-+      friend constexpr void swap(bool&amp;amp; x, reference y) noexcept;      // C++26
-     };
-   };
- }
-@@ -30,6 +35,8 @@ namespace std {
- 
- C++23から`bitset::reference`全メンバ関数への`constexpr`指定が行われる。
- 
-+C++26から、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加され、[`vector&amp;lt;bool&amp;gt;::reference`](/reference/vector/vector.md)とインタフェースが統一された。
-+
- 
- ### メンバ関数
- 
-@@ -37,11 +44,21 @@ C++23から`bitset::reference`全メンバ関数への`constexpr`指定が行わ
- |----------------------------|----------------------------------------------------------|-------|
- | `operator=(bool x)`           | ビット情報を書き換える   | |
- | `operator=(const reference&amp;amp;)` | ビット情報をコピーする   | |
-+| `operator=(bool x) const`     | `const`な`*this`のビット情報を書き換える | C++26 |
- | `operator~()`                 | 反転したビットを取得する | |
- | `operator bool()`             | `bool`型に変換する       | |
- | `flip()`                      | ビットを反転させる       | |
- 
- 
-+### 非メンバ関数
-+
-+| 名前 | 説明 | 対応バージョン |
-+|------|------|----------------|
-+| `swap(reference x, reference y)` | 2つの参照先のビットを入れ替える | C++26 |
-+| `swap(reference x, bool&amp;amp; y)`     | 参照先のビットと`bool`を入れ替える | C++26 |
-+| `swap(bool&amp;amp; x, reference y)`     | `bool`と参照先のビットを入れ替える | C++26 |
-+
-+
- ## 例
- ```cpp example
- #include &amp;lt;cassert&amp;gt;
-@@ -75,3 +92,5 @@ int main()
- 
- ## 参照
- - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
-+- [P3612R1 Harmonize proxy-reference operations (LWG 3638 and 4187)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3612r1.html)
-+    - C++26で、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加された
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>vector -- vector / bitset : C++26でのswap関係の仕様変更に対応 (close #1571)</title>
-      <link href="https://cpprefjp.github.io/reference/vector/vector.html"/>
-      <id>2846b08f1ab1ee81105ef1152ed2236ae6a63243:reference/vector/vector.md</id>
-      <updated>2026-06-10T16:27:25+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/vector/vector.md b/reference/vector/vector.md
-index 3e9eaa8c8..f8507f358 100644
---- a/reference/vector/vector.md
-+++ b/reference/vector/vector.md
-@@ -181,6 +181,8 @@ namespace std {
- 
- C++23には`vector&amp;lt;bool&amp;gt;::iterator`が出力イテレータとなるために、`vector&amp;lt;bool&amp;gt;::reference`が`const`修飾を持つ`bool`からの代入演算子が追加され、[`indirectly_writable&amp;lt;vector&amp;lt;bool&amp;gt;::iterator,` `bool&amp;gt;`](/reference/iterator/indirectly_writable.md)がモデルを満たすようになった。
- 
-+C++26では、ADLで見つかる非メンバ`swap`関数が追加され、[`bitset&amp;lt;N&amp;gt;::reference`](/reference/bitset/bitset/reference.md)とインタフェースが統一された。これにあわせて、従来の`static`メンバ関数版の`swap`は非推奨となった。
-+
- ```cpp
- class vector&amp;lt;bool&amp;gt;::reference {
-   friend class vector;
-@@ -193,6 +195,12 @@ public:
-   constexpr reference&amp;amp; operator=(const reference&amp;amp; x) noexcept; // vector&amp;lt;bool&amp;gt;のビットからの代入
-   constexpr const reference&amp;amp; operator=(bool x) const noexcept; // *thisがconst時のboolからの代入（C++23）
-   constexpr void flip() noexcept;                              // ビットの反転
-+
-+  friend constexpr void swap(reference x, reference y) noexcept; // 2つのビットの交換（C++26）
-+  friend constexpr void swap(reference x, bool&amp;amp; y) noexcept;     // ビットとboolの交換（C++26）
-+  friend constexpr void swap(bool&amp;amp; x, reference y) noexcept;     // boolとビットの交換（C++26）
-+
-+  static constexpr void swap(reference x, reference y) noexcept; // ビットの交換（C++26から非推奨）
- };
- ```
- 
-@@ -447,3 +455,5 @@ int main()
- - [N4510 Minimal incomplete type support for standard containers, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html)
- - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
-     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`&amp;#34;?&amp;#34;`) が追加された
-+- [P3612R1 Harmonize proxy-reference operations (LWG 3638 and 4187)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3612r1.html)
-+    - C++26で、`vector&amp;lt;bool&amp;gt;::reference`にADLで見つかる非メンバ`swap`関数が追加され、従来の`static`メンバ関数版`swap`が非推奨となった
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>continues_on -- executoin/continue_on: receiver_t置換ミス修正(#1652)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/continues_on.html"/>
-      <id>89a5cc01df48e5674500910eebc16ac282e49abb:reference/execution/execution/continues_on.md</id>
-      <updated>2026-06-09T19:45:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/continues_on.md b/reference/execution/execution/continues_on.md
-index 4728713af..d4adeedeb 100644
---- a/reference/execution/execution/continues_on.md
-+++ b/reference/execution/execution/continues_on.md
-@@ -55,9 +55,9 @@ namespace std::execution {
- 
-   using sched_t = decltype(auto(sch));
-   using variant_t = see below;
--  using receiver_tag = see below;
--  using operation_t = connect_result_t&amp;lt;schedule_result_t&amp;lt;sched_t&amp;gt;, receiver_tag&amp;gt;;
--  constexpr bool nothrow = noexcept(connect(schedule(sch), receiver_tag{nullptr}));
-+  using receiver_t = see below;
-+  using operation_t = connect_result_t&amp;lt;schedule_result_t&amp;lt;sched_t&amp;gt;, receiver_t&amp;gt;;
-+  constexpr bool nothrow = noexcept(connect(schedule(sch), receiver_t{nullptr}));
- 
-   struct state-type {
-     Rcvr&amp;amp; rcvr;                 // exposition only
-@@ -65,7 +65,7 @@ namespace std::execution {
-     operation_t op-state;       // exposition only
- 
-     explicit state-type(sched_t sch, Rcvr&amp;amp; rcvr) noexcept(nothrow)
--      : rcvr(rcvr), op-state(connect(schedule(sch), receiver_tag{this})) {}
-+      : rcvr(rcvr), op-state(connect(schedule(sch), receiver_t{this})) {}
-   };
- 
-   return state-type{sch, rcvr};
-@@ -89,7 +89,7 @@ namespace std::execution {
-     * variant[link /reference/variant/variant.md]
-     * monostate[link /reference/variant/monostate.md]
- 
--- `receiver_tag`は説明専用クラス`receiver-type`のエイリアスとする。
-+- `receiver_t`は説明専用クラス`receiver-type`のエイリアスとする。
- 
- `impls-for&amp;lt;continues_on_t&amp;gt;::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
       </author>
     </entry>
   
