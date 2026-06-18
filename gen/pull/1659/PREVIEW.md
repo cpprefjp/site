@@ -1,0 +1,64 @@
+# PR [\#1659](https://github.com/cpprefjp/site/pull/1659) プレビュー
+- &#x231a; 更新時刻: 2026-06-18 17:13:32 JST
+- &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1659)
+- &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Aconstant_wrapper)
+- **&#x2AEF;** ソースの変更: [`9b9ae3b..e9cb132`](https://github.com/cpprefjp/site/compare/9b9ae3b39ccd3db3bfc7d1026691fdccbe748ccd..e9cb13203780e5cdb10d2463b419a8de11bde52f)
+
+## 変更記事一覧 (56件)
+
+- &#x1f4dd; [`lang/cpp26/feature_test_macros`](https://cpprefjp.github.io/site/gen/pull/1659/lang/cpp26/feature_test_macros.html)
+- &#x1f4dd; [`reference/mdspan/canonical-index`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/canonical-index.html)
+- &#x1f4dd; [`reference/mdspan/canonical-slice`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/canonical-slice.html)
+- &#x1f4dd; [`reference/mdspan/layout_left/mapping/submdspan_mapping`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/layout_left/mapping/submdspan_mapping.html)
+- &#x1f4dd; [`reference/mdspan/layout_left_padded/mapping/submdspan_mapping`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.html)
+- &#x1f4dd; [`reference/mdspan/layout_right/mapping/submdspan_mapping`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/layout_right/mapping/submdspan_mapping.html)
+- &#x1f4dd; [`reference/mdspan/layout_right_padded/mapping/submdspan_mapping`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.html)
+- &#x1f4dd; [`reference/mdspan/sliceable-mapping`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/sliceable-mapping.html)
+- &#x1f4dd; [`reference/mdspan/submdspan_canonicalize_slices`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/submdspan_canonicalize_slices.html)
+- &#x1f4dd; [`reference/mdspan/submdspan_extents`](https://cpprefjp.github.io/site/gen/pull/1659/reference/mdspan/submdspan_extents.html)
+- &#x1f4dd; [`reference/utility`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility.html)
+- &#x1f4dd; [`reference/utility/constant_wrapper`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_address`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_address.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_and`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_and.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_and_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_and_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_at`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_at.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_call`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_call.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_comma`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_comma.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_compare_3way`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_compare_3way.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_decrement`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_decrement.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_deref`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_deref.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_divide`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_divide.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_divide_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_divide_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_equal`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_equal.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_flip`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_flip.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_greater`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_greater.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_greater_equal`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_greater_equal.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_increment`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_increment.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_left_shift`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_left_shift.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_left_shift_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_left_shift_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_less`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_less.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_less_equal`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_less_equal.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_logical_and`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_logical_and.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_logical_or`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_logical_or.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_member_pointer`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_member_pointer.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_minus`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_minus.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_minus_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_minus_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_modulo`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_modulo.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_modulo_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_modulo_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_multiply`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_multiply.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_multiply_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_multiply_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_not`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_not.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_not_equal`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_not_equal.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_or`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_or.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_or_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_or_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_plus`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_plus.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_plus_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_plus_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_right_shift`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_right_shift.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_right_shift_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_right_shift_assign.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_unary_minus`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_unary_minus.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_unary_plus`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_unary_plus.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_value_type`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_value_type.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_xor`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_xor.html) &#x2728;
+- &#x1f4dd; [`reference/utility/constant_wrapper/op_xor_assign`](https://cpprefjp.github.io/site/gen/pull/1659/reference/utility/constant_wrapper/op_xor_assign.html) &#x2728;
+- &#x1f4dd; [`start_editing/page_names`](https://cpprefjp.github.io/site/gen/pull/1659/start_editing/page_names.html)

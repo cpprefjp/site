@@ -1,0 +1,403 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::execution::task_scheduler::schedule - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,task_scheduler,function,cpp26
+">
+        <meta name="title" content="std::execution::task_scheduler::schedule - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::task_scheduler::schedule - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::task_scheduler::schedule - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/task_scheduler/schedule.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="保持中[Scheduler](../scheduler.md)の[スケジュールSender](../schedule.md)を返す。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::execution::task_scheduler::schedule - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/task_scheduler/schedule.html" />
+        <meta name="twitter:description" content="保持中[Scheduler](../scheduler.md)の[スケジュールSender](../schedule.md)を返す。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
+<link rel="manifest" href="../../../../manifest.json?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
+<!-- <link rel="stylesheet" href="../../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91" rel="stylesheet">
+
+<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;class&#34;: [&#34;task_scheduler&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;task_scheduler&#34;, &#34;schedule&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../reference/execution/execution/task_scheduler.html" itemprop="url">
+              
+                <span itemprop="name">task_scheduler</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">schedule</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-06-09T07:03:31">
+        2026年06月09日 07時03分31秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/task_scheduler/schedule.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/task_scheduler/schedule.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class task_scheduler">task_scheduler::</span><span class="token">schedule</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><i>see below</i></span><span class="w"> </span><span class="nf">schedule</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>保持中<a href="../scheduler.html">Scheduler</a>の<a href="../schedule.html">スケジュールSender</a>を返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>その型が<code><a href="../sender.html">sender</a></code>のモデルであり、下記を満たす右辺値<code>ts-sndr</code>。</p>
+<ul>
+<li><code><a href="../get_completion_scheduler.html">get_completion_scheduler</a>&lt;<a href="../set_value.html">set_value_t</a>&gt;(<a href="../get_env.html">get_env</a>(ts-sndr))</code>が<code>*this</code>と等しい。</li>
+<li><code><a href="../get_completion_domain.html">get_completion_domain</a>&lt;<a href="../set_value.html">set_value_t</a>&gt;(<a href="../get_env.html">get_env</a>(ts-sndr))</code>が<code>ts-domain()</code>と等価な式である。</li>
+<li><a href="../receiver.html">Receiver</a><code>rcvr</code>が<code>ts-sndr</code>に接続され、結果の<a href="../operation_state.html">Opearation State</a>が開始されるとき、次の値で<code>sch_-&gt;<a href="../parallel_scheduler_replacement/parallel_scheduler_backend/schedule.html">schedule</a>(r, s)</code>を呼び出す。<ul>
+<li><code>r</code>は基底クラス<code><a href="../parallel_scheduler_replacement/receiver_proxy.html">parallel_scheduler_replacement::receiver_proxy</a></code>を持つ<code>rcvr</code>のプロキシであり、かつ</li>
+<li><code>s</code>は<code>r</code>に対する<a href="../parallel_scheduler.html">事前確保バックエンドストレージ</a>である。</li>
+</ul>
+</li>
+<li>任意の型<code>E</code>に対して、<code><a href="../../../stop_token/unstoppable_token.html">unstoppable_token</a>&lt;<a href="../../stop_token_of_t.html">stop_token_of_t</a>&lt;E&gt;&gt;</code>が<code>true</code>のとき、<code><a href="../completion_signatures_of_t.html">completion_signatures_of_t</a>&lt;decltype(ts-sndr)&gt;, E&gt;</code>は<code><a href="../completion_signatures.html">completion_signatures</a>&lt;<a href="../set_value.html">set_value_t</a>()&gt;</code>を表す。そうでなければ、<code><a href="../completion_signatures.html">completion_signatures</a>&lt;<a href="../set_value.html">set_value_t</a>(), <a href="../set_stopped.html">set_stopped_t</a>()&gt;</code>を表す。</li>
+</ul>
+<h2>説明専用エンティティ</h2>
+<h3>式<code>WARP-RCVR</code></h3>
+<p><code><a href="../parallel_scheduler_replacement/receiver_proxy.html">receiver_proxy</a></code>から派生した型の左辺値<code>r</code>に対して、<code>WARP-RCVR(r)</code>を<code><a href="../receiver.html">receiver</a></code>のモデルであり、その完了ハンドラが<code>r</code>の対応する完了ハンドラを呼び出すような型のオブジェクトとする。</p>
+<h3>クラステンプレート<code>backend-for</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../scheduler.html">scheduler</a></span><span class="w"> </span><span class="n">Sch</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">task_scheduler</span><span class="o">::</span><span class="n">backend</span><span class="o">-</span><span class="k">for</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../parallel_scheduler_replacement/parallel_scheduler_backend.html">parallel_scheduler_replacement::parallel_scheduler_backend</a></span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">backend</span><span class="o">-</span><span class="k">for</span><span class="p">(</span><span class="n">Sch</span><span class="w"> </span><span class="n">sch</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sched_</span><span class="p">(</span><span class="n"><a href="../../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sch</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">schedule</span><span class="p">(</span><span class="n"><a href="../parallel_scheduler_replacement/receiver_proxy.html">receiver_proxy</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../../span/span.html">span</a></span><span class="o">&lt;</span><span class="n"><a href="../../../cstddef/byte.html">byte</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">schedule_bulk_chunked</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../parallel_scheduler_replacement/bulk_item_receiver_proxy.html">bulk_item_receiver_proxy</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">                               </span><span class="n"><a href="../../../span/span.html">span</a></span><span class="o">&lt;</span><span class="n"><a href="../../../cstddef/byte.html">byte</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">schedule_bulk_unchunked</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../parallel_scheduler_replacement/bulk_item_receiver_proxy.html">bulk_item_receiver_proxy</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">                                 </span><span class="n"><a href="../../../span/span.html">span</a></span><span class="o">&lt;</span><span class="n"><a href="../../../cstddef/byte.html">byte</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Sch</span><span class="w"> </span><span class="n">sched_</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>env</code>を部分式のパックとしたとき、値完了シグネチャ<code><a href="../set_value.html">set_value_t</a>()</code>のみを持ち式<code><a href="../get_completion_scheduler.html">get_completion_scheduler</a>&lt;set_value_t&gt;(<a href="../get_env.html">get_env</a>(just-sndr-like), env...)</code>が<code><a href="../get_completion_scheduler.html">get_completion_scheduler</a>&lt;set_value_t&gt;(sched_, env...)</code>と等価な式であるような<code><a href="../sender.html">Sender</a></code>を<code>just-sndr-like</code>とする。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">schedule</span><span class="p">(</span><span class="n"><a href="../parallel_scheduler_replacement/receiver_proxy.html">receiver_proxy</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">span</span><span class="o">&lt;</span><span class="n">byte</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<ul>
+<li>効果 : <code><a href="../connect.html">connect</a>(<a href="../schedule.html">schedule</a>(sched_), WRAP-RCVR(r))</code>で<a href="../operation_state.html">Operation State</a><code>os</code>を構築し、<code><a href="../start.html">start</a>(os)</code>を呼び出す。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">schedule_bulk_chunked</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../parallel_scheduler_replacement/bulk_item_receiver_proxy.html">bulk_item_receiver_proxy</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../../span/span.html">span</a></span><span class="o">&lt;</span><span class="n"><a href="../../../cstddef/byte.html">byte</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>効果 : 説明用の<code>chunk_size</code>を<code>shape</code>以下の整数、<code>chunk_num</code>を<code>(shape + chunk_size - 1) / chunk_size</code>、<code>m</code>を<code>(i + 1) * chunk_size</code>と<code>shape</code>のうち小さい方として、整数<code>i</code>に対して<code>fn(i)</code>が<code>r.execute(i * chunk_sie, m)</code>を呼び出す関数オブジェクト<code>fn</code>とする。下記の式によって<a href="../operation_state.html">Operation State</a><code>os</code>を構築し、<code><a href="../start.html">start</a>(os)</code>を呼び出す。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="../bulk.html">bulk</a></span><span class="p">(</span><span class="n">just</span><span class="o">-</span><span class="n">sndr</span><span class="o">-</span><span class="n">like</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../execution_policy.html">par</a></span><span class="p">,</span><span class="w"> </span><span class="n">num_chunks</span><span class="p">,</span><span class="w"> </span><span class="n">fn</span><span class="p">),</span><span class="w"> </span><span class="n">WRAP</span><span class="o">-</span><span class="n">RCVR</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">schedule_bulk_unchunked</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../parallel_scheduler_replacement/bulk_item_receiver_proxy.html">bulk_item_receiver_proxy</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span>
+<span class="w">                             </span><span class="n"><a href="../../../span/span.html">span</a></span><span class="o">&lt;</span><span class="n"><a href="../../../cstddef/byte.html">byte</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>効果 : 整数<code>i</code>に対して<code>fn(i)</code>が<code>r.execute(i, i + 1)</code>を呼び出す関数オブジェクト<code>fn</code>とする。下記の式によって<a href="../operation_state.html">Operation State</a><code>os</code>を構築し、<code><a href="../start.html">start</a>(os)</code>を呼び出す。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="../bulk.html">bulk</a></span><span class="p">(</span><span class="n">just</span><span class="o">-</span><span class="n">sndr</span><span class="o">-</span><span class="n">like</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../execution_policy.html">par</a></span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n">fn</span><span class="p">),</span><span class="w"> </span><span class="n">WRAP</span><span class="o">-</span><span class="n">RCVR</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h3>クラス<code>ts-domain</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">task_scheduler</span><span class="o">::</span><span class="n">ts</span><span class="o">-</span><span class="n">domain</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n"><a href="../default_domain.html">default_domain</a></span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">BulkSndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Env</span><span class="o">&gt;</span><span class="w">  </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transform_sender</span><span class="p">(</span><span class="n"><a href="../set_value.html">set_value_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">BulkSndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">bulk_sndr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Env</span><span class="o">&amp;</span><span class="w"> </span><span class="n">env</span><span class="p">)</span>
+<span class="w">      </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">BulkSndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Env</span><span class="o">&gt;</span>
+<span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transform_sender</span><span class="p">(</span><span class="n">BulkSndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">bulk_sndr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Env</span><span class="o">&amp;</span><span class="w"> </span><span class="n">env</span><span class="p">)</span>
+<span class="w">  </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n">BulkSndr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">BulkSndr</span><span class="o">&gt;</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a> :<ul>
+<li><code><a href="../sender_in.html">sender_in</a>&lt;BulkSndr, Env&gt;</code>が<code>true</code></li>
+<li>式<code>auto(<a href="../../../utility/forward.html">std::forward</a>&lt;BulkSndr&gt;(bulk_sndr))</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../../implementation-compliance.html#dfn-well-formed">適格</a></li>
+<li>下記のいずれかが<code>true</code><ul>
+<li><code><a href="../sender-for.html">sender-for</a>&lt;BulkSndr, <a href="../bulk_chunked.html">bulk_chunked_t</a>&gt;</code></li>
+<li><code><a href="../sender-for.html">sender-for</a>&lt;BulkSndr, <a href="../bulk_unchunked.html">bulk_unchunked_t</a>&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>効果 : 下記と等価
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bulk_sndr</span><span class="p">;</span>
+<span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n">fn</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">sch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../call-with-default.html">call-with-default</a></span><span class="p">(</span><span class="n"><a href="../get_completion_scheduler.html">get_completion_scheduler</a></span><span class="o">&lt;</span><span class="n"><a href="../set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">                             </span><span class="n"><a href="../not-a-scheduler.html">not-a-scheduler()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../get_env.html">get_env</a></span><span class="p">(</span><span class="n">child</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../forwarding_query.html">FWD-ENV</a></span><span class="p">(</span><span class="n">env</span><span class="p">));</span>
+<span class="k">return</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>ここで、<code>sch</code>の型が<code><a href="../task_scheduler.html">task_scheduler</a></code>ではないとき、<code>e</code>は<code><a href="../not-a-sender.html">not-a-sender()</a></code>とする。そうでなければ、<a href="../receiver.html">Receiver</a><code>rvcr</code>と<a href="../connect.html">接続(connect)</a>され結果の<a href="../operation_state.html">Operation State</a>が<a href="../start.html">開始(start)</a>されたとき、<code>child</code>が<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>のReceiver<code>R</code>と接続されて開始する<code><a href="../sender.html">sender</a></code>のモデルである型の右辺値とする。</p>
+<p><code>child</code>が<a href="../set_error.html">エラー完了</a>もしくは<a href="../set_stopped.html">停止完了</a>するとき、完了操作は変更されずに<code>rcvr</code>に転送される。そうでなければ、値完了結果からdecayコピーされたオブジェクトを指す左辺値式のパック<code>args</code>として、</p>
+<ul>
+<li><code>bulk_sndr</code>が<code><a href="../bulk_chunked.html">bulk_chunked</a>(child, policy, shape, fn)</code>と等価な式またはそのコピーの評価の結果であるとき、<code>r</code>を呼び出し可能オブジェクト<code>fn</code>と引数<code>args</code>を持つ<code>rcvr</code>に対するbulk chunkedプロキシ、<code>s</code>を<code>r</code>の<a href="../parallel_scheduler.html">事前確保バックエンドストレージ</a>として、<code>sch_-&gt;<a href="../parallel_scheduler_replacement/parallel_scheduler_backend/schedule_bulk_chunked.html">schedule_bulk_chunked</a>(shape, r, s)</code>が呼び出される。</li>
+<li>そうでなければ、<code>r</code>を呼び出し可能オブジェクト<code>fn</code>と引数<code>args</code>を持つ<code>rcvr</code>に対するbulk unchunkedプロキシ、<code>s</code>を<code>r</code>の<a href="../parallel_scheduler.html">事前確保バックエンドストレージ</a>として、<code>sch_-&gt;<a href="../parallel_scheduler_replacement/parallel_scheduler_backend/schedule_bulk_unchunked.html">schedule_bulk_unchunked</a>(shape, r, s)</code>が呼び出される。</li>
+</ul>
+</li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../schedule.html">execition::schedule</a></code></li>
+<li><code><a href="../bulk_chunked.html">execition::bulk_chunked</a></code></li>
+<li><code><a href="../bulk_unchunked.html">execition::bulk_unchunked</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3927r2.html" target="_blank">P3927R2 <code>task_scheduler</code> support for parallel <code>bulk</code> execution</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
