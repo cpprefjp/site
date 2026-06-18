@@ -68,7 +68,7 @@ static_assert(result == 55);                 // resultが定数式でなくて�
 | [`operator/=`](constant_wrapper/op_divide_assign.md) | 除算の複合代入 | C++26 |
 | [`operator%=`](constant_wrapper/op_modulo_assign.md) | 剰余の複合代入 | C++26 |
 | [`operator&=`](constant_wrapper/op_and_assign.md) | ビット論理積の複合代入 | C++26 |
-| [`operator\|=`](constant_wrapper/op_or_assign.md) | ビット論理和の複合代入 | C++26 |
+| [<code>operator&#x7C;=</code>](constant_wrapper/op_or_assign.md) | ビット論理和の複合代入 | C++26 |
 | [`operator^=`](constant_wrapper/op_xor_assign.md) | ビット排他的論理和の複合代入 | C++26 |
 | [`operator<<=`](constant_wrapper/op_left_shift_assign.md) | 左シフトの複合代入 | C++26 |
 | [`operator>>=`](constant_wrapper/op_right_shift_assign.md) | 右シフトの複合代入 | C++26 |
