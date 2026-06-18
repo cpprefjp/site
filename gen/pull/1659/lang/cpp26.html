@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-06-08T11:56:08">
-        2026年06月08日 11時56分08秒
+      <span itemprop="datePublished" content="2026-06-18T10:42:27">
+        2026年06月18日 10時42分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1001,6 +1001,7 @@
 <li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、タイムトラベル最適化を抑止するための観測可能ポイントとして<code><a href="../reference/utility/observable_checkpoint.html">std::observable_checkpoint()</a></code>を追加</li>
 <li><code><a href="../reference/exception/exception_ptr.html">std::exception_ptr</a></code>を指定した<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>型にキャストする<code><a href="../reference/exception/exception_ptr_cast.html">std::exception_ptr_cast()</a></code>関数を追加</li>
 <li><code><a href="../reference/compare.html">&lt;compare&gt;</a></code>に、型の順序を取得する<code><a href="../reference/compare/type_order.html">std::type_order</a></code>クラスを追加</li>
+<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、定数を型として包むことで、関数の引数として渡しても定数式として扱えるようにする定数ラッパー<code><a href="../reference/utility/constant_wrapper.html">std::constant_wrapper</a></code>クラスと、それを簡潔に生成する変数テンプレート<code><a href="../reference/utility/constant_wrapper.html">std::cw</a></code>を追加</li>
 </ul>
 <h3>デバッグ</h3>
 <ul>
@@ -1010,7 +1011,6 @@
 <ul>
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、共用体の指定されたメンバがアクティブかを定数式で判定するための関数として<code><a href="../reference/type_traits/is_within_lifetime.html">std::is_within_lifetime()</a></code>を追加</li>
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、仮想継承の関係を判定する<code><a href="../reference/type_traits/is_virtual_base_of.html">std::is_virtual_base_of</a></code>を追加</li>
-<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、<code><a href="../reference/type_traits/integral_constant.html">std::integral_constant</a></code>クラスを置き換える定数ラッパーとして<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">std::constant_wrapper</span></code>クラスを追加</li>
 <li><code><a href="../reference/utility/integer_sequence.html">std::integer_sequence</a></code>クラスを<a href="cpp17/structured_bindings.html">構造化束縛</a>と<a href="cpp26/expansion_statements.html">template for文</a>で使用できるようにするため、タプルインタフェースの特殊化を追加</li>
 </ul>
 <h3>制約</h3>
