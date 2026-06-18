@@ -50,7 +50,7 @@
 |`__cpp_lib_bind_front`|`202306L`|[`std::bind_front()`](/reference/functional/bind_front.md)に、非型テンプレート引数として関数を指定するオーバーロードを追加|[`<functional>`](/reference/functional.md)|
 |`__cpp_lib_bitset`|`202306L`|[`std::bitset`](/reference/bitset/bitset.md)に、[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を受け取るコンストラクタを追加|[`<bitset>`](/reference/bitset.md)|
 |`__cpp_lib_chrono`|`202306L`|[`<chrono>`](/reference/chrono.md)のクラスに、ハッシュ値サポートとして[`std::hash`](/reference/functional/hash.md)の特殊化を追加|[`<chrono>`](/reference/chrono.md)|
-|`__cpp_lib_constant_wrapper`|`202506L`|[`<type_traits>`](/reference/type_traits.md)に[`std::constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)を追加|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_constant_wrapper`|`202606L`|[`<utility>`](/reference/utility.md)に[`std::constant_wrapper`](/reference/utility/constant_wrapper.md)を追加|[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_constexpr_algorithms`|`202306L`|[`std::stable_sort()`](/reference/algorithm/stable_sort.md) / [`std::ranges::stable_sort()`](/reference/algorithm/ranges_stable_sort.md)を`constexpr`対応|[`<algorithm>`](/reference/algorithm.md), [`<utility>`](/reference/utility.md)|
 |`__cpp_lib_constexpr_atomic`|`202411L`|[`<atomic>`](/reference/atomic.md)ライブラリのアトミック操作を`constexpr`対応|[`<atomic>`](/reference/atomic.md)|
 |`__cpp_lib_constexpr_cmath`|`202306L`|[`<cmath>`](/reference/cmath.md)の関数 (特殊関数と丸めモードに依存する関数以外の全て) を`constexpr`対応|[`<cmath>`](/reference/cmath.md), [`<cstdlib>`](/reference/cstdlib.md)|

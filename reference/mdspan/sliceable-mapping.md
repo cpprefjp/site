@@ -30,7 +30,7 @@ concept sliceable-mapping = see below;
 - オブジェクトのパック`invalid_slices` : `sizeof...(invalid_slices) == M_rank`であり、`invalid_slices...[k]`のcv非修飾型が下記いずれでもない整数`k`が存在する
     - 型`IT`
     - [`full_extent_t`](full_extent_t.md)
-    - [`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化
+    - [`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化
     - [`strided_slice`](strided_slice.md)の特殊化
 
 下記を満たすとき、型`M`はスライス可能レイアウトマッピング(sliceable layout mapping)要件を満たす。

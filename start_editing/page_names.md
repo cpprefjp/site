@@ -22,7 +22,9 @@ cpprefjpサイトでは、ページファイル名の付け方について、い
 | `operator[ ]` | 添字演算子          | `op_at`     | |
 | `operator()`  | 関数呼び出し演算子  | `op_call`   | |
 | `operator*` (単項) | 間接参照演算子 | `op_deref`  | dereferenceの略 |
+| `operator&` (単項) | アドレス取得演算子 | `op_address` | |
 | `operator->`  | ポインタアクセス演算子 | `op_arrow` | |
+| `operator->*` | メンバポインタ参照演算子 | `op_member_pointer` | |
 | `operator+=`  | 加算の複合代入 | `op_plus_assign`  | |
 | `operator-=`  | 減算の複合代入 | `op_minus_assign` | |
 | `operator*=`  | 乗算の複合代入 | `op_multiply_assign` | |
@@ -63,6 +65,7 @@ cpprefjpサイトでは、ページファイル名の付け方について、い
 | `operator>>` | ビット右シフト演算子 | `op_right_shift` | |
 | `operator<<` | 出力ストリーム演算子 | `op_ostream`     | ビットシフトと意味論が異なるため、別ページとしている |
 | `operator>>` | 入力ストリーム演算子 | `op_istream`     | ビットシフトと意味論が異なるため、別ページとしている |
+| `operator,`  | カンマ演算子 | `op_comma` | |
 
 
 C++にはこの表に含まれない演算子もいくつかあるが、ここでは標準ライブラリでオーバーロードされ、本サイトが掲載している演算子のみを記載している。

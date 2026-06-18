@@ -107,6 +107,14 @@
 | [`constant_arg`](utility/constant_arg_t.md)   | 定数引数を表現するためのタグ値 (variable template) | C++26 |
 
 
+## 定数のラッパー
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`constant_wrapper`](utility/constant_wrapper.md) | 定数を型として包むラッパー (class template) | C++26 |
+| [`cw`](utility/constant_wrapper.md)               | `constant_wrapper`を簡潔に生成する変数テンプレート (variable template) | C++26 |
+
+
 ## コンパイル時の整数シーケンス
 
 | 名前 | 説明 | 対応バージョン |

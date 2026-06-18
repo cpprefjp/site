@@ -48,7 +48,7 @@ friend constexpr auto submdspan_mapping(
 
 下記を満たす型`S`を、単位ストライド幅スライス型と定義する。
 
-- `S`が[`strided_slice`](../../strided_slice.md)の特殊化であり、`S::stride_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化かつ`S::stride_type::value`が`1`、または
+- `S`が[`strided_slice`](../../strided_slice.md)の特殊化であり、`S::stride_type`が[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化かつ`S::stride_type::value`が`1`、または
 - `S`が[`full_extent_t`](../../full_extent_t.md)
 
 説明専用の`submdspan-mapping-impl`関数テンプレートは下記の値を返す。
