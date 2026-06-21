@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>std::operator+ (単項) - cpprefjp C++日本語リファレンス</title>
+        <title>std::constant_wrapper::operator+ (単項) - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,utility,std,function template,cpp26
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,utility,std,constant_wrapper,function template,cpp26
 ">
-        <meta name="title" content="std::operator+ (単項) - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="std::operator+ (単項) - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="std::operator+ (単項) - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::constant_wrapper::operator+ (単項) - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::constant_wrapper::operator+ (単項) - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::constant_wrapper::operator+ (単項) - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_unary_plus.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`constant_wrapper`が保持する値に単項`+`を適用する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="std::operator+ (単項) - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::constant_wrapper::operator+ (単項) - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_unary_plus.html" />
         <meta name="twitter:description" content="`constant_wrapper`が保持する値に単項`+`を適用する。" />
 
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d81d2954a3421b12d57d8a2712ccaa036369e3b6&#34;, &#34;source&#34;: &#34;#include &lt;utility&gt;\n#include &lt;type_traits&gt;\n\nint main()\n{\n  // \u30aa\u30da\u30e9\u30f3\u30c9\u304c\u3059\u3079\u3066constant_wrapper\u306a\u306e\u3067\u3001\u7d50\u679c\u3082constant_wrapper\u306b\u306a\u308b\n  auto x = +std::cw&lt;5&gt;;\n  static_assert(x == 5);\n  static_assert(std::is_same_v&lt;decltype(x), std::constant_wrapper&lt;5&gt;&gt;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;constant_wrapper&#34;, &#34;op_unary_plus&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;constant_wrapper&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d81d2954a3421b12d57d8a2712ccaa036369e3b6&#34;, &#34;source&#34;: &#34;#include &lt;utility&gt;\n#include &lt;type_traits&gt;\n\nint main()\n{\n  // \u30aa\u30da\u30e9\u30f3\u30c9\u304c\u3059\u3079\u3066constant_wrapper\u306a\u306e\u3067\u3001\u7d50\u679c\u3082constant_wrapper\u306b\u306a\u308b\n  auto x = +std::cw&lt;5&gt;;\n  static_assert(x == 5);\n  static_assert(std::is_same_v&lt;decltype(x), std::constant_wrapper&lt;5&gt;&gt;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;constant_wrapper&#34;, &#34;op_unary_plus&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-06-21T04:49:57">
-        2026年06月21日 04時49分57秒
+      <span itemprop="datePublished" content="2026-06-21T04:52:24">
+        2026年06月21日 04時52分24秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,7 +224,7 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">function template</div><div class="header">&lt;utility&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">operator+ (単項)</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+  <div class="identifier-type">function template</div><div class="header">&lt;utility&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class constant_wrapper">constant_wrapper::</span><span class="token">operator+ (単項)</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">constexpr</span><span class="o">-</span><span class="n">param</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
 <span class="k">friend</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
