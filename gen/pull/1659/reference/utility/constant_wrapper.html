@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
-<link rel="manifest" href="../../manifest.json?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1c661255f2059937c46deddf68e0bfa3500bac91"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-06-18T10:40:09">
-        2026年06月18日 10時40分09秒
+      <span itemprop="datePublished" content="2026-06-21T04:45:53">
+        2026年06月21日 04時45分53秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -399,7 +399,7 @@
 </tbody>
 </table>
 <p>たとえば<code>std::cw&lt;42&gt;</code>の場合、<code>value</code>の値は<code>42</code>、その型は<code>const int&amp;</code>となる。<code>value</code>はテンプレートパラメータオブジェクトへの参照であるため、<a class="cpprefjp-defined-word" data-desc="dangling。寿命が尽きた無効なオブジェクトやメモリ領域を、ポインタ・参照・イテレータなどが指し続けている状態のこと。これらにアクセスすると未定義の動作を引き起こす">ダングリング</a>しない。</p>
-<h2>非メンバ関数</h2>
+<h2>非メンバ（<em>Hidden friends</em>）関数</h2>
 <p><code>constant_wrapper</code>は、説明用の基底クラス<code>cw-operators</code>を継承することで、以下の演算子を <em>Hidden friends</em> として提供する。</p>
 <p>いずれの演算子も、オペランドがすべて説明用コンセプト<code>constexpr-param</code>（<code>constant_wrapper</code>のように、静的メンバ<code>value</code>を定数として持つ型）のモデルであることを要求し、演算結果を包んだ<code>constant_wrapper</code>を返す。</p>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
