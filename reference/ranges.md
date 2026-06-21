@@ -443,8 +443,8 @@ range | adaptor(args...)
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`cache_latest_view`](ranges/cache_latest.md) | 最後にアクセスした要素をキャッシュするビュー (class template) | C++26 |
-| [`views::cache_latest`](ranges/cache_latest.md) | `cache_latest_view`を生成する (customization point object) | C++26 |
+| [`cache_latest_view`](ranges/cache_latest_view.md) | 最後にアクセスした要素をキャッシュするビュー (class template) | C++26 |
+| [`views::cache_latest`](ranges/cache_latest_view.md) | `cache_latest_view`を生成する (customization point object) | C++26 |
 
 
 ## Range変換

@@ -130,7 +130,7 @@
 |`__cpp_lib_print`|`202406L`|[`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)にロックを取得せず高速に書き出す最適化を許可<br/>[`std::enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md)を追加|[`<print>`](/reference/print.md), [`<ostream>`](/reference/ostream.md)|
 |`__cpp_lib_ranges`|`202406L`|[`std::indirectly_unary_invocable`](/reference/iterator/indirectly_unary_invocable.md)などのコンセプトの共通参照要件を削除|[`<algorithm>`](/reference/algorithm.md), [`<functional>`](/reference/functional.md), [`<iterator>`](/reference/iterator.md), [`<memory>`](/reference/memory.md), [`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_as_const`|`202311L`|[`std::basic_const_iterator`](/reference/iterator/basic_const_iterator.md)を元の要素へのキャストを可能にする|[`<ranges>`](/reference/ranges.md)|
-|`__cpp_lib_ranges_cache_latest`|`202411L`|[`std::views::cache_latest`](/reference/ranges/cache_latest.md)を追加|[`<ranges>`](/reference/ranges.md)|
+|`__cpp_lib_ranges_cache_latest`|`202411L`|[`std::views::cache_latest`](/reference/ranges/cache_latest_view.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_concat`|`202403L`|[`std::views::concat`](/reference/ranges/concat_view.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_filter`|`202603L`|[`std::ranges::filter_view`](/reference/ranges/filter_view.md)に、入力Rangeに対する`const`版の[`begin()`](/reference/ranges/filter_view/begin.md)/[`end()`](/reference/ranges/filter_view/end.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_generate_random`|`202403L`|[`<random>`](/reference/random.md)に、乱数列を生成する[`std::ranges::generate_random()`](/reference/random/generate_random.md)関数を追加|[`<random>`](/reference/random.md)|
