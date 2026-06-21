@@ -80,18 +80,25 @@ int main()
 #include <iostream>
 #include <utility>
 
-int main()
+// 構造化束縛でパックとして取り出す記法はテンプレート内でのみ利用できる
+template <std::size_t Count>
+void run()
 {
   // 構造化束縛で整数シーケンスをパックとして取り出す
-  constexpr auto [...Index] = std::make_index_sequence<3>();
+  constexpr auto [...Index] = std::make_index_sequence<Count>();
   ((std::cout << Index << ' '), ...);
   std::cout << std::endl;
 
   // template for文で整数シーケンスを直接イテレートする
-  template for (constexpr std::size_t I : std::make_index_sequence<3>()) {
+  template for (constexpr std::size_t I : std::make_index_sequence<Count>()) {
     std::cout << I << ' ';
   }
   std::cout << std::endl;
+}
+
+int main()
+{
+  run<3>();
 }
 ```
 * std::make_index_sequence[link make_index_sequence.md]
