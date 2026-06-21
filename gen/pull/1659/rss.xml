@@ -2,9 +2,1348 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-06-21T04:51:33.226579</updated>
-  <id>51da22e3-d2d0-4b77-ade1-92f883a73e31</id>
+  <updated>2026-06-21T04:58:07.576774</updated>
+  <id>cfd99882-85be-4b25-8009-19db829daf75</id>
 
+  
+    <entry>
+      <title>operator&amp; (単項) -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_address.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_address.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_address.md b/reference/utility/constant_wrapper/op_address.md
+index 30dae9cd0..20321fb14 100644
+--- a/reference/utility/constant_wrapper/op_address.md
++++ b/reference/utility/constant_wrapper/op_address.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  friend constexpr auto operator&amp;amp;(T x) noexcept;
+-}
++template &amp;lt;constexpr-param T&amp;gt;
++friend constexpr auto operator&amp;amp;(T x) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&amp; -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_and.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_and.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_and.md b/reference/utility/constant_wrapper/op_and.md
+index 5df84e91d..ff23c25d8 100644
+--- a/reference/utility/constant_wrapper/op_and.md
++++ b/reference/utility/constant_wrapper/op_and.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;amp;(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;amp;(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&amp;= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_and_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_and_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_and_assign.md b/reference/utility/constant_wrapper/op_and_assign.md
+index 370869feb..75600a43d 100644
+--- a/reference/utility/constant_wrapper/op_and_assign.md
++++ b/reference/utility/constant_wrapper/op_and_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator&amp;amp;=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator&amp;amp;=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_assign.md b/reference/utility/constant_wrapper/op_assign.md
+index dcc2e2f5a..d74195477 100644
+--- a/reference/utility/constant_wrapper/op_assign.md
++++ b/reference/utility/constant_wrapper/op_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param R&amp;gt;
+-  constexpr auto operator=(R y) const noexcept;
+-}
++template &amp;lt;constexpr-param R&amp;gt;
++constexpr auto operator=(R y) const noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator[] -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_at.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_at.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_at.md b/reference/utility/constant_wrapper/op_at.md
+index b4a24df32..126e01480 100644
+--- a/reference/utility/constant_wrapper/op_at.md
++++ b/reference/utility/constant_wrapper/op_at.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;class... Args&amp;gt;
+-  static constexpr decltype(auto) operator[](Args&amp;amp;&amp;amp;... args) noexcept(/*see below*/);
+-}
++template &amp;lt;class... Args&amp;gt;
++static constexpr decltype(auto) operator[](Args&amp;amp;&amp;amp;... args) noexcept(/*see below*/);
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator() -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_call.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_call.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_call.md b/reference/utility/constant_wrapper/op_call.md
+index 9db20a42a..46cdb71e4 100644
+--- a/reference/utility/constant_wrapper/op_call.md
++++ b/reference/utility/constant_wrapper/op_call.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;class... Args&amp;gt;
+-  static constexpr decltype(auto) operator()(Args&amp;amp;&amp;amp;... args) noexcept(/*see below*/);
+-}
++template &amp;lt;class... Args&amp;gt;
++static constexpr decltype(auto) operator()(Args&amp;amp;&amp;amp;... args) noexcept(/*see below*/);
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator, -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_comma.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_comma.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_comma.md b/reference/utility/constant_wrapper/op_comma.md
+index 4a634fa85..980cdbcf9 100644
+--- a/reference/utility/constant_wrapper/op_comma.md
++++ b/reference/utility/constant_wrapper/op_comma.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator,(L x, R y) noexcept = delete;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator,(L x, R y) noexcept = delete;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_compare_3way.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_compare_3way.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_compare_3way.md b/reference/utility/constant_wrapper/op_compare_3way.md
+index b7fefc834..59f7a77ec 100644
+--- a/reference/utility/constant_wrapper/op_compare_3way.md
++++ b/reference/utility/constant_wrapper/op_compare_3way.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;lt;=&amp;gt;(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;lt;=&amp;gt;(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator-- -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_decrement.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_decrement.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_decrement.md b/reference/utility/constant_wrapper/op_decrement.md
+index 6fc7a1a09..899ca64b5 100644
+--- a/reference/utility/constant_wrapper/op_decrement.md
++++ b/reference/utility/constant_wrapper/op_decrement.md
+@@ -6,12 +6,10 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  constexpr auto operator--(this T self) noexcept;      // 前置
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  constexpr auto operator--(this T self, int) noexcept; // 後置
+-}
++template &amp;lt;constexpr-param T&amp;gt;
++constexpr auto operator--(this T self) noexcept;      // 前置
++template &amp;lt;constexpr-param T&amp;gt;
++constexpr auto operator--(this T self, int) noexcept; // 後置
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator* (単項) -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_deref.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_deref.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_deref.md b/reference/utility/constant_wrapper/op_deref.md
+index 9734a6354..fe11e7552 100644
+--- a/reference/utility/constant_wrapper/op_deref.md
++++ b/reference/utility/constant_wrapper/op_deref.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  friend constexpr auto operator*(T x) noexcept;
+-}
++template &amp;lt;constexpr-param T&amp;gt;
++friend constexpr auto operator*(T x) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator/ -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_divide.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_divide.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_divide.md b/reference/utility/constant_wrapper/op_divide.md
+index 6ba70b436..453cd2749 100644
+--- a/reference/utility/constant_wrapper/op_divide.md
++++ b/reference/utility/constant_wrapper/op_divide.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator/(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator/(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator/= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_divide_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_divide_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_divide_assign.md b/reference/utility/constant_wrapper/op_divide_assign.md
+index de37b0cd9..b285f03fe 100644
+--- a/reference/utility/constant_wrapper/op_divide_assign.md
++++ b/reference/utility/constant_wrapper/op_divide_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator/=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator/=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_equal.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_equal.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_equal.md b/reference/utility/constant_wrapper/op_equal.md
+index 2f98457eb..0f3e70beb 100644
+--- a/reference/utility/constant_wrapper/op_equal.md
++++ b/reference/utility/constant_wrapper/op_equal.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator==(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator==(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator~ -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_flip.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_flip.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_flip.md b/reference/utility/constant_wrapper/op_flip.md
+index f80091802..f858dcaf0 100644
+--- a/reference/utility/constant_wrapper/op_flip.md
++++ b/reference/utility/constant_wrapper/op_flip.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  friend constexpr auto operator~(T x) noexcept;
+-}
++template &amp;lt;constexpr-param T&amp;gt;
++friend constexpr auto operator~(T x) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt; -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_greater.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_greater.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_greater.md b/reference/utility/constant_wrapper/op_greater.md
+index d3b87ef89..74551d456 100644
+--- a/reference/utility/constant_wrapper/op_greater.md
++++ b/reference/utility/constant_wrapper/op_greater.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;gt;(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;gt;(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_greater_equal.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_greater_equal.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_greater_equal.md b/reference/utility/constant_wrapper/op_greater_equal.md
+index 05261c497..66e62fb0e 100644
+--- a/reference/utility/constant_wrapper/op_greater_equal.md
++++ b/reference/utility/constant_wrapper/op_greater_equal.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;gt;=(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;gt;=(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator++ -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_increment.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_increment.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_increment.md b/reference/utility/constant_wrapper/op_increment.md
+index 5301ae631..01b241515 100644
+--- a/reference/utility/constant_wrapper/op_increment.md
++++ b/reference/utility/constant_wrapper/op_increment.md
+@@ -6,12 +6,10 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  constexpr auto operator++(this T self) noexcept;      // 前置
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  constexpr auto operator++(this T self, int) noexcept; // 後置
+-}
++template &amp;lt;constexpr-param T&amp;gt;
++constexpr auto operator++(this T self) noexcept;      // 前置
++template &amp;lt;constexpr-param T&amp;gt;
++constexpr auto operator++(this T self, int) noexcept; // 後置
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;&lt; -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_left_shift.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_left_shift.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_left_shift.md b/reference/utility/constant_wrapper/op_left_shift.md
+index 72012733d..ab7086cbd 100644
+--- a/reference/utility/constant_wrapper/op_left_shift.md
++++ b/reference/utility/constant_wrapper/op_left_shift.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;lt;&amp;lt;(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;lt;&amp;lt;(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;&lt;= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_left_shift_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_left_shift_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_left_shift_assign.md b/reference/utility/constant_wrapper/op_left_shift_assign.md
+index e29848e05..b82f2c24f 100644
+--- a/reference/utility/constant_wrapper/op_left_shift_assign.md
++++ b/reference/utility/constant_wrapper/op_left_shift_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator&amp;lt;&amp;lt;=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator&amp;lt;&amp;lt;=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt; -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_less.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_less.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_less.md b/reference/utility/constant_wrapper/op_less.md
+index d56bf9319..77c8dd26e 100644
+--- a/reference/utility/constant_wrapper/op_less.md
++++ b/reference/utility/constant_wrapper/op_less.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;lt;(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;lt;(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_less_equal.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_less_equal.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_less_equal.md b/reference/utility/constant_wrapper/op_less_equal.md
+index bf1352f2d..63c77d646 100644
+--- a/reference/utility/constant_wrapper/op_less_equal.md
++++ b/reference/utility/constant_wrapper/op_less_equal.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;lt;=(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;lt;=(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&amp;&amp; -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_logical_and.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_logical_and.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_logical_and.md b/reference/utility/constant_wrapper/op_logical_and.md
+index 6758ea1eb..ff22f3334 100644
+--- a/reference/utility/constant_wrapper/op_logical_and.md
++++ b/reference/utility/constant_wrapper/op_logical_and.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;amp;&amp;amp;(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;amp;&amp;amp;(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator|| -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_logical_or.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_logical_or.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_logical_or.md b/reference/utility/constant_wrapper/op_logical_or.md
+index 4a77e4bdc..651ed3684 100644
+--- a/reference/utility/constant_wrapper/op_logical_or.md
++++ b/reference/utility/constant_wrapper/op_logical_or.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator||(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator||(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator-&gt;* -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_member_pointer.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_member_pointer.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_member_pointer.md b/reference/utility/constant_wrapper/op_member_pointer.md
+index 18dc8f421..29f1194c0 100644
+--- a/reference/utility/constant_wrapper/op_member_pointer.md
++++ b/reference/utility/constant_wrapper/op_member_pointer.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator-&amp;gt;*(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator-&amp;gt;*(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator- -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_minus.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_minus.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_minus.md b/reference/utility/constant_wrapper/op_minus.md
+index 353eb270d..76db8d983 100644
+--- a/reference/utility/constant_wrapper/op_minus.md
++++ b/reference/utility/constant_wrapper/op_minus.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator-(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator-(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator-= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_minus_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_minus_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_minus_assign.md b/reference/utility/constant_wrapper/op_minus_assign.md
+index 8ef2cf841..2d39e9586 100644
+--- a/reference/utility/constant_wrapper/op_minus_assign.md
++++ b/reference/utility/constant_wrapper/op_minus_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator-=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator-=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator% -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_modulo.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_modulo.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_modulo.md b/reference/utility/constant_wrapper/op_modulo.md
+index e87a983ec..df8f67d1b 100644
+--- a/reference/utility/constant_wrapper/op_modulo.md
++++ b/reference/utility/constant_wrapper/op_modulo.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator%(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator%(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator%= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_modulo_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_modulo_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_modulo_assign.md b/reference/utility/constant_wrapper/op_modulo_assign.md
+index 16bd87209..ad4272bae 100644
+--- a/reference/utility/constant_wrapper/op_modulo_assign.md
++++ b/reference/utility/constant_wrapper/op_modulo_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator%=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator%=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator* -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_multiply.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_multiply.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_multiply.md b/reference/utility/constant_wrapper/op_multiply.md
+index 5ff69654a..608ecde89 100644
+--- a/reference/utility/constant_wrapper/op_multiply.md
++++ b/reference/utility/constant_wrapper/op_multiply.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator*(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator*(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator*= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_multiply_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_multiply_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_multiply_assign.md b/reference/utility/constant_wrapper/op_multiply_assign.md
+index a873f4c6e..c80e583d8 100644
+--- a/reference/utility/constant_wrapper/op_multiply_assign.md
++++ b/reference/utility/constant_wrapper/op_multiply_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator*=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator*=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator! -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_not.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_not.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_not.md b/reference/utility/constant_wrapper/op_not.md
+index 0636f94c9..3a90a9996 100644
+--- a/reference/utility/constant_wrapper/op_not.md
++++ b/reference/utility/constant_wrapper/op_not.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  friend constexpr auto operator!(T x) noexcept;
+-}
++template &amp;lt;constexpr-param T&amp;gt;
++friend constexpr auto operator!(T x) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_not_equal.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_not_equal.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_not_equal.md b/reference/utility/constant_wrapper/op_not_equal.md
+index 811e6a0f5..05c97e3f8 100644
+--- a/reference/utility/constant_wrapper/op_not_equal.md
++++ b/reference/utility/constant_wrapper/op_not_equal.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator!=(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator!=(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator| -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_or.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_or.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_or.md b/reference/utility/constant_wrapper/op_or.md
+index ee49e64b1..54c19b920 100644
+--- a/reference/utility/constant_wrapper/op_or.md
++++ b/reference/utility/constant_wrapper/op_or.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator|(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator|(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator|= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_or_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_or_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_or_assign.md b/reference/utility/constant_wrapper/op_or_assign.md
+index db18fc8da..a6db2279f 100644
+--- a/reference/utility/constant_wrapper/op_or_assign.md
++++ b/reference/utility/constant_wrapper/op_or_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator|=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator|=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator+ -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_plus.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_plus.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_plus.md b/reference/utility/constant_wrapper/op_plus.md
+index 4014ee709..9538b8cc7 100644
+--- a/reference/utility/constant_wrapper/op_plus.md
++++ b/reference/utility/constant_wrapper/op_plus.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator+(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator+(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator+= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_plus_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_plus_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_plus_assign.md b/reference/utility/constant_wrapper/op_plus_assign.md
+index 775449aa7..9355bc451 100644
+--- a/reference/utility/constant_wrapper/op_plus_assign.md
++++ b/reference/utility/constant_wrapper/op_plus_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator+=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator+=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt; -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_right_shift.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_right_shift.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_right_shift.md b/reference/utility/constant_wrapper/op_right_shift.md
+index 96b302fbd..dd557bfe6 100644
+--- a/reference/utility/constant_wrapper/op_right_shift.md
++++ b/reference/utility/constant_wrapper/op_right_shift.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator&amp;gt;&amp;gt;(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator&amp;gt;&amp;gt;(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt;= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_right_shift_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_right_shift_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_right_shift_assign.md b/reference/utility/constant_wrapper/op_right_shift_assign.md
+index b2dbd81b5..698a2f727 100644
+--- a/reference/utility/constant_wrapper/op_right_shift_assign.md
++++ b/reference/utility/constant_wrapper/op_right_shift_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator&amp;gt;&amp;gt;=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator&amp;gt;&amp;gt;=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator- (単項) -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_unary_minus.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_unary_minus.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_unary_minus.md b/reference/utility/constant_wrapper/op_unary_minus.md
+index b3039d443..bb490da6e 100644
+--- a/reference/utility/constant_wrapper/op_unary_minus.md
++++ b/reference/utility/constant_wrapper/op_unary_minus.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  friend constexpr auto operator-(T x) noexcept;
+-}
++template &amp;lt;constexpr-param T&amp;gt;
++friend constexpr auto operator-(T x) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator+ (単項) -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_unary_plus.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_unary_plus.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_unary_plus.md b/reference/utility/constant_wrapper/op_unary_plus.md
+index 0ec3bafe7..aaec8a5d8 100644
+--- a/reference/utility/constant_wrapper/op_unary_plus.md
++++ b/reference/utility/constant_wrapper/op_unary_plus.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T&amp;gt;
+-  friend constexpr auto operator+(T x) noexcept;
+-}
++template &amp;lt;constexpr-param T&amp;gt;
++friend constexpr auto operator+(T x) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator value_type -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_value_type.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_value_type.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_value_type.md b/reference/utility/constant_wrapper/op_value_type.md
+index 9197efbc5..60d97573a 100644
+--- a/reference/utility/constant_wrapper/op_value_type.md
++++ b/reference/utility/constant_wrapper/op_value_type.md
+@@ -6,9 +6,7 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  constexpr operator value_type() const noexcept;
+-}
++constexpr operator value_type() const noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator^ -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_xor.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_xor.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_xor.md b/reference/utility/constant_wrapper/op_xor.md
+index f7031adc7..182904fea 100644
+--- a/reference/utility/constant_wrapper/op_xor.md
++++ b/reference/utility/constant_wrapper/op_xor.md
+@@ -5,10 +5,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
+-  friend constexpr auto operator^(L x, R y) noexcept;
+-}
++template &amp;lt;constexpr-param L, constexpr-param R&amp;gt;
++friend constexpr auto operator^(L x, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator^= -- メンバ関数およびHidden Friendsの宣言からstd名前空間を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_xor_assign.html"/>
+      <id>82c460354a3e477509792035eb6239dc29153a57:reference/utility/constant_wrapper/op_xor_assign.md</id>
+      <updated>2026-06-21T13:49:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_xor_assign.md b/reference/utility/constant_wrapper/op_xor_assign.md
+index 7c4091358..0a9527286 100644
+--- a/reference/utility/constant_wrapper/op_xor_assign.md
++++ b/reference/utility/constant_wrapper/op_xor_assign.md
+@@ -6,10 +6,8 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std {
+-  template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
+-  constexpr auto operator^=(this T self, R y) noexcept;
+-}
++template &amp;lt;constexpr-param T, constexpr-param R&amp;gt;
++constexpr auto operator^=(this T self, R y) noexcept;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>constant_wrapper -- constant_wrapper : Hidden Friendsの見出しを修正</title>
@@ -975,33 +2314,6 @@ index 9f28352c0..c736b2cef 100644
  | [`operator^`](constant_wrapper/op_xor.md) | ビット排他的論理和 | C++26 |
  | [`operator&amp;amp;&amp;amp;`](constant_wrapper/op_logical_and.md) | 論理積 | C++26 |
  | [`operator\|\|`](constant_wrapper/op_logical_or.md) | 論理和 | C++26 |
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>constant_wrapper -- constant_wrapper : `|=`演算子の表示崩れを修正</title>
-      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper.html"/>
-      <id>ba790938da6195048ead87b169316be5544fc089:reference/utility/constant_wrapper.md</id>
-      <updated>2026-06-18T19:39:42+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper.md b/reference/utility/constant_wrapper.md
-index 9ce5828c7..9f28352c0 100644
---- a/reference/utility/constant_wrapper.md
-+++ b/reference/utility/constant_wrapper.md
-@@ -68,7 +68,7 @@ static_assert(result == 55);                 // resultが定数式でなくて
- | [`operator/=`](constant_wrapper/op_divide_assign.md) | 除算の複合代入 | C++26 |
- | [`operator%=`](constant_wrapper/op_modulo_assign.md) | 剰余の複合代入 | C++26 |
- | [`operator&amp;amp;=`](constant_wrapper/op_and_assign.md) | ビット論理積の複合代入 | C++26 |
--| [`operator\|=`](constant_wrapper/op_or_assign.md) | ビット論理和の複合代入 | C++26 |
-+| [&amp;lt;code&amp;gt;operator&amp;amp;#x7C;=&amp;lt;/code&amp;gt;](constant_wrapper/op_or_assign.md) | ビット論理和の複合代入 | C++26 |
- | [`operator^=`](constant_wrapper/op_xor_assign.md) | ビット排他的論理和の複合代入 | C++26 |
- | [`operator&amp;lt;&amp;lt;=`](constant_wrapper/op_left_shift_assign.md) | 左シフトの複合代入 | C++26 |
- | [`operator&amp;gt;&amp;gt;=`](constant_wrapper/op_right_shift_assign.md) | 右シフトの複合代入 | C++26 |
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
