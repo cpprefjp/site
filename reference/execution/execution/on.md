@@ -71,7 +71,7 @@ if constexpr (scheduler<decltype(data)>) {
   auto orig_sch = call-with-default(
     get_completion_scheduler<set_value_t>, not-a-scheduler(), get_env(child), env);
   return continues_on(
-    std::forward_like<OutSndr>(closure)(continues_on(std::forward_like<OutSndr>(child), SCHED-ENV(orig_sch)),
+    std::forward_like<OutSndr>(closure)(continues_on(std::forward_like<OutSndr>(child), sch)),
     orig_sch);
 }
 ```
@@ -84,7 +84,6 @@ if constexpr (scheduler<decltype(data)>) {
 * get_completion_scheduler[link get_completion_scheduler.md]
 * set_value_t[link set_value.md]
 * get_env[link get_env.md]
-* SCHED-ENV[link scheduler.md]
 * std::move[link /reference/utility/move.md]
 
 
