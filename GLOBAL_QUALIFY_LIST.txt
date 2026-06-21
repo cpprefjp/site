@@ -385,6 +385,8 @@
 * <unordered_set>[link /reference/unordered_set.md]
     * std::unordered_set[link /reference/unordered_set/unordered_set.md]
 * <utility>[link /reference/utility.md]
+    * std::constant_wrapper[link /reference/utility/constant_wrapper.md]
+    * std::cw[link /reference/utility/constant_wrapper.md]
     * std::exchange[link /reference/utility/exchange.md]
     * std::forward_like[link /reference/utility/forward_like.md]
     * std::forward[link /reference/utility/forward.md]

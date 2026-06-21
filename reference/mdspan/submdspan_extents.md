@@ -47,8 +47,8 @@ auto [...slices] = submdspan_canonicalize_slices(src, raw_slices...);
 - [`SubExtents::rank()`](extents/rank.md)が[`MAP_RANK`](submdspan_canonicalize_slices.md)`(slices, Extents::rank())`に等しく、かつ
 - `slices...[k]`の型が[縮約スライス型(collapsing slice type)](submdspan_canonicalize_slices.md)ではない`Extents`の各次元インデクス`k`に対して、説明用の`S_k`を`slices...[k]`の型としたとき、[`SubExtents::static_extent`](extents/static_extent.md)`(`[`MAP_RANK`](submdspan_canonicalize_slices.md)`(slices, k))`が下記と等しいこと。
     - 型`S_k`が[`full_extent_t`](full_extent_t.md)のとき、[`SubExtents::static_extent`](extents/static_extent.md)`(k)`、そうでなければ、
-    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`S_k::extent_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)`<IndexType(0)>`のとき、値`0`、そうでなければ
-    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`extent_type`および`stride_type`がいずれも[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化であるとき、`1 + ((S_k::extent_type::value - 1) / S_k::stride_type::value)`
+    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`S_k::extent_type`が[`constant_wrapper`](/reference/utility/constant_wrapper.md)`<IndexType(0)>`のとき、値`0`、そうでなければ
+    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`extent_type`および`stride_type`がいずれも[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化であるとき、`1 + ((S_k::extent_type::value - 1) / S_k::stride_type::value)`
     - そうでなければ、[`dynamic_extent`](/reference/span/dynamic_extent.md)
 
 以下を満たす`SubExtents`型の値`ext`を返す。

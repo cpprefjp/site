@@ -30,7 +30,7 @@ namespace std {
     - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(std::move(ls)), IndexType> && ...)`が`true`
 
 ### 正則`submdspan`スライス型
-符号付きもしくは符号なし整数型`IndexType`に対して、型`S`が`IndexType`もしくは値`0`以上の任意の値`v`を保持する[`constant_wrapper<v>`](/reference/type_traits/constant_wrapper.md.nolink)であるとき、型`S`は`IndexType`の正則`submdspan`インデクス型となる。
+符号付きもしくは符号なし整数型`IndexType`に対して、型`S`が`IndexType`もしくは値`0`以上の任意の値`v`を保持する[`constant_wrapper<v>`](/reference/utility/constant_wrapper.md)であるとき、型`S`は`IndexType`の正則`submdspan`インデクス型となる。
 
 符号付きもしくは符号なし整数型`IndexType`に対して、下記のうちただ1つだけを満たすとき、型`S`は`IndexType`の正則`submdspan`スライス型(canonical `submdspan` slice type)となる。
 
@@ -38,7 +38,7 @@ namespace std {
 - `S`が`IndexType`の正則`submdspan`インデクス型である
 - `S`が[`strided_slice`](strided_slice.md)の特殊化であり、下記を全て満たす
     - `S::offset_type`, `S::extent_type`, `S::stride_type`が、全て`IndexType`の正則`submdspan`インデクス型である
-    - `S::stride_type`および`S::extent_type`がいずれも[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化であり、`S::stride_type::value`が`0`より大きい
+    - `S::stride_type`および`S::extent_type`がいずれも[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化であり、`S::stride_type::value`が`0`より大きい
 
 ### 縮約スライス型と`MAP_RANK`
 ある型が[`full_extent_t`](full_extent_t.md)ないし[`strided_slice`](strided_slice.md)の特殊化いずれでもないとき、縮約スライス型(collapsing slice type)となる。
@@ -49,10 +49,10 @@ namespace std {
 [`extents`](extents.md)の特殊化である型`E`に対して、型`S`が`E::index_type`の正則スライス型であり、かつ`E::static_extent(k)`に等しい`x`に対して`x`が`dynamic_extent`に等しいか下記を満たすとき、型`S`は`E`の`k`番目次元の有効`submdspan`スライス型(valid `submdspan` slice type)となる。
 
 - `S`が[`strided_slice`](strided_slice.md)の特殊化であるとき :
-    - `S::offset_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化であるとき、`S::offset_type::value`が`x`以下
-    - `S::extent_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化であるとき、`S::extent_type::value`が`x`以下
-    - `S::offset_type`および`S::extent_type`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化であるとき、`S::offset_type::value + S::extent_type::value`が`x`以下
-- `S`が[`constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)の特殊化であるとき、`S::value`が`x`より小さい
+    - `S::offset_type`が[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化であるとき、`S::offset_type::value`が`x`以下
+    - `S::extent_type`が[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化であるとき、`S::extent_type::value`が`x`以下
+    - `S::offset_type`および`S::extent_type`が[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化であるとき、`S::offset_type::value + S::extent_type::value`が`x`以下
+- `S`が[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化であるとき、`S::value`が`x`より小さい
 
 ### 有効`submdspan`スライス
 [`extents`](extents.md)の特殊化である型`E`のオブジェクト`e`と、型`S`のオブジェクト`s`に対して、下記を満たすとき`s`は`e`の`k`番目次元の有効`submdspan`スライス(valid `submdspan` slice)となる。

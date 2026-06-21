@@ -57,8 +57,8 @@ if constexpr (is_convertible_v<S, full_extent_t>) {
 * canonical-index[link canonical-index.md]
 * is_convertible_v[link /reference/type_traits/is_convertible.md]
 * is_same_v[link /reference/type_traits/is_same.md]
-* constant_wrapper[link /reference/type_traits/constant_wrapper.md.nolink]
-* cw[link /reference/type_traits/constant_wrapper.md.nolink]
+* constant_wrapper[link /reference/utility/constant_wrapper.md]
+* cw[link /reference/utility/constant_wrapper.md]
 * std::move[link /reference/utility/move.md]
 
 ここで`is-strided-slice`は、型`S`が[`strided_slice`](strided_slice.md)の特殊化であることを表す説明専用コンセプトとする。

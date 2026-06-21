@@ -24,7 +24,7 @@ constexpr auto canonical-index(S s);
 ## 効果
 以下と等価
 
-- `S`が[`integral-constant-like`](/reference/span/integral-constant-like.md)のモデルであるとき、`return` [`cw`](/reference/type_traits/constant_wrapper.md.nolink)`<IndexType(S::value)>`
+- `S`が[`integral-constant-like`](/reference/span/integral-constant-like.md)のモデルであるとき、`return` [`cw`](/reference/utility/constant_wrapper.md)`<IndexType(S::value)>`
 - そうではないとき、`return IndexType(`[`std::move`](/reference/utility/move.md)`(s))`
 
 
