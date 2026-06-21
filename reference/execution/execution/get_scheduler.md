@@ -24,7 +24,7 @@ namespace std::execution {
 ```cpp
 get_completion_scheduler<set_value_t>(MANDATE-NOTHROW(AS-CONST(env).query(get_scheduler)), HIDE-SCHED(env))
 ```
-* get_completion_scheduler[link get_completion_scheduler.md]]
+* get_completion_scheduler[link get_completion_scheduler.md]
 * set_value_t[link set_value.md]
 * MANDATE-NOTHROW[link MANDATE-NOTHROW.md]
 * AS-CONST[link AS-CONST.md]

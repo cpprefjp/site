@@ -34,7 +34,7 @@ namespace std::execution {
 そうでなければ、呼び出し式`bulk_chunked(sndr, policy, shape, f)`は下記と等価。
 
 ```cpp
-make-sender(bulk_chunked, product-type<see below, Shape, Func>{policy, shape, f}, sndr))
+make-sender(bulk_chunked, product-type<see below, Shape, Func>{policy, shape, f}, sndr)
 ```
 * make-sender[link make-sender.md]
 * product-type[link product-type.md]
