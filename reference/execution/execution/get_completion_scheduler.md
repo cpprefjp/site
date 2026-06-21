@@ -48,7 +48,7 @@ namespace std::execution {
     * MANDATE-NOTHROW[link MANDATE-NOTHROW.md]
     * TRY-QUERY[link ../queryable.md]
 
-- そうではなく、`envs...`が1回だけ評価されることを除いて、型`q`が[`schedeuler`](scheduler.md)を満たしかつ`envs`が空のパックでないとき、`auto(q)`
+- そうではなく、`envs...`が1回だけ評価されることを除いて、型`q`が[`scheduler`](scheduler.md)を満たしかつ`envs`が空のパックでないとき、`auto(q)`
 - そうでなければ、呼び出し式`get_completion_scheduler<completion-tag>(q, envs...)`は不適格となる。
 
 `get_completion_scheduler<completion-tag>(q, envs...)`が適格ならば、その型は[Scheduler](scheduler.md)を満たすべき。
