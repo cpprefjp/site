@@ -1,6 +1,7 @@
 # operator& (単項)
 * utility[meta header]
 * std[meta namespace]
+* constant_wrapper[meta class]
 * function template[meta id-type]
 * cpp26[meta cpp]
 
