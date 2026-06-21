@@ -6,10 +6,8 @@
 * cpp26[meta cpp]
 
 ```cpp
-namespace std {
-  template <constexpr-param R>
-  constexpr auto operator=(R y) const noexcept;
-}
+template <constexpr-param R>
+constexpr auto operator=(R y) const noexcept;
 ```
 
 ## 概要

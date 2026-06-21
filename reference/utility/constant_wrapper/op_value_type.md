@@ -6,9 +6,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-namespace std {
-  constexpr operator value_type() const noexcept;
-}
+constexpr operator value_type() const noexcept;
 ```
 
 ## 概要

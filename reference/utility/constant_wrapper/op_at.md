@@ -6,10 +6,8 @@
 * cpp26[meta cpp]
 
 ```cpp
-namespace std {
-  template <class... Args>
-  static constexpr decltype(auto) operator[](Args&&... args) noexcept(/*see below*/);
-}
+template <class... Args>
+static constexpr decltype(auto) operator[](Args&&... args) noexcept(/*see below*/);
 ```
 
 ## 概要
