@@ -101,6 +101,14 @@
 | [`inout_ptr`](memory/inout_ptr.md) | スマートポインタへの入出力サポートヘルパ関数(function template) | C++23 |
 
 
+## 値の意味論をもつ間接ストレージ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`indirect`](memory/indirect.md) | 動的確保したオブジェクトに値の意味論をもたせるクラス(class template) | C++26 |
+| [`polymorphic`](memory/polymorphic.md) | 動的確保したオブジェクトに値の意味論をもたせ、派生型を多態的に保持するクラス(class template) | C++26 |
+
+
 ## スマートポインタのアトミック操作
 
 | 名前 | 説明 | 対応バージョン |
