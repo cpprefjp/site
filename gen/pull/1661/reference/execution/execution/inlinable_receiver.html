@@ -1,0 +1,311 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::execution::inlinable_receiver - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,concept,std::execution,cpp26
+">
+        <meta name="title" content="std::execution::inlinable_receiver - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::inlinable_receiver - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::inlinable_receiver - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/inlinable_receiver.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`inlinable_receiver`コンセプトは、[Sender](sender.md)との接続時に作成される[Operation State](operation_state.md)オブジェクトへのポインタから、必要に応じて再構築可能な[Receiver](receiver.md)要件を定義する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::execution::inlinable_receiver - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/inlinable_receiver.html" />
+        <meta name="twitter:description" content="`inlinable_receiver`コンセプトは、[Sender](sender.md)との接続時に作成される[Operation State](operation_state.md)オブジェクトへのポインタから、必要に応じて再構築可能な[Receiver](receiver.md)要件を定義する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;inlinable_receiver&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">inlinable_receiver</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-05-10T14:51:05">
+        2026年05月10日 14時51分05秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/inlinable_receiver.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/inlinable_receiver.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">concept</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">inlinable_receiver</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ChildOp</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">inlinable_receiver</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n"><a href="receiver.html">receiver</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">ChildOp</span><span class="o">*</span><span class="w"> </span><span class="n">child</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;::</span><span class="n">make_receiver_for</span><span class="p">(</span><span class="n">child</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>inlinable_receiver</code>コンセプトは、<a href="sender.html">Sender</a>との接続時に作成される<a href="operation_state.html">Operation State</a>オブジェクトへのポインタから、必要に応じて再構築可能な<a href="receiver.html">Receiver</a>要件を定義する。</p>
+<p><code>Rcvr</code>型のReceiverオブジェクト<code>rcvr</code>が<code>Op</code>型のOperation Stateオブジェクト<code>op</code>を生成するSenderに接続されていた場合、式<code>Rcvr::make_receiver_for(<a href="../../memory/addressof.html">addressof</a>(op))</code>が<code>rcvr</code>と等しいReceiverに評価されるときに限って、<code>Rcvr</code>は<code>inlineable_receiver&lt;Op&gt;</code>のモデルである。
+この条件を満たすReceiverは必要に応じて再作成できるため、<code>op</code>のメンバ変数として保存する必要がなくなる。</p>
+<p><code>ChildOp</code>は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>であってもよい。</p>
+<h2>要件</h2>
+<p>オブジェクト<code>O_0</code>, ..., <code>O_n</code>に対して、下記を満たすとき<code>O_n</code>は<code>O_0</code>から遷移的に構築される(transitively constructed)。</p>
+<ul>
+<li><code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype(O_n)&gt;</code>が<code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype(O_0)&gt;</code>と同じ型を表し、かつ</li>
+<li>下記いずれかを満たす。<ul>
+<li><code>O_0</code>への参照をdecayコピーして<code>O_1</code>が初期化された、もしくは</li>
+<li><code>n &gt; 1</code>かつ<code>O_{n-1}</code>が<code>O_0</code>から遷移的に構築され(transitively constructed)、<code>O_{n-1}</code>への非constで非volatileな右辺値参照から<code>O_n</code>が初期化された。</li>
+</ul>
+</li>
+</ul>
+<p>説明用の<code>E</code>を<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>な式<code><a href="connect.html">connect</a>(sndr, rcvr)</code>とする。<code>E</code>の評価中に<code>rcvr</code>から遷移的に構築される(transitively constructed)全オブジェクトの生存期間が<code>E</code>の評価中に終了するならば、<code>E</code>は<a href="receiver.html">Receiver</a><code>rcvr</code>をインライン化する。
+これは、そのような式において<a href="operation_state.html">Operation State</a>オブジェクトにReceiverを格納する必要がないことを意味する。</p>
+<p>説明用の<code>E</code>を下記のような<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>な式<code><a href="connect.html">connect</a>(sndr, rcvr)</code>とする。</p>
+<ul>
+<li><code>sndr</code>をC++標準ライブラリで定義する<a href="sender.html">Sender</a>型とし、かつ</li>
+<li><code>E</code>は<a href="receiver.html">Receiver</a><code>rcvr</code>をインライン化する。</li>
+</ul>
+<p>ここで、<code>op</code>を<code>E</code>の評価結果とし、<code>op</code>に関連付けられた操作の仕様において<code>rcvr</code>から推移的に構築されたオブジェクトを表す左辺値(glvalue)が含まれている場合、その左辺値は式<code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype(rcvr)&gt;::make_receiver_for(<a href="../../memory/addressof.html">addressof</a>(op))</code>に対して temporary materialization conversionを適用した結果を表すものとする。</p>
+<p><code>StdRcvr</code>をC++標準ライブラリで定義する<a href="receiver.html">Receiver</a>型とする。<a href="operation_state.html">Operation State</a>型<code>Op</code>に対して、<code>StdRcvr</code>が<code>inlinable_receiver&lt;Op&gt;</code>のモデルであるかは<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>である。</p>
+<p><code>StdOp</code>をC++標準ライブラリで定義する<a href="operation_state.html">Operation State</a>型とし、型<code>Sndr</code>と<code>Rcvr</code>を<code><a href="../../type_traits/is_same.html">is_same_v</a>&lt;<a href="connect_result_t.html">connect_result_t</a>&lt;Sndr, Rcvr&gt;, StdOp&gt;</code>が<code>true</code>となる型とする。
+<code>Rcvr</code>が<code>inlinable_receiver&lt;StdOp&gt;</code>のモデルである場合、型<code>Rcvr</code>のオブジェクト<code>rcvr</code>が与えられたとき、<code><a href="connect.html">connect</a></code>操作が<a href="receiver.html">Receiver</a><code>rcvr</code>をインライン化する型<code>StdOp</code>のオブジェクトを生成するかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。</p>
+<h2>備考</h2>
+<p><code>inlinable_receiver</code>コンセプトは、<a href="operation_state.html">Operation State</a>オブジェクトサイズを削減する最適化の可否を表現するために導入された。C++標準の各種Senderアルゴリズムが実際にこのような最適化を行うかどうかは、処理系（標準ライブラリ実装）に依存する。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="receiver.html">execution::receiver</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3425r1.html" target="_blank">P3425R1 Reducing operation-state sizes for subobject child operations</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3986r1.pdf" target="_blank">P3986R1 A Wording Strategy for Inlinable Receivers</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

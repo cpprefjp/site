@@ -1,0 +1,457 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::polymorphic - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory,std,class template,cpp26
+">
+        <meta name="title" content="std::polymorphic - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::polymorphic - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::polymorphic - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/memory/polymorphic.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`std::polymorphic`クラスは、動的確保したオブジェクトに値の意味論をもたせつつ、`T`から派生した任意の型のオブジェクトを多態的に保持できる型である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::polymorphic - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory/polymorphic.html" />
+        <meta name="twitter:description" content="`std::polymorphic`クラスは、動的確保したオブジェクトに値の意味論をもたせつつ、`T`から派生した任意の型のオブジェクトを多態的に保持できる型である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e30bf44d0423cb729aae941b88eb901db40e3cd8&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;memory&gt;\n\nstruct Shape {\n  virtual ~Shape() = default;\n  virtual int area() const = 0;\n};\n\nstruct Square : Shape {\n  int side;\n  Square(int s) : side(s) {}\n  int area() const override { return side * side; }\n};\n\nint main()\n{\n  // Shape\u304b\u3089\u6d3e\u751f\u3057\u305fSquare\u3092\u3001\u5024\u306e\u610f\u5473\u8ad6\u3067\u591a\u614b\u7684\u306b\u4fdd\u6301\u3059\u308b\n  std::polymorphic&lt;Shape&gt; a{std::in_place_type&lt;Square&gt;, 3};\n  assert(a-&gt;area() == 9);\n\n  // \u30b3\u30d4\u30fc\u306f\u6d3e\u751f\u578b(Square)\u306e\u30c7\u30a3\u30fc\u30d7\u30b3\u30d4\u30fc\n  std::polymorphic&lt;Shape&gt; b = a;\n  assert(b-&gt;area() == 9);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory&#34;, &#34;polymorphic&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/memory.html" itemprop="url">
+              
+                <span itemprop="name">memory</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">polymorphic</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-06-22T07:01:50">
+        2026年06月22日 07時01分50秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/memory/polymorphic.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/memory/polymorphic.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">polymorphic</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">polymorphic</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">pmr</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">polymorphic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">polymorphic</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>std::polymorphic</code>クラスは、動的確保したオブジェクトに値の意味論をもたせつつ、<code>T</code>から派生した任意の型のオブジェクトを多態的に保持できる型である。</p>
+<p><code><a href="indirect.html">std::indirect</a></code>クラスが単一の型<code>T</code>のオブジェクトを保持するのに対し、<code>std::polymorphic&lt;T&gt;</code>クラスは<code>T</code>を基底とする派生型のオブジェクトを保持できる。値型としての性質は<code>std::indirect</code>クラスと共通している：</p>
+<ul>
+<li>ディープコピー: <code>std::polymorphic&lt;T&gt;</code>クラスのオブジェクトをコピーすると、実際に保持している派生型のオブジェクトが、その派生型のコピーコンストラクタによって複製される（型消去をとおした仮想ディスパッチが用いられる）</li>
+<li><code>const</code>の伝播: <code>const</code>なアクセス経路から所有オブジェクトにアクセスすると、所有オブジェクトにも<code>const</code>が伝播する</li>
+<li><a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>のサポート: テンプレートパラメータ<code>T</code>は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>でもよい</li>
+</ul>
+<p>これらの性質によって、<code>std::polymorphic</code>クラスは多態的な性質をもつクラスのメンバ変数として適しており、コンパイラによる特殊メンバ関数の自動生成と協調して動作する。</p>
+<p>所有オブジェクトを持たない状態を「無効値状態 (valueless state)」と呼ぶ。<code>std::polymorphic</code>クラスが無効値状態になるのは、ムーブ後に空となった場合のみである。無効値状態のオブジェクトに対する<code>operator*</code>や<code>operator-&gt;</code>の呼び出しは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。無効値状態かどうかは<code><a href="polymorphic/valueless_after_move.html">valueless_after_move()</a></code>で判定できる。</p>
+<p>保持する型の集合が既知である場合は、<code><a href="../variant/variant.html">std::variant</a></code>や<code>indirect&lt;std::variant&lt;...&gt;&gt;</code>の使用を検討するとよい。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li><code>Allocator</code>はCpp17Allocator要件を満たすこと。</li>
+<li><code><a href="allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::value_type</code>が<code>T</code>と同じ型であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>以下のいずれかの場合に、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる<ul>
+<li><code>T</code>がオブジェクト型でない</li>
+<li>配列型である</li>
+<li>(<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された) <code><a href="../utility/in_place_t.html">std::in_place_t</a></code>である</li>
+<li>(<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された) <code><a href="../utility/in_place_type_t.html">std::in_place_type_t</a></code>の特殊化である</li>
+<li><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された型である</li>
+</ul>
+</li>
+<li><code>std::polymorphic</code>の明示的特殊化・部分特殊化をユーザーが宣言した場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="polymorphic/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="polymorphic/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="polymorphic/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>値へのアクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="polymorphic/op_deref.html">operator*</a></code></td>
+<td>所有するオブジェクトへの参照を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="polymorphic/op_arrow.html">operator-&gt;</a></code></td>
+<td>所有するオブジェクトのメンバへアクセスする</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="polymorphic/valueless_after_move.html">valueless_after_move</a></code></td>
+<td>無効値状態かどうかを判定する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>その他</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="polymorphic/get_allocator.html">get_allocator</a></code></td>
+<td>アロケータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="polymorphic/swap.html">swap</a></code></td>
+<td>他の<code>polymorphic</code>オブジェクトと値を交換する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>定義</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td><code>T</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>allocator_type</code></td>
+<td><code>Allocator</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td><code><a href="allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::pointer</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td><code><a href="allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::const_pointer</code></td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ（<em>Hidden friends</em>）関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="polymorphic/swap_free.html">swap</a></code></td>
+<td>2つの<code>polymorphic</code>オブジェクトを交換する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="e30bf44d0423cb729aae941b88eb901db40e3cd8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cassert.html">&lt;cassert&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Shape</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Square</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">side</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Square</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">side</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">area</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">side</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Shapeから派生したSquareを、値の意味論で多態的に保持する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::polymorphic</span></span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">{</span><span class="n"><a href="../utility/in_place_type_t.html">std::in_place_type</a></span><span class="o">&lt;</span><span class="n">Square</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">area</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// コピーは派生型(Square)のディープコピー</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::polymorphic</span></span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="o">-&gt;</span><span class="n">area</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 22 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="indirect.html">std::indirect</a></code> 単一の型を保持する値型</li>
+<li><code><a href="../variant/variant.html">std::variant</a></code> 既知の型集合から1つを保持する型</li>
+<li><code><a href="unique_ptr.html">std::unique_ptr</a></code> 多態的な所有権をもつが参照の意味論をもつスマートポインタ</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3019r14.pdf" target="_blank">P3019R14 <code>indirect</code> and <code>polymorphic</code>: Vocabulary Types for Composite Class Design</a><ul>
+<li>C++26で<code>indirect</code>と<code>polymorphic</code>が追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
