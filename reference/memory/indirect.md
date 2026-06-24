@@ -31,6 +31,8 @@ namespace std {
 
 これらの性質によって、`std::indirect`クラスのオブジェクトはクラスのメンバとして保持するのに適しており、コンパイラによる特殊メンバ関数の自動生成と協調して動作する。
 
+とくに、pImplイディオム（実装クラスへのポインタをメンバとしてもち、実装詳細をヘッダから隠蔽してソースファイル側で行う手法）の実装に適している。実装クラスを不完全型のまま`std::indirect`型でメンバ変数として保持すると、生のポインタや[`std::unique_ptr`](unique_ptr.md)で実装した場合とは異なり、値のコピー（実装クラスのディープコピー）と`const`の伝播がともに自動的に正しく行われる。
+
 所有オブジェクトを持たない状態を「無効値状態 (valueless state)」と呼ぶ。`std::indirect`オブジェクトが無効値状態になるのは、ムーブ後に空となった場合のみである。無効値状態のオブジェクトに対する`operator*`や`operator->`の呼び出しは未定義動作を引き起こす。無効値状態かどうかは[`valueless_after_move()`](indirect/valueless_after_move.md)メンバ関数で判定できる。
 
 派生型のオブジェクトを多態的に保持したい場合は、[`std::polymorphic`](polymorphic.md)クラスを使用する。
@@ -116,6 +118,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <cassert>
 #include <memory>
@@ -138,6 +141,53 @@ int main()
 }
 ```
 * std::indirect[color ff0000]
+
+### 出力
+```
+```
+
+### pImplイディオムでの使用
+実装クラスを不完全型のまま`std::indirect`で保持することで、値の意味論をもつpImplを簡潔に実装できる。コピー・ムーブ・デストラクタはコンパイラが生成し、`const`メンバ関数からは実装クラスにも`const`が伝播する。
+
+```cpp example
+#include <cassert>
+#include <memory>
+
+// ヘッダ相当: 実装クラスImplは前方宣言のみ（不完全型）
+class Widget {
+  class Impl;
+  std::indirect<Impl> impl_;
+public:
+  Widget(int x);
+  int value() const;
+  void set(int x);
+  // コピー・ムーブ・デストラクタはコンパイラが生成する
+};
+
+// 実装相当: ここでImplが完全型になる
+class Widget::Impl {
+public:
+  int v;
+  Impl(int x) : v(x) {}
+};
+
+Widget::Widget(int x) : impl_{std::in_place, x} {}
+int Widget::value() const { return impl_->v; } // constが伝播する
+void Widget::set(int x) { impl_->v = x; }
+
+int main()
+{
+  Widget a{42};
+  assert(a.value() == 42);
+
+  Widget b = a;            // 値のコピー（Implがディープコピーされる）
+  b.set(10);
+  assert(a.value() == 42); // aは影響を受けない
+  assert(b.value() == 10);
+}
+```
+* std::indirect[color ff0000]
+* std::in_place[link /reference/utility/in_place_t.md]
 
 ### 出力
 ```
