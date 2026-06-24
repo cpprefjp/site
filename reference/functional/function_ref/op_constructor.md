@@ -32,6 +32,16 @@ constexpr function_ref(const function_ref&) noexcept = default;  // (6)
 
 `function_ref`オブジェクトは、説明専用のメンバ変数`thunk-ptr`と`bound-entity`を保持する。
 
+また、説明専用の変数テンプレート`is-convertible-from-specialization<F>`を次のように定義する。型`F`が、あるCV修飾 *cv2* とnoexcept例外指定 *noex2* に対する`function_ref<R(Args...) /*cv2*/ noexcept(/*noex2*/)>`の特殊化を表す場合、`is-convertible-from-specialization<F>`は次の値と等しい :
+
+```cpp
+is_convertible_v<R(&)(Args...) noexcept(/*noex2*/), R(&)(Args...) noexcept(/*noex*/)> &&
+is_convertible_v<int /*cv*/&, int /*cv2*/&>
+```
+* is_convertible_v[link /reference/type_traits/is_convertible.md]
+
+そうでない場合、`is-convertible-from-specialization<F>`は`false`である。
+
 
 ## テンプレートパラメータ制約
 `function_ref`クラステンプレートパラメータのCV修飾子 *cv* に応じて
@@ -63,8 +73,9 @@ constexpr function_ref(const function_ref&) noexcept = default;  // (6)
 
 - (1) : `bound-entity`を`f`で、`thunk-ptr`を説明専用の関数`thunk`へのアドレスで初期化する。
     - [関数呼び出し`thunk(bound-entity, call-args...)`](op_call.md)は[`invoke_r`](/reference/functional/invoke_r.md)`<R>(f, call-args...)`と等価。
-- (2) : `bound-entity`を[`addressof`](/reference/memory/addressof.md)`(f)`で、`thunk-ptr`を説明専用の関数`thunk`へのアドレスで初期化する。
+- (2) : `is-convertible-from-specialization<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`の場合、`bound-entity`を[`addressof`](/reference/memory/addressof.md)`(f)`で、`thunk-ptr`を説明専用の関数`thunk`へのアドレスで初期化する。
     - [関数呼び出し`thunk(bound-entity, call-args...)`](op_call.md)は[`invoke_r`](/reference/functional/invoke_r.md)`<R>(static_cast</*cv*/ T&>(f), call-args...)`と等価。
+    - `is-convertible-from-specialization<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`true`の場合（`f`が互換するシグニチャ・CV修飾をもつ`function_ref`の特殊化であるとき）、`bound-entity`を`f`の`bound-entity`の値で、`thunk-ptr`を`f`の`thunk-ptr`の値で初期化する。これにより、`function_ref`から別の`function_ref`を構築する際に、本来不要な二重の間接呼び出しが回避される。
 - (3) : `bound-entity`を未規定オブジェクトへのポインタまたはヌルポインタで、`thunk-ptr`を説明専用の関数`thunk`へのアドレスで初期化する。
     - [関数呼び出し`thunk(bound-entity, call-args...)`](op_call.md)は[`invoke_r`](/reference/functional/invoke_r.md)`<R>(f, call-args...)`と等価。
 - (4) : `bound-entity`を[`addressof`](/reference/memory/addressof.md)`(obj)`で、`thunk-ptr`を説明専用の関数`thunk`へのアドレスで初期化する。
@@ -160,3 +171,5 @@ int main()
 ## 参照
 - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
 - [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
+- [P3961R1 Less double indirection in `function_ref` (RU-220)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3961r1.html)
+    - 別の`function_ref`から構築する際の二重の間接呼び出しを回避するため、説明専用の`is-convertible-from-specialization`を追加し、(2)のコンストラクタの効果を変更した

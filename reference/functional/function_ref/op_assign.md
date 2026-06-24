@@ -18,6 +18,7 @@ template<class T> function_ref& operator=(T) = delete; // (2)
 ## テンプレートパラメータ制約
 - (2) : 以下の制約をみたすとき、代入演算子はdelete宣言される
     - `T`が`function_ref`と同一型ではなく、かつ
+    - 説明専用の`is-convertible-from-specialization<T>`（[コンストラクタ](op_constructor.md)を参照）が`false`であり、かつ
     - [`is_pointer_v`](/reference/type_traits/is_pointer.md)`<T>`が`false`であり、かつ
     - `T`が[`constant_arg_t`](/reference/utility/constant_arg_t.md)の特殊化でないこと
 
@@ -73,3 +74,5 @@ int main()
 ## 参照
 - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
 - [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
+- [P3961R1 Less double indirection in `function_ref` (RU-220)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3961r1.html)
+    - delete宣言される代入演算子(2)の制約に、説明専用の`is-convertible-from-specialization`の条件を追加した

@@ -119,3 +119,5 @@ int main()
 ## 参照
 - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
 - [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
+- [P3961R1 Less double indirection in `function_ref` (RU-220)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3961r1.html)
+    - 別の`function_ref`から構築する際の二重の間接呼び出しを回避するよう、コンストラクタと代入演算子の仕様を変更した
