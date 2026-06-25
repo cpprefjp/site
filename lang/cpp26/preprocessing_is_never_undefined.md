@@ -28,7 +28,7 @@ C++26では、プリプロセッサおよびレキサーの仕様において「
 | マクロ引数内のプリプロセッシングディレクティブ | 未定義動作 | 不適格 (診断不要) |
 | `#`演算子の結果が不正な文字列リテラル | 未定義動作 | 不適格 (診断不要) |
 | `##`演算子の結果が不正なプリプロセッシングトークン | 未定義動作 | 不適格 (診断不要) |
-| `#line`ディレクティブの不正な値 (0や2147483647超) | 未定義動作 | 不適格 |
+| `#line`ディレクティブの範囲外の値 (0や2147483647超) | 未定義動作 | [条件付きサポート](line_is_not_in_line_with_existing_implementation.md) |
 | 定義済みマクロ名の`#define`/`#undef` | 未定義動作 | 不適格 (診断不要) |
 | キーワードと同名のマクロの`#define` | 未定義動作 | 不適格 |
 
@@ -37,3 +37,5 @@ C++26では、プリプロセッサおよびレキサーの仕様において「
 
 ## 参照
 - [P2843R3 Preprocessing is never undefined](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2843r3.pdf)
+- [P4136R2 `#line` is not in line with existing implementation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4136r2.pdf)
+    - 本提案で不適格に変更した`#line`の範囲外の値を、条件付きサポートに緩和した
