@@ -291,6 +291,7 @@ int main()
 - [C++20 集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md)
 - [C++20 エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md)
 - [C++23 継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md)
+- [C++26 テンプレートテンプレートパラメータに対するクラステンプレートパラメータ引数推論](/lang/cpp26/class_template_argument_deduction_for_type_template_template_parameters.md)
 
 
 ## 参照
