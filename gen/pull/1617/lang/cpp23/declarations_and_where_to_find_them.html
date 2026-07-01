@@ -16,23 +16,23 @@
 
         <meta charset="UTF-8">
 
-        <title>スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス</title>
+        <title>スコープと名前探索の仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp23
 ">
-        <meta name="title" content="スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="スコープと名前探索の仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="スコープと名前探索の仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="スコープと名前探索の仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp23/declarations_and_where_to_find_them.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="C++では、スコープ([basic.scope])と名前ルックアップ([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。" />
+        <meta property="og:description" content="C++では、スコープ([basic.scope])と名前探索([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="スコープと名前ルックアップの仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="スコープと名前探索の仕様整理 [P1787R6] - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp23/declarations_and_where_to_find_them.html" />
-        <meta name="twitter:description" content="C++では、スコープ([basic.scope])と名前ルックアップ([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。" />
+        <meta name="twitter:description" content="C++では、スコープ([basic.scope])と名前探索([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -171,7 +171,7 @@
         <span>
           
             
-              <span itemprop="name">スコープと名前ルックアップの仕様整理 [P1787R6]</span>
+              <span itemprop="name">スコープと名前探索の仕様整理 [P1787R6]</span>
             
           
         </span>
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-07-01T07:39:51">
-        2026年07月01日 07時39分51秒
+      <span itemprop="datePublished" content="2026-07-01T08:02:38">
+        2026年07月01日 08時02分38秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -212,7 +212,7 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <h1 itemprop="name"><span class="token">スコープと名前ルックアップの仕様整理 [P1787R6]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+  <h1 itemprop="name"><span class="token">スコープと名前探索の仕様整理 [P1787R6]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
 <div itemprop="articleBody"><p>
 </p>
 <p>このページはC++23に採用された言語機能の変更を解説しています。</p>
@@ -220,14 +220,14 @@
 <p>
 </p>
 <h2>概要</h2>
-<p>C++では、スコープ([basic.scope])と名前ルックアップ([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。
-用語の定義も曖昧かつ不整合な状態となっており、特にモジュール導入後は「ルックアップは同一翻訳単位内の先行宣言に限られる」という暗黙の前提が成り立たなくなり、これらの章を整理する必要性が高まっていた。</p>
+<p>C++では、スコープ([basic.scope])と名前探索([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。
+用語の定義も曖昧かつ不整合な状態となっており、特にモジュール導入後は「名前探索は同一翻訳単位内の先行宣言に限られる」という暗黙の前提が成り立たなくなり、これらの章を整理する必要性が高まっていた。</p>
 <p>P1787R6は、[basic.scope]と[basic.lookup]の章をまるごと書き直し、用語と規則を整備するための提案である。
 変更の大部分は規格書の編集上の整理 (editorial reorganization) であり、新たに導入された言語機能はない。
 ただしこの整理の過程で、長年解決されていなかった言語の不具合報告 (CWG issue) が63件、リフレクタ上で議論されていた問題が21件、まとめて解決される。
 これに伴い、いくつかの外から見た動作 (observable behavior) の変更も含まれる。</p>
 <h2>新しく導入された用語</h2>
-<p>P1787R6は、スコープと名前ルックアップを記述するための語彙を再構築している。
+<p>P1787R6は、スコープと名前探索を記述するための語彙を再構築している。
 主な新用語や関係のある用語と、それに対応する従来用語を以下に示す。</p>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
@@ -281,12 +281,12 @@
 <tr>
 <td>単一探索 (single search)</td>
 <td>あるスコープSと点Pに対して、Pに先行しSに名前Nが結合されたすべての宣言を見つける基本操作</td>
-<td>散在していたルックアップ規則の最小単位として整理</td>
+<td>散在していた名前探索規則の最小単位として整理</td>
 </tr>
 <tr>
-<td>ルックアップ文脈 (lookup context)</td>
+<td>探索文脈 (lookup context)</td>
 <td>メンバ修飾名 (<code>.</code>/<code>-&gt;</code>の右側の名前) では、関連オブジェクト式の型。それ以外の修飾名では、先行するnested-name-specifierが指し示す型・テンプレート・名前空間</td>
-<td>修飾名ルックアップの起点を明示化</td>
+<td>修飾名探索の起点を明示化</td>
 </tr>
 <tr>
 <td>構成名 (component name)</td>
@@ -296,12 +296,12 @@
 <tr>
 <td>修飾名 (qualified name) / メンバ修飾名 (member-qualified name)</td>
 <td>qualified-idやusing宣言子の終端の名前を「修飾名」、<code>.</code>/<code>-&gt;</code>の右側の名前を「メンバ修飾名」と呼ぶ</td>
-<td>ルックアップの対象となる名前の種類を整理</td>
+<td>名前探索の対象となる名前の種類を整理</td>
 </tr>
 <tr>
 <td>指名可能 (nominable)</td>
 <td>クラス・クラステンプレート・名前空間Eに対して、点Pにおいて宣言が「指名可能」とは: (1)宣言がPに先行し、(2)宣言がブロックスコープに居住しておらず、(3)宣言のターゲットスコープがEのスコープか、Eが名前空間のときはそのインライン名前空間集合の任意要素のスコープと一致する、こと</td>
-<td>修飾名ルックアップでの可視性を整理</td>
+<td>修飾名探索での可視性を整理</td>
 </tr>
 <tr>
 <td>対応する (correspond)</td>
@@ -318,7 +318,7 @@
 <h2>外から見た動作の変更</h2>
 <p>P1787R6の主目的は規格の整理であるが、その過程でCWG issueの解決を兼ねた、いくつかの外から見た動作の変更が含まれている。</p>
 <h3><code>using</code>宣言の参照先による置換</h3>
-<p>非依存な<code>using</code>宣言は、名前ルックアップの段階で「<code>using</code>宣言そのもの」ではなく「その参照先の宣言」に置き換えられて扱われるようになった。
+<p>非依存な<code>using</code>宣言は、名前探索の段階で「<code>using</code>宣言そのもの」ではなく「その参照先の宣言」に置き換えられて扱われるようになった。
 これにより、<code>using</code>ディレクティブと組み合わせたときの曖昧さの判定が、規格上明確に規定される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">F</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span>
@@ -327,14 +327,14 @@
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">F</span><span class="o">::</span><span class="n">x</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">     </span><span class="c1">// エラー: 曖昧 (Aの中のF::xと、using namespace I経由で見えるI::xが衝突)</span>
-<span class="w">    </span><span class="n">A</span><span class="o">::</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK: A内の修飾ルックアップではF::xのみが見つかる</span>
+<span class="w">    </span><span class="n">A</span><span class="o">::</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK: A内の修飾名探索ではF::xのみが見つかる</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<h3><code>friend</code>宣言におけるルックアップ範囲の制限 (CWG2370)</h3>
+<h3><code>friend</code>宣言における名前探索範囲の制限 (CWG2370)</h3>
 <p><code>friend</code>宣言の宣言子IDの中に現れる名前は、まず宣言子IDが指す名前空間の直接 (immediate) のスコープのみで探索される。
-そのスコープに見つからなければ、通常の非修飾ルックアップにフォールバックする。
+そのスコープに見つからなければ、通常の非修飾名探索にフォールバックする。
 直接のスコープには、内部の (inline 含む) 入れ子の名前空間で導入された名前は含まれない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">;</span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span>
@@ -346,47 +346,47 @@
 <span class="p">}</span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">B</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">D</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直接のスコープにDはないが、非修飾ルックアップで外側のD=doubleが見つかる</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">D</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直接のスコープにDはないが、非修飾名探索で外側のD=doubleが見つかる</span>
 <span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">F</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直接のスコープでF=floatが見つかる</span>
 <span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">C</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: CはAの内部の inline namespace Nに属しており、Aの直接のスコープには含まれない</span>
 <span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<h3>デストラクタ名のルックアップ</h3>
+<h3>デストラクタ名の探索</h3>
 <p>デストラクタ呼び出しの<code>~X</code>の<code>X</code>は、注入されたクラス名 (injected-class-name) として解決される必要がある。
 他のクラスを経由する<code>typedef</code>名などは候補として考慮されない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="p">};</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">B</span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">b</span><span class="o">-&gt;</span><span class="n">A</span><span class="o">::~</span><span class="n">X</span><span class="p">();</span><span class="w">  </span><span class="c1">// エラー: A::X (typedef名) はデストラクタ名のルックアップで考慮されない</span>
+<span class="w">  </span><span class="n">b</span><span class="o">-&gt;</span><span class="n">A</span><span class="o">::~</span><span class="n">X</span><span class="p">();</span><span class="w">  </span><span class="c1">// エラー: A::X (typedef名) はデストラクタ名の探索で考慮されない</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h3>テンプレートパラメータスコープの位置づけ</h3>
 <p>テンプレートパラメータスコープの親となるのは、別のテンプレートパラメータスコープのみであると規定された。
-これにより、テンプレート定義内の非修飾ルックアップにおける探索順序が明確になる。
+これにより、テンプレート定義内の非修飾名探索における探索順序が明確になる。
 ただしCWG459 (基底クラスはテンプレートパラメータより先に探索される) の振る舞いは維持される。</p>
 <h3>依存名としての修飾名の拡張</h3>
 <p>依存型を含む変換関数ID (conversion-function-id) も依存名として扱われるよう、依存名の定義が拡張された (CWG1500・CWG1936の解決)。
-これに伴い、依存ルックアップは型の置換後に行われることが明確化された。</p>
-<h3>モジュールをまたぐルックアップ</h3>
-<p>別の翻訳単位の宣言であっても、<code>export</code>された宣言や、同一モジュール内で内部リンケージを持たない宣言であってモジュール経由で到達可能なものは、ルックアップの対象となることが規格上明示された。
+これに伴い、依存名の探索は型の置換後に行われることが明確化された。</p>
+<h3>モジュールをまたぐ名前探索</h3>
+<p>別の翻訳単位の宣言であっても、<code>export</code>された宣言や、同一モジュール内で内部リンケージを持たない宣言であってモジュール経由で到達可能なものは、名前探索の対象となることが規格上明示された。
 これはモジュール機能の前提に合わせた整理である。</p>
 <h3>単集合に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>集合の取り扱い</h3>
 <p><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>集合は、要素が1つしかない場合 (singleton) でも一貫した規則で構築されるようになった。</p>
 <h2>この機能が必要になった背景・経緯</h2>
 <p>[basic.scope]および[basic.lookup]の問題は次のように整理できる：</p>
 <ul>
-<li><strong>「scope」の定義の二重性</strong>: 規格上、「scope」という語が異なる意味で2通り定義されており、暗黙のうちに名前ルックアップの規則を含んでいたが、[basic.lookup]の記述と完全には一致していなかった。</li>
+<li><strong>「scope」の定義の二重性</strong>: 規格上、「scope」という語が異なる意味で2通り定義されており、暗黙のうちに名前探索の規則を含んでいたが、[basic.lookup]の記述と完全には一致していなかった。</li>
 <li><strong>名前空間の取り扱いの不整合</strong>: グローバル名前空間を含む名前空間が、ある場所では1つのdeclarative regionとして、別の場所では複数のregionとして記述されていた。</li>
-<li><strong>モジュール導入による前提の崩れ</strong>: 「ルックアップは同じ翻訳単位の中の、その時点までに現れた宣言だけを対象とする」という暗黙の前提が、モジュールの導入で成り立たなくなった。</li>
-<li><strong><code>&lt;</code>トークンの曖昧性</strong>: テンプレートIDか比較演算子かを判別するための規則が、ルックアップの記述と絡み合っていた。</li>
+<li><strong>モジュール導入による前提の崩れ</strong>: 「名前探索は同じ翻訳単位の中の、その時点までに現れた宣言だけを対象とする」という暗黙の前提が、モジュールの導入で成り立たなくなった。</li>
+<li><strong><code>&lt;</code>トークンの曖昧性</strong>: テンプレートIDか比較演算子かを判別するための規則が、名前探索の記述と絡み合っていた。</li>
 <li><strong>同一エンティティの判定</strong>: 同じ名前の複数の宣言が同一のエンティティを導入するか、別のエンティティを導入するかを一貫した規則で判別できなかった。</li>
 </ul>
 <p>P1787R6は、これらの問題を解決するために、新しい用語を導入したうえで、[basic.scope]と[basic.lookup]の章を全面的に書き直す。
 63件のCWG issueと21件のリフレクタ議論で報告された問題が、この整理によって一括で解決される。</p>
-<p>ユーザーが書く通常のコードに与える影響は限定的だが、規格書を直接参照するC++ユーザー、コンパイラ実装者、ライブラリ実装者にとっては、本変更でC++の名前ルックアップ規則が初めて一貫した枠組みのもとに整理されたことになる。</p>
+<p>ユーザーが書く通常のコードに与える影響は限定的だが、規格書を直接参照するC++ユーザー、コンパイラ実装者、ライブラリ実装者にとっては、本変更でC++の名前探索規則が初めて一貫した枠組みのもとに整理されたことになる。</p>
 <h2>編集上の主な変更点</h2>
 <p>[basic.scope]と[basic.lookup]の章は全面的に書き直されている。
 編集上の主な変更点としては、以下が挙げられる：</p>
@@ -394,8 +394,8 @@
 <li>「declarative region」の語を廃し、「scope」に統一する。</li>
 <li>「point of declaration」の語を廃し、「locus」に置き換える。</li>
 <li>「in scope」「global function」「global object」「overloaded function」といった曖昧な表現を削除する。</li>
-<li>散在していたルックアップ規則を、単一探索 (single search) などの基本操作の組み合わせとして再定義する。</li>
-<li>ルックアップは常に「名前」に対する操作として定義し、id-expressionやtype-idに対する操作とは区別する。</li>
+<li>散在していた名前探索規則を、単一探索 (single search) などの基本操作の組み合わせとして再定義する。</li>
+<li>名前探索は常に「名前」に対する操作として定義し、id-expressionやtype-idに対する操作とは区別する。</li>
 </ul>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
 <ul>
