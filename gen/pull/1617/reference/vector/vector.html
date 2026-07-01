@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>vector - cpprefjp C++日本語リファレンス</title>
+        <title>std::vector - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,vector,std,class template
 ">
-        <meta name="title" content="vector - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="vector - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="vector - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::vector - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::vector - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::vector - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/vector/vector.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="class template&amp;lt;vector&amp;gt;std::vector namespace std {   template &amp;lt;class T, class Allocator = allocator&amp;lt;T&amp;gt;&amp;gt;   class vector;    namespace pmr {     template &amp;lt;class T&amp;gt;       using vec" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="vector - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::vector - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/vector/vector.html" />
         <meta name="twitter:description" content="class template&amp;lt;vector&amp;gt;std::vector namespace std {   template &amp;lt;class T, class Allocator = allocator&amp;lt;T&amp;gt;&amp;gt;   class vector;    namespace pmr {     template &amp;lt;class T&amp;gt;       using vec" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-11T14:15:20">
-        2025年06月11日 14時15分20秒
+      <span itemprop="datePublished" content="2026-06-10T07:27:25">
+        2026年06月10日 07時27分25秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -677,6 +677,7 @@
 <p>この特殊化はメモリ領域を最小化するために提供されていて、各要素は1bitの領域のみを必要とする。</p>
 <p><code>vector&lt;bool&gt;::reference</code>は<code>bool</code>への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである (<code>noexcept</code>はC++11から、<code>constexpr</code>はC++20から付加される)。</p>
 <p>C++23には<code>vector&lt;bool&gt;::iterator</code>が出力イテレータとなるために、<code>vector&lt;bool&gt;::reference</code>が<code>const</code>修飾を持つ<code>bool</code>からの代入演算子が追加され、<a href="../iterator/indirectly_writable.html"><code>indirectly_writable&lt;vector&lt;bool&gt;::iterator, bool&gt;</code></a>がモデルを満たすようになった。</p>
+<p>C++26では、<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>で見つかる非メンバ<code>swap</code>関数が追加され、<code><a href="../bitset/bitset/reference.html">bitset&lt;N&gt;::reference</a></code>とインタフェースが統一された。これにあわせて、従来の<code>static</code>メンバ関数版の<code>swap</code>は非推奨となった。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;::</span><span class="n">reference</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">vector</span><span class="p">;</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">reference</span><span class="p">();</span><span class="w">                                       </span><span class="c1">// コンストラクタは非公開</span>
@@ -688,6 +689,12 @@
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">reference</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">reference</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// vector&lt;bool&gt;のビットからの代入</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">reference</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// *thisがconst時のboolからの代入（C++23）</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">flip</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">                              </span><span class="c1">// ビットの反転</span>
+
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="n">reference</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2つのビットの交換（C++26）</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="n">reference</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">     </span><span class="c1">// ビットとboolの交換（C++26）</span>
+<span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">bool</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">     </span><span class="c1">// boolとビットの交換（C++26）</span>
+
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="n">reference</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// ビットの交換（C++26から非推奨）</span>
 <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -937,6 +944,10 @@
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html" target="_blank">N4510 Minimal incomplete type support for standard containers, revision 4</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html" target="_blank">P2286R8 Formatting Ranges</a><ul>
 <li>C++23から、Range・コンテナ、<code>pair</code>、<code>tuple</code>のフォーマット出力、および文字・文字列のデバッグ指定 (<code>"?"</code>) が追加された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3612r1.html" target="_blank">P3612R1 Harmonize proxy-reference operations (LWG 3638 and 4187)</a><ul>
+<li>C++26で、<code>vector&lt;bool&gt;::reference</code>に<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>で見つかる非メンバ<code>swap</code>関数が追加され、従来の<code>static</code>メンバ関数版<code>swap</code>が非推奨となった</li>
 </ul>
 </li>
 </ul></div>

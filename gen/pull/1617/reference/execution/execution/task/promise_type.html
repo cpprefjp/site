@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>task::promise_type - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::task::promise_type - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,class,std::execution,task,cpp26
 ">
-        <meta name="title" content="task::promise_type - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="task::promise_type - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="task::promise_type - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::task::promise_type - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::task::promise_type - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::task::promise_type - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/task/promise_type.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="タスクコルーチン動作を制御する[Promise型](/lang/cpp20/coroutines.md)。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="task::promise_type - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::task::promise_type - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/task/promise_type.html" />
         <meta name="twitter:description" content="タスクコルーチン動作を制御する[Promise型](/lang/cpp20/coroutines.md)。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T11:39:24">
-        2026年04月23日 11時39分24秒
+      <span itemprop="datePublished" content="2026-06-06T13:51:43">
+        2026年06月06日 13時51分43秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -248,10 +248,6 @@
 プログラマが本クラスを直接利用することは想定されていない。</p>
 <h2>クラス仕様</h2>
 <p>説明用の<code>prom</code>を<code>promise_type</code>型のオブジェクト、<code>tsk</code>を<code>prom.<a href="promise_type/get_return_object.html">get_return_object()</a></code>で作成される<code><a href="../task.html">task</a></code>型のオブジェクトとする。説明では<a href="../receiver.html">Receiver</a><code>Rcvr</code>に対して、<code>task::<a href="state.html">state&lt;Rcvr&gt;::start</a></code>の評価中に<code>tsk</code>と関連付けられる<code>STATE(prom)</code>, <code>RCVR(prom)</code>, <code>SCHED(prom)</code>を用いる。</p>
-<p><code>task::promise_type</code>クラスの動作説明のため、以下の説明専用メンバを用いる。</p>
-<ul>
-<li><code>alloc</code> : <code><a href="../task.html">allocator_type</a></code>型のアロケータオブジェクト</li>
-</ul>
 <h2>メンバ関数</h2>
 <h3>構築・破棄</h3>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
@@ -263,11 +259,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><code><a href="promise_type/op_constructor.html">(constructor)</a></code></td>
-<td>コンストラクタ</td>
-<td>C++26</td>
-</tr>
 <tr>
 <td><code>(destructor)</code></td>
 <td>デストラクタ</td>
@@ -377,6 +368,7 @@
 <li><a href="https://cplusplus.github.io/LWG/issue4415" target="_blank">LWG4415. <code>task::promise_type::uncaught_exception</code> seems to be misnamed</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4339" target="_blank">LWG4339. <code>task</code>'s coroutine frame may be released late</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4347" target="_blank">LWG4347. <code>task</code>'s stop source is always created</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3980r1.html" target="_blank">P3980R1 Task's Allocator Use</a></li>
 </ul></div>
 
       </div>

@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>stopped_as_error - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::stopped_as_error - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
 ">
-        <meta name="title" content="stopped_as_error - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="stopped_as_error - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="stopped_as_error - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::stopped_as_error - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::stopped_as_error - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::stopped_as_error - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/stopped_as_error.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`stopped_as_error`は、入力[Sender](sender.md)の[停止完了](set_stopped.md)をカスタムエラー型の[エラー完了](set_error.md)にマップするSenderアダプタである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="stopped_as_error - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::stopped_as_error - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/stopped_as_error.html" />
         <meta name="twitter:description" content="`stopped_as_error`は、入力[Sender](sender.md)の[停止完了](set_stopped.md)をカスタムエラー型の[エラー完了](set_error.md)にマップするSenderアダプタである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;56b013479d07c89c7175ae333b0092338a1ab99b&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\n// MySender\u306f\u4e0b\u8a18\u3044\u305a\u308c\u304b\u306e\u5b8c\u4e86\u64cd\u4f5c\u3092\u884c\u3046\n//   \u5024\u5b8c\u4e86   set_value(int)\n//   \u505c\u6b62\u5b8c\u4e86 set_stopped()\nstruct MySender {\n  using sender_concept = ex::sender_t;\n\n  using completion_signatures = ex::completion_signatures&lt;\n    ex::set_value_t(int),\n    ex::set_stopped_t()\n  &gt;;\n  template &lt;typename Self&gt;\n  static consteval auto get_completion_signatures()\n  {\n    return completion_signatures{};\n  }\n\n  template &lt;typename Rcvr&gt;\n  struct state {\n    using operation_state_concept = ex::operation_state_t;\n\n    state(Rcvr rcvr, int val)\n      : rcvr_{std::move(rcvr)}, val_{val} {}\n\n    void start() noexcept {\n      if (0 &lt; val_) {\n        ex::set_value(std::move(rcvr_), val_);\n      } else {\n        ex::set_stopped(std::move(rcvr_));\n      }\n    }\n\n    Rcvr rcvr_;\n    int val_;\n  };\n\n  template &lt;typename Rcvr&gt;\n  auto connect(Rcvr rcvr) noexcept {\n    return state{std::move(rcvr), val_};\n  }\n\n  int val_;\n};\n\nint main()\n{\n  { // \u95a2\u6570\u547c\u3073\u51fa\u3057\n    ex::sender auto snd0 = MySender{-1};\n    ex::sender auto snd1 = ex::stopped_as_error(snd0, MyStoppedError{});\n    try {\n      auto [result] = std::this_thread::sync_wait(snd1).value();\n      std::println(\&#34;(int) {}\&#34;, result);\n    } catch (MyStoppedError) {\n      std::println(\&#34;stopped\&#34;);\n    }\n  }\n\n  { // \u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u8a18\u6cd5\n    ex::sender auto sndr =\n      MySender{-1}\n      | ex::stopped_as_error(MyStoppedError{});\n    try {\n      auto [result] = std::this_thread::sync_wait(sndr).value();\n      std::println(\&#34;(int) {}\&#34;, result);\n    } catch (MyStoppedError) {\n      std::println(\&#34;stopped\&#34;);\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;stopped_as_error&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c2a2d61b1c8080c1c57d2c7f2b7a6d4f8418d91f&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\n// MySender\u306f\u4e0b\u8a18\u3044\u305a\u308c\u304b\u306e\u5b8c\u4e86\u64cd\u4f5c\u3092\u884c\u3046\n//   \u5024\u5b8c\u4e86   set_value(int)\n//   \u505c\u6b62\u5b8c\u4e86 set_stopped()\nstruct MySender {\n  using sender_concept = ex::sender_tag;\n\n  using completion_signatures = ex::completion_signatures&lt;\n    ex::set_value_t(int),\n    ex::set_stopped_t()\n  &gt;;\n  template &lt;typename Self&gt;\n  static consteval auto get_completion_signatures()\n  {\n    return completion_signatures{};\n  }\n\n  template &lt;typename Rcvr&gt;\n  struct state {\n    using operation_state_concept = ex::operation_state_tag;\n\n    state(Rcvr rcvr, int val)\n      : rcvr_{std::move(rcvr)}, val_{val} {}\n\n    void start() noexcept {\n      if (0 &lt; val_) {\n        ex::set_value(std::move(rcvr_), val_);\n      } else {\n        ex::set_stopped(std::move(rcvr_));\n      }\n    }\n\n    Rcvr rcvr_;\n    int val_;\n  };\n\n  template &lt;typename Rcvr&gt;\n  auto connect(Rcvr rcvr) noexcept {\n    return state{std::move(rcvr), val_};\n  }\n\n  int val_;\n};\n\nint main()\n{\n  { // \u95a2\u6570\u547c\u3073\u51fa\u3057\n    ex::sender auto snd0 = MySender{-1};\n    ex::sender auto snd1 = ex::stopped_as_error(snd0, MyStoppedError{});\n    try {\n      auto [result] = std::this_thread::sync_wait(snd1).value();\n      std::println(\&#34;(int) {}\&#34;, result);\n    } catch (MyStoppedError) {\n      std::println(\&#34;stopped\&#34;);\n    }\n  }\n\n  { // \u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u8a18\u6cd5\n    ex::sender auto sndr =\n      MySender{-1}\n      | ex::stopped_as_error(MyStoppedError{});\n    try {\n      auto [result] = std::this_thread::sync_wait(sndr).value();\n      std::println(\&#34;(int) {}\&#34;, result);\n    } catch (MyStoppedError) {\n      std::println(\&#34;stopped\&#34;);\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;stopped_as_error&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-24T16:54:17">
-        2025年08月24日 16時54分17秒
+      <span itemprop="datePublished" content="2026-06-08T01:13:52">
+        2026年06月08日 01時13分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -236,13 +236,13 @@
 <p><code>stopped_as_error</code>は<a href="sender_adaptor_closure.html">パイプ可能Senderアダプタオブジェクト</a>であり、パイプライン記法をサポートする。</p>
 <h2>効果</h2>
 <p>説明用の式<code>sndr</code>と<code>err</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>、型<code>Err</code>を<code>decltype((err))</code>とする。<code>Sndr</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは<code>Err</code>が<code><a href="../movable-value.html">movable-value</a></code>を満たさないとき、呼び出し式<code>stopped_as_error(sndr, err)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、呼び出し式<code>stopped_as_error(sndr, err)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">stopped_as_error</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">))</span>
+<p>そうでなければ、呼び出し式<code>stopped_as_error(sndr, err)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">stopped_as_error</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">)</span>
 </code></pre></div>
 </p>
 <h3>Senderアルゴリズムタグ <code>stopped_as_error</code></h3>
-<p>説明用の式<code>sndr</code>と<code>env</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>、型<code>Env</code>を<code>decltype((env))</code>とする。<code><a href="sender-for.html">sender-for</a>&lt;Sndr, stopped_as_error_t&gt; == false</code>のとき、式<code>stopped_as_error.transform_sender(sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、式<code>stopped_as_error.transform_sender(sndr, env)</code>は下記と等価。</p>
+<p>説明用の式<code>sndr</code>と<code>env</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>、型<code>Env</code>を<code>decltype((env))</code>とする。<code><a href="sender-for.html">sender-for</a>&lt;Sndr, stopped_as_error_t&gt; == false</code>のとき、式<code>stopped_as_error.transform_sender(<a href="set_value.html">set_value</a>, sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、式<code>stopped_as_error.transform_sender(<a href="set_value.html">set_value</a>, sndr, env)</code>は下記と等価。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">(</span><span class="n">err</span><span class="p">));</span>
 <span class="k">return</span><span class="w"> </span><span class="n"><a href="let_stopped.html">let_stopped</a></span><span class="p">(</span>
@@ -253,12 +253,10 @@
 </code></pre></div>
 </p>
 <h2>カスタマイゼーションポイント</h2>
-<p>Senderアルゴリズム構築時に、<a href="sender.html">Sender</a><code>sndr</code>に<a href="get-domain-early.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
-<a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
-<p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、<a href="get-domain-late.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
-<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>stopped_as_error.transform_sender(sndr, env)</code>が呼ばれ、前述仕様通りのSenderへと変換される。</p>
+<p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>stopped_as_error.transform_sender(<a href="set_value.html">set_value</a>, sndr, env)</code>が呼ばれ、前述仕様通りのSenderへと変換される。</p>
 <h2>例</h2>
-<p><div class="yata" id="56b013479d07c89c7175ae333b0092338a1ab99b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
+<p><div class="yata" id="c2a2d61b1c8080c1c57d2c7f2b7a6d4f8418d91f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../cassert.html">&lt;cassert&gt;</a></span>
 <span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
@@ -266,7 +264,7 @@
 <span class="c1">//   値完了   set_value(int)</span>
 <span class="c1">//   停止完了 set_stopped()</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">MySender</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sender_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sender_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="sender.html">ex::sender_tag</a></span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">completion_signatures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
 <span class="w">    </span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
@@ -280,7 +278,7 @@
 
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">state</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="operation_state.html">ex::operation_state_t</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="operation_state.html">ex::operation_state_tag</a></span><span class="p">;</span>
 
 <span class="w">    </span><span class="n">state</span><span class="p">(</span><span class="n">Rcvr</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
 <span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">rcvr_</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)},</span><span class="w"> </span><span class="n">val_</span><span class="p">{</span><span class="n">val</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
@@ -354,8 +352,8 @@ stopped
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

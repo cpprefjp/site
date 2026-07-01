@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token"><code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義 [P0515R3]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++20に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>新しく三方比較演算子<code>&lt;=&gt;</code>が導入されることにより、順序付けと同値比較の6つの関係演算子（<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code>）を容易に実装することができるようになる。</p>
 <p><div class="yata" id="a0566d908445668a1af8c1a83fec724865fd892a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/compare.html">&lt;compare&gt;</a>  </span><span class="c1">//&lt;=&gt;利用の場合必須</span>
@@ -295,26 +297,26 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">比較カテゴリ型</th>
-<th align="center">対応する数学的な関係</th>
-<th align="center">導出される演算子</th>
+<th style="text-align: left;">比較カテゴリ型</th>
+<th style="text-align: center;">対応する数学的な関係</th>
+<th style="text-align: center;">導出される演算子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code><a href="../../reference/compare/partial_ordering.html">partial_ordering</a></code></td>
-<td align="center">半順序</td>
-<td align="center"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
+<td style="text-align: left;"><code><a href="../../reference/compare/partial_ordering.html">partial_ordering</a></code></td>
+<td style="text-align: center;">半順序</td>
+<td style="text-align: center;"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
 </tr>
 <tr>
-<td align="left"><code><a href="../../reference/compare/weak_ordering.html">weak_ordering</a></code></td>
-<td align="center">弱順序</td>
-<td align="center"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
+<td style="text-align: left;"><code><a href="../../reference/compare/weak_ordering.html">weak_ordering</a></code></td>
+<td style="text-align: center;">弱順序</td>
+<td style="text-align: center;"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
 </tr>
 <tr>
-<td align="left"><code><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></code></td>
-<td align="center">全順序</td>
-<td align="center"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
+<td style="text-align: left;"><code><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></code></td>
+<td style="text-align: center;">全順序</td>
+<td style="text-align: center;"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
 </tr>
 </tbody>
 </table>
@@ -460,38 +462,38 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="center">呼び出す演算子 <code>a @ b</code></th>
-<th align="center"><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補</th>
+<th style="text-align: center;">呼び出す演算子 <code>a @ b</code></th>
+<th style="text-align: center;"><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>a &lt;=&gt; b</code></td>
-<td align="center"><code>a &lt;=&gt; b</code> <br /> <code>0 &lt;=&gt; (b &lt;=&gt; a)</code></td>
+<td style="text-align: center;"><code>a &lt;=&gt; b</code></td>
+<td style="text-align: center;"><code>a &lt;=&gt; b</code> <br /> <code>0 &lt;=&gt; (b &lt;=&gt; a)</code></td>
 </tr>
 <tr>
-<td align="center"><code>a == b</code></td>
-<td align="center"><code>a == b</code><br /><code>(b == a)</code></td>
+<td style="text-align: center;"><code>a == b</code></td>
+<td style="text-align: center;"><code>a == b</code><br /><code>(b == a)</code></td>
 </tr>
 <tr>
-<td align="center"><code>a != b</code></td>
-<td align="center"><code>a != b</code><br /><code>!(a == b)</code><br /> <code>!(b == a)</code></td>
+<td style="text-align: center;"><code>a != b</code></td>
+<td style="text-align: center;"><code>a != b</code><br /><code>!(a == b)</code><br /> <code>!(b == a)</code></td>
 </tr>
 <tr>
-<td align="center"><code>a &lt; b</code></td>
-<td align="center"><code>a &lt; b</code><br /><code>(a &lt;=&gt; b) &lt; 0</code><br /><code>0 &lt; (b &lt;=&gt; a)</code></td>
+<td style="text-align: center;"><code>a &lt; b</code></td>
+<td style="text-align: center;"><code>a &lt; b</code><br /><code>(a &lt;=&gt; b) &lt; 0</code><br /><code>0 &lt; (b &lt;=&gt; a)</code></td>
 </tr>
 <tr>
-<td align="center"><code>a &lt;= b</code></td>
-<td align="center"><code>a &lt;= b</code><br /><code>(a &lt;=&gt; b) &lt;= 0</code><br /><code>0 &lt;= (b &lt;=&gt; a)</code></td>
+<td style="text-align: center;"><code>a &lt;= b</code></td>
+<td style="text-align: center;"><code>a &lt;= b</code><br /><code>(a &lt;=&gt; b) &lt;= 0</code><br /><code>0 &lt;= (b &lt;=&gt; a)</code></td>
 </tr>
 <tr>
-<td align="center"><code>a &gt; b</code></td>
-<td align="center"><code>a &gt; b</code><br /><code>(a &lt;=&gt; b) &gt; 0</code><br /><code>0 &gt; (b &lt;=&gt; a)</code></td>
+<td style="text-align: center;"><code>a &gt; b</code></td>
+<td style="text-align: center;"><code>a &gt; b</code><br /><code>(a &lt;=&gt; b) &gt; 0</code><br /><code>0 &gt; (b &lt;=&gt; a)</code></td>
 </tr>
 <tr>
-<td align="center"><code>a &gt;= b</code></td>
-<td align="center"><code>a &gt;= b</code><br /><code>(a &lt;=&gt; b) &gt;= 0</code><br /><code>0 &gt;= (b &lt;=&gt; a)</code></td>
+<td style="text-align: center;"><code>a &gt;= b</code></td>
+<td style="text-align: center;"><code>a &gt;= b</code><br /><code>(a &lt;=&gt; b) &gt;= 0</code><br /><code>0 &gt;= (b &lt;=&gt; a)</code></td>
 </tr>
 </tbody>
 </table>
@@ -647,30 +649,30 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">条件</th>
-<th align="left">合成された<code>&lt;=&gt;</code>の式</th>
+<th style="text-align: left;">条件</th>
+<th style="text-align: left;">合成された<code>&lt;=&gt;</code>の式</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>a &lt;=&gt; b</code>が使用可能</td>
-<td align="left"><code>static_cast&lt;R&gt;(a &lt;=&gt; b);</code></td>
+<td style="text-align: left;"><code>a &lt;=&gt; b</code>が使用可能</td>
+<td style="text-align: left;"><code>static_cast&lt;R&gt;(a &lt;=&gt; b);</code></td>
 </tr>
 <tr>
-<td align="left"><code>R</code>は<code>std::strong_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
-<td align="left"><code>a == b ? std::strong_ordering::equal :</code><br /><code>a &lt; b  ? std::strong_ordering::less :</code><br /><code>std::strong_ordering::greater;</code></td>
+<td style="text-align: left;"><code>R</code>は<code>std::strong_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
+<td style="text-align: left;"><code>a == b ? std::strong_ordering::equal :</code><br /><code>a &lt; b  ? std::strong_ordering::less :</code><br /><code>std::strong_ordering::greater;</code></td>
 </tr>
 <tr>
-<td align="left"><code>R</code>は<code>std::weak_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
-<td align="left"><code>a == b ? std::weak_ordering::equivalent :</code><br /><code>a &lt; b  ? std::weak_ordering::less :</code><br /><code>std::weak_ordering::greater;</code></td>
+<td style="text-align: left;"><code>R</code>は<code>std::weak_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
+<td style="text-align: left;"><code>a == b ? std::weak_ordering::equivalent :</code><br /><code>a &lt; b  ? std::weak_ordering::less :</code><br /><code>std::weak_ordering::greater;</code></td>
 </tr>
 <tr>
-<td align="left"><code>R</code>は<code>std::partial_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
-<td align="left"><code>a == b ? std::partial_ordering::equivalent :</code><br /><code>a &lt; b  ? std::partial_ordering::less :</code><br /><code>b &lt; a  ? std::partial_ordering::greater;</code><br /><code>std::partial_ordering::unordered</code></td>
+<td style="text-align: left;"><code>R</code>は<code>std::partial_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
+<td style="text-align: left;"><code>a == b ? std::partial_ordering::equivalent :</code><br /><code>a &lt; b  ? std::partial_ordering::less :</code><br /><code>b &lt; a  ? std::partial_ordering::greater;</code><br /><code>std::partial_ordering::unordered</code></td>
 </tr>
 <tr>
-<td align="left">どれにも当てはまらない</td>
-<td align="left">定義されない</td>
+<td style="text-align: left;">どれにも当てはまらない</td>
+<td style="text-align: left;">定義されない</td>
 </tr>
 </tbody>
 </table>
@@ -732,36 +734,36 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">型</th>
-<th align="center">カテゴリ</th>
-<th align="left">備考</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: center;">カテゴリ</th>
+<th style="text-align: left;">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>bool</code></td>
-<td align="center"><code>std::strong_ordering</code></td>
-<td align="left"><code>bool</code>同士でしか比較不可</td>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: center;"><code>std::strong_ordering</code></td>
+<td style="text-align: left;"><code>bool</code>同士でしか比較不可</td>
 </tr>
 <tr>
-<td align="left"><code><a href="../../reference/type_traits/is_integral.html">整数型</a></code></td>
-<td align="center"><code>std::strong_ordering</code></td>
-<td align="left">縮小変換が行われる場合は比較不可</td>
+<td style="text-align: left;"><code><a href="../../reference/type_traits/is_integral.html">整数型</a></code></td>
+<td style="text-align: center;"><code>std::strong_ordering</code></td>
+<td style="text-align: left;">縮小変換が行われる場合は比較不可</td>
 </tr>
 <tr>
-<td align="left"><code><a href="../../reference/type_traits/is_floating_point.html">浮動小数点型</a></code></td>
-<td align="center"><code>std::partial_ordering</code></td>
-<td align="left">縮小変換が行われる場合は比較不可<br /><code>NaN</code>や<code>±0.0</code>の存在のため半順序</td>
+<td style="text-align: left;"><code><a href="../../reference/type_traits/is_floating_point.html">浮動小数点型</a></code></td>
+<td style="text-align: center;"><code>std::partial_ordering</code></td>
+<td style="text-align: left;">縮小変換が行われる場合は比較不可<br /><code>NaN</code>や<code>±0.0</code>の存在のため半順序</td>
 </tr>
 <tr>
-<td align="left">オブジェクトポインタ</td>
-<td align="center"><code>std::strong_ordering</code></td>
-<td align="left">あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可<br />配列と配列は比較不可<br />どちらかの引数が整数型やヌルポインタ定数である場合も比較不可</td>
+<td style="text-align: left;">オブジェクトポインタ</td>
+<td style="text-align: center;"><code>std::strong_ordering</code></td>
+<td style="text-align: left;">あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可<br />配列と配列は比較不可<br />どちらかの引数が整数型やヌルポインタ定数である場合も比較不可</td>
 </tr>
 <tr>
-<td align="left">列挙型</td>
-<td align="center"><code>std::strong_ordering</code></td>
-<td align="left">スコープ有無に関わらず同じ列挙型同士でしか比較不可</td>
+<td style="text-align: left;">列挙型</td>
+<td style="text-align: center;"><code>std::strong_ordering</code></td>
+<td style="text-align: left;">スコープ有無に関わらず同じ列挙型同士でしか比較不可</td>
 </tr>
 </tbody>
 </table>
@@ -772,42 +774,42 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">比較するペア</th>
-<th align="left"><code>&lt;=&gt;</code>での比較の可否</th>
-<th align="left">C++17までの従来演算子での比較の可否</th>
-<th align="left">C++20からの非推奨化</th>
+<th style="text-align: left;">比較するペア</th>
+<th style="text-align: left;"><code>&lt;=&gt;</code>での比較の可否</th>
+<th style="text-align: left;">C++17までの従来演算子での比較の可否</th>
+<th style="text-align: left;">C++20からの非推奨化</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">符号なし整数型と符号付整数型</td>
-<td align="left">×<br />ただし定数式で符号付きオペランドが正の値に評価されれば可能</td>
-<td align="left">〇</td>
-<td align="left">―</td>
+<td style="text-align: left;">符号なし整数型と符号付整数型</td>
+<td style="text-align: left;">×<br />ただし定数式で符号付きオペランドが正の値に評価されれば可能</td>
+<td style="text-align: left;">〇</td>
+<td style="text-align: left;">―</td>
 </tr>
 <tr>
-<td align="left">列挙型と算術型</td>
-<td align="left">△<br />スコープ無し列挙型と整数型のみ可能</td>
-<td align="left">〇<br />例えば、列挙型と浮動小数点型の比較が可能</td>
-<td align="left">列挙型と浮動小数点型の比較のみ非推奨</td>
+<td style="text-align: left;">列挙型と算術型</td>
+<td style="text-align: left;">△<br />スコープ無し列挙型と整数型のみ可能</td>
+<td style="text-align: left;">〇<br />例えば、列挙型と浮動小数点型の比較が可能</td>
+<td style="text-align: left;">列挙型と浮動小数点型の比較のみ非推奨</td>
 </tr>
 <tr>
-<td align="left">異なる列挙型間</td>
-<td align="left">×</td>
-<td align="left">〇</td>
-<td align="left">非推奨</td>
+<td style="text-align: left;">異なる列挙型間</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">〇</td>
+<td style="text-align: left;">非推奨</td>
 </tr>
 <tr>
-<td align="left">配列同士</td>
-<td align="left">×</td>
-<td align="left">△<br />先頭要素へのポインタの比較になる</td>
-<td align="left">非推奨</td>
+<td style="text-align: left;">配列同士</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">△<br />先頭要素へのポインタの比較になる</td>
+<td style="text-align: left;">非推奨</td>
 </tr>
 <tr>
-<td align="left">ヌルポインタ定数とポインタ</td>
-<td align="left">×</td>
-<td align="left">△<br />同値比較のみ可能</td>
-<td align="left">―</td>
+<td style="text-align: left;">ヌルポインタ定数とポインタ</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">△<br />同値比較のみ可能</td>
+<td style="text-align: left;">―</td>
 </tr>
 </tbody>
 </table>
@@ -974,18 +976,18 @@ true
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="center">呼び出す演算子 <code>a @ b</code></th>
-<th align="center"><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補</th>
+<th style="text-align: center;">呼び出す演算子 <code>a @ b</code></th>
+<th style="text-align: center;"><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>a == b</code></td>
-<td align="center"><code>a == b</code><br /><code>(a &lt;=&gt; b) == 0</code><br /><code>0 == (b &lt;=&gt; a)</code></td>
+<td style="text-align: center;"><code>a == b</code></td>
+<td style="text-align: center;"><code>a == b</code><br /><code>(a &lt;=&gt; b) == 0</code><br /><code>0 == (b &lt;=&gt; a)</code></td>
 </tr>
 <tr>
-<td align="center"><code>a != b</code></td>
-<td align="center"><code>a != b</code><br /><code>(a &lt;=&gt; b) != 0</code><br /><code>0 != (b &lt;=&gt; a)</code></td>
+<td style="text-align: center;"><code>a != b</code></td>
+<td style="text-align: center;"><code>a != b</code><br /><code>(a &lt;=&gt; b) != 0</code><br /><code>0 != (b &lt;=&gt; a)</code></td>
 </tr>
 </tbody>
 </table>
@@ -1034,21 +1036,21 @@ true
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">比較カテゴリ型</th>
-<th align="center">対応する数学的な関係</th>
-<th align="center">導出される演算子</th>
+<th style="text-align: left;">比較カテゴリ型</th>
+<th style="text-align: center;">対応する数学的な関係</th>
+<th style="text-align: center;">導出される演算子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>weak_equality</code></td>
-<td align="center">同値関係</td>
-<td align="center"><code>== !=</code></td>
+<td style="text-align: left;"><code>weak_equality</code></td>
+<td style="text-align: center;">同値関係</td>
+<td style="text-align: center;"><code>== !=</code></td>
 </tr>
 <tr>
-<td align="left"><code>strong_equality</code></td>
-<td align="center">相等関係：最も細かい同値関係</td>
-<td align="center"><code>== !=</code></td>
+<td style="text-align: left;"><code>strong_equality</code></td>
+<td style="text-align: center;">相等関係：最も細かい同値関係</td>
+<td style="text-align: center;"><code>== !=</code></td>
 </tr>
 </tbody>
 </table>
@@ -1057,21 +1059,21 @@ true
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="left">型</th>
-<th align="center">カテゴリ</th>
-<th align="left">備考</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: center;">カテゴリ</th>
+<th style="text-align: left;">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">関数/メンバポインタ</td>
-<td align="center"><code>std::strong_equality</code></td>
-<td align="left">あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可</td>
+<td style="text-align: left;">関数/メンバポインタ</td>
+<td style="text-align: center;"><code>std::strong_equality</code></td>
+<td style="text-align: left;">あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可</td>
 </tr>
 <tr>
-<td align="left"><code><a href="../../reference/cstddef/nullptr_t.html">std::nullptr_t</a></code></td>
-<td align="center"><code>std::strong_equality</code></td>
-<td align="left"></td>
+<td style="text-align: left;"><code><a href="../../reference/cstddef/nullptr_t.html">std::nullptr_t</a></code></td>
+<td style="text-align: center;"><code>std::strong_equality</code></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>

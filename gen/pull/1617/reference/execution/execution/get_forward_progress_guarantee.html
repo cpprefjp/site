@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>get_forward_progress_guarantee - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::get_forward_progress_guarantee - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
 ">
-        <meta name="title" content="get_forward_progress_guarantee - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="get_forward_progress_guarantee - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="get_forward_progress_guarantee - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::get_forward_progress_guarantee - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::get_forward_progress_guarantee - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::get_forward_progress_guarantee - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/get_forward_progress_guarantee.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`get_forward_progress_guarantee_t`は、[Scheduler](scheduler.md)に関連付けられた実行リソースによる実行エージェントの前方進行保証を取得する[クエリオブジェクト](../queryable.md)である。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="get_forward_progress_guarantee - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::get_forward_progress_guarantee - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/get_forward_progress_guarantee.html" />
         <meta name="twitter:description" content="`get_forward_progress_guarantee_t`は、[Scheduler](scheduler.md)に関連付けられた実行リソースによる実行エージェントの前方進行保証を取得する[クエリオブジェクト](../queryable.md)である。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T11:51:40">
-        2026年04月23日 11時51分40秒
+      <span itemprop="datePublished" content="2026-06-06T13:00:57">
+        2026年06月06日 13時00分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -235,10 +235,14 @@
 <p><code>get_forward_progress_guarantee_t</code>は、<a href="scheduler.html">Scheduler</a>に関連付けられた実行リソースによる実行エージェントの前方進行保証を取得する<a href="../queryable.html">クエリオブジェクト</a>である。</p>
 <h2>効果</h2>
 <p>説明用の変数<code>sch</code>に対して、型<code>Sch</code>を<code>decltype((sch))</code>とする。<code>Sch</code>が<code><a href="scheduler.html">scheduler</a></code>を満たさないとき、<code>get_forward_progress_guarantee</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、呼び出し式<code>get_forward_progress_guarantee(sch)</code>は下記と等価であり、<code><a href="forward_progress_guarantee.html">forward_progress_guarantee</a></code>列挙型の値となる。</p>
-<ul>
-<li>引数<code>sch</code>がconst修飾された<code>csch</code>を用いて、式<code>cenv.query(get_forward_progress_guarantee)</code></li>
-</ul>
+<p>そうでなければ、呼び出し式<code>get_forward_progress_guarantee(sch)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="MANDATE-NOTHROW.html">MANDATE-NOTHROW</a></span><span class="p">(</span><span class="n"><a href="AS-CONST.html">AS-CONST</a></span><span class="p">(</span><span class="n">sch</span><span class="p">).</span><span class="n">query</span><span class="p">(</span><span class="n">get_forward_progress_guarantee</span><span class="p">))</span>
+</code></pre></div>
+</p>
+<p>上記の式の型は、<code><a href="forward_progress_guarantee.html">forward_progress_guarantee</a></code>であること。</p>
+<p>ある<a href="scheduler.html">Scheduler</a><code>sch</code>に対して、式<code>get_forward_progress_guarantee(sch)</code>が<code><a href="forward_progress_guarantee.html">forward_progress_guarantee::concurrent</a></code>を返すとき、そのScheudlerに関連付けられた実行リソースにより作成される全ての実行エージェントは、並行前方進行保証(concurrent forward progress guarantee)を提供する必要がある。
+<code><a href="forward_progress_guarantee.html">forward_progress_guarantee::parallel</a></code>を返す場合は、全ての実行エージェントは少なくとも並列前方進行保証
+(parallel forward progress guarantee)を提供する必要がある。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>カスタマイゼーションポイント</h2>

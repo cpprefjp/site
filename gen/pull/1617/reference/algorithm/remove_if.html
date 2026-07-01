@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>remove_if - cpprefjp C++日本語リファレンス</title>
+        <title>std::remove_if - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std,function template
 ">
-        <meta name="title" content="remove_if - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="remove_if - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="remove_if - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::remove_if - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::remove_if - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::remove_if - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/remove_if.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="イテレータ範囲`[first, last)`から条件を満たす要素を除ける。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="remove_if - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::remove_if - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/remove_if.html" />
         <meta name="twitter:description" content="イテレータ範囲`[first, last)`から条件を満たす要素を除ける。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -273,7 +273,7 @@
 <span class="w">  </span><span class="c1">// [<a href="../vector/vector/begin.html">v.begin()</a>,<span style="color:#ff0000">result</span>) の範囲に奇数を除去した結果が入っているので、</span>
 <span class="w">  </span><span class="c1">// [<span style="color:#ff0000">result</span>,<a href="../vector/vector/end.html">v.end()</a>) を erase することでサイズも変更することができる</span>
 <span class="w">  </span><span class="c1">// （<a href="https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove)" target="_blank">Erase-remove イディオム</a>）</span>
-<span class="w">  </span><span class="n"><span style="color:#ff0000">v.erase</span></span><span class="p">(</span><span class="n"><span style="color:#ff0000">result</span></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../vector/vector/erase.html"><span style="color:#ff0000">v.erase</span></a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">result</span></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
 <span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"size after: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../vector/vector/size.html">v.size()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>

@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>task::state - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::task::state - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,,execution,class template,std::execution,task,cpp26
 ">
-        <meta name="title" content="task::state - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="task::state - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="task::state - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::task::state - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::task::state - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::task::state - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/task/state.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`task&lt;T,E&gt;::state`は、[タスクコルーチン](../task.md)動作の説明専用クラステンプレートである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="task::state - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::task::state - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/task/state.html" />
         <meta name="twitter:description" content="`task&lt;T,E&gt;::state`は、[タスクコルーチン](../task.md)動作の説明専用クラステンプレートである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T11:39:24">
-        2026年04月23日 11時39分24秒
+      <span itemprop="datePublished" content="2026-06-09T07:03:31">
+        2026年06月09日 07時03分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -242,7 +242,7 @@
 <span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../receiver.html">receiver</a></span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc"><a href="../task.html">task</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Environment</span><span class="o">&gt;::</span><span class="n">state</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../operation_state.html">operation_state_t</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../operation_state.html">operation_state_tag</a></span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="n">state</span><span class="p">(</span><span class="n"><a href="../../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n"><a href="promise_type.html">promise_type</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rr</span><span class="p">);</span>
@@ -303,7 +303,7 @@
 <ul>
 <li><code>STATE(prom)</code> : <code>*this</code></li>
 <li><code>RCVR(prom)</code> : <code>rcvr</code></li>
-<li><code>SCHED(prom)</code> : 式が有効ならば<code><a href="../task.html">scheduler_type</a>(<a href="../get_scheduler.html">get_scheduler</a>(<a href="../get_env.html">get_env</a>(rcvr)))</code>で初期化したオブジェクト、そうでなれば<code>scheduler_type()</code>。いずれの式も<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../../implementation-compliance.html#dfn-well-formed">適格</a>でなければ、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+<li><code>SCHED(prom)</code> : 式が有効ならば<code><a href="../task.html">start_scheduler_type</a>(<a href="../get_start_scheduler.html">get_start_scheduler</a>(<a href="../get_env.html">get_env</a>(rcvr)))</code>で初期化したオブジェクト、そうでなれば<code>start_scheduler_type()</code>。いずれの式も<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../../implementation-compliance.html#dfn-well-formed">適格</a>でなければ、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
 </ul>
 <p>その後、<code>handle.<a href="../../../coroutine/coroutine_handle/resume.html">resume()</a></code>を呼び出す。</p>
 </li>
@@ -313,7 +313,7 @@
 </p>
 <ul>
 <li>
-<p>効果 : <code><a href="../../../concepts/same_as.html">same_as</a>&lt;decltype(declval&lt;<a href="../task.html">stop_source_type</a>&gt;().get_token()), decltype(<a href="../../get_stop_token.html">get_stop_token</a>(get_env(rcvr)))&gt;</code>が<code>true</code>のとき、<code>get_stop_token(get_env(rcvr))</code>を返す。そうではなく、<code>source.<a href="../../../optional/optional/has_value.html">has_value()</a></code>が<code>false</code>のとき、下記の値で<code>source</code>を初期化する。</p>
+<p>効果 : <code><a href="../../../concepts/same_as.html">same_as</a>&lt;decltype(declval&lt;<a href="../task.html">stop_source_type</a>&gt;().get_token()), decltype(<a href="../../get_stop_token.html">get_stop_token</a>(<a href="../get_env.html">get_env</a>(rcvr)))&gt;</code>が<code>true</code>のとき、<code>get_stop_token(get_env(rcvr))</code>を返す。そうではなく、<code>source.<a href="../../../optional/optional/has_value.html">has_value()</a></code>が<code>false</code>のとき、下記の値で<code>source</code>を初期化する。</p>
 <ul>
 <li><code>source-&gt;stop_requested()</code>は<code>get_stop_token(get_env(rcvr))-&gt;stop_requested()</code>を返し、かつ</li>
 <li><code>source-&gt;stop_possible()</code>は<code>get_stop_token(get_env(rcvr))-&gt;stop_possible()</code>を返す。</li>
@@ -335,6 +335,7 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4339" target="_blank">LWG4339. <code>task</code>'s coroutine frame may be released late</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4347" target="_blank">LWG4347. <code>task</code>'s stop source is always created</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
 </ul></div>
 
       </div>

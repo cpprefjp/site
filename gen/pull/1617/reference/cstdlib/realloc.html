@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>realloc - cpprefjp C++日本語リファレンス</title>
+        <title>std::realloc - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdlib,std,function
 ">
-        <meta name="title" content="realloc - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="realloc - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="realloc - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::realloc - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::realloc - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::realloc - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdlib/realloc.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="確保済みの領域`ptr`を`new_size`に再確保する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="realloc - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::realloc - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdlib/realloc.html" />
         <meta name="twitter:description" content="確保済みの領域`ptr`を`new_size`に再確保する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:11:33">
-        2025年07月08日 15時11分33秒
+      <span itemprop="datePublished" content="2026-06-15T05:22:22">
+        2026年06月15日 05時22分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,7 +239,11 @@
 <p>失敗した場合、<code>nullptr</code>を返す。もとのポインタは有効なままで、解放する必要がある。</p>
 <h2>備考</h2>
 <ul>
-<li><code>new_size</code>が0の場合の動作は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</li>
+<li><code>new_size</code>が0の場合の動作は以下となる。<ul>
+<li>C++23まで : <a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a></li>
+<li>C++26 : <a href="../../lang/cpp26/erroneous_behavior_for_uninitialized_reads.html">エラー性動作 (erroneous behavior)</a>となる。その効果は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>であり、POSIXの動作も許容される</li>
+</ul>
+</li>
 <li>確保された領域はメモリリークを避けるため、<code>free</code>、<code>realloc</code>で解放する必要がある。</li>
 </ul>
 <h2>例</h2>
@@ -276,6 +280,13 @@
 <li><code><a href="calloc.html">calloc</a></code>: メモリを確保する</li>
 <li><code><a href="malloc.html">malloc</a></code>: メモリを確保し、領域をゼロ初期化する</li>
 <li><code><a href="free.html">free</a></code>: 確保したメモリを解放する</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf" target="_blank">P3348R4 C++26 should refer to C23 not C17</a><ul>
+<li>C++26がC23を参照するようになり、<code>new_size</code>が0の場合が<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>となった</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

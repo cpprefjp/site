@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>when_all - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::when_all - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
 ">
-        <meta name="title" content="when_all - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="when_all - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="when_all - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::when_all - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::when_all - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::when_all - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/when_all.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`when_all`は、複数の入力[Sender](sender.md)が全て完了するまで待機するSenderアダプタである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="when_all - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::when_all - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/when_all.html" />
         <meta name="twitter:description" content="`when_all`は、複数の入力[Sender](sender.md)が全て完了するまで待機するSenderアダプタである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-20T10:25:40">
-        2026年01月20日 10時25分40秒
+      <span itemprop="datePublished" content="2026-06-08T01:13:52">
+        2026年06月08日 01時13分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -241,14 +241,14 @@
 <li>いずれかが停止完了のとき、停止完了操作を行う。このとき停止要求が作成される。</li>
 </ul>
 <h2>効果</h2>
-<p>説明用のパック<code>sndrs</code>に対してパック<code>Sndrs</code>を<code>decltype((sndrs))...</code>としたとき、型<code>CD</code>を<code><a href="../../type_traits/common_type.html">common_type_t</a>&lt;decltype(<a href="get-domain-early.html">get-domain-early</a>(sndrs))...&gt;</code>とする。型<code>CD</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば型<code>CD2</code>を<code>CD</code>とし、そうでなければ<code><a href="default_domain.html">default_domain</a></code>とする。</p>
+<p>説明用のパック<code>sndrs</code>に対してパック<code>Sndrs</code>を<code>decltype((sndrs))...</code>とする。</p>
 <p>下記いずれかが<code>true</code>となるとき、呼び出し式<code>when_all(sndrs...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <ul>
 <li><code>sizeof...(sndrs) == 0</code>、または</li>
 <li><code>(<a href="sender.html">sender</a>&lt;Sndrs&gt; &amp;&amp; ...) == false</code></li>
 </ul>
 <p>そうでなければ、呼び出し式<code>when_all(sndrs...)</code>は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n">CD2</span><span class="p">(),</span><span class="w"> </span><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">when_all</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="n">sndrs</span><span class="p">...))</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">when_all</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="n">sndrs</span><span class="p">...)</span>
 </code></pre></div>
 </p>
 <h3>Senderアルゴリズムタグ <code>when_all</code></h3>
@@ -256,7 +256,6 @@
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;&gt;</span>
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">when_all_t</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="impls-for.html">default-impls</a></span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">attrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
@@ -265,16 +264,6 @@
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">consteval</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="p">();</span>
 <span class="w">  </span><span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-</p>
-<p><code>impls-for&lt;when_all_t&gt;::get-attrs</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">child</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">CD</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="default_domain.html">default_domain</a></span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="env.html">env&lt;&gt;</a></span><span class="p">();</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../queryable.html">MAKE-ENV</a></span><span class="p">(</span><span class="n"><a href="get_domain.html">get_domain</a></span><span class="p">,</span><span class="w"> </span><span class="n">CD</span><span class="p">());</span>
-<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -357,7 +346,6 @@
 <span class="p">(</span><span class="n">fn</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="k">operator</span><span class="p">()</span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Is</span><span class="o">&gt;&gt;</span><span class="p">(),</span><span class="w"> </span><span class="p">...);</span>
 </code></pre></div>
 </p>
-<p>型<code>CD</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>な場合、<code><a href="unspecified-exception.html">unspecified-exception</a></code>型の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>説明専用エンティティ</h2>
 <h3>関数テンプレート<code>make-when-all-env</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Env</span><span class="o">&gt;</span>
@@ -458,7 +446,7 @@
 </li>
 </ul>
 <h2>カスタマイゼーションポイント</h2>
-<p>Senderアルゴリズム構築時および<a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<p><a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
 <a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
 <h2>例</h2>
 <h3>例1: 基本の使い方</h3>
@@ -498,7 +486,7 @@
 <span class="c1">//   エラー完了 set_error(int)</span>
 <span class="c1">//   停止完了   set_stopped()</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">MySender</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sender_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sender_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="sender.html">ex::sender_tag</a></span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">completion_signatures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
 <span class="w">    </span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">),</span>
@@ -513,7 +501,7 @@
 
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">state</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="operation_state.html">ex::operation_state_t</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="operation_state.html">ex::operation_state_tag</a></span><span class="p">;</span>
 
 <span class="w">    </span><span class="n">state</span><span class="p">(</span><span class="n">Rcvr</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
 <span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">rcvr_</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)},</span><span class="w"> </span><span class="n">val_</span><span class="p">{</span><span class="n">val</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
@@ -592,7 +580,6 @@ error=-2
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
@@ -600,6 +587,7 @@ error=-2
 <li><a href="https://cplusplus.github.io/LWG/issue4203" target="_blank">LWG 4203. Constraints on <code>get-state</code> functions are incorrect</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4227" target="_blank">LWG 4227. Missing <code>noexcept</code> operator in [exec.when.all]</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4438" target="_blank">LWG 4438. Bad expression in [exec.when.all]</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

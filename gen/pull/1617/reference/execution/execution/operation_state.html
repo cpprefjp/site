@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>operation_state - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::operation_state - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,concept,std::execution,cpp26
 ">
-        <meta name="title" content="operation_state - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="operation_state - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="operation_state - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::operation_state - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::operation_state - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::operation_state - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/operation_state.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`operation_state`は、型`O`がOperation State型の要件を満たすことを表すコンセプトである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="operation_state - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::operation_state - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/operation_state.html" />
         <meta name="twitter:description" content="`operation_state`は、型`O`がOperation State型の要件を満たすことを表すコンセプトである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-31T12:59:01">
-        2025年07月31日 12時59分01秒
+      <span itemprop="datePublished" content="2026-06-08T01:13:52">
+        2026年06月08日 01時13分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -228,12 +228,12 @@
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">O</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">operation_state</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n"><a href="../../concepts/derived_from.html">derived_from</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">O</span><span class="o">::</span><span class="n">operation_state_concept</span><span class="p">,</span><span class="w"> </span><span class="n">operation_state_t</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="n"><a href="../../concepts/derived_from.html">derived_from</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">O</span><span class="o">::</span><span class="n">operation_state_concept</span><span class="p">,</span><span class="w"> </span><span class="n">operation_state_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
 <span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">O</span><span class="o">&amp;</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
 <span class="w">    </span><span class="p">};</span>
 
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">operation_state_t</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// タグ型</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">operation_state_tag</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// タグ型</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -241,7 +241,7 @@
 <p><code>operation_state</code>は、型<code>O</code>がOperation State型の要件を満たすことを表すコンセプトである。</p>
 <p>下記をみたすクラス型はOperation Stateとみなせる。</p>
 <ul>
-<li><code>operation_state_t</code>をメンバ型<code>O::operation_state_concept</code>として定義する</li>
+<li><code>operation_state_tag</code>をメンバ型<code>O::operation_state_concept</code>として定義する</li>
 <li><code>O</code>型の左辺値<code>o</code>に対して<code><a href="start.html">execution::start</a>(o)</code>が有効な式</li>
 </ul>
 <p>非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>の生存期間中に<code>operation_state</code>オブジェクトが破棄されると、<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">未定義の動作</a>を引き起こす。</p>
@@ -251,7 +251,7 @@
 <span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">ValueReceiver</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">ex::receiver_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">ex::receiver_tag</a></span><span class="p">;</span>
 
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_value</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span>
 <span class="w">  </span><span class="p">{</span>
@@ -296,6 +296,7 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4200" target="_blank">LWG 4200. The <code>operation_state</code> concept can be simplified</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4154r0.html" target="_blank">P4154R0 Renaming various execution things</a></li>
 </ul></div>
 
       </div>

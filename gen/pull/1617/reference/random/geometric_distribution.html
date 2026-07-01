@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>geometric_distribution - cpprefjp C++日本語リファレンス</title>
+        <title>std::geometric_distribution - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,class template,cpp11
 ">
-        <meta name="title" content="geometric_distribution - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="geometric_distribution - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="geometric_distribution - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::geometric_distribution - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::geometric_distribution - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::geometric_distribution - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/random/geometric_distribution.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`geometric_distribution`は、離散確率分布の一種である幾何分布を表すクラスである。  " />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="geometric_distribution - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::geometric_distribution - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/geometric_distribution.html" />
         <meta name="twitter:description" content="`geometric_distribution`は、離散確率分布の一種である幾何分布を表すクラスである。  " />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-22T16:15:43">
-        2025年10月22日 16時15分43秒
+      <span itemprop="datePublished" content="2026-05-18T04:21:35">
+        2026年05月18日 04時21分35秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,7 +230,7 @@
 </ul>
 <p>テンプレートパラメータは、以下を意味する：</p>
 <ul>
-<li><code>IntType</code> : 成功回を表す整数型。</li>
+<li><code>IntType</code> : 成功回を表す整数型。標準の符号付き／符号なし整数型 (<code>signed char</code>、<code>unsigned char</code>を含む) 、拡張整数型 (ビット幅が<code>char</code>以上<code>long long</code>以下) 、または<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のサブセットの整数型でなければならない。</li>
 </ul>
 <h2>メンバ関数</h2>
 <h3>構築・リセット</h3>
@@ -401,6 +401,10 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://ja.wikipedia.org/wiki/幾何分布" target="_blank">幾何分布 - Wikipedia</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html" target="_blank">P4037R1 Supporting <code>signed char</code> and <code>unsigned char</code> in random number generation</a><ul>
+<li><code>IntType</code>テンプレートパラメータに<code>signed char</code>／<code>unsigned char</code>を指定できるようになった。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>parallel_scheduler - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::parallel_scheduler - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,class,std::execution,cpp26
 ">
-        <meta name="title" content="parallel_scheduler - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="parallel_scheduler - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="parallel_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::parallel_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::parallel_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::parallel_scheduler - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/parallel_scheduler.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`parallel_scheduler`は、実行制御ライブラリ上でタスクの並列実行を可能とする並列[Scheduler](scheduler.md)である。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="parallel_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::parallel_scheduler - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/parallel_scheduler.html" />
         <meta name="twitter:description" content="`parallel_scheduler`は、実行制御ライブラリ上でタスクの並列実行を可能とする並列[Scheduler](scheduler.md)である。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-31T12:40:16">
-        2025年08月31日 12時40分16秒
+      <span itemprop="datePublished" content="2026-06-09T07:03:31">
+        2026年06月09日 07時03分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -232,14 +232,14 @@
 </p>
 <h2>概要</h2>
 <p><code>parallel_scheduler</code>は、実行制御ライブラリ上でタスクの並列実行を可能とする並列<a href="scheduler.html">Scheduler</a>である。</p>
-<p><code>parallel_scheduler</code>はシステムグローバルなスレッドプール（実行リソース）に関連付けられ、<code><a href="schedule.html">schedule</a></code>操作により得られる<a href="sender.html">Sender</a>はスレッドプールに属する任意のスレッド（実行エージェント）上で実行される。</p>
+<p><code>parallel_scheduler</code>はグローバルなスレッドプール（実行リソース）に関連付けられ、<code><a href="schedule.html">schedule</a></code>操作により得られる<a href="sender.html">Sender</a>はスレッドプールに属する任意のスレッド（実行エージェント）上で実行される。</p>
 <p>下記のSenderアルゴリズムに対してカスタマイズ実装を提供することで、タスクの一括(bulk)実行をスレッドプールを利用したタスク並列(parallel)実行に変換する。</p>
 <ul>
 <li><code><a href="bulk.html">execution::bulk</a></code> : <code>bulk_chunked</code>に変換してタスク並列実行</li>
 <li><code><a href="bulk_chunked.html">execution::bulk_chunked</a></code> : インデクス範囲をチャンク単位でタスク並列実行</li>
 <li><code><a href="bulk_unchunked.html">execution::bulk_unchunked</a></code> : インデクス範囲を要素単位でタスク並列実行</li>
 </ul>
-<p><code><a href="system_context_replaceability.html">execution::system_context_replaceability</a></code> 名前空間で定義されるインタフェースを介して、スレッドプール実装をユーザ定義の並列Schedulerバックエンドに置き換えることもできる。</p>
+<p><code><a href="parallel_scheduler_replacement.html">execution::parallel_scheduler_replacement</a></code> 名前空間で定義されるインタフェースを介して、スレッドプール実装をユーザ定義の並列Schedulerバックエンドに置き換えることもできる。</p>
 <h2>クラス仕様</h2>
 <p><code>parallel_scheduler</code>は<code><a href="scheduler.html">scheduler</a></code>のモデルである。</p>
 <p>説明用の<code>sch</code>を<code>parallel_scheduler</code>型のオブジェクト、<code>sch</code>が<code>ptr</code>と関連付けられるとき<code>BACKEND-OF(sch)</code>を<code>*ptr</code>とする。</p>
@@ -251,36 +251,58 @@
 <li><code>r.set_error(e)</code>は、<code>e</code>を<code><a href="../../exception/exception_ptr.html">exception_ptr</a></code>として、<code><a href="set_error.html">set_error</a>(std::move(rcvr), std::move(e))</code>と同じ効果。</li>
 <li><code>r.set_stopped()</code>は、<code><a href="set_stopped.html">set_stopped</a>(std::move(rcvr))</code>と同じ効果。</li>
 </ul>
-<p>プロキシ<code>r</code>に対する事前確保バックエンドストレージ(preallocated backend storage)は、<code><a href="../../span/span.html">span</a>&lt;<a href="../../cstddef/byte.html">byte</a>&gt;</code>型のオブジェクト<code>s</code>であり、<code>r</code>に対して<code><a href="set_value.html">set_value</a></code>／<code><a href="set_error.html">set_error</a></code>／<code><a href="set_stopped.html">set_stopped</a></code>いずれかが呼び出されるまで範囲<code>s</code>は有効かつ上書き可能である。</p>
-<p>呼び出し可能オブジェクト<code>f</code>と引数<code>arg</code>を持つ<code>rcvr</code>のバルクチャンク化プロキシ(bulk chunked proxy)は、基底
-<code><a href="system_context_replaceability/bulk_item_receiver_proxy.html">system_context_replaceability::bulk_item_receiver_proxy</a></code>を持つ<code>rcvr</code>のプロキシ<code>r</code>であり、インデクス<code>i</code>, <code>j</code>に対する<code>r.execute(i, j)</code>は<code>f(i, j, args...)</code>と同じ効果を持つ。</p>
-<p>呼び出し可能オブジェクト<code>f</code>と引数<code>arg</code>を持つ<code>rcvr</code>のバルク非チャンク化プロキシ(bulk unchunked proxy)は、基底
-<code><a href="system_context_replaceability/bulk_item_receiver_proxy.html">system_context_replaceability::bulk_item_receiver_proxy</a></code>を持つ<code>rcvr</code>のプロキシ<code>r</code>であり、インデクス<code>i</code>に対する<code>r.execute(i, i + 1)</code>は<code>f(i, args...)</code>と同じ効果を持つ。</p>
+<p>プロキシ<code>r</code>に対する事前確保バックエンドストレージ(preallocated backend storage)は、<code><a href="../../span/span.html">span</a>&lt;<a href="../../cstddef/byte.html">byte</a>&gt;</code>型のオブジェクト<code>s</code>であり、<code>r</code>に対して<code>set_value</code>／<code>set_error</code>／<code>set_stopped</code>いずれかが呼び出されるまで範囲<code>s</code>は有効かつ上書き可能である。</p>
+<p>式<code><a href="get_domain.html">get_domain</a>(sch)</code>は、下記と等価な説明専用の型<code>parallel-scheduler-domain</code>の式を返す。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">parallel</span><span class="o">-</span><span class="n">scheduler</span><span class="o">-</span><span class="n">domain</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="sender-for.html">sender-for</a></span><span class="o">&lt;</span><span class="n"><a href="bulk_chunked.html">bulk_chunked_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../queryable.html">queryable</a></span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span>
+<span class="w">    </span><span class="n">transform_sender</span><span class="p">(</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Env</span><span class="o">&amp;</span><span class="w"> </span><span class="n">env</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="sender-for.html">sender-for</a></span><span class="o">&lt;</span><span class="n"><a href="bulk_unchunked.html">bulk_unchunked_t</a></span><span class="o">&gt;</span><span class="w"> </span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../queryable.html">queryable</a></span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span>
+<span class="w">    </span><span class="n">transform_sender</span><span class="p">(</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Env</span><span class="o">&amp;</span><span class="w"> </span><span class="n">env</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>上記<code>transform_sender</code>の引数<code>sndr</code>に対して、説明用の変数<code>child</code>, <code>pol</code>, <code>shape</code>, <code>f</code>を下記の通り宣言する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
+<span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">pol</span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>説明用の<code>p</code>を下記とする。</p>
+<ul>
+<li>式<code>pol</code>の型が<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された<code><a href="execution_policy.html">parallel_policy</a></code>または<code><a href="execution_policy.html">parallel_unsequenced_policy</a></code>のとき、<code>true</code>。</li>
+<li><code>pol</code>が<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>の<a href="execution_policy.html">実行ポリシー</a>のとき、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>の値。</li>
+<li>そうでなければ、<code>false</code>。</li>
+</ul>
 <h3><code>schedule</code>アルゴリズム</h3>
 <p>説明用の<code>b</code>を<code>BACKEND-OF(sch)</code>、<code>sndr</code>を<code><a href="schedule.html">schedule</a>(sch)</code>が返すオブジェクト、<code>rcvr</code>を<a href="receiver.html">Receiver</a>とする。<code>rcvr</code>が<code>sndr</code>に<a href="connect.html">接続(connect)</a>され、結果の<a href="operation_state.html">Operation State</a>が<a href="start.html">開始(start)</a>されたとき、</p>
 <ul>
-<li><code>sndr</code>が値完了するならば、<code><a href="system_context_replaceability/parallel_scheduler_backend/schedule.html">b.schedule</a>(r, s)</code>が呼ばれる。このとき、<ul>
-<li><code>r</code>は基底<code><a href="system_context_replaceability/receiver_proxy.html">system_context_replaceability::receiver_proxy</a></code>を持つ<code>rcvr</code>のプロキシであり、かつ</li>
+<li><code>sndr</code>が値完了するならば、<code><a href="parallel_scheduler_replacement/parallel_scheduler_backend/schedule.html">b.schedule</a>(r, s)</code>が呼ばれる。このとき、<ul>
+<li><code>r</code>は基底クラス<code><a href="parallel_scheduler_replacement/receiver_proxy.html">parallel_scheduler_replacement::receiver_proxy</a></code>を持つ<code>rcvr</code>のプロキシであり、かつ</li>
 <li><code>s</code>は<code>r</code>に対する事前確保バックエンドストレージである。</li>
 </ul>
 </li>
 <li>他の全ての完了操作は、変更なしに転送される。</li>
 </ul>
 <h3><code>bulk_chunked</code>アルゴリズム</h3>
-<p><code>parallel_scheduler</code>は<code><a href="bulk_chunked.html">bulk_chunked</a></code>アルゴリズムのカスタマイズ実装を提供する。<a href="receiver.html">Receiver</a><code>rcvr</code>が<code>bulk_chunked(sndr, pol, shape, f)</code>が返す<a href="sender.html">Sender</a>に<a href="connect.html">接続(connect)</a>され、結果の<a href="operation_state.html">Operation State</a>が<a href="start.html">開始(start)</a>されたとき、</p>
+<p>タグ<code><a href="bulk_chunked.html">bulk_chunked_t</a></code>と<a href="sender.html">Sender</a>を受け付ける<code>transform_sender</code><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は、<a href="receiver.html">Receiver</a><code>rcvr</code>と<a href="connect.html">接続(connect)</a>され結果の<a href="operation_state.html">Operation State</a>が<a href="start.html">開始(start)</a>されたとき、下記動作を行うSenderを返す。</p>
 <ul>
-<li><code>sndr</code>が値<code>vals</code>で値完了するならば、<code>args</code>を<code>vals</code>を指す左辺値式のパックとして、<code><a href="system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.html">b.schedule_bulk_chunked</a>(shape, r, s)</code>が呼ばれる。このとき、<ul>
-<li><code>r</code>は呼び出し可能オブジェクト<code>f</code>と引数<code>arg</code>を持つ<code>rcvr</code>のバルクチャンク化プロキシであり、かつ</li>
+<li><code>child</code>が値<code>vals</code>で値完了するならば、<code>args</code>を<code>vals</code>を指す左辺値式のパックとして、<code><a href="parallel_scheduler_replacement/parallel_scheduler_backend/schedule_bulk_chunked.html">b.schedule_bulk_chunked</a>(p ? shape : 1, r, s)</code>が呼ばれる。このとき、<ul>
+<li><code>r</code>は基底クラス<code><a href="parallel_scheduler_replacement/bulk_item_receiver_proxy.html">parallel_scheduler_replacement::bulk_item_receiver_proxy</a></code>を持つ<code>rcvr</code>のプロキシであり、インデックス<code>i</code>, <code>j</code>に対して<code>r.execute(i, j)</code>は<code>p</code>が<code>true</code>のとき<code>f(i, j, args...)</code>、そうでないときは<code>f(0, shape, args...)</code>と等価な効果を持つ。かつ</li>
 <li><code>s</code>は<code>r</code>に対する事前確保バックエンドストレージである。</li>
 </ul>
 </li>
 <li>他の全ての完了操作は、変更なしに転送される。</li>
 </ul>
 <h3><code>bulk_unchunked</code>アルゴリズム</h3>
-<p><code>parallel_scheduler</code>は<code><a href="bulk_unchunked.html">bulk_unchunked</a></code>アルゴリズムのカスタマイズ実装を提供する。<a href="receiver.html">Receiver</a><code>rcvr</code>が<code>bulk_unchunked(sndr, pol, shape, f)</code>が返す<a href="sender.html">Sender</a>に<a href="connect.html">接続(connect)</a>され、結果の<a href="operation_state.html">Operation State</a>が<a href="start.html">開始(start)</a>されたとき、</p>
+<p>タグ<code><a href="bulk_unchunked.html">bulk_unchunked_t</a></code>と<a href="sender.html">Sender</a>を受け付ける<code>transform_sender</code><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は、<a href="receiver.html">Receiver</a><code>rcvr</code>と<a href="connect.html">接続(connect)</a>され結果の<a href="operation_state.html">Operation State</a>が<a href="start.html">開始(start)</a>されたとき、下記動作を行うSenderを返す。</p>
 <ul>
-<li><code>sndr</code>が値<code>vals</code>で値完了するならば、<code>args</code>を<code>vals</code>を指す左辺値式のパックとして、<code><a href="system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.html">b.schedule_bulk_unchunked</a>(shape, r, s)</code>が呼ばれる。このとき、<ul>
-<li><code>r</code>は呼び出し可能オブジェクト<code>f</code>と引数<code>arg</code>を持つ<code>rcvr</code>のバルク非チャンク化プロキシであり、かつ</li>
+<li><code>child</code>が値<code>vals</code>で値完了するならば、<code>args</code>を<code>vals</code>を指す左辺値式のパックとして、<code><a href="parallel_scheduler_replacement/parallel_scheduler_backend/schedule_bulk_unchunked.html">b.schedule_bulk_unchunked</a>(p ? shape : 1, r, s)</code>が呼ばれる。このとき、<ul>
+<li><code>r</code>は基底クラス<code><a href="parallel_scheduler_replacement/bulk_item_receiver_proxy.html">parallel_scheduler_replacement::bulk_item_receiver_proxy</a></code>を持つ<code>rcvr</code>のプロキシであり、インデックス<code>i</code>に対して<code>r.execute(i, i + 1)</code>は<code>p</code>が<code>true</code>のとき<code>f(i, args...)</code>、そうでないときは<code>for (decltype(shape) i = 0; i &lt; shape; i++) { f(i, args...); }</code>と等価な効果を持つ。かつ</li>
 <li><code>s</code>は<code>r</code>に対する事前確保バックエンドストレージである。</li>
 </ul>
 </li>
@@ -315,12 +337,13 @@
 <h2>関連項目</h2>
 <ul>
 <li><code><a href="get_parallel_scheduler.html">execution::get_parallel_scheduler</a></code></li>
-<li><code><a href="system_context_replaceability.html">execution::system_context_replaceability</a></code></li>
+<li><code><a href="parallel_scheduler_replacement.html">execution::parallel_scheduler_replacement</a></code></li>
 </ul>
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html" target="_blank">P2079R10 Parallel scheduler</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3804r2.html" target="_blank">P3804R2 Iterating on <code>parallel_scheduler</code></a></li>
 </ul></div>
 
       </div>

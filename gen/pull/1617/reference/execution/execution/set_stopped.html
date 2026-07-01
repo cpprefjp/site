@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>set_stopped - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::set_stopped - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
 ">
-        <meta name="title" content="set_stopped - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="set_stopped - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="set_stopped - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::set_stopped - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::set_stopped - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::set_stopped - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/set_stopped.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`set_stopped`は、非同期操作のキャンセル完了を表現する停止(stopped)完了関数である。完了関数の呼び出しは完了操作と呼ばれる。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="set_stopped - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::set_stopped - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/set_stopped.html" />
         <meta name="twitter:description" content="`set_stopped`は、非同期操作のキャンセル完了を表現する停止(stopped)完了関数である。完了関数の呼び出しは完了操作と呼ばれる。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4f3a49be2af20b0d93c4aee433dfcfea95bac47d&#34;, &#34;source&#34;: &#34;#include &lt;execution&gt;\nnamespace ex = std::execution;\n\nstruct StoppedReceiver {\n  using receiver_concept = ex::receiver_t;\n\n  // \u505c\u6b62\u5b8c\u4e86\u30b7\u30b0\u30cd\u30c1\u30e3 set_stopped_t()\n  void set_stopped() &amp;&amp; noexcept {}\n};\n\nint main()\n{\n  StoppedReceiver rcvr;\n  ex::set_stopped(std::move(rcvr));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;set_stopped&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;125540eaeec274486ff5d60d59fb0e07b570fe62&#34;, &#34;source&#34;: &#34;#include &lt;execution&gt;\nnamespace ex = std::execution;\n\nstruct StoppedReceiver {\n  using receiver_concept = ex::receiver_tag;\n\n  // \u505c\u6b62\u5b8c\u4e86\u30b7\u30b0\u30cd\u30c1\u30e3 set_stopped_t()\n  void set_stopped() &amp;&amp; noexcept {}\n};\n\nint main()\n{\n  StoppedReceiver rcvr;\n  ex::set_stopped(std::move(rcvr));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;set_stopped&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T11:57:18">
-        2026年04月23日 11時57分18秒
+      <span itemprop="datePublished" content="2026-06-08T01:13:52">
+        2026年06月08日 01時13分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -238,7 +238,7 @@
 <h2>効果</h2>
 <ul>
 <li>引数<code>rcvr</code>が左辺値またはconst右辺値の場合、式<code>set_stopped(rcvr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
-<li>そうでなければ、<code>rcvr.set_stopped()</code>と等価である。</li>
+<li>そうでなければ、<code><a href="MANDATE-NOTHROW.html">MANDATE-NOTHROW</a>(rcvr.set_stopped())</code>と等価な式。</li>
 </ul>
 <p>上記の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>なとき、その型は<code>void</code>であること。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
@@ -249,11 +249,11 @@
 <h2>備考</h2>
 <p>完了関数<code>set_stopped</code>は<a href="sender.html">Sender</a>内部実装から呼び出される想定であり、実行制御ライブラリ利用者が直接利用する必要はない。</p>
 <h2>例</h2>
-<p><div class="yata" id="4f3a49be2af20b0d93c4aee433dfcfea95bac47d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
+<p><div class="yata" id="125540eaeec274486ff5d60d59fb0e07b570fe62"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="p">;</span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">StoppedReceiver</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">ex::receiver_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">ex::receiver_tag</a></span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// 停止完了シグネチャ set_stopped_t()</span>
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_stopped</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{}</span>

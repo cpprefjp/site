@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../static/css/root.css"> -->
 
         
   
 
 
-<link href="../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -312,8 +312,8 @@
 <td>エスケープシーケンスの範囲を明確にする構文を追加する</td>
 </tr>
 <tr>
-<td><span href="https://cpprefjp.github.io/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink">文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決</span></td>
-<td></td>
+<td><a href="cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.html">文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決</a></td>
+<td>数値エスケープが文字エンコーディングに変換されずコードユニット値を直接指定することなどを明確化する</td>
 </tr>
 <tr>
 <td><a href="cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.html">1ワイド文字に収まらないワイド文字リテラルを禁止する</a></td>
@@ -438,9 +438,24 @@
 <td><a href="cpp23/warning.html"><code>#warning</code>のサポートを追加</a></td>
 <td>多くのC++コンパイラが実装していたプリプロセス時の警告<code>#warning message</code>を正式サポート</td>
 </tr>
+</tbody>
+</table>
+<h3>字句解析</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><a href="cpp23/support_for_utf8_as_a_portable_source_file_encoding.html">汎用的なソースコードのエンコーディングとしてUTF-8をサポート</a></td>
 <td>すべてのコンパイラはUTF-8文字コードのソースコードをサポートしなければならない</td>
+</tr>
+<tr>
+<td><a href="cpp23/trimming_whitespaces_before_line_splicing.html">行末スペースを無視するよう規定</a></td>
+<td>行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定</td>
 </tr>
 </tbody>
 </table>
@@ -460,10 +475,6 @@
 <tr>
 <td><a href="cpp23/update_normative_reference_to_posix.html">参照するPOSIX規格を更新</a></td>
 <td>新しいPOSIX規格の機能を標準C++が参照していたため、参照するPOSIX規格のバージョンを更新</td>
-</tr>
-<tr>
-<td><a href="cpp23/trimming_whitespaces_before_line_splicing.html">行末スペースを無視するよう規定</a></td>
-<td>行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定</td>
 </tr>
 </tbody>
 </table>

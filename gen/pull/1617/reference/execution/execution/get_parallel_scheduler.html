@@ -16,48 +16,48 @@
 
         <meta charset="UTF-8">
 
-        <title>get_parallel_scheduler - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::get_parallel_scheduler - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,function,std::execution,cpp26
 ">
-        <meta name="title" content="get_parallel_scheduler - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="get_parallel_scheduler - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="get_parallel_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::get_parallel_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::get_parallel_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::get_parallel_scheduler - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/get_parallel_scheduler.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="システムの[並列Scheduler](parallel_scheduler.md)を取得する。" />
+        <meta property="og:description" content="[並列Scheduler](parallel_scheduler.md)を取得する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="get_parallel_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::get_parallel_scheduler - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/get_parallel_scheduler.html" />
-        <meta name="twitter:description" content="システムの[並列Scheduler](parallel_scheduler.md)を取得する。" />
+        <meta name="twitter:description" content="[並列Scheduler](parallel_scheduler.md)を取得する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-28T16:37:59">
-        2025年08月28日 16時37分59秒
+      <span itemprop="datePublished" content="2026-06-08T01:24:20">
+        2026年06月08日 01時24分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -231,9 +231,9 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>システムの<a href="parallel_scheduler.html">並列Scheduler</a>を取得する。</p>
+<p><a href="parallel_scheduler.html">並列Scheduler</a>を取得する。</p>
 <h2>効果</h2>
-<p>説明用の<code>eb</code>を<code><a href="system_context_replaceability/query_parallel_scheduler_backend.html">system_context_replaceability::query_parallel_scheduler_backend()</a></code>の結果とする。</p>
+<p>説明用の<code>eb</code>を<code><a href="parallel_scheduler_replacement/query_parallel_scheduler_backend.html">parallel_scheduler_replacement::query_parallel_scheduler_backend()</a></code>の結果とする。</p>
 <p>もし<code>eb == nullptr</code>ならば、<code><a href="../../exception/terminate.html">terminate</a></code>を呼び出す。そうでなければ、<code>eb</code>に関連付けられた<code><a href="parallel_scheduler.html">parallel_scheduler</a></code>オブジェクトを返す。</p>
 <h2>例</h2>
 <p><div class="yata" id="66041d03418c1e7dbc2450bf5227a0e88bdadbd6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../execution.html">&lt;execution&gt;</a></span>
@@ -262,7 +262,7 @@
 <h2>関連項目</h2>
 <ul>
 <li><code><a href="parallel_scheduler.html">execution::parallel_scheduler</a></code></li>
-<li><code><a href="system_context_replaceability.html">execution::system_context_replaceability</a></code></li>
+<li><code><a href="parallel_scheduler_replacement.html">execution::parallel_scheduler_replacement</a></code></li>
 </ul>
 <h2>参照</h2>
 <ul>

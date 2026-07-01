@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>uninitialized_fill - cpprefjp C++日本語リファレンス</title>
+        <title>std::ranges::uninitialized_fill - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory,std::ranges,function template,cpp20
 ">
-        <meta name="title" content="uninitialized_fill - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="uninitialized_fill - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="uninitialized_fill - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::ranges::uninitialized_fill - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::ranges::uninitialized_fill - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::ranges::uninitialized_fill - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_fill.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="未初期化領域の範囲 (`r`、`[first, last)`) を、指定された値で配置`new`で初期化する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="uninitialized_fill - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::ranges::uninitialized_fill - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_fill.html" />
         <meta name="twitter:description" content="未初期化領域の範囲 (`r`、`[first, last)`) を、指定された値で配置`new`で初期化する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;62b6edd8ed705aa7f225d696a473022005b605f1&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory&gt;\n#include &lt;algorithm&gt;\n\nint main()\n{\n  std::allocator&lt;int&gt; alloc;\n\n  // \u30e1\u30e2\u30ea\u78ba\u4fdd\u3002\n  // \u3053\u306e\u6bb5\u968e\u3067\u306f\u3001[p, p + size)\u306e\u9818\u57df\u306f\u672a\u521d\u671f\u5316\n  const std::size_t size = 3;\n  int* p = alloc.allocate(size);\n\n  // \u672a\u521d\u671f\u5316\u9818\u57df[p, p + size)\u3092\u521d\u671f\u5316\u3057\u3064\u3064\u3001\u50242\u3067\u57cb\u3081\u308b\n  std::ranges::uninitialized_fill(std::ranges::subrange{p, p + size}, 2);\n\n  // p\u306e\u9818\u57df\u304c\u521d\u671f\u5316\u3055\u308c\u3001\u304b\u3064\u7bc4\u56f2p\u306e\u5168\u3066\u306e\u8981\u7d20\u304c2\u3067\u57cb\u3081\u3089\u308c\u3066\u3044\u308b\u304b\u78ba\u8a8d\n  std::for_each(p, p + size, [](int x) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  });\n\n  // \u8981\u7d20\u3092\u7834\u68c4\n  std::ranges::destroy(p, p + size);\n\n  // \u30e1\u30e2\u30ea\u89e3\u653e\n  alloc.deallocate(p, size);\n}\n&#34;}, {&#34;id&#34;: &#34;d74e091615e7e6b9a14041dd58f370d9d43553fe&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory&gt;\n#include &lt;execution&gt;\n\nint main() {\n  std::allocator&lt;int&gt; alloc;\n  int* p = alloc.allocate(3);\n\n  // \u4e26\u5217\u306b\u672a\u521d\u671f\u5316\u9818\u57df\u309242\u3067\u57cb\u3081\u308b\n  std::ranges::uninitialized_fill(\n    std::execution::par, p, p + 3, 42);\n\n  for (int i = 0; i &lt; 3; ++i) {\n    std::cout &lt;&lt; p[i] &lt;&lt; &#39; &#39;;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  alloc.deallocate(p, 3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory&#34;, &#34;ranges_uninitialized_fill&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;62b6edd8ed705aa7f225d696a473022005b605f1&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory&gt;\n#include &lt;algorithm&gt;\n\nint main()\n{\n  std::allocator&lt;int&gt; alloc;\n\n  // \u30e1\u30e2\u30ea\u78ba\u4fdd\u3002\n  // \u3053\u306e\u6bb5\u968e\u3067\u306f\u3001[p, p + size)\u306e\u9818\u57df\u306f\u672a\u521d\u671f\u5316\n  const std::size_t size = 3;\n  int* p = alloc.allocate(size);\n\n  // \u672a\u521d\u671f\u5316\u9818\u57df[p, p + size)\u3092\u521d\u671f\u5316\u3057\u3064\u3064\u3001\u50242\u3067\u57cb\u3081\u308b\n  std::ranges::uninitialized_fill(std::ranges::subrange{p, p + size}, 2);\n\n  // p\u306e\u9818\u57df\u304c\u521d\u671f\u5316\u3055\u308c\u3001\u304b\u3064\u7bc4\u56f2p\u306e\u5168\u3066\u306e\u8981\u7d20\u304c2\u3067\u57cb\u3081\u3089\u308c\u3066\u3044\u308b\u304b\u78ba\u8a8d\n  std::for_each(p, p + size, [](int x) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  });\n\n  // \u8981\u7d20\u3092\u7834\u68c4\n  std::ranges::destroy(p, p + size);\n\n  // \u30e1\u30e2\u30ea\u89e3\u653e\n  alloc.deallocate(p, size);\n}\n&#34;}, {&#34;id&#34;: &#34;488349521fb3beaddaf54de05452d9f3fcd11404&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory&gt;\n#include &lt;ranges&gt;\n\nstruct Point {\n  int x;\n  int y;\n};\n\nint main()\n{\n  std::allocator&lt;Point&gt; alloc;\n  const std::size_t size = 3;\n  Point* p = alloc.allocate(size);\n\n  // \u6ce2\u30ab\u30c3\u30b3\u521d\u671f\u5316\u30ea\u30b9\u30c8\u3067Point{1, 2}\u3092\u76f4\u63a5\u6e21\u305b\u308b\n  std::ranges::uninitialized_fill(\n    std::ranges::subrange{p, p + size},\n    {1, 2});\n\n  for (std::size_t i = 0; i &lt; size; ++i) {\n    std::cout &lt;&lt; &#39;(&#39; &lt;&lt; p[i].x &lt;&lt; \&#34;, \&#34; &lt;&lt; p[i].y &lt;&lt; &#39;)&#39; &lt;&lt; std::endl;\n  }\n\n  std::ranges::destroy(p, p + size);\n  alloc.deallocate(p, size);\n}\n&#34;}, {&#34;id&#34;: &#34;50dfd3311aa315eafcc29b8f1ca98f913526d8b8&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory&gt;\n#include &lt;execution&gt;\n\nint main() {\n  std::allocator&lt;int&gt; alloc;\n  int* p = alloc.allocate(3);\n\n  // \u4e26\u5217\u306b\u672a\u521d\u671f\u5316\u9818\u57df\u309242\u3067\u57cb\u3081\u308b\n  std::ranges::uninitialized_fill(\n    std::execution::par, p, p + 3, 42);\n\n  for (int i = 0; i &lt; 3; ++i) {\n    std::cout &lt;&lt; p[i] &lt;&lt; &#39; &#39;;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  alloc.deallocate(p, 3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory&#34;, &#34;ranges_uninitialized_fill&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-05T04:53:18">
-        2026年02月05日 04時53分18秒
+      <span itemprop="datePublished" content="2026-05-18T03:32:26">
+        2026年05月18日 03時32分26秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -221,7 +221,7 @@
 <span class="w">  </span><span class="n">I</span><span class="w"> </span><span class="n">uninitialized_fill</span><span class="p">(</span><span class="n">I</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++20</span>
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="no-throw-forward-iterator.html">no-throw-forward-iterator</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span>
 <span class="w">            </span><span class="n"><a href="no-throw-sentinel.html">no-throw-sentinel</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">,</span>
-<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
 <span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&gt;</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">I</span>
 <span class="w">    </span><span class="n">uninitialized_fill</span><span class="p">(</span><span class="n">I</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1) C++26</span>
@@ -232,7 +232,7 @@
 <span class="w">  </span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="n">uninitialized_fill</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">           </span><span class="c1">// (2) C++20</span>
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="no-throw-forward-range.html">no-throw-forward-range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span>
-<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span>
 <span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&gt;</span>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="n">uninitialized_fill</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">           </span><span class="c1">// (2) C++26</span>
@@ -240,14 +240,14 @@
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span><span class="w"> </span><span class="n">Ep</span><span class="p">,</span>
 <span class="w">            </span><span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span>
 <span class="w">            </span><span class="n"><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">,</span>
-<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
 <span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&gt;</span>
 <span class="w">  </span><span class="n">I</span><span class="w"> </span><span class="n">uninitialized_fill</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
 <span class="w">                       </span><span class="n">I</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3) C++26</span>
 
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span><span class="w"> </span><span class="n">Ep</span><span class="p">,</span>
 <span class="w">            </span><span class="n"><a href="../ranges/sized-random-access-range.html">sized-random-access-range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span>
-<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span>
 <span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&gt;</span>
 <span class="w">  </span><span class="n"><a href="../ranges/borrowed_iterator_t.html">borrowed_iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="n">uninitialized_fill</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">exec</span><span class="p">,</span>
@@ -294,6 +294,10 @@
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>呼び出すコンストラクタなどから<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合、その<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の順序で破棄される。すなわち、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合は初期化対象領域は未初期化のままとなる。</p>
+<h2>備考</h2>
+<ul>
+<li>C++26では、テンプレートパラメータ<code>T</code>にデフォルトテンプレート引数（<code>iter_value_t&lt;I&gt;</code>または<code>range_value_t&lt;R&gt;</code>）を指定する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が追加された。これにより、波カッコ初期化リスト (<code>{...}</code>) を入力値<code>x</code>として渡せるようになる。波カッコ初期化リストは型を持たないため、<code>T</code>がデフォルト引数として要素型から推論されることで、この関数に波カッコ初期化リストを直接渡せる。</li>
+</ul>
 <h2>例</h2>
 <h3>基本的な使い方</h3>
 <p><div class="yata" id="62b6edd8ed705aa7f225d696a473022005b605f1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
@@ -330,8 +334,43 @@
 2
 2
 </code></pre></p>
+<h3>波カッコ初期化を入力として使用する (C++26)</h3>
+<p><div class="yata" id="488349521fb3beaddaf54de05452d9f3fcd11404"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../ranges.html">&lt;ranges&gt;</a></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span><span class="w"> </span><span class="n">alloc</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Point</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 波カッコ初期化リストでPoint{1, 2}を直接渡せる</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::ranges::uninitialized_fill</span></span><span class="p">(</span>
+<span class="w">    </span><span class="n"><a href="../ranges/subrange.html">std::ranges::subrange</a></span><span class="p">{</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'('</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">')'</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n"><a href="ranges_destroy.html">std::ranges::destroy</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="w">  </span><span class="n">alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>(1, 2)
+(1, 2)
+(1, 2)
+</code></pre></p>
 <h3>並列アルゴリズムの例 (C++26)</h3>
-<p><div class="yata" id="d74e091615e7e6b9a14041dd58f370d9d43553fe"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<p><div class="yata" id="50dfd3311aa315eafcc29b8f1ca98f913526d8b8"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
 <span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
 <span class="cp">#include <a href="../execution.html">&lt;execution&gt;</a></span>
 
@@ -378,6 +417,10 @@
 </ul>
 </li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html" target="_blank">P3179R9 C++ parallel range algorithms</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3787r2.html" target="_blank">P3787R2 Adjoints to "Enabling list-initialization for algorithms": <code>uninitialized_fill</code></a><ul>
+<li>C++26から波カッコ初期化リストを入力として使用できるよう、要素型をデフォルトテンプレート引数とする<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が追加された</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

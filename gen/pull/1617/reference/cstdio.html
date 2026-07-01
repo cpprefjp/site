@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../static/css/root.css"> -->
 
         
   
 
 
-<link href="../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -176,12 +176,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-23T01:25:18">
-        2026年03月23日 01時25分18秒
+      <span itemprop="datePublished" content="2026-06-15T05:22:22">
+        2026年06月15日 05時22分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">rotarymars</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -305,6 +305,11 @@
 <td></td>
 </tr>
 <tr>
+<td><code><a href="cstdio/printf_nan_len_max.html">_PRINTF_NAN_LEN_MAX</a></code></td>
+<td><code>printf</code>系関数がNaNを出力する際の最大文字数を表す整数定数</td>
+<td>C++26</td>
+</tr>
+<tr>
 <td><code><a href="cstdio/stderr.html">stderr</a></code></td>
 <td>標準エラーを表す<code>FILE*</code>型の式</td>
 <td></td>
@@ -318,6 +323,11 @@
 <td><code><a href="cstdio/stdout.html">stdout</a></code></td>
 <td>標準出力を表す<code>FILE*</code>型の式</td>
 <td></td>
+</tr>
+<tr>
+<td><code>__STDC_VERSION_STDIO_H__</code></td>
+<td><code>&lt;cstdio&gt;</code>が提供するC標準ライブラリ機能のバージョン (<code>202311L</code>)</td>
+<td>C++26</td>
 </tr>
 </tbody>
 </table>
@@ -593,6 +603,10 @@
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html" target="_blank">P0063R3 C++17 should refer to C11 instead of C99</a></li>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html" target="_blank">P0175R1 Synopses for the C library</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf" target="_blank">P3348R4 C++26 should refer to C23 not C17</a><ul>
+<li>C++26がC23を参照するようになり、<code>_PRINTF_NAN_LEN_MAX</code>と<code>__STDC_VERSION_STDIO_H__</code>が追加された</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

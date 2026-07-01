@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>transform_sender - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::transform_sender - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,function template,std::execution,cpp26
 ">
-        <meta name="title" content="transform_sender - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="transform_sender - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="transform_sender - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::transform_sender - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::transform_sender - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::transform_sender - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/transform_sender.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="[実行ドメイン](default_domain.md)に応じて[Sender](sender.md)を変換する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="transform_sender - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::transform_sender - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/transform_sender.html" />
         <meta name="twitter:description" content="[実行ドメイン](default_domain.md)に応じて[Sender](sender.md)を変換する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:04:00">
-        2025年07月14日 14時04分00秒
+      <span itemprop="datePublished" content="2026-06-12T07:31:19">
+        2026年06月12日 07時31分19秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -226,36 +226,39 @@
         
   <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">transform_sender</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Domain</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="sender.html">sender</a></span><span class="w"> </span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../queryable.html">queryable</a></span><span class="p">...</span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Env</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="sender.html">sender</a></span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">transform_sender</span><span class="p">(</span><span class="n">Domain</span><span class="w"> </span><span class="n">dom</span><span class="p">,</span><span class="w"> </span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Env</span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">env</span><span class="p">)</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="sender.html">sender</a></span><span class="w"> </span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../queryable.html">queryable</a></span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span><span class="w"> </span><span class="n">transform_sender</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Env</span><span class="o">&amp;</span><span class="w"> </span><span class="n">env</span><span class="p">)</span>
 <span class="w">    </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><a href="default_domain.html">実行ドメイン</a>に応じて<a href="sender.html">Sender</a>を変換する。
-Senderオブジェクトの構築時、Senderと<a href="receiver.html">Receiver</a>間<a href="connect.html">接続(connect)</a>時のカスタマイゼーションポイントとして機能する。</p>
-<p>型変換ではSender型の変換が行われなくなる（恒等変換となる）まで、下記のカスタマイゼーションポイントを再帰的に呼び出す。</p>
+Senderと<a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時のカスタマイゼーションポイントとして機能する。</p>
+<p>下記手順によってSender変換が行われる。</p>
 <ul>
-<li>定義されていれば、<code>dom.transform_sender</code>メンバ関数に変換動作を委譲する。</li>
-<li>そうでなければ、デフォルト実行ドメイン<code><a href="default_domain/transform_sender.html">transform_sender</a></code>に変換動作を委譲する。</li>
+<li>Receiverの環境<code>evn</code>に<a href="get_domain.html">開始ドメイン</a>を、Sender<code>sndr</code>に<a href="get_completion_domain.html">完了ドメイン</a>をそれぞれ問い合わせる。</li>
+<li>開始ドメインの上で、恒等変化となるまで（Sender型が変化しなくなるまで）再起的にSender変換を適用する。</li>
+<li>完了ドメインの上で再起的にSender変換を適用する。同過程でSender型が変化したときは完了ドメインを再度問い合わせる。</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p>説明用の式<code>transformed-sndr</code>を次の通りとする。</p>
+<p>式<code>s</code>に対して、<code>start-domain</code>を<code>D()</code>とする。ここで<code>D</code>を<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば式<code><a href="get_domain.html">get_domain</a>(env)</code>のdecay型、そうでなければ<code><a href="default_domain.html">default_domain</a></code>とする。</p>
+<p>また<code>completion-domain(s)</code>を<code>D()</code>とする。ここで<code>D</code>を<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば式<code><a href="get_completion_domain.html">get_completion_domain&lt;&gt;</a>(<a href="get_env.html">get_env</a>(s), env)</code>のdecay型、そうでなければ<code><a href="default_domain.html">default_domain</a></code>とする。</p>
+<p>説明用の式<code>transformed-sndr(dom, tag, s)</code>を次の通りとする。</p>
 <ul>
-<li><a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば、式<code>dom.transform_sender(<a href="../../utility/forward.html">std::forward</a>&lt;Sndr&gt;(sndr), env...)</code></li>
-<li>そうでなければ、<code><a href="default_domain.html">default_domain()</a>.<a href="default_domain/transform_sender.html">transform_sender</a>(<a href="../../utility/forward.html">std::forward</a>&lt;Sndr&gt;(sndr), env...)</code></li>
+<li><a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば、式<code>dom.transform_sender(tag, s, env)</code></li>
+<li>そうでなければ、<code><a href="default_domain.html">default_domain()</a>.<a href="default_domain/transform_sender.html">transform_sender</a>(tag, s, env)</code></li>
 </ul>
-<p>説明用の式<code>final-sndr</code>を次の通りとする。</p>
+<p>説明用の式<code>transform-recurse(dom, tag, s)</code>を次の通りとする。</p>
 <ul>
-<li><code>sndr</code>と<code>transformed-sndr</code>の型が<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を無視して同一ならば、<code>transformed-sndr</code></li>
-<li>そうでなければ、式<code>transform_sender(dom, transformed-sndr, env...)</code>（再帰適用）</li>
+<li><code>transformed-sndr(dom, tag, s)</code>と<code>s</code>の型が<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を無視して同一ならば、式<code>transformed-sndr(dom, tag, s)</code></li>
+<li>そうではなく<code>tag</code>が<code><a href="start.html">start</a></code>のとき、<code>s2</code>を<code>transformed-sndr(dom, tag, s)</code>、<code>dom2</code>を<code>start-domain</code>として式<code>transform-recurse(dom2, tag, s2)</code></li>
+<li>そうでなければ、式<code>completion-domain(s2)</code></li>
 </ul>
+<p>説明用の式<code>tmp-sndr</code>を<code>transform-recurse(completion-domain(sndr), <a href="set_value.html">set_value</a>, sndr)</code>、式<code>final-sndr</code>を<code>transform-recurse(start-domain, <a href="start.html">start</a>, tmp-sndr)</code>とする。</p>
 <p><code>final-sndr</code>を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
-<p><code>noexcept(final-sndr) == true</code>ならば、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げない。
-そうでなければ、Sender変換過程で送出される<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</p>
+<p><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定は<code>noexcept(final-sndr)</code>に等しい。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -274,8 +277,8 @@ Senderオブジェクトの構築時、Senderと<a href="receiver.html">Receiver
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+        <title>std::ranges::filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,filter_view::sentinel,function,cpp20
 ">
-        <meta name="title" content="filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::ranges::filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::ranges::filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::ranges::filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/filter_view/sentinel/op_constructor.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::ranges::filter_view::sentinel::コンストラクタ - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/filter_view/sentinel/op_constructor.html" />
         <meta name="twitter:description" content="" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -212,12 +212,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-08-28T20:41:28">
-        2024年08月28日 20時41分28秒
+      <span itemprop="datePublished" content="2026-05-21T07:00:02">
+        2026年05月21日 07時00分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Tetsuro Matsumura</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -237,12 +237,19 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class filter_view::sentinel">filter_view::sentinel::</span><span class="token">コンストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">sentinel</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">                             </span><span class="c1">// (1)</span>
-<span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">sentinel</span><span class="p">(</span><span class="n">filter_view</span><span class="o">&amp;</span><span class="w"> </span><span class="n">parent</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="n">sentinel</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">                             </span><span class="c1">// (1)</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">sentinel</span><span class="p">(</span><span class="n">filter_view</span><span class="o">&amp;</span><span class="w"> </span><span class="n">parent</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) 説明専用</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code><a href="../sentinel.html">filter_view::sentinel</a></code>オブジェクトを構築する。</p>
+<ul>
+<li>(1) : デフォルトコンストラクタ</li>
+<li>(2) : <code>private</code>な説明専用コンストラクタ。<code><a href="../../filter_view.html">filter_view</a></code>の<code><a href="../end.html">end()</a></code>から呼び出される</li>
+</ul>
 <h2>効果</h2>
 <ul>
 <li>(1) : <code>end_</code>を<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>する</li>
@@ -266,6 +273,10 @@
 <ul>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4861/range.filter" target="_blank">N4861 24.7.4 Filter view</a></li>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4950/range.filter" target="_blank">N4950 26.7.8 Filter view</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3059r2.html" target="_blank">P3059R2 Making user-defined constructors of view iterators/sentinels private</a><ul>
+<li>C++26で、(2)の<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>コンストラクタを<code>public</code>から<code>private</code>に移動</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

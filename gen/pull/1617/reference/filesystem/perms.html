@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>perms - cpprefjp C++日本語リファレンス</title>
+        <title>std::filesystem::perms - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,filesystem,std::filesystem,enum,cpp17
 ">
-        <meta name="title" content="perms - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="perms - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="perms - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::filesystem::perms - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::filesystem::perms - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::filesystem::perms - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/filesystem/perms.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="権限を表す、ビットマスクの列挙型。それぞれの列挙子は、以下の意味を持つ：" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="perms - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::filesystem::perms - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/filesystem/perms.html" />
         <meta name="twitter:description" content="権限を表す、ビットマスクの列挙型。それぞれの列挙子は、以下の意味を持つ：" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -244,7 +244,7 @@
 <thead>
 <tr>
 <th>列挙子</th>
-<th align="right">値 (基本的に8進数)</th>
+<th style="text-align: right;">値 (基本的に8進数)</th>
 <th>対応するPOSIXマクロ</th>
 <th>説明</th>
 </tr>
@@ -252,115 +252,115 @@
 <tbody>
 <tr>
 <td><code>none</code></td>
-<td align="right"><code>0</code></td>
+<td style="text-align: right;"><code>0</code></td>
 <td></td>
 <td>ファイルに権限が設定されていない</td>
 </tr>
 <tr>
 <td><code>owner_read</code></td>
-<td align="right"><code>0400</code></td>
+<td style="text-align: right;"><code>0400</code></td>
 <td><code>S_IRUSR</code></td>
 <td>所有者による読み取り許可</td>
 </tr>
 <tr>
 <td><code>owner_write</code></td>
-<td align="right"><code>0200</code></td>
+<td style="text-align: right;"><code>0200</code></td>
 <td><code>S_IWUSR</code></td>
 <td>所有者による書き込み許可</td>
 </tr>
 <tr>
 <td><code>owner_exec</code></td>
-<td align="right"><code>0100</code></td>
+<td style="text-align: right;"><code>0100</code></td>
 <td><code>S_IXUSR</code></td>
 <td>所有者による実行および検索の許可</td>
 </tr>
 <tr>
 <td><code>owner_all</code></td>
-<td align="right"><code>0700</code></td>
+<td style="text-align: right;"><code>0700</code></td>
 <td><code>S_IRWXU</code></td>
 <td>所有者による読み取り、書き込み、実行および検索の許可</td>
 </tr>
 <tr>
 <td><code>group_read</code></td>
-<td align="right"><code>040</code></td>
+<td style="text-align: right;"><code>040</code></td>
 <td><code>S_IRGRP</code></td>
 <td>グループによる読み取り許可</td>
 </tr>
 <tr>
 <td><code>group_write</code></td>
-<td align="right"><code>020</code></td>
+<td style="text-align: right;"><code>020</code></td>
 <td><code>S_IWGRP</code></td>
 <td>グループによる書き込み許可</td>
 </tr>
 <tr>
 <td><code>group_exec</code></td>
-<td align="right"><code>010</code></td>
+<td style="text-align: right;"><code>010</code></td>
 <td><code>S_IXGRP</code></td>
 <td>グループによる実行および検索の許可</td>
 </tr>
 <tr>
 <td><code>group_all</code></td>
-<td align="right"><code>070</code></td>
+<td style="text-align: right;"><code>070</code></td>
 <td><code>S_IRWXG</code></td>
 <td>グループによる読み取り、書き込み、実行および検索の許可</td>
 </tr>
 <tr>
 <td><code>others_read</code></td>
-<td align="right"><code>04</code></td>
+<td style="text-align: right;"><code>04</code></td>
 <td><code>S_IROTH</code></td>
 <td>所有者以外による読み取り許可</td>
 </tr>
 <tr>
 <td><code>others_write</code></td>
-<td align="right"><code>02</code></td>
+<td style="text-align: right;"><code>02</code></td>
 <td><code>S_IWOTH</code></td>
 <td>所有者以外による書き込み許可</td>
 </tr>
 <tr>
 <td><code>others_exec</code></td>
-<td align="right"><code>01</code></td>
+<td style="text-align: right;"><code>01</code></td>
 <td><code>S_IXOTH</code></td>
 <td>所有者以外による実行および検索の許可</td>
 </tr>
 <tr>
 <td><code>others_all</code></td>
-<td align="right"><code>07</code></td>
+<td style="text-align: right;"><code>07</code></td>
 <td><code>S_IRWXO</code></td>
 <td>所有者以外による読み取り、書き込み、実行および検索の許可</td>
 </tr>
 <tr>
 <td><code>all</code></td>
-<td align="right"><code>0777</code></td>
+<td style="text-align: right;"><code>0777</code></td>
 <td></td>
 <td>所有者、グループ、所有者以外による読み取り、書き込み、実行および検索の許可</td>
 </tr>
 <tr>
 <td><code>set_uid</code></td>
-<td align="right"><code>04000</code></td>
+<td style="text-align: right;"><code>04000</code></td>
 <td><code>S_ISUID</code></td>
 <td>実行するユーザーIDを設定</td>
 </tr>
 <tr>
 <td><code>set_gid</code></td>
-<td align="right"><code>02000</code></td>
+<td style="text-align: right;"><code>02000</code></td>
 <td><code>S_ISGID</code></td>
 <td>実行するグループIDを設定</td>
 </tr>
 <tr>
 <td><code>sticky_bit</code></td>
-<td align="right"><code>01000</code></td>
+<td style="text-align: right;"><code>01000</code></td>
 <td><code>S_ISVTX</code></td>
 <td>OS依存の権限</td>
 </tr>
 <tr>
 <td><code>mask</code></td>
-<td align="right"><code>07777</code></td>
+<td style="text-align: right;"><code>07777</code></td>
 <td></td>
 <td>とりうる値が収まるビットマスク値</td>
 </tr>
 <tr>
 <td><code>unknown</code></td>
-<td align="right"><code>0xFFFF</code></td>
+<td style="text-align: right;"><code>0xFFFF</code></td>
 <td></td>
 <td>権限を指定せずに<code><a href="file_status.html">file_status</a></code>オブジェクトを生成した際の、権限不明の状態</td>
 </tr>

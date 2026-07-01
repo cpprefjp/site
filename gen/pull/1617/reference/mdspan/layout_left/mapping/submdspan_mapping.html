@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス</title>
+        <title>std::layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,mdspan,function template,std,layout_left::mapping,cpp26
 ">
-        <meta name="title" content="layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/mdspan/layout_left/mapping/submdspan_mapping.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="[`submdspan`](../../submdspan.md)関数をサポートするためのカスタマイゼーションポイント。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::layout_left::mapping::submdspan_mapping - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/mdspan/layout_left/mapping/submdspan_mapping.html" />
         <meta name="twitter:description" content="[`submdspan`](../../submdspan.md)関数をサポートするためのカスタマイゼーションポイント。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -212,12 +212,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-31T14:35:28">
-        2026年03月31日 14時35分28秒
+      <span itemprop="datePublished" content="2026-06-18T08:06:48">
+        2026年06月18日 08時06分48秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -272,7 +272,7 @@
 </ul>
 <p>下記を満たす型<code>S</code>を、単位ストライド幅スライス型と定義する。</p>
 <ul>
-<li><code>S</code>が<code><a href="../../strided_slice.html">strided_slice</a></code>の特殊化であり、<code>S::stride_type</code>が<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">constant_wrapper</span></code>の特殊化かつ<code>S::stride_type::value</code>が<code>1</code>、または</li>
+<li><code>S</code>が<code><a href="../../strided_slice.html">strided_slice</a></code>の特殊化であり、<code>S::stride_type</code>が<code><a href="../../../utility/constant_wrapper.html">constant_wrapper</a></code>の特殊化かつ<code>S::stride_type::value</code>が<code>1</code>、または</li>
 <li><code>S</code>が<code><a href="../../full_extent_t.html">full_extent_t</a></code></li>
 </ul>
 <p>説明専用の<code>submdspan-mapping-impl</code>関数テンプレートは下記の値を返す。</p>

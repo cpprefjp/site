@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -213,16 +213,18 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">(符号付き)size_tリテラルのためのサフィックス [P0330R8]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++23に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++23では、符号なし整数型<code><a href="../../reference/cstddef/size_t.html">size_t</a></code>に対応する符号付き整数型を表すリテラルの<code>z</code>および<code>Z</code>サフィックスを追加する。符号なしを表す<code>u</code>および<code>U</code>サフィックスをともに使用することで<code><a href="../../reference/cstddef/size_t.html">size_t</a></code>型のリテラルを記述できる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="n">z</span><span class="p">;</span><span class="w">  </span><span class="c1">// size_tに対応する符号付き整数型</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10u</span><span class="n">z</span><span class="p">;</span><span class="w"> </span><span class="c1">// size_t型</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10U</span><span class="n">Z</span><span class="p">;</span><span class="w"> </span><span class="c1">// size_t型 (大文字でも同じ意味)</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="n">zu</span><span class="p">;</span><span class="w"> </span><span class="c1">// size_t型 (uとzは順不同)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10z</span><span class="p">;</span><span class="w">  </span><span class="c1">// size_tに対応する符号付き整数型</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10uz</span><span class="p">;</span><span class="w"> </span><span class="c1">// size_t型</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10UZ</span><span class="p">;</span><span class="w"> </span><span class="c1">// size_t型 (大文字でも同じ意味)</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10z</span><span class="n">u</span><span class="p">;</span><span class="w"> </span><span class="c1">// size_t型 (uとzは順不同)</span>
 </code></pre></div>
 </p>
 <h2>この機能が必要になった背景・経緯</h2>
@@ -237,7 +239,7 @@
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector/size.html">v.size()</a></span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="c1">// case 3</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0u</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector/size.html">v.size()</a></span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0uz</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector/size.html">v.size()</a></span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 </p>
 <p>ここでのcase 1では、<code>0u</code>は<code>unsigned int</code>型リテラルとなり、<code><a href="../../reference/cstddef/size_t.html">size_t</a></code>型が64ビットとして定義される場合に、<code><a href="../../reference/cstddef/size_t.html">size_t</a></code>型を<code>unsigned int</code>型に丸めるために警告が出力される可能性がある。</p>
@@ -250,7 +252,7 @@
 <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">clamped_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="mi">54</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">));</span>
 
 <span class="c1">// case 2</span>
-<span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">clamped_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="mi">0u</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="mi">54u</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">));</span>
+<span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">clamped_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="mi">0uz</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="mi">54uz</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">));</span>
 </code></pre></div>
 </p>
 <p>case 1はコンパイルエラーとなる。<code><a href="../../reference/algorithm/min.html">std::min()</a></code>と<code><a href="../../reference/algorithm/max.html">std::max()</a></code>は2つの引数が同じ型であることを期待するため、<code>int</code>型の値と<code><a href="../../reference/cstddef/size_t.html">size_t</a></code>型の値の2つ渡そうとするとコンパイルエラーとなる。<code>std::max&lt;std::size_t&gt;(a, b)</code>のようにテンプレート引数を明示的に指定する回避方法もある。</p>

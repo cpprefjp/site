@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../static/css/root.css"> -->
 
         
   
 
 
-<link href="../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -176,12 +176,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-12-02T04:14:25">
-        2025年12月02日 04時14分25秒
+      <span itemprop="datePublished" content="2026-06-08T11:56:08">
+        2026年06月08日 11時56分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">K10-K10</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -270,6 +270,21 @@
 <td>文字列を、<code>long double</code>型に変換する (function)</td>
 <td>C++11</td>
 </tr>
+<tr>
+<td><code><a href="cstdlib/strfromf.html">strfromf</a></code></td>
+<td><code>float</code>型を文字列に変換する (function)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdlib/strfromd.html">strfromd</a></code></td>
+<td><code>double</code>型を文字列に変換する (function)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdlib/strfroml.html">strfroml</a></code></td>
+<td><code>long double</code>型を文字列に変換する (function)</td>
+<td>C++26</td>
+</tr>
 </tbody>
 </table>
 <h2>擬似乱数</h2>
@@ -333,6 +348,21 @@
 <td><code><a href="cstdlib/free.html">free</a></code></td>
 <td>確保したメモリを解放する (function)</td>
 <td></td>
+</tr>
+<tr>
+<td><code><a href="cstdlib/free_sized.html">free_sized</a></code></td>
+<td>確保時のサイズを指定して、確保したメモリを解放する (function)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdlib/free_aligned_sized.html">free_aligned_sized</a></code></td>
+<td>アライメントと確保時のサイズを指定して、確保したメモリを解放する (function)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdlib/memalignment.html">memalignment</a></code></td>
+<td>ポインタのアライメントを取得する (function)</td>
+<td>C++26</td>
 </tr>
 </tbody>
 </table>
@@ -421,9 +451,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>bsearch</code></td>
+<td><code><a href="cstdlib/bsearch.html">bsearch</a></code></td>
 <td>二分探索を行う (function)</td>
-<td></td>
+<td>C++26で<code>const</code>版<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</td>
 </tr>
 <tr>
 <td><code>qsort</code></td>

@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>task::promise_type::await_transform - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::task::promise_type::await_transform - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,task::promise_type,function template,cpp26
 ">
-        <meta name="title" content="task::promise_type::await_transform - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="task::promise_type::await_transform - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="task::promise_type::await_transform - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::task::promise_type::await_transform - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::task::promise_type::await_transform - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::task::promise_type::await_transform - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/task/promise_type/await_transform.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="タスクコルーチンにおける[co_await式](/lang/cpp20/coroutines.md)の動作を制御する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="task::promise_type::await_transform - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::task::promise_type::await_transform - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/task/promise_type/await_transform.html" />
         <meta name="twitter:description" content="タスクコルーチンにおける[co_await式](/lang/cpp20/coroutines.md)の動作を制御する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -224,8 +224,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-16T17:01:12">
-        2026年01月16日 17時01分12秒
+      <span itemprop="datePublished" content="2026-06-09T07:03:31">
+        2026年06月09日 07時03分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -250,29 +250,15 @@
         
   <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class task::promise_type">task::promise_type::</span><span class="token">await_transform</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../sender.html">sender</a></span><span class="w"> </span><span class="n">Sender</span><span class="o">&gt;</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">await_transform</span><span class="p">(</span><span class="n">Sender</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)</span>
-
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sch</span><span class="o">&gt;</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">await_transform</span><span class="p">(</span><span class="n"><a href="../../change_coroutine_scheduler.html">change_coroutine_scheduler</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sch</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2)</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">await_transform</span><span class="p">(</span><span class="n">Sender</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>タスクコルーチンにおける<a href="../../../../../lang/cpp20/coroutines.html">co_await式</a>の動作を制御する。
 プログラマが本関数を直接利用することは想定されていない。</p>
 <h2>効果</h2>
-<ul>
-<li>(1) :<ul>
-<li><code><a href="../../../../concepts/same_as.html">same_as</a>&lt;<a href="../../inline_scheduler.html">inline_scheduler</a>, <a href="../../task.html">scheduler_type</a>&gt; == true</code>ならば、<code><a href="../../as_awaitable.html">as_awaitable</a>(std::forward&lt;Sender&gt;(sndr), *this)</code>を返す。</li>
-<li>そうでなければ、<code><a href="../../as_awaitable.html">as_awaitable</a>(<a href="../../affine_on.html">affine_on</a>(std::forward&lt;Sender&gt;(sndr), SCHED(*this)), *this)</code>を返す。</li>
-</ul>
-</li>
-<li>
-<p>(2) : 以下と等価</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">await_transform</span><span class="p">(</span><span class="n"><a href="../../just.html">just</a></span><span class="p">(</span><span class="n"><a href="../../../../utility/exchange.html">exchange</a></span><span class="p">(</span><span class="n">SCHED</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../task.html">scheduler_type</a></span><span class="p">(</span><span class="n">sch</span><span class="p">.</span><span class="n"><a href="../../change_coroutine_scheduler.html">scheduler</a></span><span class="p">))),</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
-</code></pre></div>
-</p>
-</li>
-</ul>
+<p><code><a href="../../../../concepts/same_as.html">same_as</a>&lt;<a href="../../inline_scheduler.html">inline_scheduler</a>, <a href="../../task.html">start_scheduler_type</a>&gt; == true</code>ならば、<code><a href="../../as_awaitable.html">as_awaitable</a>(<a href="../../../../utility/forward.html">std::forward</a>&lt;Sender&gt;(sndr), *this)</code>を返す。
+そうでなければ、<code><a href="../../as_awaitable.html">as_awaitable</a>(<a href="../../affine.html">affine</a>(<a href="../../../../utility/forward.html">std::forward</a>&lt;Sender&gt;(sndr)), *this)</code>を返す。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -288,13 +274,14 @@
 <h2>関連項目</h2>
 <ul>
 <li><code><a href="../../as_awaitable.html">execution::as_awaitable</a></code></li>
-<li><code><a href="../../affine_on.html">execution::affine_on</a></code></li>
+<li><code><a href="../../affine.html">execution::affine</a></code></li>
 <li><code><a href="../../inline_scheduler.html">execution::inline_scheduler</a></code></li>
-<li><code><a href="../../change_coroutine_scheduler.html">execution::change_coroutine_scheduler</a></code></li>
 </ul>
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4151r1.pdf" target="_blank">P4151R1 Rename <code>affine_on</code></a></li>
 </ul></div>
 
       </div>

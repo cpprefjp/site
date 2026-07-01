@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>as_const_view - cpprefjp C++日本語リファレンス</title>
+        <title>std::ranges::as_const_view - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp23
 ">
-        <meta name="title" content="as_const_view - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="as_const_view - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="as_const_view - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::ranges::as_const_view - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::ranges::as_const_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::ranges::as_const_view - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/as_const_view.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="- (1): 各要素を定数化したRangeとして振る舞う[`view`](view.md)" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="as_const_view - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::ranges::as_const_view - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/as_const_view.html" />
         <meta name="twitter:description" content="- (1): 各要素を定数化したRangeとして振る舞う[`view`](view.md)" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-05-22T02:42:20">
+        2026年05月22日 02時42分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,32 +233,32 @@
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
-<th align="center">borrowed</th>
-<th align="center">sized</th>
-<th align="center">output</th>
-<th align="center">input</th>
-<th align="center">forward</th>
-<th align="center">bidirectional</th>
-<th align="center">random_access</th>
-<th align="center">contiguous</th>
-<th align="center">common</th>
-<th align="center">viewable</th>
-<th align="center">view</th>
+<th style="text-align: center;">borrowed</th>
+<th style="text-align: center;">sized</th>
+<th style="text-align: center;">output</th>
+<th style="text-align: center;">input</th>
+<th style="text-align: center;">forward</th>
+<th style="text-align: center;">bidirectional</th>
+<th style="text-align: center;">random_access</th>
+<th style="text-align: center;">contiguous</th>
+<th style="text-align: center;">common</th>
+<th style="text-align: center;">viewable</th>
+<th style="text-align: center;">view</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center"></td>
-<td align="center">○</td>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center">※</td>
-<td align="center">○</td>
-<td align="center">○</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">※</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
 </tr>
 </tbody>
 </table>
@@ -270,6 +270,7 @@
 <li>(2): 式<code>views::as_const(E)</code>の効果は次のいずれか（<code>T = decltype((E))</code>、<code>U = remove_cvref_t&lt;T&gt;</code>とする）<ul>
 <li><code>views::all_t&lt;T&gt;</code>が<code>constant_range</code>のモデルとなる場合 : <code>views::all(E)</code></li>
 <li>任意の型<code>X</code>に対して、<code>U</code>が<code>empty_view&lt;X&gt;</code>である場合 : <code>auto(views::empty&lt;const X&gt;)</code></li>
+<li>C++26 : 任意の型<code>X</code>に対して、<code>U</code>が<code><a href="../optional/optional.html">optional</a>&lt;X&amp;&gt;</code>である場合 : <code><a href="../optional/optional.html">optional</a>&lt;const X&amp;&gt;(E)</code></li>
 <li>任意の型<code>X</code>と整数値<code>Extent</code>に対して、<code>U</code>が<code>span&lt;X, Extent&gt;</code>である場合 : <code>span&lt;const X, Extent&gt;(E)</code></li>
 <li>任意の型<code>X</code>に対して、<code>U</code>が<code>ref_view&lt;X&gt;</code>であり、<code>const X</code>が<code>constant_range</code>のモデルとなる場合 : <code>ref_view(static_cast&lt;const X&amp;&gt;(E.base()))</code></li>
 <li><code>E</code>が左辺値であり、<code>const U</code>が<code>constant_range</code>のモデルとなり、かつ<code>U</code>は<code>view</code>のモデルとならない場合 : <code>ref_view(static_cast&lt;const U&amp;&gt;(E))</code></li>
@@ -311,6 +312,11 @@
 <td><code><a href="as_const_view/size.html">size</a></code></td>
 <td>要素数を取得する</td>
 <td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="as_const_view/reserve_hint.html">reserve_hint</a></code></td>
+<td>要素数の近似値を取得する</td>
+<td>C++26</td>
 </tr>
 </tbody>
 </table>
@@ -412,6 +418,10 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html" target="_blank">P2278R4 <code>cbegin</code> should always return a constant iterator</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3913r1.pdf" target="_blank">P3913R1 Optimize for <code>std::optional</code> in range adaptors</a><ul>
+<li>C++26で、入力が<code><a href="../optional/optional.html">optional</a>&lt;X&amp;&gt;</code>の場合の特殊化を追加</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

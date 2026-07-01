@@ -38,13 +38,13 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
@@ -67,13 +67,13 @@
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -84,7 +84,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cfloat&#34;], &#34;id-type&#34;: [&#34;macro&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0af2e49c85a0cf57f384c3cf6e1220f5350654d5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cfloat&gt;\n#include &lt;cmath&gt;\n\nint main()\n{\n  std::cout &lt;&lt; DECIMAL_DIG &lt;&lt; &#39;\\n&#39;;\n\n  // \u7cbe\u5ea6\u304c\u4e00\u756a\u9ad8\u3044\u6d6e\u52d5\u5c0f\u6570\u70b9\u578b\u304c long double \u306e\u5834\u5408\u3001\u4ee5\u4e0b\u306e\u5f0f\u3068\u7b49\u4fa1\n  long double log10b = std::log10(FLT_RADIX);\n  long double intpart;\n  if (std::modf(log10b, &amp;intpart) == 0.0) {\n    std::cout &lt;&lt; LDBL_MANT_DIG * log10b &lt;&lt; &#39;\\n&#39;;\n  } else {\n    std::cout &lt;&lt; std::ceil(1 + LDBL_MANT_DIG * log10b) &lt;&lt; &#39;\\n&#39;;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cfloat&#34;, &#34;decimal_dig&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cfloat&#34;], &#34;id-type&#34;: [&#34;macro&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;, &#34;cpp26deprecated&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0af2e49c85a0cf57f384c3cf6e1220f5350654d5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cfloat&gt;\n#include &lt;cmath&gt;\n\nint main()\n{\n  std::cout &lt;&lt; DECIMAL_DIG &lt;&lt; &#39;\\n&#39;;\n\n  // \u7cbe\u5ea6\u304c\u4e00\u756a\u9ad8\u3044\u6d6e\u52d5\u5c0f\u6570\u70b9\u578b\u304c long double \u306e\u5834\u5408\u3001\u4ee5\u4e0b\u306e\u5f0f\u3068\u7b49\u4fa1\n  long double log10b = std::log10(FLT_RADIX);\n  long double intpart;\n  if (std::modf(log10b, &amp;intpart) == 0.0) {\n    std::cout &lt;&lt; LDBL_MANT_DIG * log10b &lt;&lt; &#39;\\n&#39;;\n  } else {\n    std::cout &lt;&lt; std::ceil(1 + LDBL_MANT_DIG * log10b) &lt;&lt; &#39;\\n&#39;;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cfloat&#34;, &#34;decimal_dig&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -204,12 +204,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-19T11:48:46">
-        2025年08月19日 11時48分46秒
+      <span itemprop="datePublished" content="2026-06-15T05:22:22">
+        2026年06月15日 05時22分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -228,10 +228,11 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">macro</div><div class="header">&lt;cfloat&gt;</div><h1 itemprop="name"><span class="token">DECIMAL_DIG</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+  <div class="identifier-type">macro</div><div class="header">&lt;cfloat&gt;</div><h1 itemprop="name"><span class="token">DECIMAL_DIG</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp26deprecated text-warning" title="C++26で非推奨">(C++26で非推奨)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#define DECIMAL_DIG <i>implementation-defined</i></span>
 </code></pre></div>
 </p>
+<p>このマクロは、C++26で非推奨となった。型ごとの桁数を示す<code><a href="flt_decimal_dig.html">FLT_DECIMAL_DIG</a></code>・<code><a href="dbl_decimal_dig.html">DBL_DECIMAL_DIG</a></code>・<code><a href="ldbl_decimal_dig.html">LDBL_DECIMAL_DIG</a></code>を使用すること。</p>
 <h2>概要</h2>
 <p>精度が一番高い浮動小数点型の数値を10進数で正確に表すのに必要な有効数字の桁数を表すマクロ。<br />
 より正確には、精度が一番高い浮動小数点型のあらゆる数値を、$n$ 桁の10進数に変換し、また元に戻した場合に値が変わらないような最小の整数値 $n$ を表すマクロ。<br />
@@ -258,6 +259,14 @@ $b$ や $p$ については <code><a href="../cfloat.html">&lt;cfloat&gt;</a></c
 <li><code><a href="ldbl_decimal_dig.html">LDBL_DECIMAL_DIG</a></code></li>
 </ul>
 </li>
+</ul>
+<h2>非推奨・削除の詳細</h2>
+<p>C言語側で対応するマクロが非推奨となったため、C++側でも非推奨とする。</p>
+<p>このマクロは、精度が一番高い浮動小数点型のみを対象とする値であり、実質的に<code><a href="ldbl_decimal_dig.html">LDBL_DECIMAL_DIG</a></code>と同じものであった。型ごとに必要な桁数は異なるため、すべての浮動小数点型に対して単一の値を使用するこのマクロよりも、型ごとの桁数を表す以下のマクロを使用するほうが正確である：</p>
+<ul>
+<li><code><a href="flt_decimal_dig.html">FLT_DECIMAL_DIG</a></code> (<code>float</code>用)</li>
+<li><code><a href="dbl_decimal_dig.html">DBL_DECIMAL_DIG</a></code> (<code>double</code>用)</li>
+<li><code><a href="ldbl_decimal_dig.html">LDBL_DECIMAL_DIG</a></code> (<code>long double</code>用)</li>
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="0af2e49c85a0cf57f384c3cf6e1220f5350654d5"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
@@ -296,6 +305,13 @@ $b$ や $p$ については <code><a href="../cfloat.html">&lt;cfloat&gt;</a></c
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span><ul>
 <li>2013は、正しく実装されていない。C++11での最低値である10と定義されている。しかし、<code>double</code>および<code>long double</code>がIEEE 754倍精度で実装されているため、少なくとも17以上でなければならない。</li>
 <li>2015は、正しく17と定義されている。</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf" target="_blank">P3348R4 C++26 should refer to C23 not C17</a><ul>
+<li>C++26がC23を参照するようになり、このマクロが非推奨となった</li>
 </ul>
 </li>
 </ul></div>

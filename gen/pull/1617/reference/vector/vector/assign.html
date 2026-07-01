@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>vector::assign - cpprefjp C++日本語リファレンス</title>
+        <title>std::vector::assign - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,vector,std,vector,function
 ">
-        <meta name="title" content="vector::assign - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="vector::assign - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="vector::assign - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::vector::assign - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::vector::assign - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::vector::assign - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/vector/vector/assign.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="コンテナの再代入。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="vector::assign - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::vector::assign - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/vector/vector/assign.html" />
         <meta name="twitter:description" content="コンテナの再代入。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2023-12-29T16:05:52">
-        2023年12月29日 16時05分52秒
+      <span itemprop="datePublished" content="2026-05-04T02:24:57">
+        2026年05月04日 02時24分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -246,7 +246,7 @@
 </ul>
 <h2>要件</h2>
 <ul>
-<li>(1) : 型<code>T</code>は<code>*first</code>から<code>X</code>に対してEmplaceConstructibleでなければならない。イテレータがForward iterators の要件を満たさない場合、型<code>T</code>は<code>X</code>に対してMoveInsertableでなければならない。<code>[first, last)</code>の範囲のそれぞれのイテレータは１回だけ間接参照される。<code>first</code>, <code>last</code>は自身のイテレータであってはならない。</li>
+<li>(1) : 型<code>T</code>が<code>*first</code>から<code>vector</code>コンテナへの<code>EmplaceConstructible</code>であること。<code>InputIterator</code>が前方向イテレータの要件を満たさない場合、型<code>T</code>は<code>vector</code>コンテナに対してMoveInsertableであること。<code>[first, last)</code>の範囲のそれぞれのイテレータは１回だけ間接参照される。<code>first</code>, <code>last</code>は自身のイテレータであってはならない。</li>
 <li>(2) : <code>t</code>は<code>*this</code>の要素への参照であってはならない。</li>
 </ul>
 <h2>効果</h2>

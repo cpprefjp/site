@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>filter_view::begin - cpprefjp C++日本語リファレンス</title>
+        <title>std::ranges::filter_view::begin - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,filter_view,function,cpp20
 ">
-        <meta name="title" content="filter_view::begin - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="filter_view::begin - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="filter_view::begin - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::ranges::filter_view::begin - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::ranges::filter_view::begin - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::ranges::filter_view::begin - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/filter_view/begin.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="filter_view::begin - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::ranges::filter_view::begin - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/filter_view/begin.html" />
         <meta name="twitter:description" content="" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-31T10:06:36">
-        2025年08月31日 10時06分36秒
+      <span itemprop="datePublished" content="2026-05-22T03:23:59">
+        2026年05月22日 03時23分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,16 +225,29 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class filter_view">filter_view::</span><span class="token">begin</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="iterator.html">iterator</a></span><span class="w"> </span><span class="nf">begin</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="iterator.html">iterator</a></span><span class="w"> </span><span class="nf">begin</span><span class="p">();</span><span class="w">                     </span><span class="c1">// (1) C++20</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="iterator.html">iterator</a></span><span class="o">&lt;</span><span class="nb">false</span><span class="o">&gt;</span><span class="w"> </span><span class="n">begin</span><span class="p">();</span><span class="w">              </span><span class="c1">// (1) C++26</span>
+
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="iterator.html">iterator</a></span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="w"> </span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../input_range.html">input_range</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n"><a href="../forward_range.html">forward_range</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">            </span><span class="n"><a href="../../iterator/indirect_unary_predicate.html">indirect_unary_predicate</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Pred</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;&gt;</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code>view</code>の先頭要素を指すイテレータを取得する。</p>
+<ul>
+<li>(1) : 非<code>const</code>版</li>
+<li>(2) : <code>const</code>版。元のRangeが<code><a href="../input_range.html">input_range</a></code>であり、かつ<code><a href="../forward_range.html">forward_range</a></code>ではない場合に限り提供される</li>
+</ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
 <p><code>pred_.<a href="../../optional/optional/has_value.html">has_value</a>()</code>が<code>true</code>であること。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>{*this, <a href="../../algorithm/ranges_find_if.html">ranges::find_if</a>(base_, <a href="../../functional/ref.html">ref</a>(*pred_))}</code></p>
-<p><code><a href="../range.html">range</a></code>のモデルとなるためにはこの関数が償却定数時間で実行できなければならないため、値はキャッシュされる。</p>
+<h2>備考</h2>
+<ul>
+<li>(1) : <code><a href="../range.html">range</a></code>のモデルとなるためにはこの関数が償却定数時間で実行できなければならないため、値はキャッシュされる</li>
+<li>(2) : この関数は値をキャッシュしない</li>
+</ul>
 <h2>例</h2>
 <p><div class="yata" id="60fcfeba6fe2e1189451654191e6a3666dd12bd1"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../ranges.html">&lt;ranges&gt;</a></span>
 <span class="cp">#include <a href="../../vector.html">&lt;vector&gt;</a></span>
@@ -270,6 +283,10 @@
 <ul>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4861/range.filter" target="_blank">N4861 24.7.4 Filter view</a></li>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4950/range.filter" target="_blank">N4950 26.7.8 Filter view</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3725r3.pdf" target="_blank">P3725R3 Filter View Extensions for Safer Use</a><ul>
+<li>C++26で、(2)の<code>const</code>版<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加 (入力Rangeの場合の<code>const</code>イテレーションをサポート)</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

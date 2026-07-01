@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>task_scheduler - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::task_scheduler - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,class,std::execution,cpp26
 ">
-        <meta name="title" content="task_scheduler - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="task_scheduler - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="task_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::task_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::task_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::task_scheduler - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/task_scheduler.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`task_scheduler`は、任意の[Scheduler](scheduler.md)型を型消去して保持するSchedulerである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="task_scheduler - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::task_scheduler - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/task_scheduler.html" />
         <meta name="twitter:description" content="`task_scheduler`は、任意の[Scheduler](scheduler.md)型を型消去して保持するSchedulerである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-13T11:37:50">
-        2026年01月13日 11時37分50秒
+      <span itemprop="datePublished" content="2026-06-09T07:03:31">
+        2026年06月09日 07時03分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,13 +233,13 @@
 <h2>概要</h2>
 <p><code>task_scheduler</code>は、任意の<a href="scheduler.html">Scheduler</a>型を型消去して保持するSchedulerである。</p>
 <p>実行制御ライブラリのタスクコルーチン<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型<code><a href="task.html">task&lt;T, E&gt;</a></code>において、環境<code>E</code>のデフォルトScheduler型として利用される。</p>
-<p><code>task_scheduler</code>は<code><a href="scheduler.html">scheduler</a></code>のモデルである。</p>
 <h2>クラス仕様</h2>
+<p><code>task_scheduler</code>は<code><a href="scheduler.html">scheduler</a></code>のモデルである。</p>
+<p><code>task_scheduler</code>型のオブジェクト<code>s</code>に対して、<code>SCHED(s)</code>を<code>s.sch_</code>が所有するポインタが指すオブジェクトとする。式<code><a href="get_forward_progress_guarantee.html">get_forward_progress_guarantee</a>(s)</code>は<code>get_forward_progress_guarantee(SCHED(s))</code>と等価。式<code><a href="get_completion_domain.html">get_completion_domain</a>&lt;<a href="set_value.html">set_value_t</a>&gt;(s)</code>は<code>task_scheduler::<a href="task_scheduler/schedule.html">ts-domain()</a></code>と等価。</p>
 <p><code>task_scheduler</code>クラスは、下記の説明専用メンバ変数を持つ。</p>
 <ul>
-<li><code>sch_</code> : <code><a href="../../memory/shared_ptr.html">shared_ptr</a>&lt;void&gt;</code>型</li>
+<li><code>sch_</code> : <code><a href="../../memory/shared_ptr.html">shared_ptr</a>&lt;<a href="parallel_scheduler_replacement/parallel_scheduler_backend.html">parallel_scheduler_replacement::parallel_scheduler_backend</a>&gt;</code>型</li>
 </ul>
-<p><code>task_scheduler</code>型のオブジェクト<code>s</code>に対して、<code>SCHED(s)</code>を<code>s.sch_</code>が所有するポインタが指すオブジェクトとする。</p>
 <h2>メンバ関数</h2>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
@@ -284,7 +284,7 @@
 <tbody>
 <tr>
 <td><code>scheduler_concept</code></td>
-<td><code><a href="scheduler.html">scheduler_t</a></code></td>
+<td><code><a href="scheduler.html">scheduler_tag</a></code></td>
 <td>C++26</td>
 </tr>
 </tbody>
@@ -347,6 +347,7 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4446" target="_blank">LWG4446. Bad phrasing for <code>SCHED(s)</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3927r2.html" target="_blank">P3927R2 <code>task_scheduler</code> support for parallel <code>bulk</code> execution</a></li>
 </ul></div>
 
       </div>

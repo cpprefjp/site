@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス</title>
+        <title>std::submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,mdspan,function template,std,cpp26
 ">
-        <meta name="title" content="submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/mdspan/submdspan_canonicalize_slices.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="多次元配列サイズ[`extents`](extents.md)と各次元からの要素取り出し（スライス）情報を正規化する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::submdspan_canonicalize_slices - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/mdspan/submdspan_canonicalize_slices.html" />
         <meta name="twitter:description" content="多次元配列サイズ[`extents`](extents.md)と各次元からの要素取り出し（スライス）情報を正規化する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-31T14:35:28">
-        2026年03月31日 14時35分28秒
+      <span itemprop="datePublished" content="2026-06-18T08:06:48">
+        2026年06月18日 08時06分48秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <h3>正則<code>submdspan</code>スライス型</h3>
-<p>符号付きもしくは符号なし整数型<code>IndexType</code>に対して、型<code>S</code>が<code>IndexType</code>もしくは値<code>0</code>以上の任意の値<code>v</code>を保持する<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">constant_wrapper&lt;v&gt;</span></code>であるとき、型<code>S</code>は<code>IndexType</code>の正則<code>submdspan</code>インデクス型となる。</p>
+<p>符号付きもしくは符号なし整数型<code>IndexType</code>に対して、型<code>S</code>が<code>IndexType</code>もしくは値<code>0</code>以上の任意の値<code>v</code>を保持する<code><a href="../utility/constant_wrapper.html">constant_wrapper&lt;v&gt;</a></code>であるとき、型<code>S</code>は<code>IndexType</code>の正則<code>submdspan</code>インデクス型となる。</p>
 <p>符号付きもしくは符号なし整数型<code>IndexType</code>に対して、下記のうちただ1つだけを満たすとき、型<code>S</code>は<code>IndexType</code>の正則<code>submdspan</code>スライス型(canonical <code>submdspan</code> slice type)となる。</p>
 <ul>
 <li><code>S</code>が<code><a href="full_extent_t.html">full_extent_t</a></code></li>
 <li><code>S</code>が<code>IndexType</code>の正則<code>submdspan</code>インデクス型である</li>
 <li><code>S</code>が<code><a href="strided_slice.html">strided_slice</a></code>の特殊化であり、下記を全て満たす<ul>
 <li><code>S::offset_type</code>, <code>S::extent_type</code>, <code>S::stride_type</code>が、全て<code>IndexType</code>の正則<code>submdspan</code>インデクス型である</li>
-<li><code>S::stride_type</code>および<code>S::extent_type</code>がいずれも<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">constant_wrapper</span></code>の特殊化であり、<code>S::stride_type::value</code>が<code>0</code>より大きい</li>
+<li><code>S::stride_type</code>および<code>S::extent_type</code>がいずれも<code><a href="../utility/constant_wrapper.html">constant_wrapper</a></code>の特殊化であり、<code>S::stride_type::value</code>が<code>0</code>より大きい</li>
 </ul>
 </li>
 </ul>
@@ -255,12 +255,12 @@
 <p><code><a href="extents.html">extents</a></code>の特殊化である型<code>E</code>に対して、型<code>S</code>が<code>E::index_type</code>の正則スライス型であり、かつ<code>E::static_extent(k)</code>に等しい<code>x</code>に対して<code>x</code>が<code>dynamic_extent</code>に等しいか下記を満たすとき、型<code>S</code>は<code>E</code>の<code>k</code>番目次元の有効<code>submdspan</code>スライス型(valid <code>submdspan</code> slice type)となる。</p>
 <ul>
 <li><code>S</code>が<code><a href="strided_slice.html">strided_slice</a></code>の特殊化であるとき :<ul>
-<li><code>S::offset_type</code>が<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">constant_wrapper</span></code>の特殊化であるとき、<code>S::offset_type::value</code>が<code>x</code>以下</li>
-<li><code>S::extent_type</code>が<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">constant_wrapper</span></code>の特殊化であるとき、<code>S::extent_type::value</code>が<code>x</code>以下</li>
-<li><code>S::offset_type</code>および<code>S::extent_type</code>が<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">constant_wrapper</span></code>の特殊化であるとき、<code>S::offset_type::value + S::extent_type::value</code>が<code>x</code>以下</li>
+<li><code>S::offset_type</code>が<code><a href="../utility/constant_wrapper.html">constant_wrapper</a></code>の特殊化であるとき、<code>S::offset_type::value</code>が<code>x</code>以下</li>
+<li><code>S::extent_type</code>が<code><a href="../utility/constant_wrapper.html">constant_wrapper</a></code>の特殊化であるとき、<code>S::extent_type::value</code>が<code>x</code>以下</li>
+<li><code>S::offset_type</code>および<code>S::extent_type</code>が<code><a href="../utility/constant_wrapper.html">constant_wrapper</a></code>の特殊化であるとき、<code>S::offset_type::value + S::extent_type::value</code>が<code>x</code>以下</li>
 </ul>
 </li>
-<li><code>S</code>が<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">constant_wrapper</span></code>の特殊化であるとき、<code>S::value</code>が<code>x</code>より小さい</li>
+<li><code>S</code>が<code><a href="../utility/constant_wrapper.html">constant_wrapper</a></code>の特殊化であるとき、<code>S::value</code>が<code>x</code>より小さい</li>
 </ul>
 <h3>有効<code>submdspan</code>スライス</h3>
 <p><code><a href="extents.html">extents</a></code>の特殊化である型<code>E</code>のオブジェクト<code>e</code>と、型<code>S</code>のオブジェクト<code>s</code>に対して、下記を満たすとき<code>s</code>は<code>e</code>の<code>k</code>番目次元の有効<code>submdspan</code>スライス(valid <code>submdspan</code> slice)となる。</p>
@@ -279,10 +279,10 @@
 <p><code>src</code>の各次元インデクス<code>k</code>に対して、</p>
 <ul>
 <li><code>SliceSpecifiers...[k]</code>が<code>IndexType</code>の<code>submdspan</code>スライス型であり、かつ</li>
-<li><code>decltype(<a href="canonical-slice.html">cannonical-slice</a>&lt;IndexType&gt;(slices...[k]))</code>が<code><a href="extents.html">extents</a>&lt;IndexType, Extents...&gt;</code>のk番目次元の有効<code>submdspan</code>スライス型(valid <code>submdspan</code> slice type)であること。</li>
+<li><code>decltype(<a href="canonical-slice.html">canonical-slice</a>&lt;IndexType&gt;(slices...[k]))</code>が<code><a href="extents.html">extents</a>&lt;IndexType, Extents...&gt;</code>のk番目次元の有効<code>submdspan</code>スライス型(valid <code>submdspan</code> slice type)であること。</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
-<p><code>src</code>の各次元インデクス<code>k</code>に対して、<code><a href="canonical-slice.html">cannonical-slice</a>&lt;IndexType&gt;(slices...[k])</code>が<code>src</code>のk番目次元の有効<code>submdspan</code>スライス(valid <code>submdspan</code> slice)であること。</p>
+<p><code>src</code>の各次元インデクス<code>k</code>に対して、<code><a href="canonical-slice.html">canonical-slice</a>&lt;IndexType&gt;(slices...[k])</code>が<code>src</code>のk番目次元の有効<code>submdspan</code>スライス(valid <code>submdspan</code> slice)であること。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../tuple/make_tuple.html">make_tuple</a></span><span class="p">(</span><span class="n"><a href="canonical-slice.html">canonical-slice</a></span><span class="o">&lt;</span><span class="n">IndexType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">slices</span><span class="p">)...)</span>
 </code></pre></div>

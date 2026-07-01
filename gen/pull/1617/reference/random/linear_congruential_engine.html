@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>linear_congruential_engine - cpprefjp C++日本語リファレンス</title>
+        <title>std::linear_congruential_engine - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,class template,cpp11
 ">
-        <meta name="title" content="linear_congruential_engine - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="linear_congruential_engine - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="linear_congruential_engine - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::linear_congruential_engine - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::linear_congruential_engine - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::linear_congruential_engine - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/random/linear_congruential_engine.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`linear_congruential_engine`クラスは、線形合同法による擬似乱数生成エンジンである。  " />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="linear_congruential_engine - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::linear_congruential_engine - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/linear_congruential_engine.html" />
         <meta name="twitter:description" content="`linear_congruential_engine`クラスは、線形合同法による擬似乱数生成エンジンである。  " />
 
@@ -38,13 +38,13 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
@@ -67,13 +67,13 @@
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -204,8 +204,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-22T16:15:43">
-        2025年10月22日 16時15分43秒
+      <span itemprop="datePublished" content="2026-05-18T04:21:35">
+        2026年05月18日 04時21分35秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -244,6 +244,7 @@
 <p>$$x_{n+1}= (a \times x_n + c) \bmod m$$</p>
 <p>テンプレートパラメータの意味は以下の通り:</p>
 <ul>
+<li><code>UIntType</code>: 生成する符号なし整数の型。標準もしくは拡張の符号なし整数型 (ビット幅が<code>short</code>以上<code>long long</code>以下) 、または<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のサブセットの符号なし整数型でなければならない。</li>
 <li><code>a</code>: 乗数。<code>m</code> が非 0 の場合 <code>a &lt; m</code> でなければならない。</li>
 <li><code>c</code>: 増分。<code>m</code> が非 0 の場合 <code>c &lt; m</code> でなければならない。</li>
 <li><code>m</code>: 法。0 の場合 <code><a href="../limits/numeric_limits.html">std::numeric_limits</a>&lt;result_type&gt;::<a href="../limits/numeric_limits/max.html">max()</a></code>。</li>
@@ -457,6 +458,13 @@ C言語から引き継いだ標準ライブラリ関数<code><a href="../cstdlib
 <li><a href="../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 <li><a href="../../implementation.html#icc">ICC</a>: </li>
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: </li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html" target="_blank">P4037R1 Supporting <code>signed char</code> and <code>unsigned char</code> in random number generation</a><ul>
+<li><code>UIntType</code>テンプレートパラメータの要件が明文化された（拡張符号なし整数型および<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

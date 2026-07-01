@@ -38,13 +38,13 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../static/css/root.css"> -->
 
         
@@ -67,13 +67,13 @@
   
 
 
-<link href="../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -192,12 +192,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-11-20T12:15:43">
-        2024年11月20日 12時15分43秒
+      <span itemprop="datePublished" content="2026-06-15T05:22:22">
+        2026年06月15日 05時22分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -329,7 +329,7 @@ NaN とは非数（Not-a-Number）を表し、ほとんど全ての演算で<a c
 <tr>
 <td><code><a href="cfloat/decimal_dig.html">DECIMAL_DIG</a></code></td>
 <td>精度が一番高い浮動小数点型の数値を10進数で正確に表すのに必要な有効数字の桁数。<br />上記モデルでは、$p_{\rm max}$ を精度が一番高い浮動小数点型の $p$ とすると、$b$ が $10$ の累乗の場合、$p_{\rm max} \log_{10} b$、それ以外の場合、$\lceil 1 + p_{\rm max}\log_{10} b\rceil$</td>
-<td>C++11</td>
+<td>C++11<br /> C++26で非推奨</td>
 </tr>
 <tr>
 <td><code><a href="cfloat/flt_mant_dig.html">FLT_MANT_DIG</a></code></td>
@@ -388,17 +388,71 @@ NaN とは非数（Not-a-Number）を表し、ほとんど全ての演算で<a c
 <tr>
 <td><code><a href="cfloat/flt_has_subnorm.html">FLT_HAS_SUBNORM</a></code></td>
 <td><code>float</code>における非正規化数のサポート状況を判定する</td>
-<td>C++17</td>
+<td>C++17<br /> C++26で非推奨</td>
 </tr>
 <tr>
 <td><code><a href="cfloat/dbl_has_subnorm.html">DBL_HAS_SUBNORM</a></code></td>
 <td><code>double</code>における非正規化数のサポート状況を判定する</td>
-<td>C++17</td>
+<td>C++17<br /> C++26で非推奨</td>
 </tr>
 <tr>
 <td><code><a href="cfloat/ldbl_has_subnorm.html">LDBL_HAS_SUBNORM</a></code></td>
 <td><code>long double</code>における非正規化数のサポート状況を判定する</td>
-<td>C++17</td>
+<td>C++17<br /> C++26で非推奨</td>
+</tr>
+</tbody>
+</table>
+<h2>無限大とNaN</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/infinity.html">INFINITY</a></code></td>
+<td><code>float</code>型の正の無限大</td>
+<td>C++26で<code>&lt;cfloat&gt;</code>に追加</td>
+</tr>
+<tr>
+<td><code><a href="cmath/nan.html">NAN</a></code></td>
+<td><code>float</code>型のquiet NaN</td>
+<td>C++26で<code>&lt;cfloat&gt;</code>に追加</td>
+</tr>
+<tr>
+<td><code><a href="cfloat/flt_snan.html">FLT_SNAN</a></code></td>
+<td><code>float</code>型のシグナルNaN</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cfloat/dbl_snan.html">DBL_SNAN</a></code></td>
+<td><code>double</code>型のシグナルNaN</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cfloat/ldbl_snan.html">LDBL_SNAN</a></code></td>
+<td><code>long double</code>型のシグナルNaN</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン情報</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__STDC_VERSION_FLOAT_H__</code></td>
+<td><code>&lt;cfloat&gt;</code>が提供するC標準ライブラリ機能のバージョン (<code>202311L</code>)</td>
+<td>C++26</td>
 </tr>
 </tbody>
 </table>
@@ -535,6 +589,10 @@ NaN とは非数（Not-a-Number）を表し、ほとんど全ての演算で<a c
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html" target="_blank">P0063R3 C++17 should refer to C11 instead of C99</a></li>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html" target="_blank">P0175R1 Synopses for the C library</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf" target="_blank">P3348R4 C++26 should refer to C23 not C17</a><ul>
+<li>C++26がC23を参照するようになり、<code>INFINITY</code>・<code>NAN</code>・<code>FLT_SNAN</code>・<code>DBL_SNAN</code>・<code>LDBL_SNAN</code>・<code>__STDC_VERSION_FLOAT_H__</code>が追加された。<code>DECIMAL_DIG</code>が非推奨となり、<code>FLT_HAS_SUBNORM</code>・<code>DBL_HAS_SUBNORM</code>・<code>LDBL_HAS_SUBNORM</code>が廃止予定 (obsolescent) となった</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

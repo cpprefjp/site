@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../static/css/root.css"> -->
 
         
   
 
 
-<link href="../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -176,12 +176,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-31T12:36:04">
-        2025年08月31日 12時36分04秒
+      <span itemprop="datePublished" content="2026-06-15T05:22:22">
+        2026年06月15日 05時22分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -647,6 +647,201 @@
 </tr>
 </tbody>
 </table>
+<h2>幅マクロ</h2>
+<p>以下のマクロは、各整数型の幅 (値ビット数) を表す。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cstdint/int8_width.html">INT8_WIDTH</a></code></td>
+<td><code>int8_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int16_width.html">INT16_WIDTH</a></code></td>
+<td><code>int16_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int32_width.html">INT32_WIDTH</a></code></td>
+<td><code>int32_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int64_width.html">INT64_WIDTH</a></code></td>
+<td><code>int64_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint8_width.html">UINT8_WIDTH</a></code></td>
+<td><code>uint8_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint16_width.html">UINT16_WIDTH</a></code></td>
+<td><code>uint16_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint32_width.html">UINT32_WIDTH</a></code></td>
+<td><code>uint32_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint64_width.html">UINT64_WIDTH</a></code></td>
+<td><code>uint64_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast8_width.html">INT_FAST8_WIDTH</a></code></td>
+<td><code>int_fast8_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast16_width.html">INT_FAST16_WIDTH</a></code></td>
+<td><code>int_fast16_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast32_width.html">INT_FAST32_WIDTH</a></code></td>
+<td><code>int_fast32_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast64_width.html">INT_FAST64_WIDTH</a></code></td>
+<td><code>int_fast64_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast8_width.html">UINT_FAST8_WIDTH</a></code></td>
+<td><code>uint_fast8_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast16_width.html">UINT_FAST16_WIDTH</a></code></td>
+<td><code>uint_fast16_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast32_width.html">UINT_FAST32_WIDTH</a></code></td>
+<td><code>uint_fast32_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast64_width.html">UINT_FAST64_WIDTH</a></code></td>
+<td><code>uint_fast64_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least8_width.html">INT_LEAST8_WIDTH</a></code></td>
+<td><code>int_least8_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least16_width.html">INT_LEAST16_WIDTH</a></code></td>
+<td><code>int_least16_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least32_width.html">INT_LEAST32_WIDTH</a></code></td>
+<td><code>int_least32_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least64_width.html">INT_LEAST64_WIDTH</a></code></td>
+<td><code>int_least64_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least8_width.html">UINT_LEAST8_WIDTH</a></code></td>
+<td><code>uint_least8_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least16_width.html">UINT_LEAST16_WIDTH</a></code></td>
+<td><code>uint_least16_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least32_width.html">UINT_LEAST32_WIDTH</a></code></td>
+<td><code>uint_least32_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least64_width.html">UINT_LEAST64_WIDTH</a></code></td>
+<td><code>uint_least64_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/intmax_width.html">INTMAX_WIDTH</a></code></td>
+<td><code>intmax_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uintmax_width.html">UINTMAX_WIDTH</a></code></td>
+<td><code>uintmax_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/intptr_width.html">INTPTR_WIDTH</a></code></td>
+<td><code>intptr_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uintptr_width.html">UINTPTR_WIDTH</a></code></td>
+<td><code>uintptr_t</code>の幅(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/ptrdiff_width.html">PTRDIFF_WIDTH</a></code></td>
+<td><code><a href="cstddef/ptrdiff_t.html">ptrdiff_t</a></code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/size_width.html">SIZE_WIDTH</a></code></td>
+<td><code><a href="cstddef/size_t.html">size_t</a></code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/sig_atomic_width.html">SIG_ATOMIC_WIDTH</a></code></td>
+<td><code>sig_atomic_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/wchar_width.html">WCHAR_WIDTH</a></code></td>
+<td><code>wchar_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/wint_width.html">WINT_WIDTH</a></code></td>
+<td><code>wint_t</code>の幅</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン情報マクロ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__STDC_VERSION_STDINT_H__</code></td>
+<td><code>&lt;cstdint&gt;</code>が提供するC標準ライブラリ機能のバージョン (<code>202311L</code>)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
 <h2>符号付き整数型用の定数値マクロ</h2>
 <p>以下のマクロは、各整数型の定数値を表す関数マクロである。<br />
 例： <code>int8_t x = INT8_C(1);</code>  </p>
@@ -751,6 +946,10 @@ the C standard) play no role in C++.</p>
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm" target="_blank">N1568 Proposed additions to TR-1 to improve compatibility with C99</a></li>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1835.pdf" target="_blank">N1835 <code>&lt;stdint.h&gt;</code> for C++</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf" target="_blank">P3348R4 C++26 should refer to C23 not C17</a><ul>
+<li>C++26がC23を参照するようになり、各整数型の幅を表すマクロと<code>__STDC_VERSION_STDINT_H__</code>が追加された</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

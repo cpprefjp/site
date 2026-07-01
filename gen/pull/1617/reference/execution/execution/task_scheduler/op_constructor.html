@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,task_scheduler,function,cpp26
 ">
-        <meta name="title" content="task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/task_scheduler/op_constructor.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="- (1) : [Scheduler](../scheduler.md)`sch`とアロケータ`alloc`を保持する`task_scheduler`オブジェクトを構築する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::task_scheduler::コンストラクタ - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/task_scheduler/op_constructor.html" />
         <meta name="twitter:description" content="- (1) : [Scheduler](../scheduler.md)`sch`とアロケータ`alloc`を保持する`task_scheduler`オブジェクトを構築する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-13T11:37:50">
-        2026年01月13日 11時37分50秒
+      <span itemprop="datePublished" content="2026-06-09T07:03:31">
+        2026年06月09日 07時03分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -237,7 +237,7 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class task_scheduler">task_scheduler::</span><span class="token">コンストラクタ</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sch</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;&gt;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sch</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;&gt;</span>
 <span class="w">  </span><span class="k">requires</span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../task_scheduler.html">task_scheduler</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../scheduler.html">scheduler</a></span><span class="o">&lt;</span><span class="n">Sch</span><span class="o">&gt;</span>
 <span class="k">explicit</span><span class="w"> </span><span class="n"><a href="../task_scheduler.html">task_scheduler</a></span><span class="p">(</span><span class="n">Sch</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sch</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="w"> </span><span class="n">alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{});</span><span class="w">  </span><span class="c1">// (1)</span>
 
@@ -249,13 +249,13 @@
 <li>(1) : <a href="../scheduler.html">Scheduler</a><code>sch</code>とアロケータ<code>alloc</code>を保持する<code>task_scheduler</code>オブジェクトを構築する。</li>
 <li>(2) : ムーブコンストラクタ</li>
 </ul>
-<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
-<p>(1) : <code>Sch</code>は<code>task_scheduler</code>ではなく、<code><a href="../scheduler.html">scheduler</a></code>を満たす。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<p><code>Sch</code>は<code><a href="../infallible-scheduler.html">infallible-scheduler</a>&lt;<a href="../env.html">env&lt;&gt;</a>&gt;</code>を満たす。</p>
 <h2>効果</h2>
-<p>(1) 説明専用のメンバ変数<code>sch_</code>を<code><a href="../../../memory/allocate_shared.html">allocate_shared</a>&lt;<a href="../../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;Sch&gt;&gt;(alloc, <a href="../../../utility/forward.html">std::forward</a>&lt;Sch&gt;(sch))</code>で初期化する。</p>
+<p>(1) 説明専用のメンバ変数<code>sch_</code>を<code><a href="../../../memory/allocate_shared.html">allocate_shared</a>&lt;<a href="schedule.html">backend-for</a>&lt;<a href="../../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;Sch&gt;&gt;&gt;(alloc, <a href="../../../utility/forward.html">std::forward</a>&lt;Sch&gt;(sch))</code>で初期化する。</p>
 <h2>備考</h2>
-<p>(1) 処理系は小さなSchedulerオブジェクトに対して動的メモリ確保を避けることが推奨される。</p>
-<p><code>*this</code>上の呼び出しによってえられる<a href="schedule.html"><code>ts-sender</code>や<code>state</code>オブジェクト</a>の構築では、<code>alloc</code>のコピーを用いてメモリ確保が行われる。</p>
+<p>処理系（標準ライブラリ実装）は、小さなSchedulerオブジェクトに対して動的メモリ確保を避けることが推奨される。</p>
+<p><code>*this</code>上の任意の呼び出しによるメモリ確保では、<code>alloc</code>のコピーが用いられる。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -268,14 +268,12 @@
 <li><a href="../../../../implementation.html#icc">ICC</a>: ??</li>
 <li><a href="../../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
 </ul>
-<h2>関連項目</h2>
-<ul>
-<li><code><a href="../scheduler.html">execution::scheduler</a></code></li>
-</ul>
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4445" target="_blank">LWG4445. <code>sch_</code> must not be in moved-from state</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3927r2.html" target="_blank">P3927R2 <code>task_scheduler</code> support for parallel <code>bulk</code> execution</a></li>
 </ul></div>
 
       </div>

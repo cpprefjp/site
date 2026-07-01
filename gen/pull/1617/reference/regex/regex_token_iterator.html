@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>regex_token_iterator - cpprefjp C++日本語リファレンス</title>
+        <title>std::regex_token_iterator - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,regex,std,class template,cpp11,cregex_token_iterator,wcregex_token_iterator,sregex_token_iterator,wsregex_token_iterator
 ">
-        <meta name="title" content="regex_token_iterator - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="regex_token_iterator - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="regex_token_iterator - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::regex_token_iterator - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::regex_token_iterator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::regex_token_iterator - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/regex/regex_token_iterator.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`regex_token_iterator` は、ある文字列に対して、指定した正規表現で検索した結果をサブマッチ毎に順番に列挙する読み取り専用の前方向イテレータである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="regex_token_iterator - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::regex_token_iterator - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/regex/regex_token_iterator.html" />
         <meta name="twitter:description" content="`regex_token_iterator` は、ある文字列に対して、指定した正規表現で検索した結果をサブマッチ毎に順番に列挙する読み取り専用の前方向イテレータである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-08T11:16:38">
-        2026年01月08日 11時16分38秒
+      <span itemprop="datePublished" content="2026-05-03T12:32:09">
+        2026年05月03日 12時32分09秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -235,7 +235,7 @@
 <p><code>regex_token_iterator</code> オブジェクトを構築した時、当該オブジェクトは <code><a href="regex_iterator.html">regex_iterator</a>&lt;BidirectionalIterator, charT, traits&gt;</code> 型のメンバ変数 <code>position</code> を構築する。
 また、構築時に指定された返すべきサブマッチのリストをメンバ変数 <code>subs</code> に保持し、現在返すべきサブマッチを識別するカウンタ用のメンバ変数 <code>N</code> を <code>0</code> に設定する。<br />
 そして、<code><a href="regex_token_iterator/op_increment.html">operator++</a></code> が呼び出される毎に、当該イテレータは <code>N</code> をインクリメントし、<code>N</code> が <code>subs</code> のサイズ以上になると、<code>position</code> をインクリメントして <code>N</code> を再び <code>0</code> にリセットする。<br />
-<code>position</code> が終端まで来た時（つまり、<code>position</code> がシーケンス終端イテレータとなった時）、<code>subs</code> に <code>-1</code> が含まれていて、かつ、<code>position</code> が直前にマッチした文字列の後ろに文字列が残っている場合（つまり、<code>position.<a href="match_results/suffix.html">suffix</a>()</code> が空文字では無い場合）には、当該文字列を最後のサブマッチとして扱う。この状態になったイテレータを接尾辞イテレータと呼ぶ。<br />
+<code>position</code> が終端まで来た時（つまり、<code>position</code> がシーケンス終端イテレータとなった時）、<code>subs</code> に <code>-1</code> が含まれていて、かつ、<code>position</code> が直前にマッチした文字列の後ろに文字列が残っている場合（つまり、<code>position.<a href="match_results/suffix.html">suffix</a>()</code> が<a class="cpprefjp-defined-word" data-desc="empty string。長さゼロの文字列">空文字列</a>では無い場合）には、当該文字列を最後のサブマッチとして扱う。この状態になったイテレータを接尾辞イテレータと呼ぶ。<br />
 <code>position</code> が終端まで来た時に、<code>subs</code> に <code>-1</code> が含まれていない、または、<code>position</code> が直前にマッチした文字列の後ろに文字列が残っていない場合、および、接尾辞イテレータがインクリメントされた場合、当該オブジェクトは、シーケンスの終端を示す特別な値となる。<br />
 この、シーケンスの終端を示す特別な値は、<code>regex_token_iterator</code> オブジェクトをデフォルトコンストラクタにより構築した場合にも生成されるため、この値と比較することによってシーケンスの終端であるか否か（つまり、マッチしなかったか否か）が判別できる。</p>
 <p>シーケンス終端のイテレータに対する <code><a href="regex_token_iterator/op_deref.html">operator*</a></code> 演算子適用は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。その他のイテレータに対する <code><a href="regex_token_iterator/op_deref.html">operator*</a></code> 演算子適用の結果は <code>const <a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;&amp;</code> である。<br />

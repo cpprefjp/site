@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>execution - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std,namespace,cpp17
 ">
-        <meta name="title" content="execution - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="execution - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="execution - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="namespace&amp;lt;execution&amp;gt;std::execution(C++17) 名前空間 std::execution では、アルゴリズムの並列実行を許可するための実行ポリシー、汎用的な非同期実行フレームワークとしての実行制御ライブラリを定義する。 （実行制御ライブラリの一部は名前空間 std および std::this_thread で定義されるが、本ページでまとめて取り扱う。）" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="execution - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution.html" />
         <meta name="twitter:description" content="namespace&amp;lt;execution&amp;gt;std::execution(C++17) 名前空間 std::execution では、アルゴリズムの並列実行を許可するための実行ポリシー、汎用的な非同期実行フレームワークとしての実行制御ライブラリを定義する。 （実行制御ライブラリの一部は名前空間 std および std::this_thread で定義されるが、本ページでまとめて取り扱う。）" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-20T07:36:33">
-        2026年01月20日 07時36分33秒
+      <span itemprop="datePublished" content="2026-06-08T01:24:20">
+        2026年06月08日 01時24分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -315,6 +315,11 @@
 <td>C++26</td>
 </tr>
 <tr>
+<td><code><a href="execution/get_start_scheduler.html">execution::get_start_scheduler</a></code></td>
+<td>開始Scheduler取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
 <td><code><a href="execution/get_delegation_scheduler.html">execution::get_delegation_scheduler</a></code></td>
 <td>委任Scheduler取得のクエリオブジェクト (customization point object)</td>
 <td>C++26</td>
@@ -332,6 +337,11 @@
 <tr>
 <td><code><a href="execution/get_completion_scheduler.html">execution::get_completion_scheduler</a></code></td>
 <td>完了Scheduler取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_completion_domain.html">execution::get_completion_domain</a></code></td>
+<td>完了ドメイン取得のクエリオブジェクト (customization point object)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -395,8 +405,8 @@
 <td>C++26</td>
 </tr>
 <tr>
-<td><code><a href="execution/receiver_of.html">execution::receiver_of</a></code></td>
-<td>指定完了シグネチャ集合に適合するReceiver (concept)</td>
+<td><code><a href="execution/inlinable_receiver.html">execution::inlinable_receiver</a></code></td>
+<td>インライン化可能なReceiver (concept)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -449,6 +459,11 @@
 </thead>
 <tbody>
 <tr>
+<td><code><a href="execution/indeterminate_domain.html">execution::indeterminate_domain</a></code></td>
+<td>未確定の実行ドメイン (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
 <td><code><a href="execution/default_domain.html">execution::default_domain</a></code></td>
 <td>デフォルト実行ドメイン (class)</td>
 <td>C++26</td>
@@ -466,11 +481,6 @@
 <tr>
 <td><code><a href="execution/dependent_sender.html">execution::dependent_sender</a></code></td>
 <td>依存Sender (concept)</td>
-<td>C++26</td>
-</tr>
-<tr>
-<td><code><a href="execution/sender_to.html">execution::sender_to</a></code></td>
-<td>指定Receiverに接続可能なSender (concept)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -496,11 +506,6 @@
 <tr>
 <td><code><a href="execution/transform_sender.html">execution::transform_sender</a></code></td>
 <td>Senderを変換 (function template)</td>
-<td>C++26</td>
-</tr>
-<tr>
-<td><code><a href="execution/transform_env.html">execution::transform_env</a></code></td>
-<td>環境を変換 (function template)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -775,7 +780,7 @@
 <td>C++26</td>
 </tr>
 <tr>
-<td><code><a href="execution/affine_on.html">execution::affine_on</a></code></td>
+<td><code><a href="execution/affine.html">execution::affine</a></code></td>
 <td>タスクコルーチンのScheduler Affinityを実現 (customization point object)</td>
 <td>C++26</td>
 </tr>
@@ -792,11 +797,6 @@
 <tr>
 <td><code><a href="execution/with_error.html">execution::with_error</a></code></td>
 <td>タスクコルーチンからのエラー完了 (class template)</td>
-<td>C++26</td>
-</tr>
-<tr>
-<td><code><a href="execution/change_coroutine_scheduler.html">execution::change_coroutine_scheduler</a></code></td>
-<td>タスクコルーチンのScheduler変更 (class template)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -859,7 +859,7 @@
 <td>C++26</td>
 </tr>
 <tr>
-<td><code><a href="execution/system_context_replaceability.html">execution::system_context_replaceability</a></code></td>
+<td><code><a href="execution/parallel_scheduler_replacement.html">execution::parallel_scheduler_replacement</a></code></td>
 <td><code>parallel_scheduler</code>動作カスタマイズ用の名前空間 (namespace)</td>
 <td>C++26</td>
 </tr>
@@ -884,6 +884,12 @@
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html" target="_blank">P3570R2 optional variants in sender/receiver</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf" target="_blank">P3682R0 Remove <code>std::execution::split</code></a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html" target="_blank">P3815R1 Add <code>scope_association</code> concept to P3149</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3986r1.pdf" target="_blank">P3986R1 A Wording Strategy for Inlinable Receivers</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4151r1.pdf" target="_blank">P4151R1 Rename <code>affine_on</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html" target="_blank">P4159R0 Make <code>sender_in</code> and <code>receiver_of</code> exposition-only</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4154r0.html" target="_blank">P4154R0 Renaming various execution things</a></li>
 </ul></div>
 
       </div>

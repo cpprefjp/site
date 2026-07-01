@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>function_ref::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+        <title>std::function_ref::コンストラクタ - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,functional,std,function_ref,function,cpp26
 ">
-        <meta name="title" content="function_ref::コンストラクタ - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="function_ref::コンストラクタ - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="function_ref::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::function_ref::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::function_ref::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::function_ref::コンストラクタ - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/functional/function_ref/op_constructor.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`function_ref`オブジェクトを構築する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="function_ref::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::function_ref::コンストラクタ - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/functional/function_ref/op_constructor.html" />
         <meta name="twitter:description" content="`function_ref`オブジェクトを構築する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-11T06:05:02">
-        2026年02月11日 06時05分02秒
+      <span itemprop="datePublished" content="2026-06-24T02:55:06">
+        2026年06月24日 02時55分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -248,6 +248,12 @@
 <li><em>noex</em> が<code>false</code>のとき : <code><a href="../../type_traits/is_invocable_r.html">is_invocable_r_v</a>&lt;R, T..., ArgTypes...&gt;</code></li>
 </ul>
 <p><code>function_ref</code>オブジェクトは、説明専用のメンバ変数<code>thunk-ptr</code>と<code>bound-entity</code>を保持する。</p>
+<p>また、説明専用の変数テンプレート<code>is-convertible-from-specialization&lt;F&gt;</code>を次のように定義する。型<code>F</code>が、ある<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a> <em>cv2</em> とnoexcept<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定 <em>noex2</em> に対する<code>function_ref&lt;R(Args...) /*cv2*/ noexcept(/*noex2*/)&gt;</code>の特殊化を表す場合、<code>is-convertible-from-specialization&lt;F&gt;</code>は次の値と等しい :</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="o">&amp;</span><span class="p">)(</span><span class="n">Args</span><span class="p">...)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="cm">/*noex2*/</span><span class="p">),</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="o">&amp;</span><span class="p">)(</span><span class="n">Args</span><span class="p">...)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="cm">/*noex*/</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="n"><a href="../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="cm">/*cv*/</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="cm">/*cv2*/</span><span class="o">&amp;&gt;</span>
+</code></pre></div>
+</p>
+<p>そうでない場合、<code>is-convertible-from-specialization&lt;F&gt;</code>は<code>false</code>である。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <p><code>function_ref</code>クラステンプレートパラメータの<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>子 <em>cv</em> に応じて</p>
 <ul>
@@ -287,8 +293,9 @@
 <li><a href="op_call.html">関数呼び出し<code>thunk(bound-entity, call-args...)</code></a>は<code><a href="../invoke_r.html">invoke_r</a>&lt;R&gt;(f, call-args...)</code>と等価。</li>
 </ul>
 </li>
-<li>(2) : <code>bound-entity</code>を<code><a href="../../memory/addressof.html">addressof</a>(f)</code>で、<code>thunk-ptr</code>を説明専用の関数<code>thunk</code>へのアドレスで初期化する。<ul>
+<li>(2) : <code>is-convertible-from-specialization&lt;<a href="../../type_traits/remove_cv.html">remove_cv_t</a>&lt;T&gt;&gt;</code>が<code>false</code>の場合、<code>bound-entity</code>を<code><a href="../../memory/addressof.html">addressof</a>(f)</code>で、<code>thunk-ptr</code>を説明専用の関数<code>thunk</code>へのアドレスで初期化する。<ul>
 <li><a href="op_call.html">関数呼び出し<code>thunk(bound-entity, call-args...)</code></a>は<code><a href="../invoke_r.html">invoke_r</a>&lt;R&gt;(static_cast&lt;/*cv*/ T&amp;&gt;(f), call-args...)</code>と等価。</li>
+<li><code>is-convertible-from-specialization&lt;<a href="../../type_traits/remove_cv.html">remove_cv_t</a>&lt;T&gt;&gt;</code>が<code>true</code>の場合（<code>f</code>が互換するシグニチャ・<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>をもつ<code>function_ref</code>の特殊化であるとき）、<code>bound-entity</code>を<code>f</code>の<code>bound-entity</code>の値で、<code>thunk-ptr</code>を<code>f</code>の<code>thunk-ptr</code>の値で初期化する。これにより、<code>function_ref</code>から別の<code>function_ref</code>を構築する際に、本来不要な二重の間接呼び出しが回避される。</li>
 </ul>
 </li>
 <li>(3) : <code>bound-entity</code>を<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>オブジェクトへのポインタまたはヌルポインタで、<code>thunk-ptr</code>を説明専用の関数<code>thunk</code>へのアドレスで初期化する。<ul>
@@ -386,6 +393,10 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html" target="_blank">P0792R14 <code>function_ref</code>: a type-erased callable reference</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html" target="_blank">P3774R1 Rename <code>std::nontype</code>, and make it broadly useful</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3961r1.html" target="_blank">P3961R1 Less double indirection in <code>function_ref</code> (RU-220)</a><ul>
+<li>別の<code>function_ref</code>から構築する際の二重の間接呼び出しを回避するため、説明専用の<code>is-convertible-from-specialization</code>を追加し、(2)のコンストラクタの効果を変更した</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

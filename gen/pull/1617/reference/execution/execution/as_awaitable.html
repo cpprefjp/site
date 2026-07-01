@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>as_awaitable - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::as_awaitable - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
 ">
-        <meta name="title" content="as_awaitable - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="as_awaitable - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="as_awaitable - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::as_awaitable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::as_awaitable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::as_awaitable - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/as_awaitable.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`as_awaitable`は、オブジェクトを特定の[コルーチン](/lang/cpp20/coroutines.md)内でAwaitableに変換するカスタマイゼーションポイントオブジェクトである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="as_awaitable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::as_awaitable - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/as_awaitable.html" />
         <meta name="twitter:description" content="`as_awaitable`は、オブジェクトを特定の[コルーチン](/lang/cpp20/coroutines.md)内でAwaitableに変換するカスタマイゼーションポイントオブジェクトである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T12:09:16">
-        2026年04月23日 12時09分16秒
+      <span itemprop="datePublished" content="2026-06-08T01:13:52">
+        2026年06月08日 01時13分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,12 +236,8 @@
 <p>Promise型<code>p</code>をもつコルーチンにおいて、Await式<code>co_await as_awaitable(expr, p)</code>は下記のように動作する。</p>
 <ul>
 <li>式<code>expr.as_awaitable(p)</code>が有効ならば、同式が返すAwaitableオブジェクトに対してAwait式を実行する。</li>
-<li>
-<p><code>expr</code>が<a href="sender.html">Sender型</a>かつ<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></code>問い合わせに対応する場合、同問い合わせが返すSenderアダプタを<code>expr</code>に適用した結果を<code>adapted-expr</code>とする。</p>
-</li>
-<li>
-<p><code>expr</code>（または上記ステップの<code>adapted-expr</code>）が<a href="single-sender.html">単一の値を送信するSender</a>であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。</p>
-<ul>
+<li><code>expr</code>が<a href="sender.html">Sender型</a>かつ<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></code>問い合わせに対応する場合、同問い合わせが返すSenderアダプタを<code>expr</code>に適用した結果を<code>adapted-expr</code>とする。</li>
+<li><code>expr</code>（または上記ステップの<code>adapted-expr</code>）が<a href="single-sender.html">単一の値を送信するSender</a>であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。<ul>
 <li>Senderを<a href="connect.html">接続(connect)</a>し、結果<a href="operation_state.html">Operation State</a>をAwaitableオブジェクトに格納する。</li>
 <li>コルーチンを中断し、Operation Stateを<a href="start.html">開始(start)</a>する。</li>
 <li><a href="../queryable.html">クエリオブジェクト</a>による<a href="receiver.html">Receiver</a>環境への問い合わせは、Promise型に関連付けられた環境(<code>get_env</code>)へと転送される。</li>
@@ -260,18 +256,32 @@
 <li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a> : 同式の型を<code>A</code>としたとき、<code><a href="../is-awaitable.html">is-awaitable</a>&lt;A, Promise&gt; == true</code>であるべき。</li>
 </ul>
 </li>
+<li>そうではなく、下記の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であり<code><a href="sender_in.html">sender_in</a>&lt;Expr, <a href="env_of_t.html">env_of_t</a>&lt;Promise&gt;&gt;</code>が<code>true</code>、かつ<code><a href="single-sender-value-type.html">single-sender-value-type</a>&lt;Expr, <a href="env_of_t.html">env_of_t</a>&lt;Promise&gt;&gt;</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば、<code>p</code>が1回だけ評価されることを除いて下記と等価。
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">adapt</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">await</span><span class="o">-</span><span class="n">completion</span><span class="p">(</span><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">p</span><span class="p">))).</span><span class="n">as_awaitable</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</code></pre></div>
+</li>
 <li>そうではなく、<code>decltype(<a href="../is-awaitable.html">GET-AWAITER</a>(expr))</code>が<code><a href="../is-awaitable.html">is-awaiter</a>&lt;Promise&gt;</code>を満たすならば、式<code>(void(p), expr)</code></li>
-<li>そうではなく、説明用の式<code>adapted-expr</code>を<code>expr</code>が1回だけ評価されることを除いて<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a>(<a href="get_env.html">get_env</a>(expr))(expr)</code>としたとき、<code>has-queryable-await-completion-adaptor&lt;Expr&gt;</code>と<code>awaitable-sender&lt;decltype((adapted-expr)), Promise&gt;</code>が共に満たされるならば、式<code>sender-awaitable{adapted-expr, p}</code></li>
-<li>そうではなく、<code>awaitable-sender&lt;Expr, Promise&gt;</code>ならば、式<code>sender-awaitable{expr, p}</code></li>
+<li>そうではなく、下記の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であり<code><a href="sender_in.html">sender_in</a>&lt;Expr, <a href="env_of_t.html">env_of_t</a>&lt;Promise&gt;&gt;</code>が<code>true</code>、かつ<code><a href="single-sender-value-type.html">single-sender-value-type</a>&lt;Expr, <a href="env_of_t.html">env_of_t</a>&lt;Promise&gt;&gt;</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば、<code>p</code>が1回だけ評価されることを除いて下記と等価。
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="p">{</span><span class="n">adapt</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">await</span><span class="o">-</span><span class="n">completion</span><span class="p">(</span><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">p</span><span class="p">))),</span><span class="w"> </span><span class="n">p</span><span class="p">}</span>
+</code></pre></div>
+</li>
 <li>そうでなければ、式<code>(void(p), expr)</code></li>
 </ul>
 <h2>説明専用エンティティ</h2>
+<h3>式<code>adapt-for-await-completion</code></h3>
+<p>式<code>adapt-for-await-completion(s)</code>は下記と等しい。</p>
+<ul>
+<li>式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば、<code>s</code>が1回だけ評価されることを除いて、<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a>(<a href="get_env.html">get_env</a>(s))(s)</code></li>
+<li>そうでなければ、<code>s</code></li>
+</ul>
 <h3>コンセプト<code>awaitable-sender</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Promise</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">awaitable</span><span class="o">-</span><span class="n">sender</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="n"><a href="single-sender.html">single-sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="w">    </span><span class="n"><a href="sender_to.html">sender_to</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Promise</span><span class="o">&gt;::</span><span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span><span class="c1">// <i>see below</i></span>
+<span class="w">    </span><span class="n"><a href="sender-to.html">sender-to</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Promise</span><span class="o">&gt;::</span><span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span><span class="c1">// <i>see below</i></span>
 <span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="n">Promise</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle&lt;&gt;</a></span><span class="o">&gt;</span><span class="p">;</span>
 <span class="w">    </span><span class="p">};</span>
@@ -322,7 +332,7 @@
 <h3>クラステンプレート<code>awaitable-receiver</code></h3>
 <p>説明専用のクラステンプレート<code>sender-awaitable&lt;Sndr, Promise&gt;::awaitable-receiver</code>は下記の通り定義される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_tag</a></span><span class="p">;</span>
 <span class="w">  </span><span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="o">&gt;*</span><span class="w"> </span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;</span><span class="w"> </span><span class="n">continuation</span><span class="p">;</span><span class="w">                      </span><span class="c1">// exposition only</span>
 <span class="w">  </span><span class="c1">// <i>see below</i></span>
@@ -422,6 +432,8 @@
 <li><a href="https://cplusplus.github.io/LWG/issue4360" target="_blank">LWG4360 <code>awaitable-sender</code> concept should qualify use of <code>awaitable-receiver</code> type</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4133" target="_blank">LWG4133 <code>awaitable-receiver</code>'s members are potentially throwing</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4361" target="_blank">LWG4361 <code>awaitable-receiver::set_value</code> should use Mandates instead of constraints</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html" target="_blank">P4159R0 Make <code>sender_in</code> and <code>receiver_of</code> exposition-only</a></li>
 </ul></div>
 
       </div>

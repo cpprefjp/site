@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>queryable - cpprefjp C++日本語リファレンス</title>
+        <title>std::queryable - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,,execution,concept,std,cpp26
 ">
-        <meta name="title" content="queryable - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="queryable - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="queryable - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::queryable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::queryable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::queryable - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/queryable.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`queryable`は、型`T`がクエリ可能オブジェクトの制約を満たすことを表す説明専用のコンセプトである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="queryable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::queryable - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/queryable.html" />
         <meta name="twitter:description" content="`queryable`は、型`T`がクエリ可能オブジェクトの制約を満たすことを表す説明専用のコンセプトである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-08T09:20:19">
-        2026年02月08日 09時20分19秒
+      <span itemprop="datePublished" content="2026-06-06T13:00:57">
+        2026年06月06日 13時00分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,11 +245,15 @@
 <p>説明用の<code>env</code>を<code>Env</code>型のオブジェクトとする。
 呼び出し可能オブジェクト<code>q</code>と部分式パック<code>args</code>に対して、<code>requires { q(env, args...) }</code>が<code>true</code>であれば、<code>q(env, args...)</code>が<code>q</code>に課されるセマンティック要件を満たす場合に、<code>Env</code>は<code>queryable</code>のモデルである。</p>
 <h2>説明専用エンティティ</h2>
+<h3>式<code>TRY-QUERY</code></h3>
+<p>説明用の部分式<code>q</code>, <code>tag</code>、パック<code>args</code>に対して、式<code>TRY-QUERY(q, tag, args...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば<code><a href="execution/AS-CONST.html">AS-CONST</a>(q).query(tag, args...)</code>と等価な式である。そうでなければ、<code>args...</code>が評価されることを除いて<code><a href="execution/AS-CONST.html">AS-CONST</a>(q).query(tag)</code>と等価な式である。</p>
+<h3>式<code>HIDE-SCHED</code></h3>
+<p>説明用の部分式<code>q</code>, <code>tag</code>、パック<code>args</code>に対して、<code>tag</code>のdecayed型が<code><a href="execution/get_scheduler.html">get_scheduler_t</a></code>または<code><a href="execution/get_domain.html">get_domain_t</a></code>のとき、式<code>HIDE-SCHED(q)</code>は<code>o.query(tag, args...)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となるオブジェクト<code>o</code>とする。そうでなければ、<code>q.query(tag, args...)</code>とする。</p>
 <h3>式<code>MAKE-ENV</code></h3>
-<p>説明用のクエリオブジェクト<code>q</code>と式<code>v</code>に対して、式<code>MAKE-ENV(q, v)</code>は<code>queryable</code>を満たす型の式<code>env</code>となり、下記を満たす。</p>
+<p>説明用のクエリオブジェクト<code>q</code>、部分式<code>v</code>、部分式のパック<code>args</code>に対して、式<code>MAKE-ENV(q, v)</code>は<code>queryable</code>を満たす型の式<code>env</code>となり、下記を満たす。</p>
 <ul>
-<li><code>env.query(q)</code>の結果が<code>v</code>と等しい。</li>
-<li>明に規定されない限り、<code>env</code>が有効の間は<code>env.query(q)</code>のオブジェクトも有効である。</li>
+<li><code>env.query(q, args...)</code>の結果が<code>v</code>と等しい。</li>
+<li>明に規定されない限り、<code>env</code>が有効の間は<code>env.query(q, args...)</code>のオブジェクトも有効である。</li>
 </ul>
 <h3>式<code>JOIN-ENV</code></h3>
 <p>説明用のクエリ可能オブジェクト<code>env1</code>, <code>env2</code>、クエリオブジェクト<code>q</code>、パック式<code>as</code>に対して、式<code>JOIN-ENV(env1, env2)</code>は<code>queryable</code>を満たす型の式<code>env3</code>となり、式<code>env3.query(q, as...)</code>は下記と等価である。</p>
@@ -274,6 +278,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

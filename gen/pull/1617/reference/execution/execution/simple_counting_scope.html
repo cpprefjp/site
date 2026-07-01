@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>simple_counting_scope - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::simple_counting_scope - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,class,std::execution,cpp26
 ">
-        <meta name="title" content="simple_counting_scope - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="simple_counting_scope - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="simple_counting_scope - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::simple_counting_scope - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::simple_counting_scope - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::simple_counting_scope - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/simple_counting_scope.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`simple_counting_scope`は、カウント式の非同期スコープを表現する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="simple_counting_scope - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::simple_counting_scope - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/simple_counting_scope.html" />
         <meta name="twitter:description" content="`simple_counting_scope`は、カウント式の非同期スコープを表現する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-20T07:36:33">
-        2026年01月20日 07時36分33秒
+      <span itemprop="datePublished" content="2026-06-08T01:13:52">
+        2026年06月08日 01時13分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -281,7 +281,7 @@
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Scope</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">state</span><span class="w"> </span><span class="p">{</span><span class="w">                          </span><span class="c1">// exposition only</span>
 <span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="nc">rcvr</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="p">{</span><span class="w">                       </span><span class="c1">// exposition only</span>
-<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_tag</a></span><span class="p">;</span>
 
 <span class="w">        </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">;</span><span class="w">                         </span><span class="c1">// exposition only</span>
 
@@ -304,7 +304,7 @@
 <span class="w">      </span><span class="p">};</span>
 
 <span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="w"> </span><span class="o">=</span><span class="w">                  </span><span class="c1">// exposition only</span>
-<span class="w">        </span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">()))));</span>
+<span class="w">        </span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_start_scheduler.html">get_start_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">()))));</span>
 <span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="n">op</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w">                          </span><span class="c1">// exposition only</span>
 <span class="w">        </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="p">;</span>
 
@@ -316,7 +316,7 @@
 <span class="w">        </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../functional/nothrow-callable.html">nothrow-callable</a></span><span class="o">&lt;</span><span class="n"><a href="connect.html">connect_t</a></span><span class="p">,</span><span class="w"> </span><span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">scope</span><span class="p">(</span><span class="n">scope</span><span class="p">),</span>
 <span class="w">          </span><span class="n">receiver</span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span>
-<span class="w">          </span><span class="n">op</span><span class="p">(</span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n">rcvr</span><span class="p">))),</span><span class="w"> </span><span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">rcvr</span><span class="p">)))</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">          </span><span class="n">op</span><span class="p">(</span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_start_scheduler.html">get_start_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n">rcvr</span><span class="p">))),</span><span class="w"> </span><span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">rcvr</span><span class="p">)))</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">complete</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w">            </span><span class="c1">// exposition only</span>
 <span class="w">        </span><span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
@@ -466,6 +466,7 @@
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html" target="_blank">P3815R1 Add <code>scope_association</code> concept to P3149</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
 </ul></div>
 
       </div>

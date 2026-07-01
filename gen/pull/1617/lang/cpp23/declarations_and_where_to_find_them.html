@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-25T22:23:54">
-        2026年04月25日 22時23分54秒
+      <span itemprop="datePublished" content="2026-07-01T07:39:51">
+        2026年07月01日 07時39分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,17 +213,19 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">スコープと名前ルックアップの仕様整理 [P1787R6]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++23に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++では、スコープ([basic.scope])と名前ルックアップ([basic.lookup])に関する規格上の記述が、長年の機能追加によって分散・重複していた。
 用語の定義も曖昧かつ不整合な状態となっており、特にモジュール導入後は「ルックアップは同一翻訳単位内の先行宣言に限られる」という暗黙の前提が成り立たなくなり、これらの章を整理する必要性が高まっていた。</p>
 <p>P1787R6は、[basic.scope]と[basic.lookup]の章をまるごと書き直し、用語と規則を整備するための提案である。
 変更の大部分は規格書の編集上の整理 (editorial reorganization) であり、新たに導入された言語機能はない。
 ただしこの整理の過程で、長年解決されていなかった言語の不具合報告 (CWG issue) が63件、リフレクタ上で議論されていた問題が21件、まとめて解決される。
-これに伴い、いくつかの観測可能な振る舞いの変更も含まれる。</p>
+これに伴い、いくつかの外から見た動作 (observable behavior) の変更も含まれる。</p>
 <h2>新しく導入された用語</h2>
 <p>P1787R6は、スコープと名前ルックアップを記述するための語彙を再構築している。
 主な新用語や関係のある用語と、それに対応する従来用語を以下に示す。</p>
@@ -313,8 +315,8 @@
 </tr>
 </tbody>
 </table>
-<h2>観測可能な振る舞いの変更</h2>
-<p>P1787R6の主目的は規格の整理であるが、その過程でCWG issueの解決を兼ねた、いくつかの観測可能な変更が含まれている。</p>
+<h2>外から見た動作の変更</h2>
+<p>P1787R6の主目的は規格の整理であるが、その過程でCWG issueの解決を兼ねた、いくつかの外から見た動作の変更が含まれている。</p>
 <h3><code>using</code>宣言の参照先による置換</h3>
 <p>非依存な<code>using</code>宣言は、名前ルックアップの段階で「<code>using</code>宣言そのもの」ではなく「その参照先の宣言」に置き換えられて扱われるようになった。
 これにより、<code>using</code>ディレクティブと組み合わせたときの曖昧さの判定が、規格上明確に規定される。</p>

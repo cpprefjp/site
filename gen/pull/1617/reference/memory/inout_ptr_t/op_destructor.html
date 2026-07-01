@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス</title>
+        <title>std::inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory,std,inout_ptr_t,function,cpp23
 ">
-        <meta name="title" content="inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/memory/inout_ptr_t/op_destructor.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="指定した`Smart`型スマートポインタが管理するリソースを解放し、レガシーC関数呼び出しにより取得されたポインタ値を格納する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::inout_ptr_t::デストラクタ - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory/inout_ptr_t/op_destructor.html" />
         <meta name="twitter:description" content="指定した`Smart`型スマートポインタが管理するリソースを解放し、レガシーC関数呼び出しにより取得されたポインタ値を格納する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -244,7 +244,7 @@
 <p>説明用の文<code>release-statement</code>を下記の通り定義する :</p>
 <ul>
 <li><a href="op_constructor.html">コンストラクタ</a>で<code>s.release()</code>を呼び出さない実装であれば、<code>s.release()</code></li>
-<li>そうでなければ、空文</li>
+<li>そうでなければ、<a class="cpprefjp-defined-word" data-desc="null statement。セミコロンだけの式文。ループの本体を空にしたいときなどに使う">空文</a></li>
 </ul>
 <p><a href="op_constructor.html">説明用メンバ変数</a><code>s</code>, <code>a</code>, <code>p</code>を用いて、以下と同じ効果を持つ :</p>
 <ul>

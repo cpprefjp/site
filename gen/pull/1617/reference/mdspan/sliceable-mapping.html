@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-31T14:35:28">
-        2026年03月31日 14時35分28秒
+      <span itemprop="datePublished" content="2026-06-18T08:06:48">
+        2026年06月18日 08時06分48秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -236,7 +236,7 @@
 <li>オブジェクトのパック<code>invalid_slices</code> : <code>sizeof...(invalid_slices) == M_rank</code>であり、<code>invalid_slices...[k]</code>のcv非修飾型が下記いずれでもない整数<code>k</code>が存在する<ul>
 <li>型<code>IT</code></li>
 <li><code><a href="full_extent_t.html">full_extent_t</a></code></li>
-<li><code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">constant_wrapper</span></code>の特殊化</li>
+<li><code><a href="../utility/constant_wrapper.html">constant_wrapper</a></code>の特殊化</li>
 <li><code><a href="strided_slice.html">strided_slice</a></code>の特殊化</li>
 </ul>
 </li>
@@ -263,7 +263,7 @@
 <li><code>smr.mapping.extents()</code>の多次元インデクス値を表す整数パック<code>i</code>に対して、下記を満たす整数パック<code>j</code>に対し<code>smr.mapping(i...) + smr.offset == m(j)</code>が<code>true</code>となる<ul>
 <li><code>sizeof...(j)</code>が<code>M_rank</code>に等しく、かつ</li>
 <li><code>m.extents()</code>の各次元インデクス<code>r</code>に対して、<code>j...[r]</code>が下記の総和に等しい<ul>
-<li><code>m.extents()</code>の<code>r</code>次元に対して<code>vaild_slices...[r]</code>の<code>submdspan</code>スライス範囲の下限、および</li>
+<li><code>m.extents()</code>の<code>r</code>次元に対して<code>valid_slices...[r]</code>の<code>submdspan</code>スライス範囲の下限、および</li>
 <li><code>valid_slices...[r]</code>の型が<a href="submdspan_canonicalize_slices.html">縮約スライス型(collapsing slice type)</a>ならば値<code>0</code>、そうでなければ<code>i...[<a href="submdspan_canonicalize_slices.html">MAP_RANK</a>(valid_slices, r)]</code></li>
 </ul>
 </li>

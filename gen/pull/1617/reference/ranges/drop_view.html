@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>drop_view - cpprefjp C++日本語リファレンス</title>
+        <title>std::ranges::drop_view - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp20
 ">
-        <meta name="title" content="drop_view - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="drop_view - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="drop_view - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::ranges::drop_view - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::ranges::drop_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::ranges::drop_view - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/drop_view.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="- (1): 元のRangeの先頭から指定した個数の値を除去したRangeとして振る舞う[`view`](view.md)" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="drop_view - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::ranges::drop_view - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/drop_view.html" />
         <meta name="twitter:description" content="- (1): 元のRangeの先頭から指定した個数の値を除去したRangeとして振る舞う[`view`](view.md)" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-24T03:41:50">
-        2026年02月24日 03時41分50秒
+      <span itemprop="datePublished" content="2026-05-22T02:42:20">
+        2026年05月22日 02時42分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -274,6 +274,7 @@
 <li>(2): <code>E</code>および<code>F</code>を式、型<code>T</code>を<code><a href="../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;<a href="../../lang/cpp11/decltype.html">decltype</a>((E))&gt;</code>、型<code>D</code>を<code><a href="range_difference_t.html">range_difference_t</a>&lt;<a href="../../lang/cpp11/decltype.html">decltype</a>((E))&gt;</code>とする。式<code>views::drop(E, F)</code>の効果は以下の通り<ul>
 <li><code><a href="../../lang/cpp11/decltype.html">decltype</a>((F))</code>が<code><a href="../concepts/convertible_to.html">convertible_to</a>&lt;D&gt;</code>のモデルでなければ、呼び出しは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a></li>
 <li><code>T</code>が<code><a href="empty_view.html">ranges::empty_view</a></code>の特殊化であれば、<code>((void) F, <a href="../exposition-only/decay-copy.html">decay-copy</a>(E))</code>と等しい。ただし、<code>E</code>と<code>F</code>の評価順序は不定順で序列化(indeterminately sequenced)される</li>
+<li>C++26 : <code>T</code>が<code><a href="../optional/optional.html">std::optional</a></code>の特殊化で<code><a href="view.html">view</a></code>のモデルであれば、<code>F</code>が0と等しいとき<code><a href="../exposition-only/decay-copy.html">decay-copy</a>(E)</code>、そうでないとき空の<code>T()</code>と等しい</li>
 <li><code>T</code>が<code><a href="random_access_range.html">random_access_range</a></code>および<code><a href="sized_range.html">sized_range</a></code>のモデルであり、かつ次のいずれかの特殊化であるとき、<code>T(<a href="begin.html">ranges::begin</a>(E) + <a href="../algorithm/min.html">min</a>&lt;D&gt;(<a href="size.html">ranges::size</a>(E), F), <a href="end.html">ranges::end</a>(E))</code>と等しい。ただし、<code>E</code>は1度だけ評価される<ul>
 <li><code><a href="../span/span.html">span</a></code> (ただし、<code>T::extent == <a href="../span/dynamic_extent.html">dynamic_extent</a></code>であること)</li>
 <li><code><a href="../string_view/basic_string_view.html">basic_string_view</a></code></li>
@@ -320,6 +321,11 @@
 <td><code><a href="drop_view/size.html">size</a></code></td>
 <td>要素数を取得する</td>
 <td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="drop_view/reserve_hint.html">reserve_hint</a></code></td>
+<td>要素数の近似値を取得する</td>
+<td>C++26</td>
 </tr>
 </tbody>
 </table>
@@ -428,6 +434,10 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html" target="_blank">P2367R0 Remove misuses of list-initialization from Clause 24</a> (本提案文書はC++20に遡って適用されている)</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2393r1.html" target="_blank">P2393R1 Cleaning up integer-class types</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2017r1.html" target="_blank">P2017R1 Conditionally borrowed ranges</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3913r1.pdf" target="_blank">P3913R1 Optimize for <code>std::optional</code> in range adaptors</a><ul>
+<li>C++26で、入力が<code><a href="../optional/optional.html">std::optional</a></code>の場合の特殊化を追加</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

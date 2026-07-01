@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>range-default-formatter - cpprefjp C++日本語リファレンス</title>
+        <title>std::range-default-formatter - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,,format,class template,std,cpp23
 ">
-        <meta name="title" content="range-default-formatter - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="range-default-formatter - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="range-default-formatter - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::range-default-formatter - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::range-default-formatter - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::range-default-formatter - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/format/range-default-formatter.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`range-default-formatter`は、Range・コンテナに対するデフォルトの書式解析と書式文字列化を行う説明専用クラスである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="range-default-formatter - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::range-default-formatter - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/format/range-default-formatter.html" />
         <meta name="twitter:description" content="`range-default-formatter`は、Range・コンテナに対するデフォルトの書式解析と書式文字列化を行う説明専用クラスである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-08T09:00:28">
-        2026年02月08日 09時00分28秒
+      <span itemprop="datePublished" content="2026-06-07T06:31:07">
+        2026年06月07日 06時31分07秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">suomesta</span>
       </span>
       が更新
     </small></p>
@@ -237,7 +237,7 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>range-default-formatter</code>は、Range・コンテナに対するデフォルトの書式解析と書式文字列化を行う説明専用クラスである。</p>
+<p><code>range-default-formatter</code>は、Range・コンテナに対するデフォルトの書式解析と書<a class="cpprefjp-defined-word" data-desc="expression statement。式(省略可能)の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価され、値は廃棄される。">式文</a>字列化を行う説明専用クラスである。</p>
 <p>このクラスは、<code><a href="formatter.html">formatter</a></code>クラスのRange・コンテナに対する特殊化実装として標準ライブラリの内部で使用される。</p>
 <p>このクラスの内部実装として<code><a href="range_formatter.html">range_formatter</a></code>が使用される。</p>
 <ul>
@@ -250,7 +250,7 @@
 <h2>備考</h2>
 <ul>
 <li>(5) : この特殊化は規格上、標準ライブラリ内では使用されないが (<code><a href="formatter.html">formatter</a>&lt;<a href="../string/basic_string.html">string</a>, charT&gt;</code>がすでにある)、以下のような用途が考えられる<ul>
-<li><a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の文字列クラスを定義する場合に、<code><a href="format_kind.html">format_kind</a></code>で値として<code><a href="range_format.html">range_format::string</a></code>もしくは<code><a href="range_format.html">range_format::debug_string</a></code>をもつよう特殊化するか (<code><a href="formatter.html">formatter</a>&lt;<a href="../string/basic_string.html">string</a>, charT&gt;</code>をラップする方がかんたんではある)</li>
+<li><a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の文字列クラスを定義する場合に、<code><a href="format_kind.html">format_kind</a></code>で値として<code><a href="range_format.html">range_format::string</a></code>もしくは<code><a href="range_format.html">range_format::debug_string</a></code>をもつよう特殊化するか (<code><a href="formatter.html">formatter</a>&lt;<a href="../string/basic_string.html">string</a>, charT&gt;</code>をラップする方が簡単ではある)</li>
 <li><code><a href="../vector/vector.html">std::vector&lt;char&gt;</a></code>のような文字を要素とするシーケンスコンテナで、文字列形式で出力する書式オプション (<a href="format.html#range-format-options"><code>s</code>や<code>?s</code></a>) を指定した際に<code>range-default-formatter&lt;range_format::sequence, R, charT&gt;</code>の内部で使用される</li>
 </ul>
 </li>

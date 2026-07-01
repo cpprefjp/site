@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>filter_view - cpprefjp C++日本語リファレンス</title>
+        <title>std::ranges::filter_view - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp20
 ">
-        <meta name="title" content="filter_view - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="filter_view - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="filter_view - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::ranges::filter_view - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::ranges::filter_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::ranges::filter_view - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/filter_view.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="- (1): 指定された条件`Pred`を満たす要素だけが要素となる[`view`](view.md)" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="filter_view - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::ranges::filter_view - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/filter_view.html" />
         <meta name="twitter:description" content="- (1): 指定された条件`Pred`を満たす要素だけが要素となる[`view`](view.md)" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-31T10:06:36">
-        2025年08月31日 10時06分36秒
+      <span itemprop="datePublished" content="2026-05-22T03:23:59">
+        2026年05月22日 03時23分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -237,7 +237,11 @@
 </li>
 <li><code><a href="filter_view/begin.html">begin</a></code>は償却定数時間で実行できなければならないため、<code><a href="filter_view/begin.html">begin</a></code>の値はキャッシュされる。</li>
 </ul>
-<p><code>filter_view</code>の要素を書き換えてもよいが、書き換えた後の要素が<code>Pred</code>を満たさない場合は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+<p><code>filter_view</code>の要素を書き換えてもよいが、書き換えた結果<code>Pred</code>を満たさない場合は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす可能性がある。具体的な条件は言語バージョンによって異なる：</p>
+<ul>
+<li>C++20 : 書き換えた後の要素が<code>Pred</code>を満たさない場合は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a></li>
+<li>C++26 : 元のRangeが<code><a href="forward_range.html">forward_range</a></code>であり、書き換えた後の要素が次に<code>Pred</code>の評価を受けた際に <code>Pred</code>を満たさない場合に限り<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a> (要素が再評価されない限り問題なし、と緩和された)</li>
+</ul>
 <h3>Rangeコンセプト</h3>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
@@ -472,6 +476,10 @@
 <li><a href="https://timsong-cpp.github.io/cppwp/n4861/range.filter" target="_blank">N4861 24.7.4 Filter view</a></li>
 <li><a href="https://techbookfest.org/product/5134506308665344" target="_blank">C++20 ranges</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html" target="_blank">P2367R0 Remove misuses of list-initialization from Clause 24</a> (本提案文書はC++20に遡って適用されている)</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3725r3.pdf" target="_blank">P3725R3 Filter View Extensions for Safer Use</a><ul>
+<li>C++26で、入力Range (非forward) に対する<code>const</code>版の<code><a href="filter_view/begin.html">begin()</a></code>と<code><a href="filter_view/end.html">end()</a></code>を追加。また、要素書き換えによる<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>の文言を緩和</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

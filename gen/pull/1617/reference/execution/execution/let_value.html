@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>let_value - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::let_value - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
 ">
-        <meta name="title" content="let_value - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="let_value - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="let_value - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::let_value - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::let_value - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::let_value - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/let_value.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`let_value`は、新しいSenderを返す関数呼び出し可能なオブジェクトに引き渡すことで、入力[Sender](sender.md)の[値完了](set_value.md)結果から入れ子の非同期操作へと変換するSenderアダプタである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="let_value - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::let_value - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/let_value.html" />
         <meta name="twitter:description" content="`let_value`は、新しいSenderを返す関数呼び出し可能なオブジェクトに引き渡すことで、入力[Sender](sender.md)の[値完了](set_value.md)結果から入れ子の非同期操作へと変換するSenderアダプタである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-20T10:25:40">
-        2026年01月20日 10時25分40秒
+      <span itemprop="datePublished" content="2026-06-08T01:13:52">
+        2026年06月08日 01時13分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,7 +234,7 @@
 <h2>概要</h2>
 <p><code>let_value</code>は、新しいSenderを返す関数呼び出し可能なオブジェクトに引き渡すことで、入力<a href="sender.html">Sender</a>の<a href="set_value.html">値完了</a>結果から入れ子の非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>へと変換するSenderアダプタである。</p>
 <p><code>let_value</code>は<a href="sender_adaptor_closure.html">パイプ可能Senderアダプタオブジェクト</a>であり、パイプライン記法をサポートする。</p>
-<p>本ページにてSenderアルゴリズム<code>let_value</code>／<code><a href="let_error.html">let_error</a></code>／<code><a href="let_stopped.html">let_stopped</a></code>の動作仕様を包括的に説明するため、以降のセクションにおいては<code>let-cpo</code>, <code>set-cpo</code>をそれぞれ下記の通りとする。</p>
+<p>本ページにてSenderアルゴリズム<code>let_value</code>／<code><a href="let_error.html">let_error</a></code>／<code><a href="let_stopped.html">let_stopped</a></code>の動作仕様を包括的に説明するため、以降のセクションにおいては<code>let-cpo</code>, <code>set-cpo</code>をそれぞれ下記の通りとする。また<code>let-tag</code>を<code>let_value</code>／<code>let_error</code>／<code>let_stopped</code>それぞれに対して一意な空のクラスとする。</p>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
@@ -259,17 +259,29 @@
 </table>
 <h2>効果</h2>
 <p>説明用の式<code>sndr</code>と<code>f</code>に対して、<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは<code>decltype((f))</code>が<code><a href="../movable-value.html">movable-value</a></code>を満たさないとき、呼び出し式<code>let-cpo(sndr, f)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、呼び出し式<code>let-cpo(sndr, f)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">cpo</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">))</span>
+<p>そうでなければ、呼び出し式<code>let-cpo(sndr, f)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">cpo</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">)</span>
 </code></pre></div>
 </p>
-<h3>Senderアルゴリズムタグ <code>let-cpo</code></h3>
+<p>説明用のクラステンプレート<code>let-data</code>を下記の通り定義する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">let</span><span class="o">-</span><span class="n">data</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Sndr</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">Fn</span><span class="w"> </span><span class="n">fn</span><span class="p">;</span><span class="w">     </span><span class="c1">// exposition only</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>式<code>let-cpo.transform_sender(s, es...)</code>は、<code>s</code>が1回だけ評価されることを除いて、下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n"><i>let-tag</i></span><span class="p">{},</span><span class="w"> </span><span class="n">let</span><span class="o">-</span><span class="n">data</span><span class="p">{</span><span class="n">s</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">()})</span>
+</code></pre></div>
+</p>
+<h3>Senderアルゴリズムタグ <code>let-tag</code></h3>
 <p>Senderアルゴリズム動作説明用のクラステンプレート<code><a href="impls-for.html">impls-for</a></code>に対して、下記の特殊化が定義される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;&gt;</span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>let-cpo</i></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="impls-for.html">default-impls</a></span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><i>let-tag</i></span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><a href="impls-for.html">default-impls</a></span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
-<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Env</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">consteval</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="p">();</span>
@@ -277,33 +289,17 @@
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p><code>impls-for&lt;decayed-typeof&lt;let-cpo&gt;&gt;::get-state</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
-<ul>
-<li><code>args_variant_t</code> : 入力Sender<code>sndr</code>の完了シグネチャ集合から求まる送信値リスト型情報(<code>variant&lt;monostate, tuple&lt;...&gt;, ...&gt;</code>)</li>
-<li><code>ops2_variant_t</code> : <code>f</code>が返すSenderに対応する非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>型情報(<code>variant&lt;monostate, {OperationState型}, ...&gt;</code>)</li>
-<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><code>state-type</code>型オブジェクトを下記の通り初期化する。同オブジェクトは<code>complete</code>メンバから呼ばれる<code>let-bind</code>で利用される。<ul>
-<li><code>fn</code> : Senderアルゴリズム構築時に指定した関数呼び出し可能オブジェクト<code>f</code></li>
-<li><code>env</code> : 入力Sender<code>sndr</code>に関連付けられた<a href="../queryable.html">属性</a></li>
-<li><code>args</code> : <code>f</code>呼び出し時の引数リスト格納用変数（空値<code>monostate</code>で初期化）</li>
-<li><code>ops</code> : <code>f</code>が返すSenderに対応する非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>の格納用変数（空値<code>monostate</code>で初期化）</li>
-</ul>
-</li>
-</ul>
+<p><code>impls-for&lt;let-tag&gt;::get-state</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">child</span><span class="p">,</span><span class="w"> </span><span class="n">fn</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">child_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child</span><span class="p">));</span>
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">fn_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">env_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n">child</span><span class="p">));</span>
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">args_variant_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">ops2_variant_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
-
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">state</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">fn_t</span><span class="w"> </span><span class="n">fn</span><span class="p">;</span><span class="w">              </span><span class="c1">// exposition only</span>
-<span class="w">    </span><span class="n">env_t</span><span class="w"> </span><span class="n">env</span><span class="p">;</span><span class="w">            </span><span class="c1">// exposition only</span>
-<span class="w">    </span><span class="n">args_variant_t</span><span class="w"> </span><span class="n">args</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
-<span class="w">    </span><span class="n">ops2_variant_t</span><span class="w"> </span><span class="n">ops2</span><span class="p">;</span><span class="w">  </span><span class="c1">// exposition only</span>
-<span class="w">  </span><span class="p">};</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">state</span><span class="o">-</span><span class="n">type</span><span class="p">{</span><span class="n"><a href="allocator-aware-forward.html">allocator-aware-forward</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fn</span><span class="p">),</span><span class="w"> </span><span class="n">rcvr</span><span class="p">),</span>
-<span class="w">                    </span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n">child</span><span class="p">),</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{}};</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">ops_variant_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">state_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">let</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>set-cpo</i></span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">child_t</span><span class="p">,</span><span class="w"> </span><span class="n">fn_t</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="p">,</span>
+<span class="w">                            </span><span class="n">args_variant_t</span><span class="p">,</span><span class="w"> </span><span class="n">ops_variant_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">state_t</span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fn</span><span class="p">),</span><span class="w"> </span><span class="n">rcvr</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -315,8 +311,10 @@
 </p>
 </li>
 <li>
-<p>説明用の型<code>Tag</code>とパック<code>Args</code>に対して、説明用のエイリアステンプレート<code>as-sndr2&lt;Tag(Args...)&gt;</code>を<code><a href="../../functional/call-result-t.html">call-result-t</a>&lt;Fn, <a href="../../type_traits/decay.html">decay_t</a>&lt;Args&gt;&amp;...&gt;</code>と定義する。型<code>ops2_variant_t</code>は下記定義において重複削除した型となる。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">as</span><span class="o">-</span><span class="n">sndr2</span><span class="o">&lt;</span><span class="n">LetSigs</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">receiver2</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">env_t</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span>
+<p>説明用の型<code>Tag</code>とパック<code>Args</code>に対して、説明用のエイリアステンプレート<code>as-sndr2&lt;Tag(Args...)&gt;</code>を<code><a href="../../functional/call-result-t.html">call-result-t</a>&lt;Fn, <a href="../../type_traits/decay.html">decay_t</a>&lt;Args&gt;&amp;...&gt;</code>と定義する。型<code>ops_variant_t</code>は下記定義において重複削除した型となる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span>
+<span class="w">        </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">child_t</span><span class="p">,</span><span class="w"> </span><span class="n">let</span><span class="o">-</span><span class="n">state</span><span class="o">::</span><span class="n">receiver</span><span class="p">,</span>
+<span class="w">        </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">as</span><span class="o">-</span><span class="n">sndr2</span><span class="o">&lt;</span><span class="n">LetSigs</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">receiver2</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">env_t</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span>
 </code></pre></div>
 </p>
 </li>
@@ -324,22 +322,13 @@
 <p>型<code>args_variant_t</code>および<code>ops2_variant_t</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>なときに限って、上記ラムダ式のrequires節が満たされる。</p>
 </li>
 </ul>
-<p><code>impls-for&lt;decayed-typeof&lt;let-cpo&gt;&gt;::complete</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
-<ul>
-<li>完了関数<code>set-cpo</code>の場合、Sender構築時の引数<code>f</code>に対して<code>f(args...)</code>を呼び出し、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><a href="sender.html">Sender</a>から入れ子非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を開始する。同Senderの完了結果を接続先<a href="receiver.html">Receiver</a>へ転送する。</li>
-<li>それ以外の完了操作の場合、接続先<a href="receiver.html">Receiver</a>の同種完了関数へ転送する。</li>
-</ul>
-<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Tag</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="p">(</span><span class="k">auto</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">Tag</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>set-cpo</i></span><span class="o">&gt;&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n"><a href="set_value.html">TRY-EVAL</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">let</span><span class="o">-</span><span class="n">bind</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">Tag</span><span class="p">()(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
+<p><code>impls-for&lt;let-tag&gt;::start</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">State</span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">start</span><span class="p">(</span><span class="n">get</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">State</span><span class="o">::</span><span class="n">op_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ops</span><span class="p">));</span>
+<span class="p">}</span>
 </code></pre></div>
 </p>
-<p>メンバ関数<code>impls-for&lt;decayed-typeof&lt;let-cpo&gt;&gt;::check-types</code>の効果は下記の通り。</p>
+<p>メンバ関数<code>impls-for&lt;let-tag&gt;::check-types</code>の効果は下記の通り。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">LetFn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n"><a href="data-type.html">data-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n">Env</span><span class="p">)...</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">fn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>set-cpo</i></span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">Ts</span><span class="p">...))</span><span class="w"> </span><span class="p">{</span>
@@ -349,54 +338,105 @@
 <span class="n">cs</span><span class="p">.</span><span class="n"><a href="completion_signatures.html">for-each</a></span><span class="p">(</span><span class="n"><a href="overload-set.html">overload-set</a></span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="p">){}));</span>
 </code></pre></div>
 </p>
+<h2>説明専用エンティティ</h2>
+<h3>式<code>let-env</code></h3>
+<p>説明用の式<code>sndr</code>と<code>env</code>を用いて、<code>let-env(sndr, env)</code>を下記リストのうち最初に<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる式と定義する。</p>
+<ul>
+<li><code><a href="schedule.html">SCHED-ENV</a>(<a href="get_completion_scheduler.html">get_completion_scheduler</a>&lt;<a href="../../functional/decayed-typeof.html">decayed-typeof</a>&lt;set-cpo&gt;&gt;(<a href="get_env.html">get_env</a>(sndr), <a href="../forwarding_query.html">FWD-ENV</a>(env)))</code></li>
+<li><code><a href="../queryable.html">MAKE-ENV</a>(<a href="get_domain.html">get_domain</a>, <a href="get_completion_domain.html">get_completion_domain</a>&lt;decayed-typeof&lt;set-cpo&gt;&gt;(<a href="get_env.html">get_env</a>(sndr), <a href="../forwarding_query.html">FWD-ENV</a>(env)))</code></li>
+<li><code>(void(sndr), <a href="env.html">env&lt;&gt;{}</a>)</code></li>
+</ul>
+<h3>変数<code>is-valid-let-sender</code></h3>
 <p>説明用の変数<code>is-valid-let-sender</code>は下記を全て満たす時に限って<code>true</code>となる。</p>
 <ul>
 <li><code>(<a href="../../concepts/constructible_from.html">constructible_from</a>&lt;decay_t&lt;Ts&gt;, Ts&gt; &amp;&amp;...)</code></li>
 <li><code><a href="../../concepts/invocable.html">invocable</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;</code></li>
 <li><code><a href="sender.html">sender</a>&lt;<a href="../../type_traits/invoke_result.html">invoke_result_t</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;&gt;</code></li>
-<li>パック<code>env-t</code>を<code>decltype(let-cpo.transform_env(declval&lt;Sndr&gt;(), declval&lt;Env&gt;()))</code>としたとき、<code>sizeof...(Env) == 0 || <a href="sender_in.html">sender_in</a>&lt;<a href="../../type_traits/invoke_result.html">invoke_result_t</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;, env-t...&gt;</code></li>
+<li>パック<code>env-t</code>を<code>decltype(<a href="../queryable.html">JOIN-ENV</a>(let-env&lt;child-type&lt;sndr&gt;&gt;(), declval&lt;Env&gt;(), <a href="../forwarding_query.html">FWD-ENV</a>(declval&lt;Env&gt;())))</code>としたとき、<code>sizeof...(Env) == 0 || <a href="sender_in.html">sender_in</a>&lt;<a href="../../type_traits/invoke_result.html">invoke_result_t</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;, env-t...&gt;</code></li>
 </ul>
-<p>説明用の式<code>sndr</code>と<code>env</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>とする。<code><a href="sender-for.html">sender-for</a>&lt;Sndr, <a href="../../functional/decayed-typeof.html">decayed-typeof</a>&lt;let-cpo&gt;&gt; == false</code>のとき、式<code>let-cpo.transform_env(sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、式<code>let-cpo.transform_env(sndr, env)</code>は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sndr</span><span class="p">;</span>
-<span class="k">return</span><span class="w"> </span><span class="n"><a href="../queryable.html">JOIN-ENV</a></span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n">child</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../forwarding_query.html">FWD-ENV</a></span><span class="p">(</span><span class="n">env</span><span class="p">));</span>
-</code></pre></div>
-</p>
-<h2>説明専用エンティティ</h2>
-<p>説明用の式<code>sndr</code>を用いて、<code>let-env(sndr)</code>を下記リストのうち最初に<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる式と定義する。</p>
-<ul>
-<li><code><a href="schedule.html">SCHED-ENV</a>(<a href="get_completion_scheduler.html">get_completion_scheduler</a>&lt;<a href="../../functional/decayed-typeof.html">decayed-typeof</a>&lt;set-cpo&gt;&gt;(<a href="get_env.html">get_env</a>(sndr)))</code></li>
-<li><code><a href="../queryable.html">MAKE-ENV</a>(<a href="get_domain.html">get_domain</a>, <a href="get_domain.html">get_domain</a>(<a href="get_env.html">get_env</a>(sndr)))</code></li>
-<li><code>(void(sndr), <a href="env.html">env&lt;&gt;{}</a>)</code></li>
-</ul>
-<p>説明専用の<code>let-bind</code>テンプレート関数を下記の通り定義する。</p>
-<ul>
-<li>入力Senderの完了結果から引数リスト<code>state.args</code>を構築し、Senderアルゴリズム構築時に指定した関数呼び出し可能オブジェクト<code>state.fn</code>を呼び出す。</li>
-<li>上記呼び出しで<code>state.fn</code>から返された<a href="sender.html">Sender</a>と、完了結果をSenderアルゴリズムの接続先<a href="receiver.html">Receiver</a><code>Rcvr</code>へ転送するヘルパ<code>receiver2</code>を<a href="connect.html">接続(connect)</a>する。</li>
-<li>接続結果<a href="operation_state.html">Operation State</a>を<code>state.op2</code>上に構築し、入れ子の非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を<a href="start.html">開始(start)</a>する。</li>
-</ul>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">let</span><span class="o">-</span><span class="n">bind</span><span class="p">(</span><span class="n">State</span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">  </span><span class="c1">// exposition only</span>
-<span class="p">}</span>
-</code></pre></div>
-</p>
-<p><code>let-bind</code>テンプレート関数の効果は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">args_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="decayed-tuple.html">decayed-tuple</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">mkop2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span>
-<span class="w">    </span><span class="n"><a href="../../tuple/apply.html">apply</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">fn</span><span class="p">),</span>
-<span class="w">          </span><span class="n">state</span><span class="p">.</span><span class="n">args</span><span class="p">.</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="n">args_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...)),</span>
-<span class="w">    </span><span class="n">receiver2</span><span class="p">{</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">env</span><span class="p">)});</span>
+<h3>クラステンプレート<code>let-state</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Cpo</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Sndr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Fn</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ArgsVariant</span><span class="p">,</span>
+<span class="w">         </span><span class="k">class</span><span class="w"> </span><span class="nc">OpsVariant</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">let</span><span class="o">-</span><span class="n">state</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">env_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">get_env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">())));</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">Fn</span><span class="w"> </span><span class="n">fn</span><span class="p">;</span><span class="w">                                            </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">env_t</span><span class="w"> </span><span class="n">env</span><span class="p">;</span><span class="w">                                        </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">ArgsVariant</span><span class="w"> </span><span class="n">args</span><span class="p">;</span><span class="w">                                 </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="n">OpsVariant</span><span class="w"> </span><span class="n">ops</span><span class="p">;</span><span class="w">                                   </span><span class="c1">// exposition only</span>
+
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Tag</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">impl</span><span class="p">(</span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">Tag</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">ts</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">  </span><span class="p">{</span><span class="w">                                                 </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">args_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decayed</span><span class="o">-</span><span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">receiver2</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">env_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">sender_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../type_traits/apply_result.html">apply_result_t</a></span><span class="o">&lt;</span><span class="n">Fn</span><span class="p">,</span><span class="w"> </span><span class="n">args_t</span><span class="o">&amp;&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">is_same_v</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span><span class="w"> </span><span class="n">Cpo</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">emplace</span><span class="o">&lt;</span><span class="n">args_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">)...);</span>
+<span class="w">        </span><span class="n">ops</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">emplace</span><span class="o">&lt;</span><span class="n">monostate</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">apply</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fn</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="p">);</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">op_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">sender_type</span><span class="p">,</span><span class="w"> </span><span class="n">receiver_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">mkop2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">sender_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span>
+<span class="w">                          </span><span class="n">receiver_type</span><span class="p">{</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">});</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ops</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">emplace</span><span class="o">&lt;</span><span class="n">op_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">emplace</span><span class="o">-</span><span class="n">from</span><span class="p">{</span><span class="n">mkop2</span><span class="p">});</span>
+<span class="w">        </span><span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">nothrow</span><span class="w"> </span><span class="o">=</span>
+<span class="w">          </span><span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n">args_t</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">          </span><span class="n"><a href="../../type_traits/is_nothrow_applicable.html">is_nothrow_applicable_v</a></span><span class="o">&lt;</span><span class="n">Fn</span><span class="p">,</span><span class="w"> </span><span class="n">args_t</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">          </span><span class="k">noexcept</span><span class="p">(</span>
+<span class="w">            </span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span>
+<span class="w">              </span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">sender_type</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">              </span><span class="n">receiver_type</span><span class="p">{</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">}));</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">nothrow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">set_error</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../exception/current_exception.html">current_exception()</a></span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">tag</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">)...);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">receiver</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n">let</span><span class="o">-</span><span class="n">state</span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">;</span><span class="w">       </span><span class="c1">// exposition only</span>
+
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_tag</a></span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">state</span><span class="p">.</span><span class="n">impl</span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="set_value.html">execution::set_value</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_error</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">state</span><span class="p">.</span><span class="n">impl</span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="set_error.html">execution::set_error</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_stopped</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">state</span><span class="p">.</span><span class="n">impl</span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="set_stopped.html">execution::set_stopped</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">env_of_t</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="n">get_env</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="get_env.html">execution::get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">op_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span><span class="w"> </span><span class="n">receiver</span><span class="o">&gt;</span><span class="p">;</span><span class="w">      </span><span class="c1">// exposition only</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">let</span><span class="o">-</span><span class="n">state</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">Fn</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">Rcvr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rcvr</span><span class="p">)</span><span class="w"> </span><span class="c1">// exposition only</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fn</span><span class="p">)),</span><span class="w"> </span><span class="n">env</span><span class="p">(</span><span class="n">let</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n">sndr</span><span class="p">,</span><span class="w"> </span><span class="n">get_env</span><span class="p">(</span><span class="n">rcvr</span><span class="p">))),</span>
+<span class="w">      </span><span class="n">ops</span><span class="p">(</span><span class="n"><a href="../../utility/in_place_type_t.html">in_place_type</a></span><span class="o">&lt;</span><span class="n">op_t</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span>
+<span class="w">          </span><span class="n">receiver</span><span class="p">{</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">rcvr</span><span class="p">})</span>
+<span class="w">  </span><span class="p">{}</span>
 <span class="p">};</span>
-<span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">ops2</span><span class="p">.</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">mkop2</span><span class="p">())</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="emplace-from.html">emplace-from</a></span><span class="p">{</span><span class="n">mkop2</span><span class="p">}));</span>
 </code></pre></div>
 </p>
-<p>説明専用のテンプレートクラス<code>receiver2</code>を下記の通り定義する。</p>
+<h3>クラステンプレート<code>receiver2</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">execution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rcvr</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Env</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">receiver2</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">receiver_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="receiver.html">receiver_tag</a></span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
@@ -425,10 +465,10 @@
 <p>メンバ関数<code>receiver2::get_env</code>の呼び出しは、下記を満たすオブジェクト<code>e</code>を返す。</p>
 <ul>
 <li>型<code>decltype(e)</code>が<code><a href="../queryable.html">queryable</a></code>のモデルであり、かつ</li>
-<li>与えられた<a href="../queryable.html">クエリオブジェクト</a><code>q</code>に対して、式<code>e.query(q)</code>は式<code>env.query(q)</code>が有効ならばその式と等価。そうではなく、<code>q</code>の型が<code><a href="../forwarding-query.html">forwarding-query</a></code>を満たすならば式<code>e.query(q)</code>は<code><a href="get_env.html">get_env</a>(rcvr).query(q)</code>と等価。そうでなければ、式<code>e.query(q)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+<li>与えられた<a href="../queryable.html">クエリオブジェクト</a><code>q</code>と部分式のパック<code>args</code>に対して、式<code>e.query(q, args...)</code>は式<code>env.query(q, args...)</code>が有効ならばその式と等価。そうではなく、<code>q</code>の型が<code><a href="../forwarding-query.html">forwarding-query</a></code>を満たすならば式<code>e.query(q, args...)</code>は<code><a href="get_env.html">get_env</a>(rcvr).query(q, args...)</code>と等価。そうでなければ、式<code>e.query(q, args...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
 </ul>
 <h2>カスタマイゼーションポイント</h2>
-<p>Senderアルゴリズム構築時および<a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<p><a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
 <a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
 <p>説明用の式<code>out_sndr</code>を<code>let-cpo(sndr, f)</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><a href="sender.html">Sender</a>とし、式<code>rcvr</code>を式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる<a href="receiver.html">Receiver</a>とする。式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>は<a href="start.html">開始(start)</a>時に下記を満たす非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を生成しない場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
 <ul>
@@ -482,7 +522,7 @@
 <span class="c1">//   値完了     set_value(int), set_value(string)</span>
 <span class="c1">//   エラー完了 set_error(int)</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">MySender</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sender_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">sender_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="sender.html">ex::sender_tag</a></span><span class="p">;</span>
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">completion_signatures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
 <span class="w">    </span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
 <span class="w">    </span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">),</span>
@@ -491,7 +531,7 @@
 
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Rcvr</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">state</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="operation_state.html">ex::operation_state_t</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">operation_state_concept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="operation_state.html">ex::operation_state_tag</a></span><span class="p">;</span>
 
 <span class="w">    </span><span class="n">state</span><span class="p">(</span><span class="n">Rcvr</span><span class="w"> </span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
 <span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">rcvr_</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)},</span><span class="w"> </span><span class="n">val_</span><span class="p">{</span><span class="n">val</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
@@ -588,7 +628,6 @@
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3433r1.pdf" target="_blank">P3433R1 Allocator Support for Operation States</a></li>
@@ -596,6 +635,8 @@
 <li><a href="https://cplusplus.github.io/LWG/issue4203" target="_blank">LWG 4203. Constraints on <code>get-state</code> functions are incorrect</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4204" target="_blank">LWG 4204. specification of <code>as-sndr2(Sig)</code> in [exec.let] is incomplete</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4205" target="_blank">LWG 4205. <code>let_[*].transform_env</code> is specified in terms of the <code>let_*</code> sender itself instead of its child</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3373r4.pdf" target="_blank">P3373R4 Of Operation States and Their Lifetimes</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

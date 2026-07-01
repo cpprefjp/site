@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-07-10T07:47:57">
-        2024年07月10日 07時47分57秒
+      <span itemprop="datePublished" content="2026-04-09T06:13:07">
+        2026年04月09日 06時13分07秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">常に定数式評価する<code>consteval</code> [P1073R3]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++20に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p>C++20では、関数またはメンバ関数に対して、<code>consteval</code>キーワードで常に定数式評価されるよう指定できる。そのような関数を<strong>即時関数</strong>(immediate function)という。</p>
 <p><code>constexpr</code>と似ているが、<code>constexpr</code>を付けた関数はコンパイル時にも実行時にも評価できるのに対し、<code>consteval</code>の場合は必ずコンパイル時に評価される点が異なる。</p>
@@ -261,7 +263,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<p>この性質は様々なチェックをコンパイル時に行うために活用できる。たとえば、<code><a href="../../reference/format/format.html">std::format</a></code>におけるコンパイル時の書式文字列チェックで使用されている。</p>
+<p>この性質は様々なチェックをコンパイル時に行うために活用できる。たとえば、<code><a href="../../reference/format/format.html">std::format</a></code>におけるコンパイル時の書<a class="cpprefjp-defined-word" data-desc="expression statement。式(省略可能)の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価され、値は廃棄される。">式文</a>字列チェックで使用されている。</p>
 <h2>例</h2>
 <p><div class="yata" id="92cb0f1fecf349f6677252d58f05e3d5a861453b"><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
 <span class="k">consteval</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sqr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -291,6 +293,10 @@
 <li><a href="constinit.html">C++20 コンパイル時初期化を強制する<code>constinit</code>キーワードを追加</a></li>
 <li><a href="../cpp23/if_consteval.html">C++23 <code>if consteval</code></a></li>
 <li><a href="../cpp23/consteval_needs_to_propagate_up.html">C++23 <code>constexpr</code>関数内で<code>consteval</code>関数を呼び出せない問題を軽減</a></li>
+<li><a href="../cpp26/reflection.html">C++26 静的リフレクション</a><ul>
+<li><code>consteval { ... }</code>ブロック構文が導入され、コンパイル時に副作用のあるコードを実行できるようになる</li>
+</ul>
+</li>
 </ul>
 <h2>参照</h2>
 <ul>

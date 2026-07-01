@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>vformat - cpprefjp C++日本語リファレンス</title>
+        <title>std::vformat - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,format,function,std,cpp20
 ">
-        <meta name="title" content="vformat - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="vformat - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="vformat - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::vformat - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::vformat - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::vformat - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/format/vformat.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="vformat - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::vformat - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/format/vformat.html" />
         <meta name="twitter:description" content="" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-03-26T00:51:58">
-        2026年03月26日 00時51分58秒
+      <span itemprop="datePublished" content="2026-05-15T05:22:58">
+        2026年05月15日 05時22分58秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">KAZOON</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -241,7 +241,7 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>書式文字列<code>fmt</code>に従ったフォーマットで<code>args</code>の文字列表現を文字列オブジェクトで返す。</p>
+<p>書<a class="cpprefjp-defined-word" data-desc="expression statement。式(省略可能)の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価され、値は廃棄される。">式文</a>字列<code>fmt</code>に従ったフォーマットで<code>args</code>の文字列表現を文字列オブジェクトで返す。</p>
 <ul>
 <li>(1): マルチバイト文字列版</li>
 <li>(2): ワイド文字列版</li>
@@ -250,7 +250,7 @@
 </ul>
 <p><code><a href="format.html">std::format()</a></code>関数のフォーマット引数を実行時文字列にしたバージョンであり、<code><a href="format.html">std::format()</a></code>関数の内部で使用される。</p>
 <p><code><a href="format.html">std::format()</a></code>のような関数を自作する場合にこの関数を使って実装すると便利であるほか、実行時文字列でフォーマット引数を構築したい場合にも利用できる。</p>
-<p>C++26以降は、実行時文字列のフォーマット引数を使用したい場合は、<code><a href="runtime_format.html">std::runtime_format()</a></code>関数を使用できる。</p>
+<p>C++26以降は、実行時文字列のフォーマット引数を使用したい場合は、<code><a href="dynamic_format.html">std::dynamic_format()</a></code>関数を使用できる。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>args</code>の文字列表現を保持する文字列</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>

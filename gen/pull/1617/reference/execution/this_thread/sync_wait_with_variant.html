@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>sync_wait_with_variant - cpprefjp C++日本語リファレンス</title>
+        <title>std::this_thread::sync_wait_with_variant - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::this_thread,cpp26
 ">
-        <meta name="title" content="sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::this_thread::sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::this_thread::sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::this_thread::sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/this_thread/sync_wait_with_variant.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`sync_wait_with_variant`は、入力[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::this_thread::sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/this_thread/sync_wait_with_variant.html" />
         <meta name="twitter:description" content="`sync_wait_with_variant`は、入力[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-16T12:31:08">
-        2025年08月16日 12時31分08秒
+      <span itemprop="datePublished" content="2026-05-16T15:17:02">
+        2026年05月16日 15時17分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -238,8 +238,8 @@
 <p>入力Senderの値完了シグネチャが<code><a href="../execution/set_value.html">set_value_t</a>(Ts0...)</code>, ..., <code><a href="../execution/set_value.html">set_value_t</a>(TsN...)</code>のとき、<code>sync_wait_with_variant</code>の結果型は<code><a href="../../optional/optional.html">optional</a>&lt;<a href="../../variant/variant.html">variant</a>&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;Ts0...&gt;, ..., <a href="../../tuple/tuple.html">tuple</a>&lt;TsN...&gt;&gt;</code>となる。</p>
 <h2>効果</h2>
 <p>説明用の<code>sndr</code>を<code>decltype(<a href="../execution/into_variant.html">into_variant</a>(sndr))</code>が<code>Sndr</code>型となる式とする。</p>
-<p>呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../execution/apply_sender.html">apply_sender</a></span><span class="p">(</span><span class="n"><a href="../execution/get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span><span class="w"> </span><span class="n">sync_wait_with_variant</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">)</span>
+<p>型<code>Domain</code>を<code><a href="../execution/get_completion_domain.html">get_completion_domain</a>&lt;<a href="../execution/set_value.html">set_value_t</a>&gt;(<a href="../execution/get_env.html">get_env</a>(sndr), <a href="sync-wait-env.html">sync-wait-env{}</a>)</code>として、呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../execution/apply_sender.html">apply_sender</a></span><span class="p">(</span><span class="n">Domain</span><span class="p">(),</span><span class="w"> </span><span class="n">sync_wait_with_variant</span><span class="p">,</span><span class="w"> </span><span class="n">sndr</span><span class="p">)</span>
 </code></pre></div>
 </p>
 <ul>
@@ -267,7 +267,7 @@
 </code></pre></div>
 </p>
 <h2>カスタマイゼーションポイント</h2>
-<p>入力<a href="../execution/sender.html">Sender</a><code>sndr</code>に<a href="../execution/get-domain-early.html">関連付けられた実行ドメイン</a><code>dom</code>に対して、
+<p>入力<a href="../execution/sender.html">Sender</a><code>sndr</code>の<a href="../execution/get_completion_domain.html">完了ドメイン</a><code>dom</code>に対して、
 <code><a href="../execution/apply_sender.html">execution::apply_sender</a></code>経由で<code>dom.apply_sender(sync_wait_with_variant, sndr)</code>が呼ばれる。</p>
 <p><a href="../execution/default_domain.html">デフォルト実行ドメイン</a>では、<code>sync_wait_with_variant.apply_sender(sndr)</code>が呼ばれる。</p>
 <p>下記を満たさない場合、呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
@@ -321,6 +321,7 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html" target="_blank">P3826R5 Fix Sender Algorithm Customization</a></li>
 </ul></div>
 
       </div>

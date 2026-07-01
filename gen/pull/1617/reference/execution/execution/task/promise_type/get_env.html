@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>task::promise_type::get_env - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::task::promise_type::get_env - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,task::promise_type,function,cpp26
 ">
-        <meta name="title" content="task::promise_type::get_env - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="task::promise_type::get_env - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="task::promise_type::get_env - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::task::promise_type::get_env - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::task::promise_type::get_env - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::task::promise_type::get_env - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/task/promise_type/get_env.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="タスクコルーチンの[環境](../../../queryable.md)を取得する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="task::promise_type::get_env - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::task::promise_type::get_env - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/task/promise_type/get_env.html" />
         <meta name="twitter:description" content="タスクコルーチンの[環境](../../../queryable.md)を取得する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -224,8 +224,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T11:39:24">
-        2026年04月23日 11時39分24秒
+      <span itemprop="datePublished" content="2026-06-06T16:11:27">
+        2026年06月06日 16時11分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -257,8 +257,8 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>問い合わせが以下のように転送されるオブジェクト<code>env</code>を返す。</p>
 <ul>
-<li><code>env.query(<a href="../../get_scheduler.html">get_scheduler</a>)</code>は<code><a href="../../task.html">scheduler_type</a>(SCHED(*this))</code>を返す。</li>
-<li><code>env.query(<a href="../../../get_allocator.html">get_allocator</a>)</code>は<code>alloc</code>を返す。</li>
+<li><code>env.query(<a href="../../get_start_scheduler.html">get_start_scheduler</a>)</code>は<code><a href="../../task.html">start_scheduler_type</a>(SCHED(*this))</code>を返す。</li>
+<li><code>env.query(<a href="../../../get_allocator.html">get_allocator</a>)</code>は、式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば<code>allocator_type(<a href="../../../get_allocator.html">get_allocator</a>(<a href="../../get_env.html">get_env</a>(RCVR(*this))))</code>を返す。そうでなければ、<code>allocator_type()</code>を返す。</li>
 <li><code>env.query(<a href="../../../get_stop_token.html">get_stop_token</a>)</code>は<code><a href="../state.html">STATE(*this)</a>.get-stop-token()</code>を返す。</li>
 <li>上記以外の問い合わせ<code>q</code>と引数<code>a...</code>に対して、式が妥当かつ<code><a href="../../../forwarding_query.html">forwarding_query</a>(q)</code>が妥当で<code>true</code>となるとき、呼び出し<code>env.query(q, a...)</code>は<code><a href="../state.html">STATE(*this)</a>.environment.query(q, a...)</code>を返す。そうでなければ、<code>env.query(q, a...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
 </ul>
@@ -284,6 +284,8 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4347" target="_blank">LWG4347. <code>task</code>'s stop source is always created</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3980r1.html" target="_blank">P3980R1 Task's Allocator Use</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
 </ul></div>
 
       </div>

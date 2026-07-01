@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>uncaught_exceptions - cpprefjp C++日本語リファレンス</title>
+        <title>std::uncaught_exceptions - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,exception,std,function,cpp17
 ">
-        <meta name="title" content="uncaught_exceptions - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="uncaught_exceptions - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="uncaught_exceptions - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::uncaught_exceptions - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::uncaught_exceptions - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::uncaught_exceptions - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/exception/uncaught_exceptions.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="キャッチされていない例外の数を取得する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="uncaught_exceptions - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::uncaught_exceptions - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/exception/uncaught_exceptions.html" />
         <meta name="twitter:description" content="キャッチされていない例外の数を取得する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-06T03:47:59">
-        2026年01月06日 03時47分59秒
+      <span itemprop="datePublished" content="2026-05-18T08:46:06">
+        2026年05月18日 08時46分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -214,8 +214,7 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;exception&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">uncaught_exceptions</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">uncaught_exceptions</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w">           </span><span class="c1">// (1) C++17</span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">uncaught_exceptions</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++26</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">uncaught_exceptions</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1) C++17</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -294,6 +293,10 @@ catch exception 2
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4152.pdf" target="_blank">N4152 <code>uncaught_exceptions</code></a></li>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4259.pdf" target="_blank">N4259 Wording for <code>std::uncaught_exceptions</code></a></li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue2098" target="_blank">CWG 2098 Is <code>uncaught_exceptions()</code> per-thread?</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3842r2.pdf" target="_blank">P3842R2 A conservative fix for constexpr <code>uncaught_exceptions()</code> and <code>current_exception()</code></a><ul>
+<li>C++26の策定中に<code>constexpr</code>が追加されたが、本提案文書により巻き戻された (C++29で再検討予定)</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

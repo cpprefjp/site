@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>formatter::format - cpprefjp C++日本語リファレンス</title>
+        <title>std::formatter::format - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,format,function,std,formatter,cpp20
 ">
-        <meta name="title" content="formatter::format - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="formatter::format - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="formatter::format - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::formatter::format - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::formatter::format - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::formatter::format - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/format/formatter/format.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="受け取った型`T`のオブジェクトを書式化する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="formatter::format - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::formatter::format - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/format/formatter/format.html" />
         <meta name="twitter:description" content="受け取った型`T`のオブジェクトを書式化する。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -245,7 +245,7 @@
 </ul>
 <h2>効果</h2>
 <ul>
-<li><code><a href="parse.html">parse()</a></code>メンバ関数で解析した書式文字列の指定に基づいて、<code>x</code>の値を文字列に変換する</li>
+<li><code><a href="parse.html">parse()</a></code>メンバ関数で解析した書<a class="cpprefjp-defined-word" data-desc="expression statement。式(省略可能)の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価され、値は廃棄される。">式文</a>字列の指定に基づいて、<code>x</code>の値を文字列に変換する</li>
 <li><code><a href="../../utility/pair.html">std::pair</a></code>と<code><a href="../../tuple/tuple.html">std::tuple</a></code>に対する<code>formatter</code>の特殊化の場合、以下を<code><a href="../basic_format_context/out.html">ctx.out()</a></code>に出力する：<ul>
 <li>開きカッコを出力する</li>
 <li>範囲<code>[0, タプルの要素数)</code>の各要素<code>I</code>について、<ul>

@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-06T09:01:01">
-        2026年04月06日 09時01分01秒
+      <span itemprop="datePublished" content="2026-05-03T11:37:18">
+        2026年05月03日 11時37分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -213,10 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <h1 itemprop="name"><span class="token">constexpr [N2235]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p></p>
+<div itemprop="articleBody"><p>
+</p>
 <p>このページはC++11に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
-<p></p>
+<p>
+</p>
 <h2>概要</h2>
 <p><code>constexpr</code>は、汎用的に定数式を表現するための機能である。</p>
 <p><code>constexpr</code>は、「constant expression (定数式)」の略語である。</p>
@@ -290,7 +292,7 @@
 <li><code>constexpr</code>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型、およびパラメータの型は、<a href="../../reference/type_traits/is_literal_type.html">リテラル型</a>でなければならない</li>
 <li><code>constexpr</code>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型、およびパラメータの型は、非<code>const</code>参照にはできない</li>
 <li><code>constexpr</code>関数の本体は、以下の要素だけを含むことができる：<ul>
-<li>ヌル文</li>
+<li><a class="cpprefjp-defined-word" data-desc="null statement。セミコロンだけの式文。ループの本体を空にしたいときなどに使う">空文</a></li>
 <li><code>static_assert</code>宣言</li>
 <li>型の別名定義</li>
 <li>using宣言と、usingディレクティブ</li>
@@ -368,7 +370,7 @@
 <h2>この機能が必要になった背景・経緯</h2>
 <p><code>constexpr</code>の主な目的は、数値型のプロパティを取得するクラス<code><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></code>の、プロパティ取得の関数を定数式にすることである。</p>
 <p>たとえば、<code><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></code>の<code><a href="../../reference/limits/numeric_limits/max.html">max()</a></code>静的メンバ関数は、<code>int</code>型に対しては<code><a href="../../reference/climits/int_max.html">INT_MAX</a></code>マクロの値を返すだけであるが、それが関数であるために、<code><a href="../../reference/climits/int_max.html">INT_MAX</a></code>マクロと違って定数として扱えない、という問題があった。抽象化された機能を使うより、抽象化されていない機能の方がよい、というのは、改善すべき事態だった。そのため、関数を静的に評価する仕組みが必要とされた。</p>
-<p>また、<code>constexpr</code>は、値を計算するテンプレートメタプログラムを置き換えて使用できる。テンプレートメタプログラミングでは、非型テンプレートパラメータによって整数型の値をコンパイル時に計算することはできた。しかし、浮動小数点数型の値や、その他多くの値に関する計算が難しく、構文もまた通常の関数とはかけ離れていた(浮動小数点数型の値の計算は、分数形式にすれば、できることはできる)。値をコンパイル時に計算するためには、今後はテンプレートメタプログラミングよりも<code>constexpr</code>を積極的に使用していくとよいだろう。</p>
+<p>また、<code>constexpr</code>は、値を計算するテンプレートメタプログラムを置き換えて使用できる。テンプレートメタプログラミングでは、<a class="cpprefjp-defined-word" data-desc="定数テンプレートパラメータ。constant template parameter。テンプレートパラメータのうち、型ではなく値をとるもの。C++23以前は「非型テンプレートパラメータ (non-type template parameter)」と呼ばれていた">非型テンプレートパラメータ</a>によって整数型の値をコンパイル時に計算することはできた。しかし、浮動小数点数型の値や、その他多くの値に関する計算が難しく、構文もまた通常の関数とはかけ離れていた(浮動小数点数型の値の計算は、分数形式にすれば、できることはできる)。値をコンパイル時に計算するためには、今後はテンプレートメタプログラミングよりも<code>constexpr</code>を積極的に使用していくとよいだろう。</p>
 <h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
 <ul>
 <li><a href="user_defined_literals.html">C++11 ユーザー定義リテラル</a></li>

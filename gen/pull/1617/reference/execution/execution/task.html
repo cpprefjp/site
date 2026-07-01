@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title>task - cpprefjp C++日本語リファレンス</title>
+        <title>std::execution::task - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,class template,std::execution,cpp26
 ">
-        <meta name="title" content="task - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="task - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="task - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="std::execution::task - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::execution::task - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::execution::task - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/task.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="`task`クラステンプレートは、[コルーチン](/lang/cpp20/coroutines.md)の戻り値型として使用できる[Sender](sender.md)を表す。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="task - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="std::execution::task - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/task.html" />
         <meta name="twitter:description" content="`task`クラステンプレートは、[コルーチン](/lang/cpp20/coroutines.md)の戻り値型として使用できる[Sender](sender.md)を表す。" />
 
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
-<link rel="manifest" href="../../../manifest.json?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="manifest" href="../../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=be86fa2321ebe02b6955b61b98b778e377bcbf95"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-04-23T10:52:57">
-        2026年04月23日 10時52分57秒
+      <span itemprop="datePublished" content="2026-06-08T01:13:52">
+        2026年06月08日 01時13分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -246,7 +246,7 @@
 <p><code>task</code>テンプレート特殊化のネストした型は、<code>Environment</code>パラメータに基づいて決定される :</p>
 <ul>
 <li><code>allocator_type</code> : <code>Environment::allocator_type</code>が有効な型ならばその型、そうでなければ<code><a href="../../memory/allocator.html">allocator</a>&lt;byte&gt;</code></li>
-<li><code>scheduler_type</code> : <code>Environment::scheduler_type</code>が有効な型ならばその型、そうでなければ<code><a href="task_scheduler.html">task_scheduler</a></code></li>
+<li><code>start_scheduler_type</code> : <code>Environment::start_scheduler_type</code>が有効な型ならばその型、そうでなければ<code><a href="task_scheduler.html">task_scheduler</a></code></li>
 <li><code>stop_source_type</code> : <code>Environment::stop_source_type</code>が有効な型ならばその型、そうでなければ<code><a href="../../stop_token/inplace_stop_source.html">inplace_stop_source</a></code></li>
 <li><code>stop_token_type</code> : <code>decltype(<a href="../../utility/declval.html">declval</a>&lt;stop_source_type&gt;().<a href="../../stop_token/stoppable-source.html">get_token()</a>)</code></li>
 <li><code>error_types</code> : <code>Environment::error_types</code>が有効な型ならばその型、そうでなければ<code><a href="completion_signatures.html">completion_signatures</a>&lt;<a href="set_error.html">set_error_t</a>(<a href="../../exception/exception_ptr.html">exception_ptr</a>)&gt;</code></li>
@@ -302,7 +302,7 @@
 <tbody>
 <tr>
 <td><code>sender_concept</code></td>
-<td><code><a href="sender.html">sender_t</a></code></td>
+<td><code><a href="sender.html">sender_tag</a></code></td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -311,8 +311,8 @@
 <td>C++26</td>
 </tr>
 <tr>
-<td><code>scheduler_type</code></td>
-<td>コルーチンのScheduler型</td>
+<td><code>start_scheduler_type</code></td>
+<td>コルーチンの開始Scheduler型</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -384,7 +384,6 @@
 <h2>関連項目</h2>
 <ul>
 <li><code><a href="with_error.html">execution::with_error</a></code></li>
-<li><code><a href="change_coroutine_scheduler.html">execution::change_coroutine_scheduler</a></code></li>
 <li><code><a href="task_scheduler.html">execution::task_scheduler</a></code></li>
 </ul>
 <h2>参照</h2>
@@ -392,6 +391,7 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html" target="_blank">P3552R3 Add a Coroutine Task Type</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4343" target="_blank">LWG4343. Missing default template arguments for <code>task</code></a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4528" target="_blank">LWG4528. <code>task</code> needs <code>get_completion_signatures()</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html" target="_blank">P3941R4 Scheduler Affinity</a></li>
 <li>C++now 2025, <a href="https://schedule.cppnow.org/wp-content/uploads/2025/03/Getting_The_Lazy_Task_Done.pdf" target="_blank">Getting The Lazy Task Done</a></li>
 </ul></div>
 
