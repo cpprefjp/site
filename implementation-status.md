@@ -333,7 +333,7 @@
 | P2843R3: [プリプロセッサ仕様での「未定義動作」を不適格 (診断不要) に変更](/lang/cpp26/preprocessing_is_never_undefined.md) | プリプロセッサとレキサーの文脈での「未定義動作」用語を不適格 (診断不要) に変更 | 16 | | | |
 | P3868R1: [モジュール宣言より前での`#line`ディレクティブの使用を許可する](/lang/cpp26/allow_line_before_module_declarations.md) | モジュール宣言より前での`#line`ディレクティブの使用を禁止していたのは過度な制限だった | | | | |
 | P4136R2: [`#line`ディレクティブの制約を現実の実装に合わせて緩和する](/lang/cpp26/line_is_not_in_line_with_existing_implementation.md) | `#line 0`や`#line 2147483648`のような行番号指定を不適格としていたが、条件付きサポートとして許可する | | yes | | |
-| P4004R1: [可変引数テンプレートの半順序を再検討する](/lang/cpp26/reconsider_partial_ordering_of_variadic_templates.md.nolink) | 可変引数テンプレートの部分特殊化の半順序ルールを再検討して、より一貫したルールにする | | | | |
+| P4004R1: [可変引数テンプレートの半順序を再検討する](/lang/cpp26/reconsider_partial_ordering_of_variadic_templates.md) | 可変引数テンプレートの部分特殊化の半順序ルールを再検討して、より一貫したルールにする | | | | |
 | P3865R3: [テンプレートテンプレートパラメータに対するクラステンプレートパラメータ引数推論](/lang/cpp26/class_template_argument_deduction_for_type_template_template_parameters.md) | テンプレートテンプレートパラメータからクラステンプレート引数を推論できるようにクラステンプレートのテンプレート引数推論を拡張する | | | | |
 | P3726R2: [共用体の寿命ルールの調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md.nolink) | `union`メンバの活性化や寿命に関する規則を整理して`constexpr`評価などの一貫性を改善する | | | | |
 | P4143R0: [定数評価の開始・終了タイミングを明確化](/lang/cpp26/constant_evaluation_when.md.nolink) | 定数評価がどのタイミングで開始・終了するかを明確化し、constexprコンテキストの規則を整える | | | | |
