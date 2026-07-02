@@ -35,6 +35,7 @@ friend constexpr partial_ordering operator<=>(/*unspecified*/, partial_ordering 
 ```cpp example
 #include <iostream>
 #include <compare>
+#include <limits>
 
 int main()
 {
