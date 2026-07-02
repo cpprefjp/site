@@ -44,6 +44,7 @@ friend constexpr bool operator==(/*unspecified*/, partial_ordering v) noexcept; 
 ```cpp example
 #include <iostream>
 #include <compare>
+#include <limits>
 
 int main()
 {
