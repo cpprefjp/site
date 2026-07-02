@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-07-02T06:59:18.150861</updated>
+  <id>84ae3e87-f628-40eb-aaff-b260d055a86a</id>
+
+  
+    <entry>
+      <title>operator&lt;=&gt; -- including limits where it needs on the sample code</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_compare_3way.html"/>
+      <id>d0cbd89f5470e00729b05c0bcac79b889b18a5e3:reference/compare/partial_ordering/op_compare_3way.md</id>
+      <updated>2026-07-02T15:52:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_compare_3way.md b/reference/compare/partial_ordering/op_compare_3way.md
+index f464460a8..be03553a1 100644
+--- a/reference/compare/partial_ordering/op_compare_3way.md
++++ b/reference/compare/partial_ordering/op_compare_3way.md
+@@ -35,6 +35,7 @@ friend constexpr partial_ordering operator&amp;lt;=&amp;gt;(/*unspecified*/, partial_ordering
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;compare&amp;gt;
++#include &amp;lt;limits&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- including limits where it needs on the sample code</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_equal.html"/>
+      <id>d0cbd89f5470e00729b05c0bcac79b889b18a5e3:reference/compare/partial_ordering/op_equal.md</id>
+      <updated>2026-07-02T15:52:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_equal.md b/reference/compare/partial_ordering/op_equal.md
+index f1438f887..d5fc980ad 100644
+--- a/reference/compare/partial_ordering/op_equal.md
++++ b/reference/compare/partial_ordering/op_equal.md
+@@ -44,6 +44,7 @@ friend constexpr bool operator==(/*unspecified*/, partial_ordering v) noexcept;
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;compare&amp;gt;
++#include &amp;lt;limits&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt; -- including limits where it needs on the sample code</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_greater.html"/>
+      <id>d0cbd89f5470e00729b05c0bcac79b889b18a5e3:reference/compare/partial_ordering/op_greater.md</id>
+      <updated>2026-07-02T15:52:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_greater.md b/reference/compare/partial_ordering/op_greater.md
+index ca9b75eac..fde49b206 100644
+--- a/reference/compare/partial_ordering/op_greater.md
++++ b/reference/compare/partial_ordering/op_greater.md
+@@ -35,6 +35,7 @@ friend constexpr bool operator&amp;gt;(/*unspecified*/, partial_ordering v) noexcept;
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;compare&amp;gt;
++#include &amp;lt;limits&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;= -- including limits where it needs on the sample code</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_greater_equal.html"/>
+      <id>d0cbd89f5470e00729b05c0bcac79b889b18a5e3:reference/compare/partial_ordering/op_greater_equal.md</id>
+      <updated>2026-07-02T15:52:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_greater_equal.md b/reference/compare/partial_ordering/op_greater_equal.md
+index 912b027b8..7d3c564d9 100644
+--- a/reference/compare/partial_ordering/op_greater_equal.md
++++ b/reference/compare/partial_ordering/op_greater_equal.md
+@@ -34,6 +34,7 @@ friend constexpr bool operator&amp;gt;=(/*unspecified*/, partial_ordering v) noexcept;
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;compare&amp;gt;
++#include &amp;lt;limits&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt; -- including limits where it needs on the sample code</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_less.html"/>
+      <id>d0cbd89f5470e00729b05c0bcac79b889b18a5e3:reference/compare/partial_ordering/op_less.md</id>
+      <updated>2026-07-02T15:52:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_less.md b/reference/compare/partial_ordering/op_less.md
+index 26c63c9ad..ce5c5ceab 100644
+--- a/reference/compare/partial_ordering/op_less.md
++++ b/reference/compare/partial_ordering/op_less.md
+@@ -35,6 +35,7 @@ friend constexpr bool operator&amp;lt;(/*unspecified*/, partial_ordering v) noexcept;
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;compare&amp;gt;
++#include &amp;lt;limits&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;= -- including limits where it needs on the sample code</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_less_equal.html"/>
+      <id>d0cbd89f5470e00729b05c0bcac79b889b18a5e3:reference/compare/partial_ordering/op_less_equal.md</id>
+      <updated>2026-07-02T15:52:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_less_equal.md b/reference/compare/partial_ordering/op_less_equal.md
+index 519b48e59..b8273ada1 100644
+--- a/reference/compare/partial_ordering/op_less_equal.md
++++ b/reference/compare/partial_ordering/op_less_equal.md
+@@ -35,6 +35,7 @@ friend constexpr bool operator&amp;lt;=(/*unspecified*/, partial_ordering v) noexcept;
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;compare&amp;gt;
++#include &amp;lt;limits&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- including limits where it needs on the sample code</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_not_equal.html"/>
+      <id>d0cbd89f5470e00729b05c0bcac79b889b18a5e3:reference/compare/partial_ordering/op_not_equal.md</id>
+      <updated>2026-07-02T15:52:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_not_equal.md b/reference/compare/partial_ordering/op_not_equal.md
+index 29754ebf1..af5cb9a77 100644
+--- a/reference/compare/partial_ordering/op_not_equal.md
++++ b/reference/compare/partial_ordering/op_not_equal.md
+@@ -40,6 +40,7 @@ friend constexpr bool operator!=(/*unspecified*/, partial_ordering v) noexcept;
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;compare&amp;gt;
++#include &amp;lt;limits&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>compare -- fixing typo: される</title>
+      <link href="https://cpprefjp.github.io/reference/filesystem/path/compare.html"/>
+      <id>3593d2b1c77aeb11149f07446d1723c04ae883f3:reference/filesystem/path/compare.md</id>
+      <updated>2026-07-02T15:51:48+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/filesystem/path/compare.md b/reference/filesystem/path/compare.md
+index 76d715fe4..97601cad8 100644
+--- a/reference/filesystem/path/compare.md
++++ b/reference/filesystem/path/compare.md
+@@ -40,7 +40,7 @@ int main()
+ 
+   // 正規化は考慮されない。
+   // ファイルシステムとしてのパスの等価性ではなく、
+-  // パス文字列の同値性が比較されれる
++  // パス文字列の同値性が比較される
+   fs::path c = &amp;#34;a/../b/c&amp;#34;;
+   assert(a.compare(c) != 0);
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- fixing typo: される</title>
+      <link href="https://cpprefjp.github.io/reference/filesystem/path/op_compare_3way.html"/>
+      <id>3593d2b1c77aeb11149f07446d1723c04ae883f3:reference/filesystem/path/op_compare_3way.md</id>
+      <updated>2026-07-02T15:51:48+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/filesystem/path/op_compare_3way.md b/reference/filesystem/path/op_compare_3way.md
+index f72a07bf3..923a888de 100644
+--- a/reference/filesystem/path/op_compare_3way.md
++++ b/reference/filesystem/path/op_compare_3way.md
+@@ -45,7 +45,7 @@ int main()
+ 
+   // 正規化は考慮されない。
+   // ファイルシステムとしてのパスの等価性ではなく、
+-  // パス文字列の同値性が比較されれる
++  // パス文字列の同値性が比較される
+   fs::path c = &amp;#34;a/../b/c&amp;#34;;
+   assert((a &amp;lt;=&amp;gt; c) != 0);
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- fixing typo: される</title>
+      <link href="https://cpprefjp.github.io/reference/filesystem/path/op_equal.html"/>
+      <id>3593d2b1c77aeb11149f07446d1723c04ae883f3:reference/filesystem/path/op_equal.md</id>
+      <updated>2026-07-02T15:51:48+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/filesystem/path/op_equal.md b/reference/filesystem/path/op_equal.md
+index 7f109b846..37a7294b8 100644
+--- a/reference/filesystem/path/op_equal.md
++++ b/reference/filesystem/path/op_equal.md
+@@ -56,7 +56,7 @@ int main()
+ 
+   // 正規化は考慮されない。
+   // ファイルシステムとしてのパスの等価性ではなく、
+-  // パス文字列の同値性が比較されれる
++  // パス文字列の同値性が比較される
+   fs::path c = &amp;#34;a/../b/c&amp;#34;;
+   assert(!(a == c));
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- fixing typo: される</title>
+      <link href="https://cpprefjp.github.io/reference/filesystem/path/op_not_equal.html"/>
+      <id>3593d2b1c77aeb11149f07446d1723c04ae883f3:reference/filesystem/path/op_not_equal.md</id>
+      <updated>2026-07-02T15:51:48+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/filesystem/path/op_not_equal.md b/reference/filesystem/path/op_not_equal.md
+index 29d4a6fce..50ff0b8ac 100644
+--- a/reference/filesystem/path/op_not_equal.md
++++ b/reference/filesystem/path/op_not_equal.md
+@@ -38,7 +38,7 @@ int main()
+ 
+   // 正規化は考慮されない。
+   // ファイルシステムとしてのパスの等価性ではなく、
+-  // パス文字列の同値性が比較されれる
++  // パス文字列の同値性が比較される
+   fs::path c = &amp;#34;a/../b/c&amp;#34;;
+   assert(a != c);
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iリテラル -- fixing typo: dened</title>
+      <link href="https://cpprefjp.github.io/reference/complex/complex/op_i.html"/>
+      <id>2d81bdea86ad375a14b548dd65a811feb9e4b6a8:reference/complex/complex/op_i.md</id>
+      <updated>2026-07-02T15:51:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/complex/complex/op_i.md b/reference/complex/complex/op_i.md
+index ece06a98f..097c75cdf 100644
+--- a/reference/complex/complex/op_i.md
++++ b/reference/complex/complex/op_i.md
+@@ -65,4 +65,4 @@ int main()
+ | [`if`](op_if.md) | `complex&amp;lt;float&amp;gt;`のリテラル       |
+ | [`il`](op_il.md) | `complex&amp;lt;long double&amp;gt;`のリテラル |
+ 
+-- [N3779 User-dened Literals for std::complex part 2 of UDL for Standard Library Types (version 5)](https://isocpp.org/files/papers/N3779.pdf)
++- [N3779 User-defined Literals for std::complex part 2 of UDL for Standard Library Types (version 5)](https://isocpp.org/files/papers/N3779.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ifリテラル -- fixing typo: dened</title>
+      <link href="https://cpprefjp.github.io/reference/complex/complex/op_if.html"/>
+      <id>2d81bdea86ad375a14b548dd65a811feb9e4b6a8:reference/complex/complex/op_if.md</id>
+      <updated>2026-07-02T15:51:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/complex/complex/op_if.md b/reference/complex/complex/op_if.md
+index c8049f18b..6c5a430aa 100644
+--- a/reference/complex/complex/op_if.md
++++ b/reference/complex/complex/op_if.md
+@@ -65,4 +65,4 @@ int main()
+ | [`i`](op_i.md)   | `complex&amp;lt;double&amp;gt;`のリテラル       |
+ | [`il`](op_il.md) | `complex&amp;lt;long double&amp;gt;`のリテラル |
+ 
+-- [N3779 User-dened Literals for std::complex part 2 of UDL for Standard Library Types (version 5)](https://isocpp.org/files/papers/N3779.pdf)
++- [N3779 User-defined Literals for std::complex part 2 of UDL for Standard Library Types (version 5)](https://isocpp.org/files/papers/N3779.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ilリテラル -- fixing typo: dened</title>
+      <link href="https://cpprefjp.github.io/reference/complex/complex/op_il.html"/>
+      <id>2d81bdea86ad375a14b548dd65a811feb9e4b6a8:reference/complex/complex/op_il.md</id>
+      <updated>2026-07-02T15:51:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/complex/complex/op_il.md b/reference/complex/complex/op_il.md
+index 665377a66..d14e2bec2 100644
+--- a/reference/complex/complex/op_il.md
++++ b/reference/complex/complex/op_il.md
+@@ -65,4 +65,4 @@ int main()
+ | [`i`](op_i.md)   | `complex&amp;lt;double&amp;gt;`のリテラル |
+ | [`if`](op_if.md) | `complex&amp;lt;float&amp;gt;`のリテラル  |
+ 
+-- [N3779 User-dened Literals for std::complex part 2 of UDL for Standard Library Types (version 5)](https://isocpp.org/files/papers/N3779.pdf)
++- [N3779 User-defined Literals for std::complex part 2 of UDL for Standard Library Types (version 5)](https://isocpp.org/files/papers/N3779.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bit -- fixing typo: functional</title>
+      <link href="https://cpprefjp.github.io/reference/bit.html"/>
+      <id>c94627b10cf14bb54f93c0cc99490d73bd66c4d4:reference/bit.md</id>
+      <updated>2026-07-02T15:50:57+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;bit&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;bit&lt;/span&gt;&lt;span class=&#34;cpp cpp20&#34; title=&#34;C++20で追加&#34;&gt;(C++20)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;bit&amp;gt;&lt;/code&gt;ヘッダでは、ビット操作のための機能を定義する。&lt;/p&gt;
+&lt;p&gt;本ヘッダはフリースタンディング環境でも提供される。&lt;/p&gt;
+&lt;h2&gt;変換&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/bit_cast.html&#34;&gt;bit_cast&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビットレベルの再解釈キャスト (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バイト入替&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/byteswap.html&#34;&gt;byteswap&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;バイト単位入れ替え (function template)&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;2の累乗整数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/has_single_bit.html&#34;&gt;has_single_bit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1ビットだけ立っている値をもっているか判定する (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/bit_ceil.html&#34;&gt;bit_ceil&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;整数値を2の累乗値に切り上げる (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/bit_floor.html&#34;&gt;bit_floor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;整数値を2の累乗値に切り下げる (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/bit_width.html&#34;&gt;bit_width&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;値を表現するために必要なビット幅を求める (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;循環ビットシフト&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/rotl.html&#34;&gt;rotl&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左循環ビットシフト (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/rotr.html&#34;&gt;rotr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右循環ビットシフト (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;ビットカウント&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/countl_zero.html&#34;&gt;countl_zero&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左から連続した0のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/countl_one.html&#34;&gt;countl_one&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左から連続した1のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/countr_zero.html&#34;&gt;countr_zero&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右から連続した0のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/countr_one.html&#34;&gt;countr_one&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右から連続した1のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/popcount.html&#34;&gt;popcount&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;立っているビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;エンディアン&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;bit/endian.html&#34;&gt;endian&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;バイトの並び順を表す列挙型 (enum)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h.html&#34;&gt;&amp;lt;stdbit.h&amp;gt;&lt;/a&gt;&lt;/code&gt; - C互換のビット操作ライブラリ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++20&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>C++17 -- fixint typo: experimental</title>
+      <link href="https://cpprefjp.github.io/lang/cpp17.html"/>
+      <id>d13aff7cb474a46b99d6bee1957c2320d086c322:lang/cpp17.md</id>
+      <updated>2026-07-02T15:50:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp17.md b/lang/cpp17.md
+index 0fadd4f75..a6d08d83c 100644
+--- a/lang/cpp17.md
++++ b/lang/cpp17.md
+@@ -9,7 +9,7 @@ C++17とは、2017年12月に改訂され、ISO/IEC 14882:2017で標準規格化
+ ## 策定体制
+ C++14の策定開始段階から「Study Group (SG)」と呼ばれる専門家グループが複数作られ、そこで同時並行に新機能の議論、策定が進められていた。C++14ではそれらの機能は導入されなかったが、C++17ではSGで議論された機能のうち、仕様が固まったもののいくつかが導入されることとなった。
+ 
+-各SGで考えられた仕様は「Technical Specification (TS)」という単位で個別に各国の承認をとっている。その段階では、ライブラリ機能は`std::exprerimental`名前空間などで各コンパイラが実験的にサポートをしていた。これはコンパイラが実装経験を積み、ユーザーが使用経験を得てから標準に採用するためである。
++各SGで考えられた仕様は「Technical Specification (TS)」という単位で個別に各国の承認をとっている。その段階では、ライブラリ機能は`std::experimental`名前空間などで各コンパイラが実験的にサポートをしていた。これはコンパイラが実装経験を積み、ユーザーが使用経験を得てから標準に採用するためである。
+ 
+ C++17では以下のTSが採用された：
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
