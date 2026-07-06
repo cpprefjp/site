@@ -18,13 +18,13 @@ def retry_sleep():
 def check_url(url: str, retry: int = 5) -> tuple[bool, str]:
     try:
         headers = {'User-agent': 'Mozilla/5.0'}
-        res = requests.head(url, headers=headers, verify=False, timeout=60.0)
-        if res.url:
-            if res.url == url:
-                return res.status_code != 404, "404"
-            return check_url(res.url)
-        else:
-            return res.status_code != 404, "404"
+        # パフォーマンスのため本文は取得せずHEADで確認する。
+        # ただしallow_redirects=Trueでリダイレクトはrequestsに追わせ、最終的な
+        # ステータスで判定する (手動でres.urlを辿る再帰をやめ、リトライ回数が
+        # 途中でリセットされる問題を避ける)。
+        res = requests.head(url, headers=headers, verify=False, timeout=60.0,
+                            allow_redirects=True)
+        return res.status_code != 404, str(res.status_code)
     except requests.exceptions.ConnectionError as e:
         if retry <= 0:
             return False, "requests.exceptions.ConnectionError : {} ".format(e)
