@@ -52,7 +52,7 @@ example_static_assert.cpp:5:3: error: static_assert failed
 ## この機能が必要になった背景・経緯
 `assert` は条件式のみを引数に取るのに対し、`static_assert` には診断メッセージを提供しなければならなかった。
 
-[Boost.StaticAssert](http://www.boost.org/doc/libs/release/doc/html/boost_staticassert.html) は以下のような `BOOST_STATIC_ASSERT` マクロを提供しており、
+[Boost.StaticAssert](https://www.boost.org/doc/libs/latest/libs/config/doc/html/index.html) は以下のような `BOOST_STATIC_ASSERT` マクロを提供しており、
 `static_assert` の診断メッセージを省略できた:
 ```cpp
 #define BOOST_STATIC_ASSERT(B) static_assert(B, #B)

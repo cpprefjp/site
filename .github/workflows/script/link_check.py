@@ -8,32 +8,49 @@ import requests
 import sys
 import time
 import random
+from concurrent.futures import ThreadPoolExecutor
 
 urllib3.disable_warnings()
 
-def retry_sleep():
-    sec = random.uniform(20, 30)
-    time.sleep(sec)
+# 外部リンクチェックの並列数。ネットワークI/OバウンドなのでスレッドでOK。
+# open-std.org (全URLの過半) が同時16接続を問題なく捌けることを実測して決定。
+OUTER_LINK_WORKERS = 16
 
-def check_url(url: str, retry: int = 5) -> tuple[bool, str]:
+MAX_OUTER_LINK_RETRY = 3
+
+def retry_sleep(retry: int) -> None:
+    # 指数バックオフ + ジッタ。残りretry回数から試行回数を求めて待機時間を増やし、
+    # ジッタで再試行タイミングを分散させる (レート制限中のサーバへの集中を避ける)。
+    attempt = MAX_OUTER_LINK_RETRY - retry + 1  # 1, 2, 3, ...
+    backoff = min(15 * (2 ** (attempt - 1)), 60)  # 15, 30, 60 秒 (上限60秒)
+    time.sleep(backoff + random.uniform(0, 15))   # 0〜15秒のジッタ
+
+def check_url(url: str, retry: int = MAX_OUTER_LINK_RETRY) -> tuple[bool, str]:
     try:
         headers = {'User-agent': 'Mozilla/5.0'}
-        res = requests.head(url, headers=headers, verify=False, timeout=60.0)
-        if res.url:
-            if res.url == url:
-                return res.status_code != 404, "404"
-            return check_url(res.url)
-        else:
-            return res.status_code != 404, "404"
+        # パフォーマンスのため本文は取得せずHEADで確認する。
+        # ただしallow_redirects=Trueでリダイレクトはrequestsに追わせ、最終的な
+        # ステータスで判定する (手動でres.urlを辿る再帰をやめ、リトライ回数が
+        # 途中でリセットされる問題を避ける)。
+        res = requests.head(url, headers=headers, verify=False, timeout=60.0,
+                            allow_redirects=True)
+        return res.status_code != 404, str(res.status_code)
+    except requests.exceptions.TooManyRedirects:
+        # リダイレクトループ (http↔httpsを行き来する等)。ブラウザではHSTS等で
+        # 到達できることが多く、リトライしても解消しないため、存在するものとして
+        # 扱う (ループ誤検出とムダな再試行を避ける)。
+        # ※ TooManyRedirectsはRequestExceptionのサブクラスなので、下の汎用ハンドラ
+        #    より前で捕捉する必要がある。
+        return True, "redirect loop"
     except requests.exceptions.ConnectionError as e:
         if retry <= 0:
             return False, "requests.exceptions.ConnectionError : {} ".format(e)
-        retry_sleep()
+        retry_sleep(retry)
         return check_url(url, retry - 1)
     except requests.exceptions.RequestException as e:
         if retry <= 0:
             return False, "requests.exceptions.RequestException : {}".format(e)
-        retry_sleep()
+        retry_sleep(retry)
         return check_url(url, retry - 1)
     except Exception as e:
         return False, "unknown exception : {}".format(e)
@@ -169,11 +186,28 @@ def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
         if len(url) > 0:
             outer_link_dict[url] = ""
 
-        for link, from_list in outer_link_dict.items():
+        def check_one(item):
+            link, from_list = item
             exists, reason = check_url(link)
-            if not exists:
-                print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
-                found_error = True
+            return link, from_list, exists, reason
+
+        # 1パス目: 失敗したURLだけ集める (ネットワークI/Oバウンドなのでスレッドで並列化)
+        failed = []
+        with ThreadPoolExecutor(max_workers=OUTER_LINK_WORKERS) as executor:
+            for link, from_list, exists, reason in executor.map(check_one, outer_link_dict.items()):
+                if not exists:
+                    failed.append((link, from_list))
+
+        # 2パス目: 一時的な障害 (ランナーのネットワーク輻輳やサイトの瞬断) を
+        # 誤検出しないよう、間をあけて失敗したURLのみ再チェックし、
+        # 両方のパスで失敗したものだけを報告する
+        if failed:
+            time.sleep(120)
+            with ThreadPoolExecutor(max_workers=OUTER_LINK_WORKERS) as executor:
+                for link, from_list, exists, reason in executor.map(check_one, failed):
+                    if not exists:
+                        print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
+                        found_error = True
 
     return not found_error
 
