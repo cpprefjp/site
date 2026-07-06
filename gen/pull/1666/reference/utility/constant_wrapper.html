@@ -1,0 +1,694 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::constant_wrapper - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,utility,std,class template,cpp26,cw
+">
+        <meta name="title" content="std::constant_wrapper - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::constant_wrapper - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::constant_wrapper - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/utility/constant_wrapper.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`constant_wrapper`クラステンプレートは、定数`X`を型として包むことで、その値を「型の世界」で扱えるようにするためのラッパーである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::constant_wrapper - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/utility/constant_wrapper.html" />
+        <meta name="twitter:description" content="`constant_wrapper`クラステンプレートは、定数`X`を型として包むことで、その値を「型の世界」で扱えるようにするためのラッパーである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="manifest" href="../../manifest.json?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=757002d78f95e78de8e406e028300207cd73ad64"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=757002d78f95e78de8e406e028300207cd73ad64"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;], &#34;alias&#34;: [&#34;cw&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a446cb3dc1ef6ab7ee1c0d647414be67501a4b30&#34;, &#34;source&#34;: &#34;#include &lt;utility&gt;\n#include &lt;iostream&gt;\n\n// \u5b9a\u6570\u3092\u901a\u5e38\u306e\u95a2\u6570\u5f15\u6570\u3068\u3057\u3066\u53d7\u3051\u53d6\u308a\u3001\u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u306b\u8a08\u7b97\u3059\u308b\u9ad8\u968e\u95a2\u6570\nconstexpr auto add(auto a, auto b)\n{\n  return a + b;\n}\n\nint main()\n{\n  // cw&lt;42&gt;\u3068cw&lt;13&gt;\u306f\u3001\u5024\u3092\u578b\u3068\u3057\u3066\u4fdd\u6301\u3059\u308b\n  auto result = add(std::cw&lt;42&gt;, std::cw&lt;13&gt;);\n\n  // result\u306fconstant_wrapper&lt;55&gt;\u578b\u3067\u3042\u308a\u3001\n  // result\u81ea\u8eab\u304c\u5b9a\u6570\u5f0f\u3067\u306a\u304f\u3066\u3082\u3001\u305d\u306e\u5024\u306f\u5b9a\u6570\u5f0f\u3068\u3057\u3066\u4f7f\u7528\u3067\u304d\u308b\n  static_assert(result == 55);\n\n  std::cout &lt;&lt; result &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;27422a2a2aea631b4d0836c2e1bd7f96b3106ec2&#34;, &#34;source&#34;: &#34;#include &lt;utility&gt;\n#include &lt;type_traits&gt;\n\nint main()\n{\n  // \u30aa\u30da\u30e9\u30f3\u30c9\u304c\u3059\u3079\u3066constant_wrapper\u306a\u3089\u3001\u6f14\u7b97\u7d50\u679c\u3082\u518d\u3073constant_wrapper\u306b\u306a\u308b\n  auto a = std::cw&lt;10&gt; + std::cw&lt;5&gt;;\n  static_assert(std::is_same_v&lt;decltype(a), std::constant_wrapper&lt;15&gt;&gt;);\n\n  // \u30aa\u30da\u30e9\u30f3\u30c9\u306e\u3044\u305a\u308c\u304b\u304c\u901a\u5e38\u306e\u5024\u306a\u3089\u3001\u4fdd\u6301\u3059\u308b\u5024\u3078\u30a2\u30f3\u30e9\u30c3\u30d7\u3057\u3066\u6f14\u7b97\u3059\u308b\n  auto b = std::cw&lt;10&gt; + 5;\n  static_assert(std::is_same_v&lt;decltype(b), int&gt;);\n}\n&#34;}, {&#34;id&#34;: &#34;5bf83602089629874fd70340d8eca7ae0a9b0891&#34;, &#34;source&#34;: &#34;#include &lt;utility&gt;\n#include &lt;iostream&gt;\n\nconstexpr int triple(int x) { return x * 3; }\n\n// constant_wrapper\u306fNTTP\u3068\u3057\u3066\u4f7f\u3046\u305f\u3081\u306b\u540d\u524d\u7a7a\u9593\u30b9\u30b3\u30fc\u30d7\u306b\u7f6e\u304f\nconstexpr int data[] = {0, 10, 20, 30};\n\nint main()\n{\n  // cw&lt;triple&gt;\u3092\u95a2\u6570\u547c\u3073\u51fa\u3057\u3059\u308b\u3068\u3001\u4fdd\u6301\u3059\u308b\u95a2\u6570\u3092\u547c\u3073\u51fa\u3059\n  // \u5f15\u6570\u3082constant_wrapper\u306a\u3089\u3001\u7d50\u679c\u3092\u518d\u3073constant_wrapper\u3067\u5305\u3080\n  auto r = std::cw&lt;triple&gt;(std::cw&lt;7&gt;);\n  static_assert(r == 21);\n  std::cout &lt;&lt; r &lt;&lt; std::endl;\n\n  // \u914d\u5217\u3092\u4fdd\u6301\u3057\u3066\u6dfb\u5b57\u30a2\u30af\u30bb\u30b9\u3059\u308b\n  auto e = std::cw&lt;data&gt;[std::cw&lt;2&gt;];\n  static_assert(e == 20);\n  std::cout &lt;&lt; e &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;constant_wrapper&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/utility.html" itemprop="url">
+              
+                <span itemprop="name">utility</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">constant_wrapper</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-06-21T14:39:30">
+        2026年06月21日 14時39分30秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/utility/constant_wrapper.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/utility/constant_wrapper.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;utility&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">constant_wrapper</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">constant_wrapper</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 型Tが定数として扱えることを表す説明用コンセプト</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">constexpr</span><span class="o">-</span><span class="n">param</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">constant_wrapper</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="n">value</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// すべての演算子オーバーロードを提供する説明用の基底クラス</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">cw</span><span class="o">-</span><span class="n">operators</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// constant_wrapperを簡潔に生成する変数テンプレート</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">X</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">cw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">constant_wrapper</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>constant_wrapper</code>クラステンプレートは、定数<code>X</code>を型として包むことで、その値を「型の世界」で扱えるようにするためのラッパーである。</p>
+<p><code>constant_wrapper</code>のみで構成された式は、それが現れる文脈に関わらず、常にコア定数式として評価される。これによって、通常はテンプレート引数としてしか渡せない定数を、関数の引数として渡しても定数式として利用できるようになる。とくに、テンプレート引数を明示的に指定できないコンストラクタ呼び出しなどで有用である。</p>
+<p>変数テンプレート<code><a href="#cw">cw</a></code>を使うと、<code>std::constant_wrapper&lt;42&gt;{}</code>と書く代わりに<code>std::cw&lt;42&gt;</code>と簡潔に書ける。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 通常の定数を関数引数として受け取り、コンパイル時に計算する</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n"><a href="">std::cw</a></span><span class="o">&lt;</span><span class="mi">42</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="">std::cw</a></span><span class="o">&lt;</span><span class="mi">13</span><span class="o">&gt;</span><span class="p">);</span><span class="w"> </span><span class="c1">// resultはconstant_wrapper&lt;55&gt;型</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">55</span><span class="p">);</span><span class="w">                 </span><span class="c1">// resultが定数式でなくても、その値は定数式</span>
+</code></pre></div>
+</p>
+<p><code>constant_wrapper</code>はあらゆる演算子を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>している。オペランドがすべて<code>constant_wrapper</code>である場合は、演算結果も<code>constant_wrapper</code>になり、「型の世界」にとどまる。オペランドのいずれかが通常の値である場合は、保持する値にアンラップされて通常の演算がおこなわれる。</p>
+<p>クラステンプレート<code>constant_wrapper</code>の2つめのテンプレートパラメータは無名であり、引数依存の名前探索 (<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>) を補助するために存在する。これによって、包んでいる値が引数として適合する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を、<code>constant_wrapper</code>自身が適合しない場合でも発見できるようになる。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(constructor)</code></td>
+<td>デフォルトコンストラクタ（暗黙定義）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_assign.html">operator=</a></code></td>
+<td>代入（<code>value</code>が<code>const</code>のため<code>constant_wrapper</code>では<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_value_type.html">operator value_type</a></code></td>
+<td>保持する値への変換演算子</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_call.html">operator()</a></code></td>
+<td>保持する値を関数として呼び出す（静的メンバ関数）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_at.html">operator[]</a></code></td>
+<td>保持する値に添字アクセスする（静的メンバ関数）</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<p>また、説明用の基底クラス<code>cw-operators</code>から以下の擬似的な変更操作を継承する。ただし<code>constant_wrapper</code>が保持する<code>value</code>は<code>const</code>であるため、これらの演算子と上記<code>operator=</code>は、保持する値そのものを変更する式（<code>++value</code>、<code>value op= x</code>、<code>value = x</code>）が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となり、<code>constant_wrapper</code>に対しては<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加しない（使用できない）。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="constant_wrapper/op_increment.html">operator++</a></code></td>
+<td>インクリメント</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_decrement.html">operator--</a></code></td>
+<td>デクリメント</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_plus_assign.html">operator+=</a></code></td>
+<td>加算の複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_minus_assign.html">operator-=</a></code></td>
+<td>減算の複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_multiply_assign.html">operator*=</a></code></td>
+<td>乗算の複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_divide_assign.html">operator/=</a></code></td>
+<td>除算の複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_modulo_assign.html">operator%=</a></code></td>
+<td>剰余の複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_and_assign.html">operator&amp;=</a></code></td>
+<td>ビット論理積の複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_or_assign.html">operator|=</a></code></td>
+<td>ビット論理和の複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_xor_assign.html">operator^=</a></code></td>
+<td>ビット排他的論理和の複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_left_shift_assign.html">operator&lt;&lt;=</a></code></td>
+<td>左シフトの複合代入</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_right_shift_assign.html">operator&gt;&gt;=</a></code></td>
+<td>右シフトの複合代入</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>constant_wrapper</code>自身を表す型</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>保持する値の型 <code>decltype(X)</code>、すなわちラップした値<code>X</code>の型</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<p>たとえば<code>std::cw&lt;42&gt;</code>（<code>X</code>は<code>int</code>の<code>42</code>）の場合、<code>type</code>は<code>std::constant_wrapper&lt;42&gt;</code>、<code>value_type</code>は<code>int</code>となる。</p>
+<h2>静的メンバ変数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>設定される値・型</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value</code></td>
+<td>保持する定数値への参照</td>
+<td>テンプレート引数<code>X</code>への参照（<code>static constexpr decltype(auto) value = (X);</code>）。型は<code>const value_type&amp;</code></td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<p>たとえば<code>std::cw&lt;42&gt;</code>の場合、<code>value</code>の値は<code>42</code>、その型は<code>const int&amp;</code>となる。<code>value</code>はテンプレートパラメータオブジェクトへの参照であるため、<a class="cpprefjp-defined-word" data-desc="dangling。寿命が尽きた無効なオブジェクトやメモリ領域を、ポインタ・参照・イテレータなどが指し続けている状態のこと。これらにアクセスすると未定義の動作を引き起こす">ダングリング</a>しない。</p>
+<h2>非メンバ（<em>Hidden friends</em>）関数</h2>
+<p><code>constant_wrapper</code>は、説明用の基底クラス<code>cw-operators</code>を継承することで、以下の演算子を <em>Hidden friends</em> として提供する。</p>
+<p>いずれの演算子も、オペランドがすべて説明用コンセプト<code>constexpr-param</code>（<code>constant_wrapper</code>のように、静的メンバ<code>value</code>を定数として持つ型）のモデルであることを要求し、演算結果を包んだ<code>constant_wrapper</code>を返す。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="constant_wrapper/op_unary_plus.html">operator+</a></code></td>
+<td>単項<code>+</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_unary_minus.html">operator-</a></code></td>
+<td>単項<code>-</code>（符号反転）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_flip.html">operator~</a></code></td>
+<td>ビット反転</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_not.html">operator!</a></code></td>
+<td>論理否定</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_address.html">operator&amp;</a></code></td>
+<td>単項<code>&amp;</code>（アドレス取得）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_deref.html">operator*</a></code></td>
+<td>単項<code>*</code>（間接参照）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_plus.html">operator+</a></code></td>
+<td>加算</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_minus.html">operator-</a></code></td>
+<td>減算</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_multiply.html">operator*</a></code></td>
+<td>乗算</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_divide.html">operator/</a></code></td>
+<td>除算</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_modulo.html">operator%</a></code></td>
+<td>剰余</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_left_shift.html">operator&lt;&lt;</a></code></td>
+<td>左シフト</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_right_shift.html">operator&gt;&gt;</a></code></td>
+<td>右シフト</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_and.html">operator&amp;</a></code></td>
+<td>ビット論理積</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_or.html">operator|</a></code></td>
+<td>ビット論理和</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_xor.html">operator^</a></code></td>
+<td>ビット排他的論理和</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_logical_and.html">operator&amp;&amp;</a></code></td>
+<td>論理積</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_logical_or.html">operator||</a></code></td>
+<td>論理和</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺より小さいかの判定</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺以下かの判定</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいかの判定</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺以上かの判定</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_comma.html">operator,</a></code></td>
+<td>カンマ演算子（<code>delete</code>定義）</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="constant_wrapper/op_member_pointer.html">operator-&gt;*</a></code></td>
+<td>メンバポインタ参照</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#cw" id="cw">変数テンプレート<code>cw</code></a></h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">auto</span><span class="w"> </span><span class="n">X</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">cw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">constant_wrapper</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>cw</code>は、<code>constant_wrapper&lt;X&gt;</code>のオブジェクトを簡潔に生成するための変数テンプレートである。<code>std::cw&lt;X&gt;</code>は<code>std::constant_wrapper&lt;X&gt;{}</code>と等価である。</p>
+<h2>備考</h2>
+<ul>
+<li><code>operator()</code>と<code>operator[]</code>は静的メンバ関数であり、保持する値<code>value</code>をアンラップして呼び出す。引数がすべて<code>constexpr-param</code>のモデルであり、その結果をふたたび<code>constant_wrapper</code>で包める場合は、包んだ<code>constant_wrapper</code>を返す。そうでない場合は、アンラップした結果をそのまま返す。<ul>
+<li>この「保持する値そのものになる。ただし包んだままにできるなら包んだままにする」という規則は、すべての演算子に共通する。たとえば、<code>std::cw&lt;1&gt; + 1</code>は<code>int</code>の<code>2</code>に、<code>std::cw&lt;1&gt; + std::cw&lt;1&gt;</code>は<code>constant_wrapper&lt;2&gt;</code>になる。</li>
+</ul>
+</li>
+<li><code>operator,</code>（カンマ演算子）は<code>delete</code>定義されている。</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="a446cb3dc1ef6ab7ee1c0d647414be67501a4b30"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="c1">// 定数を通常の関数引数として受け取り、コンパイル時に計算する高階関数</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// cw&lt;42&gt;とcw&lt;13&gt;は、値を型として保持する</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="mi">42</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="mi">13</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// resultはconstant_wrapper&lt;55&gt;型であり、</span>
+<span class="w">  </span><span class="c1">// result自身が定数式でなくても、その値は定数式として使用できる</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">55</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>55
+</code></pre></p>
+<h3>演算結果を型として保持する</h3>
+<p><div class="yata" id="27422a2a2aea631b4d0836c2e1bd7f96b3106ec2"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../type_traits.html">&lt;type_traits&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// オペランドがすべてconstant_wrapperなら、演算結果も再びconstant_wrapperになる</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="mi">5</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::constant_wrapper</span></span><span class="o">&lt;</span><span class="mi">15</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// オペランドのいずれかが通常の値なら、保持する値へアンラップして演算する</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">b</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>関数や添字をアンラップして呼び出す</h3>
+<p><div class="yata" id="5bf83602089629874fd70340d8eca7ae0a9b0891"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../utility.html">&lt;utility&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">triple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// constant_wrapperはNTTPとして使うために名前空間スコープに置く</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// cw&lt;triple&gt;を関数呼び出しすると、保持する関数を呼び出す</span>
+<span class="w">  </span><span class="c1">// 引数もconstant_wrapperなら、結果を再びconstant_wrapperで包む</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="n">triple</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="mi">7</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">21</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 配列を保持して添字アクセスする</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="n">data</span><span class="o">&gt;</span><span class="p">[</span><span class="n"><span style="color:#ff0000">std::cw</span></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">];</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>21
+20
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 23 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../type_traits/integral_constant.html">std::integral_constant</a></code> 型として整数定数を表すクラス</li>
+<li><code><a href="../functional/function_ref.html">std::function_ref</a></code> メンバ関数ポインタなどを束縛する際に<code>constant_wrapper</code>を受け取る</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2781r9.html" target="_blank">P2781R9 <code>std::constant_wrapper</code></a><ul>
+<li>C++26で<code>constant_wrapper</code>と変数テンプレート<code>cw</code>が追加された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3978r3.pdf" target="_blank">P3978R3 <code>constant_wrapper</code> should unwrap on call and subscript</a><ul>
+<li><code>operator()</code>と<code>operator[]</code>を静的メンバ関数とし、<code>INVOKE</code>を用いて値をアンラップして呼び出すよう変更された。あわせて<code>constant_wrapper</code>と<code>cw</code>の定義が<code><a href="../type_traits.html">&lt;type_traits&gt;</a></code>から<code><a href="../utility.html">&lt;utility&gt;</a></code>へ移動した</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4206r0.html" target="_blank">P4206R0 Revert string support in <code>std::constant_wrapper</code></a><ul>
+<li>文字列リテラルのサポートを削除し、テンプレートパラメータを説明用の<code>cw-fixed-value</code>から<code>auto</code>に戻した。これにともない<code>value_type</code>は<code>decltype(X)</code>、<code>value</code>は<code>X</code>自身を参照するよう簡略化された。仕様としてはC++29に導入されるが、C++26に対する欠陥報告 (DR) である</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

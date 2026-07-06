@@ -1,0 +1,291 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::memalignment - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdlib,std,function,cpp26
+">
+        <meta name="title" content="std::memalignment - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::memalignment - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::memalignment - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdlib/memalignment.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="ポインタのアライメントを取得する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::memalignment - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdlib/memalignment.html" />
+        <meta name="twitter:description" content="ポインタのアライメントを取得する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="manifest" href="../../manifest.json?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=757002d78f95e78de8e406e028300207cd73ad64"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=757002d78f95e78de8e406e028300207cd73ad64"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;47e39822efae46f09df5bfcf69445e6e4b979203&#34;, &#34;source&#34;: &#34;#include &lt;cstdlib&gt;\n#include &lt;print&gt;\n\nint main()\n{\n  void* p = std::aligned_alloc(64, 256);\n  std::println(\&#34;{}\&#34;, std::memalignment(p));\n  std::free(p);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;memalignment&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/cstdlib.html" itemprop="url">
+              
+                <span itemprop="name">cstdlib</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">memalignment</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-06-15T05:22:22">
+        2026年06月15日 05時22分22秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdlib/memalignment.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdlib/memalignment.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">memalignment</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../cstddef/size_t.html">size_t</a></span><span class="w"> </span><span class="nf">memalignment</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>ポインタのアライメントを取得する。</p>
+<p>C23で<code>&lt;stdlib.h&gt;</code>に追加された関数であり、C++26で<code>&lt;cstdlib&gt;</code>に取り込まれた。</p>
+<p>この関数はフリースタンディング環境でも提供される。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li><code>p</code>がヌルポインタでない場合、ポインタ値<code>p</code>を割り切ることができる最大の2の累乗の値を返す</li>
+<li><code>p</code>がヌルポインタの場合、<code>0</code>を返す</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="47e39822efae46f09df5bfcf69445e6e4b979203"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../cstdlib.html">&lt;cstdlib&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="aligned_alloc.html">std::aligned_alloc</a></span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::memalignment</span></span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>64
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 22 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16.1 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="aligned_alloc.html">aligned_alloc()</a></code>: 指定したアライメントでメモリを確保する</li>
+<li><code><a href="free_aligned_sized.html">free_aligned_sized()</a></code>: アライメントと確保時のサイズを指定して、確保したメモリを解放する</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf" target="_blank">P3348R4 C++26 should refer to C23 not C17</a><ul>
+<li>C++26がC23を参照するようになり、この関数が<code>&lt;cstdlib&gt;</code>に追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

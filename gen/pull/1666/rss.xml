@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-07-06T06:08:36.027028</updated>
+  <id>ce33e123-b4f0-406c-8ae4-e2064579e25a</id>
+
+  
+    <entry>
+      <title>static_assert のメッセージ省略を許可 [N3928] -- リンク切れを修正</title>
+      <link href="https://cpprefjp.github.io/lang/cpp17/extending_static_assert.html"/>
+      <id>594ebb3d87d727e71200d1ea0839110ac2dfd76c:lang/cpp17/extending_static_assert.md</id>
+      <updated>2026-07-06T14:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp17/extending_static_assert.md b/lang/cpp17/extending_static_assert.md
+index b0d6ac338..f1269930e 100644
+--- a/lang/cpp17/extending_static_assert.md
++++ b/lang/cpp17/extending_static_assert.md
+@@ -52,7 +52,7 @@ example_static_assert.cpp:5:3: error: static_assert failed
+ ## この機能が必要になった背景・経緯
+ `assert` は条件式のみを引数に取るのに対し、`static_assert` には診断メッセージを提供しなければならなかった。
+ 
+-[Boost.StaticAssert](http://www.boost.org/doc/libs/release/doc/html/boost_staticassert.html) は以下のような `BOOST_STATIC_ASSERT` マクロを提供しており、
++[Boost.StaticAssert](https://www.boost.org/doc/libs/latest/libs/config/doc/html/index.html) は以下のような `BOOST_STATIC_ASSERT` マクロを提供しており、
+ `static_assert` の診断メッセージを省略できた:
+ ```cpp
+ #define BOOST_STATIC_ASSERT(B) static_assert(B, #B)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bernoulli_distribution -- リンク切れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/random/bernoulli_distribution.html"/>
+      <id>594ebb3d87d727e71200d1ea0839110ac2dfd76c:reference/random/bernoulli_distribution.md</id>
+      <updated>2026-07-06T14:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/bernoulli_distribution.md b/reference/random/bernoulli_distribution.md
+index 0571fa9f5..d84492a77 100644
+--- a/reference/random/bernoulli_distribution.md
++++ b/reference/random/bernoulli_distribution.md
+@@ -118,4 +118,4 @@ int main()
+ 
+ ## 参照
+ - [ベルヌーイ分布 - Wikipedia](https://ja.wikipedia.org/wiki/ベルヌーイ分布)
+-- [ベルヌーイ分布(Bernoulli distribution) - NtRand](http://www.ntrand.com/jp/bernoulli-distribution/)
++- [ベルヌーイ分布(Bernoulli distribution) - NtRand](https://www.ntrand.com/ja/docs/gallery-of-distributions/bernoulli-distribution)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cauchy_distribution -- リンク切れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/random/cauchy_distribution.html"/>
+      <id>594ebb3d87d727e71200d1ea0839110ac2dfd76c:reference/random/cauchy_distribution.md</id>
+      <updated>2026-07-06T14:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/cauchy_distribution.md b/reference/random/cauchy_distribution.md
+index 094c21117..afc7a2d05 100644
+--- a/reference/random/cauchy_distribution.md
++++ b/reference/random/cauchy_distribution.md
+@@ -125,4 +125,4 @@ int main()
+ 
+ ### 参考
+ - [コーシー分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%82%B7%E3%83%BC%E5%88%86%E5%B8%83)
+-- [コーシー分布 - NtRand](http://www.ntrand.com/jp/cauchy-distribution/)
++- [コーシー分布 - NtRand](https://www.ntrand.com/ja/docs/gallery-of-distributions/cauchy-distribution)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>exponential_distribution -- リンク切れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/random/exponential_distribution.html"/>
+      <id>594ebb3d87d727e71200d1ea0839110ac2dfd76c:reference/random/exponential_distribution.md</id>
+      <updated>2026-07-06T14:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/exponential_distribution.md b/reference/random/exponential_distribution.md
+index b8f051c5c..74238337e 100644
+--- a/reference/random/exponential_distribution.md
++++ b/reference/random/exponential_distribution.md
+@@ -188,6 +188,6 @@ Phone call after 2.60918 minute wait
+ 
+ ### 参考
+ - [指数分布 - Wikipedia](https://ja.wikipedia.org/wiki/指数分布)
+-- [指数分布 - NtRand](http://www.ntrand.com/jp/exponential-distribution/)
++- [指数分布 - NtRand](https://www.ntrand.com/ja/docs/gallery-of-distributions/exponential-distribution)
+ - [指数分布 - 統計学自習ノート](https://web.archive.org/web/20241204102039/http://aoki2.si.gunma-u.ac.jp/lecture/Bunpu/exponential.html)
+ - [指数分布とポアソン分布のいけない関係](http://www.slideshare.net/teramonagi/ss-11296227)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extreme_value_distribution -- リンク切れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/random/extreme_value_distribution.html"/>
+      <id>594ebb3d87d727e71200d1ea0839110ac2dfd76c:reference/random/extreme_value_distribution.md</id>
+      <updated>2026-07-06T14:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/extreme_value_distribution.md b/reference/random/extreme_value_distribution.md
+index d2a843602..023d00d24 100644
+--- a/reference/random/extreme_value_distribution.md
++++ b/reference/random/extreme_value_distribution.md
+@@ -128,4 +128,3 @@ int main()
+ ### 参考
+ - [極値分布](https://ja.wikipedia.org/wiki/極値分布)
+ - [一般化極値分布 - MATLAB &amp;amp; Simulink - MathWorks 日本](https://jp.mathworks.com/help/stats/generalized-extreme-value-distribution.html)
+-- [極値分布とその応用に関する研究](http://www.seto.nanzan-u.ac.jp/msie/gr-thesis/ms/2005/osaki/02mm042.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>lognormal_distribution -- リンク切れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/random/lognormal_distribution.html"/>
+      <id>594ebb3d87d727e71200d1ea0839110ac2dfd76c:reference/random/lognormal_distribution.md</id>
+      <updated>2026-07-06T14:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/lognormal_distribution.md b/reference/random/lognormal_distribution.md
+index c114f3cf5..7559dcd88 100644
+--- a/reference/random/lognormal_distribution.md
++++ b/reference/random/lognormal_distribution.md
+@@ -125,5 +125,5 @@ int main()
+ 
+ ### 参考
+ - [対数正規分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%AF%BE%E6%95%B0%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
+-- [対数正規分布 - NtRand](http://www.ntrand.com/jp/log-normal-distribution/)
++- [対数正規分布 - NtRand](https://www.ntrand.com/ja/docs/gallery-of-distributions/log-normal-distribution)
+ - [対数正規分布の仕組み - 小人さんの妄想](http://d.hatena.ne.jp/rikunora/20100418/p1)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>poisson_distribution -- リンク切れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/random/poisson_distribution.html"/>
+      <id>594ebb3d87d727e71200d1ea0839110ac2dfd76c:reference/random/poisson_distribution.md</id>
+      <updated>2026-07-06T14:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/poisson_distribution.md b/reference/random/poisson_distribution.md
+index 345677858..f462e4331 100644
+--- a/reference/random/poisson_distribution.md
++++ b/reference/random/poisson_distribution.md
+@@ -167,7 +167,7 @@ Month 12: 1 earthquake(s)
+ ### 参考
+ - [ポワソン分布 - Wikipedia](https://ja.wikipedia.org/wiki/ポアソン分布)
+ - [ポアソン分布 - 統計・データ解析](https://okumuralab.org/~okumura/stat/poisson.html)
+-- [ポアソン分布 - NtRand](http://www.ntrand.com/jp/poisson-distribution/)
++- [ポアソン分布 - NtRand](https://www.ntrand.com/ja/docs/gallery-of-distributions/poisson-distribution)
+ - [［データ分析］ポアソン分布 ～ 100年に1人の天才は何人現れる？：やさしい確率分布 - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/2407/11/news002.html)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>weibull_distribution -- リンク切れを修正</title>
+      <link href="https://cpprefjp.github.io/reference/random/weibull_distribution.html"/>
+      <id>594ebb3d87d727e71200d1ea0839110ac2dfd76c:reference/random/weibull_distribution.md</id>
+      <updated>2026-07-06T14:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/weibull_distribution.md b/reference/random/weibull_distribution.md
+index b47b88665..9c83b3bfa 100644
+--- a/reference/random/weibull_distribution.md
++++ b/reference/random/weibull_distribution.md
+@@ -129,5 +129,5 @@ int main()
+ 
+ ### 参考
+ - [ワイブル分布 - Wikipedia](https://ja.wikipedia.org/wiki/ワイブル分布)
+-- [ワイブル分布 = NtRand](http://www.ntrand.com/jp/weibull-distribution/)
++- [ワイブル分布 = NtRand](https://www.ntrand.com/ja/docs/gallery-of-distributions/weibull-distribution)
+ - [疲労や破壊現象とワイブル分布](http://web.archive.org/web/20220706102605/http://www.mogami.com/notes/weibull.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

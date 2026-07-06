@@ -1,0 +1,353 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>配置newの解放処理を明確化 [P3769R1] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp26
+">
+        <meta name="title" content="配置newの解放処理を明確化 [P3769R1] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="配置newの解放処理を明確化 [P3769R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="配置newの解放処理を明確化 [P3769R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26/clarifying_placement_new_deallocation.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="配置`new`式 (placement new-expression) で確保したメモリ上にオブジェクトを構築する際、そのコンストラクタが例外を送出すると、確保したメモリを解放するために「対応する配置解放関数 (placement deallocation function) 」が呼び出される。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="配置newの解放処理を明確化 [P3769R1] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26/clarifying_placement_new_deallocation.html" />
+        <meta name="twitter:description" content="配置`new`式 (placement new-expression) で確保したメモリ上にオブジェクトを構築する際、そのコンストラクタが例外を送出すると、確保したメモリを解放するために「対応する配置解放関数 (placement deallocation function) 」が呼び出される。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<link rel="manifest" href="../../manifest.json?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=757002d78f95e78de8e406e028300207cd73ad64" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=757002d78f95e78de8e406e028300207cd73ad64"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=757002d78f95e78de8e406e028300207cd73ad64"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;30e6304765480c81223757c20b287a1f406b8ff6&#34;, &#34;source&#34;: &#34;#include &lt;cstddef&gt;\n#include &lt;iostream&gt;\n#include &lt;new&gt;\n\ntemplate &lt;int I&gt;\nstruct Tag {};\n\ntemplate &lt;int I&gt;\nvoid* operator new(std::size_t s, Tag&lt;I&gt;)\n{\n  return ::operator new(s);\n}\n\n// \u95a2\u6570\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u306e\u914d\u7f6edelete\ntemplate &lt;int I&gt;\nvoid operator delete(void* p, Tag&lt;I&gt;)\n{\n  std::cout &lt;&lt; \&#34;template placement delete&lt;\&#34; &lt;&lt; I &lt;&lt; \&#34;&gt; called\&#34; &lt;&lt; std::endl;\n  ::operator delete(p);\n}\n\nstruct X {\n  X() { throw 0; }\n};\n\nint main()\n{\n  // X\u306e\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u304c\u4f8b\u5916\u3092\u9001\u51fa\u3059\u308b\u3068\u3001\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u5f15\u6570\u63a8\u8ad6\u306b\u3088\u3063\u3066I=7\u304c\u63a8\u8ad6\u3055\u308c\u3001\n  // operator delete&lt;7&gt;(void*, Tag&lt;7&gt;) \u304c\u547c\u3073\u51fa\u3055\u308c\u308b\n  try {\n    X* p = new (Tag&lt;7&gt;{}) X;\n    (void)p;\n  }\n  catch (...) {}\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;clarifying_placement_new_deallocation&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp26.html" itemprop="url">
+              
+                <span itemprop="name">C++26</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">配置newの解放処理を明確化 [P3769R1]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-07-06T03:41:09">
+        2026年07月06日 03時41分09秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26/clarifying_placement_new_deallocation.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26/clarifying_placement_new_deallocation.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">配置newの解放処理を明確化 [P3769R1]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p>
+</p>
+<p>このページはC++26に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p>
+</p>
+<h2>概要</h2>
+<p>配置<code>new</code>式 (placement new-expression) で確保したメモリ上にオブジェクトを構築する際、そのコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出すると、確保したメモリを解放するために「対応する配置解放関数 (placement deallocation function) 」が呼び出される。</p>
+<p>この、呼び出す配置解放関数を選択する規則が規格上あいまいに規定されており、コンパイラによって挙動が分かれていた。C++26では、この選択規則を明確化する。とくに、関数テンプレートである配置解放関数が候補として考慮され、テンプレート引数推論が行われることが規定される (従来の規定では考慮されなかった)。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cstddef.html">&lt;cstddef&gt;</a></span>
+<span class="cp">#include <a href="../../reference/new.html">&lt;new&gt;</a></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Tag</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">Tag</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 上記の配置newに対応する配置delete</span>
+<span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Tag</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Xのコンストラクタが例外を送出すると、対応する配置delete (operator delete(void*, Tag))</span>
+<span class="w">  </span><span class="c1">// が呼び出され、確保したメモリが解放される</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">X</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="n">Tag</span><span class="p">{})</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
+<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<p>配置確保関数 (placement allocation function) に対応する配置解放関数は、次のように選択される。</p>
+<ol>
+<li>候補のうち関数テンプレートであるものは、テンプレート引数推論によって生成される特殊化に置き換える。</li>
+<li>第1引数を除いたパラメータ型リストが、配置確保関数のものと一致しない候補を除外する。</li>
+<li>制約 (constraint) を満たさない候補を除外する。</li>
+<li>残った候補がちょうど1つであれば、それを呼び出す配置解放関数として選択する。そうでない (該当なし、または複数残る) 場合は、解放関数は呼び出されない (メモリは解放されずリークする)。</li>
+</ol>
+<p>選択された配置解放関数は、削除 (<code>= delete</code>) されておらず、配置<code>new</code>式が現れる位置からアクセス可能でなければならない。また、通常の (配置でない) 解放関数が配置解放関数として選択される状況では、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<h2>例</h2>
+<p>関数テンプレートである配置解放関数も候補として考慮され、テンプレート引数推論によって選択される。</p>
+<p><div class="yata" id="30e6304765480c81223757c20b287a1f406b8ff6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/cstddef.html">&lt;cstddef&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/new.html">&lt;new&gt;</a></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Tag</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">Tag</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 関数テンプレートの配置delete</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Tag</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"template placement delete&lt;"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"&gt; called"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">X</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Xのコンストラクタが例外を送出すると、テンプレート引数推論によってI=7が推論され、</span>
+<span class="w">  </span><span class="c1">// operator delete&lt;7&gt;(void*, Tag&lt;7&gt;) が呼び出される</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">X</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="n">Tag</span><span class="o">&lt;</span><span class="mi">7</span><span class="o">&gt;</span><span class="p">{})</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
+<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>template placement delete&lt;7&gt; called
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>この変更は、<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3492r2.html" target="_blank">P3492R2 Sized deallocation for placement new</a>に含まれていた、配置<code>new</code>式での解放関数選択に関する副次的な修正を、レビューしやすいように独立した提案として切り出したものである。</p>
+<p>配置解放関数の選択については、以下の2点で実装が分かれていた。</p>
+<ul>
+<li>関数テンプレートを候補として考慮しテンプレート引数推論を行うかどうか。従来の規格では「考慮しない」とされていたが、実際にはEDGのみがこれ (グローバルな解放関数テンプレートに限る) に準拠していた。</li>
+<li>削除された、またはアクセスできない解放関数が選択された場合にプログラムを<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>とする規定について、GCCとEDGが非準拠だった。</li>
+</ul>
+<p>これらの実装の不一致を解消するため、規格のwordingを整理して明確化し、欠陥報告 (DR) として適用する。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/new/op_new.html">operator new</a></code></li>
+<li><code><a href="../../reference/new/op_delete.html">operator delete</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3769r1.html" target="_blank">P3769R1 Clarification of placement new deallocation</a><ul>
+<li>配置<code>new</code>式での配置解放関数の選択規則を明確化する欠陥報告 (DR)</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3492r2.html" target="_blank">P3492R2 Sized deallocation for placement new</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2719r5.html" target="_blank">P2719R5 Type-aware allocation and deallocation functions</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
