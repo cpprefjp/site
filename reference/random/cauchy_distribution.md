@@ -125,4 +125,4 @@ int main()
 
 ### 参考
 - [コーシー分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%82%B7%E3%83%BC%E5%88%86%E5%B8%83)
-- [コーシー分布 - NtRand](http://www.ntrand.com/jp/cauchy-distribution/)
+- [コーシー分布 - NtRand](https://www.ntrand.com/ja/docs/gallery-of-distributions/cauchy-distribution)
