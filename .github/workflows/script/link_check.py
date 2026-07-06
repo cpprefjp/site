@@ -8,8 +8,13 @@ import requests
 import sys
 import time
 import random
+from concurrent.futures import ThreadPoolExecutor
 
 urllib3.disable_warnings()
+
+# 外部リンクチェックの並列数。ネットワークI/OバウンドなのでスレッドでOK。
+# open-std.org (全URLの過半) が同時16接続を問題なく捌けることを実測して決定。
+OUTER_LINK_WORKERS = 16
 
 MAX_OUTER_LINK_RETRY = 3
 
@@ -30,6 +35,13 @@ def check_url(url: str, retry: int = MAX_OUTER_LINK_RETRY) -> tuple[bool, str]:
         res = requests.head(url, headers=headers, verify=False, timeout=60.0,
                             allow_redirects=True)
         return res.status_code != 404, str(res.status_code)
+    except requests.exceptions.TooManyRedirects:
+        # リダイレクトループ (http↔httpsを行き来する等)。ブラウザではHSTS等で
+        # 到達できることが多く、リトライしても解消しないため、存在するものとして
+        # 扱う (ループ誤検出とムダな再試行を避ける)。
+        # ※ TooManyRedirectsはRequestExceptionのサブクラスなので、下の汎用ハンドラ
+        #    より前で捕捉する必要がある。
+        return True, "redirect loop"
     except requests.exceptions.ConnectionError as e:
         if retry <= 0:
             return False, "requests.exceptions.ConnectionError : {} ".format(e)
@@ -174,23 +186,28 @@ def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
         if len(url) > 0:
             outer_link_dict[url] = ""
 
-        # 1パス目: 失敗したURLだけ集める
-        failed = []
-        for link, from_list in outer_link_dict.items():
+        def check_one(item):
+            link, from_list = item
             exists, reason = check_url(link)
-            if not exists:
-                failed.append((link, from_list))
+            return link, from_list, exists, reason
+
+        # 1パス目: 失敗したURLだけ集める (ネットワークI/Oバウンドなのでスレッドで並列化)
+        failed = []
+        with ThreadPoolExecutor(max_workers=OUTER_LINK_WORKERS) as executor:
+            for link, from_list, exists, reason in executor.map(check_one, outer_link_dict.items()):
+                if not exists:
+                    failed.append((link, from_list))
 
         # 2パス目: 一時的な障害 (ランナーのネットワーク輻輳やサイトの瞬断) を
         # 誤検出しないよう、間をあけて失敗したURLのみ再チェックし、
         # 両方のパスで失敗したものだけを報告する
         if failed:
             time.sleep(120)
-            for link, from_list in failed:
-                exists, reason = check_url(link)
-                if not exists:
-                    print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
-                    found_error = True
+            with ThreadPoolExecutor(max_workers=OUTER_LINK_WORKERS) as executor:
+                for link, from_list, exists, reason in executor.map(check_one, failed):
+                    if not exists:
+                        print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
+                        found_error = True
 
     return not found_error
 
