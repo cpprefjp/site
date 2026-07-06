@@ -11,11 +11,16 @@ import random
 
 urllib3.disable_warnings()
 
-def retry_sleep():
-    sec = random.uniform(20, 30)
-    time.sleep(sec)
+MAX_OUTER_LINK_RETRY = 3
 
-def check_url(url: str, retry: int = 5) -> tuple[bool, str]:
+def retry_sleep(retry: int) -> None:
+    # 指数バックオフ + ジッタ。残りretry回数から試行回数を求めて待機時間を増やし、
+    # ジッタで再試行タイミングを分散させる (レート制限中のサーバへの集中を避ける)。
+    attempt = MAX_OUTER_LINK_RETRY - retry + 1  # 1, 2, 3, ...
+    backoff = min(15 * (2 ** (attempt - 1)), 60)  # 15, 30, 60 秒 (上限60秒)
+    time.sleep(backoff + random.uniform(0, 15))   # 0〜15秒のジッタ
+
+def check_url(url: str, retry: int = MAX_OUTER_LINK_RETRY) -> tuple[bool, str]:
     try:
         headers = {'User-agent': 'Mozilla/5.0'}
         # パフォーマンスのため本文は取得せずHEADで確認する。
@@ -28,12 +33,12 @@ def check_url(url: str, retry: int = 5) -> tuple[bool, str]:
     except requests.exceptions.ConnectionError as e:
         if retry <= 0:
             return False, "requests.exceptions.ConnectionError : {} ".format(e)
-        retry_sleep()
+        retry_sleep(retry)
         return check_url(url, retry - 1)
     except requests.exceptions.RequestException as e:
         if retry <= 0:
             return False, "requests.exceptions.RequestException : {}".format(e)
-        retry_sleep()
+        retry_sleep(retry)
         return check_url(url, retry - 1)
     except Exception as e:
         return False, "unknown exception : {}".format(e)
