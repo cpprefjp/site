@@ -338,7 +338,7 @@
 | P3726R2: [共用体の生存期間ルールの調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md.nolink) | `union`メンバの活性化や生存期間に関する規則を整理して`constexpr`評価などの一貫性を改善する | | | | |
 | P4143R0: [定数評価の開始・終了タイミングを明確化](/lang/cpp26/constant_evaluation_when.md.nolink) | 定数評価がどのタイミングで開始・終了するかを明確化し、constexprコンテキストの規則を整える | | | | |
 | P4149R1: [「immediate context」の定義を明確化](/lang/cpp26/define_immediate_context.md.nolink) | SFINAEにおける「immediate context」の用語を厳密に定義し、置換失敗の範囲を明確にする | | | | |
-| P3769R1: [配置newの解放処理を明確化](/lang/cpp26/clarifying_placement_new_deallocation.md.nolink) | 配置`new`で確保したメモリの解放処理の取り扱いに関するルールを明確化する | | | | |
+| P3769R1: [配置newの解放処理を明確化](/lang/cpp26/clarifying_placement_new_deallocation.md) | 配置`new`で確保したメモリの解放処理の取り扱いに関するルールを明確化する | | | | |
 
 
 各処理系のC++26実装状況ページ：
