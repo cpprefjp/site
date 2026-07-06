@@ -169,11 +169,23 @@ def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
         if len(url) > 0:
             outer_link_dict[url] = ""
 
+        # 1パス目: 失敗したURLだけ集める
+        failed = []
         for link, from_list in outer_link_dict.items():
             exists, reason = check_url(link)
             if not exists:
-                print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
-                found_error = True
+                failed.append((link, from_list))
+
+        # 2パス目: 一時的な障害 (ランナーのネットワーク輻輳やサイトの瞬断) を
+        # 誤検出しないよう、間をあけて失敗したURLのみ再チェックし、
+        # 両方のパスで失敗したものだけを報告する
+        if failed:
+            time.sleep(120)
+            for link, from_list in failed:
+                exists, reason = check_url(link)
+                if not exists:
+                    print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
+                    found_error = True
 
     return not found_error
 
