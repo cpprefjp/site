@@ -45,22 +45,23 @@ enum Enum {};
 class Class {};
 class NotTrivial {
 public:
-    ~NotTrivial() {}
+  ~NotTrivial() {}
 };
 
-int main() {
-    int i_array[1];
-    NotTrivial nt_array[1];
-    
-    static_assert(std::is_implicit_lifetime<int>());
-    static_assert(std::is_implicit_lifetime<int*>());
-    static_assert(std::is_implicit_lifetime<decltype(i_array)>());
-    static_assert(std::is_implicit_lifetime<Enum>());
-    static_assert(std::is_implicit_lifetime<Class>());
-    static_assert(!std::is_implicit_lifetime<NotTrivial>());
-    static_assert(std::is_implicit_lifetime<decltype(nt_array)>());
-    static_assert(std::is_implicit_lifetime<std::pair<int, int>>());
-    static_assert(!std::is_implicit_lifetime<std::pair<int, NotTrivial>>());
+int main()
+{
+  int i_array[1];
+  NotTrivial nt_array[1];
+
+  static_assert(std::is_implicit_lifetime<int>());
+  static_assert(std::is_implicit_lifetime<int*>());
+  static_assert(std::is_implicit_lifetime<decltype(i_array)>());
+  static_assert(std::is_implicit_lifetime<Enum>());
+  static_assert(std::is_implicit_lifetime<Class>());
+  static_assert(!std::is_implicit_lifetime<NotTrivial>());
+  static_assert(std::is_implicit_lifetime<decltype(nt_array)>());
+  static_assert(std::is_implicit_lifetime<std::pair<int, int>>());
+  static_assert(!std::is_implicit_lifetime<std::pair<int, NotTrivial>>());
 }
 ```
 * std::is_implicit_lifetime[color ff0000]
