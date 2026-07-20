@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
-<link rel="manifest" href="../../manifest.json?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe">
+<link rel="manifest" href="../../manifest.json?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=b2142794d8ca9924d883222f0df04f8c964ce722"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=3c9d8a5b6818eaf6389bd7377cb65a183a2563fe"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -187,16 +187,40 @@
         
   
     <p class="text-right"><small>
-      最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-07-01T08:02:38">
-        2026年07月01日 08時02分38秒
-      </span>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-07-20T18:07:47+09:00">
+        2026年07月20日 18時07分47秒 (JST)
+      </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
         <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
   
 
         <p class="text-right">
@@ -225,7 +249,7 @@
 <p>P1787R6は、[basic.scope]と[basic.lookup]の章をまるごと書き直し、用語と規則を整備するための提案である。
 変更の大部分は規格書の編集上の整理 (editorial reorganization) であり、新たに導入された言語機能はない。
 ただしこの整理の過程で、長年解決されていなかった言語の不具合報告 (CWG issue) が63件、リフレクタ上で議論されていた問題が21件、まとめて解決される。
-これに伴い、いくつかの外から見た動作 (observable behavior) の変更も含まれる。</p>
+これに伴い、いくつかの観測可能な動作 (observable behavior) の変更も含まれる。</p>
 <h2>新しく導入された用語</h2>
 <p>P1787R6は、スコープと名前探索を記述するための語彙を再構築している。
 主な新用語や関係のある用語と、それに対応する従来用語を以下に示す。</p>
@@ -254,33 +278,33 @@
 <td>入れ子構造の記述を明確化</td>
 </tr>
 <tr>
-<td>居住する (inhabit)</td>
-<td>宣言が、自身のローカスにおける直近スコープに属すること</td>
+<td>所属する (inhabit)</td>
+<td>宣言が、自身の宣言位置における直近スコープに属すること</td>
 <td>宣言の所在の表現を明確化</td>
 </tr>
 <tr>
-<td>ターゲットスコープ (target scope)</td>
-<td>宣言が居住するスコープ</td>
+<td>対象スコープ (target scope)</td>
+<td>宣言が所属するスコープ</td>
 <td>暗黙的に説明されていた概念を明示化</td>
 </tr>
 <tr>
-<td>ローカス (locus)</td>
+<td>宣言位置 (locus)</td>
 <td>宣言がプログラム中に導入される位置</td>
 <td>「point of declaration」を置き換える</td>
 </tr>
 <tr>
-<td>結合する (bind)</td>
-<td>宣言が導入する名前を、ターゲットスコープ内でその宣言と結びつけること</td>
+<td>束縛する (bind)</td>
+<td>宣言が導入する名前を、対象スコープ内でその宣言と結びつけること</td>
 <td>名前と宣言の関係を明示化</td>
 </tr>
 <tr>
 <td>先行する (precede)</td>
-<td>点Pにおいて宣言Xが「Pに先行する」という関係。XのローカスがPより前にある場合、XがクラススコープにありPから到達可能 (reachable) な場合、Xが別の翻訳単位のモジュール経由でPから到達可能な場合 (export済みの宣言、もしくは同一モジュール内で内部リンケージを持たない宣言が対象。詳細な前提条件はP1787R6本文を参照) のいずれかを含む</td>
+<td>点Pにおいて宣言Xが「Pに先行する」という関係。Xの宣言位置がPより前にある場合、XがクラススコープにありPから到達可能 (reachable) な場合、Xが別の翻訳単位のモジュール経由でPから到達可能な場合 (export済みの宣言、もしくは同一モジュール内で内部リンケージを持たない宣言が対象。詳細な前提条件はP1787R6本文を参照) のいずれかを含む</td>
 <td>モジュール導入後の到達可能性を含めて再定義</td>
 </tr>
 <tr>
 <td>単一探索 (single search)</td>
-<td>あるスコープSと点Pに対して、Pに先行しSに名前Nが結合されたすべての宣言を見つける基本操作</td>
+<td>あるスコープSと点Pに対して、Pに先行しSに名前Nが束縛されたすべての宣言を見つける基本操作</td>
 <td>散在していた名前探索規則の最小単位として整理</td>
 </tr>
 <tr>
@@ -289,7 +313,7 @@
 <td>修飾名探索の起点を明示化</td>
 </tr>
 <tr>
-<td>構成名 (component name)</td>
+<td>コンポーネント名 (component name)</td>
 <td>unqualified-idを構成する根本の名前 (template-idの場合はそのテンプレート名)。テンプレート引数や<code>decltype</code>の中には再帰しない</td>
 <td>「型として現れる名前」という曖昧な表現を置き換える</td>
 </tr>
@@ -300,7 +324,7 @@
 </tr>
 <tr>
 <td>指名可能 (nominable)</td>
-<td>クラス・クラステンプレート・名前空間Eに対して、点Pにおいて宣言が「指名可能」とは: (1)宣言がPに先行し、(2)宣言がブロックスコープに居住しておらず、(3)宣言のターゲットスコープがEのスコープか、Eが名前空間のときはそのインライン名前空間集合の任意要素のスコープと一致する、こと</td>
+<td>クラス・クラステンプレート・名前空間Eに対して、点Pにおいて宣言が「指名可能」とは: (1)宣言がPに先行し、(2)宣言がブロックスコープに所属しておらず、(3)宣言の対象スコープがEのスコープか、Eが名前空間のときはそのインライン名前空間集合の任意要素のスコープと一致する、こと</td>
 <td>修飾名探索での可視性を整理</td>
 </tr>
 <tr>
@@ -315,8 +339,8 @@
 </tr>
 </tbody>
 </table>
-<h2>外から見た動作の変更</h2>
-<p>P1787R6の主目的は規格の整理であるが、その過程でCWG issueの解決を兼ねた、いくつかの外から見た動作の変更が含まれている。</p>
+<h2>観測可能な動作の変更</h2>
+<p>P1787R6の主目的は規格の整理であるが、その過程でCWG issueの解決を兼ねた、いくつかの観測可能な動作の変更が含まれている。</p>
 <h3><code>using</code>宣言の参照先による置換</h3>
 <p>非依存な<code>using</code>宣言は、名前探索の段階で「<code>using</code>宣言そのもの」ではなく「その参照先の宣言」に置き換えられて扱われるようになった。
 これにより、<code>using</code>ディレクティブと組み合わせたときの曖昧さの判定が、規格上明確に規定される。</p>
@@ -333,9 +357,9 @@
 </code></pre></div>
 </p>
 <h3><code>friend</code>宣言における名前探索範囲の制限 (CWG2370)</h3>
-<p><code>friend</code>宣言の宣言子IDの中に現れる名前は、まず宣言子IDが指す名前空間の直接 (immediate) のスコープのみで探索される。
+<p><code>friend</code>宣言の宣言子IDの中に現れる名前は、まず宣言子IDが指す名前空間の直近 (immediate) スコープのみで探索される。
 そのスコープに見つからなければ、通常の非修飾名探索にフォールバックする。
-直接のスコープには、内部の (inline 含む) 入れ子の名前空間で導入された名前は含まれない。</p>
+直近スコープには、内部の (inline 含む) 入れ子の名前空間で導入された名前は含まれない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">;</span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">N</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">char</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
@@ -346,9 +370,9 @@
 <span class="p">}</span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">B</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">D</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直接のスコープにDはないが、非修飾名探索で外側のD=doubleが見つかる</span>
-<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">F</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直接のスコープでF=floatが見つかる</span>
-<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">C</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: CはAの内部の inline namespace Nに属しており、Aの直接のスコープには含まれない</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">D</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直近スコープにDはないが、非修飾名探索で外側のD=doubleが見つかる</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">F</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK: Aの直近スコープでF=floatが見つかる</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="n">C</span><span class="p">);</span><span class="w">  </span><span class="c1">// エラー: CはAの内部の inline namespace Nに属しており、Aの直近スコープには含まれない</span>
 <span class="w">  </span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>

@@ -4035,7 +4035,7 @@ var Namespace = /*#__PURE__*/function () {
             var indexes = rid.indexes;
             if (indexes.length === 0) {
               found = this._createIndex(idx.cpp_version, rid, null, []);
-              if (found.name === '<header_name>') {
+              if (found.name === '<header_name>' || found.name === '<module_name>') {
                 // shit
                 continue;
               }
@@ -4845,6 +4845,7 @@ var CRSearch = /*#__PURE__*/function () {
               input.addClass('input');
               input.addClass('mousetrap');
               input.attr('autocomplete', false);
+              input.attr('autocapitalize', 'off');
               input.attr('placeholder', CRSearch._INPUT_PLACEHOLDER);
               input.appendTo(control);
               get_root = function get_root() {
@@ -4913,6 +4914,12 @@ var CRSearch = /*#__PURE__*/function () {
                 crsearch_crsearch_$(e.target).blur();
                 return _this4._hide_all_result();
               });
+              crsearch_crsearch_$(document).on('pointerdown', function (e) {
+                // 検索UIの外側をクリックした時、検索結果を非表示にする
+                if (!crsearch_crsearch_$(e.target).closest(".".concat(CRSearch._KLASS)).length) {
+                  _this4._hide_all_result();
+                }
+              });
               result_wrapper = crsearch_crsearch_$('<div />');
               result_wrapper.addClass(CRSearch._RESULT_WRAPPER_KLASS);
               result_wrapper.addClass('help');
@@ -4926,7 +4933,7 @@ var CRSearch = /*#__PURE__*/function () {
               cr_info_link = crsearch_crsearch_$('<a />');
               cr_info_link.attr('href', CRSearch._HOMEPAGE);
               cr_info_link.attr('target', '_blank');
-              cr_info_link.text("".concat(CRSearch._APPNAME, " v").concat({"version":"3.0.27","bugs_url":"https://github.com/cpprefjp/crsearch/issues"}.version));
+              cr_info_link.text("".concat(CRSearch._APPNAME, " v").concat({"version":"3.0.29","bugs_url":"https://github.com/cpprefjp/crsearch/issues"}.version));
               cr_info_link.appendTo(cr_info);
               cr_info.appendTo(result_wrapper);
               input.on('focusin', function () {
