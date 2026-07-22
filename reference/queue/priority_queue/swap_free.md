@@ -40,6 +40,7 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <queue>
+#include <utility>
 
 template <class PriorityQueue>
 void pop_print(PriorityQueue& que)

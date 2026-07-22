@@ -27,6 +27,7 @@ constexpr iterator_t<V> base() &&;                      // (2)
 #include <ranges>
 #include <vector>
 #include <iostream>
+#include <utility>
 
 int main() {
   using std::ranges::view;
