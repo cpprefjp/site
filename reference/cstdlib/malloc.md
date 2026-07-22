@@ -42,9 +42,9 @@ cppref より引用。
 
 int main()
 {
-  int *p1 = std::malloc(4 * sizeof(int)); // 4個のint型配列のメモリ領域を確保
-  int *p2 = std::malloc(sizeof(int[4]));  // 上と同じ。
-  int *p3 = std::malloc(4 * sizeof *p3);  // 上と同じ。
+  int *p1 = static_cast<int*>(std::malloc(4 * sizeof(int))); // 4個のint型配列のメモリ領域を確保
+  int *p2 = static_cast<int*>(std::malloc(sizeof(int[4])));  // 上と同じ。
+  int *p3 = static_cast<int*>(std::malloc(4 * sizeof *p3));  // 上と同じ。
 
   if (p1) {
     for (int n = 0; n < 4; ++n)

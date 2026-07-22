@@ -35,9 +35,9 @@ namespace std {
 
 int main()
 {
-  int* p1 = std::calloc(4, sizeof(int));    // 4個のint配列のポインタを確保、0に初期化
-  int* p2 = std::calloc(1, sizeof(int[4])); // 上と同じ
-  int* p3 = std::calloc(4, sizeof *p3);     // 上と同じ
+  int* p1 = static_cast<int*>(std::calloc(4, sizeof(int)));    // 4個のint配列のポインタを確保、0に初期化
+  int* p2 = static_cast<int*>(std::calloc(1, sizeof(int[4]))); // 上と同じ
+  int* p3 = static_cast<int*>(std::calloc(4, sizeof *p3));     // 上と同じ
 
   if (p2)
   {
