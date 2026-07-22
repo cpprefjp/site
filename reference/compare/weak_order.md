@@ -123,6 +123,8 @@ struct have_spaceship {
     if (auto cmp = lhs.n2 <=> rhs.n2; cmp != 0) return cmp;
     return lhs.n1 <=> rhs.n1;
   }
+
+  friend auto operator==(const have_spaceship& lhs, const have_spaceship& rhs) -> bool = default;
 };
 
 
