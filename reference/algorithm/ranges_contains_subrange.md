@@ -130,7 +130,7 @@ struct contains_subrange_impl {
            class Pred = ranges::equal_to, class Proj1 = identity, class Proj2 = identity>
   requires indirectly_comparable<iterator_t<R1>, iterator_t<R2>, Pred, Proj1, Proj2>
   constexpr bool operator()(R1&& r1, R2&& r2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {}) const {
-    return ranges::empty(r2) || !ranges::search(std::forward(r1), std::forward(r2), pred, proj1, proj2).empty();
+    return ranges::empty(r2) || !ranges::search(std::forward<R1>(r1), std::forward<R2>(r2), pred, proj1, proj2).empty();
   }
 };
 
