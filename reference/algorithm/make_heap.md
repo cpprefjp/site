@@ -85,7 +85,7 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last)
   for (difference_type top = len / 2 - 1; top >= 0; --top) {
     value_type v = std::move(first[top]);
     difference_type p = top;
-    for (c = p * 2 + 1; c < len; c = p * 2 + 1) {
+    for (difference_type c = p * 2 + 1; c < len; c = p * 2 + 1) {
       if (c + 1 < len && first[c] < first[c + 1])
         ++c;
       if (!bool(v < first[c]))
