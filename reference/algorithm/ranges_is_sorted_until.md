@@ -137,7 +137,7 @@ struct is_sorted_until_impl {
     auto it = first;
     if (it == last || ++it == last)
       return last;
-    while (it != last && *first < *it)
+    while (it != last && !invoke(comp, invoke(proj, *it), invoke(proj, *first)))
       ++first, ++it;
     return it;
   }
@@ -157,6 +157,7 @@ inline constexpr is_sorted_until_impl is_sorted_until;
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]
 * ref[link /reference/functional/ref.md]
+* invoke[link /reference/functional/invoke.md]
 
 ## バージョン
 ### 言語
