@@ -55,7 +55,7 @@ constexpr bool is_integral_v<int> = true;
 // 以下のようにラッパーとして定義してもよい
 // #include <type_traits>
 // template <class T>
-// constexpr bool is_integral_v = std::is_integral<int>::value;
+// constexpr bool is_integral_v = std::is_integral<T>::value;
 
 int main()
 {
