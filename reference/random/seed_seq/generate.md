@@ -67,6 +67,8 @@ for (size_t k = m; k < m + n; ++k) {
 ```cpp example
 #include <iostream>
 #include <random>
+#include <vector>
+#include <cstdint>
 
 int main()
 {

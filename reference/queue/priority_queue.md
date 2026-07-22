@@ -130,6 +130,7 @@ int main()
 ```cpp example
 #include <iostream>
 #include <queue>
+#include <vector>
 
 int main()
 {

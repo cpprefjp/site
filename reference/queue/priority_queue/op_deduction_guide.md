@@ -91,6 +91,7 @@ template <class Compare, class Container>
 ```cpp example
 #include <queue>
 #include <type_traits>
+#include <vector>
 
 int main()
 {
