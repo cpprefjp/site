@@ -45,7 +45,7 @@ void user1()
 // この翻訳単位では、large_class<int>とlarge_function<int>()を
 // インスタンス化しない
 extern template class large_class<int>;
-extern template large_function<int>();
+extern template void large_function<int>();
 
 void user2()
 {
