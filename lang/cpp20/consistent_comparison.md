@@ -229,8 +229,8 @@ struct enum_wrap {
 enum_wrap a = {category::A};
 enum_wrap b = {category::B};
 
-auto comp1 a <=> b;           //ok
-auto comp2 a <=> category::C; //ok
+auto comp1 = a <=> b;           //ok
+auto comp2 = a <=> category::C; //ok
 bool eq1 = a == b;            //ng
 bool eq2 = a == category::C;  //ok
 ```
