@@ -36,14 +36,14 @@ int main()
   std::unique_ptr<int> a(new int(3));
   std::unique_ptr<int> b(new int(1));
 
-  std::cout << a << std::endl;
-  std::cout << b << std::endl;
+  std::cout << a.get() << std::endl;
+  std::cout << b.get() << std::endl;
 
   // aとbを入れ替える
   a.swap(b);
 
-  std::cout << a << std::endl;
-  std::cout << b << std::endl;
+  std::cout << a.get() << std::endl;
+  std::cout << b.get() << std::endl;
 }
 ```
 * swap[color ff0000]
