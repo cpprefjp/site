@@ -25,6 +25,7 @@ constexpr bool valueless_after_move() const noexcept;
 ```cpp example
 #include <cassert>
 #include <memory>
+#include <utility>
 
 struct Base {
   virtual ~Base() = default;

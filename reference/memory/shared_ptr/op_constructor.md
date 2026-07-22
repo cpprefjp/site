@@ -202,6 +202,7 @@ shared_ptr(shared_ptr<Y>&& r,
 ```cpp example
 #include <cassert>
 #include <memory>
+#include <utility>
 
 struct X {
   int i;

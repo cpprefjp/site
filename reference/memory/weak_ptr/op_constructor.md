@@ -69,6 +69,7 @@ weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++26
 #include <cassert>
 #include <iostream>
 #include <memory>
+#include <utility>
 
 int main()
 {

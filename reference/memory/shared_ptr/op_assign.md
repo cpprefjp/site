@@ -72,6 +72,7 @@ constexpr shared_ptr&
 ```cpp example
 #include <cassert>
 #include <memory>
+#include <utility>
 
 int main()
 {

@@ -116,6 +116,7 @@ unique_ptr<T, D&> p(new T(), deleter); // pはdeleterへの参照を保持する
 ```cpp example
 #include <cassert>
 #include <memory>
+#include <utility>
 
 using AllocTraits = std::allocator_traits<std::allocator<int>>;
 

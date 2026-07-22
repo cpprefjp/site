@@ -31,6 +31,7 @@ discard_block_engine(discard_block_engine&& e) = default;      // (7)
 #include <iostream>
 #include <random>
 #include <array>
+#include <utility>
 
 int main()
 {

@@ -78,6 +78,7 @@ weak_ptr(move(r)).swap(*this)
 #include <cassert>
 #include <iostream>
 #include <memory>
+#include <utility>
 
 int main()
 {

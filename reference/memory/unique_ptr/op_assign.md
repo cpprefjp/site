@@ -69,6 +69,7 @@ d_ = std::forward<E>(u.get_deleter());
 ```cpp example
 #include <cassert>
 #include <memory>
+#include <utility>
 
 int main()
 {

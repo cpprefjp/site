@@ -91,6 +91,7 @@ constexpr queue(from_range_t, R&& rg, const Alloc& alloc); // (12) C++26
 #include <iostream>
 #include <queue>
 #include <deque>
+#include <utility>
 
 int main() {
   // デフォルトでは Container == deque<T>

@@ -95,6 +95,7 @@ namespace std {
 #include <cstdlib>
 #include <memory>
 #include <iostream>
+#include <utility>
 
 struct hoge {
   hoge() { std::cout << "hoge::hoge()" << std::endl; }

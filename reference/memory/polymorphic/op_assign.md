@@ -43,6 +43,7 @@ noexcept(allocator_traits<Allocator>::propagate_on_container_move_assignment::va
 ```cpp example
 #include <cassert>
 #include <memory>
+#include <utility>
 
 struct Base {
   virtual ~Base() = default;

@@ -55,6 +55,7 @@ atomic_compare_exchange_strong_explicit(
 ```cpp example
 #include <iostream>
 #include <memory>
+#include <utility>
 
 int main()
 {

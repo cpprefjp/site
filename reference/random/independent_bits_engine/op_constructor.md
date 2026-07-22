@@ -32,6 +32,7 @@ independent_bits_engine(independent_bits_engine&& e) = default;      // (7)
 #include <random>
 #include <cstdint>
 #include <array>
+#include <utility>
 
 int main()
 {

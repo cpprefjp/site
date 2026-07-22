@@ -44,6 +44,7 @@ public:
 #include <thread>
 #include <vector>
 #include <cassert>
+#include <utility>
 
 class singleton {
   int value_ = 3;

@@ -44,6 +44,7 @@ any& operator=(T&& rhs);            // (3)
 #include <string>
 #include <vector>
 #include <cassert>
+#include <utility>
 
 int main()
 {
