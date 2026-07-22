@@ -34,7 +34,7 @@ namespace std {
          const T& value);   // (2) C++17
   template<class ExecutionPolicy,
            class ForwardIterator,
-           class T = typename iterator_traits<InputIterator>::value_type>
+           class T = typename iterator_traits<ForwardIterator>::value_type>
   ForwardIterator
     find(ExecutionPolicy&& exec,
          ForwardIterator first,
