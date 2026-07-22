@@ -219,9 +219,9 @@ int main() {
   // 値が{1, 2}の要素をすべて{9, 9}に置き換えたものを出力する
   std::ranges::replace_copy(
     v,
-    std::ostream_iterator<int>(std::cout, "\n"),
-    {1, 2},
-    {9, 9}
+    std::ostream_iterator<Point>(std::cout, "\n"),
+    Point{1, 2},
+    Point{9, 9}
   );
 }
 ```
