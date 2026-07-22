@@ -105,7 +105,7 @@ void random_shuffle(RandomAccessIterator first, RandomAccessIterator last) {
     iter_swap(it, first + get_random_number(it - first + 1));
 }
 
-template <class RandomAccessIterator>
+template <class RandomAccessIterator, class RandomNumberGenerator>
 void random_shuffle(RandomAccessIterator first, RandomAccessIterator last, RandomNumberGenerator&& rand) {
   if (first == last) return;
   for (auto it = first + 1; it != last; ++it)
