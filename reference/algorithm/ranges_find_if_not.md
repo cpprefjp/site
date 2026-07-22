@@ -130,6 +130,7 @@ struct find_if_not_impl {
     for ( ; first != last; ++first)
       if (!invoke(pred, invoke(proj, *first)))
         return first;
+    return last;
   }
 
   template<input_range R, class Proj = identity, indirect_unary_predicate <projected<iterator_t<R>, Proj>> Pred>
