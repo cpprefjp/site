@@ -246,7 +246,7 @@ struct find_impl {
     requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
   constexpr I operator()(I first, S last, const T& value, Proj proj = {}) const {
     for ( ; first != last; ++first)
-      if (*first == value) return first;
+      if (invoke(proj, *first) == value) return first;
     return last;
   }
 
@@ -263,6 +263,7 @@ inline constexpr find_impl find;
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]
 * ref[link /reference/functional/ref.md]
+* invoke[link /reference/functional/invoke.md]
 
 ## バージョン
 ### 言語
