@@ -119,7 +119,7 @@ namespace std::ranges {
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp
         std::vector<T> v;
-        bool found = std::ranges::find_last(r, {a, b});
+        auto found = std::ranges::find_last(r, {a, b});
         ```
 
 
