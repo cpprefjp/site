@@ -48,7 +48,7 @@ namespace std::ranges {
 (1), (2)ともに、以下と等価
 
 ```cpp
-using U = decay_t<invoke_result_t<F&, iter_reference_t<I>, T>>;
+using U = decay_t<invoke_result_t<F&, iter_reference_t<I>, iter_value_t<I>>>;
 if (first == last)
   return optional<U>();
 I tail = ranges::prev(ranges::next(first, std::move(last)));
@@ -164,7 +164,7 @@ template<bidirectional_iterator I, sentinel_for<I> S,
          indirectly-binary-right-foldable<iter_value_t<I>, I> F>
   requires constructible_from<iter_value_t<I>, iter_reference_t<I>>
 constexpr auto fold_right_last(I first, S last, F f) {
-  using U = decay_t<invoke_result_t<F&, iter_reference_t<I>, T>>;
+  using U = decay_t<invoke_result_t<F&, iter_reference_t<I>, iter_value_t<I>>>;
 
   if (first == last) {
     return optional<U>();
