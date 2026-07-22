@@ -281,7 +281,7 @@ public:
 
   ~MyVector() {
     std::destroy_n(data_, size_);
-    alloc_.deallocate(data_, size_);
+    alloc_.deallocate(data_, capacity_);
   }
 
   // コピー版のpush_back
