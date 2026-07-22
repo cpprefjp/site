@@ -65,6 +65,7 @@ namespace std {
 #include <iostream>
 #include <queue>
 #include <type_traits>
+#include <deque>
 
 int main()
 {

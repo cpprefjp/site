@@ -89,6 +89,7 @@ std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
 #include <iterator>
 #include <algorithm>
 #include <print>
+#include <string>
 
 int main() {
   std::vector<std::string> words = {"the", "quick", "brown", "fox", "ate", "a", "pterodactyl"};

@@ -29,6 +29,7 @@ return std::move_iterator(ranges::begin(*base_));
 #include <iostream>
 #include <vector>
 #include <ranges>
+#include <string>
 
 int main() {
   std::vector<std::string> v = {"one", "two", "three"};

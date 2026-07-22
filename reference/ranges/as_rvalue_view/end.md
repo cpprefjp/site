@@ -36,6 +36,7 @@ else {
 #include <iostream>
 #include <vector>
 #include <ranges>
+#include <string>
 
 int main() {
   std::vector<std::string> v = {"one", "two", "three"};
