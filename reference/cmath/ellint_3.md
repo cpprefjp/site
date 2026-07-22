@@ -62,6 +62,7 @@ $$
 ```cpp example
 #include <cmath>
 #include <iostream>
+#include <stdexcept>
 
 constexpr double pi = 3.141592653589793;
 

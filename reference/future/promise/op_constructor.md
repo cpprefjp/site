@@ -31,6 +31,7 @@ promise(const promise& rhs) = delete;         // (4)
 ```cpp example
 #include <memory>
 #include <future>
+#include <utility>
 
 int main()
 {

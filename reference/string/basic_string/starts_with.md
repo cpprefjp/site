@@ -41,6 +41,7 @@ return std::basic_string_view<charT, traits>(data(), size()).starts_with(x);
 ```cpp example
 #include <cassert>
 #include <string>
+#include <string_view>
 
 int main()
 {

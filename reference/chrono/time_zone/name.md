@@ -21,6 +21,7 @@ std::string_view name() const noexcept; // (1) C++20
 ```cpp example
 #include <cassert>
 #include <chrono>
+#include <string_view>
 
 namespace chrono = std::chrono;
 

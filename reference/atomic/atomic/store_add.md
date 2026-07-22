@@ -90,6 +90,7 @@ int main()
 #include <atomic>
 #include <algorithm>
 #include <execution>
+#include <vector>
 
 int main()
 {

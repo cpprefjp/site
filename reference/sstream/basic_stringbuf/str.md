@@ -105,6 +105,8 @@ int main()
 ```cpp example
 #include <iostream>
 #include <sstream>
+#include <string>
+#include <utility>
 
 int main() {
   std::stringbuf buf;

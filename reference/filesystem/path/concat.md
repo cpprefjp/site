@@ -30,6 +30,7 @@ path& concat(InputIterator first, InputIterator last); // (2)
 ```cpp example
 #include <iostream>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 

@@ -32,6 +32,7 @@
 #include <memory>
 #include <stop_token>
 #include <thread>
+#include <atomic>
 
 // CallbackFunc の状態を表す構造体
 struct CallbackFuncStatus

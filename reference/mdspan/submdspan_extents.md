@@ -64,6 +64,7 @@ auto [...slices] = submdspan_canonicalize_slices(src, raw_slices...);
 #include <concepts>
 #include <mdspan>
 #include <type_traits>
+#include <utility>
 
 template <int N>
 constexpr auto Int = std::integral_constant<int, N>{};

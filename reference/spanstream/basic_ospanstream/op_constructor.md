@@ -34,6 +34,7 @@ basic_ospanstream(basic_ospanstream&& rhs);           // (3)
 #include <iostream>
 #include <span>
 #include <spanstream>
+#include <utility>
 
 int main()
 {

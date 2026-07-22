@@ -140,6 +140,7 @@ merge_result {
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iterator>
 
 int main()
 {

@@ -678,6 +678,7 @@ int main() {
 #include <contracts>
 #include <concepts>
 #include <vector>
+#include <limits>
 
 template<std::integral T>
 T increment(const T value)

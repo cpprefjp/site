@@ -114,6 +114,7 @@ namespace std::chrono {
 #include <iostream>
 #include <sstream>
 #include <chrono>
+#include <string>
 
 namespace chrono = std::chrono;
 

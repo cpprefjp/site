@@ -85,6 +85,7 @@ class node_handle;
 ```cpp example
 #include <iostream>
 #include <map>
+#include <utility>
 
 int main()
 {

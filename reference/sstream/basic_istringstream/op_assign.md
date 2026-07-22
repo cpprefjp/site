@@ -24,6 +24,7 @@ basic_istringstream& operator=(const basic_istringstream&) = delete; // (2) C++1
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <utility>
 
 int main()
 {

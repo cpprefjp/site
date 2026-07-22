@@ -48,6 +48,7 @@ namespace std {
 #include <future>
 #include <thread>
 #include <iostream>
+#include <utility>
 
 template<class F>
 std::future<typename std::result_of<F()>::type> spawn_task(F f) {

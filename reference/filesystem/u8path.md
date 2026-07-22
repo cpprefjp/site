@@ -43,6 +43,7 @@ C++20ではUTF-8エンコードされた文字には[`char8_t`](/lang/cpp20/char
 ```cpp example
 #include <fstream>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 

@@ -62,6 +62,7 @@ namespace std::execution {
 #include <string>
 #include <print>
 #include <execution>
+#include <tuple>
 namespace ex = std::execution;
 using namespace std::string_literals;
 

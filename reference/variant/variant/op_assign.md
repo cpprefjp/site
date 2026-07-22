@@ -95,6 +95,7 @@ constexpr variant& operator=(T&& rhs) noexcept(see below);     // (3) C++23
 ```cpp example
 #include <cassert>
 #include <variant>
+#include <utility>
 
 int main()
 {

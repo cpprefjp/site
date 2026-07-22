@@ -39,6 +39,7 @@ constexpr bool contains(const charT* x) const;                              // (
 ```cpp example
 #include <cassert>
 #include <string>
+#include <string_view>
 
 int main() {
   std::string s = "Hello World";

@@ -91,6 +91,7 @@ string_view str(buf);
 #include <iostream>
 #include <string_view>
 #include <vector>
+#include <string>
 
 int main()
 {

@@ -24,6 +24,7 @@ basic_spanbuf& operator=(const basic_spanbuf&) = delete;
 #include <iostream>
 #include <span>
 #include <spanstream>
+#include <utility>
 
 int main()
 {

@@ -86,6 +86,7 @@ minmax_element_result {
 #include <cassert>
 #include <algorithm>
 #include <vector>
+#include <functional>
 
 int main()
 {

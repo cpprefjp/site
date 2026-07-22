@@ -45,6 +45,8 @@ bool try_lock_shared_until(const chrono::time_point<Clock, Duration>& abs_time);
 ```cpp example
 #include <thread>
 #include <shared_mutex>
+#include <chrono>
+#include <system_error>
 
 class X {
   mutable std::shared_timed_mutex mtx_;

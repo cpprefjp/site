@@ -24,6 +24,7 @@ namespace std {
 #include <meta>
 #include <print>
 #include <format>
+#include <string>
 
 // コンパイル時に構築した文字列を実行時に使用する
 consteval const char* make_greeting(const char* name) {

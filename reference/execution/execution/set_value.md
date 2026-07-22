@@ -81,6 +81,7 @@ TRY-EVAL(rcvr, SET-VALUE(rcvr, expr))
 ## 例
 ```cpp example
 #include <execution>
+#include <utility>
 namespace ex = std::execution;
 
 struct ValueReceiver {

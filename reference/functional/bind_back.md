@@ -73,6 +73,7 @@ range | adaptor(args...)
 #include <vector>
 #include <functional>
 #include <print>
+#include <utility>
 
 template <typename F>
 class closure_t : public std::ranges::range_adaptor_closure<closure_t<F>> {

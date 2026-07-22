@@ -204,6 +204,7 @@ int main() {
 #include <iostream>
 #include <cstdint>
 #include <stacktrace>
+#include <cstdlib>
 
 void assertion_failed(char const* expr) {
   auto st = std::stacktrace::current(1, 1);

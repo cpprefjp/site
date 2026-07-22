@@ -55,6 +55,7 @@ std::string string() const;                       // (2)
 ```cpp example
 #include <iostream>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 
@@ -92,6 +93,7 @@ int main()
 ```cpp
 #include <iostream>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 

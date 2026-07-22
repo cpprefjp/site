@@ -82,6 +82,9 @@ path(InputIterator first, InputIterator last,
 ```cpp example
 #include <cassert>
 #include <filesystem>
+#include <string>
+#include <string_view>
+#include <utility>
 
 namespace fs = std::filesystem;
 

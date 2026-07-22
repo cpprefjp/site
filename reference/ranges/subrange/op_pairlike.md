@@ -29,6 +29,7 @@ return PairLike(begin_, end_);
 ```cpp example
 #include <ranges>
 #include <cassert>
+#include <utility>
 
 int main()
 {

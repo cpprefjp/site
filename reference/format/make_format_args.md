@@ -76,6 +76,7 @@ return make_format_args<wformat_context>(args...);
 ```cpp example
 #include <iostream>
 #include <format>
+#include <string>
 
 int main() {
   std::string fmt = "0x{:x} 0b{:04b}";

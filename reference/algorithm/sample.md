@@ -64,6 +64,7 @@ namespace std {
 #include <iterator>
 #include <random>
 #include <algorithm>
+#include <vector>
 
 int main()
 {

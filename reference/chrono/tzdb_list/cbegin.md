@@ -28,6 +28,7 @@ return begin();
 ```cpp example
 #include <iostream>
 #include <chrono>
+#include <iterator>
 
 namespace chrono = std::chrono;
 

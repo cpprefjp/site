@@ -31,6 +31,7 @@ namespace std {
 // Visual C++での浮動小数点例外の形式に変換する
 #include <iostream>
 #include <cfenv>
+#include <cfloat>
 
 int main()
 {

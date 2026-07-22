@@ -185,6 +185,7 @@ constexpr basic_string(from_range_t, R&& rg,
 #include <iostream>
 #include <string>
 #include <utility>
+#include <string_view>
 
 int main()
 {

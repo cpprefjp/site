@@ -43,6 +43,8 @@ namespace std::execution {
 ```cpp example
 #include <stop_token>
 #include <execution>
+#include <cstddef>
+#include <memory>
 namespace ex = std::execution;
 
 int main()

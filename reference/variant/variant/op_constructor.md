@@ -157,6 +157,7 @@ constexpr explicit variant(in_place_index_t<I>,
 #include <cassert>
 #include <variant>
 #include <string>
+#include <utility>
 
 int main()
 {

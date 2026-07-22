@@ -55,6 +55,7 @@ std::string generic_string() const;                       // (2)
 ```cpp example
 #include <iostream>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 

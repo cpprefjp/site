@@ -37,6 +37,8 @@ namespace std::execution {
 ```cpp example
 #include <concepts>
 #include <execution>
+#include <tuple>
+#include <variant>
 namespace ex = std::execution;
 
 int main()

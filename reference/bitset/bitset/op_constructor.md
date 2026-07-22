@@ -105,6 +105,8 @@ bitset(
 ```cpp example
 #include <iostream>
 #include <bitset>
+#include <string>
+#include <string_view>
 
 int main()
 {

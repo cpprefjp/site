@@ -45,6 +45,9 @@ path& operator=(const Source& source); // (4)
 ```cpp example
 #include <cassert>
 #include <filesystem>
+#include <string>
+#include <string_view>
+#include <utility>
 
 namespace fs = std::filesystem;
 

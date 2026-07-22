@@ -24,6 +24,7 @@ namespace std {
 ```cpp example
 #include <regex>
 #include <type_traits>
+#include <string>
 
 int main()
 {

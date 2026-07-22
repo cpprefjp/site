@@ -89,6 +89,7 @@ MATCHING-SIG(decayed-typeof<CSO>(decltype(args)...), Sig)
 ```cpp
 #include <print>
 #include <execution>
+#include <concepts>
 namespace ex = std::execution;
 
 int main()

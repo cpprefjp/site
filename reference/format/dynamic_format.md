@@ -31,6 +31,8 @@ return fmt;
 ## 例
 ```cpp example
 #include <print>
+#include <format>
+#include <string>
 
 int main()
 {

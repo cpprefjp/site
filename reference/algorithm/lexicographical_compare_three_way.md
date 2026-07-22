@@ -80,6 +80,7 @@ namespace std {
 #include <compare>
 #include <algorithm>
 #include <cctype>
+#include <string>
 
 //大文字小文字を同値として扱って比較
 auto weak_comp = [](char cl, char cr) -> std::weak_ordering {

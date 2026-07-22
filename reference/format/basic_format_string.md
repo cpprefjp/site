@@ -65,6 +65,7 @@ void log(std::format_string<Args...> s, Args&&... args) {
 #include <iostream>
 #include <format>
 #include <chrono>
+#include <utility>
 
 thread_local bool logging_enabled = true;
 

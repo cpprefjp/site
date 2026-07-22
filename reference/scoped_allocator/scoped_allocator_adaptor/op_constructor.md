@@ -57,6 +57,7 @@ scoped_allocator_adaptor(
 #include <vector>
 #include <string>
 #include <scoped_allocator>
+#include <utility>
 
 template <class T>
 using alloc_t = std::allocator<T>;

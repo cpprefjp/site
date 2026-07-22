@@ -65,6 +65,7 @@ namespace std::linalg {
 #include <linalg>
 #include <mdspan>
 #include <vector>
+#include <cassert>
 
 
 template <class Vector>

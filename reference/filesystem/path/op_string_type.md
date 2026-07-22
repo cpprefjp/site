@@ -22,6 +22,7 @@ operator string_type() const;
 ```cpp example
 #include <iostream>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 
@@ -45,6 +46,7 @@ int main()
 ```cpp
 #include <iostream>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 

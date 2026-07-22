@@ -155,6 +155,7 @@ constexpr basic_string&
 ```cpp example
 #include <iostream>
 #include <string>
+#include <string_view>
 
 int main()
 {

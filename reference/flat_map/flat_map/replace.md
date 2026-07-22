@@ -44,6 +44,7 @@ constexpr void
 #include <iostream>
 #include <string>
 #include <utility>
+#include <vector>
 
 int main()
 {

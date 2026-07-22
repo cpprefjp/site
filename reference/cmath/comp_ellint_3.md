@@ -63,6 +63,7 @@ $ \Pi(\nu, k) $ は第3種不完全楕円積分 ([`ellint_3`](ellint_3.md))。
 ```cpp example
 #include <cmath>
 #include <iostream>
+#include <stdexcept>
 
 void p(double k, double nu) {
   std::cout << "comp_ellint_3(" << k << ", " << nu << ") = ";

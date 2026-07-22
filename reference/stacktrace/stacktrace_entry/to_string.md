@@ -28,6 +28,7 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <stacktrace>
+#include <string>
 
 void g() {
   std::string entry = std::to_string(std::stacktrace::current()[0]);

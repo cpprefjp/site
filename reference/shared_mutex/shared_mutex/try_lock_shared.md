@@ -37,6 +37,7 @@ bool try_lock_shared();
 ```cpp example
 #include <thread>
 #include <shared_mutex>
+#include <system_error>
 
 class X {
   mutable std::shared_mutex mtx_;

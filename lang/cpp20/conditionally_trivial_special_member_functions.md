@@ -158,6 +158,8 @@ public:
 ```cpp example
 #include <type_traits>
 #include <string>
+#include <new>
+#include <utility>
 
 template<typename T>
 class my_optional {

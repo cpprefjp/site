@@ -26,6 +26,7 @@ namespace std {
 #include <iterator>
 #include <vector>
 #include <ranges>
+#include <utility>
 
 // 間接参照可能なIの参照する値と、任意の範囲の全ての値を比較する
 template<class I, class Range, class R, class P1 = std::identity, class P2 = std::identity>

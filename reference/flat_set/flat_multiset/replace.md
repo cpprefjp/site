@@ -38,6 +38,7 @@ constexpr void replace(container_type&& cont); // (1) C++26
 #include <iostream>
 #include <string>
 #include <utility>
+#include <vector>
 
 int main()
 {

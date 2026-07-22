@@ -112,6 +112,7 @@ $O(\verb|A.extent(1)|\times \verb|x.extent(0)|)$
 #include <linalg>
 #include <mdspan>
 #include <vector>
+#include <string>
 
 template <class Vector>
 void print(const Vector& v, const std::string& name) {

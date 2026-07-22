@@ -80,6 +80,7 @@ namespace std::ranges {
 ```cpp example
 #include <iostream>
 #include <concepts>
+#include <utility>
 
 namespace NS {
   struct swappable1 {

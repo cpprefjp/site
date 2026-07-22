@@ -41,6 +41,7 @@ future_status wait_for(const chrono::duration<Rep, Period>& rel_time) const;
 #include <future>
 #include <thread>
 #include <utility>
+#include <chrono>
 
 void calc(std::promise<int> p)
 {

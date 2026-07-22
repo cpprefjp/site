@@ -35,6 +35,7 @@ thread& operator=(thread&& x) noexcept;
 ```cpp example
 #include <thread>
 #include <cassert>
+#include <utility>
 
 int main()
 {

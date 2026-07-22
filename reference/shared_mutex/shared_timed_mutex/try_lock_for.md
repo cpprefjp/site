@@ -44,6 +44,8 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 ```cpp example
 #include <thread>
 #include <shared_mutex>
+#include <chrono>
+#include <system_error>
 
 class X {
   mutable std::shared_timed_mutex mtx_;

@@ -32,6 +32,7 @@ return std::basic_string_view<charT, traits>(data(), size());
 ```cpp example
 #include <iostream>
 #include <string>
+#include <string_view>
 
 int main()
 {

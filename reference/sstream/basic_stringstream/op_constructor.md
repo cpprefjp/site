@@ -110,6 +110,7 @@ basic_stringstream(const T& t,
 ```cpp example
 #include <iostream>
 #include <sstream>
+#include <string>
 
 int main()
 {

@@ -121,6 +121,7 @@ namespace std {
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <algorithm>
 
 int main()
 {

@@ -77,6 +77,7 @@ basic_string& operator=(nullptr_t) = delete;                       // (7) C++23
 ```cpp example
 #include <iostream>
 #include <string>
+#include <string_view>
 
 int main()
 {

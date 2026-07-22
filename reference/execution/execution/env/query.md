@@ -44,6 +44,8 @@ return fe.query(q, std::forward<Args>(args)...);
 #include <concepts>
 #include <stop_token>
 #include <execution>
+#include <cstddef>
+#include <memory>
 using ex = std::execution;
 
 int main()

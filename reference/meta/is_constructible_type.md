@@ -29,6 +29,7 @@ namespace std::meta {
 ```cpp example
 #include <meta>
 #include <string>
+#include <string_view>
 
 int main() {
   // stringはconst char*から構築可能

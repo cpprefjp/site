@@ -96,6 +96,7 @@ jthread(jthread&&) noexcept;             // (4) C++20
 #include <iostream>
 #include <cstdint>
 #include <thread>
+#include <chrono>
 
 std::uint64_t sum1 = 0;
 std::uint64_t sum2 = 0;

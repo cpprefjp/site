@@ -22,6 +22,7 @@ namespace std::meta {
 ## 例
 ```cpp example
 #include <meta>
+#include <string>
 
 int main() {
   static_assert(std::meta::is_type(^^int));

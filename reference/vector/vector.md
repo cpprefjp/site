@@ -271,6 +271,7 @@ int main()
 #include <iostream>
 #include <vector>
 #include <string>
+#include <utility>
 
 //簡易なディレクトリ構造表現クラス
 class directory {

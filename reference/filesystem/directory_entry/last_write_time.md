@@ -35,6 +35,8 @@ file_time_type last_write_time(std::error_code& ec) const noexcept; // (2)
 #include <sstream>
 #include <ctime>
 #include <iomanip>
+#include <chrono>
+#include <string>
 
 namespace fs = std::filesystem;
 

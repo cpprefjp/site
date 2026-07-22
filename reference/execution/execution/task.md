@@ -77,6 +77,7 @@ static consteval auto get_completion_signatures();
 ```cpp example
 #include <cassert>
 #include <execution>
+#include <utility>
 namespace ex = std::execution;
 
 // int型を返すタスクコルーチンを定義

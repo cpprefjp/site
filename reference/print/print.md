@@ -154,6 +154,7 @@ Hello 42 World
 ### 実行時の書式文字列を使用する (C++26)
 ```cpp example
 #include <print>
+#include <string>
 
 int main()
 {

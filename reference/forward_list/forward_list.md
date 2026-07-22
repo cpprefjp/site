@@ -174,6 +174,7 @@ namespace std {
 #include <iostream>
 #include <forward_list>
 #include <algorithm>
+#include <utility>
 
 int main()
 {
@@ -210,6 +211,7 @@ int main()
 #include <iostream>
 #include <forward_list>
 #include <string>
+#include <utility>
 
 //簡易なディレクトリ構造表現クラス
 //forward_listの特性上出力が逆順になる

@@ -236,6 +236,7 @@ int main()
 ```cpp example
 #include <iostream>
 #include <format>
+#include <string>
 
 struct Point {
   float x, y;

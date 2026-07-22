@@ -24,6 +24,7 @@ basic_spanstream& operator=(const basic_spanstream&) = delete;
 #include <iostream>
 #include <span>
 #include <spanstream>
+#include <utility>
 
 int main()
 {

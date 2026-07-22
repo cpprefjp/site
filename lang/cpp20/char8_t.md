@@ -45,6 +45,7 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 ## 例
 ```cpp example
 #include <iostream>
+#include <string>
 
 template<typename> struct ct;
 template<> struct ct<char> {

@@ -123,6 +123,7 @@ int main()
 ### new 式の型、キャスト、および、明示的デストラクタ呼び出しの一部としての使用例
 ```cpp example
 #include <iostream>
+#include <new>
 
 struct S {
   S() { std::cout << "S()\n"; }

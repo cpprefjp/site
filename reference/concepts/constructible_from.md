@@ -26,6 +26,7 @@ namespace std {
 #include <optional>
 #include <memory>
 #include <span>
+#include <array>
 
 template<typename T, typename... Args>
 requires std::constructible_from<T, Args...>

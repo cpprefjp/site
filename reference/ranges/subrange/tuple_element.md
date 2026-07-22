@@ -42,6 +42,7 @@ namespace std {
 ```cpp example
 #include <ranges>
 #include <concepts>
+#include <tuple>
 
 int main()
 {

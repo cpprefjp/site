@@ -261,6 +261,8 @@ int main() {
 #include <algorithm>
 #include <memory>
 #include <stdexcept>
+#include <string>
+#include <utility>
 
 template <class T>
 class MyVector {

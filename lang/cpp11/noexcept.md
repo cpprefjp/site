@@ -108,6 +108,7 @@ constexpr bool isNoexprF = noexcept(x.f());
 #include <stack>
 #include <deque>
 #include <type_traits>
+#include <utility>
 
 template <class T, class Container = std::deque<T>>
 class movable_stack : public std::stack<T, Container> {

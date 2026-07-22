@@ -80,6 +80,7 @@ return mdspan(src.accessor().offset(src.data_handle(), sub_map_offset.offset),
 #include <numeric>
 #include <print>
 #include <string_view>
+#include <utility>
 
 // 2次元配列ビュー(Matrix)の要素表示
 template <class T, class E, class L, class A>
@@ -171,6 +172,7 @@ strided:
 #include <mdspan>
 #include <numeric>
 #include <print>
+#include <utility>
 
 // 整数定数型
 template <int N>
@@ -214,6 +216,7 @@ submat_2x3 2x3
 ### レイアウトマッピング互換性
 ```cpp example
 #include <mdspan>
+#include <utility>
 
 int main()
 {

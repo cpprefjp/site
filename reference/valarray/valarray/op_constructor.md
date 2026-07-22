@@ -62,6 +62,7 @@ valarray(initializer_list<T> init);   // (11) C++11 から
 ```cpp example
 #include <iostream>
 #include <valarray>
+#include <utility>
 
 template <class T>
 void print(const char* name, const std::valarray<T>& va)

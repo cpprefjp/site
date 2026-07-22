@@ -32,6 +32,7 @@ std::uintmax_t file_size(std::error_code& ec) const noexcept; // (2)
 #include <iostream>
 #include <filesystem>
 #include <fstream>
+#include <cstdint>
 
 namespace fs = std::filesystem;
 

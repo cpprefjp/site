@@ -14,6 +14,7 @@
 
 ```cpp example
 #include <iostream>
+#include <cstddef>
 
 struct X {
   int m;

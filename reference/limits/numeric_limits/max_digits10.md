@@ -41,6 +41,8 @@ static constexpr int max_digits10;
 #include <sstream>
 #include <bitset>
 #include <cstring>
+#include <cstdint>
+#include <string>
 
 std::string make_float_string(float f, int digits) {
   std::stringstream s;

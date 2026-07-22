@@ -44,6 +44,7 @@ basic_spanbuf(basic_spanbuf&& rhs);                              // (5)
 #include <iostream>
 #include <span>
 #include <spanstream>
+#include <utility>
 
 int main()
 {

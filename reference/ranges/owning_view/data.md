@@ -31,6 +31,7 @@ Rangeの先頭要素へのポインタを取得する。
 #include <ranges>
 #include <vector>
 #include <iostream>
+#include <utility>
 
 int main() {
   std::vector<int> v = {1, 2, 3, 4, 5};

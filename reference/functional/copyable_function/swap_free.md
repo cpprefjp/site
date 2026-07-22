@@ -25,6 +25,7 @@ friend void swap(copyable_function& f1, copyable_function& f2) noexcept;
 ```cpp example
 #include <iostream>
 #include <functional>
+#include <utility>
 
 int ident(int x) { return x; }
 int add(int x) { return x + 1; }

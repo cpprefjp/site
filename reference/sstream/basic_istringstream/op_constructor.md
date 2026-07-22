@@ -111,6 +111,7 @@ basic_istringstream(
 ```cpp example
 #include <iostream>
 #include <sstream>
+#include <string>
 
 int main()
 {
@@ -136,6 +137,7 @@ initial
 #include <iostream>
 #include <sstream>
 #include <string_view>
+#include <string>
 
 int main()
 {

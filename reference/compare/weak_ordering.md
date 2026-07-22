@@ -70,6 +70,7 @@ namespace std {
 #include <string>
 #include <compare>
 #include <cctype>
+#include <algorithm>
 
 struct insensitive_string {
   std::string str;

@@ -33,6 +33,7 @@ constexpr node_type extract(const key_type& x); // (2) C++26
 ```cpp example
 #include <iostream>
 #include <unordered_set>
+#include <utility>
 
 class noncopyable {
 protected:
@@ -82,6 +83,7 @@ int main()
 ```cpp example
 #include <iostream>
 #include <unordered_set>
+#include <utility>
 
 int main()
 {

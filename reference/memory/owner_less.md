@@ -85,6 +85,7 @@ namespace std {
 #include <iostream>
 #include <memory>
 #include <map>
+#include <string>
 
 template <class Key, class Value>
 using shared_ptr_map = std::map<

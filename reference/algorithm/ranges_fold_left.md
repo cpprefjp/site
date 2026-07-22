@@ -204,6 +204,8 @@ int main() {
 #include <functional>
 #include <print>
 #include <vector>
+#include <string>
+#include <utility>
 
 using namespace std::ranges;
 

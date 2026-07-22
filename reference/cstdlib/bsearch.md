@@ -72,6 +72,7 @@ namespace std {
 ```cpp example
 #include <cstdlib>
 #include <iostream>
+#include <iterator>
 
 int compare(const void* a, const void* b)
 {

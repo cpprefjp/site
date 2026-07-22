@@ -99,6 +99,7 @@ $O(\verb|A.extent(0)| \times \verb|A.extent(1)| \times \verb|C.extent(0)|)$
 #include <linalg>
 #include <mdspan>
 #include <vector>
+#include <complex>
 
 template <class Matrix>
 void print_mat(const Matrix& A) {

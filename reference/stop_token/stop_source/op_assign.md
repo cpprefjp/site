@@ -29,6 +29,7 @@ stop_source& operator=(stop_source&& r) noexcept;      // (2)
 ```cpp example
 #include <cassert>
 #include <stop_token>
+#include <utility>
 
 int main()
 {

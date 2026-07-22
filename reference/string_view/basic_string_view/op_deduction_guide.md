@@ -33,6 +33,7 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <string_view>
+#include <string>
 
 int main()
 {

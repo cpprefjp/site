@@ -417,6 +417,7 @@ namespace std::execution {
 ```cpp example
 #include <print>
 #include <execution>
+#include <utility>
 namespace ex = std::execution;
 
 int main()

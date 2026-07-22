@@ -52,6 +52,7 @@ basic_stacktrace(basic_stacktrace&& other,
 ```cpp example
 #include <cassert>
 #include <stacktrace>
+#include <utility>
 
 void g() {
   // (1) デフォルト構築

@@ -33,6 +33,7 @@ return std::format("{}", *this);
 ```cpp example
 #include <print>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 

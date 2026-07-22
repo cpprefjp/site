@@ -37,6 +37,7 @@ namespace std {
 ```cpp example
 #include <stdexcept>
 #include <iostream>
+#include <exception>
 
 void unexpected_handler()
 {

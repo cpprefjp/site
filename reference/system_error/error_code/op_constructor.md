@@ -132,6 +132,7 @@ generic
 #include <iostream>
 #include <system_error>
 #include <type_traits>
+#include <string>
 
 namespace mylib {
 

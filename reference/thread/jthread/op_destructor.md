@@ -22,6 +22,7 @@
 #include <iostream>
 #include <cstdint>
 #include <thread>
+#include <chrono>
 
 std::uint64_t sum1 = 0;
 std::uint64_t sum2 = 0;

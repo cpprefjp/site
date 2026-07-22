@@ -39,6 +39,7 @@ return is;
 #include <iostream>
 #include <chrono>
 #include <sstream>
+#include <string>
 
 namespace chrono = std::chrono;
 

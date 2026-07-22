@@ -273,6 +273,7 @@ inlined_fixed_string::operator delete() : 47 byte deallocate.
 ```cpp example
 #include <iostream>
 #include <new>
+#include <memory>
 
 // 仮想デストラクタを定義しない基底クラス
 struct base {

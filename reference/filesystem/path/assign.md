@@ -46,6 +46,9 @@ path& assign(InputIterator first, InputIterator last); // (3)
 ```cpp example
 #include <cassert>
 #include <filesystem>
+#include <string>
+#include <string_view>
+#include <utility>
 
 namespace fs = std::filesystem;
 

@@ -368,6 +368,7 @@ name: origin
 #include <meta>
 #include <print>
 #include <string_view>
+#include <type_traits>
 
 enum class Color { red, green, blue };
 
@@ -441,6 +442,8 @@ int main() {
 #include <functional>
 #include <string>
 #include <print>
+#include <concepts>
+#include <cstddef>
 
 // std::hash<T>が使用可能かを判定するコンセプト
 template <class T>

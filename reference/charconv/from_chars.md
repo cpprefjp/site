@@ -436,6 +436,9 @@ nan
 #include <vector>
 #include <string>
 #include <charconv>
+#include <concepts>
+#include <span>
+#include <string_view>
 
 // contiguousな文字列範囲内の数値をdoubleへ変換する
 template<std::ranges::contiguous_range R>

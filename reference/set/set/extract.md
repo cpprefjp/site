@@ -43,6 +43,7 @@ constexpr node_type extract(K&& x); // (3) C++26
 ```cpp example
 #include <iostream>
 #include <set>
+#include <utility>
 
 class noncopyable {
 protected:
@@ -87,6 +88,7 @@ int main()
 ```cpp example
 #include <iostream>
 #include <set>
+#include <utility>
 
 int main()
 {

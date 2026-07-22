@@ -86,6 +86,8 @@ return let_stopped(
 ```cpp example
 #include <cassert>
 #include <execution>
+#include <print>
+#include <utility>
 namespace ex = std::execution;
 
 // MySenderは下記いずれかの完了操作を行う

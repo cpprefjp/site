@@ -90,6 +90,7 @@ namespace std::ranges {
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <ranges>
 
 int main() {
   std::vector<int> v = { 1,2,3,2,1,3,3,2,3,3,1 };
@@ -126,6 +127,7 @@ found: index==0
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <ranges>
 
 struct Point {
   int x;

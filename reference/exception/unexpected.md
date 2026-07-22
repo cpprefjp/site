@@ -27,6 +27,7 @@ C++23から、同名の[`std::unexpected<E>`クラステンプレート](/refere
 ```cpp example
 #include <stdexcept>
 #include <iostream>
+#include <exception>
 
 void unexpected_handler()
 {

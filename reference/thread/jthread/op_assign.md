@@ -36,6 +36,7 @@ jthread& operator=(jthread&& x) noexcept;    // (2) C++20
 ```cpp example
 #include <thread>
 #include <cassert>
+#include <utility>
 
 int main()
 {

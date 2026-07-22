@@ -25,6 +25,7 @@ namespace std {
 #include <cassert>
 #include <expected>
 #include <system_error>
+#include <cerrno>
 
 int main()
 {

@@ -128,6 +128,7 @@ Windows環境においてMSVC実装の本関数とスレッドローカルスト
 #include <iostream>
 #include <future>
 #include <thread>
+#include <chrono>
 
 int foo() { std::cout << "executes foo()\n"; return 3; }
 

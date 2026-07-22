@@ -24,6 +24,7 @@ basic_stringbuf& operator=(const basic_stringbuf&) = delete; // (2) C++11
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <utility>
 
 int main()
 {

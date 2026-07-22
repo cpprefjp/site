@@ -24,6 +24,7 @@ basic_filebuf<CharT, Traits>* rdbuf() const;
 ```cpp example
 #include <istream> // std::iostream用
 #include <fstream>
+#include <ostream> // std::endl用
 
 int main()
 {

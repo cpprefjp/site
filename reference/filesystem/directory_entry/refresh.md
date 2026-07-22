@@ -33,6 +33,9 @@ void refresh(std::error_code& ec) noexcept; // (2)
 #include <thread>
 #include <ctime>
 #include <iomanip>
+#include <chrono>
+#include <sstream>
+#include <string>
 
 namespace fs = std::filesystem;
 namespace chrono = std::chrono;

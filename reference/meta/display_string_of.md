@@ -25,6 +25,7 @@ namespace std::meta {
 ```cpp example
 #include <meta>
 #include <print>
+#include <vector>
 
 int main() {
   std::println("{}", std::meta::display_string_of(^^int));

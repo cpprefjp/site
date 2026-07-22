@@ -457,6 +457,7 @@ world
 #include <map>
 #include <set>
 #include <ranges>
+#include <string>
 
 int main() {
   std::vector<int> vi = {1, 2, 3};
@@ -539,6 +540,7 @@ int main()
 #include <stack>
 #include <flat_map>
 #include <flat_set>
+#include <string>
 
 int main()
 {
@@ -652,6 +654,7 @@ int main()
 ```cpp example
 #include <iostream>
 #include <format>
+#include <string>
 
 int main()
 {

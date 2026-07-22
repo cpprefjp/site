@@ -36,6 +36,7 @@ namespace std {
 #include <bit>
 #include <format>
 #include <iostream>
+#include <cstdint>
 
 int main()
 {

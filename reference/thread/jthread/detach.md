@@ -39,6 +39,7 @@ detach操作に失敗した場合、[`system_error`](/reference/system_error/sys
 #include <iostream>
 #include <thread>
 #include <future>
+#include <utility>
 
 std::future<int> start_async(int x, int y)
 {

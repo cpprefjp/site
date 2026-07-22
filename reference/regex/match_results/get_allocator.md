@@ -27,6 +27,7 @@ allocator_type get_allocator() const;
 #include <memory>
 #include <regex>
 #include <type_traits>
+#include <utility>
 
 template <class T>
 struct my_alloc {

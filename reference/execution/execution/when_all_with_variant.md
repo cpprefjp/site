@@ -62,6 +62,8 @@ return when_all(into_variant(std::forward_like<decltype((sndr))>(child))...);
 #include <print>
 #include <string>
 #include <execution>
+#include <tuple>
+#include <utility>
 namespace ex = std::execution;
 
 // MySenderは下記いずれかの完了操作を行う

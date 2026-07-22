@@ -38,6 +38,7 @@ constexpr basic_string<CharT, Traits, Allocator>
 ```cpp example
 #include <iostream>
 #include <bitset>
+#include <string>
 
 int main()
 {

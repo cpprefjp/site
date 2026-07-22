@@ -59,6 +59,7 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <sstream>
+#include <string>
 int main() {
   std::string text = "ABCDEFG";
   std::istringstream stream(text);

@@ -29,6 +29,7 @@ basic_stacktrace& operator=(basic_stacktrace&& other)
 ```cpp example
 #include <iostream>
 #include <stacktrace>
+#include <utility>
 
 void g() {
   std::stacktrace st = std::stacktrace::current();

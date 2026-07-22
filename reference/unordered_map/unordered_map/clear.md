@@ -60,6 +60,7 @@ constexpr void clear() noexcept; // (1) C++26
 ```cpp example
 #include <iostream>
 #include <unordered_map>
+#include <string>
 
 int main()
 {

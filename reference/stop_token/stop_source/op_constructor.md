@@ -35,6 +35,7 @@ stop_source(stop_source&& rhs) noexcept;      // (4)
 ```cpp example
 #include <cassert>
 #include <stop_token>
+#include <utility>
 
 int main()
 {

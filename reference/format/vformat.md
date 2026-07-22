@@ -67,6 +67,7 @@ C++26以降は、実行時文字列のフォーマット引数を使用したい
 ```cpp example
 #include <iostream>
 #include <format>
+#include <string>
 
 int main() {
   std::string fmt = "0x{:x} 0b{:04b}";

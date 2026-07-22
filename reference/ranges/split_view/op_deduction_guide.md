@@ -29,6 +29,7 @@ namespace std::ranges {
 #include <ranges>
 #include <string>
 #include <concepts>
+#include <string_view>
 
 int main() {
   std::string_view text = "hello,world,split";

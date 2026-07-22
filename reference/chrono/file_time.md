@@ -104,6 +104,7 @@ int main()
 #include <sstream>
 #include <chrono>
 #include <filesystem>
+#include <string>
 
 namespace chrono = std::chrono;
 namespace fs = std::filesystem;

@@ -30,6 +30,7 @@ stop_token(stop_token&& rhs) noexcept;      // (3)
 ```cpp example
 #include <cassert>
 #include <stop_token>
+#include <utility>
 
 int main()
 {

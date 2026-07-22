@@ -34,6 +34,7 @@ constexpr flat_map& operator=(initializer_list<value_type> il); // (1) C++26
 #include <iostream>
 #include <string>
 #include <vector>
+#include <utility>
 
 void print(const std::flat_map<std::string, int>& fm)
 {

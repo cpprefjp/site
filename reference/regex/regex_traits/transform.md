@@ -33,6 +33,7 @@ return use_facet<collate<char_type>>(getloc())
 ```cpp example
 #include <regex>
 #include <cassert>
+#include <string>
 
 int main()
 {

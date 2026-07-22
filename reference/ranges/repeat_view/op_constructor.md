@@ -55,6 +55,7 @@ constexpr explicit
 #include <iostream>
 #include <ranges>
 #include <string>
+#include <utility>
 
 int main() {
   // (2) コピー構築

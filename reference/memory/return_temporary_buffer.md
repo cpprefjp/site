@@ -45,6 +45,7 @@ void return_temporary_buffer(T* p);
 ```cpp example
 #include <iostream>
 #include <memory>
+#include <utility>
 
 int main()
 {

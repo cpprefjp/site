@@ -22,6 +22,7 @@ const string_type& native() const noexcept;
 ```cpp example
 #include <iostream>
 #include <filesystem>
+#include <string>
 
 namespace fs = std::filesystem;
 

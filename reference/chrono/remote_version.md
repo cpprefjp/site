@@ -38,6 +38,7 @@ if (get_tzdb().version != remote_version()) {
 ```cpp example
 #include <iostream>
 #include <chrono>
+#include <string>
 
 namespace chrono = std::chrono;
 

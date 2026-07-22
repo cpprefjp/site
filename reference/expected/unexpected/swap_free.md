@@ -30,6 +30,7 @@ x.swap(y);
 ```cpp example
 #include <cassert>
 #include <expected>
+#include <utility>
 
 int main()
 {

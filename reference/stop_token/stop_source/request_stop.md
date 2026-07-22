@@ -41,6 +41,7 @@ bool request_stop() noexcept;
 #include <condition_variable>
 #include <mutex>
 #include <thread>
+#include <chrono>
 
 int main()
 {

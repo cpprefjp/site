@@ -67,6 +67,7 @@ struct A : T... {
 
 ```cpp example
 #include <iostream>
+#include <string>
 
 struct ForLong {
   void operator()(long v) {

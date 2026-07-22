@@ -181,6 +181,7 @@ MSDNライブラリの[setlocale、_wsetlocale](https://docs.microsoft.com/ja-jp
 #include <codecvt>
 #include <iostream>
 #include <windows.h>
+#include <locale>
 
 int main()
 {

@@ -41,6 +41,7 @@ constexpr node_handle& operator=(node_handle&& nh); // (1) C++26
 ```cpp example
 #include <iostream>
 #include <set>
+#include <utility>
 
 int main()
 {

@@ -46,6 +46,7 @@ constexpr deque& operator=(initializer_list<T> init); // (3) C++26
 ```cpp example
 #include <iostream>
 #include <deque>
+#include <utility>
 
 template <class T>
 void print(const char* name, const std::deque<T>& c)

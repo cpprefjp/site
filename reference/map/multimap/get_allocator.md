@@ -31,6 +31,7 @@ constexpr allocator_type get_allocator() const noexcept; // (1) C++26
 ```cpp example
 #include <iostream>
 #include <map>
+#include <utility>
 
 int main()
 {

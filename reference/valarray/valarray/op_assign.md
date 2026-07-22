@@ -54,6 +54,7 @@ valarray& operator=(const indirect_array<T>& x); // (8)
 ```cpp example
 #include <iostream>
 #include <valarray>
+#include <utility>
 
 template <class T>
 void print(const char* name, const std::valarray<T>& va)

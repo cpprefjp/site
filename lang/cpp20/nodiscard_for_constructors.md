@@ -26,6 +26,7 @@ C++17段階では、クラス定義に`[[nodiscard]]`属性を付加すること
 ## 例
 ```cpp example
 #include <fstream>
+#include <string>
 
 class File {
   std::ifstream file_;

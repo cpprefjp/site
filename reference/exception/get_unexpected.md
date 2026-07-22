@@ -28,6 +28,7 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <stdexcept>
+#include <exception>
 
 void on_expected()
 {

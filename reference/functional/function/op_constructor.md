@@ -104,6 +104,7 @@ function(allocator_arg_t, const Alloc& alloc, F f);                // (10) C++17
 #include <cassert>
 #include <iostream>
 #include <functional>
+#include <utility>
 
 struct ident_functor {
   int operator()(int x) const

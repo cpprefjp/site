@@ -40,6 +40,7 @@ namespace std {
 ```cpp example
 #include <meta>
 #include <print>
+#include <string_view>
 
 // 文字列リテラルならそのまま使い、そうでなければコピーして使う
 consteval const char* ensure_static(const char* p) {

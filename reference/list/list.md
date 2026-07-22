@@ -209,6 +209,7 @@ int main ()
 #include <iostream>
 #include <list>
 #include <string>
+#include <utility>
 
 //簡易なディレクトリ構造表現クラス
 class directory {

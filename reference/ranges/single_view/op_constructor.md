@@ -46,6 +46,7 @@ constexpr explicit single_view(in_place_t, Args&&... args); // (4) C++20
 #include <iostream>
 #include <ranges>
 #include <string>
+#include <utility>
 
 int main() {
   // (2) コピー構築

@@ -43,6 +43,7 @@ explicit basic_ispanstream(ROS&& s);                  // (4)
 #include <iostream>
 #include <span>
 #include <spanstream>
+#include <utility>
 
 int main()
 {
