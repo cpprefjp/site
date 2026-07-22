@@ -400,10 +400,10 @@ struct generator {
 };
 
 generator<pair<int,int>> g1() {
-  for (int i = i; i < 10; ++i) co_yield {i,i};
+  for (int i = 0; i < 10; ++i) co_yield {i,i};
 }
 generator<pair<int,int>> g2() {
-  for (int i = i; i < 10; ++i) co_yield make_pair(i,i);
+  for (int i = 0; i < 10; ++i) co_yield make_pair(i,i);
 }
 
 auto f(int x = co_yield 5); // エラー: yield式は関数中断コンテキストの外
