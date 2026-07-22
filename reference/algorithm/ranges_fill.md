@@ -11,7 +11,7 @@ namespace std::ranges {
             sentinel_for<O> S>
   constexpr O
     fill(O first, S last, const T& value);           // (1) C++20
-  template <class I,
+  template <class O,
             sentinel_for<O> S,
             class T = iter_value_t<O>>
     requires output_iterator<O, const T&>
