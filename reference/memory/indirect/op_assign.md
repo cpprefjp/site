@@ -1,4 +1,4 @@
-# 代入演算子
+# operator=
 * memory[meta header]
 * std[meta namespace]
 * indirect[meta class]
