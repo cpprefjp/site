@@ -1,4 +1,4 @@
-# swap
+# swap (非メンバ関数)
 * memory[meta header]
 * std[meta namespace]
 * indirect[meta class]
