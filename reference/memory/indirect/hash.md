@@ -1,7 +1,6 @@
 # hash
 * memory[meta header]
 * std[meta namespace]
-* indirect[meta class]
 * class template[meta id-type]
 * cpp26[meta cpp]
 
