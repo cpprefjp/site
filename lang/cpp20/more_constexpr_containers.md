@@ -308,7 +308,7 @@ struct sample {
 
   // constexprデストラクタでメモリ領域を解放
   constexpr ~sample() {
-    for(size_t i = 0; i < N; ++i) {
+    for(size_t i = 0; i < m_size; ++i) {
       std::destroy_at(m_p + i);
     }
     m_alloc.deallocate(m_p, m_size);
