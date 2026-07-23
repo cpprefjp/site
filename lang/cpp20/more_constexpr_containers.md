@@ -181,7 +181,7 @@ constexpr int f() {
 
   // 破棄と解放
   std::destroy_at(p);
-  alloc.deallocate();
+  alloc.deallocate(p, 1);
 
   return n;
 }
@@ -204,7 +204,7 @@ constexpr int f() {
 
   // 忘れる
   //std::destroy_at(p);
-  //alloc.deallocate();
+  //alloc.deallocate(p, 1);
 
   return n;
 }
