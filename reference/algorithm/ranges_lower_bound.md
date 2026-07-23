@@ -148,13 +148,13 @@ int main()
 
   // 要素の一部の値を比較して見つける
   {
-    // 要素は複数のメンバ変数をもつ
+    // 要素はX::nameメンバ変数をキーとして昇順に並んでいる
     std::vector<X> v = {
-      {1, "Carol"},
       {3, "Alice"},
       {4, "Bob"},
-      {5, "Eve"},
-      {6, "Dave"}
+      {1, "Carol"},
+      {6, "Dave"},
+      {5, "Eve"}
     };
 
     const std::string key = "Bob";
@@ -181,7 +181,7 @@ int main()
 ```
 4 pos=2
 4 pos=2
-id=4 name=Bob pos=2
+id=4 name=Bob pos=1
 ```
 
 ### 波カッコ初期化を入力として使用する (C++26)
