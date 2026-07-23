@@ -38,7 +38,7 @@ namespace mylib {
 ```cpp
 import mylib;
 // iostreamなど、一部のヘッダーはインポート(≠インクルード)可能
-import <iostream>
+import <iostream>;
 
 int main() {
   // これらの型や関数の宣言はこの翻訳単位には無いが、
