@@ -39,8 +39,9 @@ int main()
   assert((std::hash<std::indirect<int>>{}(a) == std::hash<int>{}(42)));
 }
 ```
-* std::indirect[color ff0000]
-* std::hash[link /reference/functional/hash.md]
+* std::indirect[link ../indirect.md]
+* std::hash<int>[link /reference/functional/hash.md]
+* std::hash[color ff0000]
 
 ### 出力
 ```

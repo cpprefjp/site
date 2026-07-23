@@ -37,7 +37,8 @@ int main()
   assert(!b.valueless_after_move());
 }
 ```
-* std::indirect[color ff0000]
+* std::indirect[link ../indirect.md]
+* valueless_after_move[color ff0000]
 
 ### 出力
 ```

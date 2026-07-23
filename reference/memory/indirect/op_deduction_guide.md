@@ -34,7 +34,7 @@ int main()
   static_assert(std::is_same_v<decltype(a), std::indirect<int>>);
 }
 ```
-* std::indirect[color ff0000]
+* std::indirect[link ../indirect.md]
 
 ### 出力
 ```

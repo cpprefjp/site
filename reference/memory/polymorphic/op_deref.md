@@ -49,7 +49,7 @@ int main()
   assert(r.f() == 42);   // 仮想関数で派生型Derivedの実装が呼ばれる
 }
 ```
-* std::polymorphic[color ff0000]
+* std::polymorphic[link ../polymorphic.md]
 * std::in_place_type[link /reference/utility/in_place_type_t.md]
 
 ### 出力

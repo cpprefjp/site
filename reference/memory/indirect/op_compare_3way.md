@@ -47,7 +47,7 @@ int main()
   assert(a < 2);          // (2) 値との比較
 }
 ```
-* std::indirect[color ff0000]
+* std::indirect[link ../indirect.md]
 
 ### 出力
 ```

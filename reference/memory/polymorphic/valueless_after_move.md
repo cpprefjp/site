@@ -47,8 +47,9 @@ int main()
   assert(a.valueless_after_move());  // ムーブ後は無効値状態
 }
 ```
-* std::polymorphic[color ff0000]
+* std::polymorphic[link ../polymorphic.md]
 * std::in_place_type[link /reference/utility/in_place_type_t.md]
+* valueless_after_move[color ff0000]
 
 ### 出力
 ```

@@ -130,7 +130,7 @@ int main()
   assert(d.valueless_after_move());               // ムーブ後は無効値状態
 }
 ```
-* std::indirect[color ff0000]
+* std::indirect[link ../indirect.md]
 * std::in_place[link /reference/utility/in_place_t.md]
 
 ### 出力

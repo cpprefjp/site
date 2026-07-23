@@ -38,7 +38,8 @@ int main()
   assert(*a == 2 && *b == 1);
 }
 ```
-* std::indirect[color ff0000]
+* std::indirect[link ../indirect.md]
+* swap[color ff0000]
 
 ### 出力
 ```

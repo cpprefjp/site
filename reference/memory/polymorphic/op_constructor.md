@@ -132,7 +132,7 @@ int main()
   assert(c->f() == 42);
 }
 ```
-* std::polymorphic[color ff0000]
+* std::polymorphic[link ../polymorphic.md]
 * std::in_place_type[link /reference/utility/in_place_type_t.md]
 
 ### 出力

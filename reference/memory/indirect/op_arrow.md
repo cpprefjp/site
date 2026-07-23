@@ -40,7 +40,7 @@ int main()
   assert(*s == "hello!");
 }
 ```
-* std::indirect[color ff0000]
+* std::indirect[link ../indirect.md]
 
 ### 出力
 ```

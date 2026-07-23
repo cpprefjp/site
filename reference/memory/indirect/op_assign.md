@@ -71,7 +71,7 @@ int main()
   assert(b.valueless_after_move());
 }
 ```
-* std::indirect[color ff0000]
+* std::indirect[link ../indirect.md]
 * std::move[link /reference/utility/move.md]
 * valueless_after_move[link valueless_after_move.md]
 

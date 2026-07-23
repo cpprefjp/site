@@ -50,7 +50,7 @@ int main()
   assert(a != 0);
 }
 ```
-* std::indirect[color ff0000]
+* std::indirect[link ../indirect.md]
 
 ### 出力
 ```
