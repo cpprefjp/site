@@ -13,7 +13,7 @@ namespace std::ranges {
             class Proj = identity>
     requires indirectly_writable<I, const T2&> &&
              indirect_binary_predicate<
-               ranges::equal_to
+               ranges::equal_to,
                projected<I, Proj>,
                const T1*
              >
@@ -30,7 +30,7 @@ namespace std::ranges {
             class T2 = T1>
     requires indirectly_writable<I, const T2&> &&
              indirect_binary_predicate<
-               ranges::equal_to
+               ranges::equal_to,
                projected<I, Proj>,
                const T1*
              >
