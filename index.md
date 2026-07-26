@@ -123,11 +123,11 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:minachun / J.Minami様, img:https://raw.githubusercontent.com/minachun/minachun/main/banner.png, link:https://github.com/minachun/minachun, fee:5, amount:12, note:Junichirou Minami]
 
-[sponsor name:星くず彼方に, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/overthestardust/overthestardust.png, link:https://gravatar.com/overthestardust, size:256, fee:5, amount:12]
+[sponsor name:星くず彼方に様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/overthestardust/overthestardust.png, link:https://gravatar.com/overthestardust, size:256, fee:5, amount:12]
 
-[sponsor name:USAMI Kenta, img:https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256, link:https://github.com/zonuexe, size:256, fee:5, amount:12]
+[sponsor name:USAMI Kenta様, img:https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256, link:https://github.com/zonuexe, size:256, fee:5, amount:12]
 
-[sponsor name:soramimi, img:https://www.soramimi.jp/avater.jpg, link:https://github.com/soramimi, size:256, fee:5, amount:12]
+[sponsor name:soramimi様, img:https://www.soramimi.jp/avater.jpg, link:https://github.com/soramimi, size:256, fee:5, amount:12]
 
 [sponsor name:Agate Pris様, fee:5, amount:12]
 
@@ -149,7 +149,9 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:ぼっちマスター様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/bocchi-master/my-icon.png, link:https://profile.bocchi-master.net/, size:320, fee:5, amount:12]
 
-[sponsor name:甲斐智丈, fee:5, amount:12]
+[sponsor name:甲斐智丈様, fee:5, amount:12]
+
+[sponsor name:shinichi hamada様, fee:5, amount:12]
 
 
 スポンサーシップについては、以下のページを参照ください。
