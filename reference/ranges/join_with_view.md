@@ -9,7 +9,7 @@ namespace std::ranges {
   template<input_range V, forward_range Pattern>
     requires view<V> && input_range<range_reference_t<V>>
           && view<Pattern>
-          && compatible-joinable-ranges<range_reference_t<V>, Pattern>
+          && concatable<range_reference_t<V>, Pattern>
   class join_with_view : public view_interface<join_with_view<V, Pattern>> { …… }; // (1)
 
   namespace views {
@@ -17,7 +17,7 @@ namespace std::ranges {
   }
 }
 ```
-* compatible-joinable-ranges[italic]
+* concatable[link concat_view.md]
 
 ## 概要
 
@@ -47,16 +47,12 @@ namespace std::ranges {
 
 ## 備考
 
-本説明に用いる説明専用要素を以下のように定義する。
+テンプレートパラメータ制約に用いる説明専用コンセプト`concatable`は、[`concat_view`](concat_view.md)で定義されるものと同一である。
+
+そのほか、本説明に用いる説明専用要素を以下のように定義する。
 
 ```cpp
 namespace std::ranges {
-  template<class R, class P>
-  concept compatible-joinable-ranges =            // 説明専用
-      common_with<range_value_t<R>, range_value_t<P>> &&
-      common_reference_with<range_reference_t<R>, range_reference_t<P>> &&
-      common_reference_with<range_reference_t<R>, range_rvalue_reference_t<P>>;
-
   template<class R>
   concept bidirectional-common = bidirectional_range<R> && common_range<R>;    // 説明専用
 }
@@ -162,3 +158,5 @@ hello-C++23-world
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+- [LWG Issue 4074 *compatible-joinable-ranges* is underconstrained](https://cplusplus.github.io/LWG/issue4074)
+    - テンプレートパラメータ制約が`concatable`コンセプトに変更され、[`input_range`](input_range.md)のモデルとならない`join_with_view`が構築されうる問題が修正された。この修正はC++26で導入されたが、欠陥報告 (DR) であるためコンパイラは早期に対応している場合がある
