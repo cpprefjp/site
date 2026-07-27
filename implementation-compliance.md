@@ -135,7 +135,7 @@ ToDo
 
 ## 出典
 
-1. <a href="#cite_ref-1" id="cite-1">**^**</a> <cite>[nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)</cite>
+1. <a href="#cite_ref-1" id="cite-1">**^**</a> <cite>[nasal demons](https://web.archive.org/web/20250103122205/http://catb.org/jargon/html/N/nasal-demons.html)</cite>
 2. <a href="#cite_ref-2" id="cite-2">**^**</a> <cite>[本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)</cite>
 3. <a href="#cite_ref-3" id="cite-3">**^**</a> <cite>[本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)</cite>
 
