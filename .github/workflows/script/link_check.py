@@ -92,6 +92,7 @@ IGNORE_LIST = [
     "https://www.cryptopp.com", # アクセスチェックでよく失敗するがブラウザ上では問題なくアクセスできる
     "https://www.microsoft.com/", # ちょくちょく失敗するが、一時的なものだと思われる
     "https://www.gnu.org/", # 毎週失敗する。/lang/cpp11/thread_local_storage.md でのみ使用。gcc.gnu.orgは失敗しない
+    "https://www.decadent.org.uk", # GitHub ActionsランナーからIPv6は経路なし・IPv4はconnectタイムアウトで到達不能。ブラウザ/通常回線では200 (reference/thread.md)
 ]
 
 IGNORE_REGEX_LIST = [
