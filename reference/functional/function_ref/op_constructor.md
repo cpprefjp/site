@@ -162,7 +162,7 @@ int main()
 - C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 24 [mark verified]
 - [GCC](/implementation.md#gcc): 16.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
