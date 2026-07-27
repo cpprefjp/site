@@ -2,8 +2,10 @@ import argparse
 import glob
 import re
 import os
+import socket
 import urllib.request, urllib.error, urllib.parse
 import urllib3
+import urllib3.util.connection
 import requests
 import sys
 import time
@@ -26,15 +28,29 @@ def retry_sleep(retry: int) -> None:
     time.sleep(backoff + random.uniform(0, 15))   # 0〜15秒のジッタ
 
 def check_url(url: str, retry: int = MAX_OUTER_LINK_RETRY) -> tuple[bool, str]:
+    # 試行を重ねるごとにアクセス方法を変えて (別経路で) 再試行する。1回目で失敗する
+    # 理由は「リンク切れ」以外に「HEAD非対応・低速サーバ」「一時的なネットワーク不調」
+    # などがあり、方法を変えると通ることが多いため。
+    #   method  : 試行ごとにHEADとGETを交互に切り替える (偶数回目=HEAD, 奇数回目=GET)。
+    #             HEADに未対応・不安定なサーバはGETで、GETが重いだけのサーバはHEADで通る。
+    #             (例: www.dre.vanderbilt.edu はHEADが失敗しGETは通るが応答が非常に遅い)。
+    #   timeout : 試行を重ねるごとに増やし、低速サーバに徐々に猶予を与える。
+    # IPv4固定はcheck()側でallowed_gai_familyにより行う (下記コメント参照)。
+    attempt = MAX_OUTER_LINK_RETRY - retry  # 0, 1, 2, 3
+    method = "HEAD" if attempt % 2 == 0 else "GET"
+    # 2回目 (最初のGET) の時点で低速サーバを取りこぼさない余裕を持たせる。
+    # 例: www.dre.vanderbilt.edu はGETに実測で最大120秒近くかかるため、2回目=240秒とする。
+    timeout = 120.0 * (attempt + 1)  # 120, 240, 360, 480 秒
     try:
         headers = {'User-agent': 'Mozilla/5.0'}
-        # パフォーマンスのため本文は取得せずHEADで確認する。
-        # ただしallow_redirects=Trueでリダイレクトはrequestsに追わせ、最終的な
-        # ステータスで判定する (手動でres.urlを辿る再帰をやめ、リトライ回数が
-        # 途中でリセットされる問題を避ける)。
-        res = requests.head(url, headers=headers, verify=False, timeout=60.0,
-                            allow_redirects=True)
-        return res.status_code != 404, str(res.status_code)
+        # stream=Trueで本文はダウンロードせず、最終的なステータスで判定する。
+        # allow_redirects=Trueでリダイレクトはrequestsに追わせる (手動でres.urlを
+        # 辿る再帰をやめ、リトライ回数が途中でリセットされる問題を避ける)。
+        res = requests.request(method, url, headers=headers, verify=False,
+                               timeout=timeout, allow_redirects=True, stream=True)
+        status = res.status_code
+        res.close()
+        return status != 404, str(status)
     except requests.exceptions.TooManyRedirects:
         # リダイレクトループ (http↔httpsを行き来する等)。ブラウザではHSTS等で
         # 到達できることが多く、リトライしても解消しないため、存在するものとして
@@ -183,6 +199,14 @@ def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
                             found_error = True
 
     if check_outer_link:
+        # GitHub-hosted runnerはIPv6アウトバウンド経路を持たない
+        # (actions/runner-images#668。runner上では ping6 が "Network is unreachable")。
+        # 接続先がデュアルスタック (A+AAAA) の場合、IPv6アドレスへの接続が
+        # [Errno 101] Network is unreachable となり、IPv4へのフォールバックが
+        # 間に合わないと断続的に失敗する (例: www.decadent.org.uk)。
+        # runnerで実際に到達できるIPv4に固定して、この経路起因の失敗を避ける。
+        urllib3.util.connection.allowed_gai_family = lambda: socket.AF_INET
+
         if len(url) > 0:
             outer_link_dict[url] = ""
 
