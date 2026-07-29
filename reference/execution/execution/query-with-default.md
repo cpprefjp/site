@@ -11,6 +11,8 @@ constexpr decltype(auto) query-with-default(
   Tag, const Env& env, Default&& value) noexcept(see below);
 ```
 
+<!-- see https://github.com/cpprefjp/site/pull/1672 -->
+
 ## 概要
 `query-with-default`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。
 
@@ -30,10 +32,5 @@ noexcept節の式は`noexcept(e)`となる。
 - C++26
 
 
-## 関連項目
-- [`execution::on`](on.md)
-
-
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
