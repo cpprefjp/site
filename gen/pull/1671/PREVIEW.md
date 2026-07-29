@@ -1,0 +1,55 @@
+# PR [\#1671](https://github.com/cpprefjp/site/pull/1671) プレビュー
+- &#x231a; 更新時刻: 2026-07-29 11:10:37 JST
+- &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1671)
+- &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Ahive)
+- **&#x2AEF;** ソースの変更: [`e5eb048..17f9f9d`](https://github.com/cpprefjp/site/compare/e5eb0486a720d01b6fa17813e167cfd1d360a689..17f9f9d073e0a40a19561e5393e6c314dabee9bc)
+
+## 変更記事一覧 (47件)
+
+- &#x1f4dd; [`lang/cpp26`](https://cpprefjp.github.io/site/gen/pull/1671/lang/cpp26.html)
+- &#x1f4dd; [`lang/cpp26/feature_test_macros`](https://cpprefjp.github.io/site/gen/pull/1671/lang/cpp26/feature_test_macros.html)
+- &#x1f4dd; [`reference`](https://cpprefjp.github.io/site/gen/pull/1671/reference.html)
+- &#x1f4dd; [`reference/hive`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/assign`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/assign.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/assign_range`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/assign_range.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/begin`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/begin.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/block_capacity_default_limits`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/block_capacity_default_limits.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/block_capacity_hard_limits`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/block_capacity_hard_limits.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/block_capacity_limits`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/block_capacity_limits.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/capacity`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/capacity.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/cbegin`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/cbegin.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/cend`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/cend.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/clear`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/clear.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/crbegin`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/crbegin.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/crend`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/crend.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/emplace`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/emplace.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/emplace_hint`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/emplace_hint.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/empty`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/empty.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/end`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/end.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/erase`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/erase.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/erase_free`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/erase_free.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/erase_if_free`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/erase_if_free.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/get_allocator`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/get_allocator.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/get_iterator`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/get_iterator.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/insert`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/insert.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/insert_range`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/insert_range.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/is_within_hard_limits`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/is_within_hard_limits.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/max_size`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/max_size.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/op_assign`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/op_assign.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/op_constructor`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/op_constructor.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/op_deduction_guide`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/op_deduction_guide.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/op_destructor`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/op_destructor.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/rbegin`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/rbegin.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/rend`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/rend.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/reserve`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/reserve.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/reshape`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/reshape.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/shrink_to_fit`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/shrink_to_fit.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/size`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/size.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/sort`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/sort.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/splice`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/splice.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/swap`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/swap.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/swap_free`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/swap_free.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/trim_capacity`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/trim_capacity.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive/unique`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive/unique.html) &#x2728;
+- &#x1f4dd; [`reference/hive/hive_limits`](https://cpprefjp.github.io/site/gen/pull/1671/reference/hive/hive_limits.html) &#x2728;
