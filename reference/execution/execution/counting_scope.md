@@ -32,6 +32,14 @@ namespace std::execution {
 | [`join`](counting_scope/join.md) | 非同期スコープを合流する[Sender](sender.md)取得 | C++26 |
 | [`request_stop`](counting_scope/request_stop.md) | 停止要求を作成する | C++26 |
 
+### 説明専用メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`try-associate`](counting_scope/try-associate.md) | 関連付けを試行 | C++26 |
+| [`disassociate`](counting_scope/disassociate.md) | 関連付けを解除 | C++26 |
+| [`start-join-sender`](counting_scope/start-join-sender.md) | 合流[Sender](sender.md)を開始 | C++26 |
+
 ## メンバ型
 
 | 名前 | 説明 | 対応バージョン |

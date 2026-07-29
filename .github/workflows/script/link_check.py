@@ -156,7 +156,33 @@ def find_all_links(text: str, is_global: bool) -> tuple[list, set[str]]:
         for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', line):
             add_link(m.group(2))
 
+    # Markdownの参照スタイルリンク定義 (`[label]: url`) も参照として扱う。
+    # 例: `[max_size]: ./scoped_allocator_adaptor/max_size.md`
+    # (脚注 `[^label]:` は除外)
+    for line in text.split("\n"):
+        m = re.match(r'\s{0,3}\[([^\^\]][^\]]*)\]:\s+(\S+)', line)
+        if m:
+            add_link(m.group(2))
+
     return inner_links, outer_links
+
+# --- 孤立ページ (lonely page) チェック用 ---
+# 「孤立ページ」とは、どのページからもリンクされていない .md のこと。
+# reference/ 配下の .md は、リンク先パスをtypoすると「ページは存在するのに
+# どこからもリンクされない」孤立ページになる。そうしたリンクミスを検出するため、
+# 内部リンクチェックの一部として、reference/ 配下の全 .md が最低1箇所から
+# 参照されているかを確認する。
+
+# どこからもリンクされていなくてよいページ (意図的に他ページから参照されないもの)。
+# ここに載せるのは「意図的にスタンドアロンなページ」だけにすること。
+# リンクミスで孤立したページは、ここに登録せず親ページ側のリンクを修正すること。
+LONELY_PAGE_ALLOWLIST = {
+    "reference.md",  # リファレンスのトップ索引 (index.md からのリンクはグローバルナビ扱い)
+    "reference/node_handle.md",  # node_handleを説明する説明用カテゴリ概要ページ
+    # C++26の説明専用ヘルパー。Senderアルゴリズムの仕様定義で用いられるが、
+    # 現状どのアルゴリズムページの仕様記述からも参照されていない。
+    "reference/execution/execution/query-with-default.md",
+}
 
 def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
     if not check_inner_link and not check_outer_link:
@@ -166,6 +192,7 @@ def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
     found_error = False
     current_dir = os.getcwd()
     outer_link_dict = dict()
+    referenced = set()  # 内部リンクの参照先 (repo相対パスに正規化)。孤立ページ検出用
     if len(url) <= 0:
         path_list = [(p, False) for p in glob.glob("**/*.md", recursive=True)]
         path_list.append(("GLOBAL_QUALIFY_LIST.txt", True))
@@ -198,6 +225,25 @@ def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
                         if not os.path.exists(rel_link):
                             print("{} href {} not found.".format(p, link), file=sys.stderr)
                             found_error = True
+                        # 孤立ページ検出用に、.md への参照先をrepo相対で記録する
+                        if link.endswith(".md"):
+                            if link.startswith("/"):
+                                referenced.add(os.path.normpath(link.lstrip("/")))
+                            else:
+                                referenced.add(os.path.normpath(os.path.join(dirname, link)))
+
+        # 孤立ページ (lonely page) チェック: reference/ 配下に、どのページからも
+        # リンクされていない .md ファイルが無いか確認する (リンク先パスのtypo等で発生する)。
+        if check_inner_link:
+            for p in sorted(glob.glob("reference/**/*.md", recursive=True)):
+                norm = os.path.normpath(p)
+                if norm in LONELY_PAGE_ALLOWLIST:
+                    continue
+                if norm not in referenced:
+                    print("{} is a lonely page (どこからもリンクされていない孤立ページです。"
+                          "リンク先のtypo等が原因の可能性があります)".format(p),
+                          file=sys.stderr)
+                    found_error = True
 
     if check_outer_link:
         # GitHub-hosted runnerはIPv6アウトバウンド経路を持たない
