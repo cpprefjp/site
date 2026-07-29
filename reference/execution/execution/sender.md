@@ -68,7 +68,6 @@ concept sender =
 ```
 * get_env[link get_env.md]
 * queryable[link ../queryable.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 
 
 ## 備考

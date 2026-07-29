@@ -48,7 +48,6 @@ namespace std::ranges {
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 * no-throw-forward-range[link no-throw-forward-range.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * execution-policy[link /reference/execution/execution-policy.md]

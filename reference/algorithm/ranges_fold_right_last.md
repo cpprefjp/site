@@ -17,7 +17,6 @@ namespace std::ranges {
   constexpr auto fold_right_last(R&& r, F f);                                   // (2)
 }
 ```
-* constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * indirectly-binary-right-foldable[link ./ranges_fold_right.md]
 

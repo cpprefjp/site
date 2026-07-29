@@ -200,7 +200,6 @@ concept cpp17-random-access-iterator =
 * indirectly_readable_traits[link /reference/iterator/indirectly_readable_traits.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * signed_integral[link /reference/concepts/signed_integral.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * totally_ordered[link /reference/concepts/totally_ordered.md]
 

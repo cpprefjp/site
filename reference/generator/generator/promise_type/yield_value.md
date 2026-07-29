@@ -27,7 +27,6 @@ auto yield_value(ranges::elements_of<Rng, Alloc> r) noexcept; // (4)
 * ranges::elements_of[link /reference/ranges/elements_of.md]
 * ranges::range_reference_t[link /reference/ranges/range_reference_t.md]
 * is_rvalue_reference_v[link /reference/type_traits/is_rvalue_reference.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 
 
 ## 概要

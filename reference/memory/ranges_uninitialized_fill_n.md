@@ -32,7 +32,6 @@ namespace std::ranges {
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 * execution-policy[link /reference/execution/execution-policy.md]
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
 

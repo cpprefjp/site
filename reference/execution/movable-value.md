@@ -14,7 +14,6 @@ namespace std {
     (!is_array_v<remove_reference_t<T>>);
 }
 ```
-* constructible_from[link /reference/concepts/constructible_from.md]
 * is_array_v[link /reference/type_traits/is_array.md]
 
 ## 概要

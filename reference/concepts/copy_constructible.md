@@ -14,7 +14,6 @@ namespace std {
     constructible_from<T, const T> && convertible_to<const T, T>;
 }
 ```
-* constructible_from[link /reference/concepts/constructible_from.md]
 
 ## 概要
 

@@ -50,7 +50,6 @@ namespace std::ranges {
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 * execution-policy[link /reference/execution/execution-policy.md]
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]

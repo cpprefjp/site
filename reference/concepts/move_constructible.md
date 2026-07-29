@@ -10,7 +10,6 @@ namespace std {
   concept move_constructible = constructible_from<T, T> && convertible_to<T, T>;
 }
 ```
-* constructible_from[link /reference/concepts/constructible_from.md]
 
 ## 概要
 

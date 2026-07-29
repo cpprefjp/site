@@ -145,7 +145,6 @@ namespace std::ranges {
     single_view(T) -> single_view<T>;
 }
 ```
-* constructible_from[link /reference/concepts/constructible_from.md]
 * copyable-box[link copyable_box.md]
 
 ## バージョン

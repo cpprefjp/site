@@ -217,7 +217,6 @@ int main() {
   assert(b.size() == 3);
 }
 ```
-* std::constructible_from[link /reference/concepts/constructible_from.md]
 * b.size()[link /reference/vector/vector/size.md]
 
 
@@ -248,7 +247,6 @@ int main() {
   assert(b.size() == 3);
 }
 ```
-* std::constructible_from[link /reference/concepts/constructible_from.md]
 * std::move_constructible[link /reference/concepts/move_constructible.md]
 * b.size()[link /reference/vector/vector/size.md]
 
@@ -943,7 +941,6 @@ int main() {
     void g(std::constructible_from<int> auto x);
     ```
     * std::copy_constructible[link /reference/concepts/copy_constructible.md]
-    * std::constructible_from[link /reference/concepts/constructible_from.md]
 
 ## 備考
 - GCC 9.1では、コンセプトが正式サポートされていないため、コンパイルオプションとして`-fconcepts`を付ける必要がある
